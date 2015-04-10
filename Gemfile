@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 
-
+gem 'devise' 
 gem "mongoid"
 gem 'mongoid-tree'
 gem 'bson_ext'
@@ -34,7 +34,6 @@ gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 
 gem 'rails_12factor', group: :production
 gem "slim-rails"
-gem 'devise'  
 
 
 group :test do
