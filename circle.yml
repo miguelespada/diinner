@@ -1,0 +1,9 @@
+test:
+ override:
+   - rake spec
+   - rake cucumber
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: diinner
