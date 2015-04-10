@@ -1,7 +1,7 @@
 test:
  override:
-   - rake spec
-   - rake cucumber
+   - bundle exec rspec
+   - bundle exec cucumber
 deployment:
   staging:
     branch: master

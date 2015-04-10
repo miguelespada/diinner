@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: a28012bf2f2aa6dabd2b1efd5a306279cb3c885e
+  branch: master
+  specs:
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -211,9 +220,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -288,7 +294,7 @@ DEPENDENCIES
   ruby-prof
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  simple_form
+  simple_form!
   slim-rails
   spring
   turbolinks
