@@ -23,3 +23,11 @@ end
 Then(/^I should see my personal space$/) do
   expect(page).to have_content "Admin Page"
 end
+
+When(/^I go to the admin page$/) do
+  visit admin_path
+end
+
+Then(/^I should not see the admin page$/) do
+  expect(page).to have_content "You need to sign in or sign up before continuing."
+end
