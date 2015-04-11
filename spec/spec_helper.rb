@@ -67,6 +67,9 @@ RSpec.configure do |config|
     config.default_formatter = 'doc'
   end
 
+ config.order = "random"
+  config.color_enabled = true
+  config.formatter = :documentation
   # Print the 10 slowest examples and example groups at the
   # end of the spec run, to help surface which specs are running
   # particularly slow.
@@ -95,5 +98,7 @@ RSpec.configure do |config|
       example.run
     end
   end
-  
+
+  config.order = "random"
+  config.formatter = :documentation
 end

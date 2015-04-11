@@ -16,12 +16,12 @@ describe Restaurant do
   context "Elasticsearch integration" do
     before do
       Restaurant.__elasticsearch__.create_index! index: Restaurant.index_name, force: true
-      restaurant = FactoryGirl.create(:restaurant)
+      FactoryGirl.create(:restaurant)
       Restaurant.__elasticsearch__.refresh_index!
       Restaurant.__elasticsearch__.client.cluster.health wait_for_status: 'yellow'
     end
 
-    describe "search" do
+    describe "#search" do
       it "it is indexed by elasticsearch" do
         response = Restaurant.search('*')
         expect(response.results.total).to be 1
