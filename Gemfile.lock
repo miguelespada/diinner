@@ -55,6 +55,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bonsai-elasticsearch-rails (0.0.4)
     bson (2.3.0)
     bson_ext (1.5.1)
     builder (3.2.2)
@@ -291,6 +292,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bonsai-elasticsearch-rails
   bson_ext
   capybara
   capybara-webkit
