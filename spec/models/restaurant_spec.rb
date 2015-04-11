@@ -15,7 +15,7 @@ describe Restaurant do
 
   context "Elasticsearch integration" do
     before do
-      Restaurant.__elasticsearch__.create_index! force: true
+      Restaurant.__elasticsearch__.create_index! index: Restaurant.index_name, force: true
       restaurant = FactoryGirl.create(:restaurant)
       Restaurant.__elasticsearch__.refresh_index!
       Restaurant.__elasticsearch__.client.cluster.health wait_for_status: 'yellow'
@@ -29,7 +29,7 @@ describe Restaurant do
     end
 
     after do
-      Restaurant.__elasticsearch__.delete_index! force: true
+      Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name
     end
   end
 
