@@ -33,7 +33,7 @@ gem "slim-rails"
 
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-
+gem 'bonsai-elasticsearch-rails', group: :production
 
 group :test do
   gem "database_cleaner"
