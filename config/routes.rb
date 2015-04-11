@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#index", as: "admin"
 
+  namespace :admin do
+    resources :restaurants
+  end
+
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
 
