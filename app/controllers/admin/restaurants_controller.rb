@@ -1,6 +1,6 @@
 class  Admin::RestaurantsController < ActionController::Base
   before_filter :authenticate_admin!
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  load_resource :only => [:show, :edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
@@ -18,9 +18,6 @@ class  Admin::RestaurantsController < ActionController::Base
 
   private
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:id])
-  end
 
   def restaurant_params
     params.require(:restaurant).permit(:name, 

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#index", as: "admin"
 
+  resources :restaurants
+  
   namespace :admin do
     resources :restaurants
   end

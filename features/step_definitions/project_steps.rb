@@ -17,11 +17,11 @@ Given(/^I am admin$/) do
   @admin = FactoryGirl.create(:admin)
 end
 
-When(/^I login$/) do
+When(/^I login as admin$/) do
  login_as_admin @admin
 end
 
-Then(/^I should see my personal space$/) do
+Then(/^I should see my personal admin space$/) do
   expect(page).to have_content "Admin Page"
 end
 

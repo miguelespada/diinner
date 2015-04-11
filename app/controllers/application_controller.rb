@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    admin_path
+    # Using metaprogramming to send to class paths 
+    send("#{resource.model_name.param_key}_path", resource.id)
   end
 
   def after_sign_out_path_for(resource)
