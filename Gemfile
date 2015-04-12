@@ -36,6 +36,7 @@ gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-ra
 gem 'bonsai-elasticsearch-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'bootstrap-sass', '~> 3.3.4.1'
+gem 'cells', '~> 4.0.0.beta2'
 
 group :test do
   gem "database_cleaner"
