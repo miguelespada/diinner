@@ -3,9 +3,8 @@ tr
   td.restaurant-email = model.email
   td
     span.label.label-important Important
-  td
+  td.restaurant-actions
     .text-right
       a.btn.btn-success.btn-xs href="#" 
         i.icon-ok
-      a.btn.btn-danger.btn-xs href="#" 
-        i.icon-remove
+      = render_destroy_link

@@ -16,6 +16,14 @@ class  Admin::RestaurantsController < AdminController
     redirect_to admin_restaurants_path, :notice => 'Restaurant was successfully created.'
   end
 
+  def destroy
+    @restaurant.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_restaurants_path, notice: 'Restaurant was successfully destroyed.' }
+    end
+  end
+
+
   private
 
   def restaurant_params
