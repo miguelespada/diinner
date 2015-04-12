@@ -17,3 +17,14 @@ Then(/^I should see the restaurant in the list of restaurants$/) do
     should have_content "restaurant"
   end
 end
+
+When(/^I delete a restaurant$/) do
+  within(:css, ".restaurant-actions") do
+    click_on "Delete"
+  end
+end
+
+Then(/^I should not see the restaurant in the list of restaurants$/) do
+  expect(page).to have_content "Restaurant was successfully destroyed."
+  expect(page).not_to have_content "restaurant@diinner.com"
+end
