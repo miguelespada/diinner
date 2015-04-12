@@ -20,7 +20,7 @@ end
 
 When(/^I delete a restaurant$/) do
   within(:css, ".restaurant-actions") do
-    click_on "Delete"
+    find(".delete").click
   end
 end
 
