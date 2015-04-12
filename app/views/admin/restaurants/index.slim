@@ -17,7 +17,7 @@
                   th Name
                   th E-mail
                   th Status
-                  th Actions
+                  th.text-right Actions
               tbody
                 - @restaurants.each do |restaurant|
                   = cell(:restaurant, restaurant).call(:row)
