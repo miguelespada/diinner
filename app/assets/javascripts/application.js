@@ -13,3 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require j_growl_rails/jquery.jgrowl
+//= require alerts

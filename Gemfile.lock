@@ -152,6 +152,8 @@ GEM
     hashie (3.4.1)
     hike (1.2.3)
     i18n (0.7.0)
+    j_growl_rails (0.0.2)
+      rails (~> 4.1.1)
     jasmine (2.2.0)
       jasmine-core (~> 2.2)
       phantomjs
@@ -334,6 +336,7 @@ DEPENDENCIES
   elasticsearch-rails!
   factory_girl_rails
   fake_paymill
+  j_growl_rails
   jasmine
   jbuilder (~> 2.0)
   jquery-rails
