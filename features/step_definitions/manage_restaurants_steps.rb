@@ -9,6 +9,7 @@ When(/^I create a new restaurant$/) do
 end
 
 Then(/^I should see the restaurant in the list of restaurants$/) do
+  expect(page).to have_content "Restaurant was successfully created."
   within(:css, ".restaurant-email") do
     should have_content "restaurant@diinner.com"
   end
