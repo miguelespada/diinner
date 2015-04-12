@@ -23,14 +23,14 @@
 }
 
 .form-actions {
-  background-color: $formActionsBackground;
-  padding: 20px;
-  border-top: 1px solid #e5e5e5;
-  margin-top: 20px;
+  // background-color: $formActionsBackground;
+  // padding: 20px;
+  // border-top: 1px solid #e5e5e5;
+  // margin-top: 20px;
 
-  @include sm-plus {
-    padding: 20px 0;
-  }
+  // @include sm-plus {
+  //   padding: 20px 0;
+  // }
 
   &.form-actions-padding {
     padding: 20px;
