@@ -22,7 +22,9 @@ When(/^I login as admin$/) do
 end
 
 Then(/^I should see my personal admin space$/) do
-  expect(page).to have_content "Admin Page"
+  within(:css, ".user-name") do
+    should have_content "Admin"
+  end
 end
 
 When(/^I go to the admin page$/) do

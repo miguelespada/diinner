@@ -1,4 +1,5 @@
 class  Admin::RestaurantsController < ActionController::Base
+  layout "admin"
   before_filter :authenticate_admin!
   load_resource :only => [:show, :edit, :update, :destroy]
 
