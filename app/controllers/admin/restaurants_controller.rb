@@ -13,7 +13,7 @@ class  Admin::RestaurantsController < AdminController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save
-    redirect_to admin_restaurants_path
+    redirect_to admin_restaurants_path, :notice => 'Restaurant was successfully created.'
   end
 
   private
