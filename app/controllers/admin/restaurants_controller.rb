@@ -18,7 +18,6 @@ class  Admin::RestaurantsController < ActionController::Base
 
   private
 
-
   def restaurant_params
     params.require(:restaurant).permit(:name, 
                                 :password, 
