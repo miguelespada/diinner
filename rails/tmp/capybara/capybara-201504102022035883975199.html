@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diinner</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+<p class="notice"></p>
+<p class="alert"></p>
+
+
+
+<h2>Log in</h2>
+
+<form accept-charset="UTF-8" action="/admins/sign_in" class="simple_form new_admin" id="new_admin" method="post" novalidate="novalidate"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <div class="form-inputs">
+    <div class="input email optional admin_email"><label class="email optional" for="admin_email">Email</label><input autofocus="autofocus" class="string email optional" id="admin_email" name="admin[email]" type="email" value="" /></div>
+    <div class="input password optional admin_password"><label class="password optional" for="admin_password">Password</label><input class="password optional" id="admin_password" name="admin[password]" type="password" /></div>
+    <div class="input boolean optional admin_remember_me"><input name="admin[remember_me]" type="hidden" value="0" /><label class="boolean optional checkbox" for="admin_remember_me"><input class="boolean optional" id="admin_remember_me" name="admin[remember_me]" type="checkbox" value="1" />Remember me</label></div>
+  </div>
+
+  <div class="form-actions">
+    <input class="btn" name="commit" type="submit" value="Log in" />
+  </div>
+</form>
+
+
+  <a href="/admins/password/new">Forgot your password?</a><br />
+
+
+
+
+
+
+</body>
+</html>

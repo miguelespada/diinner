@@ -1,0 +1,2984 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-10 20:09:05 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.slim (14.2ms)
+Completed 200 OK in 31ms (Views: 21.3ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 1.1247ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"email"=>"admin@test.com"} flags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} runtime: 0.6854ms
+  MOPED: 127.0.0.1:27017 INSERT       database=dinner_development collection=admins documents=[{"_id"=>BSON::ObjectId('55281885646b6c596a000000'), "email"=>"admin@test.com", "encrypted_password"=>"$2a$10$5RrOVM8GyKRsoSISwwFWAu5oY2plzkhNEDe0NuETkAFTvXxUhuGhm", "sign_in_count"=>0}] flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 84.4316ms
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-10 20:38:12 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.slim (12.7ms)
+Completed 200 OK in 31ms (Views: 18.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-04-10 20:38:17 +0200
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `load'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `load'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (50.7ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2015-04-10 20:38:20 +0200
+
+ActionController::RoutingError (No route matches [GET] "/admins"):
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `load'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `load'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2015-04-10 20:38:31 +0200
+Processing by AdminController#index as HTML
+Completed 401 Unauthorized in 12ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2015-04-10 20:38:32 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 554ms (Views: 551.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-10 20:38:32 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-10 20:38:32 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-10 20:38:32 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-10 20:38:32 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-10 20:38:32 +0200
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2015-04-10 20:38:47 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RK4Q/e4ahiIceJRvsQFSDEjpAPc+sJBUqEKY/LEolJg=", "admin"=>{"email"=>"admin@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7907ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"email"=>"admin@test.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.4947ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=dinner_development collection=admins selector={"_id"=>BSON::ObjectId('55281885646b6c596a000000')} update={"$set"=>{"last_sign_in_at"=>2015-04-10 18:38:47 UTC, "current_sign_in_at"=>2015-04-10 18:38:47 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1}} flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 0.6089ms
+Completed 500 Internal Server Error in 101ms
+
+NameError - undefined local variable or method `current_user_path' for #<Devise::SessionsController:0x000000034ecfe8>:
+  app/controllers/application_controller.rb:7:in `after_sign_in_path_for'
+  devise (3.4.1) app/controllers/devise/sessions_controller.rb:20:in `create'
+  actionpack (4.1.9) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/mapper.rb:45:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/37f76e62da928415/variables" for 127.0.0.1 at 2015-04-10 20:38:47 +0200
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2015-04-10 20:38:59 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RK4Q/e4ahiIceJRvsQFSDEjpAPc+sJBUqEKY/LEolJg=", "admin"=>{"email"=>"admin@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"email"=>"admin@test.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7061ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=dinner_development collection=admins selector={"_id"=>BSON::ObjectId('55281885646b6c596a000000')} update={"$set"=>{"current_sign_in_at"=>2015-04-10 18:38:59 UTC, "sign_in_count"=>2}} flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 0.5620ms
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 97ms
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2015-04-10 20:38:59 +0200
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 2.2707ms
+Completed 500 Internal Server Error in 4ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=8
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:127:in `authenticate!'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:112:in `authenticate_admin!'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/2a33c4a6b1ece644/variables" for 127.0.0.1 at 2015-04-10 20:38:59 +0200
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2015-04-10 20:39:10 +0200
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.6273ms
+Completed 500 Internal Server Error in 6ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=9
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:127:in `authenticate!'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:112:in `authenticate_admin!'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/fa63d5b778995f5e/variables" for 127.0.0.1 at 2015-04-10 20:39:10 +0200
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2015-04-10 20:39:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.7521ms
+Completed 500 Internal Server Error in 4ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=10
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:104:in `authenticate'
+  warden (1.2.3) lib/warden/proxy.rb:114:in `authenticate?'
+  devise (3.4.1) app/controllers/devise_controller.rb:103:in `require_no_authentication'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:143:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/mapper.rb:45:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/07e9b610e1ac3d38/variables" for 127.0.0.1 at 2015-04-10 20:39:12 +0200
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2015-04-10 20:39:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 2.1133ms
+Completed 500 Internal Server Error in 4ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=11
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:104:in `authenticate'
+  warden (1.2.3) lib/warden/proxy.rb:114:in `authenticate?'
+  devise (3.4.1) app/controllers/devise_controller.rb:103:in `require_no_authentication'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:143:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/mapper.rb:45:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/3f8f9050a9d5243a/variables" for 127.0.0.1 at 2015-04-10 20:39:13 +0200
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2015-04-10 20:39:14 +0200
+Processing by Devise::SessionsController#new as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 2.5421ms
+Completed 500 Internal Server Error in 4ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=12
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:104:in `authenticate'
+  warden (1.2.3) lib/warden/proxy.rb:114:in `authenticate?'
+  devise (3.4.1) app/controllers/devise_controller.rb:103:in `require_no_authentication'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:143:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/mapper.rb:45:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/6b4d8a9ecda17f53/variables" for 127.0.0.1 at 2015-04-10 20:39:14 +0200
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2015-04-10 20:39:28 +0200
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 2.1345ms
+Completed 500 Internal Server Error in 4ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=13
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:127:in `authenticate!'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:112:in `authenticate_admin!'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/95fb5545baf96e79/variables" for 127.0.0.1 at 2015-04-10 20:39:28 +0200
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2015-04-10 20:39:42 +0200
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 2.5127ms
+Completed 500 Internal Server Error in 7ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=14
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:127:in `authenticate!'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:112:in `authenticate_admin!'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/88ec0ccf878a19b9/variables" for 127.0.0.1 at 2015-04-10 20:39:42 +0200
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2015-04-10 20:39:55 +0200
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.8782ms
+Completed 500 Internal Server Error in 4ms
+
+Moped::Errors::QueryFailure - The operation: #<Moped::Protocol::Query
+  @length=124
+  @request_id=15
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="dinner_development.admins"
+  @skip=0
+  @limit=-1
+  @selector={"$query"=>{"_id"=>{"$oid"=>BSON::ObjectId('55281885646b6c596a000000')}}, "$orderby"=>{:_id=>1}}
+  @fields=nil>
+failed with error 10068: "invalid operator: $oid"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.:
+  moped (2.0.3) lib/moped/operation/read.rb:50:in `block in execute'
+  moped (2.0.3) lib/moped/node.rb:594:in `block (2 levels) in flush'
+  moped (2.0.3) lib/moped/node.rb:593:in `block in flush'
+  moped (2.0.3) lib/moped/node.rb:617:in `block in logging'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  moped (2.0.3) lib/moped/instrumentable.rb:31:in `instrument'
+  moped (2.0.3) lib/moped/node.rb:616:in `logging'
+  moped (2.0.3) lib/moped/node.rb:587:in `flush'
+  moped (2.0.3) lib/moped/node.rb:391:in `process'
+  moped (2.0.3) lib/moped/operation/read.rb:48:in `execute'
+  moped (2.0.3) lib/moped/node.rb:648:in `read'
+  moped (2.0.3) lib/moped/node.rb:411:in `query'
+  moped (2.0.3) lib/moped/query.rb:128:in `block in first'
+  moped (2.0.3) lib/moped/cluster.rb:249:in `block in with_primary'
+  moped (2.0.3) lib/moped/node.rb:204:in `block in ensure_primary'
+  moped (2.0.3) lib/moped/executable.rb:25:in `execute'
+  moped (2.0.3) lib/moped/node.rb:203:in `ensure_primary'
+  moped (2.0.3) lib/moped/cluster.rb:248:in `with_primary'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:55:in `block in with_node'
+  moped (2.0.3) lib/moped/read_preference/selectable.rb:65:in `with_retry'
+  moped (2.0.3) lib/moped/read_preference/primary.rb:54:in `with_node'
+  moped (2.0.3) lib/moped/query.rb:127:in `first'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:191:in `block in first_with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:135:in `with_cache'
+  mongoid (4.0.1) lib/mongoid/query_cache.rb:190:in `first_with_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:199:in `block (2 levels) in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:535:in `with_sorting'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:198:in `block in first'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:447:in `try_cache'
+  mongoid (4.0.1) lib/mongoid/contextual/mongo.rb:197:in `first'
+  mongoid (4.0.1) lib/mongoid/contextual.rb:20:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/mongoid.rb:22:in `get'
+  devise (3.4.1) lib/devise/models/authenticatable.rb:214:in `serialize_from_session'
+  devise (3.4.1) lib/devise.rb:467:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:127:in `authenticate!'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:112:in `authenticate_admin!'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.9) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.1.9) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.4) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.4) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.4) lib/spring/client.rb:26:in `run'
+  spring (1.3.4) bin/spring:48:in `<top (required)>'
+  spring (1.3.4) lib/spring/binstub.rb:11:in `<top (required)>'
+  /usr/local/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/7a6be9aebe9beeb1/variables" for 127.0.0.1 at 2015-04-10 20:39:55 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-13 18:10:34 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.slim (20.9ms)
+Completed 200 OK in 32ms (Views: 31.9ms)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2015-04-13 18:10:41 +0200
+
+AbstractController::ActionNotFound - The action 'index' could not be found for RestaurantsController:
+  actionpack (4.1.9) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.9) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.9) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.9) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.9) lib/action_dispatch/routing/route_set.rb:685:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.9) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<main>'
+
+
+
+Started POST "/__better_errors/639bc3a197960b31/variables" for 127.0.0.1 at 2015-04-13 18:10:41 +0200
+
+
+Started GET "/restaurant" for 127.0.0.1 at 2015-04-13 18:10:51 +0200
+
+ActionController::RoutingError (No route matches [GET] "/restaurant"):
+  actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.9) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.9) lib/rails/engine.rb:514:in `call'
+  railties (4.1.9) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.9) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.9) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (37.7ms)
+
+
+Started GET "/restaurants/sign_in" for 127.0.0.1 at 2015-04-13 18:11:07 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.slim within layouts/application (589.5ms)
+  Rendered layouts/_head.slim (4912.9ms)
+  Rendered layouts/_alerts.slim (3.2ms)
+Completed 200 OK in 5523ms (Views: 5511.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:11:13 +0200
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+Processing by AdminController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.slim within layouts/application (14.0ms)
+  Rendered layouts/_head.slim (110.1ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 129ms (Views: 128.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:11:18 +0200
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2015-04-13 18:11:30 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtvLO2C6ZDO2tsTBsSLDcNP8FvJZtCvzt9LjOeTpbUA=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 412.7745ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"email"=>"admin@diinner.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 185.1197ms
+Completed 401 Unauthorized in 604ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtvLO2C6ZDO2tsTBsSLDcNP8FvJZtCvzt9LjOeTpbUA=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.slim within layouts/application (9.2ms)
+  Rendered layouts/_head.slim (82.8ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 168ms (Views: 95.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:11:31 +0200
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.8727ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"email"=>"admin@diinner.com"} flags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} runtime: 43.0454ms
+  MOPED: 127.0.0.1:27017 INSERT       database=dinner_development collection=restaurants documents=[{"_id"=>BSON::ObjectId('552beb5f646b6c3518000000'), "email"=>"admin@diinner.com", "encrypted_password"=>"$2a$10$WLuWrmqR2ZifhiYKVlNWzONAm.fJo2DfkPSoHjEaHIhbB8k/7w1PG", "sign_in_count"=>0, "name"=>"", "updated_at"=>2015-04-13 16:14:23 UTC, "created_at"=>2015-04-13 16:14:23 UTC}] flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 28.9115ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 22.2479ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"email"=>"admin@diinner.com"} flags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} runtime: 0.8375ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+Processing by AdminController#index as HTML
+Completed 401 Unauthorized in 12ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.slim within layouts/application (46.7ms)
+  Rendered layouts/_head.slim (135.1ms)
+  Rendered layouts/_alerts.slim (2.4ms)
+Completed 200 OK in 199ms (Views: 197.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:16:47 +0200
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2015-04-13 18:16:55 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtvLO2C6ZDO2tsTBsSLDcNP8FvJZtCvzt9LjOeTpbUA=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 1.3305ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"email"=>"admin@diinner.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7892ms
+Completed 401 Unauthorized in 8ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtvLO2C6ZDO2tsTBsSLDcNP8FvJZtCvzt9LjOeTpbUA=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.slim within layouts/application (9.7ms)
+  Rendered layouts/_head.slim (78.0ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 160ms (Views: 91.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:16:56 +0200
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2015-04-13 18:16:59 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtvLO2C6ZDO2tsTBsSLDcNP8FvJZtCvzt9LjOeTpbUA=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"email"=>"admin@diinner.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7240ms
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtvLO2C6ZDO2tsTBsSLDcNP8FvJZtCvzt9LjOeTpbUA=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.slim within layouts/application (11.9ms)
+  Rendered layouts/_head.slim (74.7ms)
+  Rendered layouts/_alerts.slim (0.2ms)
+Completed 200 OK in 158ms (Views: 90.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:17:00 +0200
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 1.4463ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"_id"=>{:email=>"admin@diinner.com", :password=>"12345678"}} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3982ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.9519ms
+  MOPED: 127.0.0.1:27017 DELETE       database=dinner_development collection=restaurants selector={"_id"=>BSON::ObjectId('552beb5f646b6c3518000000')} flags=[:remove_first]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 0.7478ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7176ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"email"=>"admin@diinner.com"} flags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} runtime: 0.5410ms
+  MOPED: 127.0.0.1:27017 INSERT       database=dinner_development collection=admins documents=[{"_id"=>BSON::ObjectId('552bec72646b6c380c000000'), "email"=>"admin@diinner.com", "encrypted_password"=>"$2a$10$PQnRobjRB53AJFG4Okn.tOTexqXC6fgA/l.f1hbxCtUSTBnHpoTWe", "sign_in_count"=>0}] flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 0.5752ms
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:19:07 +0200
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2015-04-13 18:19:11 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtvLO2C6ZDO2tsTBsSLDcNP8FvJZtCvzt9LjOeTpbUA=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7604ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"email"=>"admin@diinner.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6153ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=dinner_development collection=admins selector={"_id"=>BSON::ObjectId('552bec72646b6c380c000000')} update={"$set"=>{"last_sign_in_at"=>2015-04-13 16:19:11 UTC, "current_sign_in_at"=>2015-04-13 16:19:11 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1}} flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 0.8794ms
+Redirected to http://localhost:3000/admin.552bec72646b6c380c000000
+Completed 302 Found in 105ms
+
+
+Started GET "/admin.552bec72646b6c380c000000" for 127.0.0.1 at 2015-04-13 18:19:11 +0200
+Processing by AdminController#index as 
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6720ms
+  Rendered admin/index.slim within layouts/admin (9.5ms)
+  Rendered layouts/_head.slim (139.7ms)
+  Rendered admin/_navbar.slim (8.4ms)
+  Rendered admin/_sidebar.slim (5.7ms)
+  Rendered admin/_container.slim (2.4ms)
+  Rendered layouts/_alerts.slim (2.5ms)
+Completed 200 OK in 192ms (Views: 189.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/assets/flatty/fontawesome-webfont.woff?v=3.2.1" for 127.0.0.1 at 2015-04-13 18:19:12 +0200
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6801ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3884ms
+  Rendered admin/restaurants/index.slim within layouts/admin (7.5ms)
+  Rendered layouts/_head.slim (81.8ms)
+  Rendered admin/_navbar.slim (9.1ms)
+  Rendered admin/_sidebar.slim (5.4ms)
+  Rendered admin/_container.slim (2.7ms)
+  Rendered layouts/_alerts.slim (2.2ms)
+Completed 200 OK in 116ms (Views: 113.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:19:16 +0200
+
+
+Started GET "/admin/restaurants/new" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+Processing by Admin::RestaurantsController#new as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8166ms
+  Rendered admin/restaurants/new.slim within layouts/admin (64.0ms)
+  Rendered layouts/_head.slim (66.0ms)
+  Rendered admin/_navbar.slim (0.2ms)
+  Rendered admin/_sidebar.slim (0.5ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 139ms (Views: 135.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:19 +0200
+
+
+Started POST "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:19:41 +0200
+Processing by Admin::RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y5eNRjLUV8LmYgTULwXuLO8HXkpTLbCUTJKFpMbbq4I=", "restaurant"=>{"name"=>"McDonald's", "email"=>"admin@mcdonalds.com", "password"=>"[FILTERED]"}, "commit"=>"Create Restaurant"}
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7321ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"email"=>"admin@mcdonalds.com"} flags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} runtime: 0.5192ms
+  MOPED: 127.0.0.1:27017 INSERT       database=dinner_development collection=restaurants documents=[{"_id"=>BSON::ObjectId('552bec9d646b6c3851000000'), "email"=>"admin@mcdonalds.com", "encrypted_password"=>"$2a$10$OgGwaoUV/GDxfEeEsuDFeecucsVUgVxo/Gk5BbZa59gyhIYf3nF/C", "sign_in_count"=>0, "name"=>"McDonald's", "updated_at"=>2015-04-13 16:19:41 UTC, "created_at"=>2015-04-13 16:19:41 UTC}] flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 0.5250ms
+Redirected to http://localhost:3000/admin/restaurants
+Completed 302 Found in 1156ms
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5687ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6116ms
+  Rendered admin/restaurants/index.slim within layouts/admin (18.4ms)
+  Rendered layouts/_head.slim (76.3ms)
+  Rendered admin/_navbar.slim (0.2ms)
+  Rendered admin/_sidebar.slim (0.6ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.2ms)
+Completed 200 OK in 103ms (Views: 100.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:19:42 +0200
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.4390ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3081ms
+  Rendered admin/restaurants/index.slim within layouts/admin (7.4ms)
+  Rendered layouts/_head.slim (73.0ms)
+  Rendered admin/_navbar.slim (0.2ms)
+  Rendered admin/_sidebar.slim (0.6ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.2ms)
+Completed 200 OK in 87ms (Views: 85.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:19:48 +0200
+
+
+Started GET "/restaurants/sign_in" for 127.0.0.1 at 2015-04-13 18:19:57 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.slim within layouts/application (22.5ms)
+  Rendered layouts/_head.slim (84.3ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 115ms (Views: 112.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:19:58 +0200
+
+
+Started POST "/restaurants/sign_in" for 127.0.0.1 at 2015-04-13 18:20:08 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y5eNRjLUV8LmYgTULwXuLO8HXkpTLbCUTJKFpMbbq4I=", "restaurant"=>{"email"=>"admin@mcdonalds.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"$query"=>{"email"=>"admin@mcdonalds.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8284ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=dinner_development collection=restaurants selector={"_id"=>BSON::ObjectId('552bec9d646b6c3851000000')} update={"$set"=>{"last_sign_in_at"=>2015-04-13 16:20:08 UTC, "current_sign_in_at"=>2015-04-13 16:20:08 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2015-04-13 16:20:08 UTC}} flags=[]
+                         COMMAND      database=dinner_development command={:getlasterror=>1, :w=>1} runtime: 0.8099ms
+Redirected to http://localhost:3000/restaurants/552bec9d646b6c3851000000
+Completed 302 Found in 115ms
+
+
+Started GET "/restaurants/552bec9d646b6c3851000000" for 127.0.0.1 at 2015-04-13 18:20:08 +0200
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"552bec9d646b6c3851000000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={"_id"=>BSON::ObjectId('552bec9d646b6c3851000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8126ms
+  Rendered restaurants/show.slim (2.2ms)
+Completed 200 OK in 11ms (Views: 5.3ms)
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6999ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5453ms
+  Rendered admin/restaurants/index.slim within layouts/admin (9.4ms)
+  Rendered layouts/_head.slim (79.5ms)
+  Rendered admin/_navbar.slim (0.2ms)
+  Rendered admin/_sidebar.slim (0.8ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.2ms)
+Completed 200 OK in 98ms (Views: 95.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/flatty/fontawesome-webfont.woff?v=3.2.1" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:22:11 +0200
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6233ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3915ms
+  Rendered admin/restaurants/index.slim within layouts/admin (12.0ms)
+  Rendered layouts/_head.slim (79.1ms)
+  Rendered admin/_navbar.slim (0.2ms)
+  Rendered admin/_sidebar.slim (0.6ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 99ms (Views: 96.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/flatty/fontawesome-webfont.woff?v=3.2.1" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:22:12 +0200
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:22:13 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8253ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4887ms
+  Rendered admin/restaurants/index.slim within layouts/admin (11.0ms)
+  Rendered layouts/_head.slim (71.7ms)
+  Rendered admin/_navbar.slim (0.2ms)
+  Rendered admin/_sidebar.slim (0.6ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 90ms (Views: 87.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/flatty/fontawesome-webfont.woff?v=3.2.1" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:22:14 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7669ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3042ms
+  Rendered admin/restaurants/index.slim within layouts/admin (9.1ms)
+  Rendered layouts/_head.slim (82.1ms)
+  Rendered admin/_navbar.slim (0.1ms)
+  Rendered admin/_sidebar.slim (0.6ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 99ms (Views: 96.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/flatty/fontawesome-webfont.woff?v=3.2.1" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:22:15 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:24:14 +0200
+
+
+Started GET "/admin/restaurants" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+Processing by Admin::RestaurantsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7419ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=admins selector={"$query"=>{"_id"=>BSON::ObjectId('552bec72646b6c380c000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7897ms
+  MOPED: 127.0.0.1:27017 QUERY        database=dinner_development collection=restaurants selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7144ms
+  Rendered admin/restaurants/index.slim within layouts/admin (11.3ms)
+  Rendered layouts/_head.slim (75.5ms)
+  Rendered admin/_navbar.slim (0.1ms)
+  Rendered admin/_sidebar.slim (4.4ms)
+  Rendered admin/_container.slim (0.1ms)
+  Rendered layouts/_alerts.slim (0.1ms)
+Completed 200 OK in 101ms (Views: 96.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/j_growl_rails/jquery.jgrowl.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/alerts.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/flatty/fontawesome-webfont.woff?v=3.2.1" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
+
+
+Started GET "/assets/flatty/montserrat-regular-webfont.woff" for 127.0.0.1 at 2015-04-13 18:25:01 +0200
