@@ -19,5 +19,4 @@
                   th Status
                   th.text-right Actions
               tbody
-                - @restaurants.each do |restaurant|
-                  = cell(:restaurant, restaurant).call(:row)
+                = cell(:restaurant, collection: @restaurants, method: :row)
