@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get "/auth/auth0/callback" => "auth0#callback"
-  get "/auth/failure" => "auth0#failure"
+
+  scope :auth, as: "auth" do
+    get "auth0/callback" => "auth0#callback"
+    get "failure" => "auth0#failure"
+    get "logout" => "auth0#logout"
+  end
 
   devise_for :restaurants
   devise_for :admins
@@ -17,9 +21,9 @@ Rails.application.routes.draw do
   end
 
   get "users" => "users#index", as: "users"
-  scope :users do
-    get "login" => "users#login", as: "users_login"
-    get "show" => "users#show", as: "users_show"
+  scope :users, as: "users" do
+    get "login" => "users#login"
+    get "show" => "users#show"
   end
 
   # You can have the root of your site routed with "root"

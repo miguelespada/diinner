@@ -1,6 +1,6 @@
 h1 Login user!
 
-#root style=("width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;")
+#login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;")
   | embeded area
 script src="https://cdn.auth0.com/js/lock-7.1.min.js"
 javascript:
@@ -11,7 +11,7 @@ javascript:
 
 
   lock.show({
-    container: 'root'
+    container: 'login-panel'
     , callbackURL: 'http://localhost:3000/auth/auth0/callback'
     , responseType: 'code'
     , authParams: {
