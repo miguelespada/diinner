@@ -1,14 +1,10 @@
-class RestaurantCell < Cell::ViewModel
-  def row
-    render
-  end
-
+class RestaurantCell < Cell::ViewModel 
   private
-  def delete_link
-    render
-  end
-
   def status
     "Inactive"
   end
+
+  def method_missing(m, *args, &block)  
+    render m
+  end  
 end
