@@ -108,11 +108,13 @@ $wizardStepActiveColor: $white;
 $wizardStepBackground: $light;
 $wizardStepColor: darken($lightest, 70%);
 
+
 @import "theme/font-awesome";
 @import "theme/type";
 @import "theme/header";
 @import "theme/navigation";
 @import "theme/content";
+
 @import "theme/boxes";
 @import "theme/boxes-quick-links";
 @import "theme/boxes-statistics";

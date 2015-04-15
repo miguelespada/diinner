@@ -34,17 +34,8 @@ header
           span.user-name Admin
           b.caret
         ul.dropdown-menu
-          li
-            a href="user_profile.html" 
-              i.icon-user
-              | Profile
-          li
-            a href="user_profile.html" 
-              i.icon-cog
-              | Settings
-          li.divider
-          li = link_to "Logout", destroy_admin_session_path
-    form.navbar-form.navbar-right.hidden-xs action="search_results.html" method="get" 
+         = cell(:admin, current_admin).call(:dropdown_menu)
+    form.navbar-form.navbar-right.hidden-xs action="#" method="get" 
       button.btn.btn-link.icon-search name="button" type="submit" 
       .form-group
         input#q_header.form-control autocomplete="off" name="q" placeholder="Search..." type="text" value="" /
