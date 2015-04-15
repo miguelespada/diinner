@@ -7,4 +7,8 @@ class RestaurantCell < Cell::ViewModel
   def delete_link
     render
   end
+
+  def status
+    "Inactive"
+  end
 end
