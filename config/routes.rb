@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "/auth/auth0/callback" => "auth0#callback"
+  get "/auth/failure" => "auth0#failure"
+
   devise_for :restaurants
   devise_for :admins
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,6 +13,12 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :restaurants
+  end
+
+  get "users" => "users#index", as: "users"
+  scope :users do
+    get "login" => "users#login", as: "users_login"
+    get "show" => "users#show", as: "users_show"
   end
 
   # You can have the root of your site routed with "root"

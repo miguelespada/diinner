@@ -24,6 +24,8 @@ gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'cells', '~> 4.0.0.beta2'
 gem 'j_growl_rails'
+gem 'omniauth', '~> 1.2'
+gem 'omniauth-auth0', '~> 1.1'
 
 group :test do
   gem "database_cleaner"
