@@ -3,6 +3,10 @@ class RestaurantCell < Cell::ViewModel
     render
   end
 
+  def dropdown_menu
+    render
+  end
+
   private
   def delete_link
     render
@@ -10,5 +14,10 @@ class RestaurantCell < Cell::ViewModel
 
   def status
     "Inactive"
+  end
+
+  private
+  def logout_link
+    render
   end
 end

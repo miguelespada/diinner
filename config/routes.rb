@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   get "admin" => "admin#index", as: "admin"
+  get "restaurants" => "restaurants#show", as: "restaurants"
 
   resources :restaurants
   
