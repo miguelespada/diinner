@@ -7,6 +7,10 @@ class RestaurantCell < Cell::ViewModel
     render
   end
 
+  def profile
+    render
+  end
+
   private
   def delete_link
     render
@@ -16,8 +20,11 @@ class RestaurantCell < Cell::ViewModel
     "Inactive"
   end
 
-  private
   def logout_link
+    render
+  end
+
+  def profile_link
     render
   end
 end

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get "restaurants" => "restaurants#show", as: "restaurants"
 
   resources :restaurants
+
+  scope :restaurants do
+    get "/:id/profile" => "restaurants#profile", as: "restaurants_profile"
+  end
   
   namespace :admin do
     resources :restaurants
