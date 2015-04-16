@@ -10,6 +10,6 @@ Feature: User Session
 
   @logged_user
   Scenario: I am logged as user and have user data
-    Given I am a user
+    Given I am a logged user
     When I go to the user page
     Then I should have user data

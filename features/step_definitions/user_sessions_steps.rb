@@ -6,7 +6,7 @@ Then(/^I should see the user login panel$/) do
   page.should have_css "#login-panel"
 end
 
-Given(/^I am a user$/) do
+Given(/^I am a logged user$/) do
   @user = FactoryGirl.create(:user, name: "Rodrigo")
   UserSession.any_instance.should_receive(:logged?).and_return(true)
   UserSession.any_instance.should_receive(:user_from_session).and_return(@user)
