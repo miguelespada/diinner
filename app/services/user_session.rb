@@ -23,6 +23,7 @@ class UserSession
     else
       user.update(hash_from_omniauth)
     end
+    user
   end
 
   def find_user 

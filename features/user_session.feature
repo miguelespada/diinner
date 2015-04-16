@@ -12,4 +12,11 @@ Feature: User Session
   Scenario: I am logged as user and have user data
     Given I am a logged user
     When I go to the user page
-    Then I should have user data
+    Then I should see my user data
+
+  @logout_user
+  Scenario: I am logged as user and have user data
+    Given I am a logged user
+    When I go to the user page  
+    When I logout
+    Then I should see the homepage

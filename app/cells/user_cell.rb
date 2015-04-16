@@ -1,7 +1,8 @@
-class RestaurantCell < Cell::ViewModel
+class UserCell < Cell::ViewModel
 
   private
-  def logout_link
-    render
-  end
+
+  def method_missing(m, *args, &block)  
+    render m
+  end  
 end

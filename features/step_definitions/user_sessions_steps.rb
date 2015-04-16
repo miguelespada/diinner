@@ -8,11 +8,10 @@ end
 
 Given(/^I am a logged user$/) do
   @user = FactoryGirl.create(:user, name: "Rodrigo")
-  UserSession.any_instance.should_receive(:logged?).and_return(true)
-  UserSession.any_instance.should_receive(:user_from_session).and_return(@user)
+  login_as_user @user
 end
 
-Then(/^I should have user data$/) do
-  page.should have_content "User logged"
-  page.should have_content "Welcome #{@user.name}"
+Then(/^I should see my user data$/) do
+  page.should have_content @user.name
+  page.should have_css ".avatar"
 end

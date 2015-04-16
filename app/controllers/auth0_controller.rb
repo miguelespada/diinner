@@ -14,8 +14,7 @@ class Auth0Controller < ApplicationController
   end
 
   def logout
-    session.delete(:userinfo)
-    #logout from auth0
-    redirect_to "https://rodcrespo.eu.auth0.com/v2/logout?returnTo=" + request.base_url
+    session.delete(:userinfo) 
+    redirect_to root_path
   end
 end
