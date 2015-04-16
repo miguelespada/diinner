@@ -1,0 +1,9 @@
+h1 User logged
+=link_to auth_logout_path do
+  h1 Logout
+
+div
+  img.avatar src=(@user[:image_url])
+  h1
+    | Welcome
+    =< @user.name

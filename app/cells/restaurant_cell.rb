@@ -1,4 +1,4 @@
-class RestaurantCell < Cell::ViewModel 
+class RestaurantCell < Cell::ViewModel
   private
   def status
     "Inactive"

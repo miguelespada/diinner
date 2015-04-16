@@ -1,0 +1,20 @@
+h1 Login user!
+
+#login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;")
+  | embeded area
+script src="https://cdn.auth0.com/js/lock-7.1.min.js"
+javascript:
+
+  var lock = new Auth0Lock('ehMqgad1vB3TkYsH7qYXkVEqiBQgdrl5', 'rodcrespo.eu.auth0.com', {
+    assetsUrl: 'https://cdn.eu.auth0.com/'
+  });
+
+
+  lock.show({
+    container: 'login-panel'
+    , callbackURL: 'http://localhost:3000/auth/auth0/callback'
+    , responseType: 'code'
+    , authParams: {
+      scope: 'openid profile'
+    }
+  });
