@@ -1,10 +1,6 @@
-class RestaurantCell < Cell::ViewModel
+class RestaurantCell < BaseCell
   private
   def status
     "Inactive"
   end
-
-  def method_missing(m, *args, &block)  
-    render m
-  end  
 end
