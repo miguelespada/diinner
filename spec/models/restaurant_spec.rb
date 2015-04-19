@@ -25,23 +25,27 @@ describe Restaurant do
 
     describe "#search" do
       it "is indexed by elasticsearch" do
-        response = Restaurant.search('*')
+        response = Restaurant.search('name:*')
         expect(response.results.total).to be 3
       end
 
       it "can be searched using DSL" do
         query = Jbuilder.encode do |json|
           json.query do
-            json.query_string do
-              json.query "name:restaurant_1"
+            json.match do
+              json.name do
+                json.query "restsuramt_1"
+                json.fuzziness 2
+                json.prefix_length 3
+              end
             end
           end
         end
         response = Restaurant.search(query)
         expect(response.results.total).to be 1
       end
-
     end
+
 
     after(:all) do
       Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name

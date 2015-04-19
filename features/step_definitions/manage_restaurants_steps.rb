@@ -11,13 +11,13 @@ end
 Then(/^I should see the restaurant in the list of restaurants$/) do
   expect(page).to have_content "Restaurant was successfully created."
   within(:css, ".restaurant-email") do
-    should have_content "restaurant@diinner.com"
+    expect(page).to have_content "restaurant@diinner.com"
   end
   within(:css, ".restaurant-name") do
-    should have_content "restaurant"
+    expect(page).to have_content "restaurant"
   end
   within(:css, ".restaurant-status") do
-    should have_content "Last time active: never"
+    expect(page).to have_content "Last time active: never"
   end
 end
 

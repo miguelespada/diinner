@@ -12,6 +12,6 @@ Given(/^I am a logged user$/) do
 end
 
 Then(/^I should see my user data$/) do
-  page.should have_content @user.name
-  page.should have_css ".avatar"
+  expect(page).to have_content @user.name
+  expect(page).to have_css ".avatar"
 end
