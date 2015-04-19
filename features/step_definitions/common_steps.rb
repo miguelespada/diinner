@@ -1,5 +1,5 @@
 def be_at_homepage
-  expect(page).to have_content "Hello world!"
+  expect(page).to have_content "Hello diinner!"
 end
 
 Given(/^I am guest$/) do
