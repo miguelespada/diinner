@@ -65,6 +65,7 @@ Capybara.javascript_driver = :webkit
 World(FactoryGirl::Syntax::Methods)
 
 Before do
+  Restaurant.__elasticsearch__.create_index! index: Restaurant.index_name, force: true
   DatabaseCleaner.start
 end
 
