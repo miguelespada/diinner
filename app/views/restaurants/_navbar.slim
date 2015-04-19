@@ -37,7 +37,7 @@ header
             = current_restaurant.name
           b.caret
         ul.dropdown-menu
-          = cell(:restaurant, current_restaurant).call(:dropdown_menu)
+          == cell(:restaurant, current_restaurant).call(:dropdown_menu)
     form.navbar-form.navbar-right.hidden-xs action="#" method="get" 
       button.btn.btn-link.icon-search name="button" type="submit" 
       .form-group

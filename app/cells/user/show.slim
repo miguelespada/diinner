@@ -1,3 +1,4 @@
-== avatar
+= image_tag model[:image_url], class: "avatar"
+= model.name
 br
-== logout_link
+= link_to "Logout", auth_logout_path

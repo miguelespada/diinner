@@ -1,4 +1,4 @@
-require 'zeus/rails'                   
+  require 'zeus/rails'                   
 
 # 1. Add the cucumber methods (below) to your custom plan (or take this file if
 # you don't have an existing custom_plan).
