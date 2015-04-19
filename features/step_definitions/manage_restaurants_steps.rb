@@ -16,6 +16,9 @@ Then(/^I should see the restaurant in the list of restaurants$/) do
   within(:css, ".restaurant-name") do
     should have_content "restaurant"
   end
+  within(:css, ".restaurant-status") do
+    should have_content "Last time active: never"
+  end
 end
 
 When(/^I delete a restaurant$/) do
