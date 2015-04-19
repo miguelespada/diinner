@@ -71,3 +71,7 @@ end
 After do |scenario|
   DatabaseCleaner.clean
 end
+
+at_exit do
+  Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name
+end

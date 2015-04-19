@@ -7,15 +7,6 @@ class UserSession
     @session[:userinfo].present?
   end
 
-  def hash_from_omniauth
-    logged_user_info = @session[:userinfo][:info]
-    {
-      email: logged_user_info[:email],
-      image_url: logged_user_info[:image],
-      name: logged_user_info[:name]
-    }
-  end
-
   def user_from_session
     user = find_user
     if user.nil?
@@ -24,6 +15,17 @@ class UserSession
       user.update(hash_from_omniauth)
     end
     user
+  end
+
+  private
+
+  def hash_from_omniauth
+    logged_user_info = @session[:userinfo][:info]
+    {
+      email: logged_user_info[:email],
+      image_url: logged_user_info[:image],
+      name: logged_user_info[:name]
+    }
   end
 
   def find_user 

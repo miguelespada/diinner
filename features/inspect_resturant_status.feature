@@ -1,6 +1,7 @@
 Feature: Admin Manage Restaurants
   As admin
   I want to inspect restaurant activity
+  I order to monitor system usage
 
   @inspect_restaurant
   Scenario: I check a restaurant after it has logger
