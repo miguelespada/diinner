@@ -22,10 +22,20 @@ describe Restaurant do
     end
 
     describe "#search" do
-      it "it is indexed by elasticsearch" do
+      it "is indexed by elasticsearch" do
         response = Restaurant.search('*')
         expect(response.results.total).to be 1
       end
+
+      it "can be searched" do
+        query = Jbuilder.encode do |json|
+          json.query do
+            json.match do
+            end
+          end
+        end
+      end
+
     end
 
     after do
