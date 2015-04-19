@@ -19,7 +19,7 @@ describe Restaurant do
       3.times do 
         FactoryGirl.create(:restaurant)
       end
-      FactoryGirl.create(:restaurant, name: "MyDummy restaurant")
+      FactoryGirl.create(:restaurant, name: "MyDummy place")
 
       Restaurant.__elasticsearch__.refresh_index!
       Restaurant.__elasticsearch__.client.cluster.health wait_for_status: 'yellow'
@@ -27,8 +27,8 @@ describe Restaurant do
 
     describe "#search" do
       it "is indexed by elasticsearch" do
-        response = Restaurant.search('name:*')
-        expect(response.results.total).to be 4
+        response = Restaurant.search('name:restaurant*')
+        expect(response.results.total).to be 3
       end
 
       it "can be searched using DSL" do
