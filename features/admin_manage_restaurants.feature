@@ -1,6 +1,6 @@
 Feature: Admin Manage Restaurants
   As admin
-  I want to access to manage restaurants
+  I want to manage restaurants
 
   Background:
     Given I am logged as admin

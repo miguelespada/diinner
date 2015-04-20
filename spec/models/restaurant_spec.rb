@@ -14,21 +14,42 @@ describe Restaurant do
   
 
   context "Elasticsearch integration" do
-    before do
+    before(:all) do
       Restaurant.__elasticsearch__.create_index! index: Restaurant.index_name, force: true
-      FactoryGirl.create(:restaurant)
+      3.times do 
+        FactoryGirl.create(:restaurant)
+      end
+      FactoryGirl.create(:restaurant, name: "MyDummy place")
+
       Restaurant.__elasticsearch__.refresh_index!
       Restaurant.__elasticsearch__.client.cluster.health wait_for_status: 'yellow'
     end
 
     describe "#search" do
-      it "it is indexed by elasticsearch" do
-        response = Restaurant.search('*')
+      it "is indexed by elasticsearch" do
+        response = Restaurant.search('name:restaurant*')
+        expect(response.results.total).to be 3
+      end
+
+      it "can be searched using DSL" do
+        query = Jbuilder.encode do |json|
+          json.query do
+            json.match do
+              json.name do
+                json.query "MyDumxx"
+                json.fuzziness 2
+                json.prefix_length 3
+              end
+            end
+          end
+        end
+        response = Restaurant.search(query)
         expect(response.results.total).to be 1
       end
     end
 
-    after do
+
+    after(:all) do
       Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name
     end
   end

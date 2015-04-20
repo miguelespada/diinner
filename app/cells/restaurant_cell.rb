@@ -1,4 +1,6 @@
-class RestaurantCell < Cell::ViewModel
+
+class RestaurantCell < BaseCell
+  include ActionView::Helpers::DateHelper
   def row
     render
   end
@@ -10,18 +12,15 @@ class RestaurantCell < Cell::ViewModel
   def profile
     render
   end
-
   private
-  def delete_link
-    render
-  end
-
   def status
     "Inactive"
   end
 
   def logout_link
     render
+    last_activity = model.current_sign_in_at.nil? ? "never" : time_ago_in_words( model.current_sign_in_at )
+    "Last time active: " + last_activity
   end
 
   def profile_link

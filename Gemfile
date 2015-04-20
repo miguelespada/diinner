@@ -16,7 +16,7 @@ gem 'bson_ext'
 gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 gem 'rails_12factor', group: :production
 gem "slim-rails"
-gem 'cells-slim'
+gem 'cells-slim', git: 'git://github.com/trailblazer/cells-slim.git'
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'bonsai-elasticsearch-rails'
@@ -24,6 +24,8 @@ gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'cells', '~> 4.0.0.beta2'
 gem 'j_growl_rails'
+gem 'omniauth', '~> 1.2'
+gem 'omniauth-auth0', '~> 1.1'
 
 group :test do
   gem "database_cleaner"
@@ -33,7 +35,6 @@ group :test do
   gem "capybara-webkit"
   gem "launchy"
   gem "factory_girl_rails"
-  gem 'fake_paymill', require: false
   gem "rspec-rails"
   gem 'jasmine'
   gem 'ruby-prof'

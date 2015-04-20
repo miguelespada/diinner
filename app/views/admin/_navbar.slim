@@ -34,7 +34,7 @@ header
           span.user-name Admin
           b.caret
         ul.dropdown-menu
-         = cell(:admin, current_admin).call(:dropdown_menu)
+         == cell(:admin, current_admin).call(:dropdown_menu)
     form.navbar-form.navbar-right.hidden-xs action="#" method="get" 
       button.btn.btn-link.icon-search name="button" type="submit" 
       .form-group

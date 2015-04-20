@@ -13,7 +13,7 @@ module Searchable
     end
 
     mapping do
-      indexes :name, type: :string, :analyzer => :snowball, :boost => 50
+      indexes :name, type: :string, :analyzer => :spanish, :boost => 50
     end
 
     def self.search(query)
