@@ -19,5 +19,6 @@ Then(/^I should not see the restaurant page$/) do
 end
 
 Given(/^I am logged as restaurant$/) do
-  login_as_restaurant FactoryGirl.create(:restaurant)
+  step "I am a restaurant"
+  step "I login as restaurant"
 end
