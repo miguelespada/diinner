@@ -16,8 +16,8 @@ module Login
   end
 
   def login_as_user user
-    UserSession.any_instance.should_receive(:logged?).and_return(true)
-    UserSession.any_instance.should_receive(:user_from_session).and_return(user)
+    allow_any_instance_of(UserSession).to receive(:logged?).and_return(true)
+    allow_any_instance_of(UserSession).to receive(:user_from_session).and_return(user)
   end
 end
 

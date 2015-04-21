@@ -1,5 +1,5 @@
 When(/^I go to the user page$/) do
-  visit users_show_path
+  visit users_path
 end
 
 Then(/^I should see the user login panel$/) do
@@ -11,7 +11,13 @@ Given(/^I am a logged user$/) do
   login_as_user @user
 end
 
+Then(/^I should see the user page$/) do
+  expect(page).to have_content "User page"
+end
+
 Then(/^I should see my user data$/) do
   expect(page).to have_content @user.name
   expect(page).to have_css ".avatar"
 end
+
+

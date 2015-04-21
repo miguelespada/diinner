@@ -1,4 +1,3 @@
-= image_tag model[:image_url], class: "avatar"
-= model.name
-br
-= link_to "Logout", auth_logout_path
+== cell(:user, model).call(:profile)
+== cell(:user, model).call(:edit_profile_link)
+== cell(:user, model).call(:logout_link)
