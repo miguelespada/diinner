@@ -25,6 +25,8 @@ class UsersController < ActionController::Base
     @user = @session.user_from_session
     respond_to do |format|
       if @user.update(user_params)
+        @user[:first_login] = false
+        @user.save
         format.html { redirect_to user_path(@user), notice: 'Your profile was successfully updated.' }
       else
         format.html { render :edit }
