@@ -1,7 +1,8 @@
 #login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;")
   | embeded area
-/ TODO javascript rails tag
-script src="https://cdn.auth0.com/js/lock-7.1.min.js"
+
+= javascript_include_tag \
+  "https://cdn.auth0.com/js/lock-7.1.min.js"
 
 javascript:
 
@@ -12,10 +13,11 @@ javascript:
   });
 
   lock.show({
-    container: 'login-panel'
-    , callbackURL: 'http://localhost:3000/auth/auth0/callback'
-    , responseType: 'code'
-    , authParams: {
+    container: 'login-panel',
+    connections: ['facebook', 'google-oauth2'],
+    callbackURL: 'http://localhost:3000/auth/auth0/callback',
+    responseType: 'code',
+    authParams: {
       scope: 'openid profile'
     }
   });

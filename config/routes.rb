@@ -24,11 +24,12 @@ Rails.application.routes.draw do
     resources :restaurants
   end
 
-  get "users" => "users#index", as: "users"
-  scope :users, as: "users" do
-    get "login" => "users#login"
-    get "show" => "users#show"
+  get "user/login" => "users#login", as: "user_login"
+  scope :users do
+    get "/:id/profile" => "users#profile", as: "users_profile"
   end
+  resources :users
+
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
