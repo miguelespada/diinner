@@ -15,11 +15,13 @@ Feature: User profile
   Scenario: I am logged as user for first time and i want to edit my profile
     When I go to the user page
     When I edit my profile page
+    When I change my user profile
     Then I should see my profile updated
 
   @user_profile
   Scenario: I can edit my profile
     When I edit my profile page
+    When I change my user profile
     Then I should see my profile updated
 
   @restaurant_profile
