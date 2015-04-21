@@ -14,7 +14,8 @@ When(/^I edit my profile page$/) do
 end
 
 Then(/^I should see my profile updated$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content "false"
+  expect(page).to have_content "1981-01-20"
 end
 
 Then(/^I should see my user profile$/) do
@@ -23,3 +24,10 @@ Then(/^I should see my user profile$/) do
   expect(page).to have_content "Gender"
   expect(page).to have_content "Birth"
 end
+
+When(/^I change my user profile$/) do
+  fill_in "Gender", with: false
+  fill_in "Birth", with: "20/01/1981"
+  click_on "Update User"
+end
+

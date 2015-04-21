@@ -19,10 +19,26 @@ class UsersController < ActionController::Base
   end
 
   def profile
+  end
 
+  def update
+    @user = @session.user_from_session
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to user_path(@user), notice: 'Your profile was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:gender,
+                                  :birth,
+                                  )
+  end
 
   def authorize
     redirect_to user_login_path unless @session.logged?
