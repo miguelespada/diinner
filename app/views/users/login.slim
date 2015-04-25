@@ -1,13 +1,18 @@
 #login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;")
   | embeded area
+<<<<<<< HEAD
+
+= javascript_include_tag \
+  "https://cdn.auth0.com/js/lock-7.1.min.js"
+=======
+>>>>>>> 99b0c891701bc4c1e0d1883f40d6fbf189b9f245
+
+= tag("div", :id => 'request', :data => {:host => request.host, :port => request.port}) 
 
 = javascript_include_tag \
   "https://cdn.auth0.com/js/lock-7.1.min.js"
 
-javascript:
-
-  //TODO: this credential have be in an intializer, width conditions denpending on the environment [dev, test]
-
+<<<<<<< HEAD
   var lock = new Auth0Lock('ehMqgad1vB3TkYsH7qYXkVEqiBQgdrl5', 'rodcrespo.eu.auth0.com', {
     assetsUrl: 'https://cdn.eu.auth0.com/'
   });
@@ -21,3 +26,6 @@ javascript:
       scope: 'openid profile'
     }
   });
+=======
+= javascript_include_tag "auth0"
+>>>>>>> 99b0c891701bc4c1e0d1883f40d6fbf189b9f245
