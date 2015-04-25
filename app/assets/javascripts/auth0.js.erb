@@ -1,14 +1,3 @@
-//= require jquery
-
-<% if Rails.env.production? %>
-  var lock = new Auth0Lock('WQpHmQ3d6SpZXTiTz4iTPr5N8MA0QPvl', 'espadaysantacruz.auth0.com'), {
-    assetsUrl: 'https://cdn.eu.auth0.com/'
-  });
-<% else %>
-  var lock = new Auth0Lock('ehMqgad1vB3TkYsH7qYXkVEqiBQgdrl5', 'rodcrespo.eu.auth0.com', {
-    assetsUrl: 'https://cdn.eu.auth0.com/'
-  });
-<% end %>
 
 $(document).ready(function () {
 
