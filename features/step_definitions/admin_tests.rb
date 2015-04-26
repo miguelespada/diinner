@@ -2,6 +2,8 @@ When(/^I create a new test$/) do
   click_on "Tests"
   click_on "New"
   fill_in "Question", with: "What do you prefer, A/B?"
+  fill_in "Caption a", with: "Option A"
+  fill_in "Caption b", with: "Option B"
   click_on "Create Test"
   expect(page).to have_content "Test was successfully created."
 end
@@ -9,6 +11,8 @@ end
 Then(/^I should see the test in list of tests$/) do
   click_on "Tests"
   expect(page).to have_content "What do you prefer, A/B?"
+  expect(page).to have_content "Option A"
+  expect(page).to have_content "Option B"
 end
 
 When(/^I delete a test$/) do
@@ -30,6 +34,8 @@ When(/^I edit a test$/) do
     find(".edit").click
   end
   fill_in "Question", with: "What do you prefer, C/D?"
+  fill_in "Caption a", with: "Option C"
+  fill_in "Caption b", with: "Option D"
   click_on "Update Test"
   expect(page).to have_content "Test was successfully updated."
 end
@@ -37,5 +43,7 @@ end
 Then(/^I should see the updated test in the list of tests$/) do
   click_on "Tests"
   expect(page).to have_content "What do you prefer, C/D?"
+  expect(page).to have_content "Option C"
+  expect(page).to have_content "Option D"
 end
 

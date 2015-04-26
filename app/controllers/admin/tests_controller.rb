@@ -28,11 +28,14 @@ class  Admin::TestsController < AdminController
     redirect_to admin_tests_path, notice: 'Test was successfully updated.'
   end
 
-
   private
 
   def test_params
-    params.require(:test).permit(:question)
+    params.require(:test).permit(:question,
+                                  :caption_A,
+                                  :caption_B,
+                                  :option_A,
+                                  :option_B)
   end
 
 end
