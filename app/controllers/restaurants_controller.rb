@@ -3,6 +3,9 @@ class RestaurantsController < ActionController::Base
   before_filter :authenticate_restaurant!
   load_resource :only => [:show, :profile, :edit, :update]
 
+  def index
+  end
+
   def edit
   end
 

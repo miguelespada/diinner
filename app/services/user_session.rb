@@ -10,11 +10,14 @@ class UserSession
 
   def user_from_session
     user = find_user
+
     if user.nil?
-      User.create(hash_from_omniauth)
+      user = User.new(hash_from_omniauth)
+      user.save
     else
       user.update(hash_from_omniauth)
     end
+
     user
   end
 
@@ -29,7 +32,7 @@ class UserSession
     }
   end
 
-  def find_user 
+  def find_user
     User.where(email: @session[:userinfo][:info][:email]).first
   end
 

@@ -1,7 +1,7 @@
 class Restaurant
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Searchable
+  include RestaurantSearchable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

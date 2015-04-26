@@ -1,0 +1,24 @@
+.row
+  .col-sm-12
+    .page-header
+      h1.pull-left
+        span Results
+.row
+  .col-sm-12
+      h3.pull-left
+        span Restaurants
+.row
+  .col-sm-12
+    .box.bordered-box.red-border
+      .box-content.box-no-padding
+        .responsive-table
+          .scrollable-area
+            table.table.table-hover.table-striped
+              thead
+                tr
+                  th Name
+                  th E-mail
+                  th Status
+                  th.text-right Actions
+              tbody
+                == cell(:restaurant, collection: @restaurants, method: :row_search)

@@ -43,7 +43,7 @@ class UsersController < ActionController::Base
   end
 
   def authorize
-    redirect_to user_login_path unless @session.logged?
+    redirect_to users_login_path unless @session.logged?
   end
 
   def create_session

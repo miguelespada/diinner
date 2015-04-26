@@ -4,7 +4,11 @@ class RestaurantCell < BaseCell
   
   private
   def status
-    last_activity = model.current_sign_in_at.nil? ? "never" : time_ago_in_words( model.current_sign_in_at )
+    last_activity = @model.current_sign_in_at.nil? ? "never" : time_ago_in_words( @model.current_sign_in_at )
     "Last time active: " + last_activity
+  end
+
+  def from_elasticsearch
+    Restaurant.find(model.id)
   end
 end

@@ -36,7 +36,4 @@ header
           b.caret
         ul.dropdown-menu
           == yield(:navbar_menu) 
-    form.navbar-form.navbar-right.hidden-xs action="#" method="get" 
-      button.btn.btn-link.icon-search name="button" type="submit" 
-      .form-group
-        input#q_header.form-control autocomplete="off" name="q" placeholder="Search..." type="text" value="" /
+      == yield(:navbar_search)
