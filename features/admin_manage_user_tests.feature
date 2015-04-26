@@ -16,7 +16,7 @@ Feature: Admin Manage Restaurants
     When I edit a test
     Then I should see the updated test in the list of tests
 
-  @delete_test @wip
+  @delete_test
   Scenario: I delete a test
     When I delete a test
     Then I should not see the test in the list of tests

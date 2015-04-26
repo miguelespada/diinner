@@ -1,4 +1,5 @@
 class  Admin::TestsController < AdminController
+  load_resource :only => [:show, :edit, :update, :destroy]
 
   def index
     @tests = Test.all
@@ -13,6 +14,14 @@ class  Admin::TestsController < AdminController
     @test.save!
     redirect_to admin_tests_path, :notice => 'Test was successfully created.'
   end
+
+  def destroy
+    @test.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_tests_path, notice: 'Test was successfully destroyed.' }
+    end
+  end
+
 
   private
 
