@@ -1,0 +1,23 @@
+.row
+  .col-sm-12
+    .page-header
+      h1.pull-left
+        span Restaurants
+      h4.pull-right
+        = link_to "New", new_admin_test_path
+.row
+  .col-sm-12
+    .box.bordered-box.red-border
+      .box-content.box-no-padding
+        .responsive-table
+          .scrollable-area
+            table.table.table-hover.table-striped
+              thead
+                tr
+                  th Question
+                  th.text-right Actions
+              tbody
+                - @tests.each do |test|
+                  tr
+                    td = test.question
+                    td "actions"
