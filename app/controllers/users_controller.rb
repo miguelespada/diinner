@@ -23,14 +23,14 @@ class UsersController < ActionController::Base
 
   def update
     @user = @session.user_from_session
-    respond_to do |format|
-      if @user.update(user_params)
-        @user[:first_login] = false
-        @user.save
-        format.html { redirect_to user_path(@user), notice: 'Your profile was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @user.update(user_params)
+      # TODO 2 saves? 
+      @user[:first_login] = false
+      # TODO use rails sintax
+      @user.save
+      format.html { redirect_to user_path(@user), notice: 'Your profile was successfully updated.' }
+    else
+      format.html { render :edit }
     end
   end
 
