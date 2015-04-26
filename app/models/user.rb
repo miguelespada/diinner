@@ -8,6 +8,4 @@ class User
   field :first_login, type: Boolean, default: true
   field :birth, type: Date, default: Date.today
   field :gender, type: Boolean, default: 0
-
-
 end

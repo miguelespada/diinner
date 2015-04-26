@@ -24,7 +24,7 @@ class UsersController < ActionController::Base
   def update
     @user = @session.user_from_session
     if @user.update(user_params)
-      # TODO 2 saves? 
+      # TODO update + save?
       @user[:first_login] = false
       # TODO use rails sintax
       @user.save
