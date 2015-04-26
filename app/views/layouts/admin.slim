@@ -1,27 +1,4 @@
-- content_for(:navbar_username) do
-  | Admin
 
-- content_for(:navbar_menu) do
-  == cell(:admin, current_admin).call(:dropdown_menu) 
-
-- content_for(:sidebar) do
-  li = link_to admin_restaurants_path do
-    i.icon-food
-    span Restaurants
-  li = link_to do
-    i.icon-credit-card
-    span Payments
-  li = link_to do
-    i.icon-coffee
-    span Tables
-  li = link_to do
-    i.icon-group
-    span Users
-  li = link_to(admin_tests_path) do
-    i.icon-check
-    aspan Tests
-
-- content_for(:navbar_search) do
-  == cell(:admin, current_admin).call(:navbar_search)
-  
+= render "/admin/navbar"
+= render "/admin/sidebar"
 = render "/layouts/app" 
