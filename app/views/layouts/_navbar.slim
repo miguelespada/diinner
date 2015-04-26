@@ -38,7 +38,7 @@ header
         ul.dropdown-menu
           - if content_for?(:navbar_menu)
             == yield(:navbar_menu) 
-    form.navbar-form.navbar-right.hidden-xs action="#" method="get" 
-      button.btn.btn-link.icon-search name="button" type="submit" 
+    form.navbar-form.navbar-right.hidden-xs action="/admin/search" method="get"
+      button.btn.btn-link.icon-search type="submit"
       .form-group
-        input#q_header.form-control autocomplete="off" name="q" placeholder="Search..." type="text" value="" /
+        input#q_header.form-control autocomplete="off" name="query" placeholder="Search..." type="text" value="" /

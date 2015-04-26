@@ -1,4 +1,4 @@
-module Searchable
+module UserSearchable
   extend ActiveSupport::Concern
 
   included do
@@ -6,7 +6,7 @@ module Searchable
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
 
-    index_name  "restaurants-#{Rails.env}"
+    index_name  "users-#{Rails.env}"
 
     def as_indexed_json(options={})
       as_json(only: 'name')

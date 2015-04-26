@@ -1,0 +1,8 @@
+- @model = from_elasticsearch
+tr
+  td.user-name = @model.name
+  td.user-email = @model.email
+  td.user-gender = @model.gender
+  td.user-birth = @model.birth
+  td.user-actions
+    .text-right == delete_link

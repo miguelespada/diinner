@@ -1,0 +1,7 @@
+- @model = from_elasticsearch
+tr
+  td.restaurant-name = @model.name
+  td.restaurant-email = @model.email
+  td.restaurant-status = status
+  td.restaurant-actions
+    .text-right == delete_link

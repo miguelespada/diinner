@@ -11,22 +11,24 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get "admin" => "admin#index", as: "admin"
-  get "restaurants" => "restaurants#show", as: "restaurants"
-
   resources :restaurants
-
   scope :restaurants do
     get "/:id/profile" => "restaurants#profile", as: "restaurants_profile"
   end
-  
+
+  get "admin" => "admin#index", as: "admin"
+  scope :admin do
+    get "/search" => "admin#search", as: "admin_search"
+  end
+
   namespace :admin do
     resources :restaurants
     resources :users
   end
 
-  get "user/login" => "users#login", as: "user_login"
+
   scope :users do
+    get "/login" => "users#login", as: "users_login"
     get "/:id/profile" => "users#profile", as: "users_profile"
   end
   resources :users
