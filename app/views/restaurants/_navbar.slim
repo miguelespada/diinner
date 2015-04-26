@@ -1,0 +1,5 @@
+- content_for(:navbar_username) do
+  = current_restaurant.name
+
+- content_for(:navbar_menu) do
+  == cell(:restaurant, current_restaurant).call(:dropdown_menu)

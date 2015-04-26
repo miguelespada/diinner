@@ -1,15 +1,3 @@
-- content_for(:sidebar) do
-  li = link_to do
-    i.icon-coffee
-    span Tables
-  li = link_to do
-    i.icon-food
-    span Menus
-
-- content_for(:navbar_username) do
-  = current_restaurant.name
-
-- content_for(:navbar_menu) do
-  == cell(:restaurant, current_restaurant).call(:dropdown_menu)
-
+= render "/restaurants/navbar"
+= render "/restaurants/sidebar"
 = render "/layouts/app" 
