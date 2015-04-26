@@ -1,22 +1,18 @@
-.row
-  .col-sm-12
-    .page-header
-      h1.pull-left
-        span Restaurants
-      h4.pull-right
-        = link_to "New", new_admin_restaurant_path
-.row
-  .col-sm-12
-    .box.bordered-box.red-border
-      .box-content.box-no-padding
-        .responsive-table
-          .scrollable-area
-            table.table.table-hover.table-striped
-              thead
-                tr
-                  th Name
-                  th E-mail
-                  th Status
-                  th.text-right Actions
-              tbody
-                == cell(:restaurant, collection: @restaurants, method: :row)
+- content_for(:title) do
+  | Restaurants
+
+- content_for(:new) do
+  = link_to "New", new_admin_restaurant_path
+
+- content_for(:table_content) do
+
+- content_for(:thead) do
+  th Name
+  th E-mail
+  th Status
+  th.text-right Actions
+
+- content_for(:tbody) do
+  == cell(:restaurant, collection: @restaurants, method: :row)
+
+= render "admin/admin_table"
