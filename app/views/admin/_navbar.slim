@@ -2,3 +2,5 @@
   | Admin
 - content_for(:navbar_menu) do
   == cell(:admin, current_admin).call(:dropdown_menu)
+- content_for(:navbar_search) do
+  == cell(:admin, current_admin).call(:navbar_search)
