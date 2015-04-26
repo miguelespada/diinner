@@ -14,7 +14,7 @@ When(/^I edit my profile page$/) do
 end
 
 Then(/^I should see my profile updated$/) do
-  expect(page).to have_content "false"
+  expect(page).to have_content "Male"
   expect(page).to have_content "1981-01-20"
 end
 
@@ -26,7 +26,8 @@ Then(/^I should see my user profile$/) do
 end
 
 When(/^I change my user profile$/) do
-  fill_in "Gender", with: false
+  page.select('Male', :from => 'user_gender')
+  # fill_in "Gender", with: false
   fill_in "Birth", with: "20/01/1981"
   click_on "Update User"
 end

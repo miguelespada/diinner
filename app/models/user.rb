@@ -1,7 +1,6 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  include UserSearchable
 
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""
