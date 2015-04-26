@@ -10,12 +10,10 @@ class RestaurantsController < ActionController::Base
   end
 
   def update
-    respond_to do |format|
-      if @restaurant.update(restaurant_params)
-        format.html { redirect_to restaurants_profile_path, notice: 'Your profile was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @restaurant.update(restaurant_params)
+      format.html { redirect_to restaurants_profile_path, notice: 'Your profile was successfully updated.' }
+    else
+      format.html { render :edit }
     end
   end
 

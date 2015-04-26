@@ -8,6 +8,8 @@ class RestaurantCell < BaseCell
   end
 
   # TODO ??? 
+  # TODO View accessing the model!!! WTF!
+
   def from_elasticsearch
     Restaurant.find(model.id)
   end

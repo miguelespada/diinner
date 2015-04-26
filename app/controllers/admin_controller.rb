@@ -5,6 +5,12 @@ class AdminController < ApplicationController
   def index
   end
 
+
+  # TODO: do not add code if there is not test
+  # TODO Thin controllers!
+  # TODO User DSL
+  # TODO User multimodel search
+  
   def search
     query = params[:query]
     query_es = {query: { prefix: { name: query } }}
