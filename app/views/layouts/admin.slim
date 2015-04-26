@@ -21,4 +21,7 @@
     i.icon-check
     aspan Tests
 
+- content_for(:navbar_search) do
+  == cell(:admin, current_admin).call(:navbar_search)
+  
 = render "/layouts/app" 
