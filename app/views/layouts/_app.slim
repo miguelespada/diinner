@@ -1,7 +1,7 @@
 doctype html
 html
   = render "/layouts/head"
-  body.contrast-blue
+  body class==yield(:color)
     = render "/layouts/navbar"
     = render "/layouts/sidebar"
     = render "/layouts/container"
