@@ -1,4 +1,3 @@
-
 class RestaurantCell < BaseCell
   include ActionView::Helpers::DateHelper
   
@@ -8,6 +7,7 @@ class RestaurantCell < BaseCell
     "Last time active: " + last_activity
   end
 
+  # TODO ??? 
   def from_elasticsearch
     Restaurant.find(model.id)
   end

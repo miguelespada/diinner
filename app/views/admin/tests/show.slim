@@ -1,9 +1,2 @@
-/ TODO: creates test cell to DRY 
-
 h1 Test Preview
-
-= @test.question
-= @test.caption_A
-= @test.caption_B
-= cl_image_tag(@test.option_A.path, { size: '125x125', crop: :fit }) if @test.option_A.present?
-= cl_image_tag(@test.option_B.path, { size: '125x125', crop: :fit }) if @test.option_B.present?
+== cell(:test, @test)

@@ -11,29 +11,6 @@
   th.text-right Actions
 
 - content_for(:tbody) do
-  - @tests.each do |test|
-    tr
-      td 
-        p = test.question 
-        p = test.caption_A
-        p = test.caption_B
-      td
-        = cl_image_tag(test.option_A.path, { size: '125x125', crop: :fit }) if test.option_A.present?
-      td
-        = cl_image_tag(test.option_B.path, { size: '125x125', crop: :fit })if test.option_B.present?
-      td.text-right.test-actions
-
-        = link_to admin_test_path(test),\
-          class: 'btn btn-info btn-xs preview'  do
-            i.icon-share
-
-        = link_to edit_admin_test_path(test),\
-          class: 'btn btn-warning btn-xs edit'  do
-            i.icon-edit
-
-        = link_to admin_test_path(test),\
-          method: :delete, data: { confirm: 'Are you sure?' }, \
-          class: 'btn btn-danger btn-xs delete'  do
-            i.icon-remove
-
+  == cell(:test, collection: @tests, method: :row)
+  
 = render "admin/admin_table"
