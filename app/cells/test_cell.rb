@@ -1,5 +1,20 @@
 class TestCell < BaseCell
   include CloudinaryHelper
+  
+  def delete_link
+   @path = admin_test_path(model)
+   render
+  end
+
+  def edit_link
+    @path = edit_admin_test_path(model)
+    render
+  end
+  
+  def show_link
+    @path = admin_test_path(model)
+    render
+  end
 
   private
   property :question

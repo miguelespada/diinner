@@ -3,21 +3,9 @@ tr
     p = model.question 
     p = model.caption_A
     p = model.caption_B
-  td
-    = cl_image model.option_A, 125
-  td
-    = cl_image model.option_B, 125
+  td = cl_image model.option_A, 125
+  td = cl_image model.option_B, 125
   td.text-right.test-actions
-
-    = link_to admin_test_path(model),\
-      class: 'btn btn-info btn-xs preview'  do
-        i.icon-share
-
-    = link_to edit_admin_test_path(model),\
-      class: 'btn btn-warning btn-xs edit'  do
-        i.icon-edit
-
-    = link_to admin_test_path(model),\
-      method: :delete, data: { confirm: 'Are you sure?' }, \
-      class: 'btn btn-danger btn-xs delete'  do
-        i.icon-remove
+    == show_link
+    == edit_link
+    == delete_link
