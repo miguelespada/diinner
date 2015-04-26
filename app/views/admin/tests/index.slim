@@ -13,6 +13,10 @@
     tr
       td = test.question
       td.text-right.test-actions
+        = link_to  edit_admin_test_path(test),\
+          class: 'btn btn-warning btn-xs edit'  do
+            i.icon-edit
+
         = link_to admin_test_path(test),\
           method: :delete, data: { confirm: 'Are you sure?' }, \
           class: 'btn btn-danger btn-xs delete'  do

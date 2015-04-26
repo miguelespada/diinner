@@ -23,3 +23,19 @@ Then(/^I should not see the test in the list of tests$/) do
   click_on "Tests"
   expect(page).not_to have_content "What do you prefer, A/B?"
 end
+
+When(/^I edit a test$/) do
+  click_on "Tests"
+  within(:css, ".test-actions") do
+    find(".edit").click
+  end
+  fill_in "Question", with: "What do you prefer, C/D?"
+  click_on "Update Test"
+  expect(page).to have_content "Test was successfully updated."
+end
+
+Then(/^I should see the updated test in the list of tests$/) do
+  click_on "Tests"
+  expect(page).to have_content "What do you prefer, C/D?"
+end
+

@@ -17,9 +17,15 @@ class  Admin::TestsController < AdminController
 
   def destroy
     @test.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_tests_path, notice: 'Test was successfully destroyed.' }
-    end
+    redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
+  end
+
+  def edit
+  end
+
+  def update
+    @test.update(test_params)
+    redirect_to admin_tests_path, notice: 'Test was successfully updated.'
   end
 
 

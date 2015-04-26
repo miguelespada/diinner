@@ -11,7 +11,7 @@ Feature: Admin Manage Restaurants
   Scenario: I create a new test
     Then I should see the test in list of tests
 
-  @edit_test @wip
+  @edit_test  
   Scenario: I edit a test
     When I edit a test
     Then I should see the updated test in the list of tests
