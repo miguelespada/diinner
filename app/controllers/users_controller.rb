@@ -28,9 +28,9 @@ class UsersController < ActionController::Base
       @user[:first_login] = false
       # TODO use rails sintax
       @user.save
-      format.html { redirect_to user_path(@user), notice: 'Your profile was successfully updated.' }
+      redirect_to user_path(@user), notice: 'Your profile was successfully updated.'
     else
-      format.html { render :edit }
+      render :edit
     end
   end
 
