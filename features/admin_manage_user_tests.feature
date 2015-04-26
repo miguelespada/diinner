@@ -11,6 +11,10 @@ Feature: Admin Manage Restaurants
   Scenario: I create a new test
     Then I should see the test in list of tests
 
+  @preview_test
+  Scenario: I preview a new test
+    Then I can preview the test
+
   @edit_test  
   Scenario: I edit a test
     When I edit a test

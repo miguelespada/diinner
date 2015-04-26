@@ -47,3 +47,14 @@ Then(/^I should see the updated test in the list of tests$/) do
   expect(page).to have_content "Option D"
 end
 
+Then(/^I can preview the test$/) do
+  click_on "Tests"
+  within(:css, ".test-actions") do
+    find(".preview").click
+  end
+  expect(page).to have_content "Test Preview"
+  expect(page).to have_content "What do you prefer, A/B?"
+  expect(page).to have_content "Option A"
+  expect(page).to have_content "Option B"
+end
+

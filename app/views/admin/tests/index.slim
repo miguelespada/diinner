@@ -22,7 +22,12 @@
       td
         = cl_image_tag(test.option_B.path, { size: '125x125', crop: :fit })if test.option_B.present?
       td.text-right.test-actions
-        = link_to  edit_admin_test_path(test),\
+
+        = link_to admin_test_path(test),\
+          class: 'btn btn-info btn-xs preview'  do
+            i.icon-share
+
+        = link_to edit_admin_test_path(test),\
           class: 'btn btn-warning btn-xs edit'  do
             i.icon-edit
 

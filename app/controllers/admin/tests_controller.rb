@@ -5,6 +5,9 @@ class  Admin::TestsController < AdminController
     @tests = Test.all
   end
 
+  def show
+  end
+
   def new
     @test = Test.new
   end
