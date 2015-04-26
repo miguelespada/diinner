@@ -1,5 +1,5 @@
 = simple_form_for [@user] do |f|
   = f.error_notification
-  = f.input :gender
-  = f.input :birth
+  = f.select :gender, [['Female', true], ['Male', false]]
+  = f.input :birth, as: :date, html5: true
   = f.button :submit 
