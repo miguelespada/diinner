@@ -1,5 +1,3 @@
-# TODO add specs scaffold
-
 module UserSearchable
   extend ActiveSupport::Concern
 

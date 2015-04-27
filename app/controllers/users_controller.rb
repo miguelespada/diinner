@@ -25,8 +25,9 @@ class UsersController < ActionController::Base
     @user = @session.user_from_session
     if @user.update(user_params)
       # TODO update + save?
+      # TODO use updated_at instead of first_login
+      # TODO use rails sintax 
       @user[:first_login] = false
-      # TODO use rails sintax
       @user.save
       redirect_to user_path(@user), notice: 'Your profile was successfully updated.'
     else
