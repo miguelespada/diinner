@@ -8,5 +8,6 @@ class User
   field :name, type: String, default: ""
   field :first_login, type: Boolean, default: true
   field :birth, type: Date, default: Date.today
-  field :gender, type: Boolean, default: 0
+  # TODO create is_male?
+  field :gender, type: Boolean, default: false
 end
