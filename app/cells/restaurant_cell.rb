@@ -13,7 +13,6 @@ class RestaurantCell < BaseCell
   private
   
   def status
-    last_activity = @model.current_sign_in_at.nil? ? "never" : time_ago_in_words( @model.current_sign_in_at )
-    "Last time active: " + last_activity
+    "Last time active: " + (@model.current_sign_in_at.nil? ? "never" : time_ago_in_words( @model.current_sign_in_at )).to_s
   end
 end
