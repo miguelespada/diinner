@@ -43,3 +43,22 @@ Then(/^I should see the entities matching my search$/) do
   expect(page).to have_content @restaurants[0].name
   expect(page).to have_content @users[0].name
 end
+
+When(/^I click on a restaurant$/) do
+  click_on @restaurants[0].name
+end
+
+Then(/^I should see the restaurant details$/) do
+  expect(page).to have_content @restaurants[0].name
+  expect(page).to have_content @restaurants[0].email
+end
+
+When(/^I click on a user$/) do
+  click_on @users[0].name
+end
+
+Then(/^I should see the user details$/) do
+  expect(page).to have_content @users[0].name
+  expect(page).to have_content @users[0].email
+end
+

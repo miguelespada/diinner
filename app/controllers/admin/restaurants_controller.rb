@@ -9,6 +9,9 @@ class  Admin::RestaurantsController < AdminController
     @restaurant = Restaurant.new
   end
 
+  def show
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save!
@@ -17,9 +20,7 @@ class  Admin::RestaurantsController < AdminController
 
   def destroy
     @restaurant.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_restaurants_path, notice: 'Restaurant was successfully destroyed.' }
-    end
+    redirect_to admin_restaurants_path, notice: 'Restaurant was successfully destroyed.'
   end
 
 

@@ -12,10 +12,4 @@ class RestaurantCell < BaseCell
     "Last time active: " + last_activity
   end
 
-  # TODO ??? 
-  # TODO View accessing the Model!!! WTF!
-
-  def from_elasticsearch
-    Restaurant.find(model.id)
-  end
 end

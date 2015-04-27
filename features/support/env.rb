@@ -66,6 +66,7 @@ World(FactoryGirl::Syntax::Methods)
 
 Before do
   Restaurant.__elasticsearch__.create_index! index: Restaurant.index_name, force: true
+  User.__elasticsearch__.create_index! index: User.index_name, force: true
   DatabaseCleaner.start
 end
 
@@ -75,4 +76,5 @@ end
 
 at_exit do
   Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name
+  User.__elasticsearch__.client.indices.delete index: User.index_name
 end

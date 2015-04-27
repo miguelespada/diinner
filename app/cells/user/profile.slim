@@ -4,6 +4,9 @@ p
   | Avatar:
   = image_tag model[:image_url], class: "avatar"
 p 
+  | Email:
+  = model.email 
+p 
   | Gender:
   = model.gender ? "Female" : "Male"
 p 
