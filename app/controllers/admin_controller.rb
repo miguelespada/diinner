@@ -1,3 +1,4 @@
+require "pry"
 class AdminController < ApplicationController
   layout "admin"
   before_filter :authenticate_admin!
@@ -5,22 +6,10 @@ class AdminController < ApplicationController
   def index
   end
 
-
-  # TODO: do not add code if there is not test
-  # TODO Thin controllers!
-  # TODO User DSL
-  # TODO User multimodel search
-  
   def search
-    query = params[:query]
-    query_es = {query: { prefix: { name: query } }}
-
-    @restaurants = Restaurant.search(query_es).results
-    # @users = User.search(query_es).results
-
+    @results = Elasticsearch::Model.search(params[:query], [Restaurant, User]).results
   end
 
   def show
-
   end
 end

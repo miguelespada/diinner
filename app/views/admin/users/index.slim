@@ -1,26 +1,13 @@
-/ TODO refactor as _table
-/ TODO do not leave commented code
+- content_for(:title) do
+  | Users
 
-.row
-  .col-sm-12
-    .page-header
-      h1.pull-left
-        span Users
-      /h4.pull-right
-      /  = link_to "New", new_admin_restaurant_path
-.row
-  .col-sm-12
-    .box.bordered-box.red-border
-      .box-content.box-no-padding
-        .responsive-table
-          .scrollable-area
-            table.table.table-hover.table-striped
-              thead
-                tr
-                  th Name
-                  th E-mail
-                  th Gender
-                  th Birth
-                  th.text-right Actions
-              tbody
-                == cell(:user, collection: @users, method: :row)
+- content_for(:thead) do
+  th Name
+  th E-mail
+  th Gender
+  th Birth
+
+- content_for(:tbody) do
+  == cell(:user, collection: @users, method: :row)
+  
+= render "admin/admin_table"
