@@ -9,7 +9,10 @@ p
 p 
   | Email: 
   = model.email
+
 p 
   | Address: 
   = model.address
-= link_to "Edit my profile", edit_restaurant_path(model), class: "btn btn-default"
+  
+/ TODO use autorization
+= link_to "Edit profile", edit_restaurant_path(model), class: "btn btn-default"
