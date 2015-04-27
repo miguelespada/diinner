@@ -5,6 +5,11 @@ class RestaurantCell < BaseCell
     render
   end
 
+  def new_link
+    @path = new_admin_restaurant_path
+    render
+  end
+
   private
   
   def status

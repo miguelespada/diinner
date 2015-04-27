@@ -1,10 +1,12 @@
+
+# TODO default should be first_login
 Given(/^Is the first time I login as user$/) do
   step "I am a logged user"
   @user.first_login = true
 end
 
 Then(/^I should see the edit profile page$/) do
-  expect(page).to have_content "Edit my profile"
+  expect(page).to have_content "Edit profile"
 end
 
 When(/^I edit my profile page$/) do
@@ -18,6 +20,8 @@ Then(/^I should see my profile updated$/) do
   expect(page).to have_content "1981-01-20"
 end
 
+
+# TODO test important things
 Then(/^I should see my user profile$/) do
   expect(page).to have_content "My profile"
   expect(page).to have_content "Avatar"
@@ -25,6 +29,7 @@ Then(/^I should see my user profile$/) do
   expect(page).to have_content "Birth"
 end
 
+# TODO DO NOT LEAVE COMMENTS
 When(/^I change my user profile$/) do
   page.select('Male', :from => 'user_gender')
   # fill_in "Gender", with: false

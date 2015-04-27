@@ -11,7 +11,7 @@ end
 
 When(/^I click to edit my profile$/) do
   step "I go to my profile page"
-  click_on "Edit my profile"
+  click_on "Edit profile"
 end
 
 Then(/^I change my profile$/) do

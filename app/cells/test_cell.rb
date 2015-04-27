@@ -16,6 +16,11 @@ class TestCell < BaseCell
     render
   end
 
+  def new_link
+    @path = new_admin_test_path
+    render
+  end
+
   private
 
   def cl_image image, size

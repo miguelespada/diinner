@@ -2,7 +2,7 @@
   | Restaurants
 
 - content_for(:new) do
-  = link_to "New", new_admin_restaurant_path
+  == cell(:restaurant, Restaurant).call(:new_link)
 
 - content_for(:thead) do
   th Name

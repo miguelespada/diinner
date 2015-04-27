@@ -2,9 +2,10 @@
   .col-sm-12
     .page-header
       h1.pull-left
-        span == yield(:title) 
-      h4.pull-right
-        == yield(:new) 
+        span == yield(:title)
+      - if content_for?(:new)
+          h4.pull-right
+            == yield(:new) 
 .row
   .col-sm-12
     .box.bordered-box.red-border

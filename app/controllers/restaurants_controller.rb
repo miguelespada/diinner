@@ -20,6 +20,7 @@ class RestaurantsController < ActionController::Base
   def show
   end
 
+  # TODO profile is show
   def profile
   end
 
