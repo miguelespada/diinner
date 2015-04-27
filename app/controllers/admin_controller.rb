@@ -7,7 +7,21 @@ class AdminController < ApplicationController
   end
 
   def search
-    @results = Elasticsearch::Model.search(params[:query], [Restaurant, User]).results
+    # TODO create a service
+    
+    query = Jbuilder.encode do |json|
+          json.query do
+            json.match do
+              json._all do
+                json.query params[:query]
+                json.fuzziness 5
+                json.prefix_length 3
+              end
+            end
+          end
+        end
+
+    @results = Elasticsearch::Model.search(query, [Restaurant, User]).results
   end
 
   def show
