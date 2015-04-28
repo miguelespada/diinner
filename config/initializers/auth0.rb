@@ -8,6 +8,12 @@ Rails.application.config.middleware.use OmniAuth::Builder do
         callback_path: "/callback"
     )
   else Rails.env.production?
-  provider :auth0, ENV['AUTH0_CLIENT_ID'], ENV['AUTH0_CLIENT_SECRET'], ENV['AUTH0_DOMAIN'], :callback_path => "/callback"
+  provider(
+      :auth0,
+      ENV['AUTH0_CLIENT_ID'],
+      ENV['AUTH0_CLIENT_SECRET'],
+      ENV['AUTH0_DOMAIN'],
+      :callback_path => "/callback"
+  )
   end
 end
