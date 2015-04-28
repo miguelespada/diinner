@@ -18,7 +18,7 @@ $(document).ready(function () {
   lock.show({
     container: 'login-panel',
     connections: ['facebook', 'google-oauth2'],
-    callbackURL:  'http://'+ domain + '/callback',
+    callbackURL:  'http://'+ domain + '/auth/auth0/callback',
     responseType: 'code',
     authParams: {
       scope: 'openid profile'
