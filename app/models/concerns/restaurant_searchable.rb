@@ -16,8 +16,5 @@ module RestaurantSearchable
       indexes :name, type: :string, :analyzer => :spanish, :boost => 50
     end
 
-    def self.search(query)
-      self.__elasticsearch__.search query
-    end
   end
 end

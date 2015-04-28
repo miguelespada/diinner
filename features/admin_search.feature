@@ -1,4 +1,4 @@
-Feature: Admin Dashboard
+Feature: Admin search users and restaurants
   As an admin
   I would like to search users and restaurants
 
