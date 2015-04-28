@@ -12,6 +12,8 @@ class User
 
   # TODO why there is default birhtday
   field :birth, type: Date, default: Date.today
+  
   # TODO create is_male?
+  # TODO may be nil?
   field :gender, type: Boolean, default: false
 end

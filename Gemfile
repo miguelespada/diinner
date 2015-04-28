@@ -27,7 +27,7 @@ gem 'j_growl_rails'
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 gem 'cloudinary'
-gem 'attachinary'
+gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
 
 group :test do
   gem "database_cleaner"
