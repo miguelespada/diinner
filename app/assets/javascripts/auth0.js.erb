@@ -10,10 +10,12 @@ $(document).ready(function () {
   var host = $('#request').data("host") ;
   var port = $('#request').data("port") ;
 
-    var domain = host + ':' + port;
-    <% if Rails.env.production? %>
-        domain = 'diinner.herokuapp.com';
-    <% end %>
+  var domain = host + ':' + port;
+
+  // TODO get as parameter unobstrussive JS and 
+  <% if Rails.env.production? %>
+      domain = 'diinner.herokuapp.com';
+  <% end %>
 
   lock.show({
     container: 'login-panel',
