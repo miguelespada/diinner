@@ -10,9 +10,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   else Rails.env.production?
     provider(
       :auth0,
-      'WQpHmQ3d6SpZXTiTz4iTPr5N8MA0QPvl',
-      '1MAFjnDVaimdhM7nDUgP5vpcffUPOS8xwbIAuGCs-fPyRNh_68c44jpxfT5YAx5M',
-      'espadaysantacruz.auth0.com',
+      'BBLhUOEcSMo60RljToZKPWzNClPnAOPl',
+      '5qeGPCT17bqUzqANM-13_dHP26nEyw0XrVwSutrO6ZS_sbszJIgDA_nit5Xx6v2u',
+      'app35743745.eu.auth0.com',
       callback_path: "/auth/auth0/callback"
     )
   end
