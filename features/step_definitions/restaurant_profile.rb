@@ -3,6 +3,7 @@ When(/^I go to my profile page$/) do
 end
 
 Then(/^I should see my profile$/) do
+  # TODO this should be more semantic
   expect(page).to have_content "My profile"
   expect(page).to have_content "Description"
   expect(page).to have_content "Phone number"
@@ -23,6 +24,7 @@ Then(/^I change my profile$/) do
 end
 
 Then(/^I should see my profile has been updated$/) do
+  # TODO this should be less literal or with CSS scopes
   expect(page).to have_content "Dummy restaurant"
   expect(page).to have_content "Description: Dummy description"
   expect(page).to have_content "Phone number: 12345678"
