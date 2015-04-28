@@ -4,6 +4,7 @@ class UsersController < ActionController::Base
 
   def index
     @user = @session.user_from_session
+    # TODO use rails stais @user.first_login?
     redirect_to edit_user_path(@user) if @user[:first_login]
   end
 
@@ -39,8 +40,7 @@ class UsersController < ActionController::Base
 
   def user_params
     params.require(:user).permit(:gender,
-                                  :birth,
-                                  )
+                                  :birth)
   end
 
   def authorize
