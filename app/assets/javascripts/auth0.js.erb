@@ -1,25 +1,24 @@
 //= require jquery
 
 // TODO get as parameter unobstrussive JS
-<% if Rails.env.production? %>
   var lock = new Auth0Lock('BBLhUOEcSMo60RljToZKPWzNClPnAOPl', 'app35743745.eu.auth0.com', {
     assetsUrl: 'https://cdn.eu.auth0.com/'
   });
-<% else %>
-  var lock = new Auth0Lock('ehMqgad1vB3TkYsH7qYXkVEqiBQgdrl5', 'rodcrespo.eu.auth0.com', {
-    assetsUrl: 'https://cdn.eu.auth0.com/'
-  });
-<% end %>
 
 $(document).ready(function () {
 
   var host = $('#request').data("host") ;
   var port = $('#request').data("port") ;
 
+    var domain = host + ':' + port;
+    <% if Rails.env.production? %>
+        domain = 'diinner.herokuapp.com';
+    <% end %>
+
   lock.show({
     container: 'login-panel',
     connections: ['facebook', 'google-oauth2'],
-    callbackURL:  'http://'+ host + ':' + port + '/auth/auth0/callback',
+    callbackURL:  'http://'+ domain + '/callback',
     responseType: 'code',
     authParams: {
       scope: 'openid profile'
