@@ -12,17 +12,21 @@ Then(/^I should see my profile updated$/) do
   expect(page).to have_content "1981-01-20"
 end
 
+
+When(/^I edit my profile page$/) do
+  visit user_path(@user)
+  click_on "Edit profile"
+end
+
 Then(/^I should see my user profile$/) do
-  within(:css, ".user-avatar") do
-    expect(page).to have_css "img"
-  end
+  expect(page).to have_css ".user-avatar"
 
   within(:css, ".user-gender") do
-    expect(page).to have_content "male"
+    expect(page).to have_content @user.gender
   end
 
   within(:css, ".user-birth") do
-    expect(page).to have_css "1981-01-20"
+    expect(page).to have_content @user.birth
   end
 end
 

@@ -1,5 +1,5 @@
 When(/^I go to the user page$/) do
-  visit users_path
+  visit user_path(@user)
 end
 
 Then(/^I should see the user login panel$/) do
