@@ -1,3 +1,19 @@
-== cell(:user, model).call(:profile)
+h1 My profile
+h2.user-name = model.name
+p.user-avatar
+  | Avatar:
+  = image_tag model.image_url
+p.user-email
+  | Email:
+  = model.email 
+p.user-gender
+  | Gender:
+  = gender
+p.user-birth
+  | Birth:
+  = model.birth
+
+
 == cell(:user, model).call(:edit_profile_link)
+br
 == cell(:user, model).call(:logout_link)

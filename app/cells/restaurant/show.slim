@@ -1,0 +1,17 @@
+h1 My profile
+h2.restaurant-name = model.name
+p.restaurant-description
+  | Description:
+  = model.description
+p.restaurant-phone
+  | Phone number:
+  = model.phone
+p.restaurant-email
+  | Email:
+  = model.email
+
+p.restaurant-address
+  | Address:
+  = model.address
+
+== cell(:restaurant, model).call(:edit_profile_link)
