@@ -1,5 +1,5 @@
 When(/^I go to my profile page$/) do
-  click_on "Profile"
+  find(".show").click()
 end
 
 Then(/^I should see my profile$/) do
@@ -8,12 +8,8 @@ Then(/^I should see my profile$/) do
   end
 end
 
-When(/^I click to edit my profile$/) do
-  step "I go to my profile page"
-  click_on "Edit profile"
-end
-
-Then(/^I change my profile$/) do
+Then(/^I edit my restaurant profile$/) do
+  find(".edit").click()
   fill_in "Name", with: "Dummy restaurant"
   fill_in "Description", with: "Dummy description"
   fill_in "Phone", with: "12345678"
@@ -21,7 +17,7 @@ Then(/^I change my profile$/) do
   click_on "Update Restaurant"
 end
 
-Then(/^I should see my profile has been updated$/) do
+Then(/^I should see my restaurant profile updated$/) do
   within(:css, ".restaurant-name") do
     expect(page).to have_content "Dummy restaurant"
   end

@@ -7,7 +7,7 @@ When(/^I login as restaurant$/) do
 end
 
 Then(/^I should see my personal restaurant space$/) do
-  expect(page).to have_content "My profile"
+  expect(page).to have_content @restaurant.name
 end
 
 When(/^I go to the restaurant page$/) do

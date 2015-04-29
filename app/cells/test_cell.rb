@@ -21,6 +21,7 @@ class TestCell < BaseCell
     render
   end
 
+  # TODO do a yml file
   def phone_mockup
     image_tag "http://res.cloudinary.com/hotvlwxi4/image/upload/v1430319550/iPhone_nddjjt.png", class: "phone-mockup"
   end

@@ -10,6 +10,21 @@ class RestaurantCell < BaseCell
     render
   end
 
+  def show_link
+    @path = restaurant_path(model)
+    render
+  end
+  
+  def edit_link
+    @path = edit_restaurant_path(model)
+    render
+  end
+
+  def logout_link
+    @path = destroy_restaurant_session_path
+    render
+  end
+
   private
   
   def status

@@ -11,5 +11,5 @@ Feature: User profile
   @edit_user_profile
   Scenario: I can edit my profile
     Given I am a logged user
-    When I edit my profile page
+    When I edit my profile
     Then I should see my profile updated

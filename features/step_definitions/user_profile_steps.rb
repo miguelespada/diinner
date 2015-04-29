@@ -6,7 +6,7 @@ Given(/^Is the first time I login as user$/) do
 end
 
 Then(/^I should see the edit profile page$/) do
-  expect(page).to have_content "Edit profile"
+  expect(page).to have_content "Edit"
 end
 
 Then(/^I should see my profile updated$/) do
@@ -15,9 +15,9 @@ Then(/^I should see my profile updated$/) do
 end
 
 
-When(/^I edit my profile page$/) do
+When(/^I edit my profile$/) do
   step "I go to the user page"
-  click_on "Edit profile"
+  find(".edit").click()
   step "I change my user profile"
 end
 
