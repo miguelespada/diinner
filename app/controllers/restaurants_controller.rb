@@ -3,22 +3,24 @@ class RestaurantsController < ActionController::Base
   before_filter :authenticate_restaurant!
   load_resource :only => [:show, :profile, :edit, :update]
 
+  def index
+  end
+
   def edit
   end
 
   def update
-    respond_to do |format|
-      if @restaurant.update(restaurant_params)
-        format.html { redirect_to restaurants_profile_path, notice: 'Your profile was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @restaurant.update(restaurant_params)
+      redirect_to restaurants_profile_path, notice: 'Your profile was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def show
   end
 
+  # TODO profile is show
   def profile
   end
 

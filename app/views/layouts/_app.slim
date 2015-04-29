@@ -1,0 +1,8 @@
+doctype html
+html
+  = render "/layouts/head"
+  body class==yield(:color)
+    = render "/layouts/navbar"
+    = render "/layouts/sidebar"
+    = render "/layouts/container"
+    = render "/layouts/alerts"

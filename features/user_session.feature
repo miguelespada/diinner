@@ -1,6 +1,7 @@
 Feature: User Session
   As user
   I want to access to my personal space
+  I order to book diinners
 
   @login_user
   Scenario: I can see the login page

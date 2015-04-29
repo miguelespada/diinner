@@ -1,0 +1,16 @@
+- content_for(:title) do
+  | Tests
+
+- content_for(:new) do
+  == cell(:test, Test).call(:new_link)
+
+- content_for(:thead) do
+  th Question
+  th Option A
+  th Option B
+  th.text-right Actions
+
+- content_for(:tbody) do
+  == cell(:test, collection: @tests, method: :row)
+  
+= render "admin/admin_table"

@@ -9,7 +9,6 @@ When(/^I visit the homepage$/) do
   visit root_path
 end
 
-
 When(/^I logout$/) do
   click_on "Logout"
 end

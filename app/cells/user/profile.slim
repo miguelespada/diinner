@@ -1,11 +1,15 @@
 h1 My profile
 h2 = model.name
+/ TODO use rails syntax
 p 
   | Avatar:
   = image_tag model[:image_url], class: "avatar"
 p 
+  | Email:
+  = model.email 
+p 
   | Gender:
-  = model.gender
+  = gender
 p 
   | Birth:
   = model.birth

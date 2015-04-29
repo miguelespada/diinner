@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Attachinary::Engine => "/attachinary"
+
   scope :auth, as: "auth" do
     get "auth0/callback" => "auth0#callback"
     get "failure" => "auth0#failure"
@@ -11,21 +13,25 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get "admin" => "admin#index", as: "admin"
-  get "restaurants" => "restaurants#show", as: "restaurants"
-
   resources :restaurants
-
   scope :restaurants do
     get "/:id/profile" => "restaurants#profile", as: "restaurants_profile"
   end
-  
-  namespace :admin do
-    resources :restaurants
+
+  get "admin" => "admin#index", as: "admin"
+  scope :admin do
+    get "/search" => "admin#search", as: "admin_search"
   end
 
-  get "user/login" => "users#login", as: "user_login"
+  namespace :admin do
+    resources :restaurants
+    resources :tests
+    resources :users
+  end
+
+
   scope :users do
+    get "/login" => "users#login", as: "users_login"
     get "/:id/profile" => "users#profile", as: "users_profile"
   end
   resources :users

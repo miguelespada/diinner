@@ -1,6 +1,7 @@
 Feature: Restaurant Session
   As restaurant
   I want to access to my personal space
+  In order to manage my data
 
   @login_restaurant
   Scenario: I log as restaurant

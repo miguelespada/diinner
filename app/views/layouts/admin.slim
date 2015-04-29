@@ -1,10 +1,6 @@
-doctype html
-html
-  = render "/layouts/head"
-  body
-    = render "/admin/navbar"
-    = render "/admin/sidebar"
-    = render "/layouts/navbar"
-    = render "/layouts/sidebar"
-    = render "/layouts/container"
-    = render "/layouts/alerts"
+- content_for(:color) do
+  == "contrast-blue"
+
+= render "/admin/navbar"
+= render "/admin/sidebar"
+= render "/layouts/app" 

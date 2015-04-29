@@ -14,4 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require j_growl_rails/jquery.jgrowl
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require cloudinary/jquery.cloudinary
+//= require my_attachinary
 //= require alerts

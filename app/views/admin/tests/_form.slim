@@ -1,0 +1,13 @@
+= simple_form_for [:admin, @test] do |f|
+  = f.error_notification
+  = f.input :question
+  = f.input :option_A, as: :attachinary
+  = f.input :caption_A
+  = f.input :option_B, as: :attachinary
+  = f.input :caption_B
+  = f.button :submit
+
+javascript:
+  $(document).ready(function () {
+    $('.attachinary-input').attachinary();
+  });

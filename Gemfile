@@ -22,10 +22,12 @@ gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-ra
 gem 'bonsai-elasticsearch-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'bootstrap-sass', '~> 3.3.4.1'
-gem 'cells', '~> 4.0.0.beta2'
+gem 'cells', git: 'git://github.com/apotonick/cells.git'
 gem 'j_growl_rails'
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
+gem 'cloudinary'
+gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
 
 group :test do
   gem "database_cleaner"

@@ -3,6 +3,7 @@ header
     .navbar-brand
       span DIINNER
     ul.nav
+      li = yield(:navbar_search)
       li.dropdown.light.only-icon
         a.dropdown-toggle data-toggle="dropdown" href="#" 
           i.icon-cog
@@ -32,13 +33,7 @@ header
       li.dropdown.dark.user-menu
         a.dropdown-toggle data-toggle="dropdown" href="#" 
           span.user-name 
-            - if content_for?(:navbar_username)
-              == yield(:navbar_username) 
+            = yield(:navbar_username) 
           b.caret
         ul.dropdown-menu
-          - if content_for?(:navbar_menu)
-            == yield(:navbar_menu) 
-    form.navbar-form.navbar-right.hidden-xs action="#" method="get" 
-      button.btn.btn-link.icon-search name="button" type="submit" 
-      .form-group
-        input#q_header.form-control autocomplete="off" name="q" placeholder="Search..." type="text" value="" /
+          = yield(:navbar_menu) 

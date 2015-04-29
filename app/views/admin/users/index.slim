@@ -1,0 +1,13 @@
+- content_for(:title) do
+  | Users
+
+- content_for(:thead) do
+  th Name
+  th E-mail
+  th Gender
+  th Birth
+
+- content_for(:tbody) do
+  == cell(:user, collection: @users, method: :row)
+  
+= render "admin/admin_table"

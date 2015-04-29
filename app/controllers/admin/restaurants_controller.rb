@@ -1,5 +1,4 @@
 class  Admin::RestaurantsController < AdminController
-  before_filter :authenticate_admin!
   load_resource :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -10,17 +9,18 @@ class  Admin::RestaurantsController < AdminController
     @restaurant = Restaurant.new
   end
 
+  def show
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
+    @restaurant.save!
     redirect_to admin_restaurants_path, :notice => 'Restaurant was successfully created.'
   end
 
   def destroy
     @restaurant.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_restaurants_path, notice: 'Restaurant was successfully destroyed.' }
-    end
+    redirect_to admin_restaurants_path, notice: 'Restaurant was successfully destroyed.'
   end
 
 

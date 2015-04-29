@@ -1,23 +1,8 @@
 #login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;")
   | embeded area
 
-= javascript_include_tag \
-  "https://cdn.auth0.com/js/lock-7.1.min.js"
+= tag("div", :id => 'request', :data => {:host => request.host, :port => request.port,}) 
 
-javascript:
+= javascript_include_tag "https://cdn.auth0.com/js/lock-7.1.min.js"
 
-  //TODO: this credential have be in an intializer, width conditions denpending on the environment [dev, test]
-
-  var lock = new Auth0Lock('ehMqgad1vB3TkYsH7qYXkVEqiBQgdrl5', 'rodcrespo.eu.auth0.com', {
-    assetsUrl: 'https://cdn.eu.auth0.com/'
-  });
-
-  lock.show({
-    container: 'login-panel',
-    connections: ['facebook', 'google-oauth2'],
-    callbackURL: 'http://localhost:3000/auth/auth0/callback',
-    responseType: 'code',
-    authParams: {
-      scope: 'openid profile'
-    }
-  });
+= javascript_include_tag "auth0"

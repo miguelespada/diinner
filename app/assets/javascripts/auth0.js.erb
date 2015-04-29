@@ -1,0 +1,29 @@
+//= require jquery
+
+// TODO get as parameter unobstrussive JS
+  var lock = new Auth0Lock('BBLhUOEcSMo60RljToZKPWzNClPnAOPl', 'app35743745.eu.auth0.com', {
+    assetsUrl: 'https://cdn.eu.auth0.com/'
+  });
+
+$(document).ready(function () {
+
+  var host = $('#request').data("host") ;
+  var port = $('#request').data("port") ;
+
+  var domain = host + ':' + port;
+
+  // TODO get as parameter unobstrussive JS and 
+  <% if Rails.env.production? %>
+      domain = 'diinner.herokuapp.com';
+  <% end %>
+
+  lock.show({
+    container: 'login-panel',
+    connections: ['facebook', 'google-oauth2'],
+    callbackURL:  'http://'+ domain + '/auth/auth0/callback',
+    responseType: 'code',
+    authParams: {
+      scope: 'openid profile'
+    }
+  });
+});

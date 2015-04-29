@@ -1,0 +1,11 @@
+- content_for(:title) do
+  | Seach results
+
+- content_for(:thead) do
+  th Type
+  th Result
+
+- content_for(:tbody) do
+  == cell(:search_result, collection: @results, method: :row)
+  
+= render "admin/admin_table"
