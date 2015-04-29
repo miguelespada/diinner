@@ -20,11 +20,11 @@ describe MultiModelSearch do
 
     describe "#search?" do
       it "searches restaurants" do
-        response = MultiModelSearch.search('restaurant_', 1)
+        response = MultiModelSearch.search('restaurant_')
         expect(response.total).to be 5
       end
       it "searches users" do
-        response = MultiModelSearch.search('user', 1)
+        response = MultiModelSearch.search('user')
         expect(response.total).to be 5
       end
     end
