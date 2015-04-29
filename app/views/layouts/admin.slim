@@ -1,8 +1,9 @@
 - content_for(:color) do
   == "contrast-blue"
+- content_for(:head) do
+  = stylesheet_link_tag 'admin', media: 'all'
 
 = render "/admin/navbar"
 = render "/admin/sidebar"
-= render "/layouts/app" 
+= render "/layouts/app"
 
-= stylesheet_link_tag 'admin', media: 'all'

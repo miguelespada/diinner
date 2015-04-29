@@ -4,7 +4,8 @@ head
   = stylesheet_link_tag    'application', media: 'all'
   = javascript_include_tag 'application'
   = cloudinary_js_config
-  
   = csrf_meta_tags
   /![if lt IE 9]
     = javascript_include_tag 'ie'
+  - if content_for?(:head)
+    == yield(:head)

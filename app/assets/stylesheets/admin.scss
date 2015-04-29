@@ -1,3 +1,21 @@
+@import 'color';
+
+@mixin phone-button($height){
+  margin-top: 8px;
+  width:236px;
+  height: $height;
+  border-radius: 2px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  background-color: $themeYellow;
+  display: table;
+  span{
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
 .preview-phone{
   width: 300px;
   font-size: 0.9em;
