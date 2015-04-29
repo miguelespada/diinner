@@ -1,4 +1,4 @@
-#login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;")
+#login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: none; border-width: 1px;")
   | embeded area
 
 = tag("div", :id => 'request', :data => {:host => request.host, :port => request.port,}) 
@@ -6,3 +6,6 @@
 = javascript_include_tag "https://cdn.auth0.com/js/lock-7.1.min.js"
 
 = javascript_include_tag "auth0"
+
+div.user-phone-mockup
+  = image_tag "http://res.cloudinary.com/hotvlwxi4/image/upload/c_scale,w_500/v1430323329/DIINNER_APP-04_sadpec.png"

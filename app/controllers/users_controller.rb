@@ -1,4 +1,5 @@
 class UsersController < ActionController::Base
+  layout "user"
   before_action :create_session
   before_action :authorize, except: [:login]
 
