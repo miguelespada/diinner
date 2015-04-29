@@ -1,8 +1,5 @@
 class TestCell < BaseCell
   include CloudinaryHelper
-  include Sprockets::Rails::Helper
-  self.assets_prefix = Rails.application.config.assets.prefix
-  self.assets_environment = Rails.application.assets
   
   def delete_link
    @path = admin_test_path(model)
@@ -25,15 +22,15 @@ class TestCell < BaseCell
   end
 
   def phone_mockup
-    image_tag "iPhone.png", class: "phone-mockup"
+    image_tag "http://res.cloudinary.com/hotvlwxi4/image/upload/v1430319550/iPhone_nddjjt.png", class: "phone-mockup"
   end
 
   def phone_toolbar
-    image_tag "phone_toolbar.png", class: "phone-toolbar"
+    image_tag "http://res.cloudinary.com/hotvlwxi4/image/upload/v1430319549/phone_toolbar_xx29ck.png", class: "phone-toolbar"
   end
 
   def phone_like_button
-    image_tag "like_button.png", class: "phone-like-button"
+    image_tag "http://res.cloudinary.com/hotvlwxi4/image/upload/v1430319550/like_button_hykzmo.png", class: "phone-like-button"
   end
 
   private
