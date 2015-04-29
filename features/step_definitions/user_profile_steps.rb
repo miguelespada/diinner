@@ -27,6 +27,7 @@ Then(/^I should see my user profile$/) do
 end
 
 When(/^I change my user profile$/) do
+  visit users_path
   page.select('Male', :from => 'user_gender')
   fill_in "Birth", with: "20/01/1981"
   click_on "Update User"

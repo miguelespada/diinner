@@ -19,12 +19,10 @@ Feature: User profile
 
   @user_profile
   Scenario: I can edit my profile
-    When I edit my profile page
     When I change my user profile
     Then I should see my profile updated
 
   @user_profile
   Scenario: I check my profile
     When I go to the user page
-    When I go to my profile page
     Then I should see my user profile
