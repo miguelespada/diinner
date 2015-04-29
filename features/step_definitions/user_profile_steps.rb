@@ -8,7 +8,7 @@ Then(/^I should see the edit profile page$/) do
 end
 
 Then(/^I should see my profile updated$/) do
-  expect(page).to have_content "Male"
+  expect(page).to have_content "male"
   expect(page).to have_content "1981-01-20"
 end
 
