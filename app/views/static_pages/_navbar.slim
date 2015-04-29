@@ -1,0 +1,15 @@
+nav#navbar-home.navbar.navbar-default.navbar-fixed-top
+  div.container-fluid
+    div.navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#menu"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#"
+        = image_tag "brand.svg"
+    div#menu.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li = link_to "Admin", new_admin_session_path, class: "navbar-link"
+        li = link_to "Restaurant", new_restaurant_session_path, class: "navbar-link"
+        li = link_to "User", users_login_path, class: "navbar-link"
