@@ -5,5 +5,15 @@ FactoryGirl.define do
     sequence(:name)  { |n| "user_#{n}" }
     gender { ["male", "female"].sample }
     birth { (18..50).to_a.sample.years.seconds.ago }
+    
+    trait :returning do
+      updated_at 0
+      created_at 1
+    end
+
+    trait :first_login do
+      updated_at 0
+      created_at 0
+    end
   end
 end
