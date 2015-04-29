@@ -3,11 +3,9 @@ When(/^I go to my profile page$/) do
 end
 
 Then(/^I should see my profile$/) do
-  # TODO this should be more semantic
-  expect(page).to have_content "My profile"
-  expect(page).to have_content "Description"
-  expect(page).to have_content "Phone number"
-  expect(page).to have_content "Address"
+  within(:css, ".restaurant-name") do
+    expect(page).to have_content @restaurant.name
+  end
 end
 
 When(/^I click to edit my profile$/) do
@@ -24,9 +22,19 @@ Then(/^I change my profile$/) do
 end
 
 Then(/^I should see my profile has been updated$/) do
-  # TODO this should be less literal or with CSS scopes
-  expect(page).to have_content "Dummy restaurant"
-  expect(page).to have_content "Description: Dummy description"
-  expect(page).to have_content "Phone number: 12345678"
-  expect(page).to have_content "Address: Dummy street 1"
+  within(:css, ".restaurant-name") do
+    expect(page).to have_content "Dummy restaurant"
+  end
+
+  within(:css, ".restaurant-description") do
+    expect(page).to have_content "Dummy description"
+  end
+
+  within(:css, ".restaurant-phone") do
+    expect(page).to have_content "12345678"
+  end
+
+  within(:css, ".restaurant-address") do
+    expect(page).to have_content "Dummy street 1"
+  end
 end

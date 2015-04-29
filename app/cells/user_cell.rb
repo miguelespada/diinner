@@ -1,5 +1,5 @@
 class UserCell < BaseCell
   def gender
-    model.gender ? "Female" : "Male"
+    model.is_gender_undefined? ? "---" : model.gender
   end
 end

@@ -4,8 +4,11 @@ class UsersController < ActionController::Base
 
   def index
     @user = @session.user_from_session
-    # TODO use rails stais @user.first_login?
-    redirect_to edit_user_path(@user) if @user[:first_login]
+    if @user.first_login?
+      redirect_to edit_user_path(@user) 
+    else
+      render :show
+    end
   end
 
   def login
@@ -19,17 +22,9 @@ class UsersController < ActionController::Base
     @user = @session.user_from_session
   end
 
-  def profile
-  end
-
   def update
     @user = @session.user_from_session
     if @user.update(user_params)
-      # TODO update + save?
-      # TODO use updated_at instead of first_login
-      # TODO use rails sintax 
-      @user[:first_login] = false
-      @user.save
       redirect_to user_path(@user), notice: 'Your profile was successfully updated.'
     else
       render :edit

@@ -6,14 +6,22 @@ class User
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""
   field :name, type: String, default: ""
+  field :birth, type: Date
+  field :gender, type: String
 
-  # TODO check timestamps
-  field :first_login, type: Boolean, default: true
+  def first_login?
+    updated_at == created_at
+  end
 
-  # TODO why there is default birhtday
-  field :birth, type: Date, default: Date.today
+  def is_male?
+    gender == "male"
+  end
   
-  # TODO create is_male?
-  # TODO may be nil?
-  field :gender, type: Boolean, default: false
+  def is_female?
+    gender == "female"
+  end
+
+  def is_gender_undefined?
+    gender == "undefined"
+  end
 end
