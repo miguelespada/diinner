@@ -1,18 +1,10 @@
 
 Given(/^Is the first time I login as user$/) do
   step "I am a logged user"
-  # TODO use traits
-  @user.first_login = true
 end
 
 Then(/^I should see the edit profile page$/) do
   expect(page).to have_content "Edit profile"
-end
-
-When(/^I edit my profile page$/) do
-  visit users_path
-  click_on "Profile"
-  click_on "Edit profile"
 end
 
 Then(/^I should see my profile updated$/) do
