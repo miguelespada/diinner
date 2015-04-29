@@ -10,14 +10,12 @@ class UserSession
 
   def user_from_session
     user = find_user
-
     if user.nil?
       user = User.new(hash_from_omniauth)
       user.save
     else
       user.update(hash_from_omniauth)
     end
-
     user
   end
 
