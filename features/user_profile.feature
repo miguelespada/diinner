@@ -14,7 +14,6 @@ Feature: User profile
   @first_login_user
   Scenario: I am logged as user for first time and i want to edit my profile
     When I go to the user page
-    When I edit my profile page
     When I change my user profile
     Then I should see my profile updated
 
@@ -24,7 +23,7 @@ Feature: User profile
     When I change my user profile
     Then I should see my profile updated
 
-  @restaurant_profile
+  @user_profile
   Scenario: I check my profile
     When I go to the user page
     When I go to my profile page

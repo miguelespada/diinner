@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :restaurants
-  scope :restaurants do
-    get "/:id/profile" => "restaurants#profile", as: "restaurants_profile"
-  end
 
   get "admin" => "admin#index", as: "admin"
   scope :admin do
@@ -32,7 +29,6 @@ Rails.application.routes.draw do
 
   scope :users do
     get "/login" => "users#login", as: "users_login"
-    get "/:id/profile" => "users#profile", as: "users_profile"
   end
   resources :users
 

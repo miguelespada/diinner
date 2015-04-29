@@ -4,7 +4,11 @@ class UsersController < ActionController::Base
 
   def index
     @user = @session.user_from_session
-    redirect_to edit_user_path(@user) if @user.first_login?
+    if @user.first_login?
+      redirect_to edit_user_path(@user) 
+    else
+      render :show
+    end
   end
 
   def login
@@ -16,10 +20,6 @@ class UsersController < ActionController::Base
 
   def show
     @user = @session.user_from_session
-  end
-
-  # TODO profile is show
-  def profile
   end
 
   def update
