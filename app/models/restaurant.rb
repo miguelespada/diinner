@@ -41,4 +41,6 @@ class Restaurant
   field :description,       type: String, default: ""
   field :phone,             type: String, default: ""
   field :address,           type: String, default: ""
+
+  has_many :menus
 end 
