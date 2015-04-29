@@ -4,7 +4,7 @@ end
 
 Then(/^I should see my profile$/) do
   within(:css, ".restaurant-name") do
-    expect(page).to have_content "Dummy restaurant"
+    expect(page).to have_content @restaurant.name
   end
 end
 

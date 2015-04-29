@@ -10,7 +10,7 @@ class User
   field :gender, type: String
 
   def first_login?
-    update_at == created_at
+    updated_at == created_at
   end
 
   def is_male?
