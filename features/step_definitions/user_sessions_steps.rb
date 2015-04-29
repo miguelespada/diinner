@@ -12,7 +12,7 @@ Given(/^I am a logged user$/) do
 end
 
 Then(/^I should see the user page$/) do
-  expect(page).to have_content "User page"
+  expect(page).to have_content "Edit profile"
 end
 
 Then(/^I should see my user data$/) do
