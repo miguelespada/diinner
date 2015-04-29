@@ -1,0 +1,47 @@
+.preview-phone{
+  width: 300px;
+  font-size: 0.9em;
+  position: relative;
+  .phone-mockup{
+    width:100%;
+    position: relative;
+  }
+  .container{
+    width: 256px;
+    height: 440px;
+    top: 87px;
+    left: 23px;
+    position: absolute;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 10px;
+    .phone-toolbar{
+      width: 236px;
+    }
+    .question{
+      @include phone-button(48px);
+    }
+    .question-count{
+      position: absolute;
+      font-weight: 700;
+      font-size: 0.8em;
+      top: 48px;
+      right: 15px;
+    }
+    .option-A{
+      margin-top: 8px;
+    }
+    .option-B{
+      margin-top: 33px;
+    }
+    .skip{
+      @include phone-button(36px);
+    }
+    .phone-like-button{
+      width:236px;
+      position: absolute;
+      top:211px;
+    }
+  }
+}
