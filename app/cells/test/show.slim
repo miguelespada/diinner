@@ -8,8 +8,10 @@ div.preview-phone
       span = model.question
     div.option-A
       = cl_image model.option_A, 236, 127
+      span.hidden = model.caption_A
     div.option-B
       = cl_image model.option_B, 236, 127
+      span.hidden = model.caption_B
     div.skip 
       span Skip
     == phone_like_button

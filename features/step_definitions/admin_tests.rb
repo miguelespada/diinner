@@ -52,7 +52,7 @@ Then(/^I can preview the test$/) do
   within(:css, ".test-actions") do
     find(".preview").click
   end
-  expect(page).to have_content "Test Preview"
+  expect(page).to have_css ".phone-mockup"
   expect(page).to have_content "What do you prefer, A/B?"
   expect(page).to have_content "Option A"
   expect(page).to have_content "Option B"
