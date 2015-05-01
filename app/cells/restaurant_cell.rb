@@ -11,7 +11,11 @@ class RestaurantCell < BaseCell
   end
 
   def show_link
-    @path = restaurant_path(model)
+    if admin_signed_in?
+      @path = admin_restaurant_path(model)
+    else
+      @path = restaurant_path(model)
+    end
     render
   end
   
@@ -19,6 +23,7 @@ class RestaurantCell < BaseCell
     if admin_signed_in?
       @path = edit_admin_restaurant_path(model)
     elsif restaurant_signed_in?
+      # TODO: test authorization
       @path = edit_restaurant_path(model)
     end
     # TODO: test that a user do not see the edit link
