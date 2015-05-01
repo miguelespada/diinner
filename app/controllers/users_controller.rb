@@ -1,7 +1,7 @@
 class UsersController < ActionController::Base
   layout "user"
   before_action :create_session
-  before_action :authorize, except: [:login]
+  before_action :authenticate, except: [:login]
 
   def index
     @user = @session.user_from_session
@@ -39,7 +39,7 @@ class UsersController < ActionController::Base
                                   :birth)
   end
 
-  def authorize
+  def authenticate
     redirect_to users_login_path unless @session.logged?
   end
 
