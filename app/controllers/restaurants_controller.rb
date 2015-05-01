@@ -22,9 +22,9 @@ class RestaurantsController < ActionController::Base
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name,        
+    params.require(:restaurant).permit(:name,
                                        :description, 
-                                       :phone,       
-                                       :address)     
+                                       :phone,
+                                       :address)
   end
 end

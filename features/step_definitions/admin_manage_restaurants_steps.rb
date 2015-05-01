@@ -31,3 +31,26 @@ Then(/^I should not see the restaurant in the list of restaurants$/) do
   expect(page).to have_content "Restaurant was successfully destroyed."
   expect(page).not_to have_content "restaurant@diinner.com"
 end
+
+When(/^I edit a restaurant$/) do
+  click_on "dummy restaurant"
+  find(".edit").click
+  fill_in "Name", with: "dummy restaurant updated"
+  fill_in "Addres", with: "dummy address"
+  fill_in "Phone", with: "666666"
+  click_button "Update Restaurant"
+end
+
+Then(/^I should see the updated restaurant in the list of restaurants$/) do
+  expect(page).to have_content "Restaurant was successfully updated."
+  within(:css, ".restaurant-name") do
+    expect(page).to have_content "dummy restaurant updated"
+  end
+  within(:css, ".restaurant-address") do
+    expect(page).to have_content "dummy address"
+  end
+  within(:css, ".restaurant-phone") do
+    expect(page).to have_content "666666"
+  end
+end
+

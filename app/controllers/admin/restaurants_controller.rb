@@ -12,10 +12,21 @@ class  Admin::RestaurantsController < AdminController
   def show
   end
 
+  def edit
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save!
     redirect_to admin_restaurants_path, :notice => 'Restaurant was successfully created.'
+  end
+
+  def update
+    if @restaurant.update(restaurant_params)
+      redirect_to admin_restaurant_path, notice: 'Restaurant was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -29,6 +40,8 @@ class  Admin::RestaurantsController < AdminController
   def restaurant_params
     params.require(:restaurant).permit(:name, 
                                 :password, 
-                                :email)
+                                :email,
+                                :phone,
+                                :address)
   end
 end

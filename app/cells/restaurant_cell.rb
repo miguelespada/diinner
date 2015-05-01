@@ -16,8 +16,13 @@ class RestaurantCell < BaseCell
   end
   
   def edit_link
-    @path = edit_restaurant_path(model)
-    render
+    if admin_signed_in?
+      @path = edit_admin_restaurant_path(model)
+    elsif restaurant_signed_in?
+      @path = edit_restaurant_path(model)
+    end
+    # TODO: test that a user do not see the edit link
+    render unless @path.nil?
   end
 
   def logout_link

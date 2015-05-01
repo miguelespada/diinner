@@ -1,2 +1,3 @@
 h1 Edit
-= render "form"
+= simple_form_for [@restaurant] do |f|
+  = render "form_fields", :f => f
