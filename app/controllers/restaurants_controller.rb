@@ -1,7 +1,8 @@
-class RestaurantsController < ActionController::Base
+class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
   load_resource :only => [:show, :edit, :update]
+  before_filter :authorize!, :only => [:edit, :update]
 
   def index
   end
@@ -26,5 +27,9 @@ class RestaurantsController < ActionController::Base
                                        :description, 
                                        :phone,
                                        :address)
+  end
+  
+  def authorize!
+    raise CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_owned_by?(current_restaurant)
   end
 end

@@ -1,7 +1,7 @@
-/ TODO: create show link in base controller
 tr
   td.restaurant-name == show_link
   td.restaurant-email = model.email
   td.restaurant-status = status
   td.restaurant-actions
+    .text-right == edit_link
     .text-right == delete_link

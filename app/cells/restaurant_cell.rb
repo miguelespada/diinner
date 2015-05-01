@@ -1,13 +1,17 @@
 class RestaurantCell < BaseCell
   include ActionView::Helpers::DateHelper
   def delete_link
-    @path = admin_restaurant_path(model)
-    render
+    if admin_signed_in?
+      @path = admin_restaurant_path(model)
+      render
+    end
   end
 
   def new_link
-    @path = new_admin_restaurant_path
-    render
+    if admin_signed_in?
+      @path = new_admin_restaurant_path
+      render
+    end
   end
 
   def show_link
@@ -22,11 +26,9 @@ class RestaurantCell < BaseCell
   def edit_link
     if admin_signed_in?
       @path = edit_admin_restaurant_path(model)
-    elsif restaurant_signed_in?
-      # TODO: test authorization
+    elsif model.is_owned_by?(current_restaurant)
       @path = edit_restaurant_path(model)
     end
-    # TODO: test that a user do not see the edit link
     render unless @path.nil?
   end
 
