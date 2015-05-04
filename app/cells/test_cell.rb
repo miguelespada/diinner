@@ -13,7 +13,7 @@ class TestCell < BaseCell
   
   def show_link
     @path = admin_test_path(model)
-    render
+    render "show_icon"
   end
 
   def new_link

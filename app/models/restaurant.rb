@@ -43,4 +43,10 @@ class Restaurant
   field :address,           type: String, default: ""
 
   has_many :menus
+
+  def is_owned_by?(user)
+    user.id == id
+  rescue
+    false
+  end
 end 

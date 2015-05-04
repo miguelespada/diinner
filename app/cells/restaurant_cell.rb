@@ -1,23 +1,35 @@
 class RestaurantCell < BaseCell
   include ActionView::Helpers::DateHelper
   def delete_link
-    @path = admin_restaurant_path(model)
-    render
+    if admin_signed_in?
+      @path = admin_restaurant_path(model)
+      render
+    end
   end
 
   def new_link
-    @path = new_admin_restaurant_path
-    render
+    if admin_signed_in?
+      @path = new_admin_restaurant_path
+      render
+    end
   end
 
   def show_link
-    @path = restaurant_path(model)
+    if admin_signed_in?
+      @path = admin_restaurant_path(model)
+    else
+      @path = restaurant_path(model)
+    end
     render
   end
   
   def edit_link
-    @path = edit_restaurant_path(model)
-    render
+    if admin_signed_in?
+      @path = edit_admin_restaurant_path(model)
+    elsif model.is_owned_by?(current_restaurant)
+      @path = edit_restaurant_path(model)
+    end
+    render unless @path.nil?
   end
 
   def logout_link

@@ -1,6 +1,7 @@
 tr
-  td.restaurant-name == link_to model.name, admin_restaurant_path(model)
+  td.restaurant-name == show_link
   td.restaurant-email = model.email
   td.restaurant-status = status
   td.restaurant-actions
+    .text-right == edit_link
     .text-right == delete_link

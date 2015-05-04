@@ -1,5 +1,4 @@
-
-  @wip
+@wip
 Feature: Restaurant manage menus
   As restaurant
   I want to manage menus

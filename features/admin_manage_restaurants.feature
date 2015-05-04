@@ -10,6 +10,11 @@ Feature: Admin Manage Restaurants
   Scenario: I create a restaurant
     Then I should see the restaurant in the list of restaurants
 
+  @admin_edit_restaurant
+  Scenario: I edit a restaurant
+    When I edit a restaurant
+    Then I should see the updated restaurant in the list of restaurants
+
   @delete_restaurant
   Scenario: I delete a restaurant
     When I delete a restaurant
