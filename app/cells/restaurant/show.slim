@@ -7,5 +7,8 @@ p.restaurant-email
   = model.email
 p.restaurant-address
   = model.address
+div#restaurant-map
+
+= tag("div", :id => 'map-config', :data => {:token => ENV['mapbox_access_token'], :style => ENV['map_style']}) 
 
 == cell(:restaurant, model).call(:edit_link)

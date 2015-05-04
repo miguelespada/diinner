@@ -1,0 +1,9 @@
+development:
+  mapbox_access_token: 'pk.eyJ1IjoiamFtZXNoZWRhd2VuZyIsImEiOiJxNGxvT1h3In0.q1gGwhVt7lQ7Tji5NV2jUQ'
+  map_style: 'jameshedaweng.hig7ak0h'
+test:
+  mapbox_access_token: 'pk.eyJ1IjoiamFtZXNoZWRhd2VuZyIsImEiOiJxNGxvT1h3In0.q1gGwhVt7lQ7Tji5NV2jUQ'
+  map_style: 'jameshedaweng.hig7ak0h'
+production:
+  mapbox_access_token: 'pk.eyJ1IjoiamFtZXNoZWRhd2VuZyIsImEiOiJxNGxvT1h3In0.q1gGwhVt7lQ7Tji5NV2jUQ'
+  map_style: 'jameshedaweng.hig7ak0h'
