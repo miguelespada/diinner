@@ -1,10 +1,12 @@
 tr
   td 
     p = model.question 
+  td 
+    p = cl_image model.option_A, 125, 125
     p = model.caption_A
+  td 
+    p = cl_image model.option_B, 125, 125
     p = model.caption_B
-  td = cl_image model.option_A, 125, 125
-  td = cl_image model.option_B, 125, 125
   td.text-right.test-actions
     == show_link
     == edit_link
