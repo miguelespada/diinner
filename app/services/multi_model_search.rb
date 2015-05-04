@@ -12,6 +12,6 @@ class MultiModelSearch
             end
           end
         end
-     Elasticsearch::Model.search(query, [Restaurant, User]).page(2).per(10).results
+     Elasticsearch::Model.search(query, [Restaurant, User]).results
   end
 end
