@@ -18,7 +18,4 @@ Feature: Restaurant map
 
   # TODO solve js problem
   @restaurant_map @javascript
-  Scenario: I update my address
-    When I add an address to my profile
-    Then I should see my geolocation
-    And I should see my location marked in the map
+  Scenario: I update my addressp
