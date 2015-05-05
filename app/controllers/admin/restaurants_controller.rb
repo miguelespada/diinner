@@ -42,6 +42,9 @@ class  Admin::RestaurantsController < AdminController
                                 :password, 
                                 :email,
                                 :phone,
-                                :address)
+                                :address,
+                                :city,
+                                :latitude,
+                                :longitude)
   end
 end

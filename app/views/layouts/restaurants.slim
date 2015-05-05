@@ -9,3 +9,5 @@
 = render "/restaurants/navbar"
 = render "/restaurants/sidebar"
 = render "/layouts/app" 
+
+= cell(:restaurant, @restaurant).call(:map_config)

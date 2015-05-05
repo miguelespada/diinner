@@ -3,4 +3,9 @@
 = f.input :description
 = f.input :phone
 = f.input :address
-= f.button :submit 
+= f.input :city, :collection => ['Madrid', 'Barcelona', 'Valencia', 'Sevilla']
+button.update-map.btn.btn-default type="button" Update Map
+div#restaurant-map
+= f.input :latitude
+= f.input :longitude
+= f.button :submit
