@@ -1,3 +1,6 @@
+Kaminari::Hooks.init
+Elasticsearch::Model::Response::Response.__send__ :include, Elasticsearch::Model::Response::Pagination::Kaminari
+
 Kaminari.configure do |config|
   config.default_per_page = 10
   # config.max_per_page = nil

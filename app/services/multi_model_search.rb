@@ -1,4 +1,5 @@
 class MultiModelSearch
+  
   def self.search query
     query = Jbuilder.encode do |json|
           json.query do
