@@ -7,4 +7,6 @@ class Test
   field :caption_B, type: String, default: ""
   has_attachment :option_A, accept: [:jpg, :png, :gif]
   has_attachment :option_B, accept: [:jpg, :png, :gif]
+
+  has_one :test_response
 end

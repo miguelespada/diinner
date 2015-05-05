@@ -9,6 +9,8 @@ class User
   field :birth, type: Date
   field :gender, type: String
 
+  has_one :test_response
+
   def first_login?
     updated_at == created_at
   end

@@ -26,11 +26,19 @@ Rails.application.routes.draw do
     resources :users
   end
 
-
   scope :users do
     get "/login" => "users#login", as: "users_login"
   end
+
+  namespace :users do
+    scope :test do
+      get "" => "test_responses#new", as: "test"
+      # post "/response" => "tests#test_response", as: "test_response"
+    end
+    resources :test_responses
+  end
   resources :users
+
 
 
   # You can have the root of your site routed with "root"

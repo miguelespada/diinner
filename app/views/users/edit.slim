@@ -1,4 +1,8 @@
-h1 Edit
-= render "form"
-
-== cell(:user, @user).call(:logout_link)
+div.container-fluid
+  div.row
+    div.col-md-12
+      div.col-md-8
+        h1 Edit
+        = render "form"
+      div.pull-right.col-md-2
+        == cell(:user, @user).call(:logout_link)

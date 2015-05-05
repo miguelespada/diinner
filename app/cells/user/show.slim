@@ -1,14 +1,25 @@
-h2.user-name 
-  = model.name
-p.user-avatar
-  = image_tag model.image_url
-p.user-email
-  = model.email 
-p.user-gender
-  = gender
-p.user-birth
-  = model.birth
-
-== cell(:user, model).call(:edit_link)
-br
-== cell(:user, model).call(:logout_link)
+div.container-fluid
+  div.row
+    div.col-md-12
+      div.col-md-10
+        p.user-avatar.col-md-3
+          = image_tag model.image_url, size: "200"
+        div.col-md-4
+          h2.user-name
+            = model.name
+          p.user-email
+            | Email:
+            =< model.email
+          p.user-gender
+            | Sex:
+            =< gender
+          p.user-birth
+            | Birth:
+            =< model.birth
+      div.pull-right.col-md-2
+        div.col-md-3
+          == cell(:user, model).call(:test_link)
+        div.col-md-2
+          == cell(:user, model).call(:edit_link)
+        div.col-md-3
+          == cell(:user, model).call(:logout_link)

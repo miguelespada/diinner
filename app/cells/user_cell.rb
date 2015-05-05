@@ -17,4 +17,9 @@ class UserCell < BaseCell
     @path =  edit_user_path(model)
     render
   end
+
+  def test_link
+    @path = users_test_path
+    render
+  end
 end
