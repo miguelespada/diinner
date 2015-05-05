@@ -1,1 +1,1 @@
-= tag("div", :id => 'map-config', :data => {:token => ENV['mapbox_access_token'], :style => ENV['map_style'], :google_key => ENV['google_geolocation_key'], :current_lat => model.latitude, :current_lng => model.longitude }) 
+div#map-config data-token="#{ENV['mapbox_access_token']}" data-style="#{ENV['map_style']}" data-google-key="#{ENV['google_geolocation_key']}" data-current-lat="#{model.latitude}" data-current-lng="#{model.longitude}"
