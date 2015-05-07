@@ -3,10 +3,14 @@ div.container
     div.col-xs-12.col-md-6
       == cell(:test, @test)
     div.col-md-6
-      h1 Choose your response to the test
-      = @testiii.to_json
+      h1
+        = @test.question
       == simple_form_for [:users, @test_response] do |f|
         = f.error_notification
-        = f.input :response
+        div.row
+          = f.collection_radio_buttons :response, [[1, 'A'] ,[2, 'B']], :first, :last do |b|
+            div.col-md-6
+              = cl_image_tag(@test.send("option_#{b.text}").path, { size: "200x200", crop: :fill, radius: 2 })
+              = b.radio_button + b.label
         = f.hidden_field :test, :value => @test.id
-        = f.button :submit
+        = f.button :submit, :value => "Reply"

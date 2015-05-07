@@ -9,4 +9,4 @@ Feature: User test
   Scenario: I can do a test
     When I go to the test page
     When I do a test
-    Then I should see a test has been done
+    Then I should have a test done
