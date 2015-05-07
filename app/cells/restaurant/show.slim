@@ -7,5 +7,12 @@ p.restaurant-email
   = model.email
 p.restaurant-address
   = model.address
+p.restaurant-city
+  = model.city
+p.restaurant-latitude
+  = model.latitude
+p.restaurant-longitude
+  = model.longitude
+div#restaurant-map
 
 == cell(:restaurant, model).call(:edit_link)

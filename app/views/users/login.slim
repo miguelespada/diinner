@@ -1,7 +1,7 @@
 #login-panel style=("width: 280px; margin: 40px auto; padding: 10px; border-style: none; border-width: 1px;")
   | embeded area
 
-= tag("div", :id => 'request', :data => {:host => request.host, :port => request.port,}) 
+div#request data-host="#{request.host}" data-port="#{request.port}"
 
 = javascript_include_tag "https://cdn.auth0.com/js/lock-7.1.min.js"
 

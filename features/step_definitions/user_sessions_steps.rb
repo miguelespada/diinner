@@ -20,3 +20,6 @@ end
 When(/^I go to the user page$/) do
   visit users_path
 end
+
+When(/^I add an address to my profile$/) do
+end

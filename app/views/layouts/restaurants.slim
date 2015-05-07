@@ -1,6 +1,14 @@
 - content_for(:color) do
   == "contrast-green"
-
+- content_for(:head) do
+  = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css', media: 'all'
+  = stylesheet_link_tag 'restaurant', media: 'all'
+  = javascript_include_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'
+  = javascript_include_tag 'map'
+  
 = render "/restaurants/navbar"
 = render "/restaurants/sidebar"
-= render "/layouts/app" 
+= render "/layouts/app"
+= render "/restaurants/map_config"
+
+
