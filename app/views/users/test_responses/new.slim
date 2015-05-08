@@ -10,9 +10,9 @@ div.container
         div.row
           = f.collection_radio_buttons :response, [[1, 'A'] ,[2, 'B']], :first, :last do |b|
             div.col-md-6
-              - image = @test.send("option_#{b.text}").path
+              - image = @test.send("option_#{b.text}")
               - if image.present?
-                == cl_image_tag(image, { size: "200x200", crop: :fill, radius: 2 })
+                == cl_image_tag(image.path, { size: "200x200", crop: :fill, radius: 2 })
               = b.radio_button + ' ' + @test.send("caption_#{b.text}")
         = f.hidden_field :test, :value => @test.id
         = f.button :submit, :value => "Reply"
