@@ -26,4 +26,12 @@ class User
   def is_gender_undefined?
     gender == "undefined"
   end
+
+  def get_test_response_ids
+    ret = []
+    TestResponse.where(user: self).each do |response|
+      ret.push(response.test.id)
+    end
+    ret
+  end
 end

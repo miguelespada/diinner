@@ -1,8 +1,8 @@
 class  Users::TestResponsesController < UsersController
 
   def new
-    offset = rand(Test.count)
-    @test = Test.offset(offset).first
+    @user = @session.user_from_session
+    @test = TestSelector.get_random_test(@user)
     @test_response = TestResponse.new
   end
 
