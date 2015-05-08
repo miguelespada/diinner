@@ -1,8 +1,8 @@
 div.container
   div.row#content-wrapper
-    div.col-xs-12.col-md-6
+    div.col-xs-12.col-md-4
       == cell(:test, @test)
-    div.col-md-6
+    div.col-md-8
       h1
         = @test.question
       == simple_form_for [:users, @test_response] do |f|
@@ -10,7 +10,9 @@ div.container
         div.row
           = f.collection_radio_buttons :response, [[1, 'A'] ,[2, 'B']], :first, :last do |b|
             div.col-md-6
-              = cl_image_tag(@test.send("option_#{b.text}").path, { size: "200x200", crop: :fill, radius: 2 })
-              = b.radio_button + b.label
+              - image = @test.send("option_#{b.text}").path
+              - if image.present?
+                == cl_image_tag(image, { size: "200x200", crop: :fill, radius: 2 })
+              = b.radio_button + ' ' + @test.send("caption_#{b.text}")
         = f.hidden_field :test, :value => @test.id
         = f.button :submit, :value => "Reply"
