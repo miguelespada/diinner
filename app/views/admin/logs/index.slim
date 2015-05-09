@@ -1,0 +1,12 @@
+- content_for(:title) do
+  | Logs
+
+- content_for(:thead) do
+  th Action
+  th Entity
+  th Time
+
+- content_for(:tbody) do
+  == cell(:log, collection: @logs, method: :row)
+
+= render "admin/admin_table"

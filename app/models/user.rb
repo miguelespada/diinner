@@ -12,6 +12,10 @@ class User
   # TODO: no sería has_many?
   has_one :test_response
 
+  after_create do |user|
+    Log.create(:action => "new", :type => "user", :entity_id => user.id)
+  end
+
   def first_login?
     updated_at == created_at
   end

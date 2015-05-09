@@ -1,7 +1,6 @@
 
 Given(/^Is the first time I login as user$/) do
-  @first_time_user = FactoryGirl.create(:user, :first_login)
-  login_as_user @first_time_user
+  first_time_user_login
   step "I go to the user page"
 end
 
