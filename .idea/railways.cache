@@ -1,0 +1,78 @@
+Starting up a new ElasticSearch client with 
+                    Prefix Verb   URI Pattern                              Controller#Action
+               attachinary        /attachinary                             Attachinary::Engine
+       auth_auth0_callback GET    /auth/auth0/callback(.:format)           auth0#callback
+              auth_failure GET    /auth/failure(.:format)                  auth0#failure
+               auth_logout GET    /auth/logout(.:format)                   auth0#logout
+    new_restaurant_session GET    /restaurants/sign_in(.:format)           devise/sessions#new
+        restaurant_session POST   /restaurants/sign_in(.:format)           devise/sessions#create
+destroy_restaurant_session GET    /restaurants/sign_out(.:format)          devise/sessions#destroy
+       restaurant_password POST   /restaurants/password(.:format)          devise/passwords#create
+   new_restaurant_password GET    /restaurants/password/new(.:format)      devise/passwords#new
+  edit_restaurant_password GET    /restaurants/password/edit(.:format)     devise/passwords#edit
+                           PATCH  /restaurants/password(.:format)          devise/passwords#update
+                           PUT    /restaurants/password(.:format)          devise/passwords#update
+         new_admin_session GET    /admins/sign_in(.:format)                devise/sessions#new
+             admin_session POST   /admins/sign_in(.:format)                devise/sessions#create
+     destroy_admin_session GET    /admins/sign_out(.:format)               devise/sessions#destroy
+            admin_password POST   /admins/password(.:format)               devise/passwords#create
+        new_admin_password GET    /admins/password/new(.:format)           devise/passwords#new
+       edit_admin_password GET    /admins/password/edit(.:format)          devise/passwords#edit
+                           PATCH  /admins/password(.:format)               devise/passwords#update
+                           PUT    /admins/password(.:format)               devise/passwords#update
+               restaurants GET    /restaurants(.:format)                   restaurants#index
+                           POST   /restaurants(.:format)                   restaurants#create
+            new_restaurant GET    /restaurants/new(.:format)               restaurants#new
+           edit_restaurant GET    /restaurants/:id/edit(.:format)          restaurants#edit
+                restaurant GET    /restaurants/:id(.:format)               restaurants#show
+                           PATCH  /restaurants/:id(.:format)               restaurants#update
+                           PUT    /restaurants/:id(.:format)               restaurants#update
+                           DELETE /restaurants/:id(.:format)               restaurants#destroy
+                     admin GET    /admin(.:format)                         admin#index
+              admin_search GET    /admin/search(.:format)                  admin#search
+         admin_restaurants GET    /admin/restaurants(.:format)             admin/restaurants#index
+                           POST   /admin/restaurants(.:format)             admin/restaurants#create
+      new_admin_restaurant GET    /admin/restaurants/new(.:format)         admin/restaurants#new
+     edit_admin_restaurant GET    /admin/restaurants/:id/edit(.:format)    admin/restaurants#edit
+          admin_restaurant GET    /admin/restaurants/:id(.:format)         admin/restaurants#show
+                           PATCH  /admin/restaurants/:id(.:format)         admin/restaurants#update
+                           PUT    /admin/restaurants/:id(.:format)         admin/restaurants#update
+                           DELETE /admin/restaurants/:id(.:format)         admin/restaurants#destroy
+               admin_tests GET    /admin/tests(.:format)                   admin/tests#index
+                           POST   /admin/tests(.:format)                   admin/tests#create
+            new_admin_test GET    /admin/tests/new(.:format)               admin/tests#new
+           edit_admin_test GET    /admin/tests/:id/edit(.:format)          admin/tests#edit
+                admin_test GET    /admin/tests/:id(.:format)               admin/tests#show
+                           PATCH  /admin/tests/:id(.:format)               admin/tests#update
+                           PUT    /admin/tests/:id(.:format)               admin/tests#update
+                           DELETE /admin/tests/:id(.:format)               admin/tests#destroy
+               admin_users GET    /admin/users(.:format)                   admin/users#index
+                           POST   /admin/users(.:format)                   admin/users#create
+            new_admin_user GET    /admin/users/new(.:format)               admin/users#new
+           edit_admin_user GET    /admin/users/:id/edit(.:format)          admin/users#edit
+                admin_user GET    /admin/users/:id(.:format)               admin/users#show
+                           PATCH  /admin/users/:id(.:format)               admin/users#update
+                           PUT    /admin/users/:id(.:format)               admin/users#update
+                           DELETE /admin/users/:id(.:format)               admin/users#destroy
+               users_login GET    /users/login(.:format)                   users#login
+                users_test GET    /users/test(.:format)                    users/test_responses#new
+      users_test_responses GET    /users/test_responses(.:format)          users/test_responses#index
+                           POST   /users/test_responses(.:format)          users/test_responses#create
+   new_users_test_response GET    /users/test_responses/new(.:format)      users/test_responses#new
+  edit_users_test_response GET    /users/test_responses/:id/edit(.:format) users/test_responses#edit
+       users_test_response GET    /users/test_responses/:id(.:format)      users/test_responses#show
+                           PATCH  /users/test_responses/:id(.:format)      users/test_responses#update
+                           PUT    /users/test_responses/:id(.:format)      users/test_responses#update
+                           DELETE /users/test_responses/:id(.:format)      users/test_responses#destroy
+                     users GET    /users(.:format)                         users#index
+                           POST   /users(.:format)                         users#create
+                  new_user GET    /users/new(.:format)                     users#new
+                 edit_user GET    /users/:id/edit(.:format)                users#edit
+                      user GET    /users/:id(.:format)                     users#show
+                           PATCH  /users/:id(.:format)                     users#update
+                           PUT    /users/:id(.:format)                     users#update
+                           DELETE /users/:id(.:format)                     users#destroy
+                      root GET    /                                        static_pages#index
+
+Routes for Attachinary::Engine:
+  cors GET  /cors(.:format) attachinary/cors#show {:format=>"json"}

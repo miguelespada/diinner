@@ -30,11 +30,10 @@ class User
   end
 
   def get_test_response_ids
-    # TODO use significant names "ret?"
-    ret = []
+    ids = []
     TestResponse.where(user: self).each do |response|
-      ret.push(response.test.id)
+      ids.push(response.test.id)
     end
-    ret
+    ids
   end
 end

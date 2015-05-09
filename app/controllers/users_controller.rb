@@ -4,7 +4,6 @@ class UsersController < ActionController::Base
   before_action :authenticate, except: [:login]
 
   def index
-    @user = @session.user_from_session
     if @user.first_login?
       redirect_to edit_user_path(@user) 
     else
@@ -16,15 +15,12 @@ class UsersController < ActionController::Base
   end
 
   def edit
-    @user = @session.user_from_session
   end
 
   def show
-    @user = @session.user_from_session
   end
 
   def update
-    @user = @session.user_from_session
     if @user.update(user_params)
       redirect_to user_path(@user), notice: 'Your profile was successfully updated.'
     else
@@ -40,7 +36,11 @@ class UsersController < ActionController::Base
   end
 
   def authenticate
-    redirect_to users_login_path unless @session.logged?
+    if @session.logged?
+      @user = @session.user_from_session
+    else
+      redirect_to users_login_path
+    end
   end
 
   def create_session
