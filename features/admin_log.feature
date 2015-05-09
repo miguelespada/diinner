@@ -11,3 +11,10 @@ Feature: Admin Log
     When I new user is registered 
     Then I should see the log of the creation of the new user
     And I can access to the new user the data
+
+
+  @admin_new_restaurant_log
+  Scenario: 
+    When I new restaurant is created 
+    Then I should see the log of the creation of the new restaurant
+    And I can access to the new restaurant the data

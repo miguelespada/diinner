@@ -47,6 +47,10 @@ class Restaurant
 
   has_many :menus
 
+  after_create do |restaurant|
+    Log.create(:action => "new", :type => "restaurant", :name => restaurant.name, :entity_id => restaurant.id)
+  end
+
   def is_owned_by?(user)
     user.id == id
   rescue
