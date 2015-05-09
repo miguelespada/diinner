@@ -9,6 +9,7 @@ class User
   field :birth, type: Date
   field :gender, type: String
 
+  # TODO: no sería has_many?
   has_one :test_response
 
   def first_login?
@@ -28,6 +29,7 @@ class User
   end
 
   def get_test_response_ids
+    # TODO use significant names "ret?"
     ret = []
     TestResponse.where(user: self).each do |response|
       ret.push(response.test.id)

@@ -1,6 +1,7 @@
 class  Users::TestResponsesController < UsersController
 
   def new
+    # TODO: maybe @user to before filter
     @user = @session.user_from_session
     @test = TestSelector.get_random_test(@user)
     redirect_to user_path(@user) unless @test

@@ -13,7 +13,9 @@ When(/^I do a test$/) do
 end
 
 Then(/^I should have a test done$/) do
+  # TODO: this is not proper integration test.
   @test_response = TestResponse.where(user: @user).first
+  # TODO: this does not cover the test answer, with one more line we do test stronger
   expect(@test_response.user).to eq(@user)
 end
 
