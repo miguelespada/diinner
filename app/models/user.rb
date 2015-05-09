@@ -2,6 +2,7 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include UserSearchable
+  include Loggeable
 
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""
@@ -12,9 +13,7 @@ class User
   # TODO: no sería has_many?
   has_one :test_response
 
-  after_create do |user|
-    Log.add(user)
-  end
+
 
   def first_login?
     updated_at == created_at

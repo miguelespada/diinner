@@ -2,6 +2,7 @@ class Restaurant
   include Mongoid::Document
   include Mongoid::Timestamps
   include RestaurantSearchable
+  include Loggeable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -46,10 +47,6 @@ class Restaurant
   field :longitude,         type: String, default: ""
 
   has_many :menus
-
-  after_create do |restaurant|
-    Log.add restaurant
-  end
 
   def is_owned_by?(user)
     user.id == id

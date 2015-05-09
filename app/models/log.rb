@@ -11,10 +11,4 @@ class Log
     @entity ||= type.classify.safe_constantize.find(entity_id)
   end
 
-  def self.add entity
-    self.create(:action => "new", 
-                :type => entity.model_name.param_key, 
-                :name => entity.name, 
-                :entity_id => entity.id)
-  end
 end
