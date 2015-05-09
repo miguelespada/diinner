@@ -13,7 +13,7 @@ class User
   has_one :test_response
 
   after_create do |user|
-    Log.create(:action => "new", :type => "user", :name => user.name, :entity_id => user.id)
+    Log.add(user)
   end
 
   def first_login?
