@@ -43,6 +43,8 @@ class Admin
                 :type => entity.model_name.param_key, 
                 :name => entity.name, 
                 :entity_id => entity.id)
-    log.notify first.email
+    all.each do |admin|
+      log.notify admin.email
+    end
   end
 end
