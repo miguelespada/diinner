@@ -71,6 +71,8 @@ Before do
   Restaurant.__elasticsearch__.create_index! index: Restaurant.index_name
   User.__elasticsearch__.create_index! index: User.index_name
   DatabaseCleaner.start
+
+  allow(Pony).to receive(:deliver)
 end
 
 After do |scenario|

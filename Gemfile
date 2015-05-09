@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'thin'
 gem 'rails', '4.1.9'
 gem 'sass-rails', '~> 4.0.3'
@@ -30,7 +31,8 @@ gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 gem 'cloudinary'
 gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
-
+gem "pony"
+gem 'sendgrid-rails', '~> 2.0'
 
 group :test do
   gem "database_cleaner"

@@ -13,8 +13,6 @@ class User
   # TODO: no sería has_many?
   has_one :test_response
 
-
-
   def first_login?
     updated_at == created_at
   end

@@ -11,4 +11,13 @@ class Log
     @entity ||= type.classify.safe_constantize.find(entity_id)
   end
 
+  def to_s
+    "#{action.capitalize} #{type}: #{name}"
+  end
+
+  def notify to
+    Pony.mail(:to => to, 
+              :from => "noreply@diinner.com", 
+              :subject => "[Diinner] #{self.to_s}")
+  end
 end

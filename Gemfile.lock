@@ -148,6 +148,9 @@ GEM
     disposable (0.0.9)
       representable (~> 2.0)
       uber
+    dotenv (2.0.1)
+    dotenv-rails (2.0.1)
+      dotenv (= 2.0.1)
     elasticsearch (1.0.8)
       elasticsearch-api (= 1.0.7)
       elasticsearch-transport (= 1.0.7)
@@ -244,6 +247,8 @@ GEM
     origin (2.1.1)
     orm_adapter (0.5.0)
     phantomjs (1.9.8.0)
+    pony (1.9)
+      mail (>= 2.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -316,6 +321,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sendgrid-rails (2.0.4)
+      actionmailer (>= 3.0.0)
+      activesupport (>= 2.1.0)
     slim (3.0.2)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -375,6 +383,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  dotenv-rails
   elasticsearch-model!
   elasticsearch-rails!
   factory_girl_rails
@@ -390,6 +399,7 @@ DEPENDENCIES
   mongoid-tree
   omniauth (~> 1.2)
   omniauth-auth0 (~> 1.1)
+  pony
   pry
   pry-rails
   rails (= 4.1.9)
@@ -398,6 +408,7 @@ DEPENDENCIES
   ruby-prof
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  sendgrid-rails (~> 2.0)
   simple_form!
   slim-rails
   thin

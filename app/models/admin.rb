@@ -39,9 +39,10 @@ class Admin
   end
 
   def self.log action, entity
-    Log.create(:action => action, 
+    log = Log.create(:action => action, 
                 :type => entity.model_name.param_key, 
                 :name => entity.name, 
                 :entity_id => entity.id)
+    log.notify first.email
   end
 end

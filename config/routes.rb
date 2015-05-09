@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   namespace :users do
     scope :test do
       get "" => "test_responses#new", as: "test"
+      # TODO do not leave commented  things!
       # post "/response" => "tests#test_response", as: "test_response"
     end
     resources :test_responses

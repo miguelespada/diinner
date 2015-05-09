@@ -29,6 +29,8 @@ Then(/^I should see the log of the creation of the new restaurant$/) do
     expect(page).to have_content @restaurant.name
     expect(page).to have_content @restaurant.created_at
   end
+
+ 
   # TODO add to shortlist
 end
 
