@@ -4,22 +4,34 @@ class UserCell < BaseCell
   end
 
   def logout_link
-    @path = auth_logout_path
-    render
+    if !admin_signed_in?
+      @path = auth_logout_path
+      render
+    end
   end
 
   def show_link
-    @path = user_path(model)
+    if admin_signed_in?
+      @path = admin_user_path(model)
+    else
+      @path = user_path(model)
+    end
     render
   end
 
   def edit_link
-    @path =  edit_user_path(model)
-    render
+    if admin_signed_in?
+      @path = edit_admin_user_path(model)
+    else
+      @path = edit_user_path(model)
+    end
+    render unless @path.nil?
   end
 
   def test_link
-    @path = users_test_path
-    render
+    if !admin_signed_in?
+      @path = users_test_path
+      render
+    end
   end
 end

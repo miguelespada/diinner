@@ -46,4 +46,10 @@ class User
     end
     ids
   end
+
+  def is_owned_by?(user)
+    user.id == id
+  rescue
+    false
+  end
 end
