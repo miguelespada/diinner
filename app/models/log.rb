@@ -12,6 +12,9 @@ class Log
   end
 
   def self.add entity
-    self.create(:action => "new", :type => entity.model_name.param_key, :name => entity.name, :entity_id => entity.id)
+    self.create(:action => "new", 
+                :type => entity.model_name.param_key, 
+                :name => entity.name, 
+                :entity_id => entity.id)
   end
 end
