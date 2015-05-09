@@ -38,7 +38,8 @@ class  Admin::TestsController < AdminController
                                   :caption_A,
                                   :caption_B,
                                   :option_A,
-                                  :option_B)
+                                  :option_B,
+                                  :gender)
   end
 
 end

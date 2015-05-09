@@ -5,6 +5,7 @@
   = f.input :caption_A
   = f.input :option_B, as: :attachinary
   = f.input :caption_B
+  = f.input :gender, collection: [['Undefined', 'undefined'], ['Female', 'female'], ['Male', 'male']], default: "undefined"
   = f.button :submit
 
 javascript:

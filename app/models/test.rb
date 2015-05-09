@@ -7,6 +7,19 @@ class Test
   field :caption_B, type: String, default: ""
   has_attachment :option_A, accept: [:jpg, :png, :gif]
   has_attachment :option_B, accept: [:jpg, :png, :gif]
+  field :gender, type: String
 
   has_one :test_response
+
+  def is_male?
+    gender == "male"
+  end
+
+  def is_female?
+    gender == "female"
+  end
+
+  def is_gender_undefined?
+    gender == "undefined"
+  end
 end

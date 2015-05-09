@@ -29,6 +29,16 @@ class User
     gender == "undefined"
   end
 
+  def opposite_sex
+    if gender == "male"
+      "female"
+    elsif gender == "female"
+      "male"
+    else
+      "none"
+    end
+  end
+
   def get_test_response_ids
     ids = []
     TestResponse.where(user: self).each do |response|
