@@ -1,4 +1,4 @@
-When(/^I visit the other restaurant data$/) do
+When(/^I visit other restaurant data$/) do
   @other = FactoryGirl.create(:restaurant)
   visit restaurant_path(@other)
 end

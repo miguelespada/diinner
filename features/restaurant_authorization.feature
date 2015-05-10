@@ -4,7 +4,7 @@ Feature: Restaurant autorization
 
   Background:
     Given I am logged as restaurant
-    When I visit the other restaurant data
+    When I visit other restaurant data
 
   @restaurant_edit_autorization
   Scenario:

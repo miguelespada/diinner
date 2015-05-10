@@ -11,6 +11,7 @@ div.container
           = f.collection_radio_buttons :response, [[1, 'A'] ,[2, 'B']], :first, :last do |b|
             div.col-md-6
               - image = @test.send("option_#{b.text}")
+              / TODO No logic in views -> use cells
               - if image.present?
                 == cl_image_tag(image.path, { size: "200x200", crop: :fill, radius: 2 })
               = b.radio_button + ' ' + @test.send("caption_#{b.text}")
