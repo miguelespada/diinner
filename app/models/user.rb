@@ -52,7 +52,7 @@ class User
   end
 
   def is_owned_by?(user)
-    user.id == id
+    user == self
   rescue
     false
   end

@@ -48,8 +48,8 @@ class Restaurant
 
   has_many :menus
 
-  def is_owned_by?(user)
-    user.id == id
+  def is_owned_by?(restaurant)
+    restaurant == self
   rescue
     false
   end
