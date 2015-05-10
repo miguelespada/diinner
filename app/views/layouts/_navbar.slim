@@ -7,29 +7,8 @@ header
       li.dropdown.light.only-icon
         a.dropdown-toggle data-toggle="dropdown" href="#" 
           i.icon-cog
-      li.dropdown.medium.only-icon.widget
-        a.dropdown-toggle data-toggle="dropdown" href="#" 
-          i.icon-rss
-        ul.dropdown-menu
-          li
-            a href="#" 
-            .widget-body
-              .pull-left.icon
-                i.icon-user.text-success
-              .pull-left.text
-                | Daniel Armengol ha reservado una mesa.
-                small.text-muted just now
-          li.divider
-          li
-            a href="#" 
-            .widget-body
-              .pull-left.icon
-                i.icon-inbox.text-error
-              .pull-left.text
-                | Nuevo mensaje admin
-                small.text-muted 3 minutes ago
-          li.widget-footer
-            a href="#"  All notifications
+      li.dropdown.medium.only-icon.widget 
+        = yield(:logs)
       li.dropdown.dark.user-menu
         a.dropdown-toggle data-toggle="dropdown" href="#" 
           span.user-name 

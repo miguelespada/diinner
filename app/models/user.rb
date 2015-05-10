@@ -3,6 +3,7 @@ class User
   include Mongoid::Timestamps
   include UserSearchable
   include Loggeable
+  include Notificable
 
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""

@@ -17,12 +17,14 @@ describe Restaurant do
       expect(restaurant.name).not_to be nil
     end
 
-    it "sends an email to the admin after creation" do
-      expect(Pony).to receive(:mail) do |mail|
-        expect(mail[:to]).to eq @admin.email
-        expect(mail[:subject]).to eq "[Diinner] New restaurant: My restaurant"
-      end
-      restaurant = FactoryGirl.create(:restaurant, :name => "My restaurant")
+    it "adds a log entry after creation" do
+      FactoryGirl.create(:restaurant, :name => "My restaurant")
+      expect(Log.count).to eq 1
+    end
+
+    it "does not send an email to the admin after creation" do
+      expect(Pony).not_to receive(:mail)
+      FactoryGirl.create(:restaurant, :name => "My restaurant")
     end
   end
 end

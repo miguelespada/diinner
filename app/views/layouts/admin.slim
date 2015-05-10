@@ -3,7 +3,9 @@
 - content_for(:head) do
   = stylesheet_link_tag 'admin', media: 'all'
 
+- content_for(:logs) do
+  = render "admin/logs"
+
 = render "/admin/navbar"
 = render "/admin/sidebar"
 = render "/layouts/app"
-

@@ -12,7 +12,13 @@ describe User do
         expect(mail[:to]).to eq @admin.email
         expect(mail[:subject]).to eq "[Diinner] New user: Dummy user"
       end
-      restaurant = FactoryGirl.create(:user, :name => "Dummy user")
+      FactoryGirl.create(:user, :name => "Dummy user")
+      expect(Log.count).to eq 1
+    end
+
+     it "adds a log entry after creation" do
+      FactoryGirl.create(:user, :name => "Dummy user")
+      expect(Log.count).to eq 1
     end
   end
 end

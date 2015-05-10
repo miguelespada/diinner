@@ -39,12 +39,16 @@ class Admin
   end
 
   def self.log action, entity
-    log = Log.create(:action => action, 
+    @log = Log.create(:action => action, 
                 :type => entity.model_name.param_key, 
                 :name => entity.name, 
                 :entity_id => entity.id)
+  end
+
+  def self.notify_by_email action, entity
+    @log ||= self.log action, entity
     all.each do |admin|
-      log.notify admin.email
+      @log.notify admin.email
     end
   end
 end
