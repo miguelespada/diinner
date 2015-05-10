@@ -32,10 +32,11 @@ Rails.application.routes.draw do
 
   namespace :users do
     # TODO why create a scope????
-    # TODO redefine routes!
+    # TODO redefine this routes
     scope :test do
       get "" => "test_responses#new", as: "test"
     end
+    # TODO this is not a CRUD, better not to use all resources
     resources :test_responses
   end
   resources :users
