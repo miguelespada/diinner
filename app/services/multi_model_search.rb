@@ -1,6 +1,6 @@
 class MultiModelSearch
   
-  def self.search query, page, per_page = 25
+  def self.search query, page = 1, per_page = 25
     query = Jbuilder.encode do |json|
           json.query do
             json.match do
