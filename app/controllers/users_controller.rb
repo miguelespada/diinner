@@ -4,10 +4,9 @@ class UsersController < ApplicationController
   before_action :authenticate, except: [:login]
   load_resource :only => [:show, :edit, :update]
   before_action :authorize!, :only => [:edit, :update]
-  before_action :check_first_login, except: [:login, :edit, :update]
+  before_action :redirect_if_first_login, only: [:index, :show]
 
   def index
-    # TODO do we need index???
     redirect_to user_path(@current_user)
   end
 
@@ -51,10 +50,8 @@ class UsersController < ApplicationController
     raise CanCan::AccessDenied.new("Not authorized!") if !@user.is_owned_by?(@current_user)
   end
 
-  def check_first_login
-    if @current_user.first_login?
-      redirect_to edit_user_path(@current_user)
-    end
+  def redirect_if_first_login
+    redirect_to edit_user_path(@current_user) if @current_user.first_login?
   end
 
 end

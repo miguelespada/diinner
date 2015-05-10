@@ -5,10 +5,7 @@ class UserCell < BaseCell
   end
 
   def logout_link
-   # TODO  WTF No añadir features sin test.
-   # Quizás es mejor ponerlo en positivo
-    # if user_signed_in?
-    if !admin_signed_in?
+    if user_signed_in?
       @path = auth_logout_path
       render
     end
@@ -34,10 +31,7 @@ class UserCell < BaseCell
   end
 
   def test_link
-   # TODO  WTF No añadir features sin test.
-   # Quizás es mejor ponerlo en positivo
-   # if model.is_owned_by?(current_user)
-    if !admin_signed_in?
+    if model.is_owned_by?(current_user)
       @path = users_test_path
       render
     end
