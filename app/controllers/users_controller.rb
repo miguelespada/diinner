@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   before_action :check_first_login, except: [:login, :edit, :update]
 
   def index
+    # TODO do we need index???
     redirect_to user_path(@current_user)
   end
 
