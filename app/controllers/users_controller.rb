@@ -3,15 +3,11 @@ class UsersController < ApplicationController
   before_action :create_session
   before_action :authenticate, except: [:login]
   load_resource :only => [:show, :edit, :update]
-  before_filter :authorize!, :only => [:edit, :update]
+  before_action :authorize!, :only => [:edit, :update]
+  before_action :check_first_login, except: [:login, :edit, :update]
 
   def index
-    # TODO this should be a before filter (not only for index)
-    if @current_user.first_login?
-      redirect_to edit_user_path(@current_user) 
-    else
-      redirect_to user_path(@current_user) 
-    end
+    redirect_to user_path(@current_user)
   end
 
   def login
@@ -24,8 +20,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path(@user), notice: 'Your profile was successfully updated.'
+    if @current_user.update(user_params)
+      redirect_to user_path(@current_user), notice: 'Your profile was successfully updated.'
     else
       render :edit
     end
@@ -53,4 +49,11 @@ class UsersController < ApplicationController
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if !@user.is_owned_by?(@current_user)
   end
+
+  def check_first_login
+    if @current_user.first_login?
+      redirect_to edit_user_path(@current_user)
+    end
+  end
+
 end

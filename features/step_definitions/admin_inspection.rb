@@ -62,3 +62,14 @@ Then(/^I should see the user details$/) do
   expect(page).to have_content @users[0].email
 end
 
+When(/^I list users$/) do
+  visit admin_path
+  click_on "Users"
+end
+
+Then(/^I should not see the user action links$/) do
+  within(:css, ".container-fluid") do
+    expect(page).not_to have_content "Logout"
+    expect(page).not_to have_content "Test"
+  end
+end

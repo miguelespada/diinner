@@ -34,9 +34,12 @@ class UserCell < BaseCell
   end
 
   def test_link
+<<<<<<< HEAD
    # TODO  WTF No añadir features sin test.
    # Quizás es mejor ponerlo en positivo
    # if model.is_owned_by?(current_user)
+=======
+>>>>>>> 3ac56d6b889e0f587cef48d34c45d0d59256fc88
     if !admin_signed_in?
       @path = users_test_path
       render
