@@ -18,8 +18,7 @@ gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 gem 'rails_12factor', group: :production
 gem "slim-rails"
 gem 'cells-slim', git: 'git://github.com/trailblazer/cells-slim.git'
-gem 'kaminari'
-gem 'kaminari-bootstrap', '~> 3.0.1'
+gem "will_paginate_mongoid"
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'bonsai-elasticsearch-rails'

@@ -6,7 +6,7 @@ class AdminController < ApplicationController
   end
 
   def search
-    @results = MultiModelSearch.search(params[:query])
+    @results = MultiModelSearch.search(params[:query], params[:page])
   end
 
   def show

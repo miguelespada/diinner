@@ -1,6 +1,6 @@
 class MultiModelSearch
   
-  def self.search query
+  def self.search query, page, per_page = 25
     query = Jbuilder.encode do |json|
           json.query do
             json.match do
@@ -12,6 +12,6 @@ class MultiModelSearch
             end
           end
         end
-     Elasticsearch::Model.search(query, [Restaurant, User]).results
+    multimodel = Elasticsearch::Model.search(query, [Restaurant, User]).per_page(per_page).page(page).results
   end
 end
