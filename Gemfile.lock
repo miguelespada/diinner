@@ -167,6 +167,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     fssm (0.2.10)
@@ -387,6 +389,7 @@ DEPENDENCIES
   elasticsearch-model!
   elasticsearch-rails!
   factory_girl_rails
+  faker (~> 1.4.3)
   j_growl_rails
   jasmine
   jbuilder (~> 2.0)

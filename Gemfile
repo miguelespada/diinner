@@ -33,6 +33,7 @@ gem 'cloudinary'
 gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
 gem "pony"
 gem 'sendgrid-rails', '~> 2.0'
+gem 'faker', '~> 1.4.3'
 
 group :test do
   gem "database_cleaner"
