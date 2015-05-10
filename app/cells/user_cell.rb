@@ -5,7 +5,6 @@ class UserCell < BaseCell
   end
 
   def logout_link
-    # TODO WTF!! para qué es esto? lo quito y no falla test.
    if !admin_signed_in?
       @path = auth_logout_path
       render
@@ -32,7 +31,6 @@ class UserCell < BaseCell
   end
 
   def test_link
-    # TODO WTF!! par qué es esto? lo quito y no falla test.
     if !admin_signed_in?
       @path = users_test_path
       render

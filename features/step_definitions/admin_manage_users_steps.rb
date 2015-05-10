@@ -1,5 +1,5 @@
 When(/^I edit a user$/) do
-  click_on "Users"
+  step "I list users"
   click_on @users[0].name
   find(".edit").click
   page.select('Male', :from => 'user_gender')

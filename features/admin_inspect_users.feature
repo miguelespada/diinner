@@ -9,3 +9,9 @@ Feature: Admin Inspect Users
   @list_users
   Scenario: I list users
     Then I should see the users in the list of users
+
+  @not_see_user_links
+  Scenario:
+    When I list users
+    When I click on a user
+    Then I should not see the user action links
