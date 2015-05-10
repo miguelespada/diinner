@@ -10,6 +10,7 @@ div.container
         div.row
           = f.collection_radio_buttons :response, [[1, 'A'] ,[2, 'B']], :first, :last do |b|
             div.col-md-6
+              / TODO Do not use metaprogramming for simple things
               - image = @test.send("option_#{b.text}")
               / TODO No logic in views -> use cells
               - if image.present?
