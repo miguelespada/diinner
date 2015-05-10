@@ -17,9 +17,4 @@ class ApplicationController < ActionController::Base
     render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false
   end
 
-  helper_method :current_user
-
-  def current_user
-    @current_user
-  end
 end

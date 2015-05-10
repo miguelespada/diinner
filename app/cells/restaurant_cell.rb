@@ -33,8 +33,10 @@ class RestaurantCell < BaseCell
   end
 
   def logout_link
-    @path = destroy_restaurant_session_path
-    render
+    if :restaurant_signed_in?
+      @path = destroy_restaurant_session_path
+      render
+   end
   end
 
   private

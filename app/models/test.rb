@@ -10,6 +10,7 @@ class Test
   # TODO: do not add features without a test
   field :gender, type: String
 
+  # TODO: this should be has_many?
   has_one :test_response
 
   def is_male?

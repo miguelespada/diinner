@@ -10,12 +10,11 @@ Rails.application.routes.draw do
 
   devise_for :restaurants
   devise_for :admins
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
+  
   resources :restaurants
 
   get "admin" => "admin#index", as: "admin"
+
   scope :admin do
     get "/search" => "admin#search", as: "admin_search"
   end
@@ -32,6 +31,8 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
+    # TODO why create a scope????
+    # TODO redefine routes!
     scope :test do
       get "" => "test_responses#new", as: "test"
     end
