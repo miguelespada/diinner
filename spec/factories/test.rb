@@ -5,6 +5,6 @@ FactoryGirl.define do
     sequence(:caption_B) { |n| "Response B #{n}" }
     option_A FactoryGirl.build(:attachinary)
     option_B FactoryGirl.build(:attachinary)
-    gender { ["undefined"] }
+    gender { :undefined }
   end
 end

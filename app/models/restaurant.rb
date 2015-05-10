@@ -47,6 +47,7 @@ class Restaurant
   field :longitude,         type: String, default: ""
 
   has_many :menus
+  has_many :tables
 
   def is_owned_by?(user)
     user.id == id
