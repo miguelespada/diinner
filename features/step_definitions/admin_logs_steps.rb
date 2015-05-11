@@ -1,4 +1,4 @@
-When(/^I new user is registered$/) do
+When(/^ new user is registered$/) do
   first_time_user_login
 end
 
@@ -18,7 +18,7 @@ Then(/^I can access to the new user the data$/) do
 end
 
 
-When(/^I new restaurant is created$/) do
+When(/^a new restaurant is created$/) do
   @restaurant = FactoryGirl.create(:restaurant)
 end
 
@@ -29,8 +29,6 @@ Then(/^I should see the log of the creation of the new restaurant$/) do
     expect(page).to have_content @restaurant.name
     expect(page).to have_content @restaurant.created_at
   end
-
- 
   # TODO add to shortlist
 end
 
@@ -38,4 +36,3 @@ Then(/^I can access to the new restaurant the data$/) do
   click_on @restaurant.name
   expect(page).to have_content @restaurant.email
 end
-

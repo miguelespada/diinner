@@ -10,6 +10,7 @@ class Test
 
   has_attachment :option_A, accept: [:jpg, :png, :gif]
   has_attachment :option_B, accept: [:jpg, :png, :gif]
+  
   # TODO: do not add features without a test
   field :gender, type: String
 
