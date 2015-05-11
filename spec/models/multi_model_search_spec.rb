@@ -3,6 +3,8 @@ describe MultiModelSearch do
   context "Elasticsearch integration" do
     
     before(:all) do
+      Restaurant.delete_all
+      User.delete_all
       Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name rescue nil
       User.__elasticsearch__.client.indices.delete index: User.index_name rescue nil
       
