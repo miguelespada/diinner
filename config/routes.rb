@@ -10,16 +10,10 @@ Rails.application.routes.draw do
 
   devise_for :restaurants
   devise_for :admins
-<<<<<<< HEAD
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
   namespace :restaurants do
     resources :tables
   end
-=======
-  
->>>>>>> da0ac5a2f4d443ec56f67b34f4fcb7e7b8430d46
   resources :restaurants
 
   get "admin" => "admin#index", as: "admin"
