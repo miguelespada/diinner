@@ -206,6 +206,8 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-enum (0.2.0)
+      mongoid (~> 4.0)
     mongoid-rspec (2.1.0)
       mongoid (~> 4.0.0)
       rake
@@ -394,6 +396,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mongoid
+  mongoid-enum
   mongoid-rspec
   mongoid-tree
   omniauth (~> 1.2)

@@ -10,7 +10,10 @@ Rails.application.routes.draw do
 
   devise_for :restaurants
   devise_for :admins
-  
+
+  namespace :restaurants do
+    resources :tables
+  end
   resources :restaurants
 
   get "admin" => "admin#index", as: "admin"

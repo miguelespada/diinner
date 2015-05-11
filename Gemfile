@@ -32,6 +32,7 @@ gem 'cloudinary'
 gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
 gem "pony"
 gem 'sendgrid-rails', '~> 2.0'
+gem 'mongoid-enum'
 gem 'faker', '~> 1.4.3'
 
 group :test do

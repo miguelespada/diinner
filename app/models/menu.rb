@@ -6,4 +6,5 @@ class Menu
   field :price, type: String, default: ""
 
   belongs_to :restaurant
+  belongs_to :table
 end

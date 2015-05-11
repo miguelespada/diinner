@@ -1,6 +1,7 @@
 class Test
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Enum
 
   field :question, type: String
   field :caption_A, type: String
@@ -12,20 +13,8 @@ class Test
   has_attachment :option_B, accept: [:jpg, :png, :gif]
   
   # TODO: do not add features without a test
-  field :gender, type: String
+  enum :gender, [:male, :female, :undefined]
 
   # TODO: this should be has_many?
   has_one :test_response
-
-  def is_male?
-    gender == "male"
-  end
-
-  def is_female?
-    gender == "female"
-  end
-
-  def is_gender_undefined?
-    gender == "undefined"
-  end
 end

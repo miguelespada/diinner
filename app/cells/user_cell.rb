@@ -1,7 +1,7 @@
 class UserCell < BaseCell
 
   def gender
-    model.is_gender_undefined? ? "---" : model.gender
+    model.undefined? ? "---" : model.gender
   end
 
   def logout_link
