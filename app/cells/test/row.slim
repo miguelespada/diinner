@@ -1,6 +1,6 @@
 tr
   td 
-    p = model.question 
+    p = link_to model.question, admin_test_path(model) 
   td 
     p = cl_image model.option_A, 125, 125
     p = model.caption_A

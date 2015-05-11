@@ -32,7 +32,7 @@ class UserCell < BaseCell
 
   def test_link
     if model.is_owned_by?(current_user)
-      @path = users_test_path
+      @path = users_test_path(model)
       render
     end
   end

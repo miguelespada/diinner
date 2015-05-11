@@ -1,20 +1,4 @@
-div.container
-  div.row#content-wrapper
-    div.col-xs-12.col-md-4
-      == cell(:test, @test)
-    div.col-md-8
-      h1
-        = @test.question
-      == simple_form_for [:users, @test_response] do |f|
-        = f.error_notification
-        div.row
-          = f.collection_radio_buttons :response, [[1, 'A'] ,[2, 'B']], :first, :last do |b|
-            div.col-md-6
-              / TODO Do not use metaprogramming for simple things
-              - image = @test.send("option_#{b.text}")
-              / TODO No logic in views -> use cells
-              - if image.present?
-                == cl_image_tag(image.path, { size: "200x200", crop: :fill, radius: 2 })
-              = b.radio_button + ' ' + @test.send("caption_#{b.text}")
-        = f.hidden_field :test, :value => @test.id
-        = f.button :submit, :value => "Reply"
+== cell(:test, @test)
+
+=  link_to @test.caption_A, users_test_response_path(@user, @test, :option => @test.caption_A), :method => :post
+=  link_to @test.caption_B, users_test_response_path(@user, @test, :option => @test.caption_B), :method => :post

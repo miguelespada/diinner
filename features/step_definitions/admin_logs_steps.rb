@@ -1,4 +1,4 @@
-When(/^ new user is registered$/) do
+When(/^a new user is registered$/) do
   first_time_user_login
 end
 
