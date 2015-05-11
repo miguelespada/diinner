@@ -25,4 +25,31 @@ def create_users
 
 end
 
+def create_restaurants
+  10.times do |n|
+    name = Faker::Name.name
+    description = Faker::Lorem.sentences(1)
+    email = Faker::Internet.email
+    phone = Faker::PhoneNumber.phone_number
+    address = Faker::Address.street_address
+    city = ["Madrid", "Barcelona", "Sevilla", "Valencia"].sample
+    latitude = rand(37.5...43.0)
+    longitude = rand(-6.0...2.0)
+  
+    Restaurant.create(
+      name: name,
+      description: description,
+      email: email,
+      password: '12345678',
+      phone: phone,
+      address: address,
+      city: city,
+      latitude: latitude,
+      longitude: longitude
+    )
+  end
+end
+
 create_users
+create_restaurants
+

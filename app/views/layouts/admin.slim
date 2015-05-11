@@ -2,6 +2,10 @@
   == "contrast-blue"
 - content_for(:head) do
   = stylesheet_link_tag 'admin', media: 'all'
+  = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css', media: 'all'
+  = stylesheet_link_tag 'restaurant', media: 'all'
+  = javascript_include_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'
+  = javascript_include_tag 'map'
 
 - content_for(:logs) do
   = render "admin/logs"
@@ -9,3 +13,4 @@
 = render "/admin/navbar"
 = render "/admin/sidebar"
 = render "/layouts/app"
+= render "/restaurants/map_config"
