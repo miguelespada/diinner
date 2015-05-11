@@ -3,13 +3,17 @@ class Test
   include Mongoid::Timestamps
   include Mongoid::Enum
 
-  field :question, type: String, default: ""
-  field :caption_A, type: String, default: ""
-  field :caption_B, type: String, default: ""
+  field :question, type: String
+  field :caption_A, type: String
+  field :caption_B, type: String
+
+  validates_presence_of :question, :caption_A, :caption_B
+
   has_attachment :option_A, accept: [:jpg, :png, :gif]
   has_attachment :option_B, accept: [:jpg, :png, :gif]
   # TODO: do not add features without a test
   enum :gender, [:male, :female, :undefined]
 
+  # TODO: this should be has_many?
   has_one :test_response
 end

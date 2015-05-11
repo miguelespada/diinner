@@ -73,6 +73,7 @@ Before do
   DatabaseCleaner.start
 
   allow(Pony).to receive(:deliver)
+
 end
 
 After do |scenario|

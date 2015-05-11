@@ -18,8 +18,7 @@ gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 gem 'rails_12factor', group: :production
 gem "slim-rails"
 gem 'cells-slim', git: 'git://github.com/trailblazer/cells-slim.git'
-gem 'kaminari'
-gem 'kaminari-bootstrap', '~> 3.0.1'
+gem "will_paginate_mongoid"
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'bonsai-elasticsearch-rails'
@@ -34,6 +33,7 @@ gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
 gem "pony"
 gem 'sendgrid-rails', '~> 2.0'
 gem 'mongoid-enum'
+gem 'faker', '~> 1.4.3'
 
 group :test do
   gem "database_cleaner"

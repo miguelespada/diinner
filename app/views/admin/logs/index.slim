@@ -6,8 +6,9 @@
   th Entity
   th Time
 
-/ TODO paginate
 - content_for(:tbody) do
   == cell(:log, collection: @logs, method: :row)
 
 = render "admin/admin_table"
+
+= will_paginate @logs

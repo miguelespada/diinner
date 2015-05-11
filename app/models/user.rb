@@ -31,6 +31,9 @@ class User
   end
 
   def get_test_response_ids
+    # TODO WTF!!!
+    # Use associations
+    # TODO esto no tiene sentido
     ids = []
     TestResponse.where(user: self).each do |response|
       ids.push(response.test.id)
@@ -39,7 +42,7 @@ class User
   end
 
   def is_owned_by?(user)
-    user.id == id
+    user == self
   rescue
     false
   end

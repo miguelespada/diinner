@@ -23,6 +23,7 @@ class  Users::TestResponsesController < UsersController
   end
 
   def load_user
+    # TODO WTF this should be a param!
     @user = @session.user_from_session
   end
 
