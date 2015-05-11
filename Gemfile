@@ -34,7 +34,6 @@ gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
 gem "pony"
 gem 'sendgrid-rails', '~> 2.0'
 gem 'mongoid-enum'
-gem 'enumerize'
 
 group :test do
   gem "database_cleaner"

@@ -1,0 +1,17 @@
+- content_for(:title) do
+  | Tables
+
+- content_for(:new) do
+  == cell(:table, Table).call(:new_link)
+
+- content_for(:thead) do
+  th ID
+  th Date
+  th Slots
+  th Status
+  th.text-right Actions
+
+- content_for(:tbody) do
+  == cell(:table, collection: @tables, method: :row)
+
+= render "admin/admin_table"

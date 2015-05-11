@@ -1,0 +1,9 @@
+h2.table-id = model.id
+p.table-date
+  = model.date
+p.table-slots
+  = model.slots
+p.table-status
+  = model.status
+
+== cell(:table, model).call(:edit_link)
