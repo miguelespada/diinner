@@ -54,4 +54,11 @@ class Restaurant
   rescue
     false
   end
+
+   def to_log
+    @log = Log.create(:action => "new", 
+        :type => self.model_name.param_key, 
+        :name => name, 
+        :entity_id => self.id)
+  end
 end 

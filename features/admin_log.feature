@@ -1,3 +1,4 @@
+@admin_logs
 Feature: Admin Log
   As admin
   In order to monitor the activity on the web

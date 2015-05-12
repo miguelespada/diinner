@@ -2,7 +2,7 @@ module Loggeable
   extend ActiveSupport::Concern
   included do
     after_create do |entity|
-      Admin.log "new", entity
+      entity.to_log
     end
   end
 end

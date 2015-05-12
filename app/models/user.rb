@@ -40,4 +40,12 @@ class User
     Test.not_in(id: test_completed.map{|m| m.test.id}, gender: opposite_sex)
   end
 
+  def to_log
+    @log = Log.create(:action => "new", 
+        :type => self.model_name.param_key, 
+        :name => name, 
+        :entity_id => self.id)
+  end
+
+
 end

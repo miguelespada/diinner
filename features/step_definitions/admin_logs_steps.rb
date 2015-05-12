@@ -46,12 +46,14 @@ end
 Then(/^I should see the log of the creation of the new test response$/) do
  click_on "Logs"
   within(:css, "#logs") do
-    expect(page).to have_content "New test_response"
+    expect(page).to have_content "New test"
     expect(page).to have_content @test.caption_A
     expect(page).to have_content @test_response.created_at
   end
 end
 
 Then(/^I can access to the test response data$/) do
-  pending # express the regexp above with the code you wish you had
+  click_on @test.caption_A
+  expect(page).to have_content @test.question
+  expect(page).to have_content @user.name
 end
