@@ -23,3 +23,9 @@ div.container-fluid
           == cell(:user, model).call(:edit_link)
         div.col-md-3
           == cell(:user, model).call(:logout_link)
+
+div.responses
+  ul
+  - model.test_completed.each do |response|
+    li = response.test.question
+    li = response.response

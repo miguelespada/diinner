@@ -12,8 +12,8 @@ class User
   field :birth, type: Date
   enum :gender, [:male, :female, :undefined]
 
-  # TODO: no sería has_many?
-  has_one :test_response
+  has_many :test_completed, class_name: "TestResponse"
+
   belongs_to :table
 
   def first_login?
@@ -30,20 +30,14 @@ class User
     end
   end
 
-  def get_test_response_ids
-    # TODO WTF!!!
-    # Use associations
-    # TODO esto no tiene sentido
-    ids = []
-    TestResponse.where(user: self).each do |response|
-      ids.push(response.test.id)
-    end
-    ids
-  end
-
   def is_owned_by?(user)
     user == self
   rescue
     false
   end
+
+  def test_pending
+    Test.not_in(id: test_completed.map{|m| m.test.id}, gender: opposite_sex)
+  end
+
 end

@@ -8,13 +8,19 @@ Feature: Admin Log
 
   @admin_new_user_log
   Scenario: 
-    When I new user is registered 
+    When a new user is registered 
     Then I should see the log of the creation of the new user
     And I can access to the new user the data
 
-
   @admin_new_restaurant_log
   Scenario: 
-    When I new restaurant is created 
+    When a new restaurant is created 
     Then I should see the log of the creation of the new restaurant
     And I can access to the new restaurant the data
+
+
+  @admin_new_test_response_log @wip
+  Scenario: 
+    When a user answers a test 
+    Then I should see the log of the creation of the new test response
+    And I can access to the test response data

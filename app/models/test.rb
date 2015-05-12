@@ -11,9 +11,9 @@ class Test
 
   has_attachment :option_A, accept: [:jpg, :png, :gif]
   has_attachment :option_B, accept: [:jpg, :png, :gif]
+  
   # TODO: do not add features without a test
   enum :gender, [:male, :female, :undefined]
 
-  # TODO: this should be has_many?
-  has_one :test_response
+  has_many :responses, class_name: "TestResponse"
 end
