@@ -1,12 +1,14 @@
 require "rails_helper" 
 describe User do
 
-  before(:each) do
-    allow(Pony).to receive(:deliver)
-    @admin = FactoryGirl.create(:admin)
-  end
 
   describe "#user?" do
+
+    before(:each) do
+      allow(Pony).to receive(:deliver)
+      @admin = FactoryGirl.create(:admin)
+    end
+
     it "sends an email to the admin after creation" do
       expect(Pony).to receive(:mail) do |mail|
         expect(mail[:to]).to eq @admin.email
@@ -22,7 +24,7 @@ describe User do
     end
   end
 
-  describe "user test response" do
+  describe "#test response?" do
 
     before(:each) do 
       @user = FactoryGirl.create(:user, gender: "male")

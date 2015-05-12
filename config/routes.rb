@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
+  get "/dummy" => 'static_pages#dummy', as: "dummy_index"
+
   scope :auth, as: "auth" do
     get "auth0/callback" => "auth0#callback"
     get "failure" => "auth0#failure"
@@ -39,8 +41,6 @@ Rails.application.routes.draw do
   end
 
   resources :users
-
-
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'

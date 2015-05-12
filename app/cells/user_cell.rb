@@ -36,4 +36,12 @@ class UserCell < BaseCell
       render
     end
   end
+
+  def test_responses
+    if admin_signed_in?
+      render
+    end
+  end
+
+
 end

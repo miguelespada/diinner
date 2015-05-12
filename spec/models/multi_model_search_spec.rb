@@ -26,7 +26,7 @@ describe MultiModelSearch do
         expect(response.total).to be 5
       end
       it "searches users" do
-        response = MultiModelSearch.search('user', 1)
+        response = MultiModelSearch.search('user_1', 1)
         expect(response.total).to be 5
       end
     end
