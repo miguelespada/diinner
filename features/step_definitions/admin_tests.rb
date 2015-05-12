@@ -49,9 +49,7 @@ end
 
 Then(/^I can preview the test$/) do
   click_on "Tests"
-  within(:css, ".test-actions") do
-    find(".show").click
-  end
+  click_on "What do you prefer, A/B?"
   expect(page).to have_css ".phone-mockup"
   expect(page).to have_content "What do you prefer, A/B?"
   expect(page).to have_content "Option A"
