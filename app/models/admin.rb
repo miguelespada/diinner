@@ -41,7 +41,7 @@ class Admin
   def self.log action, entity
     @log = Log.create(:action => action, 
                 :type => entity.model_name.param_key, 
-                :name => entity.name, 
+                :name => entity.to_s, 
                 :entity_id => entity.id)
   end
 

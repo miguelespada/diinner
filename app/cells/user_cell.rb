@@ -42,6 +42,4 @@ class UserCell < BaseCell
       render
     end
   end
-
-
 end
