@@ -26,4 +26,16 @@ module Login
   end
 end
 
+module Ajax
+  def ajax_call method
+    send(method)
+  end
+
+  def google_api
+    fill_in "Latitude", with: "40.012345"
+    fill_in "Longitude", with: "5.056789"
+  end
+end
+
 World(Login)
+World(Ajax)

@@ -8,8 +8,7 @@ end
 
 When(/^I add a geolocation to my profile$/) do
   visit edit_restaurant_path(@restaurant)
-  fill_in "Latitude", with: "40.012345"
-  fill_in "Longitude", with: "5.056789"
+  ajax_call :google_api
   click_on "Update Restaurant"
 end
 
