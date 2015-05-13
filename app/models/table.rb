@@ -1,5 +1,6 @@
 class Table
   include Mongoid::Document
+  include Mongoid::Timestamps
   include Mongoid::Enum
   include Loggeable
 
@@ -24,6 +25,4 @@ class Table
   rescue
     false
   end
-
-
 end

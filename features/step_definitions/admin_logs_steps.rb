@@ -58,3 +58,11 @@ Then(/^I can access to the test response data$/) do
   expect(page).to have_content @test.question
   expect(page).to have_content @user.name
 end
+
+Then(/^I should see the log of the creation of the new table$/) do
+   click_on "Logs"
+  within(:css, "#logs") do
+    expect(page).to have_content "New table"
+    expect(page).to have_content @restaurant.name
+  end
+end
