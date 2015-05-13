@@ -26,9 +26,9 @@ class  Restaurants::TablesController < RestaurantsController
 
     @table = Table.new(table_params)
     @table.slots = 6
-    @table.status = :empty
-    @table.name = @table.id
-    @table.restaurant = current_restaurant
+    @table.status = :empty # TODO this should be model default value
+    @table.name = @table.id # TODO What is that?
+    @table.restaurant = current_restaurant # TODO nested resources helpers
     @table.save!
     redirect_to restaurants_tables_path, :notice => 'Table was successfully created.'
   end
