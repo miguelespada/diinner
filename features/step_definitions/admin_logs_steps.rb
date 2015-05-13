@@ -48,12 +48,13 @@ Then(/^I should see the log of the creation of the new test response$/) do
   within(:css, "#logs") do
     expect(page).to have_content "New test"
     expect(page).to have_content @test.caption_A
+    expect(page).to have_content @user.name
     expect(page).to have_content @test_response.created_at
   end
 end
 
 Then(/^I can access to the test response data$/) do
-  click_on @test.caption_A
+  click_on @test.question
   expect(page).to have_content @test.question
   expect(page).to have_content @user.name
 end

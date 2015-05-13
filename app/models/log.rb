@@ -3,17 +3,16 @@ class Log
   include Mongoid::Timestamps
 
   field :action,    type: String
-  field :type,    type: String
-  field :name,    type: String
+  field :klass,    type: String
   field :entity_id,    type: String
 
 
   def get_entity
-    @entity ||= type.classify.safe_constantize.find(entity_id)
+    @entity ||= klass.classify.safe_constantize.find(entity_id)
   end
 
   def to_s
-    "#{action.capitalize} #{type}: #{name}"
+    "#{action} #{klass}".capitalize
   end
 
   def notify to

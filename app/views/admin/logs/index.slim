@@ -3,8 +3,8 @@
 
 - content_for(:thead) do
   th Action
-  th Entity
   th Time
+  th Info
 
 - content_for(:tbody) do
   == cell(:log, collection: @logs, method: :row)

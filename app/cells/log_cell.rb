@@ -4,11 +4,11 @@ class LogCell < BaseCell
     @entity ||= model.get_entity
   end
 
-  def entity_link
-    link_to model.name, send("admin_#{model.type}_path", entity)
+  def log_info
+    cell(model.klass, entity).call(:to_log)
   end
 
   def action
-    (model.action + " " + model.type).capitalize
+    model.to_s
   end
 end

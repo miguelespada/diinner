@@ -1,6 +1,7 @@
 class Table
   include Mongoid::Document
   include Mongoid::Enum
+  include Loggeable
 
   field :name, type: String, default: ""
   
@@ -23,4 +24,6 @@ class Table
   rescue
     false
   end
+
+
 end
