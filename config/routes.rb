@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   devise_for :restaurants
   devise_for :admins
 
+  # TODO WTF this is wrong-> is not the same namespace and nested resources
+  # TODO we need to change all the structure of menus and tables
+
   namespace :restaurants do
     resources :tables
     resources :menus
@@ -36,12 +39,13 @@ Rails.application.routes.draw do
     get "/login" => "users#login", as: "users_login"
   end
 
-  namespace :users do
-    post ":user_id/test/:test_id" => "test_responses#create", as: "test_response"
-    get ":user_id/test" => "test_responses#new", as: "test"
-  end
 
-  resources :users
+  resources :users do
+    scope :test do
+      post ":test_id" => "test_responses#create", as: "test_response"
+      get "" => "test_responses#new", as: "test"
+    end
+  end
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'

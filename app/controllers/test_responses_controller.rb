@@ -1,4 +1,4 @@
-class  Users::TestResponsesController < UsersController
+class  TestResponsesController < UsersController
 
   before_action :load_user
 
@@ -13,7 +13,7 @@ class  Users::TestResponsesController < UsersController
                     response: params[:option]
                     )
     
-    redirect_to users_test_path(@user), :notice => 'Test was successfully sent.'
+    redirect_to user_test_path(@user), :notice => 'Test was successfully sent.'
   end
 
   private

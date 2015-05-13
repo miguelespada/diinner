@@ -1,6 +1,8 @@
 class Restaurants::MenusController < RestaurantsController
   load_resource :only => [:show, :edit, :update, :destroy]
 
+  # TODO rebuild tables controller using nested resources, not namespacing
+
   def index
     @menus = Menu.all
   end
@@ -16,6 +18,7 @@ class Restaurants::MenusController < RestaurantsController
   end
 
   def create
+    # Use helpers @restaurant.menus.create(menu_params)
     @menu = Menu.new(menu_params)
     @menu.restaurant = current_restaurant
     @menu.save!

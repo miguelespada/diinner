@@ -1,4 +1,4 @@
-Given(/^I user has done a test$/) do
+Given(/^A user has done a test$/) do
   step "I am a logged user"
   @test = FactoryGirl.create(:test)
   step "I go to the user page"

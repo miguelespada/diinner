@@ -1,7 +1,10 @@
 class  Restaurants::TablesController < RestaurantsController
   load_resource :only => [:show, :edit, :update, :destroy]
 
+  # TODO rebuild tables controller using nested resources, not namespacing
+
   def index
+  # TODO all???
     @tables = Table.all
   end
 
@@ -16,6 +19,9 @@ class  Restaurants::TablesController < RestaurantsController
   end
 
   def create
+    
+    # TODO controller must be THIN!!!!
+
     @table = Table.new(table_params)
     @table.slots = 6
     @table.status = :empty

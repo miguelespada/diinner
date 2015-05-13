@@ -5,7 +5,7 @@ Feature: User test
 
   @admin_inspect_test
   Scenario: User do a test
-    Given I user has done a test
+    Given A user has done a test
     When  I am logged as admin
     Then I can see the test response
     And I can see the user test responses
