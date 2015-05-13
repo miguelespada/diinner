@@ -8,7 +8,6 @@ class Menu
   field :drink, type: String, default: ""
 
   belongs_to :restaurant
-  belongs_to :table
 
   def is_owned_by?(restaurant)
     restaurant == self.restaurant

@@ -47,8 +47,7 @@ class MenusController < RestaurantsController
                                  :appetizer,
                                  :main_dish,
                                  :dessert,
-                                 :drink,
-                                 :table)
+                                 :drink)
   end
 
   def authorize!
