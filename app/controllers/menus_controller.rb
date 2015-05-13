@@ -1,14 +1,15 @@
-class Restaurants::MenusController < RestaurantsController
+class MenusController < RestaurantsController
+  before_action :load_restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
+  before_filter :authorize!, :only => [:edit, :update, :destroy]
 
-  # TODO rebuild tables controller using nested resources, not namespacing
 
   def index
-    @menus = Menu.all
+    @menus = @restaurant.menus.all
   end
 
   def new
-    @menu = Menu.new
+    @menu = @restaurant.menus.new
   end
 
   def show
@@ -18,16 +19,13 @@ class Restaurants::MenusController < RestaurantsController
   end
 
   def create
-    # Use helpers @restaurant.menus.create(menu_params)
-    @menu = Menu.new(menu_params)
-    @menu.restaurant = current_restaurant
-    @menu.save!
-    redirect_to restaurants_menus_path, :notice => 'Menu was successfully created.'
+    @menu = @restaurant.menus.create(menu_params)
+    redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
   end
 
   def update
     if @menu.update(menu_params)
-      redirect_to restaurants_menus_path, notice: 'Menu was successfully updated.'
+      redirect_to restaurant_menus_path(@restaurant), notice: 'Menu was successfully updated.'
     else
       render :edit
     end
@@ -35,10 +33,14 @@ class Restaurants::MenusController < RestaurantsController
 
   def destroy
     @menu.destroy
-    redirect_to restaurants_menus_path, notice: 'Menu was successfully destroyed.'
+    redirect_to restaurant_menus_path(@restaurant), notice: 'Menu was successfully destroyed.'
   end
 
   private
+  def load_restaurant
+    @restaurant = Restaurant.find(params["restaurant_id"])
+  end
+
   def menu_params
     params.require(:menu).permit(:name,
                                  :price,

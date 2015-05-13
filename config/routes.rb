@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
   namespace :restaurants do
     resources :tables
+  end
+
+  resources :restaurants do
     resources :menus
   end
-  resources :restaurants
 
   get "admin" => "admin#index", as: "admin"
 

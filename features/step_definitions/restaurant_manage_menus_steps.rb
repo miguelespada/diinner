@@ -1,5 +1,5 @@
 When(/^I create a menu$/) do
-  visit restaurants_menus_path(@restaurant)
+  click_on "Menus"
   click_on "New"
   fill_in "Name", with: "Dummy menu"
   select "20", from: "Price"

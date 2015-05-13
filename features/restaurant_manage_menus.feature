@@ -7,10 +7,11 @@ Feature: Restaurant manage menus
     Given I am logged as restaurant
     When I create a menu
 
+  @restaurant_create_menu
   Scenario: I create a menu
     Then I should see the menu in the list of my menus
 
-  Scenario: I delete a menu
+  Scenario: I edit a menu
     When I edit a menu
     Then I should see the menu updated
     
