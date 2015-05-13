@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :restaurants do
     resources :tables
+    resources :menus
   end
   resources :restaurants
 

@@ -1,4 +1,4 @@
-@wip
+@restaurant_menu
 Feature: Restaurant manage menus
   As restaurant
   I want to manage menus
@@ -9,6 +9,10 @@ Feature: Restaurant manage menus
 
   Scenario: I create a menu
     Then I should see the menu in the list of my menus
+
+  Scenario: I delete a menu
+    When I edit a menu
+    Then I should see the menu updated
     
   Scenario: I delete a menu
     When I delete a menu

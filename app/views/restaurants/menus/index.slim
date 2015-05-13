@@ -1,0 +1,20 @@
+- content_for(:title) do
+  | Menus
+
+- content_for(:new) do
+  == cell(:menu, Menu).call(:new_link)
+
+- content_for(:thead) do
+  th Name
+  th Table
+  th Price
+  th Appetizer
+  th Main dish
+  th Dessert
+  th Drink
+  th.text-right Actions
+
+- content_for(:tbody) do
+  == cell(:menu, collection: @menus, method: :row)
+
+= render "admin/admin_table"
