@@ -26,7 +26,7 @@ def create_users
 end
 
 def create_restaurants
-  10.times do |n|
+  50.times do |n|
     name = Faker::Name.name
     description = Faker::Lorem.sentences(1)
     email = Faker::Internet.email

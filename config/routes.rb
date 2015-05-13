@@ -41,10 +41,8 @@ Rails.application.routes.draw do
 
 
   resources :users do
-    scope :test do
-      post ":test_id" => "test_responses#create", as: "test_response"
-      get "" => "test_responses#new", as: "test"
-    end
+    post "test/:test_id" => "test_responses#create", as: "test_response"
+    get "test" => "test_responses#new", as: "test"
   end
 
   # You can have the root of your site routed with "root"
