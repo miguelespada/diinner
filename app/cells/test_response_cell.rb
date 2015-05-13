@@ -1,0 +1,2 @@
+class TestResponseCell < BaseCell
+end
