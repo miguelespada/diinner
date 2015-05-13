@@ -1,0 +1,14 @@
+- content_for(:title) do
+  | Tables
+
+- content_for(:thead) do
+  th Restaurant
+  th ID
+  th Date
+  th Slots
+  th Status
+
+- content_for(:tbody) do
+  == cell(:table, collection: @tables, method: :admin_row)
+
+= render "admin/admin_table"
