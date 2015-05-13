@@ -13,13 +13,26 @@ class TestCell < BaseCell
   
   def show_link
     @path = admin_test_path(model)
-    render "show_icon"
+    render
   end
+
+  def show_icon
+    @path = admin_test_path(model)
+    render
+  end
+
 
   def new_link
     @path = new_admin_test_path
     render
   end
+
+  def responses
+    if admin_signed_in?
+      render
+    end
+  end
+
 
   # TODO do a yml file
   def phone_mockup

@@ -1,3 +1,4 @@
+@admin_logs
 Feature: Admin Log
   As admin
   In order to monitor the activity on the web
@@ -19,7 +20,7 @@ Feature: Admin Log
     And I can access to the new restaurant the data
 
 
-  @admin_new_test_response_log @wip
+  @admin_new_test_response_log
   Scenario: 
     When a user answers a test 
     Then I should see the log of the creation of the new test response

@@ -16,4 +16,9 @@ class Test
   enum :gender, [:male, :female, :undefined]
 
   has_many :responses, class_name: "TestResponse"
+
+  # Using name as alias for question 
+  def name
+    question 
+  end
 end

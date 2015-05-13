@@ -1,6 +1,6 @@
 tr
   td 
-    p = link_to model.question, admin_test_path(model) 
+    p == show_link
   td 
     p = cl_image model.option_A, 125, 125
     p = model.caption_A
@@ -8,6 +8,5 @@ tr
     p = cl_image model.option_B, 125, 125
     p = model.caption_B
   td.text-right.test-actions
-    == show_link
     == edit_link
     == delete_link
