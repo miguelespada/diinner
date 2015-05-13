@@ -1,5 +1,7 @@
 class  Restaurants::TablesController < RestaurantsController
+  before_action :load_restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
+
 
   # TODO rebuild tables controller using nested resources, not namespacing
 
@@ -20,7 +22,7 @@ class  Restaurants::TablesController < RestaurantsController
 
   def create
     
-    # TODO controller must be THIN!!!!
+    # TODO WTF controller must be THIN!!!!
 
     @table = Table.new(table_params)
     @table.slots = 6
@@ -46,6 +48,12 @@ class  Restaurants::TablesController < RestaurantsController
 
 
   private
+
+  def load_restaurant
+    # TODO this is a temporal patch to solve issue with nested routes
+    @restaurant = current_restaurant
+  end
+
 
   def table_params
     params.require(:table).permit(:date)

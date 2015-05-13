@@ -1,5 +1,4 @@
 When(/^I create a new table$/) do
-  visit restaurant_path(@restaurant)
   click_on "Tables"
   click_on "New"
   fill_in "Date", with: "20/12/2015"
