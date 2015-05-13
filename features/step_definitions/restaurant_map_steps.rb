@@ -17,3 +17,7 @@ Then(/^I should see my geolocation$/) do
   expect(page).to have_content "40.012345"
   expect(page).to have_content "5.056789"
 end
+
+Then(/^I should see my location marked in the map$/) do
+  expect(page).to have_css ".leaflet-marker-icon"
+end
