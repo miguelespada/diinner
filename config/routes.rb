@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   scope :admin do
     get "/search" => "admin#search", as: "admin_search"
+
   end
 
   namespace :admin do
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
     resources :tests
     resources :logs
     resources :users
+    get "/tables" => "restaurants#tables", as: "tables"
   end
 
   scope :users do

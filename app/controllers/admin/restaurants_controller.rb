@@ -34,6 +34,9 @@ class  Admin::RestaurantsController < AdminController
     redirect_to admin_restaurants_path, notice: 'Restaurant was successfully destroyed.'
   end
 
+  def tables
+    @tables = Table.all
+  end
 
   private
 
