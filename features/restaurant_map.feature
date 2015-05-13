@@ -15,10 +15,3 @@ Feature: Restaurant map
     When I add a geolocation to my profile
     Then I should see my geolocation
     And I should see my location marked in the map
-
-  # TODO solve js problem
-  @restaurant_map @javascript @wip
-  Scenario: I update my address
-    When I add an address to my profile
-    Then I should see my geolocation
-    And I should see my location marked in the map

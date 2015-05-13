@@ -1,0 +1,58 @@
+When(/^I create a menu$/) do
+  visit restaurants_menus_path(@restaurant)
+  click_on "New"
+  fill_in "Name", with: "Dummy menu"
+  select "20", from: "Price"
+  fill_in "Appetizer", with: "Dummy appetizer"
+  fill_in "Main dish", with: "Dummy dish"
+  fill_in "Dessert", with: "Dummy dessert"
+  fill_in "Drink", with: "Dummy drink"
+  click_on "Create Menu"
+end
+
+Then(/^I should see the menu in the list of my menus$/) do
+  expect(page).to have_content "Menu was successfully created."
+  within(:css, ".menu-name") do
+    expect(page).to have_content "Dummy menu"
+  end
+  within(:css, ".menu-price") do
+    expect(page).to have_content "20"
+  end
+  within(:css, ".menu-appetizer") do
+    expect(page).to have_content "Dummy appetizer"
+  end
+  within(:css, ".menu-main-dish") do
+    expect(page).to have_content "Dummy dish"
+  end
+  within(:css, ".menu-dessert") do
+    expect(page).to have_content "Dummy dessert"
+  end
+  within(:css, ".menu-drink") do
+    expect(page).to have_content "Dummy drink"
+  end
+end
+
+When(/^I edit a menu$/) do
+  within(:css, ".menu-actions") do
+    find(".edit").click
+  end
+  fill_in "Name", with: "New dummy menu"
+  click_on "Update Menu"
+end
+
+Then(/^I should see the menu updated$/) do
+  within(:css, ".menu-name") do
+    expect(page).to have_content "New dummy menu"
+  end
+end
+
+When(/^I delete a menu$/) do
+  within(:css, ".menu-actions") do
+    find(".delete").click
+  end
+end
+
+Then(/^I should not see the menu in the list of my menus$/) do
+  expect(page).to have_content "Menu was successfully destroyed."
+  expect(page).not_to have_content "Dummy menu"
+end
