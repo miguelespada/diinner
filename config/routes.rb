@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
-  get "/dummy" => 'static_pages#dummy', as: "dummy_index"
-
   scope :auth, as: "auth" do
     get "auth0/callback" => "auth0#callback"
     get "failure" => "auth0#failure"
@@ -38,7 +36,6 @@ Rails.application.routes.draw do
   scope :users do
     get "/login" => "users#login", as: "users_login"
   end
-
 
   resources :users do
     post "test/:test_id" => "test_responses#create", as: "test_response"
