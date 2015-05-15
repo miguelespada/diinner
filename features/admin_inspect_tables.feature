@@ -9,3 +9,4 @@ Feature: Admin Inspect Tables
   Scenario: 
     Given a restaurant has created a table
     Then I should see the table in the tables list
+    And I can access to the table data
