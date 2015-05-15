@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :tests
     resources :logs
     resources :users
-    get "/tables" => "restaurants#tables", as: "tables"
+    resources :tables
   end
 
   scope :users do

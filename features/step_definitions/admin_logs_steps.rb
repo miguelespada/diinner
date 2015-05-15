@@ -66,3 +66,10 @@ Then(/^I should see the log of the creation of the new table$/) do
     expect(page).to have_content @restaurant.name
   end
 end
+
+Then(/^I can access to the table data$/) do
+  click_on @table.id
+  expect(page).to have_content @restaurant.name
+  expect(page).to have_content @table.id
+  expect(page).to have_content @table.slots
+end

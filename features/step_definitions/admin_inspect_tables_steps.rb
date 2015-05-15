@@ -7,7 +7,7 @@ Then(/^I should see the table in the tables list$/) do
   click_on "Tables"
   expect(page).to have_content @restaurant.name
   expect(page).to have_content @table.id
-  expect(page).to have_content @table.slots
+  expect(page).to have_content @table.slots_left
 end
 
 Given(/^A user has reserved a table$/) do

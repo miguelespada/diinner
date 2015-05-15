@@ -1,6 +1,6 @@
 tr
-  td.table-id == cell(:restaurant, model.restaurant).show_link
-  td.table-name == cell(:table, model).show_link
+  td.table-restaurant == cell(:restaurant, model.restaurant).show_link
+  td.table-id == show_link
   td.table-date = model.date
   td.table-slots = model.slots_left
   td.table-status = model.status
