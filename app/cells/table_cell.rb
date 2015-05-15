@@ -12,12 +12,18 @@ class TableCell < BaseCell
   end
 
   def show_link
-    @path = restaurants_table_path(model)
+    if admin_signed_in?
+      @path = admin_table_path(model)
+    else
+      @path = restaurants_table_path(model)
+    end
     render
   end
 
   def edit_link
-    @path = edit_restaurants_table_path(model)
+    if model.is_owned_by?(current_restaurant)
+      @path = edit_restaurants_table_path(model)
+    end
     render unless @path.nil?
   end
 end

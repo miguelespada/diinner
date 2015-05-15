@@ -26,8 +26,8 @@ Feature: Admin Log
     Then I should see the log of the creation of the new test response
     And I can access to the test response data
 
-  @admin_new_test_response_log
+  @admin_new_table_log
   Scenario: 
     When a restaurant has created a table
     Then I should see the log of the creation of the new table
-    # TODO And I can access to the table data
+    And I can access to the table data

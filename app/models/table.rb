@@ -4,6 +4,7 @@ class Table
   include Mongoid::Enum
   include Loggeable
 
+  # TODO do we need the name?
   field :name, type: String, default: ""
   
   # TODO  this should be a method inferred from the numbers of user
