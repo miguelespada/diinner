@@ -1,4 +1,4 @@
-class TablesController < RestaurantsController
+class Admin::TablesController < AdminController
   before_action :load_restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
 

@@ -4,12 +4,11 @@ class Table
   include Mongoid::Enum
   include Loggeable
 
-  field :name, type: String, default: ""
   field :slots, type: Integer, default: 6
   field :date, type: DateTime
 
   # TODO maybe this should be a method inferred by the first user
-  enum :sexual_condition, [:hetero, :lesbian, :gay] 
+  # enum :sexual_condition, [:hetero, :lesbian, :gay]
 
   belongs_to :restaurant
   has_many :users
@@ -33,14 +32,25 @@ class Table
     self.status == :partial
   end
 
+  def slots_occupied
+    users.count
+  end
+
+  def slots_left
+    slots - users.count
+  end
+
   def status
-    slots_occupied = users.count
     if slots_occupied == self.slots
       return :full
     elsif slots_occupied == 0
       return :empty
     end
     :partial
+  end
+
+  def name
+    id
   end
 
 end

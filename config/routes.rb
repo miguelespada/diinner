@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :restaurants
+    resources :restaurants do
+      resources :tables, only: [:show], controller: "tables"
+    end
     resources :tests
     resources :logs
     resources :users
@@ -41,6 +43,12 @@ Rails.application.routes.draw do
   resources :users do
     post "test/:test_id" => "test_responses#create", as: "test_response"
     get "test" => "test_responses#new", as: "test"
+    resources :restaurants, only: [:index, :show], controller: "users/restaurants" do
+      resources :tables, only: [:show], controller: "users/tables" do
+        get "reserve" => "users/tables#reserve", as: "reserve"
+      end
+
+    end
   end
 
   # You can have the root of your site routed with "root"

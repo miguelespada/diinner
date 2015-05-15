@@ -16,3 +16,5 @@ p.restaurant-longitude
 div#restaurant-map
 
 == cell(:restaurant, model).call(:edit_link)
+
+== cell(:table, collection: model.tables, method: :row)
