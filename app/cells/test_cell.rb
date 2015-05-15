@@ -33,6 +33,12 @@ class TestCell < BaseCell
     end
   end
 
+  def questions
+    if user_signed_in?
+      render
+    end
+  end
+
 
   # TODO do a yml file
   def phone_mockup
@@ -51,5 +57,9 @@ class TestCell < BaseCell
 
   def cl_image image, width, height
     cl_image_tag(image.path, { size: "#{width}x#{height}", crop: :fill, radius: 2 }) if image.present?
+  end
+
+  def link_image image, width, height, link_path, method
+    link_to cl_image(image, width, height), link_path, method if image.present?
   end
 end

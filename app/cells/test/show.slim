@@ -1,19 +1,21 @@
-div.preview-phone
-  == phone_mockup
-  div.container
-    == phone_toolbar
-    div.question-count
-      span 7/10
-    div.question 
-      span = model.question
-    div.option-A
-      = cl_image model.option_A, 236, 127
-      span.hidden = model.caption_A
-    div.option-B
-      = cl_image model.option_B, 236, 127
-      span.hidden = model.caption_B
-    div.skip 
-      span Skip
-    == phone_like_button
-
-== responses
+div.col-xs-12.col-md-4
+  div.preview-phone
+    == phone_mockup
+    div.container
+      == phone_toolbar
+      div.question-count
+        span 7/10
+      div.question
+        span = model.question
+      div.option-A
+        = cl_image model.option_A, 236, 127
+        span.hidden = model.caption_A
+      div.option-B
+        = cl_image model.option_B, 236, 127
+        span.hidden = model.caption_B
+      div.skip
+        span Skip
+      == phone_like_button
+div.col-md-8
+  == responses
+  == questions
