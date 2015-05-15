@@ -1,5 +1,5 @@
 - content_for(:sidebar) do
-  li = link_to restaurants_tables_path do
+  li = link_to restaurant_tables_path(@restaurant) do
     i.icon-coffee
     span Tables
   li = link_to restaurant_menus_path(@restaurant) do

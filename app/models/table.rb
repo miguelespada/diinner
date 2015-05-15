@@ -5,10 +5,6 @@ class Table
   include Loggeable
 
   field :name, type: String, default: ""
-  
-  # TODO  this should be a method inferred from the numbers of user
-  enum :status, [:full, :empty, :partial]
-
   field :slots, type: Integer, default: 6
   field :date, type: DateTime
 
@@ -19,10 +15,32 @@ class Table
   has_many :users
   has_one :menu
 
-  def is_owned_by?(restaurant) 
-    # TODO refactor in a straight way self.restaurant == restaurant
-    restaurant.tables.include?(self)
+  def is_owned_by?(restaurant)
+    restaurant == self.restaurant
   rescue
     false
   end
+
+  def is_full?
+    self.status == :full
+  end
+
+  def is_empty?
+    self.status == :empty
+  end
+
+  def is_partial?
+    self.status == :partial
+  end
+
+  def status
+    slots_occupied = users.count
+    if slots_occupied == self.slots
+      return :full
+    elsif slots_occupied == 0
+      return :empty
+    end
+    :partial
+  end
+
 end

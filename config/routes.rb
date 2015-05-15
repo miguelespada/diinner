@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # TODO WTF this is wrong-> is not the same namespace and nested resources
   # TODO we need to change all the structure of menus and tables
 
-  namespace :restaurants do
+  resources :restaurants do
     resources :tables
   end
 
