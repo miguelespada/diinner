@@ -14,6 +14,7 @@ class User
 
   has_many :test_completed, class_name: "TestResponse"
 
+  # TODO ??? User can have many tables
   belongs_to :table
 
   def first_login?
