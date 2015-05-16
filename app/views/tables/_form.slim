@@ -1,0 +1,4 @@
+= simple_form_for [@restaurant, @table] do |f|
+  = f.error_notification
+  = f.input :date, as: :date, html5: true
+  = f.button :submit 

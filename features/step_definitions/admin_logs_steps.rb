@@ -71,5 +71,5 @@ Then(/^I can access to the table data$/) do
   click_on @table.id
   expect(page).to have_content @restaurant.name
   expect(page).to have_content @table.id
-  expect(page).to have_content @table.slots
+  expect(page).to have_content @table.slots_left
 end

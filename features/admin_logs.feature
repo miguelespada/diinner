@@ -19,7 +19,6 @@ Feature: Admin Log
     Then I should see the log of the creation of the new restaurant
     And I can access to the new restaurant the data
 
-
   @admin_new_test_response_log
   Scenario: 
     When a user answers a test 

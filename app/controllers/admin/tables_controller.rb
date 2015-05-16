@@ -1,4 +1,4 @@
-class  Admin::TablesController < AdminController
+class Admin::TablesController < AdminController
   load_resource :only => [:show]
 
   def index
@@ -7,4 +7,5 @@ class  Admin::TablesController < AdminController
 
   def show
   end
+
 end

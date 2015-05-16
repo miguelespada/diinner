@@ -28,7 +28,7 @@ describe Restaurant do
     end
   end
 
-  describe "#elasticsearch" do
+  xdescribe "#elasticsearch" do
     before do
       Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name rescue nil
       @restaurant = FactoryGirl.create(:restaurant, latitude: "32.0", longitude: "43.00")
@@ -38,9 +38,10 @@ describe Restaurant do
     it "serializes latitud and longitud" do
       expect(JSON.parse(@restaurant.as_indexed_json)["lat_lon"]).to eq "32.0,43.00"
     end
-    it "can search nearby restaurants" do
-      p Restaurant.count
-      p Restaurant.near(32, 42, 10)
+    
+    xit "can search nearby restaurants" do
+     expect(Restaurant.near(32, 43.001, 10).results.total).to eq 1
+     expect(Restaurant.near(50, 43.001, 10).results.total).to eq 0
     end
   end
 end

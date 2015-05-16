@@ -3,7 +3,7 @@ Then(/^I should see the user login panel$/) do
 end
 
 Given(/^I am a logged user$/) do
-  @user = FactoryGirl.create(:user, :returning, name: "Rodrigo")
+  @user = FactoryGirl.create(:user, :returning)
   login_as_user @user
 end
 
