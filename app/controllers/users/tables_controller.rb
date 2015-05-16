@@ -1,6 +1,7 @@
 class  Users::TablesController < UsersController
   load_resource :only => [:show]
 
+  # TODO USER DO NOT SEE TABLES AS LIST
   def index
     @tables = Restaurant.find(params[:restaurant_id]).tables
   end

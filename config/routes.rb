@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   devise_for :restaurants
   devise_for :admins
 
-  # TODO WTF this is wrong-> is not the same namespace and nested resources
-  # TODO we need to change all the structure of menus and tables
-
   resources :restaurants do
     resources :tables
     resources :menus
@@ -28,6 +25,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :restaurants do
+      # TODO no necesitamos esto.
+      # tenemos resoures for tables
       resources :tables, only: [:show], controller: "tables"
     end
     resources :tests
@@ -43,6 +42,9 @@ Rails.application.routes.draw do
   resources :users do
     post "test/:test_id" => "test_responses#create", as: "test_response"
     get "test" => "test_responses#new", as: "test"
+
+    # TODO WTF???? 
+    # Revisar con Miguel,... User no tiene resources, solo acciones sencillas
     resources :restaurants, only: [:index, :show], controller: "users/restaurants" do
       resources :tables, only: [:show], controller: "users/tables" do
         get "reserve" => "users/tables#reserve", as: "reserve"
