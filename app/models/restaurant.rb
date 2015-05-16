@@ -43,6 +43,7 @@ class Restaurant
   field :phone,             type: String, default: ""
   field :address,           type: String, default: ""
   field :city,              type: String, default: ""
+  # TODO this should be a float number
   field :latitude,          type: String, default: ""
   field :longitude,         type: String, default: ""
 
