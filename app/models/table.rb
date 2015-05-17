@@ -1,7 +1,6 @@
 class Table
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Enum
   include Loggeable
 
   # TODO do we need to record the slots? This a global constant
@@ -22,6 +21,7 @@ class Table
   end
 
   # This is more readable 
+  # Move '6' to a config variable
   def is_full?
     users.count == 6
   end
@@ -39,7 +39,8 @@ class Table
   end
 
   def status
-    # For simple conditions it is recommended to use compact sintax
+    # For simple conditions it is recommended to use compact syntax
+    # The older version agaings Single Responsability Principle
     return :full if is_full?
     return :empty if is_empty?
     return :partial 

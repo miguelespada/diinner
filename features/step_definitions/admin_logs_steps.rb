@@ -73,3 +73,30 @@ Then(/^I can access to the table data$/) do
   expect(page).to have_content @table.id
   expect(page).to have_content @table.slots_left
 end
+
+When(/^a restaurant has created a menu$/) do
+  @restaurant = FactoryGirl.create(:restaurant)
+  @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
+  @menu = @restaurant.menus.first
+end
+
+Then(/^I should see the log of the creation of the new menu$/) do
+  click_on "Logs"
+  within(:css, "#logs") do
+    expect(page).to have_content "New menu"
+    expect(page).to have_content @menu.name
+    expect(page).to have_content @restaurant.name
+  end
+end
+  
+Then(/^I can access to the menu data$/) do
+  click_on @menu.name
+  expect(page).to have_content @restaurant.name
+  within(".menu-price") do
+    expect(page).to have_content @menu.price
+  end
+  expect(page).to have_content @menu.appetizer
+  expect(page).to have_content @menu.main_dish
+  expect(page).to have_content @dessert
+  expect(page).to have_content @drink
+end

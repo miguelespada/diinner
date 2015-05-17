@@ -30,9 +30,10 @@ Rails.application.routes.draw do
       resources :tables, only: [:show], controller: "tables"
     end
     resources :tests
-    resources :logs
+    resources :logs, only: [:index]
     resources :users
-    resources :tables
+    resources :tables, only: [:show, :index]
+    resources :menus, only: [:show, :index]
   end
 
   scope :users do

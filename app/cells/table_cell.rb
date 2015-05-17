@@ -17,6 +17,7 @@ class TableCell < BaseCell
 
   def show_link
     if user_signed_in?
+      # TODO ???
       @path = user_restaurant_table_path(current_user, model.restaurant, model)
     elsif restaurant_signed_in?
       @path = restaurant_table_path(current_restaurant, model)

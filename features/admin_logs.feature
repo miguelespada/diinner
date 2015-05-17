@@ -30,3 +30,9 @@ Feature: Admin Log
     When a restaurant has created a table
     Then I should see the log of the creation of the new table
     And I can access to the table data
+
+  @admin_new_menu_log
+  Scenario: 
+    When a restaurant has created a menu
+    Then I should see the log of the creation of the new menu
+    And I can access to the menu data

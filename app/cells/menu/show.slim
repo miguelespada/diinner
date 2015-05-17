@@ -1,5 +1,16 @@
 h2.menu-name = model.name
+h3.menu-restaurant == cell(:restaurant, model.restaurant).show_link
+p.menu-appetizer 
+  = model.appetizer
+p.menu-main-dish
+  = model.main_dish
+p.menu-dessert
+  = model.dessert
+p.menu-drink
+  = model.drink
 p.menu-price
   = model.price
 
+
 == cell(:menu, model).call(:edit_link)
+== cell(:menu, model).call(:delete_link)
