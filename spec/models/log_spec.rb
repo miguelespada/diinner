@@ -17,5 +17,4 @@ describe Log do
       expect(Log.last.action).to eq "update"
     end
   end
-
 end

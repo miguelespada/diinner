@@ -7,7 +7,6 @@ Then(/^I should see the log of the creation of the new user$/) do
   within(:css, "#logs") do
     expect(page).to have_content "New user"
     expect(page).to have_content @first_time_user.name
-    expect(page).to have_content @first_time_user.created_at
   end
   # TODO add to shortlist
 end
@@ -27,7 +26,6 @@ Then(/^I should see the log of the creation of the new restaurant$/) do
   within(:css, "#logs") do
     expect(page).to have_content "New restaurant"
     expect(page).to have_content @restaurant.name
-    expect(page).to have_content @restaurant.created_at
   end
   # TODO add to shortlist
 end
@@ -49,7 +47,6 @@ Then(/^I should see the log of the creation of the new test response$/) do
     expect(page).to have_content "New test"
     expect(page).to have_content @test.caption_A
     expect(page).to have_content @user.name
-    expect(page).to have_content @test_response.created_at
   end
 end
 
