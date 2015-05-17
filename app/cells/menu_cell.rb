@@ -1,13 +1,17 @@
 class MenuCell < BaseCell
 
   def delete_link
-    @path = restaurant_menu_path(model.restaurant, model)
-    render
+    if model.is_owned_by?(current_restaurant)
+      @path = restaurant_menu_path(model.restaurant, model)
+    end
+    render unless @path.nil?
   end
 
   def new_link
-    @path = new_restaurant_menu_path(current_restaurant)
-    render
+    if restaurant_signed_in?
+      @path = new_restaurant_menu_path(current_restaurant)
+    end
+    render unless @path.nil?
   end
 
   def show_link
@@ -21,7 +25,9 @@ class MenuCell < BaseCell
   end
 
   def edit_link
-    @path = edit_restaurant_menu_path(model.restaurant, model)
+    if model.is_owned_by?(current_restaurant)
+      @path = edit_restaurant_menu_path(model.restaurant, model)
+    end
     render unless @path.nil?
   end
 end
