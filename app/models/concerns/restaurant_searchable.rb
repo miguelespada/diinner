@@ -8,10 +8,10 @@ module RestaurantSearchable
 
     index_name  "diinner-restaurant-#{Rails.env}"
 
-   def as_indexed_json(options={})
+    def as_indexed_json(options={})
       as_json(only: [:name, :email, :description, :phone, :address, :city])
     end
-    
+    # TODO DO NOT ADD features WITHOUT test or spec!!!! [JODER]
     mapping do
       indexes :name, type: :string, :analyzer => :spanish, :boost => 50
       indexes :email, type: :string, :boost => 50
