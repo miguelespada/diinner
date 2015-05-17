@@ -26,6 +26,8 @@ class UserCell < BaseCell
       @path = edit_admin_user_path(model)
     elsif model.is_owned_by?(current_user)
       @path = edit_user_path(model)
+    else
+      @path = nil
     end
     render unless @path.nil?
   end

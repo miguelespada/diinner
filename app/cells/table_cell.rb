@@ -24,7 +24,7 @@ class TableCell < BaseCell
     else
       @path = admin_restaurant_table_path(model.restaurant, model)
     end
-    render unless @path.nil?
+    render
   end
 
   def edit_link
