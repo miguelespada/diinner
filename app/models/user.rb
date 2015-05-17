@@ -14,7 +14,8 @@ class User
 
   has_many :test_completed, class_name: "TestResponse"
 
-  # TODO ??? User can have many tables
+  # TODO ??? User can't have many tables
+  # TODO create "Reservation model"
   belongs_to :table
 
   def first_login?
@@ -22,13 +23,9 @@ class User
   end
 
   def opposite_sex
-    if gender == :male
-      :female
-    elsif gender == :female
-      :male
-    else
-      :none
-    end
+    return :female if gender == :male
+    return :male if gender == :female
+    return :none
   end
 
   def is_owned_by?(user)
