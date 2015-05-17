@@ -38,6 +38,7 @@ class  Admin::RestaurantsController < AdminController
   private
 
   def restaurant_params
+    # TODO DRY this
     params.require(:restaurant).permit(:name,
                                 :description, 
                                 :password, 

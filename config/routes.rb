@@ -16,11 +16,9 @@ Rails.application.routes.draw do
     resources :menus
   end
 
-  get "admin" => "admin#index", as: "admin"
-
   scope :admin do
+    get "/" => "admin#index", as: "admin"
     get "/search" => "admin#search", as: "admin_search"
-
   end
 
   namespace :admin do
@@ -31,7 +29,7 @@ Rails.application.routes.draw do
     end
     resources :tests
     resources :logs, only: [:index]
-    resources :users
+    resources :users, execpt: [:new, :create]
     resources :tables, only: [:show, :index]
     resources :menus, only: [:show, :index]
   end
@@ -54,10 +52,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # You can have the root of your site routed with "root"
   root 'static_pages#index'
-
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
