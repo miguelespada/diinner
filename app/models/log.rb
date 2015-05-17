@@ -9,6 +9,8 @@ class Log
 
   def get_entity
     @entity ||= klass.classify.safe_constantize.find(entity_id)
+  rescue 
+    nil
   end
 
   def to_s

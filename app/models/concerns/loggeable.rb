@@ -9,7 +9,7 @@ module Loggeable
     end
     after_update do |entity|
       @log = Log.create( 
-          :action => "upade",
+          :action => "update",
           :klass => entity.model_name.param_key, 
           :entity_id => entity.id)
     end
