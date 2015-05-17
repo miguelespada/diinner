@@ -29,19 +29,18 @@ class RestaurantCell < BaseCell
   def edit_link
     if admin_signed_in?
       @path = edit_admin_restaurant_path(model)
+      render
     elsif model.is_owned_by?(current_restaurant)
       @path = edit_restaurant_path(model)
-    else
-      @path = nil
+      render
     end
-    render unless @path.nil?
   end
 
   def logout_link
     if restaurant_signed_in?
       @path = destroy_restaurant_session_path
       render
-   end
+    end
   end
 
   private

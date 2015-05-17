@@ -28,17 +28,12 @@ class TestCell < BaseCell
   end
 
   def responses
-    if admin_signed_in?
-      render
-    end
+    render if admin_signed_in?
   end
 
   def questions
-    if user_signed_in?
-      render
-    end
+    render if user_signed_in?
   end
-
 
   # TODO do a yml file
   def phone_mockup

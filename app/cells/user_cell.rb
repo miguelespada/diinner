@@ -24,12 +24,11 @@ class UserCell < BaseCell
   def edit_link
     if admin_signed_in?
       @path = edit_admin_user_path(model)
+      render
     elsif model.is_owned_by?(current_user)
       @path = edit_user_path(model)
-    else
-      @path = nil
+      render
     end
-    render unless @path.nil?
   end
 
   def test_link
