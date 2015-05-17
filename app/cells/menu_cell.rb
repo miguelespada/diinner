@@ -20,7 +20,6 @@ class MenuCell < BaseCell
     else
       @path = restaurant_menu_path(model.restaurant, model)
     end
-
     render unless @path.nil?
   end
 

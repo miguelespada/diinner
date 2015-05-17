@@ -17,4 +17,8 @@ div#restaurant-map
 
 == cell(:restaurant, model).call(:edit_link)
 
-== cell(:table, collection: model.tables, method: :row)
+div.menus
+  == cell(:menu, collection: model.menus, method: :row)
+
+div.tables
+  == cell(:table, collection: model.tables, method: :row)

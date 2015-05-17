@@ -8,6 +8,9 @@
   li = link_to admin_tables_path do
     i.icon-coffee
     span Tables
+  li = link_to admin_menus_path do
+    i.icon-menu
+    span Menus
   li = link_to admin_users_path do
     i.icon-group
     span Users
@@ -17,6 +20,7 @@
   li = link_to(admin_logs_path) do
     i.icon-list-alt
     aspan Logs
+    / TODO do not add features without test [JODER!]
   li = link_to () do
     i.icon-map-marker
     aspan Map
