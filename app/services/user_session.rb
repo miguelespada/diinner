@@ -33,5 +33,4 @@ class UserSession
   def find_user
     User.where(email: @session[:userinfo][:info][:email]).first
   end
-
 end
