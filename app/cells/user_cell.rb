@@ -38,13 +38,6 @@ class UserCell < BaseCell
     end
   end
 
-  def restaurants_link
-    if model.is_owned_by?(current_user)
-      @path = user_restaurants_path(model)
-      render
-    end
-  end
-
   def test_responses
     if admin_signed_in?
       render

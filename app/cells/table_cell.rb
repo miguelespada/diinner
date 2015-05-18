@@ -2,8 +2,8 @@ class TableCell < BaseCell
   include ActionView::Helpers::DateHelper
 
   def delete_link
-    if restaurant_signed_in?
-      @path = restaurant_table_path(current_restaurant, model)
+    if model.is_owned_by?(current_restaurant)
+      @path = restaurant_table_path(model.restaurant, model)
       render
     end
   end
@@ -16,27 +16,18 @@ class TableCell < BaseCell
   end
 
   def show_link
-    if user_signed_in?
-      # TODO ???
-      @path = user_restaurant_table_path(current_user, model.restaurant, model)
-    elsif restaurant_signed_in?
-      @path = restaurant_table_path(current_restaurant, model)
-    else
-      @path = admin_restaurant_table_path(model.restaurant, model)
-    end
-    render
-  end
-
-  def edit_link
-    if restaurant_signed_in?
-      @path = edit_restaurant_table_path(current_restaurant, model)
+    if model.is_owned_by?(current_restaurant)
+      @path = restaurant_table_path(model.restaurant, model)
+      render
+    elsif admin_signed_in?
+      @path = admin_table_path(model)
       render
     end
   end
 
-  def reserve_link
-    if user_signed_in?
-      @path = user_restaurant_table_reserve_path(current_user, model.restaurant, model)
+  def edit_link
+    if model.is_owned_by?(current_restaurant)
+      @path = edit_restaurant_table_path(current_restaurant, model)
       render
     end
   end

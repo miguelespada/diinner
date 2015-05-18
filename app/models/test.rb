@@ -4,6 +4,8 @@ class Test
   include Mongoid::Enum
 
   field :question, type: String
+  
+  # TODO MOVE TO DIFFERENT MODEL
   field :caption_A, type: String
   field :caption_B, type: String
 
