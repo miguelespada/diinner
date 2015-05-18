@@ -10,20 +10,8 @@ Then(/^I should see the table in the tables list$/) do
   expect(page).to have_content @table.slots_left
 end
 
-Given(/^A user has reserved a table$/) do
-  step "I am a logged user"
-  @restaurant = FactoryGirl.create(:restaurant, :with_tables, tables_count: 5)
-  @table = @restaurant.tables.first
-  step "I go to the user page"
-  find(".restaurants").click()
-  click_on @restaurant.name
-  # TODO Esto no funciona así --> tenemos que definir este flujo
-  click_on @table.id
-  click_on "Reserve"
-  step "I logout"
-end
 
-Then(/^I can see the reserved table$/) do
+Then(/^I can see the reservation$/) do
   click_on "Tables"
   click_on @table.id
   within('.users') do

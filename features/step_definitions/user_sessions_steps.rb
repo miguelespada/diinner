@@ -11,12 +11,6 @@ Then(/^I should see the user page$/) do
   expect(page).to have_content @user.name
 end
 
-Then(/^I should see my user data$/) do
-  expect(page).to have_content @user.name
-  expect(page).to have_css ".avatar"
-end
-
-
 When(/^I go to the user page$/) do
   visit users_path
 end
