@@ -8,6 +8,9 @@ describe MultiModelSearch do
       Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name rescue nil
       User.__elasticsearch__.client.indices.delete index: User.index_name rescue nil
       
+      Restaurant.__elasticsearch__.create_index!
+      User.__elasticsearch__.create_index!
+
       5.times do 
         FactoryGirl.create(:restaurant)
         FactoryGirl.create(:user)
@@ -25,6 +28,7 @@ describe MultiModelSearch do
         response = MultiModelSearch.search('restaurant_', 1)
         expect(response.total).to be 5
       end
+
       it "searches users" do
         response = MultiModelSearch.search('user_1', 1)
         expect(response.total).to be 5

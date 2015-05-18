@@ -44,8 +44,8 @@ class Restaurant
   field :address,           type: String, default: ""
   field :city,              type: String, default: ""
   # TODO this should be a float number?
-  field :latitude,          type: String, default: ""
-  field :longitude,         type: String, default: ""
+  field :latitude,          type: String, default: "0"
+  field :longitude,         type: String, default: "0"
 
   has_many :menus
   has_many :tables

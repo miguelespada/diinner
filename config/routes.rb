@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :menus
   end
 
+  get "juegos/submit" => "juegos#submit"
+
   scope :admin do
     get "/" => "admin#index", as: "admin"
     get "/search" => "admin#search", as: "admin_search"
