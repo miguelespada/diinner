@@ -30,6 +30,8 @@ describe Restaurant do
 
   describe "#elasticsearch" do
     before do
+      Restaurant.destroy_all
+      Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name rescue nil
       Restaurant.__elasticsearch__.create_index!
 
       @restaurant = FactoryGirl.create(:restaurant, latitude: 10, longitude: 10)
