@@ -1,5 +1,4 @@
 class TableCell < BaseCell
-  include ActionView::Helpers::DateHelper
 
   def delete_link
     if model.is_owned_by?(current_restaurant)
