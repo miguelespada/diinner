@@ -28,15 +28,18 @@ describe Restaurant do
     end
   end
 
-  xdescribe "#elasticsearch" do
+  describe "#elasticsearch" do
     before do
       Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name rescue nil
-      @restaurant = FactoryGirl.create(:restaurant, latitude: "32.0", longitude: "43.00")
+      @restaurant = FactoryGirl.create(:restaurant, latitude: "32.0", longitude: "43.0")
       Restaurant.__elasticsearch__.refresh_index!
       Restaurant.__elasticsearch__.client.cluster.health wait_for_status: 'yellow'
     end
+
     it "serializes latitud and longitud" do
-      expect(JSON.parse(@restaurant.as_indexed_json)["lat_lon"]).to eq "32.0,43.00"
+      expect(Restaurant.__elasticsearch__.mapping.to_hash[:restaurant][:properties][:location][:type]).to eq "geo_point"
+      expect(@restaurant.as_indexed_json[:location][:lat]).to eq 32.0
+      expect(@restaurant.as_indexed_json[:location][:lon]).to eq 43.0
     end
     
     xit "can search nearby restaurants" do
