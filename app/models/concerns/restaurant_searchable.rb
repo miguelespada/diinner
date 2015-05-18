@@ -14,16 +14,11 @@ module RestaurantSearchable
     # TODO DO NOT ADD features WITHOUT test or spec!!!! [JODER]
     mapping do
       indexes :name, type: :string, :analyzer => :spanish, :boost => 50
-      indexes :email, type: :string, :boost => 50
-      indexes :description, type: :string, :analyzer => :spanish, :boost => 40
-      indexes :phone, type: :string, :boost => 50
-      indexes :address, type: :string, :analyzer => :spanish, :boost => 50
-      indexes :city, type: :string, :analyzer => :spanish, :boost => 20
       indexes :location, type: 'geo_point'
     end
 
     def near lat, lon, dist
-
+      search("*")
     end
 
   end

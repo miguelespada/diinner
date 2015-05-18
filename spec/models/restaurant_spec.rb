@@ -42,7 +42,7 @@ describe Restaurant do
       expect(@restaurant.as_indexed_json[:location][:lon]).to eq 43.0
     end
     
-    xit "can search nearby restaurants" do
+    it "can search nearby restaurants" do
      expect(Restaurant.near(32, 43.001, 10).results.total).to eq 1
      expect(Restaurant.near(50, 43.001, 10).results.total).to eq 0
     end
