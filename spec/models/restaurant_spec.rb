@@ -47,9 +47,9 @@ describe Restaurant do
     end
     
     it "can search nearby restaurants" do
-     expect(Restaurant.search('*').results.total).to eq 1
-     expect(Restaurant.near(10, 10, 10).results.total).to eq 1
-     expect(Restaurant.near(20, 30, 10).results.total).to eq 0
+      expect(Restaurant.search('*').results.total).to eq 1
+      expect(Restaurant.near(10.001, 10, 10).results.total).to eq 1
+      expect(Restaurant.near(20, 30, 10).results.total).to eq 0
     end
 
     after do

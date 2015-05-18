@@ -14,8 +14,6 @@ class User
 
   has_many :test_completed, class_name: "TestResponse"
 
-  # TODO ??? User can't have many tables
-  # TODO create "Reservation model"
   belongs_to :table
 
   def first_login?

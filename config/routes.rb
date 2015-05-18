@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :menus
   end
 
-  get "juegos/submit" => "juegos#submit"
 
   scope :admin do
     get "/" => "admin#index", as: "admin"
@@ -24,14 +23,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :restaurants do
-      # TODO no necesitamos esto.
-      # tenemos resoures for tables
-      resources :tables, only: [:show], controller: "tables"
-    end
+    resources :restaurants
     resources :tests
     resources :logs, only: [:index]
-    resources :users, execpt: [:new, :create]
+    resources :users, except: [:new, :create]
     resources :tables, only: [:show, :index]
     resources :menus, only: [:show, :index]
   end
@@ -43,15 +38,6 @@ Rails.application.routes.draw do
   resources :users do
     post "test/:test_id" => "test_responses#create", as: "test_response"
     get "test" => "test_responses#new", as: "test"
-
-    # TODO WTF???? 
-    # Revisar con Miguel,... User no tiene resources, solo acciones sencillas
-    resources :restaurants, only: [:index, :show], controller: "users/restaurants" do
-      resources :tables, only: [:show], controller: "users/tables" do
-        get "reserve" => "users/tables#reserve", as: "reserve"
-      end
-
-    end
   end
 
   root 'static_pages#index'
