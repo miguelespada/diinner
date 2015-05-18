@@ -15,4 +15,4 @@ Feature: Admin Inspect Tables
   Scenario:
     Given A user has reserved a table
     And I am logged as admin
-    Then I can see the reservation
+    Then I can see the user reservation

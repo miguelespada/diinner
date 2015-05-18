@@ -11,7 +11,7 @@ Then(/^I should see the table in the tables list$/) do
 end
 
 
-Then(/^I can see the reservation$/) do
+Then(/^I can see the user reservation$/) do
   click_on "Tables"
   click_on @table.id
   within('.users') do
