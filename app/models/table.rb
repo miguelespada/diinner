@@ -27,12 +27,17 @@ class Table
     false
   end
 
+  def users_count
+    # TODO add the real number
+    reservations.count
+  end
+
   def is_full?
-    users.count == 6
+    users_count == 6
   end
 
   def is_empty?
-    users.count == 0
+    users_count == 0
   end
 
   def is_partial?
@@ -40,7 +45,7 @@ class Table
   end
 
   def slots_left
-    6 - users.count
+    6 - users_count
   end
 
   def status

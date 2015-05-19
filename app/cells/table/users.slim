@@ -1,3 +1,4 @@
+/ TODO move to reservations cells
 h3 Users
 table.table.table-hover.table-striped.users
   thead
@@ -6,4 +7,4 @@ table.table.table-hover.table-striped.users
       th Email
       th Gender
   tbody
-    == cell(:table, collection: model.users, method: :user)
+    == cell(:table, collection: model.reservations, method: :user)

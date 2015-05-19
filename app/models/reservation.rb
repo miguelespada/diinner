@@ -10,6 +10,11 @@ class Reservation
 
   enum :status, [:pending, :confirmed, :paid, :cancelled], default: :pending
  
+  def affinity
+    # Calculate affinity
+    "80%"
+  end
+
   def is_owned_by?(user)
     user == self.user
   rescue
