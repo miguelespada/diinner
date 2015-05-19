@@ -7,21 +7,25 @@ end
 When(/^I reserve a table$/) do
   step "I go to the user page"
   click_on "New reservation"
-  fill_in "Date", with: @table.date
-  select(20, :from => "price")
-  click_on "Search"
-  step("I can see the reservation details")
-  first('.result').click_link("Reserve")
+  select(20, :from => "reservation_price")
+  fill_in "Date", with: @table.date.strftime('%d/%m/%Y')
+  click_on "Search tables"
+
+  within ".search-results" do
+    step("I can see the table details")
+  end
+  
+  click_on("Reserve")
   step("I fill in the credit card details")
   expect(page).to have_content("Table reserved succesfully!")
 end
 
-Then(/^I can see the reservation details$/) do
+Then(/^I can see the table details$/) do
   expect(page).to have_content(@restaurant.name)
-  expect(page).to have_content(@table.menu.name)
-  expect(page).to have_content(@table.menu.price)
   expect(page).to have_content(@table.date)
   expect(page).to have_content(@table.hour)
+  expect(page).to have_content(@menu.name)
+  expect(page).to have_content(@menu.price)
   within ".affinity" do
     expect(page).to have_content("80%")
   end
@@ -35,8 +39,10 @@ end
 
 Then(/^I can see the reserved table in my reservations$/) do
   click_on "My Reservations"
-  step("I can see the reservation details")
-  within ".reservation-status" do
-    expect(page).to have_content("Pending")
+  within ".reservations" do
+   step("I can see the reservation details")
+    within ".reservation-status" do
+      expect(page).to have_content("Pending")
+    end
   end
 end

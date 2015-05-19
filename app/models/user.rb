@@ -14,7 +14,7 @@ class User
 
   has_many :test_completed, class_name: "TestResponse"
 
-  belongs_to :table
+  has_many :reservations
 
   def first_login?
     updated_at == created_at

@@ -12,6 +12,16 @@ class Table
   has_many :users
   has_one :menu
 
+  def hour
+    # TODO define hour as a field
+    "21:00"
+  end
+
+  def menu 
+    # TODO define menus as a list 
+    restaurant.menus.first
+  end
+
   def is_owned_by?(restaurant)
     restaurant == self.restaurant
   rescue
