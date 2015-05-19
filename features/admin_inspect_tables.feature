@@ -11,8 +11,9 @@ Feature: Admin Inspect Tables
     Then I should see the table in the tables list
     And I can access to the table data
 
-  @inspect_user_reservation @wip
+  @inspect_user_reservation
   Scenario:
     Given A user has reserved a table
     And I am logged as admin
-    Then I can see the user reservation
+    Then I can see the user reservation in the table section
+    Then I can see the user reservation in the reservation section

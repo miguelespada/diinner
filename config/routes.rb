@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :create]
     resources :tables, only: [:show, :index]
     resources :menus, only: [:show, :index]
+    resources :reservations, only: [:show, :index]
   end
 
   scope :users do

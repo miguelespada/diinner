@@ -1,0 +1,5 @@
+tr
+  td.restaurant-reservation == show_link
+  td.restaurant-restaurant == cell(:restaurant, model.table.restaurant).show_link
+  td.restaurant-user == cell(:user, model.user).show_link
+  td.restaurant-status = status
