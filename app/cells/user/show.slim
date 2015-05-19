@@ -20,10 +20,12 @@ div.container-fluid
         table
           tr
             td
-              == cell(:user, model).call(:test_link)
+              == new_reservation_link
             td
-              == cell(:user, model).call(:edit_link)
+              == test_link
             td
-              == cell(:user, model).call(:logout_link)
+              == edit_link
+            td
+              == logout_link
 
 == test_responses

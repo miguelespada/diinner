@@ -11,6 +11,13 @@ class UserCell < BaseCell
     end
   end
 
+  def new_reservation_link
+    if user_signed_in?
+      @path = new_user_reservation_path(model)
+      render
+    end
+  end
+
   def show_link
     if admin_signed_in?
       @path = admin_user_path(model)
