@@ -7,7 +7,7 @@ class  ReservationsController < UsersController
 
   def search
     suggestionEngine = SuggestionEngine.new @user
-    @tables = suggestionEngine.search date_param, price_param
+    @suggestions = suggestionEngine.search date_param, price_param
   end
 
   private

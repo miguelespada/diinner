@@ -6,6 +6,10 @@ class SuggestionEngine
 
   def search date, price
     # TODO here should be the magic
-    Table.all
+    results = []
+    Table.all.each do |table|
+      results << Reservation.new (user: @user, price: price, date: date)
+    end 
+    results 
   end
 end
