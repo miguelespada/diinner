@@ -51,7 +51,6 @@ class UsersController < ApplicationController
   end
 
   def authorize!
-    p params
     raise CanCan::AccessDenied.new("Not authorized!") if !@user.is_owned_by?(@current_user)
   end
 

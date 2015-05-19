@@ -1,7 +1,10 @@
 class  ReservationsController < UsersController
   before_action :load_user
+  load_resource :only => [:update]
+  before_action :authorize!
 
   def index
+    @reservations = @user.reservations
   end
 
   def new
@@ -18,6 +21,12 @@ class  ReservationsController < UsersController
     @suggestions = suggestionEngine.search date_param, price_param
   end
 
+  def update
+    # TODO save payment token
+    @reservation.update!(:status => :confirmed)
+    redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+  end
+
   private
 
   def reservation_params
@@ -25,6 +34,10 @@ class  ReservationsController < UsersController
                                        :date,
                                        :price, 
                                        :table_id)
+  end
+  
+  def authorize!
+    # TODO authorize
   end
 
   def load_user

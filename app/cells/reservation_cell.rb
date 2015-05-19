@@ -1,4 +1,8 @@
 class ReservationCell < BaseCell
+  def details
+    render
+  end
+  
   def reserve_link
     if model.is_owned_by?(current_user)
       @path = user_reservations_path(current_user, :reservation => model.attributes)

@@ -39,12 +39,13 @@ Then(/^I fill in the credit card details$/) do
   click_on "Confirm"
 end
 
+
 Then(/^I can see the reserved table in my reservations$/) do
-  click_on "My Reservations"
+
   within ".reservations" do
-   step("I can see the reservation details")
+    step("I can see the table details")
     within ".reservation-status" do
-      expect(page).to have_content("Pending")
+      expect(page).to have_content("Confirmed")
     end
   end
 end
