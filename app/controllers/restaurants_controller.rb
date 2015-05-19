@@ -22,6 +22,7 @@ class RestaurantsController < ApplicationController
   end
 
   def reservations
+    # TODO find restaurant reservations
     @reservations = Reservation.all
   end
 

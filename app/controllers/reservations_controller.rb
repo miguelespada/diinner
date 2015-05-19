@@ -24,7 +24,6 @@ class  ReservationsController < UsersController
 
   def update
     # TODO save payment token
-    @reservation.update!(:status => :confirmed)
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 
@@ -46,7 +45,7 @@ class  ReservationsController < UsersController
   end
 
   def date_param
-    DateTime.strptime(params[:reservation][:date], '%d/%m/%Y')
+    DateTime.strptime(params[:reservation][:date], '%Y-%m-%d')
   end
 
   def price_param

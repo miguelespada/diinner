@@ -8,17 +8,10 @@ class Reservation
   field :price, type: Integer
   field :date, type: DateTime
 
-  # TODO add invited
-  # TODO add payment token
 
-  # STATUS
-  # Pending, payment details not set
-  # Confirmed, payment details set, but not paid
-  # Paid 
-  # Cancelled,
-
-  enum :status, [:pending, :confirmed, :paid, :cancelled], default: :pending
-  
+  def status
+    :confirmed
+  end
 
   def affinity
     # TODO Calculate affinity
