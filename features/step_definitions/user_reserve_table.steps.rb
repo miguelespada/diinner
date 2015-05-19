@@ -32,9 +32,11 @@ Then(/^I can see the table details$/) do
 end
 
 Then(/^I fill in the credit card details$/) do
-  fill_in "Card Holder", with: "Rodrigo Rato"
-  fill_in "Card Number", with: "4556900772266350"
-  first('.result').click_link("Confirm")
+  fill_in "card_holder", with: "Rodrigo Rato"
+  fill_in "card_number", with: "4556900772266350"
+  
+  check "terms_and_conditions"
+  click_on "Confirm"
 end
 
 Then(/^I can see the reserved table in my reservations$/) do

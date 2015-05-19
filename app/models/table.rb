@@ -9,8 +9,7 @@ class Table
   # enum :sexual_condition, [:hetero, :lesbian, :gay]
 
   belongs_to :restaurant
-  has_many :users
-  has_one :menu
+  has_many :reservations
 
   def hour
     # TODO define hour as a field

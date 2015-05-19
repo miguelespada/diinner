@@ -1,0 +1,8 @@
+= form_tag user_reservation_path(@user, @reservation), :method => :patch do
+  = label_tag(:card_holder, "Card Holder:")
+  = text_field_tag(:card_holder)
+  = label_tag(:card_number, "Card Number:")
+  = text_field_tag(:card_number)
+  = check_box_tag(:terms_and_conditions)
+  = label_tag(:terms_and_conditions, "I accept the terms and conditions")
+  = submit_tag "Confirm"
