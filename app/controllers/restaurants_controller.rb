@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
-  load_resource :only => [:show, :edit, :update]
-  before_filter :authorize!, :only => [:edit, :update]
+  load_resource :only => [:show, :edit, :update, :reservations]
+  before_filter :authorize!, :only => [:edit, :update, :reservations]
 
   def index
   end
@@ -19,6 +19,10 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+  end
+
+  def reservations
+    @reservations = Reservation.all
   end
 
   private

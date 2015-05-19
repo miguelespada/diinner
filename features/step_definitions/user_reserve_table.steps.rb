@@ -1,7 +1,11 @@
 Given(/^There are some available tables$/) do
-  @restaurant = FactoryGirl.create(:restaurant, :with_tables)
+  step "I am logged as restaurant"
+  step "I create a menu"
+  step "I create a new table"
+  
   @menu = @restaurant.menus.first
   @table = @restaurant.tables.first
+  step "I logout"
 end
 
 When(/^I reserve a table$/) do

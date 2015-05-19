@@ -11,9 +11,13 @@ Rails.application.routes.draw do
   devise_for :restaurants
   devise_for :admins
 
+  scope :restaurant do
+    get ":id/reservations" => "restaurants#reservations", as: "restaurant_reservations"
+  end
+
   resources :restaurants do
     resources :tables
-    resources :menus
+    resources :menus  
   end
 
 

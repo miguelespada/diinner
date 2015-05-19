@@ -4,7 +4,7 @@ Feature: User Reserves table
 
   @user_reserves_table
   Scenario: User reserve a table
-    Given I am a logged user
-    And There are some available tables
+    Given There are some available tables
+    And I am a logged user
     When I reserve a table
     Then I can see the reserved table in my reservations
