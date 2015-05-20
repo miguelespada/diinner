@@ -29,6 +29,14 @@ class Reservation
     "80%"
   end
 
+  def update_customer_information! token
+    customer = Stripe::Customer.create(
+      :source => token,
+      :description => user.name
+    )
+    self.update(customer: customer.id)
+  end
+
   def is_owned_by?(user)
     user == self.user
   rescue

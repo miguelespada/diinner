@@ -23,12 +23,8 @@ class  ReservationsController < UsersController
   end
 
   def update
-    customer = Stripe::Customer.create(
-      :source => params[:stripe_card_token],
-      :description => @user.name
-    )
-
-    @reservation.update(customer: customer.id)
+    # TODO handle errors
+    @reservation.update_customer_information!(params[:stripe_card_token])
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 
