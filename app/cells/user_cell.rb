@@ -21,6 +21,9 @@ class UserCell < BaseCell
   def show_link
     if admin_signed_in?
       @path = admin_user_path(model)
+    elsif restaurant_signed_in?
+      # TODO add restaurant inspect user
+      model.name
     else
       @path = user_path(model)
     end

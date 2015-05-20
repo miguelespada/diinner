@@ -8,7 +8,12 @@ class Reservation
   field :price, type: Integer
   field :customer, type: String
   field :paid, type: Boolean, default: false
-  attr_accessor :date
+
+  delegate  :restaurant, 
+            :hour, 
+            :assigned_menu, 
+            :date, :to => :table, :allow_nil => true
+
 
   # TODO add number of user (in case of invitations)
   # field :plus_one, :type Boolean
@@ -68,27 +73,5 @@ class Reservation
     false
   end
 
-  def assigned_menu
-    table.assigned_menu
-  rescue
-    :undefined
-  end
-
-  def hour
-    table.hour
-  rescue
-    :undefined
-  end
-
-  def date
-    table.date
-  rescue
-    :undefined
-  end
-
-  delegate :restaurant, :hour, :assigned_menu, :to => :table
-
-  def date
-    table.date if !table.nil?
-  end
+ 
 end
