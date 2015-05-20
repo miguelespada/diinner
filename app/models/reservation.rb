@@ -23,7 +23,7 @@ class Reservation
   end
 
   def status
-    # TODO confirmed/paid/cancelled
+    # TODO cancelled
     return :paid if paid?
     return :confirmed if confirmed?
     return :pending

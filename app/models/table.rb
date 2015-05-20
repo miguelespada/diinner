@@ -13,10 +13,18 @@ class Table
     "21:00"
   end
 
-  def menu 
+  def price
+    empty? ? :undefined : reservations.first.price 
+  end
+
+  def assigned_menu
+    empty? ? :undefined : menus.select{|menu| menu.price == self.price}.first
+  end
+
+  def menus
     # TODO define menus as a list
-    # A table can have different menus
-    restaurant.menus.first
+    # A table can accept different possible menus, not all the menus of the restaurant
+    restaurant.menus
   end
 
   def sexual_condition
@@ -34,16 +42,16 @@ class Table
     reservations.map{|r| r.user_count}.inject(:+) || 0
   end
 
-  def is_full?
+  def full?
     user_count == 6
   end
 
-  def is_empty?
+  def empty?
     user_count == 0
   end
 
-  def is_partial?
-    !is_full? && !is_empty?
+  def partial?
+    !full? && !empty?
   end
 
   def slots_left
@@ -51,8 +59,8 @@ class Table
   end
 
   def status
-    return :full if is_full?
-    return :empty if is_empty?
+    return :full if full?
+    return :empty if empty?
     return :partial 
   end
 

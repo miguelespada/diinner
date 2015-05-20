@@ -6,6 +6,7 @@ class User
   include Notificable
   include Mongoid::Enum
 
+  # TODO add sexual orientation
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""
   field :name, type: String, default: ""

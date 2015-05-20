@@ -12,6 +12,16 @@ class Menu
 
   belongs_to :restaurant
 
+  def user_count
+    restaurant.tables.select{|table| table.assigned_menu == self}
+                      .map{|table| table.user_count}
+                      .inject(:+) || 0
+  end
+
+  def empty?
+    user_count == 0
+  end
+
   def is_owned_by?(restaurant)
     restaurant == self.restaurant
   rescue
