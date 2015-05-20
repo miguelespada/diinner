@@ -59,18 +59,19 @@ describe Restaurant do
 
   describe "#reservations" do
     before do
-      @restaurant_0 = FactoryGirl.create(:restaurant, :with_tables)
-      @table_0 = @restaurant_0.tables.first
-      @restaurant_1 = FactoryGirl.create(:restaurant, :with_tables)
-      @table_1 = @restaurant_1.tables.first
       @user = FactoryGirl.create(:user)
+      @restaurant_0 = FactoryGirl.create(:restaurant, :with_tables)
+      @restaurant_1 = FactoryGirl.create(:restaurant, :with_tables)
+      @table_0 = @restaurant_0.tables.first
+      @table_1 = @restaurant_1.tables.first
       @user.reservations.create({table: @table_0})
     end
 
     it "returns the reservation list" do
       expect(@restaurant_0.reservations.count).to eq 1
-      expect(@restaurant_0.reservations.first.user).to eq @user
-      expect(@restaurant_0.reservations.first.table).to eq @table_0
+      reservation = @restaurant_0.reservations.first
+      expect(reservation.user).to eq @user
+      expect(reservation.table).to eq @table_0
     end
 
     it "discriminates restaurant reservations" do

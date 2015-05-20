@@ -1,5 +1,4 @@
 class SuggestionEngine
-  
   def initialize user
     @user = user
   end

@@ -35,6 +35,7 @@ gem 'sendgrid-rails', '~> 2.0'
 gem 'mongoid-enum'
 gem 'faker', '~> 1.4.3'
 gem 'rails-timeago', '~> 2.0'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :test do
   gem "database_cleaner"

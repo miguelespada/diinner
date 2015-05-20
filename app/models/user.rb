@@ -11,9 +11,7 @@ class User
   field :name, type: String, default: ""
   field :birth, type: Date
   enum :gender, [:male, :female, :undefined]
-
   has_many :test_completed, class_name: "TestResponse"
-
   has_many :reservations
 
   def first_login?

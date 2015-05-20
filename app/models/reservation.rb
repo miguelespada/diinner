@@ -6,13 +6,21 @@ class Reservation
   belongs_to :table
 
   field :price, type: Integer
-
-  # TODO add number of user (in case of invitations)
-
+  field :stripe_card_token, type: String
   attr_accessor :date
 
+
+  # TODO add number of user (in case of invitations)
+  # field :plus_one, :type Boolean
+  
+  def user_count
+    1
+  end
+
   def status
-    :confirmed
+    # TODO confirmed/paid/cancelled
+    return :confirmed if stripe_card_token.present?
+    return :pending
   end
 
   def affinity

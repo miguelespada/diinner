@@ -8,7 +8,7 @@ class  ReservationsController < UsersController
   end
 
   def new
-    @reservation = @user.reservations.new
+    @reservation = @user.reservations.new   
   end
 
   def create
@@ -23,7 +23,7 @@ class  ReservationsController < UsersController
   end
 
   def update
-    # TODO save payment token
+    @reservation.update(stripe_card_token: params[:stripe_card_token])
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 
@@ -33,7 +33,8 @@ class  ReservationsController < UsersController
     params.require(:reservation).permit(:user_id,
                                        :date,
                                        :price, 
-                                       :table_id)
+                                       :table_id,
+                                       :stripe_card_token)
   end
   
   def authorize!

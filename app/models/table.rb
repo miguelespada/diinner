@@ -5,9 +5,6 @@ class Table
 
   field :date, type: DateTime
 
-  # TODO maybe this should be a method inferred by the first user
-  # enum :sexual_condition, [:hetero, :lesbian, :gay]
-
   belongs_to :restaurant
   has_many :reservations
 
@@ -17,8 +14,14 @@ class Table
   end
 
   def menu 
-    # TODO define menus as a list 
+    # TODO define menus as a list
+    # A table can have different menus
     restaurant.menus.first
+  end
+
+  def sexual_condition
+    # TODO inferred from user
+    :undefined
   end
 
   def is_owned_by?(restaurant)
@@ -27,17 +30,16 @@ class Table
     false
   end
 
-  def users_count
-    # TODO add the real number
-    reservations.count
+  def user_count
+    reservations.map{|r| r.user_count}.inject(:+) || 0
   end
 
   def is_full?
-    users_count == 6
+    user_count == 6
   end
 
   def is_empty?
-    users_count == 0
+    user_count == 0
   end
 
   def is_partial?
@@ -45,7 +47,7 @@ class Table
   end
 
   def slots_left
-    6 - users_count
+    6 - user_count
   end
 
   def status
