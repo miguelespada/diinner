@@ -3,6 +3,12 @@ class BaseCell < Cell::ViewModel
   helper_method :admin_signed_in?, :restaurant_signed_in?, :current_restaurant
  
   private
+
+  def restaurant
+    cell(:restaurant, model.restaurant)
+  end
+
+
   def method_missing(m, *args, &block) 
     render m
   end  
