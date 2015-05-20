@@ -10,7 +10,6 @@ class Reservation
   field :paid, type: Boolean, default: false
   attr_accessor :date
 
-
   # TODO add number of user (in case of invitations)
   # field :plus_one, :type Boolean
 
@@ -64,8 +63,32 @@ class Reservation
   end
 
   def is_owned_by?(user)
-    user == self.user
+    user == self.user || self.table.restaurant == user
   rescue
     false
+  end
+
+  def assigned_menu
+    table.assigned_menu
+  rescue
+    :undefined
+  end
+
+  def hour
+    table.hour
+  rescue
+    :undefined
+  end
+
+  def date
+    table.date
+  rescue
+    :undefined
+  end
+
+  delegate :restaurant, :hour, :assigned_menu, :to => :table
+
+  def date
+    table.date if !table.nil?
   end
 end

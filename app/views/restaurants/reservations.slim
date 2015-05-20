@@ -1,1 +1,13 @@
-== cell(:reservation, collection: @reservations, method: :restaurant_row)  
+- content_for(:title) do
+  | Reservations
+
+- content_for(:thead) do
+  th Table ID
+  th User
+  th Details
+  th Status
+
+- content_for(:tbody) do
+  == cell(:reservation, collection: @reservations, method: :row)  
+
+= render "admin/admin_table"

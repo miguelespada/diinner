@@ -1,4 +1,15 @@
-== cell(:user, model.user).show_link
-== cell(:table, model.table).show_link
-== details
-= status
+tr
+  td == table.show_link
+  td == user.show_link
+  td
+    ul
+      li 
+        | Date 
+        = model.date
+      li 
+        | Hour 
+        = model.hour
+      li 
+        | Menu 
+        == menu.show_link
+  td = status

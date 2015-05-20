@@ -8,6 +8,6 @@
   th Status
 
 - content_for(:tbody) do
-  == cell(:reservation, collection: @reservations, method: :admin_row)
+  == cell(:reservation, collection: @reservations, method: :row)
   
 = render "admin/admin_table"
