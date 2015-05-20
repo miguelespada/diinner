@@ -6,20 +6,26 @@ class Reservation
   belongs_to :table
 
   field :price, type: Integer
-  field :customer, type: Integer
+  field :customer, type: String
+  field :paid, type: Boolean, default: false
   attr_accessor :date
 
 
   # TODO add number of user (in case of invitations)
   # field :plus_one, :type Boolean
-  
+
   def user_count
     1
   end
 
+  def confirmed?
+    !paid? && customer.present? 
+  end
+
   def status
     # TODO confirmed/paid/cancelled
-    return :confirmed if customer.present?
+    return :paid if paid?
+    return :confirmed if confirmed?
     return :pending
   end
 
@@ -29,12 +35,32 @@ class Reservation
     "80%"
   end
 
+  def self.process
+    all.each do |reservation|
+      reservation.charge if reservation.confirmed?
+    end
+  end
+
+  def charge
+    begin
+      Stripe::Charge.create(
+        :amount   => price * 100, 
+        :currency => "eur",
+        :customer => customer
+      )
+
+      self.update(paid: true)
+    rescue Stripe::CardError => e
+      # TODO The card has been declined
+    end
+  end
+
   def update_customer_information! token
     customer = Stripe::Customer.create(
       :source => token,
       :description => user.name
     )
-    self.update(customer: customer.id)
+    update!(customer: customer.id)
   end
 
   def is_owned_by?(user)

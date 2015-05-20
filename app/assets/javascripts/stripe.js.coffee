@@ -11,6 +11,7 @@ reservation =
 
   processCard: ->
     card =
+      name: $('#card_holder').val()
       number: $('#card_number').val()
       cvc: $('#card_cvc').val()
       expMonth: $('#exp_month').val()
