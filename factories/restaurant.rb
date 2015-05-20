@@ -11,7 +11,6 @@ FactoryGirl.define do
       end
       
       after(:create) do |restaurant, evaluator|
-      
         create_list(:menu, 1, restaurant: restaurant)
         create_list(:table, evaluator.tables_count, restaurant: restaurant)
       end

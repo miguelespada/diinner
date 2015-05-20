@@ -1,13 +1,15 @@
 class Reservation
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Enum
+
   belongs_to :user
   belongs_to :table
 
   field :price, type: Integer
-  field :date, type: DateTime
 
+  # TODO add number of user (in case of invitations)
+
+  attr_accessor :date
 
   def status
     :confirmed

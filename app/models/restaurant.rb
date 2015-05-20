@@ -43,12 +43,16 @@ class Restaurant
   field :phone,             type: String, default: ""
   field :address,           type: String, default: ""
   field :city,              type: String, default: ""
-  # TODO this should be a float number?
+  
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"
 
   has_many :menus
   has_many :tables
+
+  def reservations
+    Reservation.in(table_id: tables.map{|table| table.id})
+  end
 
   def is_owned_by?(restaurant)
     restaurant == self

@@ -8,7 +8,7 @@ class SuggestionEngine
     # TODO here should be the magic
     results = []
     Table.all.each do |table|
-      results << Reservation.new({user: @user, table: table, price: price, date: date})
+      results << Reservation.new({user: @user, table: table, price: price})
     end 
     results 
   end

@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
+  
   load_resource :only => [:show, :edit, :update, :reservations]
   before_filter :authorize!, :only => [:edit, :update, :reservations]
 
@@ -22,8 +23,7 @@ class RestaurantsController < ApplicationController
   end
 
   def reservations
-    # TODO find restaurant reservations
-    @reservations = Reservation.all
+    @reservations = @restaurant.reservations
   end
 
   private

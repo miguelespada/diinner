@@ -45,6 +45,7 @@ class  ReservationsController < UsersController
   end
 
   def date_param
+    # TODO add '%Y-%m-%d' to a config
     DateTime.strptime(params[:reservation][:date], '%Y-%m-%d')
   end
 
