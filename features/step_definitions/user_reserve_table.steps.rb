@@ -40,13 +40,24 @@ Then(/^I can see the table details$/) do
   end
 end
 
+
 Then(/^I fill in the credit card details$/) do
+  # TODO move to support
+  stripe_token = Stripe::Token.create({
+      card: {
+        number: "4012888888881881",
+        exp_month: '09',
+        exp_year: 2.years.since.year.to_s, 
+        cvc: 123
+      }
+    })
+  # The data below is not relevant
   fill_in "card_holder", with: "Rodrigo Rato"
-  fill_in "card_number", with: "4242424242424242"
+  fill_in "card_number", with: "4012888888881881"
   fill_in "exp_month", with: "12"
   fill_in "exp_year", with: "2020"
   fill_in "card_cvc", with: "975"
-  find(:xpath, "//input[@id='stripe_card_token']").set "tok_164ZCaLxbPWgxCHRNkTEDWqc"
+  find(:xpath, "//input[@id='stripe_card_token']").set stripe_token.id
   check "terms_and_conditions"
 end
 

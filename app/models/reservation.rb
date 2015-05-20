@@ -6,7 +6,7 @@ class Reservation
   belongs_to :table
 
   field :price, type: Integer
-  field :stripe_card_token, type: String
+  field :customer, type: Integer
   attr_accessor :date
 
 
@@ -19,7 +19,7 @@ class Reservation
 
   def status
     # TODO confirmed/paid/cancelled
-    return :confirmed if stripe_card_token.present?
+    return :confirmed if customer.present?
     return :pending
   end
 

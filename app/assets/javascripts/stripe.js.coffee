@@ -14,7 +14,7 @@ reservation =
       number: $('#card_number').val()
       cvc: $('#card_cvc').val()
       expMonth: $('#exp_month').val()
-      expYear: $('#exp_year').val()
+      expYear: $('#exp_year').val()      
     Stripe.createToken(card, reservation.handleStripeResponse)
   
   handleStripeResponse: (status, response) ->
