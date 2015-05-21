@@ -1,4 +1,4 @@
-When(/^I go to my profile page$/) do
+  When(/^I go to my profile page$/) do
   find(".show").click()
 end
 

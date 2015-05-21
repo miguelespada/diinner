@@ -26,7 +26,7 @@ class User
   end
 
   def is_owned_by?(user)
-    user == self
+    user == self 
   rescue
     false
   end

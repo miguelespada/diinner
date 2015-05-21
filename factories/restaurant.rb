@@ -4,6 +4,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "restaurant_#{n}" }
     password               "12345678"
     password_confirmation  "12345678"
+    city  "Madrid"
     photo FactoryGirl.build(:attachinary)
 
     trait :with_tables do

@@ -28,6 +28,7 @@ class RestaurantsController < ApplicationController
 
   def user
     @user = User.find(params["user_id"])
+    # TODO check ability to see user
   end
 
   private

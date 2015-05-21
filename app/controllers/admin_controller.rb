@@ -10,4 +10,8 @@ class AdminController < ApplicationController
     @results = MultiModelSearch.search(params[:query], params[:page])
   end
 
+  def map
+    city = params[:city] || 'Madrid'
+    @restaurants = Restaurant.where(city: city)
+  end
 end
