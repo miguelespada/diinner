@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   scope :restaurant do
     get ":id/reservations" => "restaurants#reservations", as: "restaurant_reservations"
+    get ":id/user/:user_id" => "restaurants#user", as: "restaurant_user"
   end
 
   resources :restaurants do

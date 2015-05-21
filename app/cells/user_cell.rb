@@ -22,8 +22,8 @@ class UserCell < BaseCell
     if admin_signed_in?
       @path = admin_user_path(model)
     elsif restaurant_signed_in?
-      # TODO add restaurant inspect user
-      model.name
+      # TODO restaurant can only see users that have reserved in his tables
+      @path = restaurant_user_path(current_restaurant,model)
     else
       @path = user_path(model)
     end

@@ -2,8 +2,8 @@ class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
   
-  load_resource :only => [:show, :edit, :update, :reservations]
-  before_filter :authorize!, :only => [:edit, :update, :reservations]
+  load_resource :only => [:show, :edit, :update, :reservations, :user]
+  before_filter :authorize!, :only => [:edit, :update, :reservations, :user]
 
   def index
   end
@@ -24,6 +24,10 @@ class RestaurantsController < ApplicationController
 
   def reservations
     @reservations = @restaurant.reservations
+  end
+
+  def user
+    @user = User.find(params["user_id"])
   end
 
   private
