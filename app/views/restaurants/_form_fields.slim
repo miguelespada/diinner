@@ -4,6 +4,7 @@
 = f.input :photo, as: :attachinary
 = f.input :phone
 = f.input :address
+= f.input :city, :collection => ['Madrid', 'Barcelona', 'Valencia', 'Sevilla']
 button.update-map.btn.btn-default type="button" Update Map
 div#map
 = f.input :latitude

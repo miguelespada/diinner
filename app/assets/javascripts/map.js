@@ -67,8 +67,9 @@ MAP.addMarker = function(latlng){
   MAP.marker = L.marker(latlng,{
     icon: L.mapbox.marker.icon(
       {'marker-color': MAP.markerColor,
-       'marker-symbol' : 'circle',
-       'marker-size' : 'medium'}),
+       'marker-symbol' : 'star',
+       'marker-size' : 'medium',
+     }),
     draggable: false
   }).addTo(MAP.container);
 };
@@ -82,6 +83,6 @@ MAP.addMarkers = function(){
     var lat = parseFloat($(this).data('current-lat'));
     var lng = parseFloat($(this).data('current-lng'));
     if (lat && lng)
-        MAP.addMarker([lat, lng]);
+        MAP.addMarker([lat, lng, name, link]);
   });
 };
