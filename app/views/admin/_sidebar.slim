@@ -1,26 +1,26 @@
 - content_for(:sidebar) do
   li = link_to admin_restaurants_path do
-    i.icon-food
+    i.bi_kitchen-fork-knife
     span Restaurants
   li = link_to admin_tables_path do
-    i.icon-coffee
+    i.bi_beverage-tea
     span Tables
   li = link_to admin_menus_path do
-    i.icon-menu
+    i.bi_kitchen-hood-a
     span Menus
   li = link_to admin_users_path do
-    i.icon-group
+    i.bi_user-single-a-group
     span Users
   li = link_to(admin_tests_path) do
-    i.icon-check
-    aspan Tests
+    i.bi_interface-circle-tick-a
+    span Tests
   li = link_to(admin_logs_path) do
-    i.icon-list-alt
-    aspan Logs
+    i.bi_web-statistic
+    span Logs
   li = link_to(admin_reservations_path) do
-    i.icon-list-alt
-    aspan Reservations
+    i.bi_doc-wboard-line
+    span Reservations
     / TODO do not add features without test [JODER!]
   li = link_to () do
-    i.icon-map-marker
-    aspan Map
+    i.bi_location-pin-map
+    span Map
