@@ -73,7 +73,7 @@ Before do
   DatabaseCleaner.start
 
   allow(Pony).to receive(:deliver)
-  page.driver.allow_url('*')
+  page.driver.allow_unknown_urls
 
 end
 

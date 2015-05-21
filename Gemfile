@@ -42,7 +42,7 @@ group :test do
   gem "mongoid-rspec"
   gem "cucumber-rails", require: false
   gem "capybara"
-  gem "capybara-webkit"
+  gem "capybara-webkit", :git => "https://github.com/thoughtbot/capybara-webkit.git"
   gem "launchy"
   gem "factory_girl_rails"
   gem "rspec-rails"
@@ -55,4 +55,5 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem "binding_of_caller"
+  gem 'quiet_assets'
 end
