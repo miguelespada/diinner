@@ -39,15 +39,6 @@ class  Admin::RestaurantsController < AdminController
 
   def restaurant_params
     # TODO DRY this
-    params.require(:restaurant).permit(:name,
-                                :description, 
-                                :password, 
-                                :email,
-                                :phone,
-                                :address,
-                                :city,
-                                :latitude,
-                                :longitude,
-                                :photo)
+    params.require(:restaurant).permit(Restaurant.permitted_params)
   end
 end

@@ -6,6 +6,11 @@ class Restaurant
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  def self.permitted_params 
+    [:name, :description, :password, :email, :phone, :address, :city, :latitude, :longitude, :photo]
+  end
+
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
