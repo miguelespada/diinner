@@ -1,6 +1,7 @@
 = f.error_notification
 = f.input :name 
 = f.input :description
+= f.input :photo, as: :attachinary
 = f.input :phone
 = f.input :address
 / TODO this list should be in config
@@ -10,3 +11,8 @@ div#restaurant-map
 = f.input :latitude
 = f.input :longitude
 = f.button :submit
+
+javascript:
+  $(document).ready(function () {
+    $('.attachinary-input').attachinary();
+  });

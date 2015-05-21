@@ -36,7 +36,8 @@ class RestaurantsController < ApplicationController
                                        :address,
                                        :city,
                                        :latitude,
-                                       :longitude)
+                                       :longitude,
+                                       :photo)
   end
   
   def authorize!

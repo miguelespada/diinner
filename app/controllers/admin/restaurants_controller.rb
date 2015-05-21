@@ -47,6 +47,7 @@ class  Admin::RestaurantsController < AdminController
                                 :address,
                                 :city,
                                 :latitude,
-                                :longitude)
+                                :longitude,
+                                :photo)
   end
 end

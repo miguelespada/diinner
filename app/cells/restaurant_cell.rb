@@ -1,5 +1,13 @@
 class RestaurantCell < BaseCell
   include ActionView::Helpers::DateHelper
+  include CloudinaryHelper
+
+
+  def cl_photo size
+     cl_image_tag(model.photo.path, { size: "#{size}x#{size}", crop: :fill, radius: 2 }) if model.photo.present?
+  end
+
+
   def delete_link
     if admin_signed_in?
       @path = admin_restaurant_path(model)

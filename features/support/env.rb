@@ -73,6 +73,7 @@ Before do
   DatabaseCleaner.start
 
   allow(Pony).to receive(:deliver)
+  page.driver.allow_url('*')
 
 end
 

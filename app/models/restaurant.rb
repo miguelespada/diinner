@@ -49,6 +49,7 @@ class Restaurant
 
   has_many :menus
   has_many :tables
+  has_attachment :photo, accept: [:jpg, :png, :gif]
 
   def reservations
     Reservation.in(table_id: tables.map{|table| table.id})
