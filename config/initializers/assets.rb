@@ -3,7 +3,7 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-Rails.application.config.assets.precompile += %w( ie.js auth0.js admin.css map.css map.js stripe.js)
+Rails.application.config.assets.precompile += %w(auth0.js admin.css map.css map.js stripe.js)
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
