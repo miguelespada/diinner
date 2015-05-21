@@ -1,6 +1,6 @@
 class  ReservationsController < UsersController
   before_action :load_user
-  load_resource :only => [:update]
+  load_resource :only => [:update,:destroy]
   before_action :authorize!
 
   def index
@@ -26,6 +26,11 @@ class  ReservationsController < UsersController
     # TODO handle errors
     @reservation.update_customer_information!(params[:stripe_card_token])
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+  end
+
+  def destroy
+    @user.reservations.delete(@reservation)
+    redirect_to  user_reservations_path(@user), notice: 'Reservation was successfully cancelled.'
   end
 
   private
