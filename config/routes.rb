@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   scope :admin do
     get "/" => "admin#index", as: "admin"
     get "/search" => "admin#search", as: "admin_search"
+    get "/map" => "admin#map", as: "admin_map"
   end
 
   namespace :admin do

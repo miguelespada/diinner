@@ -4,13 +4,14 @@
 = f.input :photo, as: :attachinary
 = f.input :phone
 = f.input :address
-/ TODO this list should be in config
 = f.input :city, :collection => ['Madrid', 'Barcelona', 'Valencia', 'Sevilla']
 button.update-map.btn.btn-default type="button" Update Map
-div#restaurant-map
+div#map
 = f.input :latitude
 = f.input :longitude
 = f.button :submit
+
+== cell(:restaurant, @restaurant).location
 
 javascript:
   $(document).ready(function () {

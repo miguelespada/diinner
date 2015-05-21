@@ -1,0 +1,12 @@
+= form_tag admin_map_path(current_admin), :method => :get do
+  = select_tag :city, options_for_select([['Madrid', :Madrid], ['Barcelona', :Barcelona]])
+  = submit_tag "Go"
+
+div#markers
+  - @restaurants.each do |restaurant|
+    == cell(:restaurant, restaurant).location
+
+div#map.admin-map
+
+
+= render "/layouts/map"

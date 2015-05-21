@@ -4,4 +4,4 @@
   = javascript_include_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'
   = javascript_include_tag 'map'
 
-div#map-config data={token: "#{ENV['mapbox_access_token']}", style: "#{ENV['map_style']}", google_key: "#{ENV['google_geolocation_key']}", current_lat: "#{@restaurant.latitude}", current_lng: "#{@restaurant.longitude}"}
+div#map-config data={token: "#{ENV['mapbox_access_token']}", style: "#{ENV['map_style']}", google_key: "#{ENV['google_geolocation_key']}"}

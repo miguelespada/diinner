@@ -2,5 +2,7 @@
   = f.error_notification
   = f.input :name 
   = f.input :email
+  / TODO this list should be in config
+  = f.input :city, :collection => ['Madrid', 'Barcelona', 'Valencia', 'Sevilla']
   = f.input :password
   = f.button :submit 

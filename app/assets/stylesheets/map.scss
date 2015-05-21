@@ -1,7 +1,11 @@
 @import 'color';
 
-#restaurant-map{
+#map{
   width: 100%;
   height: 300px;
   background-color: $bgMapDiv;
+  &.admin-map{
+    height: 700px;
+
+  }
 }

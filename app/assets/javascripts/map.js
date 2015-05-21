@@ -1,6 +1,7 @@
 $(document).ready(function(){
   MAP.initializeMap();
   MAP.updateMap();
+  MAP.addMarkers();
 });
 
 var MAP = {};
@@ -28,13 +29,13 @@ MAP.updateMap = function(){
 };
 
 MAP.drawMapTiles = function(style, latlng){
-  MAP.container = L.mapbox.map('restaurant-map', style).setView(latlng, 14);
+  MAP.container = L.mapbox.map('map', style).setView(latlng, 14);
   MAP.container.scrollWheelZoom.disable();
 };
 
 MAP.getCurrentPosition = function(){
-  var currentLat = $('#map-config').data('current-lat');
-  var currentLng = $('#map-config').data('current-lng');
+  var currentLat = $('.location').data('current-lat');
+  var currentLng = $('.location').data('current-lng');
   MAP.getPosition(currentLat, currentLng);
 };
 
@@ -52,7 +53,7 @@ MAP.getGeolocation = function(queryUrl){
 MAP.getPosition = function(latStr, lngStr){
   var lat = parseFloat(latStr);
   var lng = parseFloat(lngStr);
-  if (lat && lng){
+  {
     MAP.setMapToPosition([lat, lng]);
   }
 };
@@ -66,12 +67,22 @@ MAP.addMarker = function(latlng){
   MAP.marker = L.marker(latlng,{
     icon: L.mapbox.marker.icon(
       {'marker-color': MAP.markerColor,
-       'marker-symbol' : 'circle',
-       'marker-size' : 'medium'}),
+       'marker-symbol' : 'star',
+       'marker-size' : 'medium',
+     }),
     draggable: false
   }).addTo(MAP.container);
 };
 
 MAP.removeOldMarker = function(){
   MAP.container.removeLayer(MAP.marker);
+};
+
+MAP.addMarkers = function(){
+  $( "#markers .location" ).each( function( ){
+    var lat = parseFloat($(this).data('current-lat'));
+    var lng = parseFloat($(this).data('current-lng'));
+    if (lat && lng)
+        MAP.addMarker([lat, lng, name, link]);
+  });
 };

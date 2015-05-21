@@ -4,6 +4,7 @@ When(/^I create a new restaurant$/) do
   click_on "New"
   fill_in "Email", with: "restaurant@diinner.com"
   fill_in "Name", with: "dummy restaurant"
+  select "Madrid", :from => "restaurant_city"
   fill_in "Password", with: "12345678"
   click_button 'Create Restaurant'
 end
@@ -38,6 +39,7 @@ When(/^I edit a restaurant$/) do
   fill_in "Name", with: "dummy restaurant updated"
   fill_in "Addres", with: "dummy address"
   fill_in "Phone", with: "666666"
+  select "Barcelona", :from => "restaurant_city"
   click_button "Update Restaurant"
 end
 
@@ -51,6 +53,9 @@ Then(/^I should see the updated restaurant in the list of restaurants$/) do
   end
   within(:css, ".restaurant-phone") do
     expect(page).to have_content "666666"
+  end
+  within(:css, ".restaurant-city") do
+    expect(page).to have_content "Barcelona"
   end
 end
 

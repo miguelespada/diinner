@@ -19,15 +19,18 @@ class UserCell < BaseCell
   end
 
   def show_link
+
     if admin_signed_in?
       @path = admin_user_path(model)
+      render
     elsif restaurant_signed_in?
       # TODO restaurant can only see users that have reserved in his tables
-      @path = restaurant_user_path(current_restaurant,model)
-    else
+      @path = restaurant_user_path(current_restaurant, model)
+      render
+    elsif model.is_owned_by?(current_user)
       @path = user_path(model)
+      render
     end
-    render
   end
 
 
@@ -48,6 +51,7 @@ class UserCell < BaseCell
     end
   end
 
+  # TODO refactor??
   def test_responses
     if admin_signed_in?
       render
