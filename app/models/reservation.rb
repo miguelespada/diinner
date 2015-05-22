@@ -11,7 +11,7 @@ class Reservation
 
   delegate  :restaurant, 
             :hour, 
-            :assigned_menu, 
+            :menu, 
             :date, :to => :table, :allow_nil => true
 
 

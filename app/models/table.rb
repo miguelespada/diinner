@@ -7,6 +7,7 @@ class Table
 
   belongs_to :restaurant
   has_many :reservations
+  delegate :menus, :to => :restaurant
 
   def hour
     # TODO define hour as a field
@@ -17,21 +18,10 @@ class Table
     empty? ? :undefined : reservations.first.price 
   end
 
-  def assigned_menu
+  def menu
     empty? ? :undefined : menus.select{|menu| menu.price == self.price}.first
   end
-
-  def menus
-    # TODO define menus as a list
-    # A table can accept different possible menus, not all the menus of the restaurant
-    restaurant.menus
-  end
-
-  def sexual_condition
-    # TODO inferred from user
-    :undefined
-  end
-
+  
   def is_owned_by?(restaurant)
     restaurant == self.restaurant
   rescue

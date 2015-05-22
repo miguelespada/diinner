@@ -15,7 +15,7 @@ describe Menu do
     end 
 
     it "assigns menu" do
-      expect(@table_0.assigned_menu).to eq :undefined
+      expect(@table_0.menu).to eq :undefined
     end
 
     context "with reservations" do
@@ -31,8 +31,8 @@ describe Menu do
       end
 
       it "assigns menu" do
-        expect(@table_0.assigned_menu.name).to eq "dummy menu"
-        expect(@table_0.assigned_menu.price).to eq 20
+        expect(@table_0.menu.name).to eq "dummy menu"
+        expect(@table_0.menu.price).to eq 20
       end
 
     end

@@ -12,7 +12,7 @@ class ReservationCell < BaseCell
   end
 
   def menu
-    cell(:menu, model.assigned_menu)
+    cell(:menu, model.menu)
   end
 
   def table

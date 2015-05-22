@@ -1,8 +1,5 @@
 class UserCell < BaseCell
 
-  def gender
-    model.undefined? ? "---" : model.gender
-  end
 
   def logout_link
     if user_signed_in?

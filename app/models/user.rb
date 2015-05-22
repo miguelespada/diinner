@@ -6,12 +6,12 @@ class User
   include Notificable
   include Mongoid::Enum
 
-  # TODO add sexual orientation
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""
   field :name, type: String, default: ""
   field :birth, type: Date
-  enum :gender, [:male, :female, :undefined]
+  enum :gender, [:male, :female]
+
   has_many :test_completed, class_name: "TestResponse"
   has_many :reservations
 
@@ -20,9 +20,7 @@ class User
   end
 
   def opposite_sex
-    return :female if gender == :male
-    return :male if gender == :female
-    return :none
+    gender == :male ? :female : :male
   end
 
   def is_owned_by?(user)
