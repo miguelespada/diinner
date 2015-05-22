@@ -1,23 +1,19 @@
 a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#" 
   i.bi_web-rss
 / TODO show the last 5 logs
-ul.dropdown-menu
+ul.dropdown-menu.navbar-log-menu
   li
     a href="#" 
-    .widget-body
-      .pull-left.icon
-        i.bi_user-single-round.text-success
-      .pull-left.text
-        | Daniel Armengol ha reservado una mesa.
-        small.text-muted just now
+      .log-notification-item
+        i.bi_user-single-round
+        | Daniel Armengol ha reservado una mesa. 
+        span.text-muted just now
+  li
+    a href="#" 
+      .log-notification-item
+        i.bi_com-bubble-line
+        | Nuevo mensaje admin 
+        span.text-muted 3 minutes ago
   li.divider
-  li
-    a href="#" 
-    .widget-body
-      .pull-left.icon
-        i.bi_com-bubble-line.text-error
-      .pull-left.text
-        | Nuevo mensaje admin
-        small.text-muted 3 minutes ago
   li.widget-footer
     = link_to "All logs", admin_logs_path
