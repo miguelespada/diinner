@@ -1,16 +1,16 @@
 header
-  nav.navbar.navbar-default
-    .navbar-brand
-      span DIINNER
-    ul.nav
-      li = yield(:navbar_search)
-      li.dropdown.light.only-icon
-        a.dropdown-toggle data-toggle="dropdown" href="#" 
+  nav.navbar.navbar-default.navbar-fixed-top.navbar-main#navbar-base
+    a.navbar-brand href="#"
+      = image_tag "brand.svg"
+    ul.nav.navbar-nav.navbar-right
+      li.nav-item = yield(:navbar_search)
+      li.dropdown.nav-item
+        a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#" 
           i.bi_setting-gear-a
-      li.dropdown.medium.only-icon.widget 
+      li.dropdown.nav-item
         = yield(:logs)
-      li.dropdown.dark.user-menu
-        a.dropdown-toggle data-toggle="dropdown" href="#" 
+      li.dropdown.nav-item
+        a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#" 
           span.user-name 
             = yield(:navbar_username) 
           b.caret

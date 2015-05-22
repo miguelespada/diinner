@@ -29,7 +29,7 @@ html, body{
   }
 }
 
-#navbar-home{
+.navbar-main{
   border-radius: none;
   background-color: $translucentWhite;
   height: 60px;
@@ -41,42 +41,64 @@ html, body{
       width: auto;
     }
   }
-  .navbar-toggle{
-    border: none;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background: none;
-    &:hover, &:focus{
-      background: none;
-    }
-    .icon-bar{
-      background-color: $navbarText;
-    }
-  }
-  .navbar-right{
-    a:link, a:hover, a:visited, a:active{
-      color: $navbarText;
-    }
-  }
-
-  @media(min-width: 768px){
-    .navbar-link{
-      padding: 0px 15px;
-      margin-top: 20px;
-      border-left: 1px solid $navbarText;
-    }
-  }
-  
-  @media(max-width: 767px){
+  &#navbar-base{
     .navbar-right{
-      text-align: center;
+      padding-right: 15px;
+      .nav-item{
+        .navbar-link{
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+        #search-form{
+          margin: 13px 15px;
+          padding: 0;
+          button{
+            &:hover{
+              text-decoration: none;
+            }
+          }
+        }
+      }
     }
-    .navbar-collapse{
-      background-color: $translucentWhite;
+  }
+  &#navbar-home{
+    .navbar-toggle{
       border: none;
-      a:hover{
+      margin-top: 15px;
+      margin-bottom: 15px;
+      background: none;
+      &:hover, &:focus{
+        background: none;
+      }
+      .icon-bar{
         background-color: $navbarText;
-        color: $translucentWhite;
+      }
+    }
+    .navbar-right{
+      a:link, a:hover, a:visited, a:active{
+        color: $navbarText;
+      }
+    }
+  
+    @media(min-width: 768px){
+      .navbar-link{
+        padding: 0px 15px;
+        margin-top: 20px;
+        border-left: 1px solid $navbarText;
+      }
+    }
+    
+    @media(max-width: 767px){
+      .navbar-right{
+        text-align: center;
+      }
+      .navbar-collapse{
+        background-color: $translucentWhite;
+        border: none;
+        a:hover{
+          background-color: $navbarText;
+          color: $translucentWhite;
+        }
       }
     }
   }
@@ -86,6 +108,20 @@ html, body{
   margin-top: 60px;
   img{
     width:100%;
+  }
+}
+
+#wrapper{
+  .nav-stacked{
+    li a{
+      font-size: 1.1em;
+      &:link, &:hover, &:active, &:visited{
+        color: $textGray;
+      }
+      span{
+        padding-left: 10px;
+      }
+    }
   }
 }
 
