@@ -25,6 +25,15 @@ html, body{
   font-size: 14px;
   font-weight: 400;
   font-family: 'Proxima Nova';
+  color: $textGray;
+}
+
+a{
+  color: $linkBlue;
+}
+
+h1{
+  font-weight: 200;
 }
 
 @mixin links-container(){
