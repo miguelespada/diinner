@@ -20,6 +20,23 @@
   }
 }
 
+.title-link{
+  padding-top: 20px;
+  .new-link{
+    font-weight: 200;
+    text-decoration: none;
+    color: $buttonYellow;
+    padding: 8px 10px;
+    border: 1px solid $buttonYellow;
+    border-radius: 3px;
+    &:hover, &:active{
+      color: white;
+      text-decoration: none;
+      background-color: $buttonYellow;
+    }
+  }
+}
+
 html, body{
   font-size: 14px;
   font-weight: 400;
@@ -36,6 +53,7 @@ a{
 
 h1{
   font-weight: 200;
+  color: $textDarkGray;
 }
 
 @mixin links-container(){
