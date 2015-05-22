@@ -12,12 +12,11 @@
 
 .link-btn{
   padding: 8px;
-  background-color: $linkBackground;
   margin: 2px;
   border-radius: 3px;
   &:hover{
     color: white;
-    background-color: $linkBlueHover; 
+    background-color: $linkBlue; 
   }
 }
 
@@ -30,6 +29,9 @@ html, body{
 
 a{
   color: $linkBlue;
+  &:hover{
+    color: $linkBlueHover;
+  }
 }
 
 h1{
