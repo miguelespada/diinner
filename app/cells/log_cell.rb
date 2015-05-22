@@ -7,7 +7,7 @@ class LogCell < BaseCell
   end
 
   def log_info
-    cell(model.klass, entity).call(:to_log)
+    cell(model.klass, entity).call(:to_log) if !entity.nil?
   end
 
   def action
@@ -15,6 +15,6 @@ class LogCell < BaseCell
   end
 
   def timeago
-    timeago_tag entity.updated_at, :nojs => true, :limit => 10.days.ago
+    timeago_tag entity.updated_at, :nojs => true, :limit => 10.days.ago if !entity.nil?
   end
 end

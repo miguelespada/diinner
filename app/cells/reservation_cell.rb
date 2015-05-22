@@ -40,4 +40,11 @@ class ReservationCell < BaseCell
       render
     end
   end
+
+   def cancel_link
+    if model.is_owned_by?(current_user)
+      @path = "reservations/#{model.id}"
+      render
+    end
+  end
 end

@@ -1,9 +1,11 @@
-/ TODO refactor to better understand
-== restaurant.show_link
-= model.date
-= model.hour
-== menu.show_link
-p.affinity
-  = model.affinity
-div.reservation-status
-  = status
+.div.reservation
+  / TODO refactor to better understand
+  == restaurant.show_link
+  = model.date
+  = model.hour
+  == menu.show_link
+  p.affinity
+    = model.affinity
+  div.reservation-status
+    = status
+  == cancel_link

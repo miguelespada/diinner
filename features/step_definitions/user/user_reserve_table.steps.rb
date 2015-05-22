@@ -71,3 +71,23 @@ Then(/^I can see the reserved table in my reservations$/) do
     end
   end
 end
+
+When(/^I cancel my reservation$/) do
+  step "I go to the user page"
+  click_on "My reservations"
+  first(".reservation").click
+  click_on "Cancel reservation"
+end
+
+Then(/^I do not see the reserved table in my reservations$/) do
+  expect(page).to have_content("Reservation was successfully cancelled.")
+
+  step "I go to the user page"
+  click_on "My reservations"
+
+  expect(page).not_to have_content(@restaurant.name)
+  expect(page).not_to have_content(@table.date)
+  expect(page).not_to have_content(@table.hour)
+  expect(page).not_to have_content(@menu.name)
+  expect(page).not_to have_content(@menu.price)
+end
