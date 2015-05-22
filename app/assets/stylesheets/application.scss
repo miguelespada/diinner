@@ -10,6 +10,17 @@
   display: none;
 }
 
+.link-btn{
+  padding: 8px;
+  background-color: $linkBackground;
+  margin: 2px;
+  border-radius: 3px;
+  &:hover{
+    color: white;
+    background-color: $linkBlueHover; 
+  }
+}
+
 html, body{
   font-size: 14px;
   font-weight: 400;
@@ -124,21 +135,31 @@ html, body{
 }
 
 #wrapper{
-  .nav-stacked{
-    li a{
-      font-size: 1.1em;
-      &:link, &:hover, &:active, &:visited{
-        color: $textGray;
-      }
-      span{
-        padding-left: 10px;
+  position: fixed;
+  margin-top: 80px;
+  width: 20%;
+  #main-nav{
+    .nav-stacked{
+      li a{
+        font-size: 1.1em;
+        &:link, &:hover, &:active, &:visited{
+          color: $textGray;
+        }
+        span{
+          padding-left: 10px;
+        }
       }
     }
   }
 }
 
+#content{
+  width: 80%;
+  margin-left: 20%;
+  padding-top: 65px;
+}
+
 section{
-  margin-top: 10px;
   position: relative;
   .section-bg{
     width:100%;

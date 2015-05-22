@@ -1,8 +1,9 @@
 doctype html
 html
   = render "/layouts/head"
-  body class==yield(:color)
+  body
     = render "/layouts/navbar"
-    = render "/layouts/sidebar"
-    = render "/layouts/container"
-    = render "/layouts/alerts"
+    .container
+      = render "/layouts/sidebar"
+      = render "/layouts/container"
+      = render "/layouts/alerts"
