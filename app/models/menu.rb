@@ -13,7 +13,7 @@ class Menu
   belongs_to :restaurant
 
   def user_count
-    restaurant.tables.select{|table| table.assigned_menu == self}
+    restaurant.tables.select{|table| table.menu == self}
                       .map{|table| table.user_count}
                       .inject(:+) || 0
   end
