@@ -25,7 +25,7 @@ class UserCell < BaseCell
     if admin_signed_in?
       @path = admin_user_path(model)
       render
-    elsif restaurant_signed_in? && current_restaurant.is_customer?(model)
+    elsif restaurant_signed_in?
       @path = restaurant_user_path(current_restaurant, model)
       render
     elsif model.is_owned_by?(current_user)
