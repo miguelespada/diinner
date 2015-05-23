@@ -1,6 +1,6 @@
 class TestCell < BaseCell
   include CloudinaryHelper
-  
+
   def delete_link
    @path = admin_test_path(model)
    render
@@ -10,7 +10,7 @@ class TestCell < BaseCell
     @path = edit_admin_test_path(model)
     render
   end
-  
+
   def show_link
     @path = admin_test_path(model)
     render
@@ -27,13 +27,6 @@ class TestCell < BaseCell
     render
   end
 
-  def responses
-    render if admin_signed_in?
-  end
-
-  def questions
-    render if user_signed_in?
-  end
 
   # TODO do a yml file
   # BAD SMELL too many literals

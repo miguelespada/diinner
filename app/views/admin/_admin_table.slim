@@ -4,7 +4,7 @@
       span == yield(:title)
     - if content_for?(:new)
         h4.pull-right.title-link
-          == yield(:new) 
+          == yield(:new)
 .row
   .col-sm-12
     .box.bordered-box.red-border
@@ -16,4 +16,4 @@
                 tr
                   == yield(:thead)
               tbody
-                == yield(:tbody) 
+                == yield(:tbody)

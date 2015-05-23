@@ -1,0 +1,6 @@
+== show
+
+div.col-md-8
+  == table "Test Responses", \
+        %w(Question User Response), \
+        cell(:test, collection: model.responses, method: :response)
