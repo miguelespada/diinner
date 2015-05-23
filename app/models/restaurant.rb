@@ -64,6 +64,10 @@ class Restaurant
     reservations.map{ |reservation| reservation.user}.uniq
   end
 
+  def is_customer? user
+    customers.include?(user)
+  end
+
   def is_owned_by?(restaurant)
     restaurant == self
   rescue

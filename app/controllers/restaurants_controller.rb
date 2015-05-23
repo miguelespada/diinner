@@ -28,14 +28,18 @@ class RestaurantsController < ApplicationController
 
   def user
     @user = User.find(params["user_id"])
-    # TODO check ability to see user
+    if !@restaurant.is_owned_by?(current_restaurant)
+      @restaurant.is_customer?(@user)
+    else
+      raise CanCan::AccessDenied.new("Not authorized!")
+    end
   end
 
   private
   def restaurant_params
     params.require(:restaurant).permit(Restaurant.permitted_params)
   end
-  
+
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_owned_by?(current_restaurant)
   end

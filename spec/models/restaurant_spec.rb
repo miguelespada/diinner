@@ -35,7 +35,7 @@ describe Restaurant do
       Restaurant.__elasticsearch__.create_index!
 
       @restaurant = FactoryGirl.create(:restaurant, latitude: 10, longitude: 10)
-      
+
       Restaurant.__elasticsearch__.refresh_index!
       Restaurant.__elasticsearch__.client.cluster.health wait_for_status: 'yellow'
     end
@@ -45,7 +45,7 @@ describe Restaurant do
       expect(@restaurant.as_indexed_json[:location][:lat]).to eq 10
       expect(@restaurant.as_indexed_json[:location][:lon]).to eq 10
     end
-    
+
     it "can search nearby restaurants" do
       expect(Restaurant.search('*').results.total).to eq 1
       expect(Restaurant.near(10.001, 10, 10).results.total).to eq 1
@@ -107,6 +107,13 @@ describe Restaurant do
       it "does not repeat customers" do
         @user.reservations.create({table: @table_1})
         expect(@restaurant.customers.count).to eq 2
+      end
+
+      it "is_customer?" do
+        expect(@restaurant.is_customer?(@user)).to be true
+        expect(@restaurant.is_customer?(@user_1)).to be true
+        @user_2 = FactoryGirl.create(:user)
+        expect(@restaurant.is_customer?(@user_2)).to be false
       end
     end
   end
