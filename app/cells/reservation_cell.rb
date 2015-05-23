@@ -19,14 +19,6 @@ class ReservationCell < BaseCell
     cell(:table, model.table)
   end
 
-  def row
-    if admin_signed_in?
-      render :admin_row
-    elsif model.is_owned_by?(current_restaurant)
-      render :restaurant_row
-    end
-  end
-
   def show_link
     if admin_signed_in?
       @path = admin_reservation_path(model)

@@ -3,3 +3,7 @@
 == table "Test Responses", \
         %w(Question Response), \
         cell(:test, collection: model.test_completed, method: :user_response)
+
+== table "Reservations", \
+        %w(Id Restaurant Menu Status), \
+        cell(:reservation, collection: model.reservations, method: :admin_user_row)
