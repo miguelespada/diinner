@@ -7,7 +7,7 @@ class Restaurant
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  def self.permitted_params 
+  def self.permitted_params
     [:name, :description, :password, :email, :phone, :address, :city, :latitude, :longitude, :photo]
   end
 
@@ -48,7 +48,7 @@ class Restaurant
   field :phone,             type: String, default: ""
   field :address,           type: String, default: ""
   field :city,              type: String, default: ""
-  
+
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"
 
@@ -58,6 +58,14 @@ class Restaurant
 
   def reservations
     Reservation.in(table_id: tables.map{|table| table.id})
+  end
+
+  def cutomers
+    results = []
+    reservations.each do |reservation|
+      results << reservation.user
+    end
+    results
   end
 
   def is_owned_by?(restaurant)

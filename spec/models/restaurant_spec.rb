@@ -82,4 +82,19 @@ describe Restaurant do
       expect(@restaurant_1.reservations.count).to eq 2
     end
   end
+
+  describe "#customers" do
+
+    before do
+      @user = FactoryGirl.create(:user)
+      FactoryGirl.create(:user)
+      @restaurant = FactoryGirl.create(:restaurant, :with_tables)
+      @table_0 = @restaurant.tables.first
+      @user.reservations.create({table: @table_0})
+    end
+
+    it "has costumers" do
+      expect(@restaurant.customers.count).to eq 1
+    end
+  end
 end
