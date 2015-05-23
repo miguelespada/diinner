@@ -1,7 +1,4 @@
 class ReservationCell < BaseCell
-  def details
-    render
-  end
 
   def status
     model.status.capitalize

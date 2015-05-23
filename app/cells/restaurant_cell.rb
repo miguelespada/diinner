@@ -19,10 +19,11 @@ class RestaurantCell < BaseCell
   def show_link
     if admin_signed_in?
       @path = admin_restaurant_path(model)
+      render
     else
       @path = restaurant_path(model)
+      render
     end
-    render
   end
 
   def edit_link

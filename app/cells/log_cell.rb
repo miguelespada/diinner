@@ -2,7 +2,7 @@ class LogCell < BaseCell
   include ActionView::Helpers::DateHelper
   include Rails::Timeago::Helper
 
-  def entity 
+  def entity
     @entity ||= model.get_entity
   end
 

@@ -1,6 +1,5 @@
 class UserCell < BaseCell
 
-
   def logout_link
     if user_signed_in?
       @path = auth_logout_path
@@ -23,12 +22,10 @@ class UserCell < BaseCell
   end
 
   def show_link
-
     if admin_signed_in?
       @path = admin_user_path(model)
       render
-    elsif restaurant_signed_in?
-      # TODO restaurant can only see users that have reserved in his tables
+    elsif restaurant_signed_in? && current_restaurant.is_customer?(model)
       @path = restaurant_user_path(current_restaurant, model)
       render
     elsif model.is_owned_by?(current_user)
@@ -36,7 +33,6 @@ class UserCell < BaseCell
       render
     end
   end
-
 
   def edit_link
     if admin_signed_in?

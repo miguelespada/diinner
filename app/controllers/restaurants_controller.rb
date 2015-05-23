@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
-  
+
   load_resource :only => [:show, :edit, :update, :reservations, :user]
   before_filter :authorize!, :only => [:edit, :update, :reservations, :user]
 
@@ -28,11 +28,7 @@ class RestaurantsController < ApplicationController
 
   def user
     @user = User.find(params["user_id"])
-    if !@restaurant.is_owned_by?(current_restaurant)
-      @restaurant.is_customer?(@user)
-    else
-      raise CanCan::AccessDenied.new("Not authorized!")
-    end
+    CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_customer?(@user)
   end
 
   private

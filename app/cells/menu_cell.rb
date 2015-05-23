@@ -1,5 +1,5 @@
 class MenuCell < BaseCell
-  
+
   def delete_link
     if model.is_owned_by?(current_restaurant)
       @path = restaurant_menu_path(model.restaurant, model)
@@ -17,10 +17,11 @@ class MenuCell < BaseCell
   def show_link
     if admin_signed_in?
       @path = admin_menu_path(model)
+      render
     else
       @path = restaurant_menu_path(model.restaurant, model)
+      render
     end
-    render
   end
 
   def edit_link
