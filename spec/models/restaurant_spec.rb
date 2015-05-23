@@ -84,17 +84,30 @@ describe Restaurant do
   end
 
   describe "#customers" do
-
-    before do
-      @user = FactoryGirl.create(:user)
-      FactoryGirl.create(:user)
-      @restaurant = FactoryGirl.create(:restaurant, :with_tables)
-      @table_0 = @restaurant.tables.first
-      @user.reservations.create({table: @table_0})
+    it "has no costumers" do
+      @restaurant = FactoryGirl.create(:restaurant, :with_tables, :tables_count => 2)
+      expect(@restaurant.customers).to eq []
     end
 
-    it "has costumers" do
-      expect(@restaurant.customers.count).to eq 1
+    context "with reservations" do
+      before do
+        @user = FactoryGirl.create(:user)
+        @user_1 = FactoryGirl.create(:user)
+        @restaurant = FactoryGirl.create(:restaurant, :with_tables, :tables_count => 2)
+        @table_0 = @restaurant.tables.first
+        @table_1 = @restaurant.tables.last
+        @user.reservations.create({table: @table_0})
+        @user_1.reservations.create({table: @table_1})
+      end
+
+      it "has costumers" do
+        expect(@restaurant.customers.count).to eq 2
+      end
+
+      it "does not repeat customers" do
+        @user.reservations.create({table: @table_1})
+        expect(@restaurant.customers.count).to eq 2
+      end
     end
   end
 end

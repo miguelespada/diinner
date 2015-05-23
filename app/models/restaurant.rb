@@ -60,12 +60,8 @@ class Restaurant
     Reservation.in(table_id: tables.map{|table| table.id})
   end
 
-  def cutomers
-    results = []
-    reservations.each do |reservation|
-      results << reservation.user
-    end
-    results
+  def customers
+    reservations.map{ |reservation| reservation.user}.uniq
   end
 
   def is_owned_by?(restaurant)
