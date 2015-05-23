@@ -1,5 +1,5 @@
-h2.restaurant-name 
-  | Restaurant: 
+h2.restaurant-name
+  | Restaurant:
   = model.name
 p.restaurant-description
   = model.description
@@ -21,10 +21,14 @@ div#map
 
 == edit_link
 
-h3 Menus
-div.menus
-  == cell(:menu, collection: model.menus, method: :row)
+== table "Menus", \
+        %w(Name Price), \
+        cell(:menu, collection: model.menus, method: :admin_restaurant_row)
 
-h3 Tables
-div.tables
-  == cell(:table, collection: model.tables, method: :row)
+== table "Tables", \
+        %w(Id Data Left Status), \
+        cell(:table, collection: model.tables, method: :admin_restaurant_row)
+
+== table "Reservations", \
+        %w(Id User Menu Status), \
+        cell(:reservation, collection: model.reservations, method: :admin_restaurant_row)

@@ -6,7 +6,7 @@ class ReservationCell < BaseCell
   def status
     model.status.capitalize
   end
-  
+
   def user
     cell(:user, model.user)
   end

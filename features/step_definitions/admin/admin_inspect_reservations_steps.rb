@@ -19,3 +19,13 @@ Then(/^I can see the reservation in the user section$/) do
     expect(page).to have_content "Confirmed"
   end
 end
+
+
+Then(/^I can see the reservation in the restaurant section$/) do
+  click_on "Restaurants"
+  click_on @restaurant.name
+  within('.reservations') do
+    expect(page).to have_content @user.name
+    expect(page).to have_content "Confirmed"
+  end
+end
