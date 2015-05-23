@@ -30,4 +30,10 @@ class TableCell < BaseCell
       render
     end
   end
+
+  def reservations
+    table "Reservations", \
+      %w(User Status), \
+      cell(:reservation, collection: model.reservations, method: :table_row)
+  end
 end

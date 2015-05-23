@@ -21,14 +21,6 @@ div#map
 
 == edit_link
 
-== table "Menus", \
-        %w(Name Price), \
-        cell(:menu, collection: model.menus, method: :admin_restaurant_row)
-
-== table "Tables", \
-        %w(Id Data Left Status), \
-        cell(:table, collection: model.tables, method: :admin_restaurant_row)
-
-== table "Reservations", \
-        %w(Id User Menu Status), \
-        cell(:reservation, collection: model.reservations, method: :admin_restaurant_row)
+== menus
+== tables
+== reservations

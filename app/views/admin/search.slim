@@ -7,7 +7,7 @@
 
 - content_for(:tbody) do
   == cell(:search_result, collection: @results, method: :row)
- 
+
 = render "admin/admin_table"
 
 = will_paginate @results

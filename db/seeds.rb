@@ -7,17 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def create_users
-  50.times do |n|
+  5.times do |n|
     name = Faker::Name.name
     email = Faker::Internet.email
     image_url = Faker::Avatar.image
     birth = Faker::Date.between(20.years.ago, 60.years.ago)
     gender = ["male", "female", "undefined"].sample
-  
+
     User.create(
       name: name,
       email: email,
-      image_url: image_url, 
+      image_url: image_url,
       birth: birth,
       gender: gender
       )
@@ -26,7 +26,7 @@ def create_users
 end
 
 def create_restaurants
-  50.times do |n|
+  10.times do |n|
     name = Faker::Name.name
     description = Faker::Lorem.sentences(1)
     email = Faker::Internet.email
@@ -35,7 +35,7 @@ def create_restaurants
     city = ["Madrid", "Barcelona", "Sevilla", "Valencia"].sample
     latitude = rand(37.5...43.0)
     longitude = rand(-6.0...2.0)
-  
+
     Restaurant.create(
       name: name,
       description: description,

@@ -2,12 +2,6 @@ class RestaurantCell < BaseCell
   include ActionView::Helpers::DateHelper
   include CloudinaryHelper
 
-
-  def cl_photo size
-     cl_image_tag(model.photo.path, { size: "#{size}x#{size}", crop: :fill, radius: 2 }) if model.photo.present?
-  end
-
-
   def delete_link
     if admin_signed_in?
       @path = admin_restaurant_path(model)
@@ -30,7 +24,7 @@ class RestaurantCell < BaseCell
     end
     render
   end
-  
+
   def edit_link
     if admin_signed_in?
       @path = edit_admin_restaurant_path(model)
@@ -48,9 +42,39 @@ class RestaurantCell < BaseCell
     end
   end
 
+  def menus
+    if admin_signed_in? || model.is_owned_by?(current_restaurant)
+      table "Menus", \
+          %w(Name Price), \
+          cell(:menu, collection: model.menus, method: :admin_restaurant_row)
+    end
+  end
+
+  def tables
+    if admin_signed_in? || model.is_owned_by?(current_restaurant)
+      table "Tables", \
+          %w(Id Data Left Status), \
+          cell(:table, collection: model.tables, method: :admin_restaurant_row)
+    end
+  end
+
+  def reservations
+    if admin_signed_in? || model.is_owned_by?(current_restaurant)
+      table "Reservations", \
+          %w(Id User Menu Status), \
+          cell(:reservation, collection: model.reservations, method: :admin_restaurant_row)
+    end
+  end
+
   private
-  
+
   def status
+
+    # TODO maybe move to base
+  def cl_photo size
+     cl_image_tag(model.photo.path, { size: "#{size}x#{size}", crop: :fill, radius: 2 }) if model.photo.present?
+  end
+
     if admin_signed_in?
       "Last time active: " + (@model.current_sign_in_at.nil? ? "never" : time_ago_in_words( @model.current_sign_in_at )).to_s
     end
