@@ -8,8 +8,13 @@ class  ReservationsController < UsersController
   end
 
   def new
+    # TODO push to model??
     @reservation = @user.reservations.new
+    2.times do
+      @reservation.companies.build
+    end
   end
+
 
   def create
     @reservation = @user.reservations.create(reservation_params)
@@ -18,7 +23,7 @@ class  ReservationsController < UsersController
 
   def search
     suggestionEngine = SuggestionEngine.new @user
-    @suggestions = suggestionEngine.search date_param, price_param, customer_count_param
+    @suggestions = suggestionEngine.search date_param, price_param
     # TODO handle no suggestions
   end
 
@@ -40,7 +45,8 @@ class  ReservationsController < UsersController
                                        :date,
                                        :price,
                                        :table_id,
-                                       :stripe_card_token)
+                                       :stripe_card_token,
+                                       companies_attributes: [:id, :gender, :age, :_destroy])
   end
 
   def authorize!
@@ -49,11 +55,6 @@ class  ReservationsController < UsersController
 
   def load_user
     @user = User.find(params["user_id"])
-  end
-
-  def customer_count_param
-    # TODO add real customer count
-    1
   end
 
   def date_param

@@ -69,13 +69,12 @@ class RestaurantCell < BaseCell
 
   private
 
-  def status
-
-    # TODO maybe move to base
+  # TODO maybe move to base
   def cl_photo size
      cl_image_tag(model.photo.path, { size: "#{size}x#{size}", crop: :fill, radius: 2 }) if model.photo.present?
   end
 
+  def status
     if admin_signed_in?
       "Last time active: " + (@model.current_sign_in_at.nil? ? "never" : time_ago_in_words( @model.current_sign_in_at )).to_s
     end

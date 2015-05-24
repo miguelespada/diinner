@@ -9,25 +9,27 @@ class Reservation
   field :customer, type: String
   field :paid, type: Boolean, default: false
 
-  delegate  :restaurant, 
-            :hour, 
-            :menu, 
+  delegate  :restaurant,
+            :hour,
+            :menu,
             :date, :to => :table, :allow_nil => true
 
-
-  # TODO add number of user (in case of invitations)
-  # field :plus_one, :type Boolean
+  has_many :companies
+  accepts_nested_attributes_for :companies,
+           :reject_if => :all_blank,
+           :allow_destroy => true
 
   def user_count
     1
   end
 
   def confirmed?
-    !paid? && customer.present? 
+    !paid? && customer.present?
   end
 
   def status
     # TODO cancelled
+    # TODO plan-closes
     return :paid if paid?
     return :confirmed if confirmed?
     return :pending
@@ -48,7 +50,7 @@ class Reservation
   def charge
     begin
       Stripe::Charge.create(
-        :amount   => price * 100, 
+        :amount   => price * 100,
         :currency => "eur",
         :customer => customer
       )
@@ -72,6 +74,4 @@ class Reservation
   rescue
     false
   end
-
- 
 end
