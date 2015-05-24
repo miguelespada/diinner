@@ -31,8 +31,8 @@ class  ReservationsController < UsersController
   end
 
   def destroy
-    @user.reservations.delete(@reservation)
-    redirect_to  user_reservations_path(@user), notice: 'Reservation was successfully cancelled.'
+    @reservation.delete
+    redirect_to user_reservations_path(@user), notice: 'Reservation was successfully cancelled.'
   end
 
   def restaurant
