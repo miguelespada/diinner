@@ -1,6 +1,6 @@
-require "rails_helper" 
+require "rails_helper"
 describe Table do
-  
+
   describe "#user_count" do
     before do
       @user = FactoryGirl.create(:user)

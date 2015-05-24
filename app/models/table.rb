@@ -15,13 +15,13 @@ class Table
   end
 
   def price
-    empty? ? :undefined : reservations.first.price 
+    empty? ? :undefined : reservations.first.price
   end
 
   def menu
     empty? ? :undefined : menus.select{|menu| menu.price == self.price}.first
   end
-  
+
   def is_owned_by?(restaurant)
     restaurant == self.restaurant
   rescue
@@ -51,7 +51,20 @@ class Table
   def status
     return :full if full?
     return :empty if empty?
-    return :partial 
+    return :partial
   end
 
+  def is_on_day? day
+    date.to_date == day
+  end
+
+  def matches_menu_price? target_price
+    menus.select{|menu| menu.price == target_price} != []
+  end
+
+  def matches? day, target_price, customer_count
+    is_on_day?(day) &&
+    matches_menu_price?(target_price) &&
+    slots_left >= customer_count
+  end
 end

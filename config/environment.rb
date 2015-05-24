@@ -10,3 +10,6 @@ Rails.application.initialize!
 
 require 'slim'
 Slim::Engine.disable_option_validator!
+
+Date::DATE_FORMATS[:default] = "%Y-%m-%d"
+Time::DATE_FORMATS[:default] = "%Y-%m-%d %H:%M"

@@ -12,7 +12,7 @@ When(/^I search a table$/) do
   step "I go to the user page"
   click_on "New reservation"
   select(20, :from => "reservation_price")
-  fill_in "Date", with: @table.date.strftime('%Y-%m-%d')
+  fill_in "Date", with: @table.date.strftime
   click_on "Search tables"
 end
 
