@@ -63,13 +63,11 @@ class Table
   end
 
   def male_slots_lefts
-    # TODO calculate the slots
-    3
+    reservations.map{|r| r.male_count}.inject(:+) || 0
   end
 
   def female_slots_lefts
-    # TODO calculate the slots
-    3
+    reservations.map{|r| r.female_count}.inject(:+) || 0
   end
 
   def has_free_slots? genders
