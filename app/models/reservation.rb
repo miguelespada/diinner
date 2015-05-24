@@ -15,6 +15,7 @@ class Reservation
             :date, :to => :table, :allow_nil => true
 
   has_many :companies
+
   accepts_nested_attributes_for :companies,
            :reject_if => :all_blank,
            :allow_destroy => true

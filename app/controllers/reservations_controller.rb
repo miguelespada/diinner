@@ -22,9 +22,8 @@ class  ReservationsController < UsersController
   end
 
   def search
-    p @reservation
     suggestionEngine = SuggestionEngine.new @user
-    @suggestions = suggestionEngine.search date_param, price_param
+    @suggestions = suggestionEngine.search date_param, price_param, companies_param
     # TODO handle no suggestions
   end
 
@@ -52,6 +51,14 @@ class  ReservationsController < UsersController
 
   def authorize!
     # TODO authorize
+  end
+
+  def companies_param
+    company = []
+    params[:reservation][:companies_attributes].each do |company_params|
+      company << Company.new(company_params[1])
+    end
+    company
   end
 
   def load_user
