@@ -3,6 +3,6 @@ table.table class = @title.parameterize
   thead
     tr
       - @head.each do |h|
-        th = h
+        th = h.gsub(/_/, ' ')
   tbody
     == @collection

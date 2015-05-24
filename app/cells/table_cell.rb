@@ -33,7 +33,7 @@ class TableCell < BaseCell
 
   def reservations
     table "Reservations", \
-      %w(User Status), \
+      %w(User Occupied_slots Status), \
       cell(:reservation, collection: model.reservations, method: :table_row)
   end
 
