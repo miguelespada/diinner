@@ -20,5 +20,4 @@
 //= require cloudinary/jquery.cloudinary
 //= require my_attachinary
 //= require rails-timeago
-//= require cocoon
 //= require alerts

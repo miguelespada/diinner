@@ -63,21 +63,23 @@ class Table
   end
 
   def male_slots_lefts
+    # TODO calculate the slots
     3
   end
 
   def female_slots_lefts
+    # TODO calculate the slots
     3
   end
 
-  def has_free_slots? customers
-    male_slots_lefts >= customers[:male] &&
-    female_slots_lefts >= customers[:female]
+  def has_free_slots? genders
+    male_slots_lefts >= genders[:male] &&
+    female_slots_lefts >= genders[:female]
   end
 
-  def matches? day, target_price, customers
-    is_on_day?(day) &&
-    matches_menu_price?(target_price) &&
-    has_free_slots?(customers)
+  def matches? reservation
+    is_on_day?(reservation.date) &&
+    matches_menu_price?(reservation.price) &&
+    has_free_slots?(reservation.genders)
   end
 end

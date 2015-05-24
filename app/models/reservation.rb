@@ -8,13 +8,13 @@ class Reservation
   field :price, type: Integer
   field :customer, type: String
   field :paid, type: Boolean, default: false
+  field :date, type: Date
 
   delegate  :restaurant,
             :hour,
-            :menu,
-            :date, :to => :table, :allow_nil => true
+            :menu, :to => :table, :allow_nil => true
 
-  has_many :companies
+  embeds_many :companies
 
   accepts_nested_attributes_for :companies,
            :reject_if => :all_blank,
@@ -74,5 +74,16 @@ class Reservation
     user == self.user || self.table.restaurant == user
   rescue
     false
+  end
+
+  def genders
+    results = Hash.new
+    results[:male] = 0
+    results[:female] = 0
+    results[user.gender] += 1
+    companies.each do |c|
+      results[c.gender] += 1
+    end
+    results
   end
 end

@@ -7,12 +7,12 @@ class SuggestionEngine
     # TODO here should be the magic
     results = []
     Table.all.each do |table|
-      if table.matches?(date, price, companies)
-        results << Reservation.new({user: @user,
+      reservation = Reservation.new({user: @user,
                                     table: table,
                                     price: price,
+                                    date: date,
                                     companies: companies})
-      end
+      results << reservation if table.matches?(reservation)
     end
     results
   end

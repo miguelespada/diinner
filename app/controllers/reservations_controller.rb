@@ -10,21 +10,19 @@ class  ReservationsController < UsersController
   def new
     # TODO push to model??
     @reservation = @user.reservations.new
-    2.times do
-      @reservation.companies.build
-    end
-  end
-
-
-  def create
-    @reservation = @user.reservations.create(reservation_params)
-    render :credit_card_form
+    @reservation.companies.build
+    @reservation.companies.build
   end
 
   def search
     suggestionEngine = SuggestionEngine.new @user
     @suggestions = suggestionEngine.search date_param, price_param, companies_param
     # TODO handle no suggestions
+  end
+
+  def create
+    @reservation = @user.reservations.create(reservation_params)
+    render :credit_card_form
   end
 
   def update
@@ -46,7 +44,7 @@ class  ReservationsController < UsersController
                                        :price,
                                        :table_id,
                                        :stripe_card_token,
-                                       companies_attributes: [:id, :gender, :age, :_destroy])
+                                       companies: [:id, :gender, :age])
   end
 
   def authorize!
@@ -54,6 +52,7 @@ class  ReservationsController < UsersController
   end
 
   def companies_param
+    # TODO handle empty values
     company = []
     params[:reservation][:companies_attributes].each do |company_params|
       company << Company.new(company_params[1])
