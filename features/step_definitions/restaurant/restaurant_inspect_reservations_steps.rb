@@ -19,3 +19,11 @@ Then(/^I can see that the reservation is paid$/) do
   expect(page).to have_content @user.name
   expect(page).to have_content "Paid"
 end
+
+When(/^I can see the slots left of the reserved table$/) do
+  click_on "Tables"
+  expect(page).to have_content @table.id
+  within(".table-slots") do
+    expect(page).to have_content "2/2"
+  end
+end

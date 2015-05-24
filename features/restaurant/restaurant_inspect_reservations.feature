@@ -9,3 +9,4 @@ Feature: Restaurant manage reservations
   Scenario:
     When I login as restaurant
     And I can see the user reservation
+    And I can see the slots left of the reserved table
