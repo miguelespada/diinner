@@ -96,3 +96,22 @@ Then(/^I do not see the reserved table in my reservations$/) do
   expect(page).not_to have_content(@menu.name)
   expect(page).not_to have_content(@menu.price)
 end
+
+
+Then(/^I can access restaurant data$/) do
+  click_on @restaurant.name
+
+  expect(page).to have_content @restaurant.name
+  expect(page).to have_content @restaurant.description
+  expect(page).to have_content @restaurant.city
+end
+
+Then(/^I can access menu data$/) do
+  step "I go to the user page"
+  click_on "My reservations"
+  click_on @menu.name
+  expect(page).to have_content @menu.main_dish
+  expect(page).to have_content @menu.price
+  expect(page).to have_content @menu.appetizer
+end
+

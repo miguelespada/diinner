@@ -1,6 +1,6 @@
 class  ReservationsController < UsersController
   before_action :load_user
-  load_resource :only => [:update,:destroy]
+  load_resource :only => [:update, :destroy]
   before_action :authorize!
 
   def index
@@ -33,6 +33,14 @@ class  ReservationsController < UsersController
   def destroy
     @user.reservations.delete(@reservation)
     redirect_to  user_reservations_path(@user), notice: 'Reservation was successfully cancelled.'
+  end
+
+  def restaurant
+    @restaurant = @user.reservations.find(params["reservation_id"]).restaurant
+  end
+
+  def menu
+    @menu = @user.reservations.find(params["reservation_id"]).menu
   end
 
   private

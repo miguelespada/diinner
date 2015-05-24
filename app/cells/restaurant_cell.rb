@@ -20,7 +20,7 @@ class RestaurantCell < BaseCell
     if admin_signed_in?
       @path = admin_restaurant_path(model)
       render
-    else
+    elsif model.is_owned_by?(current_restaurant)
       @path = restaurant_path(model)
       render
     end

@@ -16,6 +16,14 @@ class ReservationCell < BaseCell
     cell(:table, model.table)
   end
 
+  def restaurant_link
+    link_to model.restaurant.name, user_reservation_restaurant_path(current_user, model)
+  end
+
+  def menu_link
+    link_to model.menu.name, user_reservation_menu_path(current_user, model)
+  end
+
   def occupied_slots
     "#{model.male_count}/#{model.female_count}"
   end

@@ -27,10 +27,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def restaurants
-    @restaurants = Restaurant.all
-  end
-
   private
 
   def user_params

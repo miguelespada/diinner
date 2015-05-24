@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :tables
-    resources :menus  
+    resources :menus
   end
 
 
@@ -46,7 +46,10 @@ Rails.application.routes.draw do
     post "test/:test_id" => "test_responses#create", as: "test_response"
     get "test" => "test_responses#new", as: "test"
     post "search" => "reservations#search", as: "search_tables"
-    resources :reservations
+    resources :reservations do
+      get "restaurant" => "reservations#restaurant", as: "restaurant"
+      get "menu" => "reservations#menu", as: "menu"
+    end
   end
 
   root 'static_pages#index'
