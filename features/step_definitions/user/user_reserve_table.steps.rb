@@ -45,7 +45,6 @@ Then(/^I can see the table details$/) do
   end
 end
 
-
 Then(/^I fill in the credit card details$/) do
   # TODO move to support
   stripe_token = Stripe::Token.create({
@@ -114,4 +113,3 @@ Then(/^I can access menu data$/) do
   expect(page).to have_content @menu.price
   expect(page).to have_content @menu.appetizer
 end
-
