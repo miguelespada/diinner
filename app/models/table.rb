@@ -62,12 +62,20 @@ class Table
     menus.select{|menu| menu.price == target_price} != []
   end
 
-  def male_slots_lefts
+  def male_count
     reservations.map{|r| r.male_count}.inject(:+) || 0
   end
 
-  def female_slots_lefts
+  def female_count
     reservations.map{|r| r.female_count}.inject(:+) || 0
+  end
+
+  def male_slots_lefts
+    3 - male_count
+  end
+
+  def female_slots_lefts
+    3 - female_count
   end
 
   def has_free_slots? genders

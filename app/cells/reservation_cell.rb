@@ -16,6 +16,10 @@ class ReservationCell < BaseCell
     cell(:table, model.table)
   end
 
+  def occupied_slots
+    "#{model.male_count}/#{model.female_count}"
+  end
+
   def show_link
     if admin_signed_in?
       @path = admin_reservation_path(model)

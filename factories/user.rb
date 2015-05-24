@@ -3,9 +3,9 @@ FactoryGirl.define do
     sequence(:email)  { |n| "user_#{n}@gmail.com" }
     sequence(:image_url) { |n| "user_#{n}.jpg" }
     sequence(:name)  { |n| "user_#{n}" }
-    gender { [:male, :female].sample }
+    gender :male
     birth { (18..50).to_a.sample.years.seconds.ago }
-    
+
     trait :returning do
       updated_at 0
       created_at 1

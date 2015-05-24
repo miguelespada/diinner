@@ -20,8 +20,16 @@ class Reservation
            :reject_if => :all_blank,
            :allow_destroy => true
 
+  def male_count
+    genders[:male]
+  end
+
+  def female_count
+    genders[:female]
+  end
+
   def user_count
-    1
+    companies.all.count + 1
   end
 
   def confirmed?
@@ -51,7 +59,7 @@ class Reservation
   def charge
     begin
       Stripe::Charge.create(
-        :amount   => price * 100,
+        :amount   => price * user_count * 100,
         :currency => "eur",
         :customer => customer
       )
@@ -77,9 +85,7 @@ class Reservation
   end
 
   def genders
-    results = Hash.new
-    results[:male] = 0
-    results[:female] = 0
+    results = {:male => 0, :female => 0}
     results[user.gender] += 1
     companies.each do |c|
       results[c.gender] += 1

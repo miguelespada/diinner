@@ -8,11 +8,13 @@ class SuggestionEngine
     results = []
     Table.all.each do |table|
       reservation = Reservation.new({user: @user,
-                                    table: table,
                                     price: price,
                                     date: date,
                                     companies: companies})
-      results << reservation if table.matches?(reservation)
+      if table.matches?(reservation)
+        reservation.table = table
+        results << reservation
+      end
     end
     results
   end

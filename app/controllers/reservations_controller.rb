@@ -16,17 +16,16 @@ class  ReservationsController < UsersController
 
   def search
     suggestionEngine = SuggestionEngine.new @user
-    @suggestions = suggestionEngine.search date_param, price_param, companies_param
-    # TODO handle no suggestions
+    @suggestions = suggestionEngine.search date_param, price_param, load_companies_from_param
   end
 
   def create
+    # TODO check again if reservation match the table
     @reservation = @user.reservations.create(reservation_params)
     render :credit_card_form
   end
 
   def update
-    # TODO handle errors
     @reservation.update_customer_information!(params[:stripe_card_token])
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
@@ -44,18 +43,20 @@ class  ReservationsController < UsersController
                                        :price,
                                        :table_id,
                                        :stripe_card_token,
-                                       companies: [:id, :gender, :age])
+                                       companies: [:id, :_gender, :age])
   end
 
   def authorize!
     # TODO authorize
   end
 
-  def companies_param
-    # TODO handle empty values
+  def load_companies_from_param
     company = []
     params[:reservation][:companies_attributes].each do |company_params|
-      company << Company.new(company_params[1])
+      c = company_params[1]
+      if !c[:age].blank? && !c[:gender].blank?
+        company << Company.new(c)
+      end
     end
     company
   end
