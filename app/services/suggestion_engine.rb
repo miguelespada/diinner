@@ -3,7 +3,7 @@ class SuggestionEngine
     @user = user
   end
 
-  def search date, price, companies
+  def search date, price, companies = []
     # TODO here should be the magic
     results = []
     Table.all.each do |table|
