@@ -3,12 +3,14 @@ class SuggestionEngine
     @user = user
   end
 
-  def search date, price, customer_count = 1
+  def search date, price
     # TODO here should be the magic
     results = []
     Table.all.each do |table|
-      if table.matches?(date, price, customer_count)
-        results << Reservation.new({user: @user, table: table, price: price})
+      if table.matches?(date, price, {male: 1, female: 0})
+        results << Reservation.new({user: @user,
+                                    table: table,
+                                    price: price})
       end
     end
     results

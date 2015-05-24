@@ -62,9 +62,22 @@ class Table
     menus.select{|menu| menu.price == target_price} != []
   end
 
-  def matches? day, target_price, customer_count
+  def male_slots_lefts
+    3
+  end
+
+  def female_slots_lefts
+    3
+  end
+
+  def has_free_slots? customers
+    male_slots_lefts >= customers[:male] &&
+    female_slots_lefts >= customers[:female]
+  end
+
+  def matches? day, target_price, customers
     is_on_day?(day) &&
     matches_menu_price?(target_price) &&
-    slots_left >= customer_count
+    has_free_slots?(customers)
   end
 end
