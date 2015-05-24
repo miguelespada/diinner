@@ -22,6 +22,7 @@ class  ReservationsController < UsersController
   end
 
   def search
+    p @reservation
     suggestionEngine = SuggestionEngine.new @user
     @suggestions = suggestionEngine.search date_param, price_param
     # TODO handle no suggestions
