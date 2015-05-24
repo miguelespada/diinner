@@ -1,11 +1,22 @@
-/ TODO show_link for user!
 / TODO DRY this
-== model.restaurant.name
-br
-= model.date
-= model.hour
 / TODO show_link for user!
-== model.menu.name
-p.affinity
-  = model.affinity
+
+h1 Restaurant
+ul
+  li == restaurant.name
+  li == restaurant.cl_photo 200
+
+h4 Date
+
+ul
+  li = model.date
+  li = model.hour
+
+h4 Menu details
+
+== menu.call(:user_show)
+
+h4 Affinity
+ul.affinity
+  li = model.affinity
 == reserve_link
