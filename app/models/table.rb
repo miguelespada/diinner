@@ -44,10 +44,6 @@ class Table
     !full? && !empty?
   end
 
-  def slots_left
-    6 - user_count
-  end
-
   def status
     return :full if full?
     return :empty if empty?
@@ -70,17 +66,17 @@ class Table
     reservations.map{|r| r.female_count}.inject(:+) || 0
   end
 
-  def male_slots_lefts
+  def male_slots_left
     3 - male_count
   end
 
-  def female_slots_lefts
+  def female_slots_left
     3 - female_count
   end
 
   def has_free_slots? genders
-    male_slots_lefts >= genders[:male] &&
-    female_slots_lefts >= genders[:female]
+    male_slots_left >= genders[:male] &&
+    female_slots_left >= genders[:female]
   end
 
   def matches? reservation

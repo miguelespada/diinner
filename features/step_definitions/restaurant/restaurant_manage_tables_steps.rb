@@ -11,7 +11,7 @@ Then(/^I should see the table in the list of tables$/) do
     expect(page).to have_content "2015-12-20"
   end
   within(:css, ".table-slots") do
-    expect(page).to have_content "6"
+    expect(page).to have_content "3/3"
   end
   within(:css, ".table-status") do
     expect(page).to have_content "empty"

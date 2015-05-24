@@ -68,7 +68,7 @@ Then(/^I can access to the table data$/) do
   click_on @table.id
   expect(page).to have_content @restaurant.name
   expect(page).to have_content @table.id
-  expect(page).to have_content @table.slots_left
+  expect(page).to have_content "3/3"
 end
 
 When(/^a restaurant has created a menu$/) do
@@ -85,7 +85,7 @@ Then(/^I should see the log of the creation of the new menu$/) do
     expect(page).to have_content @restaurant.name
   end
 end
-  
+
 Then(/^I can access to the menu data$/) do
   click_on @menu.name
   expect(page).to have_content @restaurant.name

@@ -36,4 +36,8 @@ class TableCell < BaseCell
       %w(User Status), \
       cell(:reservation, collection: model.reservations, method: :table_row)
   end
+
+  def slots_left
+    "#{model.male_slots_left}/#{model.female_slots_left}"
+  end
 end
