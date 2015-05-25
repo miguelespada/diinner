@@ -1,8 +1,8 @@
 = simple_form_for [:admin, @restaurant] do |f|
   = f.error_notification
-  = f.input :name 
+  = f.input :name
   = f.input :email
   / TODO this list should be in config
-  = f.input :city, :collection => ['Madrid', 'Barcelona', 'Valencia', 'Sevilla']
+  = f.association :city
   = f.input :password
-  = f.button :submit 
+  = f.button :submit

@@ -13,6 +13,6 @@ class AdminController < ApplicationController
   def map
     name = params[:city][:city] if params[:city].present?
     @city = City.where(name: name).first || City.first
-    @restaurants = Restaurant.where(city: @city.name)
+    @restaurants = Restaurant.where(city: @city)
   end
 end

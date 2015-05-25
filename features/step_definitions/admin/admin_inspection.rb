@@ -6,10 +6,10 @@ Given(/^There are some users$/) do
 end
 
 Given(/^There are some restaurants$/) do
-  @city = FactoryGirl.create(:city, name: "Madrid")
+  city = FactoryGirl.create(:city, name: "Madrid")
   @restaurants = []
   3.times do
-    @restaurants << FactoryGirl.create(:restaurant)
+    @restaurants << FactoryGirl.create(:restaurant, city: city)
   end
 end
 

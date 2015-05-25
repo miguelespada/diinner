@@ -5,7 +5,7 @@ FactoryGirl.define do
     password               "12345678"
     password_confirmation  "12345678"
     description "dummy description"
-    city  "Madrid"
+    city :city
 
     trait :with_photo do
       photo FactoryGirl.build(:attachinary)
