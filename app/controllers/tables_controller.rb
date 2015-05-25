@@ -43,7 +43,7 @@ class TablesController < RestaurantsController
 
 
   def table_params
-    params.require(:table).permit(:name, :date)
+    params.require(:table).permit(:name, :date, :hour)
   end
 
   def authorize!

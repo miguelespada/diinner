@@ -4,15 +4,11 @@ class Table
   include Loggeable
 
   field :date, type: Date
+  field :hour, type: Time
 
   belongs_to :restaurant
   has_many :reservations
   delegate :menus, :to => :restaurant
-
-  def hour
-    # TODO define hour as a field
-    "21:00"
-  end
 
   def price
     empty? ? :undefined : reservations.first.price

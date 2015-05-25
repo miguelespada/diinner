@@ -23,7 +23,6 @@ end
 
 Then(/^I should see the users in the list of users$/) do
   click_on "Users"
-
   3.times do |i|
     expect(page).to have_content @users[i].name
     expect(page).to have_content @users[i].email
@@ -34,7 +33,6 @@ end
 
 When(/^I do a search$/) do
   fill_in "query", with: @restaurants[0].name + " " + @users[0].name
-
   within(:css, "#search-form") do
     click_button "search-button"
   end
