@@ -1,12 +1,15 @@
 = form_tag admin_map_path(current_admin), :method => :get do
-  = select_tag :city, options_for_select([['Madrid', :Madrid], ['Barcelona', :Barcelona]])
-  = submit_tag "Go"
+  = collection_select(:city, :city, City.all, :name, :name, {:selected => @city.name}, :onchange => "this.form.submit()")
+
+/ TODO move to cell
+div.location data={current_lat: "#{@city.latitude}",\
+                  current_lng: "#{@city.longitude}",
+                  }
 
 div#markers
   - @restaurants.each do |restaurant|
     == cell(:restaurant, restaurant).location
 
 div#map.admin-map
-
 
 = render "/layouts/map"
