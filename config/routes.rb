@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :restaurants
     resources :tests
+    resources :cities
     resources :logs, only: [:index]
     resources :users, except: [:new, :create]
     resources :tables, only: [:show, :index]

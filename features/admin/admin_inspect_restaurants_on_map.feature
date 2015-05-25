@@ -7,5 +7,5 @@ Feature: Admin see restaurants in a map
     When I am logged as admin
 
   @inspect_map
-  Scenario: 
+  Scenario:
     Then I should see the restaurants on a map

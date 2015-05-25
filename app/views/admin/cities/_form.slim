@@ -1,0 +1,6 @@
+= simple_form_for [:admin, @city] do |f|
+  = f.error_notification
+  = f.input :name
+  = f.input :latitude
+  = f.input :longitude
+  = f.button :submit

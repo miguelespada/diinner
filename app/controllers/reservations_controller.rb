@@ -20,7 +20,7 @@ class  ReservationsController < UsersController
   end
 
   def create
-    # TODO check again if reservation match the table
+    # TODO check again if reservation match the table (in case concurrency problems)
     @reservation = @user.reservations.create(reservation_params)
     render :credit_card_form
   end
@@ -31,6 +31,7 @@ class  ReservationsController < UsersController
   end
 
   def destroy
+    # TODO add cancelled state instead of delete
     @reservation.delete
     redirect_to user_reservations_path(@user), notice: 'Reservation was successfully cancelled.'
   end
@@ -58,6 +59,11 @@ class  ReservationsController < UsersController
     # TODO authorize
   end
 
+  def load_user
+    @user = User.find(params["user_id"])
+  end
+
+  # TODO maybe push to suggestion engine
   def load_companies_from_param
     company = []
     params[:reservation][:companies_attributes].each do |company_params|
@@ -67,10 +73,6 @@ class  ReservationsController < UsersController
       end
     end
     company
-  end
-
-  def load_user
-    @user = User.find(params["user_id"])
   end
 
   def date_param

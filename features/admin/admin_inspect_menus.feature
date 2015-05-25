@@ -1,7 +1,7 @@
 Feature: Admin Inspect Menus
   As admin
   I want to inspect restaurant menus
-  
+
   Background:
     Given I am logged as admin
     When a restaurant has created a menu

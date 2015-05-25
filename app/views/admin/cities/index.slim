@@ -1,16 +1,16 @@
 - content_for(:title) do
-  | Tests
+  | Cities
 
 - content_for(:new) do
-  == cell(:test, Test).call(:new_link)
+  == cell(:city, City).call(:new_link)
 
 - content_for(:thead) do
-  th Question
-  th Option A
-  th Option B
+  th Name
+  th Latitude
+  th Longitude
   th.text-right Actions
 
 - content_for(:tbody) do
-  == cell(:test, collection: @tests, method: :row)
+  == cell(:city, collection: @cities, method: :row)
 
 = render "admin/admin_table"

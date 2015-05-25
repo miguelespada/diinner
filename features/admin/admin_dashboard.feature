@@ -5,7 +5,7 @@ Feature: Admin Dashboard
   Background:
     Given I am logged as admin
 
-  @admin_dashboard 
-  Scenario: 
+  @admin_dashboard
+  Scenario:
     When I go to my dashboard
     Then I should see all the navigation controls
