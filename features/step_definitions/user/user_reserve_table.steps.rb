@@ -36,7 +36,7 @@ end
 
 Then(/^I can see the table details$/) do
   expect(page).to have_content(@restaurant.name)
-  expect(page).to have_content(@table.date.to_date)
+  expect(page).to have_content(@table.date)
   expect(page).to have_content(@table.hour)
   expect(page).to have_content(@menu.name)
   expect(page).to have_content(@menu.price)
@@ -90,7 +90,7 @@ Then(/^I do not see the reserved table in my reservations$/) do
   click_on "My reservations"
 
   expect(page).not_to have_content(@restaurant.name)
-  expect(page).not_to have_content(@table.date.to_date)
+  expect(page).not_to have_content(@table.date)
   expect(page).not_to have_content(@table.hour)
   expect(page).not_to have_content(@menu.name)
   expect(page).not_to have_content(@menu.price)

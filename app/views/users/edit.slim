@@ -5,5 +5,3 @@ div.container-fluid
         h1 Edit
         = simple_form_for [@user] do |f|
           = render "form_fields", :f => f
-      div.pull-right.col-md-2
-        == cell(:user, @user).call(:logout_link)

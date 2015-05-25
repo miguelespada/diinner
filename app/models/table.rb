@@ -3,7 +3,7 @@ class Table
   include Mongoid::Timestamps
   include Loggeable
 
-  field :date, type: DateTime
+  field :date, type: Date
 
   belongs_to :restaurant
   has_many :reservations
@@ -50,10 +50,6 @@ class Table
     return :partial
   end
 
-  def is_on_day? day
-    date.to_date == day
-  end
-
   def matches_menu_price? target_price
     menus.select{|menu| menu.price == target_price} != []
   end
@@ -80,7 +76,6 @@ class Table
   end
 
   def matches? reservation
-    is_on_day?(reservation.date) &&
     matches_menu_price?(reservation.price) &&
     has_free_slots?(reservation.genders)
   end

@@ -6,7 +6,7 @@ class SuggestionEngine
   def search date, price, companies = []
     # TODO here should be the magic
     results = []
-    Table.all.each do |table|
+    Table.where(:date => date).each do |table|
       reservation = Reservation.new({user: @user,
                                     price: price,
                                     date: date,

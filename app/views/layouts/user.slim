@@ -2,5 +2,6 @@ doctype html
 html
   = render "/layouts/head"
   body
+    == cell(:user, @user).call(:logout_link)
     == yield
     = render "/layouts/alerts" 
