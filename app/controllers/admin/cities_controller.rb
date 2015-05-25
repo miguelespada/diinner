@@ -1,12 +1,10 @@
 class  Admin::CitiesController < AdminController
-  load_resource :only => [:show, :edit, :update, :destroy]
+  load_resource :only => [:edit, :update, :destroy]
 
   def index
     @cities = City.all
   end
 
-  def show
-  end
 
   def new
     @city = City.new

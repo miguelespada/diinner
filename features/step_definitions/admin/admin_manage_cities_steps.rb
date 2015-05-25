@@ -19,6 +19,11 @@ Then(/^I should see the city in the list of cities$/) do
   within(:css, ".city-longitude") do
     expect(page).to have_content "-0.0002"
   end
+
+  click_on "Madrid"
+  expect(page).to have_css ".admin-map"
+  select "Madrid", :from => "city_city"
+  expect(page).to have_css ".location"
 end
 
 When(/^I edit a city$/) do

@@ -16,7 +16,7 @@ class CityCell < BaseCell
 
   def show_link
     if admin_signed_in?
-      @path = admin_city_path(model)
+      @path = admin_map_path({:city => {:city => model.name}})
       render
     end
   end
