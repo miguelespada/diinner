@@ -65,10 +65,11 @@ describe SuggestionEngine do
       before(:all) do
         restaurant = FactoryGirl.create(:restaurant, :with_tables)
         @table = restaurant.tables.first
+      end
+      before(:each) do
         @params[:date] = @table.date.to_s
         @params[:price] = 20
       end
-
       it "returns the table" do
         @company = {"0" => {:gender => "female", :age => "20"},
                    "1" => {:gender => "male", :age =>"30"}}

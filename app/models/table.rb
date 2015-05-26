@@ -41,6 +41,8 @@ class Table
   end
 
   def status
+    # TODO plan closed
+
     return :full if full?
     return :empty if empty?
     return :partial
