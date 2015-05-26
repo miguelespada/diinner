@@ -1,6 +1,7 @@
-.row
+.row.session-page-container
   .col-sm-4.col-sm-offset-4
-    h2 
+    = image_tag "brand.svg", class: "logo"
+    h3 
       | Log in 
       = resource_name.to_s
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
