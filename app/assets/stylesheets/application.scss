@@ -147,12 +147,12 @@ h1, h2, h3, h4{
         background: none;
       }
       .icon-bar{
-        background-color: $navbarText;
+        background-color: $textGray;
       }
     }
     .navbar-right{
       a:link, a:hover, a:visited, a:active{
-        color: $navbarText;
+        color: $textGray;
       }
     }
   
@@ -160,7 +160,6 @@ h1, h2, h3, h4{
       .navbar-link{
         padding: 0px 15px;
         margin-top: 20px;
-        border-left: 1px solid $navbarText;
       }
     }
     
@@ -170,9 +169,8 @@ h1, h2, h3, h4{
       }
       .navbar-collapse{
         background-color: $translucentWhite;
-        border: none;
         a:hover{
-          background-color: $navbarText;
+          background-color: $textGray;
           color: $translucentWhite;
         }
       }
