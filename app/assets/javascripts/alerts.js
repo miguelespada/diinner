@@ -6,10 +6,10 @@ var showAlerts = function(){
   var notice = $(".notice").text();
   var alert = $(".alert").text();
   if (!isBlank(notice)){
-    $.jGrowl(notice);
+    $.jGrowl(notice, { life: 50000 });
   }
   if (!isBlank(alert)){
-    $.jGrowl(alert);
+    $.jGrowl(alert, { life: 50000 });
   }
 };
 
