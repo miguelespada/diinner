@@ -8,7 +8,7 @@ class Restaurant
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   def self.permitted_params
-    [:name, :description, :password, :email, :phone, :address, :city, :latitude, :longitude, :photo]
+    [:name, :description, :password, :email, :phone, :address, :city_id, :latitude, :longitude, :photo]
   end
 
   devise :database_authenticatable,
@@ -47,7 +47,7 @@ class Restaurant
   field :description,       type: String, default: ""
   field :phone,             type: String, default: ""
   field :address,           type: String, default: ""
-  field :city,              type: String, default: ""
+  belongs_to :city
 
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"

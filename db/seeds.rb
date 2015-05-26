@@ -32,7 +32,7 @@ def create_restaurants
     email = Faker::Internet.email
     phone = Faker::PhoneNumber.phone_number
     address = Faker::Address.street_address
-    city = ["Madrid", "Barcelona", "Sevilla", "Valencia"].sample
+    city = City.all.sample
     latitude = rand(37.5...43.0)
     longitude = rand(-6.0...2.0)
 

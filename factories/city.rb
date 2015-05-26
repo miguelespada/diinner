@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :city do
     name                  "Madrid"
-    latitude              "123"
-    longitude             "456"
+    latitude              "0.1"
+    longitude             "0.2"
   end
 end

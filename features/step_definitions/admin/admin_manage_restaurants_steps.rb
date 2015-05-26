@@ -1,10 +1,12 @@
 When(/^I create a new restaurant$/) do
+  FactoryGirl.create(:city, name: "Madrid")
+  FactoryGirl.create(:city, name: "Barcelona")
   visit admin_path
   click_on "Restaurants"
   click_on "New"
   fill_in "Email", with: "restaurant@diinner.com"
   fill_in "Name", with: "dummy restaurant"
-  select "Madrid", :from => "restaurant_city"
+  select "Madrid", :from => "restaurant_city_id"
   fill_in "Password", with: "12345678"
   click_button 'Create Restaurant'
 end
@@ -39,11 +41,12 @@ When(/^I edit a restaurant$/) do
   fill_in "Name", with: "dummy restaurant updated"
   fill_in "Addres", with: "dummy address"
   fill_in "Phone", with: "666666"
-  select "Barcelona", :from => "restaurant_city"
+  select "Barcelona", :from => "restaurant_city_id"
   click_button "Update Restaurant"
 end
 
 Then(/^I should see the updated restaurant in the list of restaurants$/) do
+
   expect(page).to have_content "Restaurant was successfully updated."
   within(:css, ".restaurant-name") do
     expect(page).to have_content "dummy restaurant updated"

@@ -1,3 +1,4 @@
+@admin_manage_restaurants
 Feature: Admin Manage Restaurants
   As admin
   I want to manage restaurants
@@ -6,7 +7,7 @@ Feature: Admin Manage Restaurants
     Given I am logged as admin
     When I create a new restaurant
 
-  @create_restaurant
+  @admin_create_restaurant
   Scenario: I create a restaurant
     Then I should see the restaurant in the list of restaurants
 

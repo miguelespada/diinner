@@ -38,7 +38,7 @@ class Reservation
 
   def status
     # TODO cancelled
-    # TODO plan-closes
+    # TODO with error
     return :paid if paid?
     return :confirmed if confirmed?
     return :pending

@@ -4,6 +4,9 @@ class RestaurantCell < BaseCell
   def name
     model.name
   end
+  def city
+    model.city.name if !model.city.nil?
+  end
   def delete_link
     if admin_signed_in?
       @path = admin_restaurant_path(model)

@@ -1,4 +1,7 @@
 class TableCell < BaseCell
+  def hour
+    model.hour.strftime("%H:%M") if !model.hour.nil?
+  end
 
   def delete_link
     if model.is_owned_by?(current_restaurant)

@@ -15,8 +15,8 @@ class  ReservationsController < UsersController
   end
 
   def search
-    suggestionEngine = SuggestionEngine.new @user
-    @suggestions = suggestionEngine.search date_param, price_param, load_companies_from_param
+    suggestionEngine = SuggestionEngine.new @user, params[:reservation]
+    @suggestions = suggestionEngine.search
   end
 
   def create
@@ -63,24 +63,5 @@ class  ReservationsController < UsersController
     @user = User.find(params["user_id"])
   end
 
-  # TODO maybe push to suggestion engine
-  def load_companies_from_param
-    company = []
-    params[:reservation][:companies_attributes].each do |company_params|
-      c = company_params[1]
-      if !c[:age].blank? && !c[:gender].blank?
-        company << Company.new(c)
-      end
-    end
-    company
-  end
-
-  def date_param
-    Date.strptime params[:reservation][:date]
-  end
-
-  def price_param
-    price = params[:reservation][:price].to_i
-  end
 
 end
