@@ -37,7 +37,7 @@ end
 Then(/^I can see the table details$/) do
   expect(page).to have_content(@restaurant.name)
   expect(page).to have_content(@table.date)
-  expect(page).to have_content(@table.hour)
+  expect(page).to have_content(@table.hour.strftime("%H:%M"))
   expect(page).to have_content(@menu.name)
   expect(page).to have_content(@menu.price)
   within ".affinity" do
@@ -91,7 +91,7 @@ Then(/^I do not see the reserved table in my reservations$/) do
 
   expect(page).not_to have_content(@restaurant.name)
   expect(page).not_to have_content(@table.date)
-  expect(page).not_to have_content(@table.hour)
+  expect(page).not_to have_content(@table.hour.strftime("%H:%M"))
   expect(page).not_to have_content(@menu.name)
   expect(page).not_to have_content(@menu.price)
 end
