@@ -46,6 +46,12 @@ h1, h2, h3, h4{
   }
 }
 
+.info-item-small{
+  a{
+    display: inline-block !important;
+  }
+}
+
 .action-link-label{
   padding-left: 3px;
   display: none;

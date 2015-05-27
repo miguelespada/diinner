@@ -2,17 +2,16 @@ tr
   td == table.show_link
   td == user.show_link
   td
-    ul
-      li
-        | Date
-        = model.date
-      li
-        | Hour
-        = model.hour
-      li
-        | Menu
-        == menu.show_link
-      li.slots
-        | Occupied slots:
-        span  = occupied_slots
+    div.info-item-small
+      div.bold-label DATE
+      = model.date
+    div.info-item-small
+      div.bold-label HOUR
+      = model.hour
+    div.info-item-small
+      div.bold-label MENU
+      == menu.show_link
+    div.info-item-small.slots
+      div.bold-label OCCUPIED SLOTS
+      span = occupied_slots
   td = status
