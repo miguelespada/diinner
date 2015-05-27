@@ -2,6 +2,9 @@ doctype html
 html
   = render "/layouts/head"
   body
-    == cell(:user, @user).call(:logout_link)
-    == yield
-    = render "/layouts/alerts" 
+    .main-container
+      = render "/users/sidebar"
+      = render "/layouts/sidebar"
+      = render "/layouts/container"
+      = render "/layouts/alerts"
+

@@ -1,0 +1,8 @@
+- content_for(:sidebar) do
+  h4.title-button
+    == cell(:user, @user).edit_link
+  ul
+    li == cell(:user, @user).my_reservations_link
+    li == cell(:user, @user).new_reservation_link
+    li == cell(:user, @user).test_link
+    li == cell(:user, @user).logout_link
