@@ -22,7 +22,7 @@ MAP.updateMap = function(){
   $('.update-map').click(function(){
     var googleAPIKey = $('#map-config').data('google-key');
     var address = $('#restaurant_address').val();
-    var city = $('#restaurant_city').val();
+    var city = $('#restaurant_city_id option:selected').text();
     var queryUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + city + '&key=' + googleAPIKey;
     MAP.getGeolocation(queryUrl);
   });
