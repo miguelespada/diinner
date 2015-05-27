@@ -2,12 +2,15 @@
   li = link_to admin_restaurants_path do
     i.bi_kitchen-fork-knife
     span Restaurants
-  li = link_to admin_tables_path do
+  li.sidebar-child-item = link_to admin_tables_path do
     i.bi_beverage-tea
     span Tables
-  li = link_to admin_menus_path do
+  li.sidebar-child-item = link_to admin_menus_path do
     i.bi_kitchen-hood-a
     span Menus
+  li.sidebar-child-item = link_to(admin_reservations_path) do
+    i.bi_doc-wboard-line
+    span Reservations
   li = link_to admin_users_path do
     i.bi_user-single-a-group
     span Users
@@ -17,9 +20,6 @@
   li = link_to(admin_logs_path) do
     i.bi_web-statistic
     span Logs
-  li = link_to(admin_reservations_path) do
-    i.bi_doc-wboard-line
-    span Reservations
   li = link_to (admin_cities_path) do
     i.bi_interface-places
     span Cities
