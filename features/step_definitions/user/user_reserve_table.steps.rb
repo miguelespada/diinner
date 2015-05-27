@@ -13,6 +13,7 @@ When(/^I search a table$/) do
   click_on "New reservation"
   select(20, :from => "reservation_price")
   fill_in "Date", with: @table.date.strftime
+  select "Madrid", :from => "reservation_city"
 
   select :female, :from => "reservation_companies_attributes_0_gender"
   fill_in "reservation_companies_attributes_0_age",  with: 20
@@ -26,7 +27,6 @@ When(/^I reserve a table$/) do
   within ".search-results" do
     step("I can see the table details")
   end
-
 
   click_on("Reserve")
   step("I fill in the credit card details")
@@ -102,7 +102,7 @@ Then(/^I can access restaurant data$/) do
 
   expect(page).to have_content @restaurant.name
   expect(page).to have_content @restaurant.description
-  expect(page).to have_content @restaurant.city
+  expect(page).to have_content @restaurant.city.name
 end
 
 Then(/^I can access menu data$/) do

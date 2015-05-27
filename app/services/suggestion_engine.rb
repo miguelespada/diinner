@@ -4,7 +4,6 @@ class SuggestionEngine
     @params = params
   end
 
-    # TODO maybe push to suggestion engine
   def companies
     company = []
     @params[:companies_attributes].each do |company_params|
@@ -21,20 +20,26 @@ class SuggestionEngine
   end
 
   def price
-    price = @params[:price].to_i
+    @params[:price].to_i
   end
 
+  def city
+    City.find(@params[:city])
+  end
 
   def search
     results = []
     Table.where(:date => date).each do |table|
-      reservation = Reservation.new({user: @user,
-                                    price: price,
-                                    date: date,
-                                    companies: companies})
-      if table.matches?(reservation)
-        reservation.table = table
-        results << reservation
+      if table.city == city
+        reservation = Reservation.new({user: @user,
+                                      price: price,
+                                      date: date,
+                                      companies: companies})
+
+        if table.matches?(reservation)
+          reservation.table = table
+          results << reservation
+        end
       end
     end
     results

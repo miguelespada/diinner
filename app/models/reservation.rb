@@ -13,6 +13,7 @@ class Reservation
             :hour,
             :menu, :to => :table, :allow_nil => true
   delegate :customer, :to => :user
+  delegate :city, :to => :restaurant, :allow_nil => true
 
   embeds_many :companies
 

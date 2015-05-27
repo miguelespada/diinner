@@ -1,5 +1,6 @@
 Given(/^I am a restaurant$/) do
-  @restaurant = FactoryGirl.create(:restaurant)
+  city = FactoryGirl.create(:city)
+  @restaurant = FactoryGirl.create(:restaurant, city: city)
 end
 
 When(/^I login as restaurant$/) do
@@ -21,6 +22,7 @@ Then(/^I should not see the restaurant page$/) do
 end
 
 Given(/^I am logged as restaurant$/) do
-  @restaurant = FactoryGirl.create(:restaurant)
+  city = FactoryGirl.create(:city)
+  @restaurant = FactoryGirl.create(:restaurant, city: city)
   login_as_restaurant @restaurant
 end

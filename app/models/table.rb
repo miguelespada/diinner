@@ -9,6 +9,7 @@ class Table
   belongs_to :restaurant
   has_many :reservations
   delegate :menus, :to => :restaurant
+  delegate :city, :to => :restaurant
 
   def price
     empty? ? :undefined : reservations.first.price
