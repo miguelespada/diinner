@@ -6,3 +6,6 @@
 
 - content_for(:navbar_search) do
   == cell(:admin, current_admin).call(:navbar_search)
+
+- content_for(:navbar_more_links) do
+  == cell(:admin, current_admin).call(:navbar_map_link)
