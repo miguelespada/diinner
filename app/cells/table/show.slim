@@ -1,17 +1,30 @@
-h2.table-id
-  | Table
+h1 Table
+h4.table-id
+  | ID: 
   = model.id
-p.table-restaurant
-  == restaurant.show_link
-p.table-date
-  = model.date
-p.table-hour
-   = hour
-p.table-slots
-  = slots_left
-p.table-status
-  = model.status
+div.section-info
+  div.table-restaurant.info-item
+    div.bold-label RESTAURANT
+    == restaurant.show_link
+  div.table-date.info-item
+    div.bold-label DATE
+    = model.date
+  div.table-hour.info-item
+    div.bold-label HOUR
+    = hour
+  div.table-slots.info-item
+    div.bold-label FREE SLOTS
+    = slots_left
+  div.table-status.info-item
+    div.bold-label STATUS
+    = model.status
 
-== edit_link
+h4.title-button
+  == edit_link
 
-== reservations
+ul.nav.nav-tabs
+  li.active
+    a data-toggle="tab" href="#reservations-tab" Reservations
+div class="tab-content"
+  div#reservations-tab.tab-pane.fade.in.active
+    == reservations

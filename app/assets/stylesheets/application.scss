@@ -31,10 +31,18 @@ h1, h2, h3, h4{
 }
 
 .nav-tabs{
+  margin-top: 25px;
   font-size: 1.2em;
   font-weight: 200;
   li.active{
     font-weight: 400;
+  }
+}
+
+.info-item{
+  margin-bottom: 10px;
+  a{
+    display: inline-block !important;
   }
 }
 
@@ -74,7 +82,7 @@ h1, h2, h3, h4{
   position: absolute;
   right: 15px;
   top: 20px;
-  width: 100px;
+  width: 50%;
   text-align: right;
   a{
     padding: 8px 10px;
@@ -93,8 +101,8 @@ h1, h2, h3, h4{
   display: inline-block;
 }
 
-.section-subtitle{
-  margin-bottom: 25px;
+.section-info{
+  margin-top: 25px;
 }
 
 .text-muted{

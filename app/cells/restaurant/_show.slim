@@ -7,18 +7,19 @@ div.row
       = model.name
     h4.restaurant-description.section-subtitle
       = model.description
-    p.restaurant-phone
-      .bold-label PHONE 
-      = model.phone
-    p.restaurant-email
-      .bold-label EMAIL 
-      = model.email
-    p.restaurant-address
-      div.bold-label ADDRESS 
-      = model.address
-    p.restaurant-city 
-      div.bold-label CITY 
-      = city
+    div.section-info
+      div.restaurant-phone.info-item
+        div.bold-label PHONE 
+        = model.phone
+      div.restaurant-email.info-item
+        div.bold-label EMAIL 
+        = model.email
+      div.restaurant-address.info-item
+        div.bold-label ADDRESS 
+        = model.address
+      div.restaurant-city.info-item
+        div.bold-label CITY 
+        = city
   div.col-sm-12.restaurant-geolocation
     div#map
     p.restaurant-latlng.text-muted
