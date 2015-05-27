@@ -3,10 +3,17 @@
 h4.title-button
   == edit_link
 
-== table "Test Responses", \
+ul.nav.nav-tabs
+  li.active
+    a data-toggle="tab" href="#test-responses-tab" Test responses
+  li
+    a data-toggle="tab" href="#reservations-tab" Reservations
+div class="tab-content"
+  div#test-responses-tab.tab-pane.fade.in.active
+    == table "Test Responses", \
         %w(Question Response), \
         cell(:test, collection: model.test_completed, method: :user_response)
-
-== table "Reservations", \
+  div#reservations-tab.tab-pane.fade
+    == table "Reservations", \
         %w(Id Restaurant Menu Status), \
         cell(:reservation, collection: model.reservations, method: :admin_user_row)

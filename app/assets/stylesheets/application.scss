@@ -105,6 +105,14 @@ h1, h2, h3, h4{
   margin-top: 25px;
 }
 
+.section-photo{
+  img{
+    margin-top: 25px;
+    border:1px solid $lightGray;
+  }
+}
+
+
 .text-muted{
   color: $lightGray;
   font-size: 0.8em;
@@ -348,13 +356,6 @@ section{
   }
   form{
     margin-top: 30px;
-  }
-}
-
-.restaurant-photo{
-  img{
-    margin-top: 25px;
-    border:1px solid $lightGray;
   }
 }
 

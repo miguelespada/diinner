@@ -1,17 +1,17 @@
 div.row
-  div.col-md-12
-    div.col-md-8
-      p.user-avatar.col-md-4
-        = image_tag model.image_url, size: "200"
-      div.col-md-4
-        h2.user-name
-          = model.name
-        p.user-email
-          | Email:
-          = model.email
-        p.user-gender
-          | Sex:
-          = model.gender
-        p.user-birth
-          | Birth:
-          = model.birth
+  div.col-sm-4
+    p.user-avatar.section-photo
+      = image_tag model.image_url, size: "200"
+  div.col-sm-8
+    h1.user-name
+      = model.name
+    div.section-info
+      div.user-email.info-item
+        div.bold-label EMAIL
+        = model.email
+      div.user-gender.info-item
+        div.bold-label GENDER
+        = model.gender
+      div.user-birth.info-item
+        div.bold-label BIRTHDAY
+        = model.birth
