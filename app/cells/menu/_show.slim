@@ -1,13 +1,18 @@
-ul
-  li.menu-name
-    = model.name
-  li.menu-appetizer
+h1.menu-name 
+  = model.name
+div.section-info
+  div.menu-appetizer.info-item
+    div.bold-label APPETIZER
     = model.appetizer
-  li.menu-main-dish
+  div.menu-main-dish.info-item
+    div.bold-label MAIN DISH
     = model.main_dish
-  li.menu-dessert
+  div.menu-dessert.info-item
+    div.bold-label DESSERT
     = model.dessert
-  li.menu-drink
+  div.menu-drink.info-item
+    div.bold-label DRINK
     = model.drink
-  li.menu-price
+  div.menu-price.info-item
+    div.bold-label PRICE
     = model.price

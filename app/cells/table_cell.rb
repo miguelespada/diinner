@@ -29,7 +29,7 @@ class TableCell < BaseCell
 
   def edit_link
     if model.is_owned_by?(current_restaurant)
-      @path = edit_restaurant_table_path(current_restaurant, model)
+      @path = edit_restaurant_table_path(model.restaurant, model)
       render
     end
   end
