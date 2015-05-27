@@ -36,24 +36,33 @@ class User
   end
 
   def update_customer_information! token
-    self.customer = Stripe::Customer.create(
+    stripe_customer = Stripe::Customer.create(
       :source => token,
       :description => name
-    ).id
+    )
+    self.customer = stripe_customer.id
+    set_default_card stripe_customer
     self.save!
+  end
+
+  def set_default_card stripe_customer
+    self.stripe_default_card = stripe_customer.sources.retrieve(stripe_customer.default_source).last4
   end
 
   def retrieve_card_from_stripe
     if !customer.nil?
-      c = Stripe::Customer.retrieve(customer)
-      card = c.sources.retrieve(c.default_source)
-      self.stripe_default_card = card.last4
+      set_default_card Stripe::Customer.retrieve(customer)
       self.save!
     end
   end
 
   def default_card
-    retrieve_card_from_stripe if stripe_default_card.nil?
+    retrieve_card_from_stripe if !has_default_card?
     stripe_default_card
   end
+
+  def has_default_card?
+    !stripe_default_card.nil?
+  end
+
 end

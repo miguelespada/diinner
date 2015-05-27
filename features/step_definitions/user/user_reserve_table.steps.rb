@@ -119,3 +119,10 @@ Then(/^I can see my default card on my profile$/) do
   expect(page).to have_content "DEFAULT CARD"
   expect(page).to have_content "**** **** **** 1881"
 end
+
+Then(/^I can reserve again with the same card$/) do
+  step("I search a table")
+  click_on("Reserve")
+  click_on "Use saved card"
+  expect(page).to have_content("Table reserved succesfully!")
+end

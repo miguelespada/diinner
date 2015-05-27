@@ -25,6 +25,11 @@ class  ReservationsController < UsersController
     render :credit_card_form
   end
 
+  def reuse_card
+    # TODO check that the payment is done without problems.
+    redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+  end
+
   def update
     @user.update_customer_information!(params[:stripe_card_token])
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'

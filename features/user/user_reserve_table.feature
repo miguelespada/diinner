@@ -21,3 +21,4 @@ Feature: User Reserves table
   @user_saves_default_card
   Scenario: User saves default card
     Then I can see my default card on my profile
+    And I can reserve again with the same card

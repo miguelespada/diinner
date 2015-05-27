@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     resources :reservations do
       get "restaurant" => "reservations#restaurant", as: "restaurant"
       get "menu" => "reservations#menu", as: "menu"
+      patch "user_reuse_card" => "reservations#reuse_card", as: "reuse_card"
     end
   end
 
