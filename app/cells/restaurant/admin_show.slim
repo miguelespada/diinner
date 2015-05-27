@@ -1,7 +1,19 @@
 == _show
 
-== edit_link
+h4.title-button
+  == edit_link
 
-== menus
-== tables
-== reservations
+ul.nav.nav-tabs.nav-justified
+  li.active
+    a data-toggle="tab" href="#menus-tab" Menus
+  li
+    a data-toggle="tab" href="#tables-tab" Tables
+  li
+    a data-toggle="tab" href="#reservations-tab" Reservations
+div class="tab-content"
+  div#menus-tab.tab-pane.fade.in.active
+    == menus
+  div#tables-tab.tab-pane.fade
+    == tables
+  div#reservations-tab.tab-pane.fade
+    == reservations

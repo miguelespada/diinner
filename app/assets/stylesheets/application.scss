@@ -30,6 +30,19 @@ h1, h2, h3, h4{
   display: none;
 }
 
+.nav-tabs{
+  font-size: 1.2em;
+  font-weight: 200;
+  li.active{
+    font-weight: 400;
+  }
+}
+
+.action-link-label{
+  padding-left: 3px;
+  display: none;
+}
+
 .link-btn{
   padding: 8px;
   margin: 2px;
@@ -53,6 +66,22 @@ h1, h2, h3, h4{
       color: white;
       text-decoration: none;
       background-color: $buttonYellow;
+    }
+  }
+}
+
+.title-button{
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  width: 100px;
+  text-align: right;
+  a{
+    padding: 8px 10px;
+    border: 1px solid $linkBlue;
+    text-align: center;
+    .action-link-label{
+      display: inline-block;
     }
   }
 }
@@ -229,7 +258,7 @@ h1, h2, h3, h4{
     position: absolute;
     width: 80%;
     margin-left: 20%;
-    padding: 65px 15px 0px 15px;
+    padding: 65px 15px 50px 15px;
     display: inline-block;
   }
 
