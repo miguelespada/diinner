@@ -1,26 +1,30 @@
 div.row
   div.col-sm-6
-    p.restaurant-photo
+    div.restaurant-photo
       = cl_photo 300
   div.col-sm-6 
     h1.restaurant-name
       = model.name
-    h4.restaurant-description
+    h4.restaurant-description.section-subtitle
       = model.description
     p.restaurant-phone
-      b Phone 
+      .bold-label PHONE 
       = model.phone
     p.restaurant-email
-      b Email 
+      .bold-label EMAIL 
       = model.email
     p.restaurant-address
-      b Address 
+      div.bold-label ADDRESS 
       = model.address
     p.restaurant-city 
-      b City 
+      div.bold-label CITY 
       = city
-    p.restaurant-latitude
-      = model.latitude
-    p.restaurant-longitude
-      = model.longitude
+  div.col-sm-12.restaurant-geolocation
     div#map
+    p.restaurant-latlng.text-muted
+      span.restaurant-latitude
+        | lat: 
+        = model.latitude
+      span.restaurant-longitude
+        | lng: 
+        = model.longitude

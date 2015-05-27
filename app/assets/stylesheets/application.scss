@@ -6,6 +6,26 @@
 @import 'mobile';
 @import 'budicon/all';
 
+html, body{
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Proxima Nova';
+  color: $textGray;
+  overflow-x: auto; 
+}
+
+a{
+  color: $linkBlue;
+  &:hover{
+    color: $linkBlueHover;
+  }
+}
+
+h1, h2, h3, h4{
+  font-weight: 200;
+  color: $textDarkGray;
+}
+
 .notice, .alert{
   display: none;
 }
@@ -37,24 +57,20 @@
   }
 }
 
-html, body{
-  font-size: 14px;
-  font-weight: 400;
-  font-family: 'Proxima Nova';
-  color: $textGray;
-  overflow-x: auto; 
+.bold-label{
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  width: 150px;
+  display: inline-block;
 }
 
-a{
-  color: $linkBlue;
-  &:hover{
-    color: $linkBlueHover;
-  }
+.section-subtitle{
+  margin-bottom: 25px;
 }
 
-h1, h2, h3, h4{
-  font-weight: 200;
-  color: $textDarkGray;
+.text-muted{
+  color: $lightGray;
+  font-size: 0.8em;
 }
 
 @mixin links-container(){
@@ -295,6 +311,24 @@ section{
   }
   form{
     margin-top: 30px;
+  }
+}
+
+.restaurant-photo{
+  img{
+    margin-top: 25px;
+    border:1px solid $lightGray;
+  }
+}
+
+.restaurant-geolocation{
+  margin-top: 20px;
+  .restaurant-latlng{
+    margin-top: 5px;
+    text-align: right;
+    span:not(:last-of-type){
+      padding-right: 5px;
+    }
   }
 }
 
