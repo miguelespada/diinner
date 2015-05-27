@@ -6,3 +6,7 @@
 
 - content_for(:navbar_search) do
   == cell(:admin, current_admin).call(:navbar_search)
+
+
+- content_for(:settings_path) do
+  = settings_path

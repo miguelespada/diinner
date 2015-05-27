@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     get "/" => "admin#index", as: "admin"
     get "/search" => "admin#search", as: "admin_search"
     get "/map" => "admin#map", as: "admin_map"
+    get "/settings" => "admin#settings", as: "settings"
+    get "/process_reservations" => "admin#process_reservations", as: "process_reservations"
   end
 
   namespace :admin do

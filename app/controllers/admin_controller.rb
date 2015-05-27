@@ -15,4 +15,13 @@ class AdminController < ApplicationController
     @city = City.where(name: name).first || City.first
     @restaurants = Restaurant.where(city: @city)
   end
+
+  def settings
+  end
+
+  def process_reservations
+    Reservation.process
+    # TODO give succesfull information
+    redirect_to settings_path, notice: 'Reservations processed succesfully!'
+  end
 end
