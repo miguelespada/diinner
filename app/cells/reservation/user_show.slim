@@ -1,13 +1,23 @@
+
 / TODO DRY this
 
 .div.reservation
+  div.bold-label RESTAURANT
   == restaurant_link
   br
+  div.bold-label DATE
   = model.date
-  = model.hour
+  br
+  div.bold-label HOUR
+  = hour
+  br
+  div.bold-label MENU
   == menu_link
-  p.affinity
+  br
+  div.affinity
+    span.bold-label AFFINITY
     = model.affinity
   div.reservation-status
+    span.bold-label STATUS
     = status
-  == cancel_link
+  p == cancel_link

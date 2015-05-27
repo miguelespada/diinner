@@ -1,5 +1,9 @@
 class ReservationCell < BaseCell
 
+  def hour
+    cell(:table, model.table).hour
+  end
+
   def status
     model.status.capitalize
   end

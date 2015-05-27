@@ -1,4 +1,5 @@
 class TableCell < BaseCell
+  
   def hour
     model.hour.strftime("%H:%M") if !model.hour.nil?
   end
