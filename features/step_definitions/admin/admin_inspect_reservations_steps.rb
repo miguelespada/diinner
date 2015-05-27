@@ -1,5 +1,7 @@
 Then(/^I can see the user reservation in the reservation section$/) do
-  click_on "Reservations"
+  within(".navigation") do
+    click_on "Reservations"
+  end
   expect(page).to have_content @user.name
   expect(page).to have_content @restaurant.name
   expect(page).to have_content "Confirmed"

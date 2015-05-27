@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def login
+    render :layout => false
   end
 
   def edit
