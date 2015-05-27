@@ -1,29 +1,28 @@
-div.container-fluid
-  div.row
-    div.col-md-12
-      div.col-md-8
-        p.user-avatar.col-md-4
-          = image_tag model.image_url, size: "200"
-        div.col-md-4
-          h2.user-name
-            = model.name
-          p.user-email
-            | Email:
-            =< model.email
-          p.user-gender
-            | Sex:
-            =< model.gender
-          p.user-birth
-            | Birth:
-            =< model.birth
-      div.pull-right.col-md-2
-        table
-          tr
-            td
-              == my_reservations_link
-            td
-              == new_reservation_link
-            td
-              == test_link
-            td
-              == edit_link
+div.row
+  div.col-md-12
+    div.col-md-8
+      p.user-avatar.col-md-4
+        = image_tag model.image_url, size: "200"
+      div.col-md-4
+        h2.user-name
+          = model.name
+        p.user-email
+          | Email:
+          = model.email
+        p.user-gender
+          | Sex:
+          = model.gender
+        p.user-birth
+          | Birth:
+          = model.birth
+    div.pull-right.col-md-2
+      table
+        tr
+          td
+            == my_reservations_link
+          td
+            == new_reservation_link
+          td
+            == test_link
+          td
+            == edit_link
