@@ -1,5 +1,6 @@
-= form_tag admin_map_path(current_admin), :method => :get do
-  = collection_select(:city, :city, City.all, :name, :name, {:selected => @city.name}, :onchange => "this.form.submit()")
+div.form-group
+  = form_tag admin_map_path(current_admin), :method => :get do
+    = collection_select(:city, :city, City.all, :name, :name, {:selected => @city.name}, :onchange => "this.form.submit()", class: "form-control")
 
 / TODO move to cell
 div.location data={current_lat: "#{@city.latitude}",\
