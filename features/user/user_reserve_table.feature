@@ -17,3 +17,7 @@ Feature: User Reserves table
   Scenario: User cancel reservation
     When I cancel my reservation
     Then I do not see the reserved table in my reservations
+
+  @user_saves_default_card
+  Scenario: User saves default card
+    Then I can see my default card on my profile

@@ -6,13 +6,13 @@ class Reservation
   belongs_to :table
 
   field :price, type: Integer
-  field :customer, type: String
   field :paid, type: Boolean, default: false
   field :date, type: Date
 
   delegate  :restaurant,
             :hour,
             :menu, :to => :table, :allow_nil => true
+  delegate :customer, :to => :user
 
   embeds_many :companies
 
@@ -70,13 +70,6 @@ class Reservation
     end
   end
 
-  def update_customer_information! token
-    customer = Stripe::Customer.create(
-      :source => token,
-      :description => user.name
-    )
-    update!(customer: customer.id)
-  end
 
   def is_owned_by?(user)
     user == self.user || self.table.restaurant == user

@@ -1,5 +1,9 @@
 class UserCell < BaseCell
 
+  def default_card
+    "**** **** **** #{model.default_card}" if !model.default_card.nil?
+  end
+
   def logout_link
     if user_signed_in?
       @path = auth_logout_path

@@ -11,6 +11,8 @@ class User
   field :name, type: String, default: ""
   field :birth, type: Date
   enum :gender, [:male, :female]
+  field :customer, type: String
+  field :stripe_default_card, type: String
 
   has_many :test_completed, class_name: "TestResponse"
   has_many :reservations
@@ -31,5 +33,27 @@ class User
 
   def test_pending
     Test.not_in(id: test_completed.map{|m| m.test.id}, gender: opposite_sex)
+  end
+
+  def update_customer_information! token
+    self.customer = Stripe::Customer.create(
+      :source => token,
+      :description => name
+    ).id
+    self.save!
+  end
+
+  def retrieve_card_from_stripe
+    if !customer.nil?
+      c = Stripe::Customer.retrieve(customer)
+      card = c.sources.retrieve(c.default_source)
+      self.stripe_default_card = card.last4
+      self.save!
+    end
+  end
+
+  def default_card
+    retrieve_card_from_stripe if stripe_default_card.nil?
+    stripe_default_card
   end
 end
