@@ -1,6 +1,6 @@
 require "rails_helper"
 
-xdescribe SuggestionEngine do
+describe SuggestionEngine do
 
   before(:all) do
     @user = FactoryGirl.create(:user)
@@ -40,6 +40,15 @@ xdescribe SuggestionEngine do
     end
 
     describe "match_price?" do
+       before(:each) do
+          @params = {:date => "2015-12-20",
+                     :price =>"20"}
+          @company = {"0" => {:gender => "female", :age => "20"},
+                     "1" => {:gender => "male", :age =>"30"}}
+          @params[:companies_attributes] = @company
+          @params[:date] = @table.date.to_s
+        end
+
       it "returns empty list" do
         @params[:price] = 40
         @suggestionEngine = SuggestionEngine.new @user, @params
@@ -50,10 +59,9 @@ xdescribe SuggestionEngine do
       end
 
       it "assigns correct values to reservation" do
-        @params[:date] = @table.date.to_s
-        @params[:price] = 20
         @suggestionEngine = SuggestionEngine.new @user, @params
         @reservation = @suggestionEngine.search.first
+
         expect(@reservation.price).to eq 20
         expect(@reservation.table).to eq @table
         expect(@reservation.user).to eq @user
@@ -61,7 +69,7 @@ xdescribe SuggestionEngine do
       end
     end
 
-    xcontext "with company" do
+    context "with company" do
       before(:all) do
         restaurant = FactoryGirl.create(:restaurant, :with_tables)
         @table = restaurant.tables.first
