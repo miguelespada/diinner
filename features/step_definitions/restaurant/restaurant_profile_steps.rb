@@ -14,6 +14,7 @@ Then(/^I edit my restaurant profile$/) do
   fill_in "Description", with: "Dummy description"
   fill_in "Phone", with: "12345678"
   fill_in "Address", with: "Dummy street 1"
+  fill_in "Contact person", with: "Dummy Jaime"
   click_on "Update Restaurant"
 end
 
@@ -32,5 +33,9 @@ Then(/^I should see my restaurant profile updated$/) do
 
   within(:css, ".restaurant-address") do
     expect(page).to have_content "Dummy street 1"
+  end
+
+  within(:css, ".restaurant-contact-person") do
+    expect(page).to have_content "Dummy Jaime"
   end
 end

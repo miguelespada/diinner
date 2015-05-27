@@ -11,7 +11,9 @@ When(/^I can see the user reservation$/) do
 end
 
 When(/^I process reservations$/) do
-  Reservation.process
+  find(".settings").click
+  click_on "Process reservations"
+  expect(page).to have_content "Reservations processed succesfully!"
 end
 
 Then(/^I can see that the reservation is paid$/) do
