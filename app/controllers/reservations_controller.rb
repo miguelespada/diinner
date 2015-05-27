@@ -26,7 +26,7 @@ class  ReservationsController < UsersController
   end
 
   def update
-    @reservation.update_customer_information!(params[:stripe_card_token])
+    @user.update_customer_information!(params[:stripe_card_token])
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 

@@ -113,3 +113,9 @@ Then(/^I can access menu data$/) do
   expect(page).to have_content @menu.price
   expect(page).to have_content @menu.appetizer
 end
+
+Then(/^I can see my default card on my profile$/) do
+  click_on "My profile"
+  expect(page).to have_content "DEFAULT CARD"
+  expect(page).to have_content "**** **** **** 1881"
+end

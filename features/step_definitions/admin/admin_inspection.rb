@@ -67,8 +67,8 @@ When(/^I list users$/) do
 end
 
 Then(/^I should not see the user action links$/) do
-  within(:css, ".container-fluid") do
-    expect(page).not_to have_content "Logout"
-    expect(page).not_to have_content "Test"
-  end
+  expect(page).not_to have_css ".test"
+  expect(page).not_to have_content "My reservations"
+  expect(page).not_to have_content "New reservation"
 end
+
