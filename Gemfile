@@ -36,6 +36,8 @@ gem 'mongoid-enum'
 gem 'faker', '~> 1.4.3'
 gem 'rails-timeago', '~> 2.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 group :test do
   gem "database_cleaner"

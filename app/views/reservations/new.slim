@@ -1,10 +1,12 @@
+h3 New Reservation
 = simple_form_for [@user, @reservation], url: user_search_tables_path  do |f|
   = f.error_notification
-  = f.input :date, as: :date, html5: true
+  = f.input :date, :as => :date_picker, html5: true
   = f.input :price, :collection => [ 20, 40, 60 ]
   = f.input :city, collection: City.all
   / TODO add has_company selector [0, 1, 2]
   / TODO add JS to hide company
+  h4 Company
   = f.simple_fields_for :companies do |company|
     = render 'company_fields', :f => company
   = f.button :submit, 'Search tables'

@@ -1,5 +1,5 @@
 = simple_form_for [@restaurant, @table] do |f|
   = f.error_notification
-  = f.input :date, as: :date, html5: true
-  = f.input :hour, as: :time, html5: true
+  = f.input :date, as: :date_picker, html5: true
+  = f.input :hour, as: :time_picker, html5: true
   = f.button :submit

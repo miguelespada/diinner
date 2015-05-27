@@ -9,6 +9,13 @@ GIT
       uber (~> 0.0.9)
 
 GIT
+  remote: git://github.com/derekprior/momentjs-rails.git
+  revision: 9fac38f9b7603ad5da4cba4d971654370f9e2d7b
+  specs:
+    momentjs-rails (2.10.2)
+      railties (>= 3.1)
+
+GIT
   remote: git://github.com/elasticsearch/elasticsearch-rails.git
   revision: 538ed46f9c10f1b9ff01b9a40988a35be592d762
   specs:
@@ -43,6 +50,15 @@ GIT
       cells (~> 4.0.0.alpha1)
       slim (~> 3.0)
       tilt (>= 1.4.1)
+
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: c5405f3486b57a52416caf93b79fc09d56930a82
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.7.15)
+      momentjs-rails (>= 2.9.0)
 
 GIT
   remote: https://github.com/stripe/stripe-ruby
@@ -402,6 +418,7 @@ DEPENDENCIES
   compass-rails (~> 2.0.alpha.0)
   cucumber-rails
   database_cleaner
+  datetimepicker-rails!
   devise
   dotenv-rails
   elasticsearch-model!
@@ -413,6 +430,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  momentjs-rails (~> 2.9)!
   mongoid
   mongoid-enum
   mongoid-rspec

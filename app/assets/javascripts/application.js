@@ -21,3 +21,6 @@
 //= require my_attachinary
 //= require rails-timeago
 //= require alerts
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
