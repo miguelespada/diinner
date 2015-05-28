@@ -16,7 +16,7 @@ class SuggestionEngine
   end
 
   def date
-    Date.strptime @params[:date]
+    Date.strptime @params[:date], "%d/%m/%Y"
   end
 
   def price

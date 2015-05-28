@@ -8,7 +8,7 @@ tr
       = model.date
     div.info-item-small
       div.bold-label HOUR
-      = model.hour
+      = hour
     div.info-item-small
       div.bold-label MENU
       == menu.show_link
@@ -16,7 +16,7 @@ tr
       div.bold-label OCCUPIED SLOTS
       span = occupied_slots
     div.info-item-small.locator
-      div.bold-label LOCATOR:
+      div.bold-label LOCATOR
       span = model.locator
   td = status
   td.validation = validate_link
