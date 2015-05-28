@@ -382,6 +382,55 @@ section{
   }
 }
 
+.table-status-badge{
+  padding: 3px 5px;
+  color:white;
+  border-radius: 3px;
+  &.full{
+    background-color: $tableFull;
+  }
+  &.plan_closed{
+    background-color: $tablePlanClosed;
+  }
+  &.partial{
+    background-color: $tablePartial;
+  }
+  &.empty{
+    background-color: $tableEmpty;
+  }
+}
+
+.table-thumbnail{
+  margin-top: 10px;
+  width:180px;
+  height: 150px;
+  padding: 10px 0;
+  text-align: center;
+  line-height: 35px;
+  color: $lightGray;
+  .gender-group{
+    width: 100%;
+    height: 35px;
+    div{
+      margin: 0px 3px;
+      width:50px;
+      height:100%;
+      display: inline-block;
+      font-size: 1.5em;
+    }
+  }
+  .table-thumb{
+    width: 100%;
+    height: 50px;
+    margin: 5px 0px;
+    border: 2px solid $lightGray;
+    border-radius: 5px;
+  }
+  .reserved-seat{
+    color: $textDarkGray;
+  }
+}
+
 .user-phone-mockup{
   width: 100%;
   text-align: center;
