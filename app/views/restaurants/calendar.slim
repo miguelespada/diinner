@@ -2,7 +2,7 @@
   = stylesheet_link_tag 'calendar', media: 'all'
 
 div.calendar
-  = month_calendar events: @tables, 
+  = month_calendar events: @tables,
                    table: {class: "table table-bordered"} do |date, tables|
     = link_to date.day, restaurant_calendar_path(@restaurant, :date => date)
     - tables.each do |table|
@@ -15,8 +15,8 @@ div.calendar
 
 - if !@date_tables.nil?
   - content_for(:title) do
-    | Tables 
-    = params[:date]
+    | Tables
+    h6 == params[:date]
 
   - content_for(:thead) do
     th ID

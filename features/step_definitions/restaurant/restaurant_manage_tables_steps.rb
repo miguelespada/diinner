@@ -1,7 +1,7 @@
 When(/^I create a new table$/) do
   click_on "Tables"
   click_on "New"
-  fill_in "Date", with: Date.today.strftime("%d/%m/%Y") 
+  fill_in "Date", with: Date.today.strftime("%d/%m/%Y")
   fill_in "Hour", with: "19:00"
   click_button 'Create Table'
 end
