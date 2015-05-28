@@ -55,4 +55,11 @@ class UserCell < BaseCell
     end
   end
 
+  def age_preference
+    "#{model.min_age}...#{model.max_age}"
+  end
+  
+  def city_preference
+    model.city.name
+  end
 end

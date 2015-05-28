@@ -5,6 +5,7 @@ end
 Given(/^I am a logged user$/) do
   @user = FactoryGirl.create(:user, :returning)
   login_as_user @user
+  visit users_path
 end
 
 Then(/^I should see the user page$/) do

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @current_user.preference ||= Preference.new
   end
 
   def show
@@ -32,7 +33,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:gender,
-                                  :birth)
+                                  :birth,
+                                  :preference_attributes => [:max_age, :min_age, :city_id, :id])
   end
 
   def authenticate

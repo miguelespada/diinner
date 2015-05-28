@@ -19,3 +19,10 @@ div.row
         div.user-default-card.info-item
           div.bold-label DEFAULT CARD
           = default_card
+      - if model.has_preferences?
+        div.user-preferences.info-item
+          div.bold-label PREF. AGE
+          = age_preference
+        div.user-preferences.info-item
+          div.bold-label PREF. CITY
+          = city_preference

@@ -1,4 +1,8 @@
 = f.error_notification
 = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']]
 = f.input :birth, as: :date_picker, html5: true
+= f.simple_fields_for :preference do |c|
+  = c.input :max_age
+  = c.input :min_age
+  = c.association :city, :include_blank => false
 = f.button :submit

@@ -5,4 +5,5 @@ class City
   field :latitude, type: String
   field :longitude, type: String
   has_many :restaurants
+  has_many :preferences
 end

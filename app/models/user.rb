@@ -17,6 +17,10 @@ class User
   has_many :test_completed, class_name: "TestResponse"
   has_many :reservations
 
+  has_one :preference
+  accepts_nested_attributes_for :preference
+  delegate :max_age, :min_age, :city, :to => :preference
+
   def first_login?
     updated_at == created_at
   end
@@ -29,6 +33,10 @@ class User
     user == self
   rescue
     false
+  end
+
+  def has_preferences?
+    !preference.nil?
   end
 
   def test_pending
