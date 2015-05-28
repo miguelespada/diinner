@@ -6,3 +6,6 @@
 
 - content_for(:navbar_more_links) do
   == cell(:restaurant, current_restaurant).call(:navbar_calendar_link)
+
+- content_for(:settings_path) do
+  = restaurant_path(current_restaurant)
