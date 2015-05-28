@@ -7,8 +7,8 @@
 = f.input :address
 = f.association :city, :input_html => {:onchange => "MAP.updateMap();"}
 div#map
-= f.input :latitude, :disabled => true
-= f.input :longitude, :disabled => true
+= f.input :latitude, :as => :hidden
+= f.input :longitude, :as => :hidden
 = f.button :submit
 
 == cell(:restaurant, @restaurant).location
