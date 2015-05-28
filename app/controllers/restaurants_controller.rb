@@ -32,6 +32,7 @@ class RestaurantsController < ApplicationController
   end
 
   def calendar
+    @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
     @tables = @restaurant.tables
   end
 

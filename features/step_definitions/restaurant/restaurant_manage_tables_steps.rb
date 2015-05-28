@@ -57,7 +57,10 @@ Then(/^I can see the table in my calendar$/) do
   within(".today") do
     within(".empty") do
       expect(page).to have_content "19:00"
+      click_on "19:00"
     end
   end
+
+  expect(page).to have_css "h4.table-id"
 end
 

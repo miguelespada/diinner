@@ -7,3 +7,7 @@ div.calendar
     = date.day
     - tables.each do |table|
       == cell(:table, table).calendar_event
+
+
+- if !@table.nil?
+    == cell(:table, @table).show
