@@ -101,6 +101,10 @@ h1, h2, h3, h4{
   }
 }
 
+.table-show-container{
+  position: relative;
+}
+
 .bold-label{
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -401,7 +405,9 @@ section{
 }
 
 .table-thumbnail{
-  margin-top: 10px;
+  @media(min-width: 768px){
+    margin-top: 60px;
+  }
   width:180px;
   height: 150px;
   padding: 10px 0;
