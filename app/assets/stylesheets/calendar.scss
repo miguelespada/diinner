@@ -41,26 +41,38 @@
       text-align: center;
       color: $textDarkGray;
       &.prev-month, &.next-month, &.past{
-        color: $lightGray;
+        a:link, a:hover, a:active, a:visited{
+          color: $lightGray;
+        }
         .status-table{
-          opacity: 0.2;
+          opacity: 0.3;
+          a:link, a:hover, a:active, a:visited{
+            color: $textDarkGray;
+          }
         }
       }
       &.today{
         background-color: lighten($themeYellow, 30%);
       }
+      a:link, a:hover, a:active, a:visited{
+        text-decoration: none;
+        color: $textGray;
+      }
     }
     .status-table{
       font-size: 0.75em;
       text-align: center;
-      color: white;
+      a:link, a:hover, a:active, a:visited{
+        text-decoration: none;
+        color: white;
+      }
       &:not(:last-of-type){
         margin-bottom: 3px;
       }
       &.full{
         background-color: $tableFull;
       }
-      &.plan-closed{
+      &.plan_closed{
         background-color: $tablePlanClosed;
       }
       &.partial{
