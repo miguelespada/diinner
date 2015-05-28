@@ -51,6 +51,8 @@
       }
     }
     .status-table{
+      font-size: 0.75em;
+      text-align: center;
       color: white;
       &:not(:last-of-type){
         margin-bottom: 3px;
