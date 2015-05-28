@@ -3,7 +3,7 @@ module Login
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button 'Log in'
-  end 
+  end
 
   def login_as_admin admin
     visit new_admin_session_path
@@ -32,8 +32,8 @@ module Ajax
   end
 
   def google_api
-    fill_in "Latitude", with: "40.012345"
-    fill_in "Longitude", with: "5.056789"
+     page.execute_script("$('.restaurant_latitude input').val('40.012345')")
+     page.execute_script("$('.restaurant_longitude input').val('5.056789')")
   end
 end
 

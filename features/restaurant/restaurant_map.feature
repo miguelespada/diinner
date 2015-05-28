@@ -10,7 +10,7 @@ Feature: Restaurant map
     When I visit my profile page
     Then I should see a map
 
-  @restaurant_map @javascript
+  @update_geolocation @javascript
   Scenario: I update my geolocation
     When I add a geolocation to my profile
     Then I should see my geolocation

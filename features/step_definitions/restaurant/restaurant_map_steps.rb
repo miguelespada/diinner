@@ -1,5 +1,6 @@
 When(/^I visit my profile page$/) do
   visit restaurant_path(@restaurant)
+  page.driver.allow_url("*.mapbox.com")
 end
 
 Then(/^I should see a map$/) do
