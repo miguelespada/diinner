@@ -5,11 +5,10 @@
 = f.input :photo, as: :attachinary
 = f.input :phone
 = f.input :address
-= f.association :city
-button.update-map.btn.btn-default type="button" Update Map
+= f.association :city, :input_html => {:onchange => "MAP.updateMap();"}
 div#map
-= f.input :latitude
-= f.input :longitude
+= f.input :latitude, :disabled => true
+= f.input :longitude, :disabled => true
 = f.button :submit
 
 == cell(:restaurant, @restaurant).location
