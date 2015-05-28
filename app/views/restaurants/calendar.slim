@@ -1,1 +1,5 @@
 div.calendar
+  = month_calendar events: @tables do |date, tables|
+    = date 
+    - tables.each do |table|
+      == cell(:table, table).calendar_event

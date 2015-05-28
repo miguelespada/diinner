@@ -32,6 +32,7 @@ class RestaurantsController < ApplicationController
   end
 
   def calendar
+    @tables = @restaurant.tables
   end
 
   private
