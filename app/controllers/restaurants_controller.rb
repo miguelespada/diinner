@@ -2,8 +2,8 @@ class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
 
-  load_resource :only => [:show, :edit, :update, :reservations, :user]
-  before_filter :authorize!, :only => [:edit, :update, :reservations, :user]
+  load_resource :only => [:show, :edit, :update, :reservations, :user, :calendar]
+  before_filter :authorize!, :only => [:edit, :update, :reservations, :user, :calendar]
 
   def index
   end
@@ -29,6 +29,9 @@ class RestaurantsController < ApplicationController
   def user
     @user = User.find(params["user_id"])
     CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_customer?(@user)
+  end
+
+  def calendar
   end
 
   private

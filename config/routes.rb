@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   scope :restaurant do
     get ":id/reservations" => "restaurants#reservations", as: "restaurant_reservations"
     get ":id/user/:user_id" => "restaurants#user", as: "restaurant_user"
+    get ":id/calendar" => "restaurants#calendar", as: "restaurant_calendar"
   end
 
   resources :restaurants do
     resources :tables
     resources :menus
   end
-
 
   scope :admin do
     get "/" => "admin#index", as: "admin"

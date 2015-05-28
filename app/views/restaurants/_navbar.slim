@@ -3,3 +3,6 @@
 
 - content_for(:navbar_menu) do
   == cell(:restaurant, current_restaurant).call(:dropdown_menu)
+
+- content_for(:navbar_more_links) do
+  == cell(:restaurant, current_restaurant).call(:navbar_calendar_link)

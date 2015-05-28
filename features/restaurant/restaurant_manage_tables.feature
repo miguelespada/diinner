@@ -9,6 +9,7 @@ Feature: Restaurant manage tables
   @restaurant_create_table
   Scenario: I create a new table
     Then I should see the table in the list of tables
+    And I can see the table in my calendar
 
   @restaurant_edit_table
   Scenario: I edit a table

@@ -38,6 +38,7 @@ gem 'rails-timeago', '~> 2.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem "simple_calendar", "~> 1.1.0"
 
 group :test do
   gem "database_cleaner"
