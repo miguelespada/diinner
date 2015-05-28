@@ -44,7 +44,7 @@ end
 
 Then(/^I should see the updated table in the list of tables$/) do
   expect(page).to have_content "Table was successfully updated."
-  expect(page).to have_content "2023-07-13"
+  expect(page).to have_content "13/07/2023"
 
   within(".table-hour") do
     expect(page).to have_content "20:30"

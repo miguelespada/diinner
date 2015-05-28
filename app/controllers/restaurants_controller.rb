@@ -41,7 +41,7 @@ class RestaurantsController < ApplicationController
     reservation = Reservation.find(params["reservation_id"])
     reservation.ticket_valid = params[:ticket_valid]
     reservation.save!
-    redirect_to restaurant_reservations_path(@restaurant)
+    redirect_to :back
   end
 
   private
