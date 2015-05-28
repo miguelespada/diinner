@@ -33,6 +33,7 @@ class RestaurantsController < ApplicationController
 
   def calendar
     @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
+    @date_tables = @restaurant.tables.where(:date => Date.strptime(params[:date])) if params[:date].present?
     @tables = @restaurant.tables
   end
 

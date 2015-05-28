@@ -4,10 +4,29 @@
 div.calendar
   = month_calendar events: @tables, 
                    table: {class: "table table-bordered"} do |date, tables|
-    = date.day
+    = link_to date.day, restaurant_calendar_path(@restaurant, :date => date)
     - tables.each do |table|
       == cell(:table, table).calendar_event
 
 
 - if !@table.nil?
-    == cell(:table, @table).show
+  == cell(:table, @table).show
+
+
+- if !@date_tables.nil?
+  - content_for(:title) do
+    | Tables 
+    = params[:date]
+
+  - content_for(:thead) do
+    th ID
+    th Date
+    th Hour
+    th Slots
+    th Status
+    th.text-right Actions
+
+  - content_for(:tbody) do
+    == cell(:table, collection: @date_tables, method: :row)
+
+  = render "admin/admin_table"

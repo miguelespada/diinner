@@ -60,10 +60,10 @@ Then(/^I can see the table in my calendar$/) do
       click_on "19:00"
     end
   end
-
   expect(page).to have_css "h4.table-id"
-
-  find(".today").click
-  expect(page).to have_content "YEAH!"
+  within(".today") do
+      click_on Date.today.day
+  end
+  expect(page).to have_css "td.table-id"
 end
 
