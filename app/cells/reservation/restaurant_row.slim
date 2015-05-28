@@ -1,5 +1,6 @@
 tr
-  td == table.show_link
+  td
+    == table.show_link
   td == user.show_link
   td
     div.info-item-small
@@ -14,4 +15,8 @@ tr
     div.info-item-small.slots
       div.bold-label OCCUPIED SLOTS
       span = occupied_slots
+    div.info-item-small.locator
+      div.bold-label LOCATOR:
+      span = model.locator
   td = status
+  td.validation = validate_link

@@ -28,6 +28,16 @@ class ReservationCell < BaseCell
     link_to model.menu.name, user_reservation_menu_path(current_user, model)
   end
 
+   def validate_link
+    if model.is_owned_by?(current_restaurant)
+      if !model.ticket_valid?
+        link_to "validate", validate_reservation_path(current_restaurant, model, :ticket_valid => true)
+      else
+        link_to "unvalidate", validate_reservation_path(current_restaurant, model, :ticket_valid => false)
+      end
+    end
+  end
+
   def occupied_slots
     "#{model.male_count}/#{model.female_count}"
   end

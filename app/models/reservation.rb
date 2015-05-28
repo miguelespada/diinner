@@ -8,6 +8,7 @@ class Reservation
   field :price, type: Integer
   field :paid, type: Boolean, default: false
   field :date, type: Date
+  field :ticket_valid, type: Boolean, default: false
 
   delegate  :restaurant,
             :hour,
@@ -20,6 +21,7 @@ class Reservation
   accepts_nested_attributes_for :companies,
            :reject_if => :all_blank,
            :allow_destroy => true
+
 
   def male_count
     genders[:male]
@@ -85,5 +87,9 @@ class Reservation
       results[c.gender] += 1
     end
     results
+  end
+
+  def locator
+    id.to_s.to_i.to_s 32
   end
 end
