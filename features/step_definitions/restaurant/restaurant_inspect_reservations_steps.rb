@@ -6,7 +6,7 @@ When(/^I can see the user reservation$/) do
   within(".slots") do
     expect(page).to have_content "1/1"
   end
-  expect(page).to have_content @table.hour
+  expect(page).to have_content @table.hour.strftime("%H:%M")
   expect(page).to have_content "Confirmed"
 end
 

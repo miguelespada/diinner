@@ -12,7 +12,7 @@ When(/^I search a table$/) do
   step "I go to the user page"
   click_on "New reservation"
   select(20, :from => "reservation_price")
-  fill_in "Date", with: @table.date.strftime
+  fill_in "Date", with: @table.date.to_date
   select "Madrid", :from => "reservation_city"
 
   select :female, :from => "reservation_companies_attributes_0_gender"
