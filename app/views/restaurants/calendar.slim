@@ -1,5 +1,9 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'calendar', media: 'all'
+
 div.calendar
-  = month_calendar events: @tables do |date, tables|
-    = date 
+  = month_calendar events: @tables, 
+                   table: {class: "table table-bordered"} do |date, tables|
+    = date.day
     - tables.each do |table|
       == cell(:table, table).calendar_event
