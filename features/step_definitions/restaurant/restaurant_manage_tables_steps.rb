@@ -60,7 +60,7 @@ Then(/^I can see the table in my calendar$/) do
       click_on "19:00"
     end
   end
-  expect(page).to have_css "h4.table-id"
+  expect(page).to have_css ".table-id"
   within(".today") do
       click_on Date.today.day
   end
