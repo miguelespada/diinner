@@ -6,8 +6,9 @@ div.row
       = model.id
     div.section-info
       div.table-restaurant.info-item
-        div.bold-label RESTAURANT
-        == restaurant.show_link
+        - if !model.is_owned_by?(current_restaurant)
+          div.bold-label RESTAURANT
+          == restaurant.show_link
       div.table-date.info-item
         div.bold-label DATE
         = model.date

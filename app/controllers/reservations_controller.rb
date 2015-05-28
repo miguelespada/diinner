@@ -48,7 +48,7 @@ class  ReservationsController < UsersController
   def menu
     @menu = @user.reservations.find(params["reservation_id"]).menu
   end
-
+  
   private
 
   def reservation_params

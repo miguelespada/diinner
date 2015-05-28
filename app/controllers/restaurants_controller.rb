@@ -2,8 +2,8 @@ class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
 
-  load_resource :only => [:show, :edit, :update, :reservations, :user, :calendar]
-  before_filter :authorize!, :only => [:edit, :update, :reservations, :user, :calendar]
+  load_resource :only => [:show, :edit, :update, :reservations, :user, :calendar, :validate_reservation]
+  before_filter :authorize!, :only => [:edit, :update, :reservations, :user, :calendar, :validate_reservation]
 
   def index
   end
@@ -35,6 +35,13 @@ class RestaurantsController < ApplicationController
     @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
     @date_tables = @restaurant.tables.where(:date => Date.strptime(params[:date])) if params[:date].present?
     @tables = @restaurant.tables
+  end
+
+  def validate_reservation
+    reservation = Reservation.find(params["reservation_id"])
+    reservation.ticket_valid = params[:ticket_valid]
+    reservation.save!
+    redirect_to :back
   end
 
   private

@@ -44,7 +44,7 @@ end
 
 Then(/^I should see the updated table in the list of tables$/) do
   expect(page).to have_content "Table was successfully updated."
-  expect(page).to have_content "2023-07-13"
+  expect(page).to have_content "13/07/2023"
 
   within(".table-hour") do
     expect(page).to have_content "20:30"
@@ -60,7 +60,7 @@ Then(/^I can see the table in my calendar$/) do
       click_on "19:00"
     end
   end
-  expect(page).to have_css "h4.table-id"
+  expect(page).to have_css ".table-id"
   within(".today") do
       click_on Date.today.day
   end

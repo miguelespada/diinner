@@ -29,3 +29,8 @@ When(/^I can see the slots left of the reserved table$/) do
     expect(page).to have_content "2/2"
   end
 end
+
+Then(/^I can validate the reservation$/) do
+  click_on "validate"
+  expect(page).to have_content "unvalidate"
+end

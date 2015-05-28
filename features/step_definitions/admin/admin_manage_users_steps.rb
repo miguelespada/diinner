@@ -13,6 +13,6 @@ Then(/^I should see the updated user in the list of users$/) do
     expect(page).to have_content "male"
   end
   within(:css, ".user-birth") do
-    expect(page).to have_content "1981-01-20"
+    expect(page).to have_content "20/01/1981"
   end
 end
