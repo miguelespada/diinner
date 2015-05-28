@@ -35,18 +35,24 @@ class Table
     user_count == 6
   end
 
+
+  def plan_closed?
+    !full? && female_count >= 2 && male_count >= 2
+  end
+
   def empty?
     user_count == 0
   end
 
   def partial?
-    !full? && !empty?
+    !full? && !empty? && !plan_closed?
   end
 
   def status
     # TODO plan closed
 
     return :full if full?
+    return :plan_closed if plan_closed?
     return :empty if empty?
     return :partial
   end
