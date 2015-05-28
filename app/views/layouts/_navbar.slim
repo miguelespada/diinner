@@ -5,9 +5,6 @@ header
     ul.nav.navbar-nav.navbar-right
       li.nav-item = yield(:navbar_search)
       li.dropdown.nav-item
-        a.navbar-link.settings href="#{yield(:settings_path)}"
-          i.bi_setting-gear-a
-      li.dropdown.nav-item
         = yield(:logs)
       = yield(:navbar_more_links)
       li.dropdown.nav-item

@@ -8,7 +8,5 @@
   == cell(:admin, current_admin).call(:navbar_search)
 
 - content_for(:navbar_more_links) do
+  == cell(:admin, current_admin).call(:navbar_settings_link)
   == cell(:admin, current_admin).call(:navbar_map_link)
-
-- content_for(:settings_path) do
-  = settings_path
