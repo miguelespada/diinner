@@ -1,7 +1,7 @@
 When(/^I create a new table$/) do
   click_on "Tables"
   click_on "New"
-  fill_in "Date", with: Date.today.strftime("%d/%m/%Y")
+  fill_in "Date", with: Date.today.strftime("%d/%m/%Y") 
   fill_in "Hour", with: "19:00"
   click_button 'Create Table'
 end
@@ -9,7 +9,7 @@ end
 Then(/^I should see the table in the list of tables$/) do
   expect(page).to have_content "Table was successfully created."
   within(:css, ".table-date") do
-    expect(page).to have_content Date.today.strftime("%Y-%m-%d")
+    expect(page).to have_content Date.today.strftime("%d/%m/%Y")
   end
   within(:css, ".table-hour") do
     expect(page).to have_content "19:00"
@@ -30,7 +30,7 @@ end
 
 Then(/^I should not see the table in the list of tables$/) do
   expect(page).to have_content "Table was successfully destroyed."
-  expect(page).not_to have_content Date.today.strftime("%Y-%m-%d")
+  expect(page).not_to have_content Date.today.strftime("%d/%m/%Y")
 end
 
 
