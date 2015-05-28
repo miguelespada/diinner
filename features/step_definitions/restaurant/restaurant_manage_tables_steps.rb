@@ -62,5 +62,8 @@ Then(/^I can see the table in my calendar$/) do
   end
 
   expect(page).to have_css "h4.table-id"
+
+  find(".today").click
+  expect(page).to have_content "YEAH!"
 end
 
