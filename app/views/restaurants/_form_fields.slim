@@ -5,7 +5,7 @@
 = f.input :photo, as: :attachinary
 = f.input :phone
 = f.input :address
-= f.association :city, :input_html => {:onchange => "MAP.updateMap();"}
+= f.association :city, :input_html => {:onchange => "MAP.updateMap();"}, :include_blank => false
 div#map
 = f.input :latitude, :as => :hidden
 = f.input :longitude, :as => :hidden
