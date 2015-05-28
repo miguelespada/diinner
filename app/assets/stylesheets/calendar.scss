@@ -1,0 +1,72 @@
+@import 'color';
+
+.calendar{
+  padding-top: 20px;
+  .calendar-header{
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 15px;
+    span{
+      font-weight: 200;
+      color: $textDarkGray;
+      padding: 0px 30px;
+    }
+    a{
+      font-weight: 200;
+      width:50px;
+      padding: 3px 15px;
+      border: 1px solid $lightGray;
+      border-radius: 3px;
+      &:link, &:visited{
+        color: $textGray;
+        text-decoration: none;
+        background-color: white;
+      }
+      &:hover, &:active{
+        color: white;
+        text-decoration: none;
+        background-color: $lightGray;
+      }
+    }
+  }
+  table{
+    font-size: 1.5em;
+    table-layout: fixed;
+    th{
+      text-align: center;
+      font-weight: 400;
+    }
+    .day{
+      font-weight: 200;
+      text-align: center;
+      color: $textDarkGray;
+      &.prev-month, &.next-month, &.past{
+        color: $lightGray;
+        .status-table{
+          opacity: 0.2;
+        }
+      }
+      &.today{
+        background-color: lighten($themeYellow, 30%);
+      }
+    }
+    .status-table{
+      color: white;
+      &:not(:last-of-type){
+        margin-bottom: 3px;
+      }
+      &.full{
+        background-color: $tableFull;
+      }
+      &.plan-closed{
+        background-color: $tablePlanClosed;
+      }
+      &.partial{
+        background-color: $tablePartial;
+      }
+      &.empty{
+        background-color: $tableEmpty;
+      }
+    }
+  }
+}
