@@ -9,7 +9,8 @@ Feature: User Reserves table
 
   @user_reserves_table
   Scenario: User reserve a table
-    Then I can see the reserved table in my reservations
+    Then I can see the reserved table in my calendar
+    And I can see the reserved table in my reservations
     And I can access restaurant data
     And I can access menu data
 
@@ -17,6 +18,7 @@ Feature: User Reserves table
   Scenario: User cancel reservation
     When I cancel my reservation
     Then I do not see the reserved table in my reservations
+    And I should not see the reserved table in my calendar
 
   @user_saves_default_card
   Scenario: User saves default card

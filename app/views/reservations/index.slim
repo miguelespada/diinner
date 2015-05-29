@@ -1,2 +1,13 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'calendar', media: 'all'
+
+div.calendar
+  = month_calendar events: @reservations,
+                   table: {class: "table table-bordered"} do |date, reservations|
+    = link_to date.day, "#"
+    - reservations.each do |reservation|
+      div.status-table
+        = link_to reservation.hour.strftime("%H:%M"), "#"
+
 div.reservations
   == cell(:reservation, collection: @reservations, method: :user_show)

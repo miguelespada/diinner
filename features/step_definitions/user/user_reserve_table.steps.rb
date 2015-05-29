@@ -76,6 +76,14 @@ Then(/^I can see the reserved table in my reservations$/) do
   end
 end
 
+Then(/^I can see the reserved table in my calendar$/) do
+  expect(page).to have_css ".calendar"
+  expect(page).to have_css ".has-events"
+  within ".has-events" do
+    expect(page).to have_content(@table.hour.strftime("%H:%M"))
+  end
+end
+
 When(/^I cancel my reservation$/) do
   step "I go to the user page"
   click_on "My reservations"
@@ -89,13 +97,19 @@ Then(/^I do not see the reserved table in my reservations$/) do
   step "I go to the user page"
   click_on "My reservations"
 
-  expect(page).not_to have_content(@restaurant.name)
-  expect(page).not_to have_content(@table.date)
-  expect(page).not_to have_content(@table.hour.strftime("%H:%M"))
-  expect(page).not_to have_content(@menu.name)
-  expect(page).not_to have_content(@menu.price)
+  within ".reservations" do 
+    expect(page).not_to have_content(@restaurant.name)
+    expect(page).not_to have_content(@table.date)
+    expect(page).not_to have_content(@table.hour.strftime("%H:%M"))
+    expect(page).not_to have_content(@menu.name)
+    expect(page).not_to have_content(@menu.price)
+  end
 end
 
+Then(/^I should not see the reserved table in my calendar$/) do
+  expect(page).to have_css ".calendar"
+  expect(page).not_to have_css ".has-events"
+end
 
 Then(/^I can access restaurant data$/) do
   click_on @restaurant.name
