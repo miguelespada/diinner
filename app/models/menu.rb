@@ -1,7 +1,6 @@
 class Menu
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Loggeable
 
   field :name,  type: String, default: ""
   field :price, type: Integer

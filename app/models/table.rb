@@ -1,7 +1,7 @@
 class Table
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Loggeable
+
   extend SimpleCalendar
   has_calendar :attribute => :date
 

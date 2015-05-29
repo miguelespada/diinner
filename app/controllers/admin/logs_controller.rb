@@ -1,7 +1,7 @@
 class  Admin::LogsController < AdminController
 
   def index
-    @logs = Log.desc(:updated_at).page(params[:page])
+    @logs = PublicActivity::Activity.all
   end
 
 end
