@@ -3,8 +3,8 @@ Feature: Admin Inspect Menus
   I want to inspect restaurant menus
 
   Background:
-    Given I am logged as admin
     When a restaurant has created a menu
+    Given I am logged as admin
 
   @inspect_restaurant_menus
   Scenario:
