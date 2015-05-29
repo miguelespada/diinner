@@ -7,7 +7,7 @@ Then(/^I can see the user reservation in the reservation section$/) do
   expect(page).to have_content "Confirmed"
 
   within('.restaurant-reservation') do
-    find(".show").click
+    find(".show-link").click
   end
 
   step("I can see the table details")

@@ -1,14 +1,6 @@
-- content_for(:title) do
-  | Logs
+div#logs 
+  h1 Logs
 
-- content_for(:thead) do
-  th Action
-  th Time
-  th Info
-
-- content_for(:tbody) do
   = render_activities(@logs)
 
-= render "admin/admin_table"
-
-= will_paginate @logs
+  = will_paginate @logs
