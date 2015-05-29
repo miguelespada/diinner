@@ -3,6 +3,6 @@ div
   | New test response by user 
   == cell(:user, activity.owner).show_link
   |  question 
-  == cell(:test, activity.trackable.test).show_link
-  |  answer 
+  b == activity.trackable.test.question
+  |  answer: 
   b == activity.trackable.response
