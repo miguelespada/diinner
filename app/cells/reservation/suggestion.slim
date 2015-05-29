@@ -1,23 +1,33 @@
 / TODO DRY this
 / TODO show_link for user!
 
-h1 Restaurant
-ul
-  li == restaurant.name
-  li == restaurant.cl_photo 200
-
-h4 Date
-
-ul
-  li = model.date
-  li = hour
-
-h4 Menu details
-
-== menu.call(:user_show)
-
-h4 Affinity
-ul.affinity
-  li = model.affinity
-
-== reserve_link
+div.search-result-item
+  div.search-result-head
+    h1 == restaurant.name
+    h4 = model.restaurant.description
+    div.image-restaurant == restaurant.cl_photo 200
+    div.info-item
+      div.bold-label ADDRESS
+      = model.restaurant.address
+    div.info-item
+      div.bold-label CITY
+      = model.restaurant.city.name
+    div.info-item
+      div.bold-label PHONE
+      = model.restaurant.phone
+  
+  div.search-result-date.search-result-section
+    h3 Date
+    div 
+      = model.date
+      | , 
+      = hour
+  
+  div.search-result-details.search-result-section
+    == menu.call(:user_show)
+  
+  div.search-result-affinity.search-result-section
+    h3 Affinity
+    div.affinity = model.affinity
+  
+  == reserve_link

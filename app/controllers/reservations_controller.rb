@@ -15,8 +15,9 @@ class  ReservationsController < UsersController
   end
 
   def search
+    # TODO limit search on Engine
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
-    @suggestions = suggestionEngine.search
+    @suggestions = suggestionEngine.search.first(3)
   end
 
   def create

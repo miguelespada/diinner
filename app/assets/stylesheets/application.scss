@@ -442,3 +442,41 @@ section{
   text-align: center;
   padding-left: 15px;
 }
+
+.search-result-item{
+  display: inline-block;
+  width: 33.3%;
+  padding: 15px;
+  .search-result-head{
+    margin-bottom: 15px;
+    .image-restaurant{
+      width:100%;
+      margin-bottom: 10px;
+      img{
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .search-result-section{
+    margin-bottom: 15px;
+    padding-top: 15px;
+    border-top: 1px solid $lightGray;
+    h3{
+      margin-top: 0px;
+    }
+  }
+  .search-result-details{
+    h1{
+      @extend h3;
+      margin: 0px;
+    }
+    .section-info{
+      margin-top: 10px;
+    }
+  }
+  
+  .bold-label{
+    display: block;
+  }
+}
