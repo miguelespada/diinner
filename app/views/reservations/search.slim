@@ -1,2 +1,4 @@
-div.search-results
+div.search-results.row
   == cell(:reservation, collection: @suggestions, method: :suggestion)
+
+= render "/layouts/map"
