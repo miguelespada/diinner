@@ -1,17 +1,12 @@
 module Notificable
   extend ActiveSupport::Concern
-  # included do
-    
-  #   after_create do |entity|
-  #     notify_by_email entity
-  #   end
 
-  #   def notify_by_email entity
-  #       @log ||= entity.to_log
-  #       Admin.each do |admin|
-  #         @log.notify admin.email
-  #       end
-  #   end
-
+  # def notify to
+  #   Pony.mail(:to => to, 
+  #             :from => "noreply@diinner.com", 
+  #             :subject => "[Diinner] #{self.to_s}")
+  #   rescue Exception => exc
+  #     logger.error("Error sending email notification #{exc.message}")
   # end
+
 end
