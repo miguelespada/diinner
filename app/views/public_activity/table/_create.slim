@@ -1,4 +1,8 @@
-tr New table
-tr == cell(:table, activity.trackable).updated_timeago
-tr == cell(:table, activity.trackable).show_link
-tr == cell(:restaurant, activity.owner).show_link
+div
+  i.bi_beverage-tea
+  | New table by restaurant 
+  == cell(:restaurant, activity.owner).show_link
+  |  with id 
+  == cell(:table, activity.trackable).show_link
+  |  created  
+  == cell(:table, activity.trackable).updated_timeago

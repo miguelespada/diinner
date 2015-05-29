@@ -1,3 +1,6 @@
-tr New user
-tr == cell(:user, activity.trackable).updated_timeago
-tr == cell(:user, activity.trackable).show_link
+div
+  i.bi_user-single-a-group
+  | New user 
+  span == cell(:user, activity.trackable).show_link
+  |  created 
+  span == cell(:user, activity.trackable).updated_timeago

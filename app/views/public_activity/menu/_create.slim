@@ -1,4 +1,8 @@
-tr New menu
-tr == cell(:menu, activity.trackable).updated_timeago
-tr == cell(:menu, activity.trackable).show_link
-tr == cell(:restaurant, activity.owner).show_link
+div
+  i.bi_kitchen-hood-a
+  | New menu 
+  == cell(:menu, activity.trackable).show_link
+  |  by restaurant 
+  == cell(:restaurant, activity.owner).show_link
+  |  created  
+  == cell(:menu, activity.trackable).updated_timeago
