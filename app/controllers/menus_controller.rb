@@ -20,7 +20,7 @@ class MenusController < RestaurantsController
 
   def create
     @menu = @restaurant.menus.create(menu_params)
-    @menu.create_activity key: 'menu.new', owner: @restaurant
+    @menu.create_activity key: 'menu.create', owner: @restaurant
     redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
   end
 

@@ -3,8 +3,7 @@ class User
   include Mongoid::Timestamps
   include UserSearchable
   include Mongoid::Enum
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
 
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""

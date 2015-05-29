@@ -12,7 +12,7 @@ class  TestResponsesController < UsersController
                     test: Test.find(params[:test_id]),
                     response: params[:option]
                     )
-    response.create_activity key: 'TestResponse.new', owner: @user
+    response.create_activity key: 'TestResponse.create', owner: @user
     redirect_to user_test_path(@user), :notice => 'Test was successfully sent.'
   end
 

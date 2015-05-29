@@ -18,6 +18,7 @@ class  Admin::RestaurantsController < AdminController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save!
+    @restaurant.create_activity key: 'restaurant.create', owner: current_admin
     redirect_to admin_restaurants_path, :notice => 'Restaurant was successfully created.'
   end
 
@@ -38,7 +39,6 @@ class  Admin::RestaurantsController < AdminController
   private
 
   def restaurant_params
-    # TODO DRY this
     params.require(:restaurant).permit(Restaurant.permitted_params)
   end
 end
