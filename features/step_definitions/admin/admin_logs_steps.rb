@@ -14,7 +14,9 @@ Then(/^I should see the log of the creation of the new user$/) do
 end
 
 Then(/^I can access to the new user the data$/) do
-  click_on @first_time_user.name
+  within "#content" do
+    click_on @first_time_user.name
+  end
   expect(page).to have_content @first_time_user.email
 end
 
@@ -29,7 +31,9 @@ Then(/^I should see the log of the creation of the new restaurant$/) do
 end
 
 Then(/^I can access to the new restaurant the data$/) do
-  click_on "dummy restaurant"
+  within "#content" do
+    click_on "dummy restaurant"
+  end
   expect(page).to have_content "restaurant@diinner.com"
 end
 
@@ -51,14 +55,18 @@ end
 
 Then(/^I should see the log of the creation of the new table$/) do
   click_on "Logs"
-  within(:css, "#logs") do
-    expect(page).to have_content "New table"
-    expect(page).to have_content @restaurant.name
+  within "#content" do
+    within(:css, "#logs") do
+      expect(page).to have_content "New table"
+      expect(page).to have_content @restaurant.name
+    end
   end
 end
 
 Then(/^I can access to the table data$/) do
-  click_on Table.first.id
+  within "#content" do
+    click_on Table.first.id
+  end
   expect(page).to have_content @restaurant.name
   expect(page).to have_content "3/3"
 end
@@ -71,15 +79,19 @@ end
 
 Then(/^I should see the log of the creation of the new menu$/) do
   click_on "Logs"
-  within(:css, "#logs") do
-    expect(page).to have_content "New menu"
-    expect(page).to have_content "Dummy menu"
-    expect(page).to have_content @restaurant.name
+  within "#content" do
+    within(:css, "#logs") do
+      expect(page).to have_content "New menu"
+      expect(page).to have_content "Dummy menu"
+      expect(page).to have_content @restaurant.name
+    end
   end
 end
 
 Then(/^I can access to the menu data$/) do
-  click_on "Dummy menu"
+  within "#content" do
+    click_on "Dummy menu"
+  end
   expect(page).to have_content @restaurant.name
   within(".menu-price") do
     expect(page).to have_content "20"

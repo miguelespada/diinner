@@ -19,7 +19,9 @@ end
 
 Then(/^I can see the user reservation in the table section$/) do
   click_on "Tables"
-  click_on @table.id
+  within "#content" do
+    click_on @table.id
+  end
   within('.reservations') do
     expect(page).to have_content @user.name
   end

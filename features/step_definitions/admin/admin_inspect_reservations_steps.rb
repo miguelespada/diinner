@@ -15,7 +15,9 @@ end
 
 Then(/^I can see the reservation in the user section$/) do
   click_on "Users"
-  click_on @user.name
+  within "#content" do
+    click_on @user.name
+  end
   within('.reservations') do
     expect(page).to have_content @restaurant.name
     expect(page).to have_content "Confirmed"
@@ -25,7 +27,9 @@ end
 
 Then(/^I can see the reservation in the restaurant section$/) do
   click_on "Restaurants"
-  click_on @restaurant.name
+  within "#content" do
+    click_on @restaurant.name
+  end
   within('.reservations') do
     expect(page).to have_content @user.name
     expect(page).to have_content "Confirmed"

@@ -18,7 +18,9 @@ end
 
 Then(/^I can see the user test responses$/) do
   click_on "Users"
-  click_on @user.name
+  within "#content" do
+    click_on @user.name
+  end
   within('.test-responses') do
     expect(page).to have_content @test.question
     expect(page).to have_content @test.caption_A

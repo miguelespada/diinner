@@ -36,7 +36,9 @@ Then(/^I should not see the restaurant in the list of restaurants$/) do
 end
 
 When(/^I edit a restaurant$/) do
-  click_on "dummy restaurant"
+  within "#content" do
+    click_on "dummy restaurant"
+  end
   find(".edit").click
   fill_in "Name", with: "dummy restaurant updated"
   fill_in "Addres", with: "dummy address"

@@ -1,6 +1,9 @@
 div
   i.bi_kitchen-fork-knife
-  | New restaurant 
-  span == cell(:restaurant, activity.trackable).show_link
-  |  created 
-  == cell(:restaurant, activity.trackable).updated_timeago
+  | New restaurant
+  - if activity.trackable.nil? 
+    | that was deleted
+  - else
+    span == cell(:restaurant, activity.trackable).show_link
+    |  created 
+    == cell(:restaurant, activity.trackable).updated_timeago
