@@ -1,6 +1,8 @@
 class Menu
   include Mongoid::Document
   include Mongoid::Timestamps
+  include PublicActivity::Model
+  tracked
 
   field :name,  type: String, default: ""
   field :price, type: Integer

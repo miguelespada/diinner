@@ -1,0 +1,1 @@
+PublicActivity.config.orm :mongoid

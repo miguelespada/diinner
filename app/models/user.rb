@@ -3,7 +3,6 @@ class User
   include Mongoid::Timestamps
   include UserSearchable
   include Mongoid::Enum
-
   include PublicActivity::Model
   tracked
 

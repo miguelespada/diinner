@@ -1,6 +1,9 @@
 class Table
   include Mongoid::Document
   include Mongoid::Timestamps
+  include PublicActivity::Model
+  tracked
+
 
   extend SimpleCalendar
   has_calendar :attribute => :date

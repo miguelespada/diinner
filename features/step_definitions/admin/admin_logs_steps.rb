@@ -4,6 +4,7 @@ end
 
 Then(/^I should see the log of the creation of the new user$/) do
   click_on "Logs"
+
   within(:css, "#logs") do
     expect(page).to have_content "New user"
     expect(page).to have_content @first_time_user.name

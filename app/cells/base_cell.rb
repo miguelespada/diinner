@@ -1,5 +1,7 @@
 class BaseCell < Cell::ViewModel
   include Devise::Controllers::Helpers
+  include ActionView::Helpers::DateHelper
+  include Rails::Timeago::Helper
   helper_method :admin_signed_in?, :restaurant_signed_in?, :current_restaurant
 
   def table title, head, collection
@@ -7,6 +9,10 @@ class BaseCell < Cell::ViewModel
     @head = head
     @collection = collection
     render
+  end
+
+  def updated_timeago
+    timeago_tag model.updated_at, :nojs => true, :limit => 10.days.ago if !model.nil?
   end
 
   private

@@ -8,11 +8,11 @@ class  TestResponsesController < UsersController
   end
 
   def create
-    TestResponse.create!(user: @user,
+    response = TestResponse.create!(user: @user,
                     test: Test.find(params[:test_id]),
                     response: params[:option]
                     )
-    
+    response.create_activity key: 'TestResponse.new', owner: @user
     redirect_to user_test_path(@user), :notice => 'Test was successfully sent.'
   end
 

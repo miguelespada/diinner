@@ -1,16 +1,14 @@
-/ - content_for(:title) do
-/   | Logs
+- content_for(:title) do
+  | Logs
 
-/ - content_for(:thead) do
-/   th Action
-/   th Time
-/   th Info
+- content_for(:thead) do
+  th Action
+  th Time
+  th Info
 
-/ - content_for(:tbody) do
-/   == cell(:log, collection: @logs, method: :row)
+- content_for(:tbody) do
+  = render_activities(@logs)
 
-/ = render "admin/admin_table"
+= render "admin/admin_table"
 
-/ = will_paginate @logs
-
-= render_activities(@activities)
+= will_paginate @logs
