@@ -1,6 +1,8 @@
 class Reservation
   include Mongoid::Document
   include Mongoid::Timestamps
+  include PublicActivity::Common
+
   extend SimpleCalendar
   has_calendar :attribute => :date
 

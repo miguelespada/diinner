@@ -1,0 +1,10 @@
+div
+  i.bi_doc-wboard-line
+  | New reservation by 
+  span == cell(:user, activity.owner).show_link
+  |  at 
+  span == cell(:restaurant, activity.trackable.restaurant).show_link
+  |  with id  
+  span == cell(:reservation, activity.trackable).show_link
+  |  created 
+  span == cell(:reservation, activity.trackable).updated_timeago
