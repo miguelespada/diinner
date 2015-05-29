@@ -17,3 +17,8 @@ Feature: Admin Inspect Reservations
   Scenario:
     When I process reservations
     Then I can see that the reservation is paid
+
+
+  @admin_inspect_new_reservation_log
+  Scenario:
+    Then I should see the log of the new reservation

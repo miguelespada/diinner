@@ -1,6 +1,7 @@
 class Reservation
   include Mongoid::Document
   include Mongoid::Timestamps
+  include PublicActivity::Common
 
   belongs_to :user
   belongs_to :table

@@ -86,3 +86,10 @@ Then(/^I can access to the menu data$/) do
   end
   expect(page).to have_content "Dummy appetizer"
 end
+
+Then(/^I should see the log of the new reservation$/) do
+  click_on "Logs"
+  within(:css, "#logs") do
+    expect(page).to have_content "New reservation"
+  end
+end

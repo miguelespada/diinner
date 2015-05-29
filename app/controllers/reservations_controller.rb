@@ -23,6 +23,7 @@ class  ReservationsController < UsersController
   def create
     # TODO check again if reservation match the table (in case concurrency problems)
     @reservation = @user.reservations.create(reservation_params)
+    @reservation.create_activity key: 'reservation.create', owner: @user
     render :credit_card_form
   end
 
