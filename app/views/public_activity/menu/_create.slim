@@ -1,8 +1,11 @@
 div
   i.bi_kitchen-hood-a
   | New menu 
-  == cell(:menu, activity.trackable).show_link
-  |  by 
-  == cell(:restaurant, activity.owner).show_link
-  |  created  
-  == cell(:menu, activity.trackable).updated_timeago
+  - if activity.trackable.nil? 
+    | that was deleted
+  - else
+    == cell(:menu, activity.trackable).show_link
+    |  by 
+    == cell(:restaurant, activity.owner).show_link
+    |  created  
+    == cell(:menu, activity.trackable).updated_timeago

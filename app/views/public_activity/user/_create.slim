@@ -1,7 +1,10 @@
 div
   i.bi_user-single-a-group
   | New user 
-  span == cell(:user, activity.trackable).show_link
-  span.text-muted
-  |  created 
-  span == cell(:user, activity.trackable).updated_timeago
+  - if activity.trackable.nil? 
+    | that was deleted
+  - else
+    span == cell(:user, activity.trackable).show_link
+    span.text-muted
+    |  created 
+    span == cell(:user, activity.trackable).updated_timeago
