@@ -1,19 +1,8 @@
 a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#" 
   i.bi_web-rss
-/ TODO show the last 5 logs
 ul.dropdown-menu.navbar-log-menu
-  li
-    a href="#" 
-      .log-notification-item
-        i.bi_user-single-round
-        | Daniel Armengol ha reservado una mesa. 
-        span.text-muted just now
-  li
-    a href="#" 
-      .log-notification-item
-        i.bi_com-bubble-line
-        | Nuevo mensaje admin 
-        span.text-muted 3 minutes ago
+  - @logs = PublicActivity::Activity.all.desc(:created_at).limit(5)
+  = render_activities(@logs)
   li.divider
   li.widget-footer
     = link_to "All logs", admin_logs_path

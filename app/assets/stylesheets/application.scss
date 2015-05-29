@@ -186,13 +186,21 @@ h1, h2, h3, h4{
         }
         .navbar-log-menu{
           width: 300px;
-          .log-notification-item{
-            white-space: normal;
-            i{
-              margin-right: 5px;
+          div{
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 7px 20px;
+            &:hover{
+              background-color: $lightGray;
             }
-            .text-muted{
-              padding-left: 5px;
+            time{
+              @extend .text-muted;
+              color: $textGray;
+            }
+            i{
+              margin-right: 3px;
             }
           }
         }
