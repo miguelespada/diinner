@@ -68,11 +68,10 @@ end
 
 
 Then(/^I can see the reserved table in my reservations$/) do
-  within ".reservations" do
-    step("I can see the table details")
-    within ".reservation-status" do
-      expect(page).to have_content("Confirmed")
-    end
+  find(".status-table > a").click
+  step("I can see the table details")
+  within ".reservation-status" do
+    expect(page).to have_content("Confirmed")
   end
 end
 
@@ -87,23 +86,14 @@ end
 When(/^I cancel my reservation$/) do
   step "I go to the user page"
   click_on "My reservations"
+  find(".status-table > a").click
   first(".reservation").click
   click_on "Cancel reservation"
 end
 
 Then(/^I do not see the reserved table in my reservations$/) do
   expect(page).to have_content("Reservation was successfully cancelled.")
-
-  step "I go to the user page"
-  click_on "My reservations"
-
-  within ".reservations" do 
-    expect(page).not_to have_content(@restaurant.name)
-    expect(page).not_to have_content(@table.date)
-    expect(page).not_to have_content(@table.hour.strftime("%H:%M"))
-    expect(page).not_to have_content(@menu.name)
-    expect(page).not_to have_content(@menu.price)
-  end
+  expect(page).not_to have_css(".status-table")
 end
 
 Then(/^I should not see the reserved table in my calendar$/) do
@@ -122,6 +112,7 @@ end
 Then(/^I can access menu data$/) do
   step "I go to the user page"
   click_on "My reservations"
+  find(".status-table > a").click
   click_on @menu.name
   expect(page).to have_content @menu.main_dish
   expect(page).to have_content @menu.price

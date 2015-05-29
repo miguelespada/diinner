@@ -1,3 +1,4 @@
+@user_manage_reservations
 Feature: User Reserves table
   As user
   I want to access to reserve a table

@@ -7,7 +7,4 @@ div.calendar
     = link_to date.day, "#"
     - reservations.each do |reservation|
       div.status-table
-        = link_to reservation.hour.strftime("%H:%M"), "#"
-
-div.reservations
-  == cell(:reservation, collection: @reservations, method: :user_show)
+        = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)

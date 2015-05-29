@@ -1,6 +1,6 @@
 class  ReservationsController < UsersController
   before_action :load_user
-  load_resource :only => [:update, :destroy]
+  load_resource :only => [:update, :destroy, :show]
   before_action :authorize!
 
   def index
@@ -12,6 +12,9 @@ class  ReservationsController < UsersController
     @reservation = @user.reservations.new
     @reservation.companies.build
     @reservation.companies.build
+  end
+
+  def show
   end
 
   def search
