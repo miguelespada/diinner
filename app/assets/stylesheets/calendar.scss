@@ -52,7 +52,19 @@
         }
       }
       &.today{
-        background-color: lighten($themeYellow, 30%);
+        a{
+          text-align: center;
+          background-color: $themeYellow;
+          padding: 5px;
+          border-radius: 20px;
+        }
+        .status-table{
+          a{
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+          }
+        }
       }
       a:link, a:hover, a:active, a:visited{
         text-decoration: none;
