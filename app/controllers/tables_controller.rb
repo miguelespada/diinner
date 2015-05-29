@@ -18,7 +18,7 @@ class TablesController < RestaurantsController
 
   def create
     @table = @restaurant.tables.create(table_params)
-    @table.create_activity key: 'table.new', owner: @restaurant
+    @table.create_activity key: 'table.create', owner: @restaurant
     redirect_to restaurant_tables_path(@restaurant), :notice => 'Table was successfully created.'
   end
 

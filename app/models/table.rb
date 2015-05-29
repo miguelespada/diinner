@@ -1,8 +1,7 @@
 class Table
   include Mongoid::Document
   include Mongoid::Timestamps
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
 
 
   extend SimpleCalendar
