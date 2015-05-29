@@ -43,12 +43,6 @@ Then(/^I should see the log of the creation of the new test response$/) do
     end
 end
 
-Then(/^I can access to the test response data$/) do
-  click_on @test.question
-  expect(page).to have_content @test.question
-  expect(page).to have_content @user.name
-end
-
 When(/^a restaurant creates a table$/) do
    step "I am logged as restaurant"
    step "I create a new table"

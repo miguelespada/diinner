@@ -1,8 +1,8 @@
 div
   i.bi_interface-circle-tick-a
-  | New test response by user 
+  | New test response by 
   == cell(:user, activity.owner).show_link
-  |  question 
+  | , 
   b == activity.trackable.test.question
-  |  answer: 
-  b == activity.trackable.response
+  |  
+  == activity.trackable.response

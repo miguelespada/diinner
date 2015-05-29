@@ -23,7 +23,6 @@ Feature: Admin Log
     When A user has done a test
     And I am logged as admin
     Then I should see the log of the creation of the new test response
-    And I can access to the test response data
 
   @admin_inspect_new_table_log
   Scenario:
