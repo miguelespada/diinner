@@ -192,6 +192,7 @@ h1, h2, h3, h4{
             overflow: hidden;
             text-overflow: ellipsis;
             padding: 7px 20px;
+            font-size: 0.8em;
             &:hover{
               background-color: $lightGray;
             }
