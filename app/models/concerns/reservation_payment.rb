@@ -3,10 +3,14 @@ module ReservationPayment
 
   included do
 
+    def charge_amount
+      price * user_count * 100
+    end
+
     def capture
       begin
         payment_data = Stripe::Charge.create({
-            :amount   => price * user_count * 100,
+            :amount   => charge_amount,
             :currency => "eur",
             :customer => customer,
             :capture => false,

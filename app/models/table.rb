@@ -2,9 +2,8 @@ class Table
   include Mongoid::Document
   include Mongoid::Timestamps
   include PublicActivity::Common
-
-
   extend SimpleCalendar
+
   has_calendar :attribute => :date
 
   field :date, type: Date
@@ -23,14 +22,8 @@ class Table
     empty? ? :undefined : menus.select{|menu| menu.price == self.price}.first
   end
 
-  def is_owned_by?(restaurant)
-    restaurant == self.restaurant
-  rescue
-    false
-  end
-
   def user_count
-    reservations.map{|r| r.user_count}.inject(:+) || 0
+    male_count + female_count
   end
 
   def full?
@@ -49,6 +42,20 @@ class Table
     user_count == 0
   end
 
+  def male_slots_left
+    3 - male_count
+  end
+
+  def female_slots_left
+    3 - female_count
+  end
+
+  def is_owned_by?(restaurant)
+    restaurant == self.restaurant
+  rescue
+    false
+  end
+
   def status
     return :full if full?
     return :plan_closed if plan_closed?
@@ -58,22 +65,6 @@ class Table
 
   def matches_menu_price? target_price
     menus.select{|menu| menu.price == target_price} != []
-  end
-
-  def male_count
-    reservations.map{|r| r.male_count}.inject(:+) || 0
-  end
-
-  def female_count
-    reservations.map{|r| r.female_count}.inject(:+) || 0
-  end
-
-  def male_slots_left
-    3 - male_count
-  end
-
-  def female_slots_left
-    3 - female_count
   end
 
   def has_free_slots? genders
@@ -103,11 +94,22 @@ class Table
   end
 
   def paid_male_count
-    paid_reservations.map{|r| r.male_count}.inject(:+) || 0
+    self.count :male, paid_reservations
   end
 
-  def  paid_female_count
-    paid_reservations.map{|r| r.female_count}.inject(:+) || 0
+  def paid_female_count
+    self.count :female, paid_reservations
   end
 
+  def male_count
+    self.count :male, reservations
+  end
+
+  def female_count
+    self.count :female, rreservations
+  end
+
+  def count gender, _reservations
+    _reservations.map{|r| r.send "#{gender}_count"}.inject(:+) || 0
+  end
 end

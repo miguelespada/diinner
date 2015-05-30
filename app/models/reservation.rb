@@ -3,6 +3,7 @@ class Reservation
   include Mongoid::Timestamps
   include PublicActivity::Common
   include ReservationPayment
+  include ReservationStatus
   extend SimpleCalendar
   has_calendar :attribute => :date
 
@@ -28,22 +29,6 @@ class Reservation
   accepts_nested_attributes_for :companies,
            :reject_if => :all_blank,
            :allow_destroy => true
-
-  def confirmed?
-    !paid? && customer.present?
-  end
-
-  def payment_reserved?
-    charge_id != nil && !paid?
-  end
-
-  def status
-    # TODO cancelled
-    # TODO with error
-    return :paid if paid?
-    return :confirmed if confirmed?
-    return :pending
-  end
 
   def affinity
     # TODO Calculate affinity
