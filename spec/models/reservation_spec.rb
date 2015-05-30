@@ -26,13 +26,42 @@ describe Reservation do
     end
 
     context "with customer token" do
-      it "can capture & chage payment" do
+      it "can capture & charge payment" do
         @user.update_customer_information!(Stripe::Token.create(@valid_card).id)
         expect(@reservation.capture).to be true
         expect(@reservation.payment_reserved?).to be true
         expect(@reservation.charge).to be true
         expect(@reservation.paid?).to be true
       end
+
+      it "can capture & refund payment" do
+        @user.update_customer_information!(Stripe::Token.create(@valid_card).id)
+        expect(@reservation.capture).to be true
+        expect(@reservation.payment_reserved?).to be true
+        expect(@reservation.refund).to be true
+        expect(@reservation.paid?).to be false
+        expect(@reservation.payment_reserved?).to be false
+      end
     end
+
+    context "through table" do
+      it "can capture & charge payment" do
+        @user.update_customer_information!(Stripe::Token.create(@valid_card).id)
+        @table.capture
+        expect(@reservation.payment_reserved?).to be true
+        @table.charge
+        expect(@reservation.paid?).to be true
+      end
+
+      it "can capture & refund payment" do
+        @user.update_customer_information!(Stripe::Token.create(@valid_card).id)
+        @table.capture
+        expect(@reservation.payment_reserved?).to be true
+        @table.refund
+        expect(@reservation.paid?).to be false
+        expect(@reservation.payment_reserved?).to be false
+      end
+    end
+
   end
 end

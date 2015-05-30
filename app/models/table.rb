@@ -85,4 +85,16 @@ class Table
     matches_menu_price?(reservation.price) &&
     has_free_slots?(reservation.genders)
   end
+
+  def capture
+    reservations.map{|r| r.capture}
+  end
+
+  def charge
+    reservations.map{|r| r.charge}
+  end
+
+  def refund
+    reservations.map{|r| r.refund}
+  end
 end

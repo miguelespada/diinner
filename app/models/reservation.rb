@@ -93,6 +93,7 @@ class Reservation
   end
 
   def charge
+    return false if !payment_reserved?
     begin
       ch = Stripe::Charge.retrieve(self.charge_id)
       capture_date = ch.capture
@@ -103,6 +104,17 @@ class Reservation
     end
   end
 
+  def refund
+    return false if !payment_reserved?
+    begin
+      ch = Stripe::Charge.retrieve(self.charge_id)
+      refund = ch.refund
+      self.update(charge_id: nil)
+    rescue => e
+      self.update(payment_error: true)
+      e
+    end
+  end
 
   def is_owned_by?(user)
     user == self.user || self.table.restaurant == user
