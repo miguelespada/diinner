@@ -2,7 +2,6 @@ class Reservation
   include Mongoid::Document
   include Mongoid::Timestamps
   include PublicActivity::Common
-
   extend SimpleCalendar
   has_calendar :attribute => :date
 
@@ -11,12 +10,15 @@ class Reservation
 
   field :price, type: Integer
   field :paid, type: Boolean, default: false
+  field :charge_id, type: String
+  field :payment_error, type: Boolean, default: false
   field :date, type: Date
   field :ticket_valid, type: Boolean, default: false
 
   delegate  :restaurant,
             :hour,
             :menu, :to => :table, :allow_nil => true
+
   delegate :customer, :to => :user
   delegate :city, :to => :restaurant, :allow_nil => true
 
@@ -59,21 +61,45 @@ class Reservation
 
   def self.process
     all.each do |reservation|
-      reservation.charge if reservation.confirmed?
+      reservation.capture if reservation.confirmed?
+    end
+  end
+
+  def payment_reserved?
+    charge_id != nil
+  end
+
+  def capture
+    begin
+      payment_data = Stripe::Charge.create({
+          :amount   => price * user_count * 100,
+          :currency => "eur",
+          :customer => customer,
+          :capture => false,
+          :metadata => {
+            'reservation_id' => self.id,
+            'user' => user.email,
+            'restaurant' => self.restaurant.name}
+        },
+        {
+          :idempotency_key => self.id
+        }
+      )
+      self.update(charge_id: payment_data.id)
+    rescue => e
+      self.update(payment_error: true)
+      e
     end
   end
 
   def charge
     begin
-      Stripe::Charge.create(
-        :amount   => price * user_count * 100,
-        :currency => "eur",
-        :customer => customer
-      )
-
+      ch = Stripe::Charge.retrieve(self.charge_id)
+      capture_date = ch.capture
       self.update(paid: true)
-    rescue Stripe::CardError => e
-      # TODO The card has been declined
+    rescue => e
+      self.update(payment_error: true)
+      e
     end
   end
 
