@@ -13,7 +13,7 @@ Feature: Admin Inspect Reservations
     And I can see the reservation in the user section
     And I can see the reservation in the restaurant section
 
-  @captur _reservation
+  @capture_reservation @wip
   Scenario:
     When I process reservations
     Then I can see that the reservation is paid
