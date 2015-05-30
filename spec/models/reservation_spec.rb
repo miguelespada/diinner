@@ -51,6 +51,9 @@ describe Reservation do
         expect(@reservation.payment_reserved?).to be true
         @table.charge
         expect(@reservation.paid?).to be true
+        expect(@table.paid_reservations.include?(@reservation)).to be true
+        expect(@table.paid_male_count).to be 1
+        expect(@table.paid_female_count).to be 0
       end
 
       it "can capture & refund payment" do
@@ -60,6 +63,7 @@ describe Reservation do
         @table.refund
         expect(@reservation.paid?).to be false
         expect(@reservation.payment_reserved?).to be false
+        expect(@table.paid_reservations.include?(@reservation)).to be false
       end
     end
 

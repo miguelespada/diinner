@@ -97,4 +97,17 @@ class Table
   def refund
     reservations.map{|r| r.refund}
   end
+
+  def paid_reservations
+    reservations.select{|r| r.paid?}
+  end
+
+  def paid_male_count
+    paid_reservations.map{|r| r.male_count}.inject(:+) || 0
+  end
+
+  def  paid_female_count
+    paid_reservations.map{|r| r.female_count}.inject(:+) || 0
+  end
+
 end
