@@ -11,11 +11,7 @@ class Reservation
   belongs_to :table
 
   field :price, type: Integer
-  field :paid, type: Boolean, default: false
-  field :charge_id, type: String
-  field :payment_error, type: Boolean, default: false
   field :date, type: Date
-  field :ticket_valid, type: Boolean, default: false
 
   delegate  :restaurant,
             :hour,
@@ -30,16 +26,15 @@ class Reservation
            :reject_if => :all_blank,
            :allow_destroy => true
 
+  field :paid, type: Boolean, default: false
+  field :charge_id, type: String
+  field :ticket_valid, type: Boolean, default: false
+  field :payment_error, type: Boolean, default: false
+
   def affinity
     # TODO Calculate affinity
     # Maybe delegate to the table
     "80%"
-  end
-
-  def is_owned_by?(user)
-    user == self.user || self.table.restaurant == user
-  rescue
-    false
   end
 
   def male_count
@@ -50,10 +45,6 @@ class Reservation
     genders[:female]
   end
 
-  def user_count
-    companies.all.count + 1
-  end
-
   def genders
     results = {:male => 0, :female => 0}
     results[user.gender] += 1
@@ -61,6 +52,12 @@ class Reservation
       results[c.gender] += 1
     end
     results
+  end
+
+  def is_owned_by?(user)
+    user == self.user || self.table.restaurant == user
+  rescue
+    false
   end
 
   def locator

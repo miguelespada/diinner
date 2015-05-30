@@ -4,7 +4,7 @@ module ReservationPayment
   included do
 
     def charge_amount
-      price * user_count * 100
+      price * (male_count + female_count) * 100
     end
 
     def capture

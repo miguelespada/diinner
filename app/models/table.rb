@@ -106,7 +106,7 @@ class Table
   end
 
   def female_count
-    self.count :female, rreservations
+    self.count :female, reservations
   end
 
   def count gender, _reservations
