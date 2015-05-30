@@ -2,6 +2,7 @@ class Reservation
   include Mongoid::Document
   include Mongoid::Timestamps
   include PublicActivity::Common
+  include ReservationPayment
   extend SimpleCalendar
   has_calendar :attribute => :date
 
@@ -28,21 +29,12 @@ class Reservation
            :reject_if => :all_blank,
            :allow_destroy => true
 
-
-  def male_count
-    genders[:male]
-  end
-
-  def female_count
-    genders[:female]
-  end
-
-  def user_count
-    companies.all.count + 1
-  end
-
   def confirmed?
     !paid? && customer.present?
+  end
+
+  def payment_reserved?
+    charge_id != nil && !paid?
   end
 
   def status
@@ -59,67 +51,22 @@ class Reservation
     "80%"
   end
 
-  def self.process
-    all.each do |reservation|
-      reservation.capture if reservation.confirmed?
-    end
-  end
-
-  def payment_reserved?
-    charge_id != nil
-  end
-
-  def capture
-    begin
-      payment_data = Stripe::Charge.create({
-          :amount   => price * user_count * 100,
-          :currency => "eur",
-          :customer => customer,
-          :capture => false,
-          :metadata => {
-            'reservation_id' => self.id,
-            'user' => user.email,
-            'restaurant' => self.restaurant.name}
-        },
-        {
-          :idempotency_key => self.id
-        }
-      )
-      self.update(charge_id: payment_data.id)
-    rescue => e
-      self.update(payment_error: true)
-      e
-    end
-  end
-
-  def charge
-    return false if !payment_reserved?
-    begin
-      ch = Stripe::Charge.retrieve(self.charge_id)
-      capture_date = ch.capture
-      self.update(paid: true)
-    rescue => e
-      self.update(payment_error: true)
-      e
-    end
-  end
-
-  def refund
-    return false if !payment_reserved?
-    begin
-      ch = Stripe::Charge.retrieve(self.charge_id)
-      refund = ch.refund
-      self.update(charge_id: nil)
-    rescue => e
-      self.update(payment_error: true)
-      e
-    end
-  end
-
   def is_owned_by?(user)
     user == self.user || self.table.restaurant == user
   rescue
     false
+  end
+
+  def male_count
+    genders[:male]
+  end
+
+  def female_count
+    genders[:female]
+  end
+
+  def user_count
+    companies.all.count + 1
   end
 
   def genders
