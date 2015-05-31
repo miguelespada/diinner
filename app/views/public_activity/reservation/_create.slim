@@ -2,7 +2,7 @@ div.new-reservation-log
   i.bi_doc-wboard-line
   | New reservation 
   - if activity.trackable.nil? 
-    | that was cancelled
+    | that was removed
   - else
     | by 
     span.user-id == cell(:user, activity.owner).show_link
