@@ -1,7 +1,6 @@
 class  ReservationsController < UsersController
   before_action :load_user
   load_resource :only => [:update, :destroy, :show]
-  before_action :authorize!
 
   def index
     @reservations = @user.reservations.where(cancelled: false)

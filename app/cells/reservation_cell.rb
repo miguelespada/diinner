@@ -29,7 +29,7 @@ class ReservationCell < BaseCell
   end
 
    def validate_link
-    if model.is_owned_by?(current_restaurant)
+    if model.is_owned_by?(current_restaurant) && !model.cancelled?
       if !model.ticket_valid?
         link_to "validate", restaurant_reservation_validate_path(current_restaurant, model, :ticket_valid => true)
       else
@@ -60,7 +60,7 @@ class ReservationCell < BaseCell
   end
 
    def cancel_link
-    if model.is_owned_by?(current_user)
+    if model.is_owned_by?(current_user) && !model.cancelled?
       @path = user_reservation_cancel_path(current_user, model)
       render
     end

@@ -1,15 +1,4 @@
 div.new-reservation-log
   i.bi_doc-wboard-line
   | New reservation 
-  - if activity.trackable.nil? 
-    | that was removed
-  - else
-    | by 
-    span.user-id == cell(:user, activity.owner).show_link
-    - if !activity.recipient.is_owned_by?(current_restaurant)
-      |  at 
-      span.restaurant-id == cell(:restaurant, activity.recipient).show_link if !activity.recipient.nil?
-    |  with id  
-    span.reservation-id == cell(:reservation, activity.trackable).show_link
-    |  created 
-    span == cell(:reservation, activity.trackable).updated_timeago
+  = render "public_activity/reservation/show", activity: activity
