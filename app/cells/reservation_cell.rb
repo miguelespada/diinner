@@ -25,7 +25,7 @@ class ReservationCell < BaseCell
   end
 
   def menu_link
-    link_to model.menu.name, user_reservation_menu_path(current_user, model)
+    link_to model.menu.name, user_reservation_menu_path(current_user, model) if model.menu != :undefined
   end
 
    def validate_link

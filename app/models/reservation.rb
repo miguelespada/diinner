@@ -39,11 +39,11 @@ class Reservation
   end
 
   def male_count
-    genders[:male]
+    cancelled? ? 0 : genders[:male]
   end
 
   def female_count
-    genders[:female]
+    cancelled? ? 0 : genders[:female]
   end
 
   def genders

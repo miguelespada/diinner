@@ -15,6 +15,7 @@ class MenuCell < BaseCell
   end
 
   def show_link
+    return if model == :undefined
     if admin_signed_in?
       @path = admin_menu_path(model)
       render
