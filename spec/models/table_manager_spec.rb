@@ -28,7 +28,9 @@ describe TableManager do
       FactoryGirl.create(:reservation, user: @user, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
-      allow_any_instance_of(Reservation).to receive(:create_stripe_charge).and_return("123")
+      allow_any_instance_of(Reservation).to receive(:create_stripe_charge) do
+       "123"
+      end
     end
 
     it "does not cancel partial tables" do

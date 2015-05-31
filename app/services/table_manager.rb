@@ -1,7 +1,9 @@
 class TableManager
 
   def self.process
+    Reservation.all.map{|r| p r.create_stripe_charge}
     tables = self.cancel_partial(today_tables)
+
     self.capture(tables)
     # [valid, cancelled] = capture_payments(tables)
   end
