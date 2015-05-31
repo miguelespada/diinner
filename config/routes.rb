@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   devise_for :admins
 
   scope :restaurant do
+    get ":id/reservation/:reservation_id" => "restaurants#reservation", as: "restaurant_reservation"
     get ":id/reservations" => "restaurants#reservations", as: "restaurant_reservations"
     get ":id/reservations/:reservation_id/validate" => "restaurants#validate_reservation", as: "validate_reservation"
     get ":id/user/:user_id" => "restaurants#user", as: "restaurant_user"
     get ":id/calendar" => "restaurants#calendar", as: "restaurant_calendar"
+    get ":id/notifications" => "restaurants#notifications", as: "restaurant_notifications"
   end
 
   resources :restaurants do
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
   scope :admin do
     get "/" => "admin#index", as: "admin"
     get "/search" => "admin#search", as: "admin_search"
+    get "/logs" => "admin#logs", as: "admin_logs"
     get "/map" => "admin#map", as: "admin_map"
     get "/settings" => "admin#settings", as: "settings"
     get "/process_reservations" => "admin#process_reservations", as: "process_reservations"
@@ -35,7 +38,6 @@ Rails.application.routes.draw do
     resources :restaurants
     resources :tests
     resources :cities
-    resources :logs, only: [:index]
     resources :users, except: [:new, :create]
     resources :tables, only: [:show, :index]
     resources :menus, only: [:show, :index]

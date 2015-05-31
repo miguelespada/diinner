@@ -37,4 +37,5 @@ class Admin
   def admin?
     true
   end
+
 end

@@ -2,8 +2,8 @@
   = current_restaurant.name
 
 - content_for(:navbar_menu) do
-  == cell(:restaurant, current_restaurant).call(:dropdown_menu)
+  == cell(:restaurant, current_restaurant).dropdown_menu
 
 - content_for(:navbar_more_links) do
-  == cell(:restaurant, current_restaurant).call(:navbar_profile_link)
-  == cell(:restaurant, current_restaurant).call(:navbar_calendar_link)
+  == cell(:restaurant, current_restaurant).navbar_profile_link
+  == cell(:restaurant, current_restaurant).navbar_calendar_link

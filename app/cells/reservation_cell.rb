@@ -46,6 +46,9 @@ class ReservationCell < BaseCell
     if admin_signed_in?
       @path = admin_reservation_path(model)
       render
+    elsif model.is_owned_by?(current_restaurant)
+      @path = restaurant_reservation_path(model.restaurant, model)
+      render
     end
   end
 

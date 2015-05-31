@@ -101,7 +101,9 @@ end
 
 Then(/^I should see the log of the new reservation$/) do
   click_on "Logs"
-  within(:css, "#logs") do
+  within("#logs .new-reservation-log") do
     expect(page).to have_content "New reservation"
+    expect(page).to have_content @restaurant.name
+    expect(page).to have_content @user.name
   end
 end

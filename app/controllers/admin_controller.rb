@@ -10,6 +10,10 @@ class AdminController < ApplicationController
     @results = MultiModelSearch.search(params[:query], params[:page])
   end
 
+  def logs
+    @logs = PublicActivity::Activity.all.desc(:created_at).page(params[:page])
+  end
+
   def map
     name = params[:city][:city] if params[:city].present?
     @city = City.where(name: name).first || City.first

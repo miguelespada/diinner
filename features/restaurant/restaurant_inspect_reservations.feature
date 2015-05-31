@@ -11,6 +11,11 @@ Feature: Restaurant manage reservations
   Scenario:
     And I can see the slots left of the reserved table
 
+  @restaurant_inspect_reservation_log
+  Scenario:
+    And I can see the reservation in my notifications
+    And I can access reservation data
+
   @restaurant_validates_reservation
   Scenario:
     Then I can validate the reservation

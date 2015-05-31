@@ -2,6 +2,6 @@ table.table class = @title.parameterize
   thead
     tr
       - @head.each do |h|
-        th = h.gsub(/_/, ' ')
+        th = h.humanize
   tbody
     == @collection

@@ -61,6 +61,6 @@ class Reservation
   end
 
   def locator
-    id.to_s.to_i.to_s 32
+    id.to_s.hex.to_s 32
   end
 end
