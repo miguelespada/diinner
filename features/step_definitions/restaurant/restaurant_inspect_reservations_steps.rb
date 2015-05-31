@@ -44,3 +44,9 @@ Then(/^I can see the table cancellation in my notifications$/) do
   end
 end
 
+Then(/^I can see the table confirmation in my notifications$/) do
+  click_on "Notifications"
+  within("#logs .confirmation-table-log") do
+    expect(page).to have_content "Table #{@table.id} for tonight was confirmed!!!"
+  end
+end

@@ -24,3 +24,9 @@ Feature: Restaurant manage reservations
   Scenario:
     When the table manager process runs
     Then I can see the table cancellation in my notifications
+
+  @restaurant_notification_after_table_confirmation
+  Scenario:
+    Given There are enough reservations
+    When the table manager process runs
+    Then I can see the table confirmation in my notifications
