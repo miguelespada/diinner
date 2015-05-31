@@ -26,18 +26,23 @@ class  ReservationsController < UsersController
   def create
     # TODO check again if reservation match the table (in case concurrency problems)
     @reservation = @user.reservations.create(reservation_params)
-    @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
     render :credit_card_form
   end
 
   def reuse_card
     # TODO check that the payment is done without problems.
+    @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 
   def update
-    @user.update_customer_information!(params[:stripe_card_token])
-    redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+    if @user.update_customer_information!(params[:stripe_card_token])
+      @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
+      redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+    else
+      @reservation.delete
+      redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
+    end
   end
 
   def destroy

@@ -50,6 +50,8 @@ class User
     self.customer = stripe_customer.id
     set_default_card stripe_customer
     self.save!
+  rescue
+    false
   end
 
   def set_default_card stripe_customer
