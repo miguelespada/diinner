@@ -26,7 +26,7 @@ Feature: User Reserves table
     Then I can see my default card on my profile
     And I can reserve again with the same card
 
-  @user_is_notified_if_table_is_cancelled
+  @user_notification_after_table_cancellation
   Scenario: User notification when table cancellation
     When the table manager process runs
     Then I can see the cancellation notification

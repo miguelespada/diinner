@@ -35,3 +35,12 @@ Then(/^I can validate the reservation$/) do
   expect(page).to have_content "unvalidate"
   expect(page).to have_content "Validated"
 end
+
+Then(/^I can see the table cancellation in my notifications$/) do
+  click_on "Notifications"
+  within("#logs .cancel-table-log") do
+    expect(page).to have_content "Table"
+    expect(page).to have_content "for tonight was cancelled"
+  end
+end
+

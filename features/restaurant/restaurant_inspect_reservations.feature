@@ -19,3 +19,8 @@ Feature: Restaurant manage reservations
   @restaurant_validates_reservation
   Scenario:
     Then I can validate the reservation
+
+  @restaurant_notification_after_table_cancellation
+  Scenario:
+    When the table manager process runs
+    Then I can see the table cancellation in my notifications
