@@ -6,6 +6,10 @@ FactoryGirl.define do
     gender :male
     birth { (18..50).to_a.sample.years.seconds.ago }
 
+    trait :with_customer_id do
+      customer :stripe_123
+    end
+
     trait :returning do
       updated_at 0
       created_at 1

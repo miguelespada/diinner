@@ -1,10 +1,11 @@
 class TableManager
 
   def self.process
-    Reservation.all.map{|r| p r.create_stripe_charge}
     tables = self.cancel_partial(today_tables)
-
     self.capture(tables)
+    self.refund_partial(tables)
+    tables = self.cancel_partial(tables)
+    self.charge(tables)
     # [valid, cancelled] = capture_payments(tables)
   end
 
@@ -15,7 +16,7 @@ class TableManager
   def self.cancel_partial tables
     valid_tables = []
     tables.each do |table|
-      if table.partial?
+      if !table.plan_closed?
         table.cancel
         table.notify_cancellation
       else
@@ -25,9 +26,15 @@ class TableManager
     valid_tables
   end
 
+  def self.refund_partial tables
+    tables.map{|table| table.refund if !table.plan_closed?}
+  end
+
   def self.capture tables
     tables.map{|table| table.capture}
   end
 
-
+  def self.charge tables
+    tables.map{|table| table.charge}
+  end
 end

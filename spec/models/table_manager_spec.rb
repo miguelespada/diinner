@@ -4,7 +4,7 @@ describe TableManager do
   before(:each) do
     @restaurant = FactoryGirl.create(:restaurant, :with_tables)
     @table = @restaurant.tables.first
-    @user = FactoryGirl.create(:user, gender: :male)
+    @user = FactoryGirl.create(:user, :with_customer_id)
     @she = FactoryGirl.create(:user, gender: :female)
     @reservation = FactoryGirl.create(:reservation, user: @user, table: @table)
   end
@@ -28,8 +28,8 @@ describe TableManager do
       FactoryGirl.create(:reservation, user: @user, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
-      allow_any_instance_of(Reservation).to receive(:create_stripe_charge) do
-       "123"
+      allow_any_instance_of(Reservation).to receive(:create_stripe_charge) do |entity|
+       entity.user.customer ? "123" : false
       end
     end
 
@@ -41,10 +41,16 @@ describe TableManager do
       expect(table.status).to eq :plan_closed
     end
 
-    it "captures payments" do
+    it "cancel partial tables with payment errors" do
       TableManager.process
       @table.reload
-      expect(@table.status).to eq :plan_closed
+      expect(@table.status).to eq :cancelled
+      Reservation.each do |r|
+        expect(r.status).to eq :cancelled
+      end
+      expect(@restaurant.notifications.last.key).to eq "table.cancel"
+      expect(@user.notifications.last.key).to eq "plan.cancel"
+      expect(@she.notifications.last.key).to eq "plan.cancel"
     end
   end
 

@@ -28,8 +28,6 @@ module ReservationPayment
 
     def capture
       payment_id = create_stripe_charge
-      p "---" * 10
-      p payment_id
       if payment_id
         self.update(charge_id: payment_id)
       else
@@ -50,7 +48,6 @@ module ReservationPayment
     end
 
     def refund
-      return false if !payment_reserved?
       begin
         ch = Stripe::Charge.retrieve(self.charge_id)
         refund = ch.refund

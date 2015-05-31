@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def notifications
-    @notifications = PublicActivity::Activity.where(recipient: @user).desc(:created_at).page(params[:page])
+    @notifications = @user.notifications.page(params[:page])
   end
 
   private

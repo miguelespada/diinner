@@ -70,6 +70,10 @@ class Restaurant
     customers.include?(user)
   end
 
+  def notifications
+    PublicActivity::Activity.where(recipient: self).desc(:created_at)
+  end
+
   def is_owned_by?(restaurant)
     restaurant == self
   rescue

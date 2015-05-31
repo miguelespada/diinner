@@ -24,7 +24,7 @@ class RestaurantsController < ApplicationController
   end
 
   def notifications
-    @notifications = PublicActivity::Activity.where(recipient: @restaurant).desc(:created_at).page(params[:page])
+    @notifications = @restaurant.notifications.page(params[:page])
   end
 
   def user

@@ -74,4 +74,8 @@ class User
     !stripe_default_card.nil?
   end
 
+  def notifications
+    PublicActivity::Activity.where(recipient: self).desc(:created_at)
+  end
+
 end

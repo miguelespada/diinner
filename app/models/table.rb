@@ -91,18 +91,6 @@ class Table
     reservations.map{|r| r.refund}
   end
 
-  def paid_reservations
-    reservations.select{|r| r.paid?}
-  end
-
-  def paid_male_count
-    self.count :male, paid_reservations
-  end
-
-  def paid_female_count
-    self.count :female, paid_reservations
-  end
-
   def male_count
     self.count :male, reservations
   end
