@@ -3,8 +3,8 @@ module ReservationStatus
 
   included do
 
-    def confirmed?
-      !paid? && customer.present?
+    def pending?
+      customer.present? && !paid? && !cancelled? &&  !payment_error?
     end
 
     def payment_reserved?
@@ -16,10 +16,9 @@ module ReservationStatus
       # TODO with error
       return :cancelled if cancelled?
       return :error if payment_error?
-      return :paid if paid?
-      return :payment_reserved if payment_reserved?
-      return :confirmed if confirmed?
-      return :pending
+      return :confirmed if paid?
+      return :pending if pending?
+      return :new
     end
 
   end

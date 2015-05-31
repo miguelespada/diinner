@@ -71,7 +71,7 @@ Then(/^I can see the reserved table in my reservations$/) do
   find(".status-table > a").click
   step("I can see the table details")
   within ".reservation-status" do
-    expect(page).to have_content("Confirmed")
+    expect(page).to have_content("Pending")
   end
 end
 

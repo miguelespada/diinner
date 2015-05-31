@@ -4,7 +4,7 @@ Then(/^I can see the user reservation in the reservation section$/) do
   end
   expect(page).to have_content @user.name
   expect(page).to have_content @restaurant.name
-  expect(page).to have_content "Confirmed"
+  expect(page).to have_content "Pending"
 
   within('.restaurant-reservation') do
     find(".show-link").click
@@ -20,7 +20,7 @@ Then(/^I can see the reservation in the user section$/) do
   end
   within('.reservations') do
     expect(page).to have_content @restaurant.name
-    expect(page).to have_content "Confirmed"
+    expect(page).to have_content "Pending"
   end
 end
 
@@ -32,6 +32,6 @@ Then(/^I can see the reservation in the restaurant section$/) do
   end
   within('.reservations') do
     expect(page).to have_content @user.name
-    expect(page).to have_content "Confirmed"
+    expect(page).to have_content "Pending"
   end
 end

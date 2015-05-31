@@ -7,7 +7,7 @@ When(/^I can see the user reservation$/) do
     expect(page).to have_content "1/1"
   end
   expect(page).to have_content @table.hour.strftime("%H:%M")
-  expect(page).to have_content "Confirmed"
+  expect(page).to have_content "Pending"
 end
 
 When(/^I process reservations$/) do
