@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   scope :restaurant do
     get ":id/user/:user_id" => "restaurants#user", as: "restaurant_user"
-    get ":id/calendar" => "restaurants#calendar", as: "restaurant_calendar"
     get ":id/notifications" => "restaurants#notifications", as: "restaurant_notifications"
   end
 
   resources :restaurants do
+    get "calendar" => "tables#calendar", as: "calendar"
     resources :tables
     resources :menus
     resources :reservations, only: [:show, :index], controller: "restaurants/reservations" do

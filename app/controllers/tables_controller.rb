@@ -6,6 +6,12 @@ class TablesController < RestaurantsController
     @tables = @restaurant.tables.all
   end
 
+  def calendar
+    @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
+    @date_tables = @restaurant.tables.where(:date => Date.strptime(params[:date], "%d/%m/%Y")) if params[:date].present?
+    @tables = @restaurant.tables
+  end
+
   def new
     @table = @restaurant.tables.new
   end
@@ -35,13 +41,11 @@ class TablesController < RestaurantsController
     redirect_to restaurant_tables_path(@restaurant), notice: 'Table was successfully destroyed.'
   end
 
-
   private
 
   def load_restaurant
-    @restaurant = Restaurant.find(params["restaurant_id"])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
-
 
   def table_params
     params.require(:table).permit(:name, :date, :hour)
