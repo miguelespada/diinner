@@ -22,7 +22,7 @@ module ReservationPayment
           :idempotency_key => self.id
         }
       ).id
-      rescue => e
+      rescue
         false
     end
 
@@ -30,21 +30,15 @@ module ReservationPayment
       payment_id = create_stripe_charge
       if payment_id
         self.update(charge_id: payment_id)
-        true
       else
         self.update(payment_error: true)
-        false
       end
     end
 
     def stripe_capture
-      begin
-        ch = Stripe::Charge.retrieve(self.charge_id)
-        ch.capture
-        true
-      rescue => e
+      Stripe::Charge.retrieve(self.charge_id).capture
+      rescue
         false
-      end
     end
 
     def charge
@@ -56,14 +50,18 @@ module ReservationPayment
       end
     end
 
+    def stripe_refund
+      Stripe::Charge.retrieve(self.charge_id).refund
+      rescue
+        false
+    end
+
     def refund
-      begin
-        ch = Stripe::Charge.retrieve(self.charge_id)
-        refund = ch.refund
+      return false if !payment_reserved?
+      if stripe_refund
         self.update(charge_id: nil)
-      rescue => e
+      else
         self.update(payment_error: true)
-        e
       end
     end
 
