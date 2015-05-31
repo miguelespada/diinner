@@ -10,7 +10,7 @@ class TableManager
     Table.where(date: Date.today)
   end
 
-  def self.cancel tables
+  def self.cancel_partial tables
     valid_tables = []
     tables.each do |table|
       if table.partial?
