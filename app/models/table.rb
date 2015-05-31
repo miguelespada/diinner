@@ -125,4 +125,5 @@ class Table
     self.create_activity key: 'table.cancel', recipient: restaurant
     reservations.map{|r| r.notify_cancellation}
   end
+
 end
