@@ -89,6 +89,7 @@ describe TableManager do
       FactoryGirl.create(:reservation, user: @error_user, table: @table)
 
       TableManager.process
+
       @table.reload
       @he.reload
       @she.reload
