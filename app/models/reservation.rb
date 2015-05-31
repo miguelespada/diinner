@@ -26,6 +26,7 @@ class Reservation
            :reject_if => :all_blank,
            :allow_destroy => true
 
+  field :cancelled, type: Boolean, default: false
   field :paid, type: Boolean, default: false
   field :charge_id, type: String
   field :ticket_valid, type: Boolean, default: false

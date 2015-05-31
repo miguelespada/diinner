@@ -14,6 +14,7 @@ module ReservationStatus
     def status
       # TODO cancelled
       # TODO with error
+      return :cancelled if cancelled?
       return :error if payment_error?
       return :paid if paid?
       return :payment_reserved if payment_reserved?

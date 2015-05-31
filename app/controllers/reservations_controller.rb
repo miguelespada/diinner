@@ -4,7 +4,7 @@ class  ReservationsController < UsersController
   before_action :authorize!
 
   def index
-    @reservations = @user.reservations
+    @reservations = @user.reservations.where(cancelled: false)
   end
 
   def new
@@ -30,7 +30,8 @@ class  ReservationsController < UsersController
   end
 
   def reuse_card
-    # TODO check that the payment is done without problems.
+    # TODO get rid of load_resource...  create load_reservation
+    @reservation = @user.reservations.find(params[:reservation_id])
     @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
@@ -45,10 +46,11 @@ class  ReservationsController < UsersController
     end
   end
 
-  def destroy
-    # TODO add cancelled state instead of delete
-    @reservation.delete
-    redirect_to user_reservations_path(@user), notice: 'Reservation was successfully cancelled.'
+  def cancel
+    # TODO apply cancellation fee
+    @reservation = @user.reservations.find(params[:reservation_id])
+    @reservation.update(cancelled: true)
+    redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
   end
 
   def restaurant
@@ -58,7 +60,7 @@ class  ReservationsController < UsersController
   def menu
     @menu = @user.reservations.find(params["reservation_id"]).menu
   end
-  
+
   private
 
   def reservation_params

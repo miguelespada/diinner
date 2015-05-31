@@ -93,10 +93,13 @@ end
 
 Then(/^I do not see the reserved table in my reservations$/) do
   expect(page).to have_content("Reservation was successfully cancelled.")
-  expect(page).not_to have_css(".status-table")
+  within ".reservation-status" do
+    expect(page).to have_content("Cancelled")
+  end
 end
 
 Then(/^I should not see the reserved table in my calendar$/) do
+  click_on "My reservations"
   expect(page).to have_css ".calendar"
   expect(page).not_to have_css ".has-events"
 end

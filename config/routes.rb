@@ -52,10 +52,12 @@ Rails.application.routes.draw do
     post "test/:test_id" => "test_responses#create", as: "test_response"
     get "test" => "test_responses#new", as: "test"
     post "search" => "reservations#search", as: "search_tables"
+
     resources :reservations do
       get "restaurant" => "reservations#restaurant", as: "restaurant"
       get "menu" => "reservations#menu", as: "menu"
       patch "user_reuse_card" => "reservations#reuse_card", as: "reuse_card"
+      patch "cancel", as: "cancel"
     end
   end
 
