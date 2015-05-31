@@ -28,6 +28,8 @@ class RestaurantCell < BaseCell
     elsif model.is_owned_by?(current_restaurant)
       @path = restaurant_path(model)
       render
+    else
+      model.name
     end
   end
 

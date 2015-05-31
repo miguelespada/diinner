@@ -1,3 +1,10 @@
 div.cancel-plan-log
   i.bi_misc-mood-sad
-  | Your plan diinner for tonight was cancelled
+  - if activity.recipient.is_owned_by?(@current_user)
+    | Your plan diinner for tonight 
+  - else
+    | Plan dinner for 
+    == cell(:user, activity.recipient).show_link 
+  |  at restaurant 
+  == cell(:restaurant, activity.trackable.restaurant).show_link
+  |  was cancelled
