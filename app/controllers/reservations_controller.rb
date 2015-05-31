@@ -7,7 +7,6 @@ class  ReservationsController < UsersController
   end
 
   def new
-    # TODO maybe push to model??
     @reservation = @user.reservations.new
     @reservation.companies.build
     @reservation.companies.build

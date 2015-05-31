@@ -2,7 +2,7 @@ class TableManager
 
   def self.process
     tables = self.cancel_partial(today_tables)
-    # capture(tables)
+    self.capture(tables)
     # [valid, cancelled] = capture_payments(tables)
   end
 
@@ -23,8 +23,8 @@ class TableManager
     valid_tables
   end
 
-  def capture tables
-    table.map{|t| t.capture}
+  def self.capture tables
+    tables.map{|table| table.capture}
   end
 
 

@@ -7,26 +7,31 @@ module ReservationPayment
       price * (male_count + female_count) * 100
     end
 
-    def capture
-      begin
-        payment_data = Stripe::Charge.create({
-            :amount   => charge_amount,
-            :currency => "eur",
-            :customer => customer,
-            :capture => false,
-            :metadata => {
-              'reservation_id' => self.id,
-              'user' => user.email,
-              'restaurant' => self.restaurant.name}
-          },
-          {
-            :idempotency_key => self.id
-          }
-        )
-        self.update(charge_id: payment_data.id)
+    def create_stripe_charge
+      Stripe::Charge.create({
+          :amount   => charge_amount,
+          :currency => "eur",
+          :customer => customer,
+          :capture => false,
+          :metadata => {
+            'reservation_id' => self.id,
+            'user' => user.email,
+            'restaurant' => self.restaurant.name}
+        },
+        {
+          :idempotency_key => self.id
+        }
+      ).id
       rescue => e
+        false
+    end
+
+    def capture
+      payment_id = create_stripe_charge
+      if payment_id
+        self.update(charge_id: payment_id)
+      else
         self.update(payment_error: true)
-        e
       end
     end
 
