@@ -67,4 +67,8 @@ class Reservation
   def notify_cancellation
     self.create_activity key: 'plan.cancel', recipient: user
   end
+
+  def notify_plan
+    self.create_activity key: 'plan.confirmed', recipient: user
+  end
 end

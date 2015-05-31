@@ -24,7 +24,7 @@ describe TableManager do
     expect(@reservation.status).to eq :cancelled
   end
 
-  context "with enough reservation" do
+  context "with reservations and stripe errors" do
     before(:each) do
       @customer = FactoryGirl.create(:user, :with_customer_id)
       FactoryGirl.create(:reservation, user: @customer, table: @table)
@@ -55,6 +55,40 @@ describe TableManager do
       expect(@customer.notifications.last.key).to eq "plan.cancel"
       expect(@he.notifications.last.key).to eq "plan.cancel"
       expect(@she.notifications.last.key).to eq "plan.cancel"
+    end
+  end
+
+   context "with reservations" do
+    before(:each) do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      FactoryGirl.create(:reservation, user: @he, table: @table)
+      FactoryGirl.create(:reservation, user: @he, table: @table)
+      FactoryGirl.create(:reservation, user: @she, table: @table)
+      FactoryGirl.create(:reservation, user: @she, table: @table)
+      allow_any_instance_of(Reservation).to receive(:create_stripe_charge).and_return "123"
+      allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return true
+    end
+
+    it "does not cancel partial tables" do
+      expect(@table.user_count).to eq 4
+      expect(@table.status).to eq :plan_closed
+      table = TableManager.cancel_partial(TableManager.today_tables).first
+      expect(table.user_count).to eq 4
+      expect(table.status).to eq :plan_closed
+    end
+
+    it "cancel partial tables with payment errors" do
+      TableManager.process
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@restaurant.notifications.last.key).to eq "table.confirmed"
+      expect(@he.notifications.last.key).to eq "plan.confirmed"
+      expect(@she.notifications.last.key).to eq "plan.confirmed"
     end
   end
 

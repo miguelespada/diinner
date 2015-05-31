@@ -5,8 +5,8 @@ class TableManager
     self.capture(tables)
     self.refund_partial(tables)
     tables = self.cancel_partial(tables)
-    # self.charge(tables)
-    # self.notify_plan(tables)
+    self.charge(tables)
+    self.notify_plans(tables)
   end
 
   def self.today_tables
@@ -36,5 +36,9 @@ class TableManager
 
   def self.charge tables
     tables.map{|table| table.charge}
+  end
+
+  def self.notify_plans tables
+    tables.map{|table| table.notify_plan}
   end
 end

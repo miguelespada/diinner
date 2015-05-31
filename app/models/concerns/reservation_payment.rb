@@ -37,15 +37,22 @@ module ReservationPayment
       end
     end
 
-    def charge
-      return false if !payment_reserved?
+    def stripe_capture
       begin
         ch = Stripe::Charge.retrieve(self.charge_id)
-        capture_date = ch.capture
-        self.update(paid: true)
+        ch.capture
+        true
       rescue => e
+        false
+      end
+    end
+
+    def charge
+      return false if !payment_reserved?
+      if stripe_capture
+        self.update(paid: true)
+      else
         self.update(payment_error: true)
-        e
       end
     end
 
