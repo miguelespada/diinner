@@ -146,3 +146,27 @@ Then(/^I can see the cancellation notification$/) do
     expect(page).to have_content "was cancelled"
   end
 end
+
+Given(/^There are enough reservations$/) do
+    @he = FactoryGirl.create(:user, gender: :male)
+    @she = FactoryGirl.create(:user, gender: :female)
+
+    allow_any_instance_of(Reservation).to receive(:create_stripe_charge).and_return true
+    allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return true
+    allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return true
+
+    FactoryGirl.create(:reservation, user: @he, table: @table)
+    FactoryGirl.create(:reservation, user: @he, table: @table)
+    FactoryGirl.create(:reservation, user: @she, table: @table)
+    FactoryGirl.create(:reservation, user: @she, table: @table)
+end
+
+Then(/^I can see the plan confirmation notification$/) do
+  click_on "Notifications"
+  save_and_open_page
+  within("#logs .plan-confirmed-log") do
+    expect(page).to have_content "Your plan diinner for tonight at restaurant #{@table.restaurant.name}"
+    expect(page).to have_content "is confirmed!!!"
+  end
+end
+

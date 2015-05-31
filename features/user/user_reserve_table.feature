@@ -31,3 +31,9 @@ Feature: User Reserves table
     When the table manager process runs
     Then I can see the cancellation notification
     And I should not see the reserved table in my calendar
+
+  @user_notification_after_plan_confirmation
+  Scenario: User notification when plan is confirmed
+    Given There are enough reservations
+    When the table manager process runs
+    Then I can see the plan confirmation notification
