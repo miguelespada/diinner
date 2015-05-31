@@ -5,8 +5,8 @@ class TableManager
     self.capture(tables)
     self.refund_partial(tables)
     tables = self.cancel_partial(tables)
-    self.charge(tables)
-    # [valid, cancelled] = capture_payments(tables)
+    # self.charge(tables)
+    # self.notify_plan(tables)
   end
 
   def self.today_tables

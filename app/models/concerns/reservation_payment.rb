@@ -30,8 +30,10 @@ module ReservationPayment
       payment_id = create_stripe_charge
       if payment_id
         self.update(charge_id: payment_id)
+        true
       else
         self.update(payment_error: true)
+        false
       end
     end
 
