@@ -3,8 +3,8 @@ class RestaurantsController < ApplicationController
   before_filter :authenticate_restaurant!
 
   # TODO compact form
-  load_resource :only => [:show, :edit, :update, :reservations, :user, :calendar, :validate_reservation, :notifications, :reservation]
-  before_filter :authorize!, :only => [:edit, :update, :reservations, :user, :calendar, :validate_reservation, :notifications, :reservation]
+  load_resource :only => [:show, :edit, :update, :user, :calendar, :notifications]
+  before_filter :authorize!, :only => [:edit, :update, :user, :calendar, :notifications]
 
   def index
   end
@@ -25,22 +25,6 @@ class RestaurantsController < ApplicationController
 
   def notifications
     @notifications = PublicActivity::Activity.where(recipient: @restaurant).desc(:created_at).page(params[:page])
-  end
-
-  # TODO move to different controller
-  def reservation
-    @reservation = @restaurant.reservations.find(params[:reservation_id])
-  end
-
-  def reservations
-    @reservations = @restaurant.reservations
-  end
-
-  def validate_reservation
-    reservation = Reservation.find(params["reservation_id"])
-    reservation.ticket_valid = params[:ticket_valid]
-    reservation.save!
-    redirect_to :back
   end
 
   def user

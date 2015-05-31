@@ -31,9 +31,9 @@ class ReservationCell < BaseCell
    def validate_link
     if model.is_owned_by?(current_restaurant)
       if !model.ticket_valid?
-        link_to "validate", validate_reservation_path(current_restaurant, model, :ticket_valid => true)
+        link_to "validate", restaurant_reservation_validate_path(current_restaurant, model, :ticket_valid => true)
       else
-        link_to "unvalidate", validate_reservation_path(current_restaurant, model, :ticket_valid => false)
+        link_to "unvalidate", restaurant_reservation_validate_path(current_restaurant, model, :ticket_valid => false)
       end
     end
   end

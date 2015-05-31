@@ -12,19 +12,17 @@ Rails.application.routes.draw do
   devise_for :admins
 
   scope :restaurant do
-    # get ":id/reservation/:reservation_id" => "restaurants#reservation", as: "restaurant_reservation"
-    # get ":id/reservations" => "restaurants#reservations", as: "restaurant_reservations"
-    get ":id/reservations/:reservation_id/validate" => "restaurants#validate_reservation", as: "validate_reservation"
     get ":id/user/:user_id" => "restaurants#user", as: "restaurant_user"
     get ":id/calendar" => "restaurants#calendar", as: "restaurant_calendar"
     get ":id/notifications" => "restaurants#notifications", as: "restaurant_notifications"
   end
 
-
   resources :restaurants do
     resources :tables
     resources :menus
-    resources :reservations, only: [:show, :index], controller: "restaurant_reservations"
+    resources :reservations, only: [:show, :index], controller: "restaurants/reservations" do
+      get "validate", as: "validate"
+    end
   end
 
   scope :admin do
