@@ -1,3 +1,4 @@
+
 class ReservationCell < BaseCell
 
   def hour

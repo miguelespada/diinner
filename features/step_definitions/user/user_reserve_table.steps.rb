@@ -142,6 +142,7 @@ end
 Then(/^I can see the cancellation notification$/) do
   click_on "Notifications"
   within("#logs .cancel-plan-log") do
-    expect(page).to have_content "Your plan diinner for tonight at restaurant restaurant_1 was cancelled"
+    expect(page).to have_content "Your plan diinner for tonight at restaurant"
+    expect(page).to have_content "was cancelled"
   end
 end
