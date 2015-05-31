@@ -21,7 +21,8 @@ describe Reservation do
     end
 
     it "returns false with Stripe::InvalidRequestError" do
-      expect(@reservation.capture).to eq false
+      @reservation.capture
+      expect(@reservation.payment_error).to eq true
     end
 
     context "with customer token" do
