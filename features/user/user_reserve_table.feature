@@ -18,10 +18,16 @@ Feature: User Reserves table
   @user_cancel_reservation
   Scenario: User cancel reservation
     When I cancel my reservation
-    Then I do not see the reserved table in my reservations
+    Then I see that my reservation is cancelled
     And I should not see the reserved table in my calendar
 
   @user_saves_default_card
   Scenario: User saves default card
     Then I can see my default card on my profile
     And I can reserve again with the same card
+
+  @user_is_notified_if_table_is_cancelled
+  Scenario: User notification when table cancellation
+    When the table manager process runs
+    Then I can see the cancellation notification
+    And I should not see the reserved table in my calendar

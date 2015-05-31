@@ -1,8 +1,11 @@
+- user = cell(:user, @user)
 - content_for(:sidebar) do
   ul
-    li == cell(:user, @user).profile_link
-    li == cell(:user, @user).my_reservations_link
-    li == cell(:user, @user).new_reservation_link
-    li == cell(:user, @user).test_link
-    li == cell(:user, @user).preferences_link
-    li == cell(:user, @user).logout_link
+    li == user.profile_link
+    li == user.notifications_link
+    li == user.my_reservations_link
+    li == user.new_reservation_link
+    li == user.test_link
+    li == user.preferences_link
+    li == user.logout_link
+

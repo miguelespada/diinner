@@ -26,11 +26,6 @@ class Reservation
            :reject_if => :all_blank,
            :allow_destroy => true
 
-  field :cancelled, type: Boolean, default: false
-  field :paid, type: Boolean, default: false
-  field :charge_id, type: String
-  field :ticket_valid, type: Boolean, default: false
-  field :payment_error, type: Boolean, default: false
 
   def affinity
     # TODO Calculate affinity
@@ -63,5 +58,13 @@ class Reservation
 
   def locator
     id.to_s.hex.to_s 32
+  end
+
+  def cancel
+    self.update(cancelled: true)
+  end
+
+  def notify_cancellation
+    self.create_activity key: 'plan.cancel', recipient: user
   end
 end

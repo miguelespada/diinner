@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 
   scope :users do
     get "/login" => "users#login", as: "users_login"
+    get ":id/notifications" => "users#notifications", as: "user_notifications"
   end
 
   resources :users do

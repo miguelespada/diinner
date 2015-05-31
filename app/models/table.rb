@@ -8,6 +8,7 @@ class Table
 
   field :date, type: Date
   field :hour, type: Time
+  field :cancelled, type: Boolean, default: false
 
   belongs_to :restaurant
   has_many :reservations
@@ -57,6 +58,7 @@ class Table
   end
 
   def status
+    return :cancelled if cancelled?
     return :full if full?
     return :plan_closed if plan_closed?
     return :empty if empty?
@@ -111,5 +113,16 @@ class Table
 
   def count gender, _reservations
     _reservations.map{|r| r.send "#{gender}_count"}.inject(:+) || 0
+  end
+
+  def cancel
+    self.update(cancelled: true)
+    reservations.map{|r| r.cancel}
+    self.save!
+  end
+
+  def notify_cancellation
+    self.create_activity key: 'table.cancel', recipient: restaurant
+    reservations.map{|r| r.notify_cancellation}
   end
 end

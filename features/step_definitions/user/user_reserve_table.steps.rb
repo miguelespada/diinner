@@ -91,7 +91,7 @@ When(/^I cancel my reservation$/) do
   click_on "Cancel reservation"
 end
 
-Then(/^I do not see the reserved table in my reservations$/) do
+Then(/^I see that my reservation is cancelled$/) do
   expect(page).to have_content("Reservation was successfully cancelled.")
   within ".reservation-status" do
     expect(page).to have_content("Cancelled")
@@ -133,4 +133,15 @@ Then(/^I can reserve again with the same card$/) do
   click_on("Reserve")
   click_on "Use saved card"
   expect(page).to have_content("Table reserved succesfully!")
+end
+
+When(/^the table manager process runs$/) do
+  TableManager.process
+end
+
+Then(/^I can see the cancellation notification$/) do
+  click_on "Notifications"
+  within("#logs .cancel-plan-log") do
+    expect(page).to have_content "Your plan diinner for tonight was cancelled"
+  end
 end

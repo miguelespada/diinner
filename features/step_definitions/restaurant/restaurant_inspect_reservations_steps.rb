@@ -33,4 +33,5 @@ end
 Then(/^I can validate the reservation$/) do
   click_on "validate"
   expect(page).to have_content "unvalidate"
+  expect(page).to have_content "Validated"
 end

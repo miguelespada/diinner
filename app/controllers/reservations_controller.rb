@@ -48,7 +48,7 @@ class  ReservationsController < UsersController
   def cancel
     # TODO apply cancellation fee
     @reservation = @user.reservations.find(params[:reservation_id])
-    @reservation.update(cancelled: true)
+    @reservation.cancel
     @reservation.create_activity key: 'reservation.cancel', owner: @user, recipient: @reservation.restaurant
     redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
   end

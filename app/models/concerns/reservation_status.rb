@@ -3,6 +3,12 @@ module ReservationStatus
 
   included do
 
+    field :cancelled, type: Boolean, default: false
+    field :paid, type: Boolean, default: false
+    field :charge_id, type: String
+    field :ticket_valid, type: Boolean, default: false
+    field :payment_error, type: Boolean, default: false
+
     def pending?
       customer.present? && !paid? && !cancelled?
     end
@@ -12,11 +18,12 @@ module ReservationStatus
     end
 
     def cancelled?
-      cancelled || paymement_error?
+      cancelled || payment_error
     end
 
     def status
       return :cancelled if cancelled?
+      return :validated if ticket_valid?
       return :confirmed if paid?
       return :pending if pending?
       return :new

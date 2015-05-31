@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   layout "user"
   before_action :create_session
   before_action :authenticate, except: [:login]
-  load_resource :only => [:show, :edit, :update]
+  load_resource :only => [:show, :edit, :update, :notifications]
   before_action :authorize!, :only => [:edit, :update]
   before_action :redirect_if_first_login, only: [:index, :show]
 
@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def notifications
+    @notifications = PublicActivity::Activity.where(recipient: @user).desc(:created_at).page(params[:page])
   end
 
   private

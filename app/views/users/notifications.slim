@@ -1,0 +1,6 @@
+div#logs
+  h2 Notifications
+
+  = render_activities(@notifications)
+
+  = will_paginate @notifications

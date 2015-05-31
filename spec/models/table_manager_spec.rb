@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe TableManager do
-  before(:all) do
+  before(:each) do
     @user = FactoryGirl.create(:user)
     @restaurant = FactoryGirl.create(:restaurant, :with_tables)
     @table = @restaurant.tables.first
@@ -21,8 +21,12 @@ describe TableManager do
     expect(TableManager.today_tables.count).to eq 1
   end
 
-   it "returns today tables" do
-    expect(TableManager.today_tables.count).to eq 1
+  it "cancels partial tables" do
+    TableManager.process
+    @table.reload
+    @reservation.reload
+    expect(@table.status).to eq :cancelled
+    expect(@reservation.status).to eq :cancelled
   end
 
 end

@@ -18,6 +18,13 @@ class UserCell < BaseCell
     end
   end
 
+  def notifications_link
+    if user_signed_in?
+      @path = user_notifications_path(model)
+      render
+    end
+  end
+
   def new_reservation_link
     if user_signed_in?
       @path = new_user_reservation_path(model)

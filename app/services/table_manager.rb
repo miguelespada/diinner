@@ -1,8 +1,8 @@
 class TableManager
 
-  def process
-    # [valid, cancelled] = cancel_partial(today_tables)
-    # reserve_payments(valid)
+  def self.process
+    tables = self.cancel_partial(today_tables)
+    # reserve_payments(tables)
     # [valid, cancelled] = cancel_incomplete(tables)
     # [valid, cancelled] = capture_payments(tables)
   end
@@ -11,17 +11,17 @@ class TableManager
     Table.where(date: Date.today)
   end
 
-  def cancel_partial tables
-    # cancelled = []
-    # valid = []
-    # tables.each do |table|
-    #   if table.partial?
-    #     table.cancel
-    #     cancelled << table
-    #   else
-    #     valid << table
-    #   end
-    # end
+  def self.cancel_partial tables
+    valid_tables = []
+    tables.each do |table|
+      if table.partial?
+        table.cancel
+        table.notify_cancellation
+      else
+        valid_tables << table
+      end
+    end
+    valid_tables
   end
 
 end
