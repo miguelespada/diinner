@@ -4,18 +4,19 @@ describe TableManager do
   before(:each) do
     @restaurant = FactoryGirl.create(:restaurant, :with_tables)
     @table = @restaurant.tables.first
-    @user = FactoryGirl.create(:user, :with_customer_id)
+    @he = FactoryGirl.create(:user, gender: :male)
     @she = FactoryGirl.create(:user, gender: :female)
-    @reservation = FactoryGirl.create(:reservation, user: @user, table: @table)
   end
 
   it "returns today tables" do
+    @reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
     FactoryGirl.create(:table, date: Date.tomorrow)
     expect(Table.count).to eq 2
     expect(TableManager.today_tables.count).to eq 1
   end
 
   it "cancels partial tables" do
+    @reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
     TableManager.process
     @table.reload
     expect(@table.status).to eq :cancelled
@@ -25,7 +26,9 @@ describe TableManager do
 
   context "with enough reservation" do
     before(:each) do
-      FactoryGirl.create(:reservation, user: @user, table: @table)
+      @customer = FactoryGirl.create(:user, :with_customer_id)
+      FactoryGirl.create(:reservation, user: @customer, table: @table)
+      FactoryGirl.create(:reservation, user: @he, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
       allow_any_instance_of(Reservation).to receive(:create_stripe_charge) do |entity|
@@ -49,7 +52,8 @@ describe TableManager do
         expect(r.status).to eq :cancelled
       end
       expect(@restaurant.notifications.last.key).to eq "table.cancel"
-      expect(@user.notifications.last.key).to eq "plan.cancel"
+      expect(@customer.notifications.last.key).to eq "plan.cancel"
+      expect(@he.notifications.last.key).to eq "plan.cancel"
       expect(@she.notifications.last.key).to eq "plan.cancel"
     end
   end
