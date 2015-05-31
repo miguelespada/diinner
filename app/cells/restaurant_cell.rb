@@ -59,7 +59,7 @@ class RestaurantCell < BaseCell
   def tables
     if admin_signed_in? || model.is_owned_by?(current_restaurant)
       table "Tables", \
-          %w(Id Data Left Status), \
+          %w(Id Day Hour Left Status), \
           cell(:table, collection: model.tables, method: :admin_restaurant_row)
     end
   end

@@ -31,11 +31,11 @@ class Table
   end
 
   def plan_closed?
-    !full? && female_count >= 2 && male_count >= 2
+   female_count >= 2 && male_count >= 2
   end
 
   def partial?
-    !full? && !empty? && !plan_closed?
+    !plan_closed?
   end
 
   def empty?
