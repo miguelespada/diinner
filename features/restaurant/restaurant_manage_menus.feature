@@ -14,7 +14,7 @@ Feature: Restaurant manage menus
   Scenario: I edit a menu
     When I edit a menu
     Then I should see the menu updated
-    
+
   Scenario: I delete a menu
     When I delete a menu
     Then I should not see the menu in the list of my menus

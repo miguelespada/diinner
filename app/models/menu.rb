@@ -5,6 +5,7 @@ class Menu
 
   field :name,  type: String, default: ""
   field :price, type: Integer
+  field :description, type: String, default: ""
   field :appetizer, type: String, default: ""
   field :main_dish, type: String, default: ""
   field :dessert, type: String, default: ""

@@ -45,6 +45,7 @@ class MenusController < RestaurantsController
   def menu_params
     params.require(:menu).permit(:name,
                                  :price,
+                                 :description,
                                  :appetizer,
                                  :main_dish,
                                  :dessert,

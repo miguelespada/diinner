@@ -2,6 +2,7 @@ When(/^I create a menu$/) do
   click_on "Menus"
   click_on "New"
   fill_in "Name", with: "Dummy menu"
+  fill_in "Description", with: "Dummy description"
   select "20", from: "Price"
   fill_in "Appetizer", with: "Dummy appetizer"
   fill_in "Main dish", with: "Dummy dish"
@@ -17,6 +18,9 @@ Then(/^I should see the menu in the list of my menus$/) do
   end
   within(:css, ".menu-price") do
     expect(page).to have_content "20"
+  end
+  within(:css, ".menu-description") do
+    expect(page).to have_content "Dummy description"
   end
   within(:css, ".menu-appetizer") do
     expect(page).to have_content "Dummy appetizer"
