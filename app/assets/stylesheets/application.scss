@@ -411,6 +411,9 @@ section{
   &.empty{
     background-color: $tableEmpty;
   }
+  &.cancelled{
+    background-color: $tableCancelled;
+  }
 }
 
 .table-thumbnail{
