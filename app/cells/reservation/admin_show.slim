@@ -1,8 +1,31 @@
-/ TODO DRY this
-== restaurant.show_link
-br
-= model.date
-= hour
-== menu.show_link
-p.affinity
-  = model.affinity
+H1 Reservation
+
+.div.reservation
+  div.bold-label RESTAURANT
+  == restaurant.show_link
+  br
+  div.bold-label USER
+  == user.show_link
+  br
+  div.bold-label TABLE
+  == table.show_link
+  br
+  div.bold-label DATE
+  = date
+  br
+  div.bold-label HOUR
+  = hour
+  br
+  div.bold-label MENU
+  == menu_link
+  br
+  div.affinity
+    span.bold-label AFFINITY
+    = model.affinity
+  div.reservation-status
+    span.bold-label STATUS
+    = status
+  - if !payment.nil?
+    div.reservation-payment
+      span.bold-label PAYMENT
+      = payment.show_link

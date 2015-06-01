@@ -3,6 +3,7 @@ class ReservationCell < BaseCell
 
   property :price
   property :status
+  property :date
 
   def hour
     cell(:table, model.table).hour
@@ -14,6 +15,10 @@ class ReservationCell < BaseCell
 
   def user
     cell(:user, model.user)
+  end
+
+  def payment
+    cell(:payment, model.payment) if !model.payment.nil?
   end
 
   def menu
@@ -29,7 +34,11 @@ class ReservationCell < BaseCell
   end
 
   def menu_link
-    link_to model.menu.name, user_reservation_menu_path(current_user, model) if model.menu != :undefined
+    if model.menu != :undefined
+      link_to model.menu.name, user_reservation_menu_path(current_user, model) 
+    else
+      "undefined"
+    end
   end
 
    def validate_link
