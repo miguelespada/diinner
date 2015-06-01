@@ -43,8 +43,10 @@ module ReservationPayment
 
     def charge
       return false if !payment_reserved?
-      if stripe_capture
+      data = stripe_capture
+      if data
         self.update(paid: true)
+        restaurant.payments.create(reservation: self, stripe_data: data.to_hash)
       else
         self.update(payment_error: true)
       end

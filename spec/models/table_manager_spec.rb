@@ -7,11 +7,14 @@ describe TableManager do
     @he = FactoryGirl.create(:user, gender: :male)
     @she = FactoryGirl.create(:user, gender: :female)
 
+
+    return_value = Hash.new
+    return_value[:id] = "123"
     allow_any_instance_of(Reservation).to receive(:create_stripe_charge) do |entity|
-      entity.user.customer ? "123" : false
+      entity.user.customer ? return_value : nil
     end
-    allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return true
-    allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return true
+    allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return return_value
+    allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value
   end
 
   it "returns today tables" do

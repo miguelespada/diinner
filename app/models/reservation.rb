@@ -26,6 +26,7 @@ class Reservation
            :reject_if => :all_blank,
            :allow_destroy => true
 
+  has_one :payment
 
   def affinity
     # TODO Calculate affinity

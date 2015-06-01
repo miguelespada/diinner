@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     resources :tables, only: [:show, :index]
     resources :menus, only: [:show, :index]
     resources :reservations, only: [:show, :index]
+    resources :payments, only: [:index, :show]
   end
 
   scope :users do

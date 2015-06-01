@@ -151,9 +151,11 @@ Given(/^There are enough reservations$/) do
     @he = FactoryGirl.create(:user, gender: :male)
     @she = FactoryGirl.create(:user, gender: :female)
 
-    allow_any_instance_of(Reservation).to receive(:create_stripe_charge).and_return true
-    allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return true
-    allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return true
+    return_value = Hash.new
+    return_value[:id] = "123"
+    allow_any_instance_of(Reservation).to receive(:create_stripe_charge).and_return return_value
+    allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return return_value
+    allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value
 
     FactoryGirl.create(:reservation, user: @he, table: @table)
     FactoryGirl.create(:reservation, user: @he, table: @table)

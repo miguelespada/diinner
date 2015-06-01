@@ -1,6 +1,9 @@
 
 class ReservationCell < BaseCell
 
+  property :price
+  property :status
+
   def hour
     cell(:table, model.table).hour
   end

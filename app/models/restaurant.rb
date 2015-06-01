@@ -56,6 +56,7 @@ class Restaurant
 
   has_many :menus
   has_many :tables
+  has_many :payments
   has_attachment :photo, accept: [:jpg, :png, :gif]
 
   def reservations

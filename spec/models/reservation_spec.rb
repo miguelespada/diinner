@@ -28,10 +28,11 @@ describe Reservation do
     context "with customer token" do
       it "can capture & charge payment" do
         @user.update_customer_information!(Stripe::Token.create(@valid_card).id)
-        expect(@reservation.capture).to be true
+        @reservation.capture
         expect(@reservation.payment_reserved?).to be true
-        expect(@reservation.charge).to be true
+        @reservation.charge
         expect(@reservation.paid?).to be true
+        expect(@restaurant.payments.count).to be 1
       end
 
       it "can capture & refund payment" do
