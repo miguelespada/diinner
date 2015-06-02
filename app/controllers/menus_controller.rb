@@ -3,6 +3,7 @@ class MenusController < RestaurantsController
   load_resource :only => [:show, :edit, :update, :destroy]
   before_filter :authorize!, :only => [:edit, :update, :destroy]
   before_filter :check_menu_empty, :only => [:edit, :update, :destroy]
+  before_filter :check_max_menus, :only => [:new, :create]
 
 
   def index
@@ -60,4 +61,9 @@ class MenusController < RestaurantsController
   def check_menu_empty
     redirect_to restaurant_menus_path(@restaurant), notice: 'This menu has users.' unless @menu.empty?
   end
+
+  def check_max_menus
+    redirect_to restaurant_menus_path(@restaurant), notice: 'You can\'t create more menus.' if @restaurant.menus_full?
+  end
+
 end

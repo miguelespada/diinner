@@ -79,6 +79,18 @@ class Restaurant
     tables.count > 0
   end
 
+  def menus_full?
+    menus.count >= 3
+  end
+
+  def menu_prices_left
+    prices = [ 20, 40, 60 ]
+    menus.each do |menu|
+      prices.delete(menu.price)
+    end
+    prices
+  end
+
   def notifications
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end

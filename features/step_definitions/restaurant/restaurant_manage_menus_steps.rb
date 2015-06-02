@@ -11,6 +11,32 @@ When(/^I create a menu$/) do
   click_on "Create Menu"
 end
 
+When(/^I create a menu 60$/) do
+  click_on "Menus"
+  click_on "New"
+  fill_in "Name", with: "Dummy menu 60"
+  fill_in "Description", with: "Dummy description"
+  select "60", from: "Price"
+  fill_in "Appetizer", with: "Dummy appetizer"
+  fill_in "Main dish", with: "Dummy dish"
+  fill_in "Dessert", with: "Dummy dessert"
+  fill_in "Drink", with: "Dummy drink"
+  click_on "Create Menu"
+end
+
+When(/^I create a menu 40$/) do
+  click_on "Menus"
+  click_on "New"
+  fill_in "Name", with: "Dummy menu 40"
+  fill_in "Description", with: "Dummy description"
+  select "40", from: "Price"
+  fill_in "Appetizer", with: "Dummy appetizer"
+  fill_in "Main dish", with: "Dummy dish"
+  fill_in "Dessert", with: "Dummy dessert"
+  fill_in "Drink", with: "Dummy drink"
+  click_on "Create Menu"
+end
+
 Then(/^I should see the menu in the list of my menus$/) do
   expect(page).to have_content "Menu was successfully created."
   within(:css, ".menu-name") do
