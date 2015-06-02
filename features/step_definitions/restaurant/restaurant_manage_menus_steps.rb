@@ -76,3 +76,19 @@ Then(/^I cant delete the reserved menu$/) do
   end
   expect(page).to have_content "This menu has users."
 end
+
+Then(/^I cant edit the reserved table$/) do
+  click_on "Tables"
+  within(:css, ".table-actions") do
+    find(".edit").click
+  end
+  expect(page).to have_content "This table has users."
+end
+
+Then(/^I cant delete the reserved table$/) do
+  click_on "Tables"
+  within(:css, ".table-actions") do
+    find(".delete").click
+  end
+  expect(page).to have_content "This table has users."
+end

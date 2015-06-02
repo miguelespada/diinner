@@ -1,6 +1,7 @@
 class TablesController < RestaurantsController
   before_action :load_restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
+  before_filter :check_table_empty, :only => [:edit, :update, :destroy]
 
   def index
     @tables = @restaurant.tables.all
@@ -53,5 +54,9 @@ class TablesController < RestaurantsController
 
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if !@table.is_owned_by?(current_restaurant)
+  end
+
+  def check_table_empty
+    redirect_to restaurant_tables_path(@restaurant), notice: 'This table has users.' unless @table.empty?
   end
 end
