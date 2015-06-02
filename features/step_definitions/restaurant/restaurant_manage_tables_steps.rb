@@ -76,7 +76,31 @@ When(/^I duplicate a table$/) do
   click_on "Repeat"
 end
 
-Then(/^I should see there are two tables with the same day\/hour$/) do
+Then(/^I should see there are more tables with the same day\/hour$/) do
   expect(page).to have_content "Tables successfully created."
-  expect(page).to have_content Date.today, count:2
+  within all('.table-date').first do
+    expect(page).to have_content Date.today
+  end
+  within all('.table-date').last do
+    expect(page).to have_content Date.today
+  end
+end
+
+When(/^I replicate a table$/) do
+  within(:css, ".table-actions") do
+    find(".repeat").click
+  end
+  fill_in "days", with: "1"
+  fill_in "times", with: "1"
+  click_on "Repeat"
+end
+
+Then(/^I should see there are equal tables in the next days at the same hour$/) do
+  expect(page).to have_content "Tables successfully created."
+  within all('.table-date').first do
+    expect(page).to have_content Date.today
+  end
+  within all('.table-date').last do
+    expect(page).to have_content Date.today + 1.days
+  end
 end
