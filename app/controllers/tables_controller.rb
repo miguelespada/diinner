@@ -2,6 +2,7 @@ class TablesController < RestaurantsController
   before_action :load_restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
   before_filter :check_table_empty, :only => [:edit, :update, :destroy]
+  before_filter :check_has_menu, :only => [:new, :create]
 
   def index
     @tables = @restaurant.tables.all
@@ -71,5 +72,9 @@ class TablesController < RestaurantsController
 
   def check_table_empty
     redirect_to restaurant_tables_path(@restaurant), notice: 'This table has users.' unless @table.empty?
+  end
+
+  def check_has_menu
+    redirect_to restaurant_tables_path(@restaurant), :notice => 'You need to create a menu first.' unless @restaurant.has_menus?
   end
 end

@@ -4,7 +4,7 @@ Feature: Restaurant manage tables
 
   Background:
     Given I am logged as restaurant
-    When I create a new table
+    When I create a new table having a menu
 
   @restaurant_create_table
   Scenario: I create a new table

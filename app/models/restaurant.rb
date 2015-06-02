@@ -71,6 +71,14 @@ class Restaurant
     customers.include?(user)
   end
 
+  def has_menus?
+    menus.count > 0
+  end
+
+  def has_tables?
+    tables.count > 0
+  end
+
   def notifications
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end

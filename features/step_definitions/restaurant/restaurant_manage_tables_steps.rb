@@ -6,6 +6,15 @@ When(/^I create a new table$/) do
   click_button 'Create Table'
 end
 
+When(/^I create a new table having a menu$/) do
+  step "I create a menu"
+  click_on "Tables"
+  click_on "New"
+  fill_in "Date", with: Date.today.strftime("%d/%m/%Y")
+  fill_in "Hour", with: "19:00"
+  click_button 'Create Table'
+end
+
 Then(/^I should see the table in the list of tables$/) do
   expect(page).to have_content "Table was successfully created."
   within(:css, ".table-date") do
@@ -103,4 +112,11 @@ Then(/^I should see there are equal tables in the next days at the same hour$/) 
   within all('.table-date').last do
     expect(page).to have_content Date.today + 1.days
   end
+end
+
+
+When(/^I should see I need to create a menu before i can create a table$/) do
+  click_on "Tables"
+  click_on "New"
+  expect(page).to have_content "You need to create a menu first."
 end
