@@ -13,6 +13,15 @@ class TablesController < RestaurantsController
     @tables = @restaurant.tables
   end
 
+  def repeat
+    @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
+    if request.post? and @table.repeat(repeat_params)
+      redirect_to restaurant_tables_path(@restaurant), notice: 'Tables successfully created.'
+    else
+      render :repeat
+    end
+  end
+
   def new
     @table = @restaurant.tables.new
   end
@@ -50,6 +59,10 @@ class TablesController < RestaurantsController
 
   def table_params
     params.require(:table).permit(:name, :date, :hour)
+  end
+
+  def repeat_params
+    params.permit(:days,:times)
   end
 
   def authorize!

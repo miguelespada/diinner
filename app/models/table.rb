@@ -15,6 +15,26 @@ class Table
   delegate :menus, :to => :restaurant
   delegate :city, :to => :restaurant
 
+  def repeat(params)
+    params[:days].to_i == 0 ? duplicate(params[:times].to_i) : replicate(params[:days].to_i, params[:times].to_i)
+  end
+
+  def replicate(days, times)
+    (1..days).each do |i|
+      new_table = self.clone
+      new_table.date = self.date + i.days
+      new_table.save
+      new_table.duplicate(times - 1)
+    end
+  end
+
+  def duplicate(times)
+    times.times do
+      self.clone.save
+    end
+    true
+  end
+
   def price
     empty? ? :undefined : reservations.first.price
   end

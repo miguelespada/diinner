@@ -35,6 +35,13 @@ class TableCell < BaseCell
     end
   end
 
+  def repeat_link
+    if model.is_owned_by?(current_restaurant)
+      @path = restaurant_table_repeat_path(model.restaurant, model)
+      render
+    end
+  end
+
   def reservations
     table "Reservations", \
       %w(Id User Occupied_slots Status Actions), \

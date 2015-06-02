@@ -20,3 +20,8 @@ Feature: Restaurant manage tables
   Scenario: I delete a table
     When I delete a table
     Then I should not see the table in the list of tables
+
+  @restaurant_duplicate_table
+  Scenario: I duplicate a table
+    When I duplicate a table
+    Then I should see there are two tables with the same day/hour

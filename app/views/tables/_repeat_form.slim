@@ -1,0 +1,27 @@
+= form_tag(restaurant_table_repeat_path, method: "post") do
+  = label_tag("today_label", "Repeat Today")
+  = check_box_tag(:today,"today", default: :checked)
+  div#days_div
+    = label_tag("days_label", "Number of days")
+    = number_field_tag(:days, "days_field")
+  = label_tag("times_label", "Times to repeat")
+  = number_field_tag(:times, "times_field")
+  = submit_tag("Repeat")
+
+
+  javascript:
+    var checkbox = document.getElementById('today');
+    var days_div = document.getElementById('days_div');
+    var days_input = document.getElementById('days');
+    var showHiddenDiv = function () {
+      if (checkbox.checked) {
+        days_div.style['display'] = 'none';
+        days_input.value = 0;
+      } else {
+        days_div.style['display'] = 'block';
+        days_input.value = 1;
+      }
+    };
+    checkbox.onclick = showHiddenDiv;
+    showHiddenDiv();
+

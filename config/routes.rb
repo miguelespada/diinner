@@ -18,7 +18,10 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     get "calendar" => "tables#calendar", as: "calendar"
-    resources :tables
+    resources :tables do
+      get "repeat", as: "repeat"
+      post "repeat", as: "repeat_post"
+    end
     resources :menus
     resources :reservations, only: [:show, :index], controller: "restaurants/reservations" do
       get "validate", as: "validate"

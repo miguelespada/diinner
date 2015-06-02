@@ -67,3 +67,16 @@ Then(/^I can see the table in my calendar$/) do
   expect(page).to have_css "td.table-id"
 end
 
+When(/^I duplicate a table$/) do
+  within(:css, ".table-actions") do
+    find(".repeat").click
+  end
+  check "today"
+  fill_in "times", with: "1"
+  click_on "Repeat"
+end
+
+Then(/^I should see there are two tables with the same day\/hour$/) do
+  expect(page).to have_content "Tables successfully created."
+  expect(page).to have_content Date.today, count:2
+end
