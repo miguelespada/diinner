@@ -60,3 +60,19 @@ Then(/^I should not see the menu in the list of my menus$/) do
   expect(page).to have_content "Menu was successfully destroyed."
   expect(page).not_to have_content "Dummy menu"
 end
+
+Then(/^I cant edit the reserved menu$/) do
+  click_on "Menus"
+  within(:css, ".menu-actions") do
+    find(".edit").click
+  end
+  expect(page).to have_content "This menu has users."
+end
+
+Then(/^I cant delete the reserved menu$/) do
+  click_on "Menus"
+  within(:css, ".menu-actions") do
+    find(".delete").click
+  end
+  expect(page).to have_content "This menu has users."
+end

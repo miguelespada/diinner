@@ -2,6 +2,7 @@ class MenusController < RestaurantsController
   before_action :load_restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
   before_filter :authorize!, :only => [:edit, :update, :destroy]
+  before_filter :check_menu_empty, :only => [:edit, :update, :destroy]
 
 
   def index
@@ -54,5 +55,9 @@ class MenusController < RestaurantsController
 
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if !@menu.is_owned_by?(current_restaurant)
+  end
+
+  def check_menu_empty
+    redirect_to restaurant_menus_path(@restaurant), notice: 'This menu has users.' unless @menu.empty?
   end
 end
