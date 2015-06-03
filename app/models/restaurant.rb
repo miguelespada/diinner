@@ -95,8 +95,8 @@ class Restaurant
 
   def menu_prices_left menu
     prices = [ 20, 40, 60 ]
-    menus.each do |m|
-      prices.delete(m.price) if m != menu and m.created_at
+    menus.not_in(id: menu.id).each do |m|
+      prices.delete(m.price) if m.exists_in_database?
     end
     prices
   end

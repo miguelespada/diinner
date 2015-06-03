@@ -21,6 +21,10 @@ class Menu
                       .inject(:+) || 0
   end
 
+  def exists_in_database?
+    created_at != nil
+  end
+
   def empty?
     user_count == 0
   end
