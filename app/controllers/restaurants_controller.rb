@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   # TODO compact form
   load_resource :only => [:show, :edit, :update, :user, :notifications, :update_password, :edit_password]
   before_filter :authorize!, :only => [:edit, :update, :user, :notifications, :update_password, :edit_password]
+  before_action :redirect_if_first_password, only: [:index, :show, :user, :notifications]
 
   def index
   end
@@ -55,5 +56,9 @@ class RestaurantsController < ApplicationController
 
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_owned_by?(current_restaurant)
+  end
+
+  def redirect_if_first_password
+    redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
   end
 end

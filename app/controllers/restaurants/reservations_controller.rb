@@ -4,7 +4,7 @@ class Restaurants::ReservationsController < ApplicationController
   before_filter :load_restaurant
   before_filter :load_reservation, :except => [:index]
   before_filter :authorize!
-
+  before_action :redirect_if_first_password
   def show
   end
 
@@ -30,5 +30,9 @@ class Restaurants::ReservationsController < ApplicationController
 
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_owned_by?(current_restaurant)
+  end
+
+  def redirect_if_first_password
+    redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
   end
 end

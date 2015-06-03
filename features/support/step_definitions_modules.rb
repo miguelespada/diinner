@@ -15,6 +15,11 @@ module Login
     login restaurant
   end
 
+  def first_password_restaurant_login
+    @restaurant = FactoryGirl.create(:restaurant, :first_password)
+    login_as_restaurant(@restaurant)
+  end
+
   def login_as_user user
     allow_any_instance_of(UserSession).to receive(:logged?).and_return(true)
     allow_any_instance_of(UserSession).to receive(:user_from_session).and_return(user)

@@ -4,6 +4,7 @@ class Restaurant
   include RestaurantSearchable
   include PublicActivity::Common
   before_create :default_values
+  before_update :before_update
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -115,5 +116,9 @@ class Restaurant
   private
   def default_values
     self.last_password_changed_at = self.created_at
+  end
+
+  def before_update
+    self.last_password_changed_at = Time.now if self.encrypted_password_changed?
   end
 end

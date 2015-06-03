@@ -3,6 +3,7 @@ class TablesController < RestaurantsController
   load_resource :only => [:show, :edit, :update, :destroy]
   before_filter :check_table_empty, :only => [:edit, :update, :destroy]
   before_filter :check_has_menu, :only => [:new, :create]
+  before_action :redirect_if_first_password, only: [:calendar]
 
   def index
     @tables = @restaurant.tables.all
@@ -76,5 +77,11 @@ class TablesController < RestaurantsController
 
   def check_has_menu
     redirect_to restaurant_tables_path(@restaurant), :notice => 'You need to create a menu first.' unless @restaurant.has_menus?
+  end
+
+  def redirect_if_first_password
+    if restaurant_signed_in?
+      redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
+    end
   end
 end

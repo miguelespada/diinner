@@ -6,11 +6,11 @@ Feature: User autorization
     Given I am a logged user
     When I visit other user data
 
-  @user_edit_autorization
+  @user_edit_authorization
   Scenario:
     Then I do not see the edit link
 
-  @user_edit_autorization
+  @user_edit_authorization
   Scenario:
     When I try to edit the other user data
     Then I receive an unauthorized exception
