@@ -39,3 +39,21 @@ Then(/^I should see my restaurant profile updated$/) do
     expect(page).to have_content "Dummy Jaime"
   end
 end
+
+When(/^I edit my restaurant password$/) do
+  click_on "Change password"
+  fill_in "Current password", with: @restaurant.password
+  fill_in "Password", with: "updated1111"
+  fill_in "Password confirmation", with: "updated1111"
+  click_on "Update password"
+  expect(page).to have_content "Your password was successfully updated."
+end
+
+Then(/^I should check my password has changed$/) do
+  step "I logout"
+  click_on "Restaurant"
+  fill_in "Email", with: @restaurant.email
+  fill_in "Password", with: "updated1111"
+  click_on "Log in"
+  step "I should see my profile"
+end

@@ -15,3 +15,9 @@ Feature: Restaurant profile
     When I edit my restaurant profile
     Then I should see my restaurant profile updated
 
+  @restaurant_password
+  Scenario: I change my password
+    When I edit my restaurant password
+    Then I should check my password has changed
+
+

@@ -3,6 +3,7 @@ class Restaurant
   include Mongoid::Timestamps
   include RestaurantSearchable
   include PublicActivity::Common
+  before_create :default_values
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,7 +14,7 @@ class Restaurant
   end
 
   devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable
+          :rememberable, :trackable, :validatable
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -51,13 +52,23 @@ class Restaurant
   field :contact_person,     type: String
   belongs_to :city
 
+  field :last_password_changed_at,    type: Time
+
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"
+
+  validates :email, :password, presence: true
+  validates :email, uniqueness: true
+  validates :password, length: { minimum: 8 }
 
   has_many :menus
   has_many :tables
   has_many :payments
   has_attachment :photo, accept: [:jpg, :png, :gif]
+
+  def first_password?
+    last_password_changed_at == created_at
+  end
 
   def reservations
     Reservation.in(table_id: tables.map{|table| table.id})
@@ -99,5 +110,10 @@ class Restaurant
     restaurant == self
   rescue
     false
+  end
+
+  private
+  def default_values
+    self.last_password_changed_at = self.created_at
   end
 end

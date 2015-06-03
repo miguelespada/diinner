@@ -50,6 +50,13 @@ class RestaurantCell < BaseCell
     end
   end
 
+  def password_link
+    if restaurant_signed_in?
+      @path = edit_restaurant_password_path(model)
+      render
+    end
+  end
+
   def menus
     if admin_signed_in? || model.is_owned_by?(current_restaurant)
       table "Menus", \
