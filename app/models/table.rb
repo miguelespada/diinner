@@ -15,10 +15,14 @@ class Table
   delegate :menus, :to => :restaurant
   delegate :city, :to => :restaurant
 
+
+  # TODO WTF this is not model bussiness this a controller or service
   def repeat(params)
+    # TODO Single Responsability Principle
     params[:days].to_i == 0 ? duplicate(params[:times].to_i) : replicate(params[:days].to_i, params[:times].to_i)
   end
 
+  # TODO WTF this is not model bussiness this a controller or service
   def replicate(days, times)
     (1..days).each do |i|
       new_table = self.clone
@@ -30,6 +34,7 @@ class Table
 
   def duplicate(times)
     times.times do
+      # TODO is this safe??? It clones everything?
       self.clone.save
     end
     true

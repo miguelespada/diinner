@@ -14,7 +14,9 @@ class TablesController < RestaurantsController
   end
 
   def repeat
+    # TODO use load_resource?
     @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
+    # TODO WTF????
     if request.post? and @table.repeat(repeat_params)
       redirect_to restaurant_tables_path(@restaurant), notice: 'Tables successfully created.'
     else

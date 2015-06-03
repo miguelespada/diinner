@@ -1,3 +1,5 @@
+/ TODO Respect single responsability principle
+
 = form_tag(restaurant_table_repeat_path, method: "post") do
   = label_tag("today_label", "Repeat Today")
   = check_box_tag(:today,"today", default: :checked)
@@ -9,6 +11,7 @@
   = submit_tag("Repeat")
 
 
+/ TODO do not overdo... this is UX. First we program simple interaction
   javascript:
     var checkbox = document.getElementById('today');
     var days_div = document.getElementById('days_div');

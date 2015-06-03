@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :restaurants do
     get "calendar" => "tables#calendar", as: "calendar"
     resources :tables do
+      # TODO WTF ??
       get "repeat", as: "repeat"
       post "repeat", as: "repeat_post"
     end

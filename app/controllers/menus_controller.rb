@@ -4,7 +4,6 @@ class MenusController < RestaurantsController
   before_filter :authorize!, :only => [:edit, :update, :destroy]
   before_filter :check_menu_empty, :only => [:edit, :update, :destroy]
 
-
   def index
     @menus = @restaurant.menus.all
   end
