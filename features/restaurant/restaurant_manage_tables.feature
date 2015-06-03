@@ -4,7 +4,7 @@ Feature: Restaurant manage tables
 
   Background:
     Given I am logged as restaurant
-    When I create a new table
+    When I create a new table having a menu
 
   @restaurant_create_table
   Scenario: I create a new table
@@ -24,4 +24,9 @@ Feature: Restaurant manage tables
   @restaurant_duplicate_table
   Scenario: I duplicate a table
     When I duplicate a table
-    Then I should see there are two tables with the same day/hour
+    Then I should see there are more tables with the same day/hour
+
+  @restaurant_replicate_table
+  Scenario: I replicate a table
+    When I replicate a table
+    Then I should see there are equal tables in the next days at the same hour

@@ -49,7 +49,7 @@ end
 
 When(/^a restaurant creates a table$/) do
    step "I am logged as restaurant"
-   step "I create a new table"
+   step "I create a new table having a menu"
 end
 
 

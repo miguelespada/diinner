@@ -165,7 +165,6 @@ end
 
 Then(/^I can see the plan confirmation notification$/) do
   click_on "Notifications"
-  save_and_open_page
   within("#logs .plan-confirmed-log") do
     expect(page).to have_content "Your plan diinner for tonight at restaurant #{@table.restaurant.name} is confirmed!!!"
   end

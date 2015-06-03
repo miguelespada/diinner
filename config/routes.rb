@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     get "logout" => "auth0#logout"
   end
 
-  devise_for :restaurants
+  devise_for :restaurants, :skip => [:passwords]
+  as :restaurant do
+    get 'restaurants/:id/password/edit' => 'restaurants#edit_password', :as => 'edit_restaurant_password'
+    put 'restaurants/:id/password' => 'restaurants#update_password', :as => 'restaurant_password'
+  end
   devise_for :admins
 
   scope :restaurant do
