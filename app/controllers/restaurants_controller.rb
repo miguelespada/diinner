@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
   # TODO compact form
   load_resource :only => [:show, :edit, :update, :user, :notifications, :update_password, :edit_password]
   before_filter :authorize!, :only => [:edit, :update, :user, :notifications, :update_password, :edit_password]
-  before_action :redirect_if_first_password, only: [:index, :show, :user, :notifications]
+  before_action :redirect_if_first_password, only: [:index, :show, :user, :notifications,]
 
   def index
   end

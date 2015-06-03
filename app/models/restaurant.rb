@@ -57,7 +57,7 @@ class Restaurant
 
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"
-  
+
   validates :password, length: { minimum: 8 }, :if => :encrypted_password_changed?
 
   has_many :menus
@@ -93,10 +93,10 @@ class Restaurant
     menus.count >= 3
   end
 
-  def menu_prices_left
+  def menu_prices_left menu
     prices = [ 20, 40, 60 ]
-    menus.each do |menu|
-      prices.delete(menu.price)
+    menus.each do |m|
+      prices.delete(m.price) if m != menu and m.created_at
     end
     prices
   end
