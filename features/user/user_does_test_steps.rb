@@ -1,5 +1,5 @@
 Given(/^I do a test$/) do
-  @test = FactoryGirl.create(:test)
+  @test = FactoryGirl.create(:test, )
   @test2 = FactoryGirl.create(:test)
   step "I go to the user page"
   find(".test").click()
