@@ -6,5 +6,4 @@ Feature: User can do test
   Scenario: User does a test
     Given I am a logged user
     When I do a test
-    Then I should be notified that I have done a test
     And I cannot do anymore tests

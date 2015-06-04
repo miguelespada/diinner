@@ -5,7 +5,7 @@ Feature: Restaurant map
   Background:
     Given I am logged as restaurant
 
-  @restaurant_map @javascript
+  @restaurant_map
   Scenario: I see a map in the map
     When I visit my profile page
     Then I should see a map

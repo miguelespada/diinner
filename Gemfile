@@ -47,7 +47,7 @@ group :test do
   gem "mongoid-rspec"
   gem "cucumber-rails", require: false
   gem "capybara"
-  gem "capybara-webkit", :git => "https://github.com/thoughtbot/capybara-webkit.git"
+  gem "capybara-webkit", "~> 1.3.1"
   gem "launchy"
   gem "factory_girl_rails"
   gem "rspec-rails"

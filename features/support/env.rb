@@ -62,6 +62,7 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 Capybara.javascript_driver = :webkit
 
+
 World(FactoryGirl::Syntax::Methods)
 
 Before do
@@ -73,7 +74,9 @@ Before do
   DatabaseCleaner.start
 
   allow(Pony).to receive(:deliver)
+
 end
+
 
 After do |scenario|
   DatabaseCleaner.clean
@@ -83,3 +86,4 @@ at_exit do
   Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name
   User.__elasticsearch__.client.indices.delete index: User.index_name
 end
+

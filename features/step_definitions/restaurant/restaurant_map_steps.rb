@@ -1,15 +1,14 @@
 When(/^I visit my profile page$/) do
   visit restaurant_path(@restaurant)
-  page.driver.allow_url("*.mapbox.com")
 end
 
 Then(/^I should see a map$/) do
-  expect(page).to have_css ".leaflet-map-pane"
+  expect(page).to have_css "#map"
 end
 
 When(/^I add a geolocation to my profile$/) do
   visit edit_restaurant_path(@restaurant)
-  ajax_call :google_api
+  ajax_call :google_api 
   click_on "Update Restaurant"
 end
 
