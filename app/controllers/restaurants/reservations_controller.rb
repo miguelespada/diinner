@@ -5,6 +5,7 @@ class Restaurants::ReservationsController < ApplicationController
   before_filter :load_reservation, :except => [:index]
   before_filter :authorize!
   before_action :redirect_if_first_password
+
   def show
   end
 
@@ -33,6 +34,7 @@ class Restaurants::ReservationsController < ApplicationController
   end
 
   def redirect_if_first_password
+    # TODO WTF -> not DRY
     redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
   end
 end

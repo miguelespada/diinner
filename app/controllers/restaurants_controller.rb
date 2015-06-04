@@ -41,6 +41,7 @@ class RestaurantsController < ApplicationController
   end
 
   def user
+    # TODO use load resource
     @user = User.find(params["user_id"])
     CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_customer?(@user)
   end
@@ -51,6 +52,7 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_password_params
+    # TODO use devise
     params.require(:restaurant).permit(:password, :password_confirmation, :current_password)
   end
 
@@ -59,6 +61,7 @@ class RestaurantsController < ApplicationController
   end
 
   def redirect_if_first_password
+    # TOD suggest no force
     redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
   end
 end

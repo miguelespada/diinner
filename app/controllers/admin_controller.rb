@@ -25,7 +25,7 @@ class AdminController < ApplicationController
 
   def process_reservations
     TableManager.process
-    # TODO give succesfull information
+    # TODO give usefull information
     redirect_to settings_path, notice: 'Reservations processed succesfully!'
   end
 end

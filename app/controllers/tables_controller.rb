@@ -66,6 +66,7 @@ class TablesController < RestaurantsController
   end
 
   def repeat_params
+    # TODO strong parameters not needed in this case
     params.permit(:days,:times)
   end
 
@@ -74,14 +75,18 @@ class TablesController < RestaurantsController
   end
 
   def check_table_empty
+    # TODO do not put controller logic in before actions
     redirect_to restaurant_tables_path(@restaurant), notice: 'This table has users.' unless @table.empty?
   end
 
   def check_has_menu
+    # TODO do not put controller logic in before actions
     redirect_to restaurant_tables_path(@restaurant), :notice => 'You need to create a menu first.' unless @restaurant.has_menus?
   end
 
   def redirect_if_first_password
+    # TODO do not put controller logic in before actions
+    # TODO suggest-> not force
     if restaurant_signed_in?
       redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
     end

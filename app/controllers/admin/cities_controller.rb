@@ -5,7 +5,6 @@ class  Admin::CitiesController < AdminController
     @cities = City.all
   end
 
-
   def new
     @city = City.new
   end

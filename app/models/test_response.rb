@@ -7,4 +7,8 @@ class TestResponse
   belongs_to :test, autosave: :true
 
   field :response, type: String
+
+  def notify action
+    self.create_activity key: "TestResponse.#{action}", owner: user
+  end
 end

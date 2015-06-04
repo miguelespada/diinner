@@ -1,5 +1,5 @@
 class  ReservationsController < UsersController
-  # TODO refactor controllers using load_resource properly
+  # TODO refactor other controllers using load_resource properly
   load_resource :user
   load_resource :id_param => :reservation_id, :only => [:reuse_card, :cancel, :menu, :restaurant], :through => :user
   load_resource :only => [:update, :destroy, :show]
@@ -39,14 +39,13 @@ class  ReservationsController < UsersController
       @reservation.notify "create"
       redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
     else
+      # TODO handle proper errors
       @reservation.delete
       redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
     end
   end
 
   def cancel
-    # TODO apply cancellation fee
-    # TODO add cancellation logic
     @reservation.cancel
     @reservation.notify "cancel"
     redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
