@@ -1,5 +1,6 @@
 class  ReservationsController < UsersController
-  before_action :load_user
+  load_resource :user
+  load_resource :id_param => :reservation_id, :only => [:reuse_card, :cancel, :menu, :restaurant], :through => :user
   load_resource :only => [:update, :destroy, :show]
 
   def index
@@ -16,8 +17,8 @@ class  ReservationsController < UsersController
   end
 
   def search
-    # TODO limit search on Engine
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
+    # TODO limit search on Engine
     @suggestions = suggestionEngine.search.first(3)
   end
 
@@ -28,15 +29,13 @@ class  ReservationsController < UsersController
   end
 
   def reuse_card
-    # TODO get rid of load_resource...  create load_reservation
-    @reservation = @user.reservations.find(params[:reservation_id])
-    @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
+    notify "create"
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
-      @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
+      notify "create"
       redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
     else
       @reservation.delete
@@ -46,18 +45,18 @@ class  ReservationsController < UsersController
 
   def cancel
     # TODO apply cancellation fee
-    @reservation = @user.reservations.find(params[:reservation_id])
+    # TODO add cancellation logic
     @reservation.cancel
-    @reservation.create_activity key: 'reservation.cancel', owner: @user, recipient: @reservation.restaurant
+    notify "cancel"
     redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
   end
 
   def restaurant
-    @restaurant = @user.reservations.find(params["reservation_id"]).restaurant
+    @restaurant = @reservation.restaurant
   end
 
   def menu
-    @menu = @user.reservations.find(params["reservation_id"]).menu
+    @menu = @reservation.menu
   end
 
   private
@@ -75,9 +74,9 @@ class  ReservationsController < UsersController
     # TODO authorize
   end
 
-  def load_user
-    @user = User.find(params["user_id"])
+  # TODO maybe move to model
+  def notify action
+    @reservation.create_activity key: "reservation.#{action}", owner: @user, recipient: @reservation.restaurant
   end
-
 
 end
