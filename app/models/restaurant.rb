@@ -3,7 +3,11 @@ class Restaurant
   include Mongoid::Timestamps
   include RestaurantSearchable
   include PublicActivity::Common
+
+
+  # TODO ????
   before_create :default_values
+  # TODO ????
   before_update :before_update
 
   # Include default devise modules. Others available are:
