@@ -31,7 +31,7 @@ describe Menu do
       end
 
       it "assigns menu" do
-        expect(@table_0.menu.name).to eq "dummy menu"
+        expect(@table_0.menu.name).to eq "Dummy menu"
         expect(@table_0.menu.price).to eq 20
       end
 
