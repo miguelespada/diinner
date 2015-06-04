@@ -11,14 +11,14 @@ module RestaurantSearchable
     def as_indexed_json(options={})
       as_json(only: 'name').merge location: { lat: self.latitude.to_f, lon: self.longitude.to_f }
     end
-    
+
     mapping do
       indexes :name, type: :string, :analyzer => :spanish, :boost => 50
       indexes :location, type: 'geo_point'
     end
 
     def self.near(lat, lon, dist)
-      search query: { 
+      search query: {
                 filtered: {
                   query: {
                     match_all: {}
