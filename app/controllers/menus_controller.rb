@@ -3,7 +3,7 @@ class MenusController < ApplicationController
 
   load_resource :restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
-  before_filter :authorize!, :only => [:edit, :update, :destroy]
+  before_filter :authorize!, :only => [:show, :edit, :update, :destroy]
 
   before_filter :check_menu_empty, :only => [:edit, :update, :destroy]
   before_filter :check_max_menus, :only => [:new, :create]

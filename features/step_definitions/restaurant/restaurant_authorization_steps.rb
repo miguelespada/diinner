@@ -14,3 +14,10 @@ end
 Then(/^I receive an unauthorized exception$/) do
   expect(page).to have_content "The change you wanted was rejected."
 end
+
+Then(/^I cannot access other restaurant menu$/) do
+  @menu = FactoryGirl.build(:menu, name: "Other menu")
+  @other.menus.create(@menu.attributes)
+  visit restaurant_menu_path(@other, @other.menus.first)
+  expect(page).to have_content "The change you wanted was rejected."
+end
