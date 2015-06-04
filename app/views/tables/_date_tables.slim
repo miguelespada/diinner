@@ -1,0 +1,16 @@
+- content_for(:title) do
+  | Tables
+  h6 == params[:date]
+
+- content_for(:thead) do
+  th ID
+  th Date
+  th Hour
+  th Slots
+  th Status
+  th.text-right Actions
+
+- content_for(:tbody) do
+  == cell(:table, collection: date_tables, method: :row)
+
+= render "admin/admin_table"
