@@ -136,13 +136,13 @@ class Table
 
   def notify_cancellation
     self.create_activity key: 'table.cancel', recipient: restaurant
-    reservations.map{|r| r.notify_cancellation}
+    reservations.map{|r| r.notify_plan("cancel")}
   end
 
   def notify_plan
     self.create_activity key: 'table.confirmed', recipient: restaurant
-    reservations.map{|r| r.notify_plan if r.paid?}
-    reservations.map{|r| r.notify_cancellation if r.cancelled?}
+    reservations.map{|r| r.notify_plan("confirmed") if r.paid?}
+    reservations.map{|r| r.notify_plan("cancel") if r.cancelled?}
   end
 
 end
