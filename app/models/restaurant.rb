@@ -100,33 +100,14 @@ class Restaurant
   end
 
   def menu_prices_left
-    [ 20, 40, 60 ]
+    [ 20, 40, 60 ] - menus.map{|m| m.price}
   end
-
-  private
-
-  def first_password?
-    last_password_changed_at == created_at
-  end
-
-
-
 
   def menus_full?
-     # TODO ???
     menus.count >= 3
   end
 
-
-
-  # TODO use device
-  def default_values
-    self.last_password_changed_at = self.created_at
-  end
-
-  def before_update
-    self.last_password_changed_at = Time.now if self.encrypted_password_changed?
-  end
+  private
 
 
 end

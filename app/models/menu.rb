@@ -21,7 +21,6 @@ class Menu
                       .inject(:+) || 0
   end
 
-  
   def empty?
     user_count == 0
   end
