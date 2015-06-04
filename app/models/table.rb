@@ -128,6 +128,10 @@ class Table
     self.save!
   end
 
+  def notify action
+    self.create_activity key: "table.#{action}", owner: restaurant
+  end
+
   def notify_cancellation
     self.create_activity key: 'table.cancel', recipient: restaurant
     reservations.map{|r| r.notify_plan("cancel")}
@@ -144,4 +148,6 @@ class Table
   rescue
     false
   end
+
+
 end

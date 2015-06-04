@@ -1,9 +1,5 @@
-class UsersController < ApplicationController
-  layout "user"
-  before_action :create_session
-  before_action :authenticate, except: [:login]
-  load_resource :only => [:show, :edit, :update, :notifications]
-  before_action :authorize!, :only => [:edit, :update, :notifications]
+class UsersController < BaseUsersController
+  before_action :authorize!, except: [:index]
 
   def index
     redirect_to user_path(@current_user)
@@ -39,22 +35,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:gender,
                                   :birth,
                                   :preference_attributes => [:max_age, :min_age, :city_id, :id])
-  end
-
-  def authenticate
-    if @session.logged?
-      @current_user = @session.user_from_session
-    else
-      redirect_to users_login_path
-    end
-  end
-
-  def create_session
-    @session ||= UserSession.new(session)
-  end
-
-  def authorize!
-    raise CanCan::AccessDenied.new("Not authorized!") if !@user.is_owned_by?(@current_user)
   end
 
 end

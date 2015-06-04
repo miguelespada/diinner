@@ -2,13 +2,12 @@ class TablesController <  BaseRestaurantsController
   load_resource :except => [:index, :new, :create, :calendar], :through => :restaurant
 
   def index
-    @tables = @restaurant.tables.all
+    @tables = @restaurant.tables
   end
 
   def calendar
-    # TODO move to functions
-    @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
-    @date_tables = @restaurant.tables.where(:date => Date.strptime(params[:date], "%d/%m/%Y")) if params[:date].present?
+    @table = table_from_param
+    @date_tables = date_tables_from_param
     @tables = @restaurant.tables
   end
 
@@ -24,7 +23,7 @@ class TablesController <  BaseRestaurantsController
 
   def create
     @table = @restaurant.tables.create(table_params)
-    @table.create_activity key: 'table.create', owner: @restaurant
+    @table.notify "create"
     redirect_to restaurant_tables_path(@restaurant), :notice => 'Table was successfully created.'
   end
 
@@ -47,5 +46,11 @@ class TablesController <  BaseRestaurantsController
     params.require(:table).permit(:name, :date, :hour)
   end
 
+  def table_from_param
+    @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
+  end
 
+  def date_tables_from_param
+    @restaurant.tables.where(:date => Date.strptime(params[:date], "%d/%m/%Y")) if params[:date].present?
+  end
 end

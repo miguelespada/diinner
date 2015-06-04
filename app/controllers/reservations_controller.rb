@@ -1,7 +1,7 @@
-class  ReservationsController < UsersController
-  load_resource :user
-  load_resource :id_param => :reservation_id, :only => [:reuse_card, :cancel, :menu, :restaurant], :through => :user
-  load_resource :only => [:update, :destroy, :show]
+class  ReservationsController < BaseUsersController
+  load_resource :id_param => :reservation_id, :through => :user,
+                :only => [:reuse_card, :cancel, :menu, :restaurant]
+  load_resource :only => [:update, :destroy, :show], :through => :user
 
   def index
     @reservations = @user.reservations.where(cancelled: false)
@@ -67,10 +67,6 @@ class  ReservationsController < UsersController
                                        :table_id,
                                        :stripe_card_token,
                                        companies: [:id, :_gender, :age])
-  end
-
-  def authorize!
-    # TODO authorize
   end
 
 end

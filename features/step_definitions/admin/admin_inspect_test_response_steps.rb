@@ -1,9 +1,6 @@
 Given(/^A user has done a test$/) do
   step "I am a logged user"
-  @test = FactoryGirl.create(:test)
-  step "I go to the user page"
-  find(".test").click()
-  click_on @test.caption_A
+  step "I do a test"
   step "I logout"
 end
 

@@ -1,11 +1,13 @@
-class  TestResponsesController < UsersController
-  load_resource :user
+class  TestResponsesController < BaseUsersController
   load_resource :test, :only => [:create]
 
   def new
     @test = @user.test_pending.sample
-    # TODO do not redirect, add fallback screen
-    redirect_to user_path(@user) unless @test
+    if @test
+      render
+    else
+      redirect_to user_path(@user), :notice => 'You have completed all the tests.'
+    end
   end
 
   def create
