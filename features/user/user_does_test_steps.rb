@@ -3,7 +3,9 @@ Given(/^I do a test$/) do
   @test2 = FactoryGirl.create(:test)
   step "I go to the user page"
   find(".test").click()
-  click_on @test.caption_A
+  within(".option_A") do
+    find('a').click
+  end
 end
 
 Then(/^I should be notified that I have done a test$/) do
@@ -11,6 +13,8 @@ Then(/^I should be notified that I have done a test$/) do
 end
 
 Then(/^I cannot do anymore tests$/) do
-  click_on @test2.caption_B
+  within(".option_B") do
+    find('a').click
+  end
   expect(page).to have_content("You have completed all the tests.")
 end
