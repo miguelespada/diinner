@@ -4,12 +4,6 @@ class Restaurant
   include RestaurantSearchable
   include PublicActivity::Common
 
-
-  # TODO ????
-  before_create :default_values
-  # TODO ????
-  before_update :before_update
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -85,12 +79,6 @@ class Restaurant
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 
-  def is_owned_by? user
-    return true if self == user
-  rescue
-    false
-  end
-
   def has_tables?
     tables.count > 0
   end
@@ -107,7 +95,9 @@ class Restaurant
     menus.count >= 3
   end
 
-  private
-
-
+  def is_owned_by? user
+    return true if self == user
+  rescue
+    false
+  end
 end
