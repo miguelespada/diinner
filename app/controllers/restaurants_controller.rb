@@ -1,10 +1,9 @@
 class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
-
-  # TODO compact form using exect
-  load_resource :only => [:show, :edit, :update, :user, :notifications, :update_password, :edit_password]
-  before_filter :authorize!, :only => [:edit, :update, :user, :notifications, :update_password, :edit_password]
+  load_resource :except => [:index]
+  before_filter :authorize!, :expect => [:index]
+  load_resource :user, :only => [:user]
   before_action :redirect_if_first_password, only: [:index, :show, :user, :notifications,]
 
   def index
@@ -41,8 +40,6 @@ class RestaurantsController < ApplicationController
   end
 
   def user
-    # TODO use load resource
-    @user = User.find(params["user_id"])
     CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_customer?(@user)
   end
 
@@ -51,13 +48,14 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(Restaurant.permitted_params)
   end
 
-  def restaurant_password_params
-    # TODO use devise
-    params.require(:restaurant).permit(:password, :password_confirmation, :current_password)
+  def authorize!
+    check_authorization! current_restaurant, @restaurant
   end
 
-  def authorize!
-    raise CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_owned_by?(current_restaurant)
+
+  def restaurant_password_params
+    # TODO use devise, understand strong params
+    params.require(:restaurant).permit(:password, :password_confirmation, :current_password)
   end
 
   def redirect_if_first_password

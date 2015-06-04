@@ -1,7 +1,10 @@
-class MenusController < RestaurantsController
-  before_action :load_restaurant
+class MenusController < ApplicationController
+  before_filter :authenticate_restaurant!
+
+  load_resource :restaurant
   load_resource :only => [:show, :edit, :update, :destroy]
   before_filter :authorize!, :only => [:edit, :update, :destroy]
+
   before_filter :check_menu_empty, :only => [:edit, :update, :destroy]
   before_filter :check_max_menus, :only => [:new, :create]
 
@@ -46,10 +49,6 @@ class MenusController < RestaurantsController
   end
 
   private
-  def load_restaurant
-    # TODO use load resource
-    @restaurant = Restaurant.find(params["restaurant_id"])
-  end
 
   def menu_params
     params.require(:menu).permit(:name,
@@ -62,9 +61,10 @@ class MenusController < RestaurantsController
   end
 
   def authorize!
-    # TODO refactor in restaurantController
-    raise CanCan::AccessDenied.new("Not authorized!") if !@menu.is_owned_by?(current_restaurant)
+    check_authorization! current_restaurant, @menu
   end
+
+
 
   def check_menu_empty
     # TODO do not put controller logic in actions

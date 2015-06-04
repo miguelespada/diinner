@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def check_authorization! user, resource
+    raise CanCan::AccessDenied.new("Not authorized!") if !resource.is_owned_by?(user)
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false
   end

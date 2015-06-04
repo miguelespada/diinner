@@ -1,4 +1,4 @@
-Feature: Restaurant autorization
+Feature: Restaurant authorization
   As restaurant
   I am not allowed to edit other restaurant data
 
