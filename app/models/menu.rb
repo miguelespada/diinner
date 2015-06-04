@@ -21,11 +21,7 @@ class Menu
                       .inject(:+) || 0
   end
 
-  # TODO ?????
-  def exists_in_database?
-    created_at != nil
-  end
-
+  
   def empty?
     user_count == 0
   end
@@ -36,4 +32,7 @@ class Menu
     false
   end
 
+  def notify action
+    self.create_activity key: "menu.#{action}", owner: restaurant
+  end
 end

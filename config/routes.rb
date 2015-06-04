@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :restaurants, :skip => [:passwords]
+  # TODO WTF????
   as :restaurant do
     get 'restaurants/:id/password/edit' => 'restaurants#edit_password', :as => 'edit_restaurant_password'
     put 'restaurants/:id/password' => 'restaurants#update_password', :as => 'restaurant_password'

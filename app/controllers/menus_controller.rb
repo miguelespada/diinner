@@ -18,13 +18,12 @@ class MenusController <  BaseRestaurantsController
   def create
     @menu = @restaurant.menus.create(menu_params)
     # TODO ???
-    if @menu.exists_in_database?
-      # TODO push notifications to menu
-      @menu.create_activity key: 'menu.create', owner: @restaurant
+    # if @menu.exists_in_database?
+      @menu.notify "create"
       redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
-    else
-      render :new
-    end
+    # else
+    #   render :new
+    # end
 
   end
 

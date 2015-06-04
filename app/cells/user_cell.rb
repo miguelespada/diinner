@@ -65,7 +65,7 @@ class UserCell < BaseCell
   def age_preference
     "#{model.min_age}...#{model.max_age}" if !model.preference.nil?
   end
-  
+
   def city_preference
     model.city.name if !model.city.nil?
   end
