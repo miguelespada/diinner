@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :create_session
   before_action :authenticate, except: [:login]
   load_resource :only => [:show, :edit, :update, :notifications]
-  before_action :authorize!, :only => [:edit, :update]
-  before_action :redirect_if_first_login, only: [:index, :show]
+  before_action :authorize!, :only => [:edit, :update, :notifications]
 
   def index
     redirect_to user_path(@current_user)
@@ -19,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to edit_user_path(@current_user) if @current_user.first_login?
   end
 
   def update
@@ -55,10 +55,6 @@ class UsersController < ApplicationController
 
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if !@user.is_owned_by?(@current_user)
-  end
-
-  def redirect_if_first_login
-    redirect_to edit_user_path(@current_user) if @current_user.first_login?
   end
 
 end

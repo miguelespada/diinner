@@ -1,11 +1,11 @@
-/ TODO refactor this
+/ TODO refactor this, move to cell or somewhere
 - if @reservation.user.has_default_card?
   div
     == cell(:user, @reservation.user).default_card
     = form_tag user_reservation_reuse_card_path(@user, @reservation),\
        :method => :patch, :id => "reuse_card" do
       = submit_tag "Use saved card"
-
+/ TODO use simple form
 div
   = javascript_include_tag "https://js.stripe.com/v2/"
   = tag :div, :id => "stripe-key", :data => {:content => ENV['STRIPE_PUBLISHABLE_KEY']}

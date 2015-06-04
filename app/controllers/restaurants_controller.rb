@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   layout "restaurants"
   before_filter :authenticate_restaurant!
 
-  # TODO compact form
+  # TODO compact form using exect
   load_resource :only => [:show, :edit, :update, :user, :notifications, :update_password, :edit_password]
   before_filter :authorize!, :only => [:edit, :update, :user, :notifications, :update_password, :edit_password]
   before_action :redirect_if_first_password, only: [:index, :show, :user, :notifications,]

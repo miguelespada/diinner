@@ -21,7 +21,9 @@ class MenusController < RestaurantsController
 
   def create
     @menu = @restaurant.menus.create(menu_params)
+    # TODO ???
     if @menu.exists_in_database?
+      # TODO push notifications to menu
       @menu.create_activity key: 'menu.create', owner: @restaurant
       redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
     else
@@ -45,6 +47,7 @@ class MenusController < RestaurantsController
 
   private
   def load_restaurant
+    # TODO use load resource
     @restaurant = Restaurant.find(params["restaurant_id"])
   end
 
@@ -59,14 +62,17 @@ class MenusController < RestaurantsController
   end
 
   def authorize!
+    # TODO refactor in restaurantController
     raise CanCan::AccessDenied.new("Not authorized!") if !@menu.is_owned_by?(current_restaurant)
   end
 
   def check_menu_empty
+    # TODO do not put controller logic in actions
     redirect_to restaurant_menus_path(@restaurant), notice: 'This menu has users.' unless @menu.empty?
   end
 
   def check_max_menus
+    # TODO do not put controller logic in actions
     redirect_to restaurant_menus_path(@restaurant), notice: 'You can\'t create more menus.' if @restaurant.menus_full?
   end
 

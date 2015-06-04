@@ -1,4 +1,5 @@
 class Restaurants::ReservationsController < ApplicationController
+  # TODO this should inherit from RestaurantController
   layout "restaurants"
   before_filter :authenticate_restaurant!
   before_filter :load_restaurant
@@ -25,6 +26,7 @@ class Restaurants::ReservationsController < ApplicationController
   end
 
   def load_reservation
+    # TODO use load resouce properly, remove hack
     params[:id] ||= params[:reservation_id]
     @reservation = @restaurant.reservations.find(params[:id])
   end

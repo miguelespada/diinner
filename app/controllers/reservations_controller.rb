@@ -39,7 +39,7 @@ class  ReservationsController < UsersController
       @reservation.notify "create"
       redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
     else
-      # TODO handle proper errors
+      # TODO handle properly errors
       @reservation.delete
       redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
     end

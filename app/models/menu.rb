@@ -21,6 +21,7 @@ class Menu
                       .inject(:+) || 0
   end
 
+  # TODO ?????
   def exists_in_database?
     created_at != nil
   end

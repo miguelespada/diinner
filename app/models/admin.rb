@@ -38,4 +38,8 @@ class Admin
     true
   end
 
+  def self.logs
+    PublicActivity::Activity.all.desc(:created_at)
+  end
+
 end
