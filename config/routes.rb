@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
+  get "ionic/users"
+
   scope :auth, as: "auth" do
     get "auth0/callback" => "auth0#callback"
     get "failure" => "auth0#failure"

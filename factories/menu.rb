@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :menu do
-    name "dummy menu"
-    description "dummy description"
+    name "Dummy menu"
+    description "Dummy description"
     price 20
-    appetizer "dummy appetizer"
-    main_dish "dummy main dish"
-    dessert "dummy dessert"
-    drink "dummy drink"
+    appetizer "Dummy appetizer"
+    main_dish "Dummy main dish"
+    dessert "Dummy dessert"
+    drink "Dummy drink"
   end
 end

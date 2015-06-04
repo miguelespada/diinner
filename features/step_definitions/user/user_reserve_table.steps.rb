@@ -1,11 +1,17 @@
 Given(/^There are some available tables$/) do
-  step "I am logged as restaurant"
-  step "I create a menu"
-  step "I create a new table"
 
+  # We mock the following steps
+    # step "I am logged as restaurant"
+    # step "I create a menu"
+    # step "I create a new table"
+    # step "I logout"
+
+  city = FactoryGirl.create(:city)
+  @restaurant = FactoryGirl.create(:restaurant, city: city)
+  @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
+  @restaurant.tables.create(FactoryGirl.build(:table).attributes)
   @menu = @restaurant.menus.first
   @table = @restaurant.tables.first
-  step "I logout"
 end
 
 When(/^I search a table$/) do
@@ -46,24 +52,17 @@ Then(/^I can see the table details$/) do
 end
 
 Then(/^I fill in the credit card details$/) do
-  # TODO move to support
-  stripe_token = Stripe::Token.create({
-      card: {
-        name: "Rodrigo Rato",
-        number: "4012888888881881",
-        exp_month: '09',
-        exp_year: '2020',
-        cvc: '123'
-      }
-    })
-
   fill_in "card_holder", with: "Rodrigo Rato"
   fill_in "card_number", with: "4012888888881881"
   fill_in "exp_month", with: "12"
   fill_in "exp_year", with: "2020"
   fill_in "card_cvc", with: "123"
-  find(:xpath, "//input[@id='stripe_card_token']").set stripe_token.id
+  find(:xpath, "//input[@id='stripe_card_token']").set "Dummy_token"
   check "terms_and_conditions"
+
+  allow_any_instance_of(User).to receive(:get_stripe_create_customer!).and_return(Stripe::Customer.new(id: "123"))
+  allow_any_instance_of(User).to receive(:get_stripe_default_card!).and_return("1881")
+
 end
 
 

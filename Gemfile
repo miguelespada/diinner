@@ -40,6 +40,7 @@ gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem "simple_calendar", "~> 1.1.0"
 gem 'public_activity'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :test do
   gem "database_cleaner"
