@@ -1,6 +1,6 @@
-require "rails_helper" 
+require "rails_helper"
 describe Menu do
-  
+
   describe "#menu" do
     before do
       @user = FactoryGirl.create(:user)

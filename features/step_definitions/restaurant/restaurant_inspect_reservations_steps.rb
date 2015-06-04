@@ -16,10 +16,10 @@ When(/^I process reservations$/) do
   expect(page).to have_content "Reservations processed succesfully!"
 end
 
-Then(/^I can see that the reservation is paid$/) do
+Then(/^I can see that the reservation is cancelled$/) do
   click_on "Reservations"
   expect(page).to have_content @user.name
-  expect(page).to have_content "Paid"
+  expect(page).to have_content "Cancelled"
 end
 
 When(/^I can see the slots left of the reserved table$/) do
