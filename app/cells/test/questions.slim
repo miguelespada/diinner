@@ -3,12 +3,8 @@ h1
   = model.question
 div.row
   div.col-md-6
-    div.row
+    div.row.option_A
       = link_image(model.option_A, 200, 200, user_test_response_path(current_user, model, :option => model.caption_A), :method => :post)
-    div.row
-      = link_to model.caption_A, user_test_response_path(current_user, model, :option => model.caption_A), :method => :post
   div.col-md-6
-    div.row
+    div.row.option_B
       = link_image(model.option_B, 200, 200, user_test_response_path(current_user, model, :option => model.caption_B), :method => :post)
-    div.row
-      = link_to model.caption_B, user_test_response_path(current_user, model, :option => model.caption_B), :method => :post

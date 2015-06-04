@@ -5,7 +5,6 @@ Feature: Restaurant inspect users
   Background:
     Given A user has reserved a table
 
-
   @restaurant_inspect_user
   Scenario:
     When I login as restaurant

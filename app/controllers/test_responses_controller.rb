@@ -1,25 +1,19 @@
-class  TestResponsesController < UsersController
-
-  before_action :load_user
+class  TestResponsesController < BaseUsersController
+  load_resource :test, :only => [:create]
 
   def new
     @test = @user.test_pending.sample
-    redirect_to user_path(@user) unless @test
+    if @test
+      render
+    else
+      redirect_to user_path(@user), :notice => 'You have completed all the tests.'
+    end
   end
 
   def create
-    response = TestResponse.create!(user: @user,
-                    test: Test.find(params[:test_id]),
-                    response: params[:option]
-                    )
-    response.create_activity key: 'TestResponse.create', owner: @user
+    response = @user.test_completed.create!(test: @test, response: params[:option])
+    response.notify "create"
     redirect_to user_test_path(@user), :notice => 'Test was successfully sent.'
-  end
-
-  private
-
-  def load_user
-    @user = User.find(params[:user_id])
   end
 
 end

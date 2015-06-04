@@ -42,20 +42,24 @@ class User
     Test.not_in(id: test_completed.map{|m| m.test.id}, gender: opposite_sex)
   end
 
-  def update_customer_information! token
-    stripe_customer = Stripe::Customer.create(
+  def get_stripe_create_customer! token
+    Stripe::Customer.create(
       :source => token,
       :description => name
     )
+  end
+
+  def update_customer_information! token
+    stripe_customer = get_stripe_create_customer!(token)
     self.customer = stripe_customer.id
-    set_default_card stripe_customer
+    self.stripe_default_card = get_stripe_default_card!(stripe_customer)
     self.save!
   rescue
     false
   end
 
-  def set_default_card stripe_customer
-    self.stripe_default_card = stripe_customer.sources.retrieve(stripe_customer.default_source).last4
+  def get_stripe_default_card! stripe_customer
+    stripe_customer.sources.retrieve(stripe_customer.default_source).last4
   end
 
   def retrieve_card_from_stripe

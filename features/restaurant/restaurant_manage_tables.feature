@@ -21,12 +21,12 @@ Feature: Restaurant manage tables
     When I delete a table
     Then I should not see the table in the list of tables
 
-  @restaurant_duplicate_table
+  @restaurant_duplicate_table @wip
   Scenario: I duplicate a table
     When I duplicate a table
     Then I should see there are more tables with the same day/hour
 
-  @restaurant_replicate_table
+  @restaurant_replicate_table @wip
   Scenario: I replicate a table
     When I replicate a table
     Then I should see there are equal tables in the next days at the same hour

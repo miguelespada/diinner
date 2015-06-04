@@ -4,13 +4,8 @@ Feature: User autorization
 
   Background:
     Given I am a logged user
-    When I visit other user data
+    And There is another user
 
-  @user_edit_authorization
+  @user_authorization
   Scenario:
-    Then I do not see the edit link
-
-  @user_edit_authorization
-  Scenario:
-    When I try to edit the other user data
-    Then I receive an unauthorized exception
+    Then I cannot access other user data

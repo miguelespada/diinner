@@ -21,17 +21,17 @@ class Menu
                       .inject(:+) || 0
   end
 
-  def exists_in_database?
-    created_at != nil
-  end
-
   def empty?
     user_count == 0
   end
 
-  def is_owned_by?(restaurant)
-    restaurant == self.restaurant
+  def is_owned_by? user
+    return true if restaurant == user
   rescue
     false
+  end
+
+  def notify action
+    self.create_activity key: "menu.#{action}", owner: restaurant
   end
 end

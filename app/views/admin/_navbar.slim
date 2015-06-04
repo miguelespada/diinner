@@ -1,12 +1,13 @@
+- current_admin = cell(:admin, current_admin)
 - content_for(:navbar_username) do
   | Admin
 
 - content_for(:navbar_menu) do
-  == cell(:admin, current_admin).call(:dropdown_menu)
+  == current_admin.dropdown_menu
 
 - content_for(:navbar_search) do
-  == cell(:admin, current_admin).call(:navbar_search)
+  == current_admin.navbar_search
 
 - content_for(:navbar_more_links) do
-  == cell(:admin, current_admin).call(:navbar_settings_link)
-  == cell(:admin, current_admin).call(:navbar_map_link)
+  == current_admin.navbar_settings_link
+  == current_admin.navbar_map_link

@@ -1,6 +1,7 @@
-class  ReservationsController < UsersController
-  before_action :load_user
-  load_resource :only => [:update, :destroy, :show]
+class  ReservationsController < BaseUsersController
+  load_resource :id_param => :reservation_id, :through => :user,
+                :only => [:reuse_card, :cancel, :menu, :restaurant]
+  load_resource :only => [:update, :destroy, :show], :through => :user
 
   def index
     @reservations = @user.reservations.where(cancelled: false)
@@ -16,8 +17,8 @@ class  ReservationsController < UsersController
   end
 
   def search
-    # TODO limit search on Engine
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
+    # TODO limit search on Engine
     @suggestions = suggestionEngine.search.first(3)
   end
 
@@ -28,36 +29,33 @@ class  ReservationsController < UsersController
   end
 
   def reuse_card
-    # TODO get rid of load_resource...  create load_reservation
-    @reservation = @user.reservations.find(params[:reservation_id])
-    @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
+    @reservation.notify "create"
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
-      @reservation.create_activity key: 'reservation.create', owner: @user, recipient: @reservation.restaurant
+      @reservation.notify "create"
       redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
     else
+      # TODO handle properly errors
       @reservation.delete
       redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
     end
   end
 
   def cancel
-    # TODO apply cancellation fee
-    @reservation = @user.reservations.find(params[:reservation_id])
     @reservation.cancel
-    @reservation.create_activity key: 'reservation.cancel', owner: @user, recipient: @reservation.restaurant
+    @reservation.notify "cancel"
     redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
   end
 
   def restaurant
-    @restaurant = @user.reservations.find(params["reservation_id"]).restaurant
+    @restaurant = @reservation.restaurant
   end
 
   def menu
-    @menu = @user.reservations.find(params["reservation_id"]).menu
+    @menu = @reservation.menu
   end
 
   private
@@ -70,14 +68,5 @@ class  ReservationsController < UsersController
                                        :stripe_card_token,
                                        companies: [:id, :_gender, :age])
   end
-
-  def authorize!
-    # TODO authorize
-  end
-
-  def load_user
-    @user = User.find(params["user_id"])
-  end
-
 
 end

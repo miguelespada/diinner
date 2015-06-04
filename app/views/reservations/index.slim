@@ -1,6 +1,7 @@
 - content_for(:head) do
   = stylesheet_link_tag 'calendar', media: 'all'
 
+/ TODO create a partial
 div.calendar
   = month_calendar events: @reservations,
                    table: {class: "table table-bordered"} do |date, reservations|

@@ -1,16 +1,14 @@
-Feature: Restaurant autorization
+Feature: Restaurant authorization
   As restaurant
-  I am not allowed to edit other restaurant data
+  I am not allowed to access other restaurant data
 
   Background:
     Given I am logged as restaurant
-    When I visit other restaurant data
+    And There is another restaurant
 
-  @restaurant_edit_autorization
+  @restaurant_authorization
   Scenario:
-    Then I do not see the edit link
-
-  @restaurant_edit_autorization
-  Scenario:
-    When I try to edit the other restaurant data
-    Then I receive an unauthorized exception
+    Then I cannot access other restaurant data
+    And I cannot access other restaurant menus
+    And I cannot access other restaurant tables
+    And I cannot access other restaurant reservations

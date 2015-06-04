@@ -7,4 +7,5 @@ class Admin::PaymentsController < AdminController
 
   def show
   end
+
 end

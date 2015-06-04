@@ -6,7 +6,7 @@ machine:
 test:
  override:
    - bundle exec rspec
-   - bundle exec cucumber
+   - bundle exec cucumber --tags ~@ionic
 deployment:
   staging:
     branch: master

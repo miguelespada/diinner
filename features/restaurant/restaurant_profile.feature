@@ -14,13 +14,13 @@ Feature: Restaurant profile
     When I edit my restaurant profile
     Then I should see my restaurant profile updated
 
-  @restaurant_password
+  @restaurant_password @wip
   Scenario: I change my password
     Given I am logged as restaurant
     When I edit my restaurant password
     Then I should check my password has changed
 
-  @first_password_restaurant
+  @first_password_restaurant @wip
   Scenario: I have not changed my password and i should change it
     Given I login as restaurant with first password
     When I change my restaurant password

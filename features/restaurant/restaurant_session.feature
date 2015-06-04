@@ -14,7 +14,7 @@ Feature: Restaurant Session
     Given I am guest
     When I go to the restaurant page
     Then I should not see the restaurant page
-    
+
   @restaurant_session
   Scenario: I logout
     Given I am logged as restaurant

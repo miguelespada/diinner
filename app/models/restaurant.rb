@@ -3,8 +3,7 @@ class Restaurant
   include Mongoid::Timestamps
   include RestaurantSearchable
   include PublicActivity::Common
-  before_create :default_values
-  before_update :before_update
+  before_save :check_password_changed
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -53,21 +52,13 @@ class Restaurant
   field :contact_person,     type: String
   belongs_to :city
 
-  field :last_password_changed_at,    type: Time
-
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"
-
-  validates :password, length: { minimum: 8 }, :if => :encrypted_password_changed?
 
   has_many :menus
   has_many :tables
   has_many :payments
   has_attachment :photo, accept: [:jpg, :png, :gif]
-
-  def first_password?
-    last_password_changed_at == created_at
-  end
 
   def reservations
     Reservation.in(table_id: tables.map{|table| table.id})
@@ -81,42 +72,33 @@ class Restaurant
     customers.include?(user)
   end
 
-  def has_menus?
-    menus.count > 0
+  def notifications
+    PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 
   def has_tables?
     tables.count > 0
   end
 
+  def has_menus?
+    menus.count > 0
+  end
+
+  def menu_prices_left
+    [ 20, 40, 60 ] - menus.map{|m| m.price}
+  end
+
   def menus_full?
     menus.count >= 3
   end
 
-  def menu_prices_left menu
-    prices = [ 20, 40, 60 ]
-    menus.not_in(id: menu.id).each do |m|
-      prices.delete(m.price) if m.exists_in_database?
-    end
-    prices
-  end
-
-  def notifications
-    PublicActivity::Activity.where(recipient: self).desc(:created_at)
-  end
-
-  def is_owned_by?(restaurant)
-    restaurant == self
+  def is_owned_by? user
+    return true if self == user
   rescue
     false
   end
 
   private
-  def default_values
-    self.last_password_changed_at = self.created_at
-  end
-
-  def before_update
-    self.last_password_changed_at = Time.now if self.encrypted_password_changed?
+   def check_password_changed
   end
 end

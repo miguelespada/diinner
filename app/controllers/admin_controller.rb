@@ -11,12 +11,11 @@ class AdminController < ApplicationController
   end
 
   def logs
-    @logs = PublicActivity::Activity.all.desc(:created_at).page(params[:page])
+    @logs = Admin.logs.page(params[:page])
   end
 
   def map
-    name = params[:city][:city] if params[:city].present?
-    @city = City.where(name: name).first || City.first
+    @city = city_param
     @restaurants = Restaurant.where(city: @city)
   end
 
@@ -25,7 +24,14 @@ class AdminController < ApplicationController
 
   def process_reservations
     TableManager.process
-    # TODO give succesfull information
+    # TODO give usefull information
     redirect_to settings_path, notice: 'Reservations processed succesfully!'
+  end
+
+  private
+
+  def city_param
+    name = params[:city][:city] if params[:city].present?
+    City.where(name: name).first || City.first
   end
 end

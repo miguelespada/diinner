@@ -7,18 +7,6 @@ FactoryGirl.define do
     description "dummy description"
     city :city
 
-    after(:create) do |restaurant|
-      restaurant.last_password_changed_at = Time.now - 11.days
-      restaurant.save!
-    end
-
-    trait :first_password do
-      after(:create) do |restaurant|
-        restaurant.last_password_changed_at = restaurant.created_at
-        restaurant.save!
-      end
-    end
-
     trait :with_photo do
       photo FactoryGirl.build(:attachinary)
     end

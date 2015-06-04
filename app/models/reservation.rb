@@ -65,11 +65,23 @@ class Reservation
     self.update(cancelled: true)
   end
 
-  def notify_cancellation
-    self.create_activity key: 'plan.cancel', recipient: user
+  # # TODO refactor "nofify plan"
+  # def notify_cancellation
+  #   self.create_activity key: 'plan.cancel', recipient: user
+  # end
+
+  # def notify_plan
+  #   self.create_activity key: 'plan.confirmed', recipient: user
+  # end
+
+  def notify_plan action
+    self.create_activity key: "plan.#{action}", recipient: user
   end
 
-  def notify_plan
-    self.create_activity key: 'plan.confirmed', recipient: user
+
+   # TODO maybe move to model
+  def notify action
+    self.create_activity key: "reservation.#{action}", owner: user, recipient: restaurant
   end
+
 end

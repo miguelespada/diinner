@@ -1,0 +1,5 @@
+= month_calendar events: events,
+                 table: {class: "table table-bordered"} do |date, tables|
+  = link_to date.day, restaurant_calendar_path(@restaurant, :date => date)
+  - tables.each do |table|
+    == cell(:table, table).calendar_event

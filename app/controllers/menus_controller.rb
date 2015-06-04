@@ -1,9 +1,5 @@
-class MenusController < RestaurantsController
-  before_action :load_restaurant
-  load_resource :only => [:show, :edit, :update, :destroy]
-  before_filter :authorize!, :only => [:edit, :update, :destroy]
-  before_filter :check_menu_empty, :only => [:edit, :update, :destroy]
-  before_filter :check_max_menus, :only => [:new, :create]
+class MenusController <  BaseRestaurantsController
+  load_resource :except => [:index, :new, :create], :through => :restaurant
 
   def index
     @menus = @restaurant.menus.all
@@ -21,12 +17,13 @@ class MenusController < RestaurantsController
 
   def create
     @menu = @restaurant.menus.create(menu_params)
-    if @menu.exists_in_database?
-      @menu.create_activity key: 'menu.create', owner: @restaurant
+    # TODO ???
+    # if @menu.exists_in_database?
+      @menu.notify "create"
       redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
-    else
-      render :new
-    end
+    # else
+    #   render :new
+    # end
 
   end
 
@@ -44,9 +41,6 @@ class MenusController < RestaurantsController
   end
 
   private
-  def load_restaurant
-    @restaurant = Restaurant.find(params["restaurant_id"])
-  end
 
   def menu_params
     params.require(:menu).permit(:name,
@@ -56,18 +50,6 @@ class MenusController < RestaurantsController
                                  :main_dish,
                                  :dessert,
                                  :drink)
-  end
-
-  def authorize!
-    raise CanCan::AccessDenied.new("Not authorized!") if !@menu.is_owned_by?(current_restaurant)
-  end
-
-  def check_menu_empty
-    redirect_to restaurant_menus_path(@restaurant), notice: 'This menu has users.' unless @menu.empty?
-  end
-
-  def check_max_menus
-    redirect_to restaurant_menus_path(@restaurant), notice: 'You can\'t create more menus.' if @restaurant.menus_full?
   end
 
 end

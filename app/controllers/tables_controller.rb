@@ -1,29 +1,14 @@
-class TablesController < RestaurantsController
-  before_action :load_restaurant
-  load_resource :only => [:show, :edit, :update, :destroy]
-  before_filter :check_table_empty, :only => [:edit, :update, :destroy]
-  before_filter :check_has_menu, :only => [:new, :create]
-  before_action :redirect_if_first_password, only: [:calendar]
+class TablesController <  BaseRestaurantsController
+  load_resource :except => [:index, :new, :create, :calendar], :through => :restaurant
 
   def index
-    @tables = @restaurant.tables.all
-  end
-
-  def calendar
-    @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
-    @date_tables = @restaurant.tables.where(:date => Date.strptime(params[:date], "%d/%m/%Y")) if params[:date].present?
     @tables = @restaurant.tables
   end
 
-  def repeat
-    # TODO use load_resource?
-    @table = @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
-    # TODO WTF????
-    if request.post? and @table.repeat(repeat_params)
-      redirect_to restaurant_tables_path(@restaurant), notice: 'Tables successfully created.'
-    else
-      render :repeat
-    end
+  def calendar
+    @table = table_from_param
+    @date_tables = date_tables_from_param
+    @tables = @restaurant.tables
   end
 
   def new
@@ -38,7 +23,7 @@ class TablesController < RestaurantsController
 
   def create
     @table = @restaurant.tables.create(table_params)
-    @table.create_activity key: 'table.create', owner: @restaurant
+    @table.notify "create"
     redirect_to restaurant_tables_path(@restaurant), :notice => 'Table was successfully created.'
   end
 
@@ -57,33 +42,15 @@ class TablesController < RestaurantsController
 
   private
 
-  def load_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
-  end
-
   def table_params
     params.require(:table).permit(:name, :date, :hour)
   end
 
-  def repeat_params
-    params.permit(:days,:times)
+  def table_from_param
+    @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
   end
 
-  def authorize!
-    raise CanCan::AccessDenied.new("Not authorized!") if !@table.is_owned_by?(current_restaurant)
-  end
-
-  def check_table_empty
-    redirect_to restaurant_tables_path(@restaurant), notice: 'This table has users.' unless @table.empty?
-  end
-
-  def check_has_menu
-    redirect_to restaurant_tables_path(@restaurant), :notice => 'You need to create a menu first.' unless @restaurant.has_menus?
-  end
-
-  def redirect_if_first_password
-    if restaurant_signed_in?
-      redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
-    end
+  def date_tables_from_param
+    @restaurant.tables.where(:date => Date.strptime(params[:date], "%d/%m/%Y")) if params[:date].present?
   end
 end

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
+  get "ionic/users"
+
   scope :auth, as: "auth" do
     get "auth0/callback" => "auth0#callback"
     get "failure" => "auth0#failure"
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :restaurants, :skip => [:passwords]
+  # TODO WTF????
   as :restaurant do
     get 'restaurants/:id/password/edit' => 'restaurants#edit_password', :as => 'edit_restaurant_password'
     put 'restaurants/:id/password' => 'restaurants#update_password', :as => 'restaurant_password'
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
     get ":id/notifications" => "restaurants#notifications", as: "restaurant_notifications"
   end
 
-  resources :restaurants do
+  resources :restaurants, except: [:new, :create] do
     get "calendar" => "tables#calendar", as: "calendar"
     resources :tables do
       # TODO WTF ??
