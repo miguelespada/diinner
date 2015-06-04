@@ -3,6 +3,7 @@ class Restaurant
   include Mongoid::Timestamps
   include RestaurantSearchable
   include PublicActivity::Common
+  before_save :check_password_changed
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -51,12 +52,8 @@ class Restaurant
   field :contact_person,     type: String
   belongs_to :city
 
-  field :last_password_changed_at,    type: Time
-
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"
-
-  validates :password, length: { minimum: 8 }, :if => :encrypted_password_changed?
 
   has_many :menus
   has_many :tables
@@ -99,5 +96,9 @@ class Restaurant
     return true if self == user
   rescue
     false
+  end
+
+  private
+   def check_password_changed
   end
 end
