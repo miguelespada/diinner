@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get ":id/notifications" => "restaurants#notifications", as: "restaurant_notifications"
   end
 
-  resources :restaurants do
+  resources :restaurants, except: [:new, :create] do
     get "calendar" => "tables#calendar", as: "calendar"
     resources :tables do
       # TODO WTF ??

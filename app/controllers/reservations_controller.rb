@@ -1,5 +1,4 @@
 class  ReservationsController < UsersController
-  # TODO refactor other controllers using load_resource properly
   load_resource :user
   load_resource :id_param => :reservation_id, :only => [:reuse_card, :cancel, :menu, :restaurant], :through => :user
   load_resource :only => [:update, :destroy, :show]

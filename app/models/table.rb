@@ -76,12 +76,6 @@ class Table
     3 - female_count
   end
 
-  def is_owned_by?(restaurant)
-    restaurant == self.restaurant
-  rescue
-    false
-  end
-
   def status
     return :cancelled if cancelled?
     return :full if full?
@@ -145,4 +139,9 @@ class Table
     reservations.map{|r| r.notify_plan("cancel") if r.cancelled?}
   end
 
+  def is_owned_by? user
+    return true if restaurant == user
+  rescue
+    false
+  end
 end

@@ -1,17 +1,12 @@
-class Restaurants::ReservationsController < ApplicationController
-  # TODO this should inherit from RestaurantController
-  layout "restaurants"
-  before_filter :authenticate_restaurant!
-  before_filter :load_restaurant
-  before_filter :load_reservation, :except => [:index]
-  before_filter :authorize!
-  before_action :redirect_if_first_password
-
-  def show
-  end
+class Restaurants::ReservationsController <  BaseRestaurantsController
+  load_resource :only => [:index], :through => :restaurant
+  load_resource :reservation, :only => [:validate], :through => :restaurant
 
   def index
     @reservations = @restaurant.reservations
+  end
+
+  def show
   end
 
   def validate
@@ -20,23 +15,4 @@ class Restaurants::ReservationsController < ApplicationController
     redirect_to :back
   end
 
-  private
-  def load_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
-  end
-
-  def load_reservation
-    # TODO use load resouce properly, remove hack
-    params[:id] ||= params[:reservation_id]
-    @reservation = @restaurant.reservations.find(params[:id])
-  end
-
-  def authorize!
-    raise CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_owned_by?(current_restaurant)
-  end
-
-  def redirect_if_first_password
-    # TODO WTF -> not DRY
-    redirect_to edit_restaurant_password_path(current_restaurant), notice: 'Your must change your password.' if current_restaurant.first_password?
-  end
 end

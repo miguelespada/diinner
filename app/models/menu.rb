@@ -30,9 +30,10 @@ class Menu
     user_count == 0
   end
 
-  def is_owned_by?(restaurant)
-    restaurant == self.restaurant
+  def is_owned_by? user
+    return true if restaurant == user
   rescue
     false
   end
+
 end

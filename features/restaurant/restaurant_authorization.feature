@@ -18,3 +18,11 @@ Feature: Restaurant authorization
   @restaurant_menu_authorization
   Scenario:
     Then I cannot access other restaurant menu
+
+  @restaurant_table_authorization
+  Scenario:
+    Then I cannot access other restaurant table
+
+  @restaurant_reservation_authorization
+  Scenario:
+    Then I cannot access other restaurant reservations

@@ -94,6 +94,7 @@ class Restaurant
   end
 
   def menu_prices_left menu
+    # TODO ???
     prices = [ 20, 40, 60 ]
     menus.not_in(id: menu.id).each do |m|
       prices.delete(m.price) if m.exists_in_database?
@@ -105,13 +106,14 @@ class Restaurant
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 
-  def is_owned_by?(restaurant)
-    restaurant == self
+  def is_owned_by? user
+    return true if self == user
   rescue
     false
   end
 
   private
+  # TODO use device
   def default_values
     self.last_password_changed_at = self.created_at
   end
@@ -119,4 +121,6 @@ class Restaurant
   def before_update
     self.last_password_changed_at = Time.now if self.encrypted_password_changed?
   end
+
+
 end

@@ -1,4 +1,4 @@
-@restaurant_menu
+@wip @restaurant_menu
 Feature: Restaurant manage menus restrictions
   As restaurant
   I want to manage menus but there are restrictions

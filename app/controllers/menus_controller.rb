@@ -1,12 +1,5 @@
-class MenusController < ApplicationController
-  before_filter :authenticate_restaurant!
-
-  load_resource :restaurant
-  load_resource :only => [:show, :edit, :update, :destroy]
-  before_filter :authorize!, :only => [:show, :edit, :update, :destroy]
-
-  before_filter :check_menu_empty, :only => [:edit, :update, :destroy]
-  before_filter :check_max_menus, :only => [:new, :create]
+class MenusController <  BaseRestaurantsController
+  load_resource :except => [:index, :new, :create], :through => :restaurant
 
   def index
     @menus = @restaurant.menus.all
@@ -58,22 +51,6 @@ class MenusController < ApplicationController
                                  :main_dish,
                                  :dessert,
                                  :drink)
-  end
-
-  def authorize!
-    check_authorization! current_restaurant, @menu
-  end
-
-
-
-  def check_menu_empty
-    # TODO do not put controller logic in actions
-    redirect_to restaurant_menus_path(@restaurant), notice: 'This menu has users.' unless @menu.empty?
-  end
-
-  def check_max_menus
-    # TODO do not put controller logic in actions
-    redirect_to restaurant_menus_path(@restaurant), notice: 'You can\'t create more menus.' if @restaurant.menus_full?
   end
 
 end
