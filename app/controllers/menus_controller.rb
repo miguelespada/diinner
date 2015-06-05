@@ -17,19 +17,18 @@ class MenusController <  BaseRestaurantsController
   end
 
   def create
-    @menu = @restaurant.menus.create(menu_params)
-    # TODO ???
-    # if @menu.exists_in_database?
+    if allowed_price?
+      @menu = @restaurant.menus.create(menu_params)
       @menu.notify "create"
       redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
-    # else
-    #   render :new
-    # end
-
+    else
+      redirect_to restaurant_menus_path(@restaurant)
+    end
   end
 
   def update
-    if @menu.update(menu_params)
+    if allowed_price? || @menu.price == price_param
+      @menu.update(menu_params)
       redirect_to restaurant_menus_path(@restaurant), notice: 'Menu was successfully updated.'
     else
       render :edit
@@ -59,4 +58,11 @@ class MenusController <  BaseRestaurantsController
     end
   end
 
+  def price_param
+    params[:menu][:price].to_i
+  end
+
+  def allowed_price?
+    @restaurant.menu_prices_left.include? price_param
+  end
 end

@@ -46,26 +46,15 @@ When(/^I can delete multiple tables at the time$/) do
 
 end
 
-
-And(/^I have created three menus$/) do
+Then(/^I can only create a menu of each price$/) do
   step "I create a menu 20"
+  page.has_select?("Price", :with_options => [20]).should == false
   step "I create a menu 40"
-  step "I create a menu 60"
-end
-
-Then(/^I should see I can't create more menus$/) do
-  click_on "Menus"
-  click_on "New"
-  expect(page).to have_content "You can't create more menus."
-end
-
-And(/^I have created a 40 price menu$/) do
-  step "I create a menu 40"
-end
-
-Then(/^I should see I can't create a 40 price menu again$/) do
-  click_on "Menus"
-  click_on "New"
-  page.has_select?("Price", :with_options => [20, 60]).should == true
+  page.has_select?("Price", :with_options => [20]).should == false
   page.has_select?("Price", :with_options => [40]).should == false
+  step "I create a menu 60"
+  page.has_select?("Price", :with_options => [20]).should == false
+  page.has_select?("Price", :with_options => [40]).should == false
+  page.has_select?("Price", :with_options => [60]).should == false
 end
+

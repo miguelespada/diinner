@@ -3,7 +3,7 @@ class Menu
   include Mongoid::Timestamps
   include PublicActivity::Common
 
-  field :name,  type: String, default: ""
+  field :name,  type: String
   field :price, type: Integer
   field :description, type: String
   field :appetizer, type: String, default: ""
@@ -13,7 +13,7 @@ class Menu
 
   belongs_to :restaurant
 
-  validates :description, presence: true
+  validates :name, presence: true
 
   def user_count
     # TODO user count only future tables
