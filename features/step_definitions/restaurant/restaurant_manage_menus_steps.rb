@@ -7,6 +7,10 @@ When (/^I fill the basic menu data$/) do
   fill_in "Drink", with: "Dummy drink"
 end
 
+When("I create a menu") do
+  step "I create a menu 20"
+end
+
 When("I create a menu $n") do |price|
   click_on "Menus"
   click_on "New"
@@ -79,14 +83,6 @@ Then(/^I cant modify the reserved menu$/) do
     find(".delete").click
   end
   expect(page).to have_content "Operation not allow: menu has users"
-end
-
-Then(/^I cant delete the reserved menu$/) do
-  click_on "Menus"
-  within(:css, ".menu-actions") do
-    find(".delete").click
-  end
-  expect(page).to have_content "This menu has users."
 end
 
 Then(/^I cant edit the reserved table$/) do
