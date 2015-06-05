@@ -11,5 +11,5 @@ Feature: Restaurant menu restriction
     Then I cannot create a table without menus
 
   @restaurant_can_only_create_a_menu_of_each_price
-  Scenario: I can't create more than the max of menus
+  Scenario:
     Then I can only create a menu of each price

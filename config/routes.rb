@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   devise_for :restaurants, :skip => [:passwords]
   as :restaurant do
-    get 'restaurants/edit' => 'devise/registrations#edit', :as => 'edit_restaurant_registration'
-    put 'restaurants/:id' => 'devise/registrations#update', :as => 'restaurant_registration'
+    get 'restaurants/password/edit' => 'devise/registrations#edit', :as => 'edit_restaurant_registration'
+    patch 'restaurants/password/:id' => 'devise/registrations#update', :as => 'restaurant_registration'
   end
   devise_for :admins
 
