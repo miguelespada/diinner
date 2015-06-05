@@ -30,3 +30,8 @@ Feature: Restaurant manage tables
   Scenario: I repeat a table
     When I create a repeated table
     Then I should see there are equal tables in the next weeks at the same hour
+
+  @restaurant_can_delete_multiple_tables
+  Scenario: I duplicate a table
+    Given I create multiple tables
+    When I can delete multiple tables at the time

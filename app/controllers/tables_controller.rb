@@ -48,6 +48,11 @@ class TablesController <  BaseRestaurantsController
     redirect_to restaurant_tables_path(@restaurant), notice: 'Table was successfully destroyed.'
   end
 
+  def batch_delete
+    tables = @restaurant.tables.any_in(:id => params[:table_ids]).destroy_all
+    redirect_to restaurant_tables_path(@restaurant), notice: 'Tables were successfully destroyed.'
+  end
+
   private
 
   def table_params

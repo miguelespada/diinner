@@ -5,6 +5,7 @@
   == cell(:table, Table).call(:new_link)
 
 - content_for(:thead) do
+  th
   th ID
   th Date
   th Hour
@@ -13,6 +14,8 @@
   th.text-right Actions
 
 - content_for(:tbody) do
-  == cell(:table, collection: @tables, method: :row)
+  = form_tag batch_delete_restaurant_tables_path(@restaurant), method: "delete" do
+    == cell(:table, collection: @tables, method: :row)
+    = submit_tag "Delete selected"
 
 = render "admin/admin_table"

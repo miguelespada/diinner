@@ -33,43 +33,20 @@ Then(/^I should see there are equal tables in the next weeks at the same hour$/)
 end
 
 
-When(/^I duplicate a table$/) do
-  within(:css, ".table-actions") do
-    find(".repeat").click
+When(/^I can delete multiple tables at the time$/) do
+
+  page.all('.table-check').each do |element|
+    within element do
+      check :table_ids_
+    end
   end
-  check "today"
-  fill_in "times", with: "1"
-  click_on "Repeat"
+  click_button "Delete selected"
+
+   expect(page).not_to have_css(".table-id")
+
 end
 
-Then(/^I should see there are more tables with the same day\/hour$/) do
-  expect(page).to have_content "Table(s) successfully created."
-  within all('.table-date').first do
-    expect(page).to have_content Date.today
-  end
-  within all('.table-date').last do
-    expect(page).to have_content Date.today
-  end
-end
 
-When(/^I replicate a table$/) do
-  within(:css, ".table-actions") do
-    find(".repeat").click
-  end
-  fill_in "days", with: "1"
-  fill_in "times", with: "1"
-  click_on "Repeat"
-end
-
-Then(/^I should see there are equal tables in the next days at the same hour$/) do
-  expect(page).to have_content "Tables successfully created."
-  within all('.table-date').first do
-    expect(page).to have_content Date.today
-  end
-  within all('.table-date').last do
-    expect(page).to have_content Date.today + 1.days
-  end
-end
 
 
 Then(/^I should see I need to create a menu before i can create a table$/) do

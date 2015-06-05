@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
   resources :restaurants, except: [:new, :create] do
     get "calendar" => "tables#calendar", as: "calendar"
-    resources :tables
+    resources :tables do
+      delete "batch_delete", on: :collection
+    end
     resources :menus
     resources :reservations, only: [:show, :index], controller: "restaurants/reservations" do
       get "validate", as: "validate"

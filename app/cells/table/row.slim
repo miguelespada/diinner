@@ -1,5 +1,6 @@
 / TODO DRY common TD with row (if needed)
 tr
+  td.table-check == check_box_tag("table_ids[]", model.id)
   td.table-id == show_link
   td.table-date = model.date
   td.table-hour = hour
