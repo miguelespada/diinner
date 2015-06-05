@@ -13,6 +13,25 @@ Then(/^I should see there are multiple tables with the same day\/hour$/) do
   end
 end
 
+When(/^I create a repeated table$/) do
+  click_on "New"
+  fill_in "Date", with: Date.tomorrow.strftime("%d/%m/%Y")
+  fill_in "Hour", with: "22:00"
+  fill_in :table_repeat_until, with: (Date.tomorrow + 1.month).strftime("%d/%m/%Y")
+  click_button 'Create Table'
+end
+
+Then(/^I should see there are equal tables in the next weeks at the same hour$/) do
+  within("#tables") do
+    expect(page).to have_content(Date.tomorrow)
+    expect(page).to have_content(Date.tomorrow + 1.week)
+    expect(page).to have_content(Date.tomorrow + 2.weeks)
+    expect(page).to have_content(Date.tomorrow + 3.weeks)
+    expect(page).to have_content(Date.tomorrow + 4.weeks)
+    expect(page).to have_content("22:00", count: 5)
+  end
+end
+
 
 When(/^I duplicate a table$/) do
   within(:css, ".table-actions") do
@@ -24,7 +43,7 @@ When(/^I duplicate a table$/) do
 end
 
 Then(/^I should see there are more tables with the same day\/hour$/) do
-  expect(page).to have_content "Tables successfully created."
+  expect(page).to have_content "Table(s) successfully created."
   within all('.table-date').first do
     expect(page).to have_content Date.today
   end

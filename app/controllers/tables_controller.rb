@@ -22,11 +22,17 @@ class TablesController <  BaseRestaurantsController
   end
 
   def create
-    params[:table][:number].to_i.times do
-      @table = @restaurant.tables.create(table_params)
-      @table.notify "create"
+    date = table_date
+    while date <= repeat_until_date
+      table_number.times do
+        @table = @restaurant.tables.new(table_params)
+        @table.date = date
+        @table.save!
+        @table.notify "create"
+      end
+      date = date + 1.week
     end
-    redirect_to restaurant_tables_path(@restaurant), :notice => 'Table was successfully created.'
+    redirect_to restaurant_tables_path(@restaurant), :notice => 'Table(s) was successfully created.'
   end
 
   def update
@@ -45,7 +51,7 @@ class TablesController <  BaseRestaurantsController
   private
 
   def table_params
-    params.require(:table).permit(:name, :date, :hour)
+    params.require(:table).permit(:date, :hour)
   end
 
   def table_from_param
@@ -54,5 +60,17 @@ class TablesController <  BaseRestaurantsController
 
   def date_tables_from_param
     @restaurant.tables.where(:date => Date.strptime(params[:date], "%d/%m/%Y")) if params[:date].present?
+  end
+
+  def table_date
+     Date.strptime(params[:table][:date], "%d/%m/%Y")
+  end
+
+  def table_number
+    params[:table][:number].to_i
+  end
+
+  def repeat_until_date
+    params[:table][:repeat_until].blank? ? table_date : Date.strptime(params[:table][:repeat_until], "%d/%m/%Y")
   end
 end

@@ -28,5 +28,5 @@ Feature: Restaurant manage tables
 
   @restaurant_create_repeated_tables
   Scenario: I repeat a table
-    When I replicate a table
-    Then I should see there are equal tables in the next days at the same hour
+    When I create a repeated table
+    Then I should see there are equal tables in the next weeks at the same hour

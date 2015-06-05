@@ -15,7 +15,7 @@ class Table
   delegate :menus, :to => :restaurant
   delegate :city, :to => :restaurant
 
-  attr_accessor :number
+  attr_accessor :number, :repeat_until
 
 
   def price

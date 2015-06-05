@@ -16,7 +16,7 @@ When(/^I create a new table having a menu$/) do
 end
 
 Then(/^I should see the table in the list of tables$/) do
-  expect(page).to have_content "Table was successfully created."
+  expect(page).to have_content "Table(s) was successfully created."
   within(:css, ".table-date") do
     expect(page).to have_content Date.today.strftime("%d/%m/%Y")
   end
