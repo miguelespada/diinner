@@ -59,9 +59,10 @@ Rails.application.routes.draw do
   scope :users do
     get "/login" => "users#login", as: "users_login"
     get ":id/notifications" => "users#notifications", as: "user_notifications"
+    get "/index" => "base_users#users", as: "users"
   end
 
-  resources :users do
+  resources :users, except: [:index] do
     post "test/:test_id" => "test_responses#create", as: "test_response"
     get "test" => "test_responses#new", as: "test"
     post "search" => "reservations#search", as: "search_tables"

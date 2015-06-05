@@ -1,9 +1,4 @@
 class UsersController < BaseUsersController
-  before_action :authorize!, except: [:index]
-
-  def index
-    redirect_to user_path(@current_user)
-  end
 
   def login
     render :layout => false

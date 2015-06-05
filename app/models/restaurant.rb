@@ -89,7 +89,7 @@ class Restaurant
   end
 
   def menus_full?
-    menus.count >= 3
+    menus.count == 3
   end
 
   def is_owned_by? user
@@ -99,6 +99,6 @@ class Restaurant
   end
 
   private
-   def check_password_changed
+  def check_password_changed
   end
 end
