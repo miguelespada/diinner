@@ -1,6 +1,7 @@
-p
-  i.bi_interface-diag
-  | For security reasons, you should change your password.
+- if !@restaurant.has_changed_password
+  p
+    i.bi_interface-diag
+    | For security reasons, you should change your password.
 = cell(:restaurant, @restaurant).call(:restaurant_show)
 == cell(:restaurant, @restaurant).location
 = render "/layouts/map"

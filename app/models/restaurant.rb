@@ -34,7 +34,7 @@ class Restaurant
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
-  field :restaurat_changed_password, type: Boolean, default: false
+  field :has_changed_password, type: Boolean, default: false
 
   ## Confirmable
   # field :confirmation_token,   type: String
@@ -103,6 +103,6 @@ class Restaurant
   private
 
   def check_password_changed
-    self.restaurat_changed_password ||= self.encrypted_password_changed?
+    self.has_changed_password = true if self.encrypted_password_changed?
   end
 end
