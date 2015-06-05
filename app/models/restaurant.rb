@@ -3,7 +3,7 @@ class Restaurant
   include Mongoid::Timestamps
   include RestaurantSearchable
   include PublicActivity::Common
-  before_save :check_password_changed
+  before_update :check_password_changed
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -33,6 +33,8 @@ class Restaurant
   field :last_sign_in_at,    type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
+
+  field :has_default_password,    type: Boolean, default: true
 
   ## Confirmable
   # field :confirmation_token,   type: String
@@ -99,6 +101,8 @@ class Restaurant
   end
 
   private
+
   def check_password_changed
+    self.has_default_password = !self.encrypted_password_changed?
   end
 end

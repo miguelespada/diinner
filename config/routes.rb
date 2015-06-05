@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :restaurants, :skip => [:passwords]
-  # TODO WTF????
   as :restaurant do
-    get 'restaurants/:id/password/edit' => 'restaurants#edit_password', :as => 'edit_restaurant_password'
-    put 'restaurants/:id/password' => 'restaurants#update_password', :as => 'restaurant_password'
+    get 'restaurants/edit' => 'devise/registrations#edit', :as => 'edit_restaurant_registration'
+    put 'restaurants/:id' => 'devise/registrations#update', :as => 'restaurant_registration'
   end
   devise_for :admins
 
@@ -25,11 +24,7 @@ Rails.application.routes.draw do
 
   resources :restaurants, except: [:new, :create] do
     get "calendar" => "tables#calendar", as: "calendar"
-    resources :tables do
-      # TODO WTF ??
-      get "repeat", as: "repeat"
-      post "repeat", as: "repeat_post"
-    end
+    resources :tables
     resources :menus
     resources :reservations, only: [:show, :index], controller: "restaurants/reservations" do
       get "validate", as: "validate"
@@ -58,6 +53,7 @@ Rails.application.routes.draw do
 
   scope :users do
     get "/login" => "users#login", as: "users_login"
+    # TODO use member to be more restful
     get ":id/notifications" => "users#notifications", as: "user_notifications"
     get "/index" => "base_users#users", as: "users"
   end

@@ -15,6 +15,8 @@ class Table
   delegate :menus, :to => :restaurant
   delegate :city, :to => :restaurant
 
+  attr_accessor :number
+
 
   def price
     empty? ? :undefined : reservations.first.price
