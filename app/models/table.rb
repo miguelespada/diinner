@@ -17,7 +17,6 @@ class Table
 
   attr_accessor :number, :repeat_until
 
-
   def price
     empty? ? :undefined : reservations.first.price
   end

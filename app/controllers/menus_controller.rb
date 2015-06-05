@@ -1,5 +1,6 @@
 class MenusController <  BaseRestaurantsController
   load_resource :except => [:index, :new, :create], :through => :restaurant
+  before_filter :redirect_if_non_empty, :only => [:edit, :destroy, :update]
 
   def index
     @menus = @restaurant.menus.all
@@ -50,6 +51,12 @@ class MenusController <  BaseRestaurantsController
                                  :main_dish,
                                  :dessert,
                                  :drink)
+  end
+
+  def redirect_if_non_empty
+    if !@menu.empty?
+      redirect_to :back, :notice => 'Operation not allow: menu has users'
+    end
   end
 
 end

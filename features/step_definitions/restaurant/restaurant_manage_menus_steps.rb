@@ -1,41 +1,20 @@
-When(/^I create a menu$/) do
-  click_on "Menus"
-  click_on "New"
+When (/^I fill the basic menu data$/) do
   fill_in "Name", with: "Dummy menu"
   fill_in "Description", with: "Dummy description"
-  select "20", from: "Price"
   fill_in "Appetizer", with: "Dummy appetizer"
   fill_in "Main dish", with: "Dummy dish"
   fill_in "Dessert", with: "Dummy dessert"
   fill_in "Drink", with: "Dummy drink"
+end
+
+When("I create a menu $n") do |price|
+  click_on "Menus"
+  click_on "New"
+  select price, from: "Price"
+  step "I fill the basic menu data"
   click_on "Create Menu"
 end
 
-When(/^I create a menu 60$/) do
-  click_on "Menus"
-  click_on "New"
-  fill_in "Name", with: "Dummy menu 60"
-  fill_in "Description", with: "Dummy description"
-  select "60", from: "Price"
-  fill_in "Appetizer", with: "Dummy appetizer"
-  fill_in "Main dish", with: "Dummy dish"
-  fill_in "Dessert", with: "Dummy dessert"
-  fill_in "Drink", with: "Dummy drink"
-  click_on "Create Menu"
-end
-
-When(/^I create a menu 40$/) do
-  click_on "Menus"
-  click_on "New"
-  fill_in "Name", with: "Dummy menu 40"
-  fill_in "Description", with: "Dummy description"
-  select "40", from: "Price"
-  fill_in "Appetizer", with: "Dummy appetizer"
-  fill_in "Main dish", with: "Dummy dish"
-  fill_in "Dessert", with: "Dummy dessert"
-  fill_in "Drink", with: "Dummy drink"
-  click_on "Create Menu"
-end
 
 Then(/^I should see the menu in the list of my menus$/) do
   expect(page).to have_content "Menu was successfully created."
@@ -87,12 +66,19 @@ Then(/^I should not see the menu in the list of my menus$/) do
   expect(page).not_to have_content "Dummy menu"
 end
 
-Then(/^I cant edit the reserved menu$/) do
+Then(/^I cant modify the reserved menu$/) do
   click_on "Menus"
+
   within(:css, ".menu-actions") do
     find(".edit").click
   end
-  expect(page).to have_content "This menu has users."
+
+  expect(page).to have_content "Operation not allow: menu has users"
+
+  within(:css, ".menu-actions") do
+    find(".delete").click
+  end
+  expect(page).to have_content "Operation not allow: menu has users"
 end
 
 Then(/^I cant delete the reserved menu$/) do

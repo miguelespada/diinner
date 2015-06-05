@@ -16,6 +16,7 @@ class Menu
   validates :description, presence: true
 
   def user_count
+    # TODO user count only future tables
     restaurant.tables.select{|table| table.menu == self}
                       .map{|table| table.user_count}
                       .inject(:+) || 0
