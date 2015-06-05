@@ -1,17 +1,17 @@
 // TODO refactor
 div.table-thumbnail
   div.female.gender-group
-    - model.female_count.times do 
+    - model.female_count.times do
       div.reserved-seat
         i.bi_user-female
-    - (3 - model.female_count).times do 
+    - (3 - model.female_count).times do
       div.empty-seat
         i.bi_user-female
   div.table-thumb
   div.male.gender-group
-    - model.male_count.times do 
+    - model.male_count.times do
       div.reserved-seat
         i.bi_user-male
-    - (3 - model.male_count).times do 
+    - (3 - model.male_count).times do
       div.empty-seat
         i.bi_user-male

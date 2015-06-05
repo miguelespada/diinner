@@ -1,4 +1,4 @@
-a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#" 
+a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#"
   i.bi_web-rss
 ul.dropdown-menu.navbar-log-menu
   - @logs = PublicActivity::Activity.all.desc(:created_at).limit(5)

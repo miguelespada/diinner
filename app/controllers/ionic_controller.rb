@@ -1,5 +1,5 @@
 # This controller is for development pourposes
-
+# TODO add active serializer
 class IonicController < ApplicationController
   respond_to :json
   before_action :load_user
