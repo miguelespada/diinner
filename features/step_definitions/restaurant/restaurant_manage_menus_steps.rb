@@ -77,26 +77,31 @@ Then(/^I cant modify the reserved menu$/) do
     find(".edit").click
   end
 
-  expect(page).to have_content "Operation not allow: menu has users"
+  expect(page).to have_content "Operation not allowed: menu has users"
 
   within(:css, ".menu-actions") do
     find(".delete").click
   end
-  expect(page).to have_content "Operation not allow: menu has users"
+  expect(page).to have_content "Operation not allowed: menu has users"
 end
 
-Then(/^I cant edit the reserved table$/) do
+Then(/^I cant modify the reserved table$/) do
   click_on "Tables"
   within(:css, ".table-actions") do
     find(".edit").click
   end
-  expect(page).to have_content "This table has users."
-end
 
-Then(/^I cant delete the reserved table$/) do
-  click_on "Tables"
+  expect(page).to have_content "Operation not allowed: table has users"
+
   within(:css, ".table-actions") do
     find(".delete").click
   end
-  expect(page).to have_content "This table has users."
+  expect(page).to have_content "Operation not allowed: table has users"
+
+end
+
+Then(/^I cannot create a table without menus$/) do
+  click_on "Tables"
+  click_on "New"
+  expect(page).to have_content "Operation not allowed: you need to add menus first"
 end

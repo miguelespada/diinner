@@ -1,5 +1,6 @@
 class TablesController <  BaseRestaurantsController
   load_resource :except => [:index, :new, :create, :calendar], :through => :restaurant
+  before_filter :redirect_if_non_empty, :only => [:edit, :destroy, :update]
 
   def index
     @tables = @restaurant.tables
@@ -12,6 +13,7 @@ class TablesController <  BaseRestaurantsController
   end
 
   def new
+    redirect_to :back, :notice => 'Operation not allowed: you need to add menus first' if !@restaurant.has_menus?
     @table = @restaurant.tables.new
   end
 
@@ -77,5 +79,9 @@ class TablesController <  BaseRestaurantsController
 
   def repeat_until_date
     params[:table][:repeat_until].blank? ? table_date : Date.strptime(params[:table][:repeat_until], "%d/%m/%Y")
+  end
+
+  def redirect_if_non_empty
+    redirect_to :back, :notice => 'Operation not allowed: table has users' if !@table.empty?
   end
 end

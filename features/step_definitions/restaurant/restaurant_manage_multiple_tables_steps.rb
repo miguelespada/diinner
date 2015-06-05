@@ -47,16 +47,8 @@ When(/^I can delete multiple tables at the time$/) do
 end
 
 
-
-
-Then(/^I should see I need to create a menu before i can create a table$/) do
-  click_on "Tables"
-  click_on "New"
-  expect(page).to have_content "You need to create a menu first."
-end
-
 And(/^I have created three menus$/) do
-  step "I create a menu"
+  step "I create a menu 20"
   step "I create a menu 40"
   step "I create a menu 60"
 end

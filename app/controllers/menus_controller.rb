@@ -55,7 +55,7 @@ class MenusController <  BaseRestaurantsController
 
   def redirect_if_non_empty
     if !@menu.empty?
-      redirect_to :back, :notice => 'Operation not allow: menu has users'
+      redirect_to :back, :notice => 'Operation not allowed: menu has users'
     end
   end
 
