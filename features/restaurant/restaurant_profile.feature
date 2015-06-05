@@ -16,7 +16,7 @@ Feature: Restaurant profile
     When I edit my restaurant profile
     Then I should see my restaurant profile updated
 
-  @restaurant_change_password @wip
-  Scenario: I change my password
+  @restaurant_change_password
+  Scenario:
     When I change my restaurant password
     Then I should check my password has changed
