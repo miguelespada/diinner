@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-
   def after_sign_in_path_for(resource)
     # Using metaprogramming to send to class paths
     send("#{resource.model_name.param_key}_path", resource.id)
