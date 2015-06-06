@@ -2,10 +2,10 @@
   = stylesheet_link_tag 'calendar', media: 'all'
 
 div.calendar
-  = render "tables/month_calendar", events: @tables
+  = render "month_calendar", events: @tables
 
 - if !@table.nil?
   == cell(:table, @table).show
 
 - if !@date_tables.nil?
-  = render "tables/date_tables", date_tables: @date_tables
+  = render "date_tables", date_tables: @date_tables

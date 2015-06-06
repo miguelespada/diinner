@@ -1,4 +1,4 @@
-class  ReservationsController < BaseUsersController
+class  Users::ReservationsController < BaseUsersController
   load_resource :id_param => :reservation_id, :through => :user,
                 :only => [:reuse_card, :cancel, :menu, :restaurant]
   load_resource :only => [:update, :destroy, :show], :through => :user

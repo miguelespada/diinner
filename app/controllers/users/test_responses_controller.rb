@@ -1,4 +1,4 @@
-class  TestResponsesController < BaseUsersController
+class  Users::TestResponsesController < BaseUsersController
   load_resource :test, :only => [:create]
 
   def new

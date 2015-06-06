@@ -1,6 +1,4 @@
-class RestaurantsController < BaseRestaurantsController
-  load_resource :user, :only => [:user]
-
+class Restaurants::RestaurantsController < BaseRestaurantsController
   def edit
   end
 
@@ -13,14 +11,6 @@ class RestaurantsController < BaseRestaurantsController
   end
 
   def show
-  end
-
-  def notifications
-    @notifications = @restaurant.notifications.page(params[:page])
-  end
-
-  def user
-    CanCan::AccessDenied.new("Not authorized!") if !@restaurant.is_customer?(@user)
   end
 
   private

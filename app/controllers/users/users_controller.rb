@@ -1,4 +1,4 @@
-class UsersController < BaseUsersController
+class Users::UsersController < BaseUsersController
 
   def login
     render :layout => false
@@ -18,10 +18,6 @@ class UsersController < BaseUsersController
     else
       render :edit
     end
-  end
-
-  def notifications
-    @notifications = @user.notifications.page(params[:page])
   end
 
   private

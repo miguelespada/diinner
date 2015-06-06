@@ -15,21 +15,23 @@ Rails.application.routes.draw do
     get 'restaurants/password/edit' => 'devise/registrations#edit', :as => 'edit_restaurant_registration'
     patch 'restaurants/password/:id' => 'devise/registrations#update', :as => 'restaurant_registration'
   end
+
   devise_for :admins
 
-  scope :restaurant do
-    get ":id/user/:user_id" => "restaurants#user", as: "restaurant_user"
-    get ":id/notifications" => "restaurants#notifications", as: "restaurant_notifications"
-  end
 
-  resources :restaurants, except: [:new, :create] do
-    get "calendar" => "tables#calendar", as: "calendar"
-    resources :tables do
-      delete "batch_delete", on: :collection
-    end
-    resources :menus
-    resources :reservations, only: [:show, :index], controller: "restaurants/reservations" do
-      get "validate", as: "validate"
+  namespace :restaurants, as: nil do
+    resources :restaurants, only: [:index, :edit, :update, :show] do
+      resources :notifications, only: [:index]
+      resources :users, only: [:show]
+
+      resources :tables do
+        get "calendar", on: :collection
+        delete "batch_delete", on: :collection
+      end
+      resources :menus
+      resources :reservations, only: [:show, :index] do
+        get "validate", as: "validate"
+      end
     end
   end
 
@@ -53,23 +55,22 @@ Rails.application.routes.draw do
     resources :payments, only: [:index, :show]
   end
 
-  scope :users do
+  get "/index" => "base_users#users", as: "users"
+  namespace :users, as: nil do
     get "/login" => "users#login", as: "users_login"
-    # TODO use member to be more restful
-    get ":id/notifications" => "users#notifications", as: "user_notifications"
-    get "/index" => "base_users#users", as: "users"
-  end
+    resources :users, except: [:index] do
+      resources :notifications, only: [:index]
 
-  resources :users, except: [:index] do
-    post "test/:test_id" => "test_responses#create", as: "test_response"
-    get "test" => "test_responses#new", as: "test"
-    post "search" => "reservations#search", as: "search_tables"
+      post "test/:test_id" => "test_responses#create", as: "test_response"
+      get "test" => "test_responses#new", as: "test"
+      post "search" => "reservations#search", as: "search_tables"
 
-    resources :reservations do
-      get "restaurant" => "reservations#restaurant", as: "restaurant"
-      get "menu" => "reservations#menu", as: "menu"
-      patch "user_reuse_card" => "reservations#reuse_card", as: "reuse_card"
-      patch "cancel", as: "cancel"
+      resources :reservations do
+        get "restaurant" => "reservations#restaurant", as: "restaurant"
+        get "menu" => "reservations#menu", as: "menu"
+        patch "user_reuse_card" => "reservations#reuse_card", as: "reuse_card"
+        patch "cancel", as: "cancel"
+      end
     end
   end
 

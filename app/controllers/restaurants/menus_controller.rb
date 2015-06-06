@@ -1,4 +1,4 @@
-class MenusController <  BaseRestaurantsController
+class Restaurants::MenusController <  BaseRestaurantsController
   load_resource :except => [:index, :new, :create], :through => :restaurant
   before_filter :redirect_if_non_empty, :only => [:edit, :destroy, :update]
 
