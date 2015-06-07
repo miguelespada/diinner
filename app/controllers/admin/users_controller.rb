@@ -3,7 +3,7 @@ class  Admin::UsersController < AdminController
   load_resource :only => [:show, :edit, :update]
 
   def index
-    @users = User.all
+    @users = User.desc(:created_at).page(params[:page])
   end
 
   def show
