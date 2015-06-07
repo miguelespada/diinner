@@ -12,7 +12,7 @@ class IonicController < ActionController::Base
   end
 
   private
-    def load_user
-      @user = User.desc(:updated_at).first
-    end
+  def load_user
+    @user = User.desc(:updated_at).first
+  end
 end

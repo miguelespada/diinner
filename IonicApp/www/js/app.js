@@ -32,19 +32,11 @@ angular.module('starter', ['ionic'])
       templateUrl: 'templates/user.html',
       controller: 'UserCtrl'
     })
-    .state('notifications', {
-      url: "/notifications",
-      templateUrl: 'templates/notifications.html',
-      controller: 'NotificationsCtrl'
-    })
 })
 
 .controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
   $http.get('http://localhost:3000/ionic/user.json').success(
     function(data){
-      $scope.user = data.user;
+      $scope.user = data;
     });
-}])
-
-
-;
+}]);
