@@ -5,7 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic'])
+
+angular.module('starter', ['ionic', 'ngResource'])
+
+.factory('User', ['$resource', function($resource) {
+  return $resource('http://localhost:3000/ionic/user.json')
+}])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,6 +26,8 @@ angular.module('starter', ['ionic'])
   });
 })
 
+
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('index', {
@@ -34,9 +41,6 @@ angular.module('starter', ['ionic'])
     })
 })
 
-.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
-  $http.get('http://localhost:3000/ionic/user.json').success(
-    function(data){
-      $scope.user = data;
-    });
+.controller('UserCtrl', ['$scope', 'User', function($scope, User) {
+  $scope.user = User.get();
 }]);

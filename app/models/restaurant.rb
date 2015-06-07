@@ -36,6 +36,10 @@ class Restaurant
 
   field :has_changed_password, type: Boolean, default: false
 
+  validates_presence_of :name
+  validates_presence_of :email, on: :create
+  validates_length_of :password, minimum: 8, maximum: 16, on: :create
+
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time

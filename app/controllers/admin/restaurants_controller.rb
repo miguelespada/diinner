@@ -2,7 +2,7 @@ class  Admin::RestaurantsController < AdminController
   load_resource :only => [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.desc(:created_at).page(params[:page])
   end
 
   def new
@@ -16,17 +16,19 @@ class  Admin::RestaurantsController < AdminController
   end
 
   def create
-    @restaurant = Restaurant.create!(restaurant_params)
+    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.save!
     @restaurant.create_activity key: 'restaurant.create', owner: current_admin
     redirect_to admin_restaurants_path, :notice => 'Restaurant was successfully created.'
+  rescue
+    render :new
   end
 
   def update
-    if @restaurant.update(restaurant_params)
-      redirect_to admin_restaurant_path, notice: 'Restaurant was successfully updated.'
-    else
-      render :edit
-    end
+    @restaurant.update!(restaurant_params)
+    redirect_to admin_restaurant_path, notice: 'Restaurant was successfully updated.'
+  rescue
+    render :edit
   end
 
   def destroy
