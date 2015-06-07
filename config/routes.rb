@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
-  get "ionic/users"
+  get "ionic/user"
+  get "ionic/notifications"
 
   scope :auth, as: "auth" do
     get "auth0/callback" => "auth0#callback"
@@ -18,19 +19,19 @@ Rails.application.routes.draw do
 
   devise_for :admins
 
-
   namespace :restaurants, as: nil do
     resources :restaurants, only: [:index, :edit, :update, :show] do
+      get "calendar" => "calendars#show"
+
       resources :notifications, only: [:index]
       resources :users, only: [:show]
+      resources :menus
 
       resources :tables do
-        get "calendar", on: :collection
         delete "batch_delete", on: :collection
       end
-      resources :menus
       resources :reservations, only: [:show, :index] do
-        get "validate", as: "validate"
+        get "validate"
       end
     end
   end
@@ -74,7 +75,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'static_pages#index'
+  root 'application#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

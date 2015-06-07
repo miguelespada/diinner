@@ -1,11 +1,14 @@
 # This controller is for development pourposes
-# TODO add active serializer
-class IonicController < ApplicationController
-  respond_to :json
+
+class IonicController < ActionController::Base
   before_action :load_user
 
-  def users
-    respond_with [@user]
+  def user
+    render json: @user
+  end
+
+  def notifications
+    render json: @user.notifications
   end
 
   private

@@ -21,9 +21,30 @@ angular.module('starter', ['ionic'])
   });
 })
 
+.config(function($stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('index', {
+      url: "",
+      templateUrl: 'templates/links.html'
+    })
+    .state('user', {
+      url: "/user",
+      templateUrl: 'templates/user.html',
+      controller: 'UserCtrl'
+    })
+    .state('notifications', {
+      url: "/notifications",
+      templateUrl: 'templates/notifications.html',
+      controller: 'NotificationsCtrl'
+    })
+})
+
 .controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
-  $http.get('http://localhost:3000/ionic/users.json').success(
+  $http.get('http://localhost:3000/ionic/user.json').success(
     function(data){
-      $scope.users = data;
+      $scope.user = data.user;
     });
-}]);
+}])
+
+
+;

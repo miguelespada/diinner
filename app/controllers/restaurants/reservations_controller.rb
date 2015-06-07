@@ -1,6 +1,5 @@
 class Restaurants::ReservationsController <  BaseRestaurantsController
   load_resource :only => [:show], :through => :restaurant
-  load_resource :reservation, :id_param => :reservation_id, :only => [:validate], :through => :restaurant
 
   def index
     @reservations = @restaurant.reservations
@@ -10,6 +9,7 @@ class Restaurants::ReservationsController <  BaseRestaurantsController
   end
 
   def validate
+    @reservation = @restaurant.reservations.find(params[:reservation_id])
     @reservation.update(ticket_valid: params[:ticket_valid])
     redirect_to :back
   end

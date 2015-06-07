@@ -1,14 +1,8 @@
 class Restaurants::TablesController <  BaseRestaurantsController
-  load_resource :except => [:index, :new, :create, :calendar], :through => :restaurant
+  load_resource :only => [:edit, :destroy, :update, :show], :through => :restaurant
   before_filter :redirect_if_non_empty, :only => [:edit, :destroy, :update]
 
   def index
-    @tables = @restaurant.tables
-  end
-
-  def calendar
-    @table = table_from_param
-    @date_tables = date_tables_from_param
     @tables = @restaurant.tables
   end
 
@@ -24,16 +18,7 @@ class Restaurants::TablesController <  BaseRestaurantsController
   end
 
   def create
-    date = table_date
-    while date <= repeat_until_date
-      table_number.times do
-        @table = @restaurant.tables.new(table_params)
-        @table.date = date
-        @table.save!
-        @table.notify "create"
-      end
-      date = date + 1.week
-    end
+    create_multiple_tables(table_date, repeat_until_date, number_of_repetitions)
     redirect_to restaurant_tables_path(@restaurant), :notice => 'Table(s) was successfully created.'
   end
 
@@ -61,19 +46,11 @@ class Restaurants::TablesController <  BaseRestaurantsController
     params.require(:table).permit(:date, :hour)
   end
 
-  def table_from_param
-    @restaurant.tables.find(params[:table_id]) if params[:table_id].present?
-  end
-
-  def date_tables_from_param
-    @restaurant.tables.where(:date => Date.strptime(params[:date], "%d/%m/%Y")) if params[:date].present?
-  end
-
   def table_date
      Date.strptime(params[:table][:date], "%d/%m/%Y")
   end
 
-  def table_number
+  def number_of_repetitions
     params[:table][:number].to_i
   end
 
@@ -83,5 +60,17 @@ class Restaurants::TablesController <  BaseRestaurantsController
 
   def redirect_if_non_empty
     redirect_to :back, :notice => 'Operation not allowed: table has users' if !@table.empty?
+  end
+
+  def create_multiple_tables from_date, repeat_until, number
+    while from_date <= repeat_until
+      number.times do
+        @table = @restaurant.tables.new(table_params)
+        @table.date = from_date
+        @table.save!
+        @table.notify "create"
+      end
+      from_date += 1.week
+    end
   end
 end
