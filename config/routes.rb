@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   namespace :restaurants, as: nil do
     resources :restaurants, only: [:index, :edit, :update, :show] do
+      resources :payments, only: [:index]
       get "calendar" => "calendars#show"
 
       resources :notifications, only: [:index]
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
       resources :reservations, only: [:show, :index] do
         get "validate"
       end
+
     end
   end
 

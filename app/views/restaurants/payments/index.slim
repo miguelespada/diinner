@@ -1,0 +1,14 @@
+- content_for(:title) do
+  | Payments
+
+- content_for(:thead) do
+  th Date
+  th User
+  th Reservation
+  th Amount
+  th Status
+
+- content_for(:tbody) do
+  == cell(:payment, collection: @payments, method: :restaurant_row)
+
+= render "admin/admin_table"
