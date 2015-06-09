@@ -3,7 +3,8 @@ class PaymentCell < BaseCell
     cell(:reservation, model.reservation)
   end
 
-   def show_link
+  def show_link
+    # TODO can restaurant access via show_link??
     if admin_signed_in?
       @path = admin_payment_path(model)
       render

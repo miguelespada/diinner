@@ -21,7 +21,6 @@ class BaseCell < Cell::ViewModel
     cell(:restaurant, model.restaurant)
   end
 
-
   def method_missing(m, *args, &block)
     render m
   end

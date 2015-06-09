@@ -36,6 +36,7 @@ class TableCell < BaseCell
   end
 
   def reservations_table
+    # TODO protect??
     table "Reservations", \
       %w(Id User Occupied_slots Status Actions), \
       cell(:reservation, collection: model.reservations, method: :table_row)

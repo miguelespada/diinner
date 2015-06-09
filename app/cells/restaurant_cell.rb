@@ -1,12 +1,13 @@
 class RestaurantCell < BaseCell
   include ActionView::Helpers::DateHelper
   include CloudinaryHelper
-  def name
-    model.name
-  end
+
+  property :name
+
   def city
     model.city.name if !model.city.nil?
   end
+
   def delete_link
     if admin_signed_in?
       @path = admin_restaurant_path(model)
@@ -52,6 +53,7 @@ class RestaurantCell < BaseCell
   end
 
   def menus
+    # TODO admin_restaurant_row???
     if admin_signed_in? || model.is_owned_by?(current_restaurant)
       table "Menus", \
           %w(Name Price), \
@@ -60,6 +62,7 @@ class RestaurantCell < BaseCell
   end
 
   def tables
+    # TODO admin_restaurant_row???
     if admin_signed_in? || model.is_owned_by?(current_restaurant)
       table "Tables", \
           %w(Id Day Hour Left Status), \
@@ -68,6 +71,7 @@ class RestaurantCell < BaseCell
   end
 
   def reservations
+    # TODO admin_restaurant_row???
     if admin_signed_in? || model.is_owned_by?(current_restaurant)
       table "Reservations", \
           %w(Id User Menu Status), \
@@ -75,8 +79,6 @@ class RestaurantCell < BaseCell
     end
   end
 
-
-  # TODO maybe move to base
   def cl_photo size
      cl_image_tag(model.photo.path, { size: "#{size}x#{size}", crop: :fill, radius: 2 }) if model.photo.present?
   end
