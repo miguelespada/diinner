@@ -28,8 +28,9 @@ class RestaurantCell < BaseCell
     elsif model.is_owned_by?(current_restaurant)
       @path = restaurant_path(model)
       render
-    else
-      model.name
+    elsif user_signed_in?
+      @path = user_restaurant_path(current_user, model)
+      render
     end
   end
 

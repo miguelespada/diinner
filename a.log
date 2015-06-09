@@ -1,0 +1,1007 @@
+2015-06-08T17:50:26.709894+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/static.rb:84:in `call'
+2015-06-08T17:50:26.709892+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+2015-06-08T17:50:26.709895+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2015-06-08T17:50:26.709901+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2015-06-08T17:50:26.709897+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-cors-0.4.0/lib/rack/cors.rb:80:in `call'
+2015-06-08T17:50:26.709904+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `catch'
+2015-06-08T17:50:26.709906+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:53:in `process'
+2015-06-08T17:50:26.709902+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in `block in pre_process'
+2015-06-08T17:50:26.709939+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run_machine'
+2015-06-08T17:50:26.709940+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run'
+2015-06-08T17:50:26.709900+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/application.rb:144:in `call'
+2015-06-08T17:50:26.709945+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/server.rb:264:in `start'
+2015-06-08T17:50:26.709905+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `pre_process'
+2015-06-08T17:50:26.709944+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/handler/thin.rb:16:in `run'
+2015-06-08T17:50:26.709951+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:76:in `tap'
+2015-06-08T17:50:26.709907+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:39:in `receive_data'
+2015-06-08T17:50:26.709947+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/server.rb:69:in `start'
+2015-06-08T17:50:26.709943+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/server.rb:162:in `start'
+2015-06-08T17:50:26.709941+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in `start'
+2015-06-08T17:50:26.709950+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:81:in `block in server'
+2015-06-08T17:50:26.709952+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:76:in `server'
+2015-06-08T17:50:26.709959+00:00 app[web.1]: 
+2015-06-08T17:50:26.709955+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands.rb:17:in `<top (required)>'
+2015-06-08T17:50:26.709958+00:00 app[web.1]:   bin/rails:8:in `<main>'
+2015-06-08T17:50:26.709954+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+2015-06-08T17:50:26.709960+00:00 app[web.1]: 
+2015-06-08T17:50:26.709956+00:00 app[web.1]:   bin/rails:8:in `require'
+2015-06-08T17:50:29.241094+00:00 app[web.1]: Started GET "/auth/auth0/callback?code=4IBu71YriQzTFlyC&state=mLUXIBqFieFCNiFt" for 188.78.200.252 at 2015-06-08 17:50:29 +0000
+2015-06-08T17:50:29.241626+00:00 app[web.1]: I, [2015-06-08T17:50:29.241541 #3]  INFO -- omniauth: (auth0) Callback phase initiated.
+2015-06-08T17:50:29.780260+00:00 app[web.1]: Processing by Auth0Controller#callback as HTML
+2015-06-08T17:50:29.780274+00:00 app[web.1]:   Parameters: {"code"=>"4IBu71YriQzTFlyC", "state"=>"mLUXIBqFieFCNiFt"}
+2015-06-08T17:50:29.780742+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/index
+2015-06-08T17:50:29.780852+00:00 app[web.1]: Completed 302 Found in 0ms
+2015-06-08T17:50:29.958190+00:00 app[web.1]: Started GET "/index" for 188.78.200.252 at 2015-06-08 17:50:29 +0000
+2015-06-08T17:50:29.779724+00:00 heroku[router]: at=info method=GET path="/auth/auth0/callback?code=4IBu71YriQzTFlyC&state=mLUXIBqFieFCNiFt" host=diinner.herokuapp.com request_id=8fbf6c2d-58b8-4b59-9827-67a3ff95f456 fwd="188.78.200.252" dyno=web.1 connect=1ms service=544ms status=302 bytes=460
+2015-06-08T17:50:29.961208+00:00 app[web.1]: Processing by BaseUsersController#users as HTML
+2015-06-08T17:50:30.032401+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/users/users/553f844e3738330003000000
+2015-06-08T17:50:30.032503+00:00 app[web.1]: Filter chain halted as :redirect rendered or redirected
+2015-06-08T17:50:30.032627+00:00 app[web.1]: Completed 302 Found in 71ms
+2015-06-08T17:50:30.164905+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000" for 188.78.200.252 at 2015-06-08 17:50:30 +0000
+2015-06-08T17:50:30.041709+00:00 heroku[router]: at=info method=GET path="/index" host=diinner.herokuapp.com request_id=e765d44f-8c32-4edc-aaa5-ad4bd9074216 fwd="188.78.200.252" dyno=web.1 connect=1ms service=81ms status=302 bytes=522
+2015-06-08T17:50:30.166589+00:00 app[web.1]: Processing by Users::UsersController#show as HTML
+2015-06-08T17:50:30.166700+00:00 app[web.1]:   Parameters: {"id"=>"553f844e3738330003000000"}
+2015-06-08T17:50:30.389915+00:00 app[web.1]:   Rendered users/users/show.slim within layouts/user (145.4ms)
+2015-06-08T17:50:30.395584+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T17:50:30.749766+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000" host=diinner.herokuapp.com request_id=fff95537-1e97-43b4-bc51-41d3056cb4b3 fwd="188.78.200.252" dyno=web.1 connect=1ms service=581ms status=200 bytes=3583
+2015-06-08T17:50:30.735992+00:00 app[web.1]:   Rendered users/_sidebar.slim (339.3ms)
+2015-06-08T17:50:30.742097+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:50:30.742593+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:50:30.908370+00:00 app[web.1]: Started GET "/fonts/fontello.svg?79448217" for 188.78.200.252 at 2015-06-08 17:50:30 +0000
+2015-06-08T17:50:30.741887+00:00 app[web.1]:   Rendered users/_navbar.slim (4.8ms)
+2015-06-08T17:50:30.742269+00:00 app[web.1]:   Rendered layouts/_container.slim (0.0ms)
+2015-06-08T17:50:30.910162+00:00 app[web.1]: 
+2015-06-08T17:50:30.742869+00:00 app[web.1]: Completed 200 OK in 576ms (Views: 512.1ms)
+2015-06-08T17:50:30.910165+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/fonts/fontello.svg"):
+2015-06-08T17:50:30.910167+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2015-06-08T17:50:30.910170+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/rack/logger.rb:38:in `call_app'
+2015-06-08T17:50:30.910169+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2015-06-08T17:50:30.910174+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+2015-06-08T17:50:30.910172+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/rack/logger.rb:20:in `block in call'
+2015-06-08T17:50:30.910175+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/tagged_logging.rb:26:in `tagged'
+2015-06-08T17:50:30.910177+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/tagged_logging.rb:68:in `tagged'
+2015-06-08T17:50:30.910180+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2015-06-08T17:50:30.910178+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/rack/logger.rb:20:in `call'
+2015-06-08T17:50:30.910181+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+2015-06-08T17:50:30.910183+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+2015-06-08T17:50:30.910184+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+2015-06-08T17:50:30.910187+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2015-06-08T17:50:30.910186+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/static.rb:84:in `call'
+2015-06-08T17:50:30.910188+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-cors-0.4.0/lib/rack/cors.rb:80:in `call'
+2015-06-08T17:50:30.910190+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/engine.rb:514:in `call'
+2015-06-08T17:50:30.910191+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/application.rb:144:in `call'
+2015-06-08T17:50:30.910192+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2015-06-08T17:50:30.910193+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in `block in pre_process'
+2015-06-08T17:50:30.910194+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `catch'
+2015-06-08T17:50:30.910196+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `pre_process'
+2015-06-08T17:50:30.910198+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:39:in `receive_data'
+2015-06-08T17:50:30.910197+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:53:in `process'
+2015-06-08T17:50:30.910199+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run_machine'
+2015-06-08T17:50:30.910203+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run'
+2015-06-08T17:50:30.910204+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in `start'
+2015-06-08T17:50:30.910207+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/handler/thin.rb:16:in `run'
+2015-06-08T17:50:30.910205+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/server.rb:162:in `start'
+2015-06-08T17:50:30.910208+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/server.rb:264:in `start'
+2015-06-08T17:50:30.910209+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/server.rb:69:in `start'
+2015-06-08T17:50:30.910211+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:81:in `block in server'
+2015-06-08T17:50:30.910212+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:76:in `tap'
+2015-06-08T17:50:30.910214+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+2015-06-08T17:50:30.910216+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands.rb:17:in `<top (required)>'
+2015-06-08T17:50:30.910213+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:76:in `server'
+2015-06-08T17:50:30.910220+00:00 app[web.1]: 
+2015-06-08T17:50:30.910217+00:00 app[web.1]:   bin/rails:8:in `require'
+2015-06-08T17:50:30.910219+00:00 app[web.1]:   bin/rails:8:in `<main>'
+2015-06-08T17:50:30.910221+00:00 app[web.1]: 
+2015-06-08T17:50:30.911100+00:00 heroku[router]: at=info method=GET path="/fonts/fontello.svg?79448217" host=diinner.herokuapp.com request_id=d4a817bd-06cc-4b6e-a062-9e0a63dcf8ce fwd="188.78.200.252" dyno=web.1 connect=1ms service=4ms status=404 bytes=1772
+2015-06-08T17:50:36.347111+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000/reservations/new" for 188.78.200.252 at 2015-06-08 17:50:36 +0000
+2015-06-08T17:50:36.578054+00:00 app[web.1]:   Rendered users/reservations/_company_fields.slim (13.8ms)
+2015-06-08T17:50:36.580235+00:00 app[web.1]:   Rendered layouts/_head.slim (1.1ms)
+2015-06-08T17:50:36.351000+00:00 app[web.1]: Processing by Users::ReservationsController#new as HTML
+2015-06-08T17:50:36.351038+00:00 app[web.1]:   Parameters: {"user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:50:36.563585+00:00 app[web.1]:   Rendered users/reservations/_company_fields.slim (18.6ms)
+2015-06-08T17:50:36.578898+00:00 app[web.1]:   Rendered users/reservations/new.slim within layouts/user (71.8ms)
+2015-06-08T17:50:36.894881+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000/reservations/new" host=diinner.herokuapp.com request_id=ffd43079-a267-4875-9c0b-7c5e456728b1 fwd="188.78.200.252" dyno=web.1 connect=2ms service=548ms status=200 bytes=5762
+2015-06-08T17:50:36.888899+00:00 app[web.1]:   Rendered users/_sidebar.slim (308.3ms)
+2015-06-08T17:50:36.890053+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:50:36.890758+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.3ms)
+2015-06-08T17:50:36.889781+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:50:36.890316+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:50:36.891335+00:00 app[web.1]: Completed 200 OK in 540ms (Views: 394.0ms)
+2015-06-08T17:50:37.080348+00:00 heroku[router]: at=info method=GET path="/assets/bootstrap/glyphicons-halflings-regular-e88ed3ff660b39de62652ed99f351552.woff" host=diinner.herokuapp.com request_id=a7b54e63-92c1-4552-bb1b-e9bc24c93970 fwd="188.78.200.252" dyno=web.1 connect=0ms service=21ms status=200 bytes=23596
+2015-06-08T17:50:43.689421+00:00 app[web.1]: Started POST "/users/users/553f844e3738330003000000/search" for 188.78.200.252 at 2015-06-08 17:50:43 +0000
+2015-06-08T17:50:43.691580+00:00 app[web.1]: Processing by Users::ReservationsController#search as HTML
+2015-06-08T17:50:43.691644+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"HVOxskpmdbkTtiL/3E+EoiH7kOm1bZE08AdjVZMIIng=", "reservation"=>{"date"=>"08/06/2015", "price"=>"20", "city"=>"556356be3938300003000000", "companies_attributes"=>{"0"=>{"gender"=>"", "age"=>""}, "1"=>{"gender"=>"", "age"=>""}}}, "commit"=>"Search tables", "user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:50:43.946824+00:00 app[web.1]:   Rendered layouts/_map.slim (1.0ms)
+2015-06-08T17:50:43.946893+00:00 app[web.1]:   Rendered users/reservations/search.slim within layouts/user (175.0ms)
+2015-06-08T17:50:43.948085+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T17:50:44.285918+00:00 app[web.1]:   Rendered users/_navbar.slim (0.5ms)
+2015-06-08T17:50:44.286880+00:00 app[web.1]: Completed 200 OK in 595ms (Views: 516.4ms)
+2015-06-08T17:50:44.286097+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:50:44.285154+00:00 app[web.1]:   Rendered users/_sidebar.slim (336.8ms)
+2015-06-08T17:50:44.286598+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:50:44.286270+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:50:44.288731+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/search" host=diinner.herokuapp.com request_id=0e7f9591-b9a8-4887-b729-a81f81846676 fwd="188.78.200.252" dyno=web.1 connect=1ms service=607ms status=200 bytes=5083
+2015-06-08T17:50:44.607358+00:00 heroku[router]: at=info method=GET path="/assets/map-4369ade7d01df073721fd135e4293078.css" host=diinner.herokuapp.com request_id=4bf60e74-7839-4a28-8e75-279fca8eb1f0 fwd="188.78.200.252" dyno=web.1 connect=0ms service=14ms status=200 bytes=267
+2015-06-08T17:50:44.661537+00:00 heroku[router]: at=info method=GET path="/assets/map-3c4b8aa0b7a462b6a08f29e1d7da6282.js" host=diinner.herokuapp.com request_id=6153bb6f-fe8b-43b8-845f-dba4d21d8bd5 fwd="188.78.200.252" dyno=web.1 connect=1ms service=10ms status=200 bytes=2055
+2015-06-08T17:51:17.136569+00:00 app[web.1]: Started POST "/users/users/553f844e3738330003000000/search" for 188.78.200.252 at 2015-06-08 17:51:17 +0000
+2015-06-08T17:51:17.138350+00:00 app[web.1]: Processing by Users::ReservationsController#search as HTML
+2015-06-08T17:51:17.138390+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"HVOxskpmdbkTtiL/3E+EoiH7kOm1bZE08AdjVZMIIng=", "reservation"=>{"date"=>"08/06/2015", "price"=>"20", "city"=>"556356be3938300003000000", "companies_attributes"=>{"0"=>{"gender"=>"", "age"=>""}, "1"=>{"gender"=>"", "age"=>""}}}, "commit"=>"Search tables", "user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:51:17.347619+00:00 app[web.1]:   Rendered layouts/_map.slim (0.8ms)
+2015-06-08T17:51:17.347760+00:00 app[web.1]:   Rendered users/reservations/search.slim within layouts/user (124.7ms)
+2015-06-08T17:51:17.348758+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T17:51:17.759724+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/search" host=diinner.herokuapp.com request_id=f9fa12a0-3e68-4bea-8c45-eebcc1f8c3a8 fwd="188.78.200.252" dyno=web.1 connect=1ms service=634ms status=200 bytes=5083
+2015-06-08T17:51:17.753162+00:00 app[web.1]:   Rendered users/_sidebar.slim (404.1ms)
+2015-06-08T17:51:17.754249+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:51:17.754837+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.3ms)
+2015-06-08T17:51:17.753969+00:00 app[web.1]:   Rendered users/_navbar.slim (0.5ms)
+2015-06-08T17:51:17.755128+00:00 app[web.1]: Completed 200 OK in 617ms (Views: 532.5ms)
+2015-06-08T17:51:17.754431+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:51:45.344728+00:00 app[web.1]: Started POST "/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d61565633800030b0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" for 188.78.200.252 at 2015-06-08 17:51:45 +0000
+2015-06-08T17:51:45.462272+00:00 app[web.1]:   Rendered layouts/_head.slim (0.6ms)
+2015-06-08T17:51:45.347247+00:00 app[web.1]: Processing by Users::ReservationsController#create as HTML
+2015-06-08T17:51:45.347382+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"HVOxskpmdbkTtiL/3E+EoiH7kOm1bZE08AdjVZMIIng=", "reservation"=>{"_id"=>"5575d61565633800030b0000", "cancelled"=>"false", "charge_id"=>"", "created_at"=>"", "date"=>"08/06/2015", "paid"=>"false", "payment_error"=>"false", "price"=>"20", "table_id"=>"5575d5866563380003070000", "ticket_valid"=>"false", "updated_at"=>"", "user_id"=>"553f844e3738330003000000"}, "user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:51:45.461384+00:00 app[web.1]:   Rendered users/reservations/credit_card_form.slim within layouts/user (9.1ms)
+2015-06-08T17:51:45.802966+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d61565633800030b0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" host=diinner.herokuapp.com request_id=2db20a87-a954-4aad-82a9-237c34685a85 fwd="188.78.200.252" dyno=web.1 connect=1ms service=459ms status=200 bytes=3918
+2015-06-08T17:51:45.797908+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:51:45.796861+00:00 app[web.1]:   Rendered users/_sidebar.slim (334.3ms)
+2015-06-08T17:51:45.798084+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:51:45.798413+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:51:45.797729+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:51:45.798690+00:00 app[web.1]: Completed 200 OK in 451ms (Views: 348.0ms)
+2015-06-08T17:51:46.212065+00:00 heroku[router]: at=info method=GET path="/assets/stripe-36b5ed93f0f23b5fbb31fc14ad81acab.js" host=diinner.herokuapp.com request_id=2ba1327e-391f-4b29-a22f-b844f9229e5f fwd="188.78.200.252" dyno=web.1 connect=1ms service=18ms status=200 bytes=916
+2015-06-08T17:52:19.593597+00:00 app[web.1]: Started PATCH "/users/users/553f844e3738330003000000/reservations/5575d63165633800030c0000" for 188.78.200.252 at 2015-06-08 17:52:19 +0000
+2015-06-08T17:52:19.595866+00:00 app[web.1]: Processing by Users::ReservationsController#update as HTML
+2015-06-08T17:52:19.595898+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"HVOxskpmdbkTtiL/3E+EoiH7kOm1bZE08AdjVZMIIng=", "stripe_card_token"=>"", "terms_and_conditions"=>"1", "user_id"=>"553f844e3738330003000000", "id"=>"5575d63165633800030c0000"}
+2015-06-08T17:52:19.680161+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/users/users/553f844e3738330003000000/reservations
+2015-06-08T17:52:19.680262+00:00 app[web.1]: Completed 302 Found in 84ms
+2015-06-08T17:52:19.684623+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/reservations/5575d63165633800030c0000" host=diinner.herokuapp.com request_id=01ead37e-6e06-46da-a7b3-b70c8656e51e fwd="188.78.200.252" dyno=web.1 connect=1ms service=92ms status=302 bytes=730
+2015-06-08T17:52:19.944216+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000/reservations" for 188.78.200.252 at 2015-06-08 17:52:19 +0000
+2015-06-08T17:52:19.945699+00:00 app[web.1]: Processing by Users::ReservationsController#index as HTML
+2015-06-08T17:52:19.945719+00:00 app[web.1]:   Parameters: {"user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:52:20.243917+00:00 app[web.1]:   Rendered users/reservations/index.slim within layouts/user (204.3ms)
+2015-06-08T17:52:20.245302+00:00 app[web.1]:   Rendered layouts/_head.slim (1.1ms)
+2015-06-08T17:52:20.558026+00:00 app[web.1]:   Rendered users/_navbar.slim (0.5ms)
+2015-06-08T17:52:20.558951+00:00 app[web.1]: Completed 200 OK in 613ms (Views: 539.8ms)
+2015-06-08T17:52:20.557201+00:00 app[web.1]:   Rendered users/_sidebar.slim (311.6ms)
+2015-06-08T17:52:20.558198+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:52:20.558368+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:52:20.558684+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:52:20.563298+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000/reservations" host=diinner.herokuapp.com request_id=2f5b5c56-5d81-49ed-83e3-5429b755cc2f fwd="188.78.200.252" dyno=web.1 connect=3ms service=619ms status=200 bytes=5468
+2015-06-08T17:52:20.871316+00:00 heroku[router]: at=info method=GET path="/assets/calendar-802c1202561727c53f7229fabfa8ea88.css" host=diinner.herokuapp.com request_id=e7e581e0-bf42-4e71-b428-3bd6006f6fca fwd="188.78.200.252" dyno=web.1 connect=1ms service=4ms status=200 bytes=3103
+2015-06-08T17:53:10.655099+00:00 app[web.1]: Processing by Users::ReservationsController#create as HTML
+2015-06-08T17:53:10.741362+00:00 app[web.1]:   Rendered users/reservations/credit_card_form.slim within layouts/user (2.1ms)
+2015-06-08T17:53:10.655146+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"HVOxskpmdbkTtiL/3E+EoiH7kOm1bZE08AdjVZMIIng=", "reservation"=>{"_id"=>"5575d61565633800030b0000", "cancelled"=>"false", "charge_id"=>"", "created_at"=>"", "date"=>"08/06/2015", "paid"=>"false", "payment_error"=>"false", "price"=>"20", "table_id"=>"5575d5866563380003070000", "ticket_valid"=>"false", "updated_at"=>"", "user_id"=>"553f844e3738330003000000"}, "user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:53:10.653055+00:00 app[web.1]: Started POST "/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d61565633800030b0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" for 188.78.200.252 at 2015-06-08 17:53:10 +0000
+2015-06-08T17:53:10.742121+00:00 app[web.1]:   Rendered layouts/_head.slim (0.6ms)
+2015-06-08T17:53:11.070792+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d61565633800030b0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" host=diinner.herokuapp.com request_id=8da7e593-e576-453e-b30d-eb38c1de3762 fwd="188.78.200.252" dyno=web.1 connect=2ms service=419ms status=200 bytes=3918
+2015-06-08T17:53:11.046336+00:00 app[web.1]:   Rendered users/_sidebar.slim (303.9ms)
+2015-06-08T17:53:11.055993+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (8.4ms)
+2015-06-08T17:53:11.056924+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.3ms)
+2015-06-08T17:53:11.047193+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:53:11.056288+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:53:11.057379+00:00 app[web.1]: Completed 200 OK in 402ms (Views: 318.5ms)
+2015-06-08T17:53:11.438416+00:00 heroku[router]: at=info method=GET path="/assets/application-9be39493d57747d6892e7dfd2e3e1e77.css" host=diinner.herokuapp.com request_id=6832ae6d-357f-4a2b-8a63-cae5f4065c90 fwd="188.78.200.252" dyno=web.1 connect=1ms service=5ms status=304 bytes=76
+2015-06-08T17:53:11.462833+00:00 heroku[router]: at=info method=GET path="/assets/stripe-36b5ed93f0f23b5fbb31fc14ad81acab.js" host=diinner.herokuapp.com request_id=da4b5a53-fef7-48af-acb0-d19120ae7bf1 fwd="188.78.200.252" dyno=web.1 connect=2ms service=3ms status=304 bytes=76
+2015-06-08T17:53:11.421123+00:00 heroku[router]: at=info method=GET path="/assets/application-5b7413c5c79d1a74e463163fd67500ce.js" host=diinner.herokuapp.com request_id=69a90e52-0b8b-4a6d-83d8-d88c38ae719c fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=304 bytes=76
+2015-06-08T17:53:11.569951+00:00 heroku[router]: at=info method=GET path="/assets/brand-12e9716fdc162160e462c508a5e5528d.svg" host=diinner.herokuapp.com request_id=0ac1bf6b-851e-4b7d-9f17-d8242adb2dc5 fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=304 bytes=76
+2015-06-08T17:53:24.999304+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/reservations/5575d68665633800030d0000" host=diinner.herokuapp.com request_id=9eeeb770-db8d-44be-a8dd-1fa6cc2d4374 fwd="188.78.200.252" dyno=web.1 connect=0ms service=77ms status=302 bytes=730
+2015-06-08T17:53:24.921994+00:00 app[web.1]: Started PATCH "/users/users/553f844e3738330003000000/reservations/5575d68665633800030d0000" for 188.78.200.252 at 2015-06-08 17:53:24 +0000
+2015-06-08T17:53:25.114650+00:00 app[web.1]: Processing by Users::ReservationsController#index as HTML
+2015-06-08T17:53:25.114657+00:00 app[web.1]:   Parameters: {"user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:53:24.923803+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"HVOxskpmdbkTtiL/3E+EoiH7kOm1bZE08AdjVZMIIng=", "stripe_card_token"=>"", "terms_and_conditions"=>"1", "user_id"=>"553f844e3738330003000000", "id"=>"5575d68665633800030d0000"}
+2015-06-08T17:53:24.923721+00:00 app[web.1]: Processing by Users::ReservationsController#update as HTML
+2015-06-08T17:53:24.993380+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/users/users/553f844e3738330003000000/reservations
+2015-06-08T17:53:24.993460+00:00 app[web.1]: Completed 302 Found in 70ms
+2015-06-08T17:53:25.113355+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000/reservations" for 188.78.200.252 at 2015-06-08 17:53:25 +0000
+2015-06-08T17:53:25.448544+00:00 app[web.1]:   Rendered users/reservations/index.slim within layouts/user (270.2ms)
+2015-06-08T17:53:25.449802+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T17:53:25.755538+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000/reservations" host=diinner.herokuapp.com request_id=0b2e707b-0f92-4a4d-b9e0-55fa6914f2d4 fwd="188.78.200.252" dyno=web.1 connect=0ms service=644ms status=200 bytes=5468
+2015-06-08T17:53:25.752180+00:00 app[web.1]:   Rendered users/_sidebar.s
+lim (302.1ms)
+2015-06-08T17:53:25.753161+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:53:25.753809+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.3ms)
+2015-06-08T17:53:25.753354+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:53:25.752978+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:53:25.754108+00:00 app[web.1]: Completed 200 OK in 639ms (Views: 576.3ms)
+2015-06-08T17:55:34.524877+00:00 heroku[router]: at=info method=GET path="/restaurants/sign_out" host=diinner.herokuapp.com request_id=537b9179-2ddc-43be-ac6a-1508650cbe13 fwd="188.78.200.252" dyno=web.1 connect=1ms service=82ms status=302 bytes=526
+2015-06-08T17:55:34.442019+00:00 app[web.1]: Started GET "/restaurants/sign_out" for 188.78.200.252 at 2015-06-08 17:55:34 +0000
+2015-06-08T17:55:34.518980+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/
+2015-06-08T17:55:34.519098+00:00 app[web.1]: Completed 302 Found in 75ms
+2015-06-08T17:55:34.444444+00:00 app[web.1]: Processing by Devise::SessionsController#destroy as HTML
+2015-06-08T17:55:34.761893+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=123557bc-2ea6-44e7-8d28-751653d745fc fwd="188.78.200.252" dyno=web.1 connect=1ms service=15ms status=200 bytes=3165
+2015-06-08T17:55:34.746032+00:00 app[web.1]: Processing by ApplicationController#index as HTML
+2015-06-08T17:55:34.749805+00:00 app[web.1]:   Rendered application/_footer.slim (1.3ms)
+2015-06-08T17:55:34.751754+00:00 app[web.1]: Completed 200 OK in 6ms (Views: 5.5ms)
+2015-06-08T17:55:34.749883+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (3.2ms)
+2015-06-08T17:55:34.751241+00:00 app[web.1]:   Rendered layouts/_head.slim (1.2ms)
+2015-06-08T17:55:34.744533+00:00 app[web.1]: Started GET "/" for 188.78.200.252 at 2015-06-08 17:55:34 +0000
+2015-06-08T17:55:34.747892+00:00 app[web.1]:   Rendered application/_navbar.slim (1.0ms)
+2015-06-08T17:55:34.751571+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:55:40.133407+00:00 heroku[router]: at=info method=GET path="/admins/sign_in" host=diinner.herokuapp.com request_id=fcbed95f-a458-45e6-b05d-1c9ba916a04f fwd="188.78.200.252" dyno=web.1 connect=1ms service=24ms status=200 bytes=2879
+2015-06-08T17:55:40.105247+00:00 app[web.1]: Started GET "/admins/sign_in" for 188.78.200.252 at 2015-06-08 17:55:40 +0000
+2015-06-08T17:55:40.123993+00:00 app[web.1]:   Rendered devise/shared/_links.html.erb (0.5ms)
+2015-06-08T17:55:40.125120+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T17:55:40.125602+00:00 app[web.1]: Completed 200 OK in 19ms (Views: 16.8ms)
+2015-06-08T17:55:40.106742+00:00 app[web.1]: Processing by Devise::SessionsController#new as HTML
+2015-06-08T17:55:40.124174+00:00 app[web.1]:   Rendered devise/sessions/new.slim within layouts/application (14.7ms)
+2015-06-08T17:55:40.125391+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:55:42.302148+00:00 app[web.1]: Started POST "/admins/sign_in" for 188.78.200.252 at 2015-06-08 17:55:42 +0000
+2015-06-08T17:55:42.303605+00:00 app[web.1]: Processing by Devise::SessionsController#create as HTML
+2015-06-08T17:55:42.303612+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"gJSOEeKTTyPomXDMJdhQUADeOviEm7ci0aJVLr2oC+c=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+2015-06-08T17:55:42.407941+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/admin.552824733631310003000000
+2015-06-08T17:55:42.408026+00:00 app[web.1]: Completed 302 Found in 104ms
+2015-06-08T17:55:42.420542+00:00 heroku[router]: at=info method=POST path="/admins/sign_in" host=diinner.herokuapp.com request_id=c8aa58eb-5249-465a-8869-c0e0c02acbaa fwd="188.78.200.252" dyno=web.1 connect=2ms service=120ms status=302 bytes=768
+2015-06-08T17:55:42.698850+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/admin/logs
+2015-06-08T17:55:42.694493+00:00 app[web.1]: Started GET "/admin.552824733631310003000000" for 188.78.200.252 at 2015-06-08 17:55:42 +0000
+2015-06-08T17:55:42.698887+00:00 app[web.1]: Completed 302 Found in 3ms
+2015-06-08T17:55:42.695924+00:00 app[web.1]: Processing by AdminController#index as 
+2015-06-08T17:55:42.705473+00:00 heroku[router]: at=info method=GET path="/admin.552824733631310003000000" host=diinner.herokuapp.com request_id=0391579d-b683-4fd9-bd62-9a9dbe165986 fwd="188.78.200.252" dyno=web.1 connect=1ms service=11ms status=302 bytes=470
+2015-06-08T17:55:42.988192+00:00 app[web.1]: Started GET "/admin/logs" for 188.78.200.252 at 2015-06-08 17:55:42 +0000
+2015-06-08T17:55:43.087595+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (8.6ms)
+2015-06-08T17:55:43.013264+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (14.7ms)
+2015-06-08T17:55:43.121644+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.1ms)
+2015-06-08T17:55:43.027156+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (4.1ms)
+2015-06-08T17:55:43.049612+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.3ms)
+2015-06-08T17:55:43.106550+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.2ms)
+2015-06-08T17:55:43.136749+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.4ms)
+2015-06-08T17:55:43.069826+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.3ms)
+2015-06-08T17:55:43.152902+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.2ms)
+2015-06-08T17:55:43.185155+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.1ms)
+2015-06-08T17:55:43.185268+00:00 app[web.1]:   Rendered admin/logs.slim within layouts/admin (187.1ms)
+2015-06-08T17:55:43.168503+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.5ms)
+2015-06-08T17:55:43.217620+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (5.6ms)
+2015-06-08T17:55:43.197896+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.4ms)
+2015-06-08T17:55:42.989380+00:00 app[web.1]: Processing by AdminController#logs as HTML
+2015-06-08T17:55:43.022712+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (8.9ms)
+2015-06-08T17:55:43.038840+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.3ms)
+2015-06-08T17:55:43.060146+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.2ms)
+2015-06-08T17:55:43.078758+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (8.6ms)
+2015-06-08T17:55:43.096936+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.0ms)
+2015-06-08T17:55:43.128859+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (6.9ms)
+2015-06-08T17:55:43.114166+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (7.2ms)
+2015-06-08T17:55:43.207214+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (8.7ms)
+2015-06-08T17:55:43.145256+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (8.1ms)
+2015-06-08T17:55:43.175751+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (6.9ms)
+2015-06-08T17:55:43.229640+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.1ms)
+2015-06-08T17:55:43.160628+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.3ms)
+2015-06-08T17:55:43.240565+00:00 app[web.1]:   Rendered admin/_logs.slim (55.0ms)
+2015-06-08T17:55:43.243759+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.8ms)
+2015-06-08T17:55:43.245390+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T17:55:43.239917+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.7ms)
+2015-06-08T17:55:43.344148+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:55:43.242837+00:00 app[web.1]:   Rendered admin/_navbar.slim (1.9ms)
+2015-06-08T17:55:43.244861+00:00 app[web.1]:   Rendered layouts/_head.slim (0.9ms)
+2015-06-08T17:55:43.343883+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.3ms)
+2015-06-08T17:55:43.344502+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:55:43.344558+00:00 app[web.1]:   Rendered layouts/_app.slim (100.7ms)
+2015-06-08T17:55:43.344842+00:00 app[web.1]: Completed 200 OK in 355ms (Views: 347.0ms)
+2015-06-08T17:55:43.348927+00:00 heroku[router]: at=info method=GET path="/admin/logs" host=diinner.herokuapp.com request_id=6b2a977d-ee98-4431-a46f-580e6e271e21 fwd="188.78.200.252" dyno=web.1 connect=2ms service=361ms status=200 bytes=12783
+2015-06-08T17:55:48.649953+00:00 app[web.1]: Started GET "/admin/restaurants/5575d4b86563380003000000" for 188.78.200.252 at 2015-06-08 17:55:48 +0000
+2015-06-08T17:55:48.753197+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (8.8ms)
+2015-06-08T17:55:48.775111+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (15.1ms)
+2015-06-08T17:55:48.788524+00:00 app[web.1]:   Rendered admin/_logs.slim (58.7ms)
+2015-06-08T17:55:48.793677+00:00 app[web.1]:   Rendered admin/_sidebar.slim (2.4ms)
+2015-06-08T17:55:48.797752+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:55:48.797298+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.6ms)
+2015-06-08T17:55:48.798544+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.6ms)
+2015-06-08T17:55:48.798580+00:00 app[web.1]:   Rendered layouts/_app.slim (4.6ms)
+2015-06-08T17:55:48.799075+00:00 app[web.1]: Completed 200 OK in 147ms (Views: 124.1ms)
+2015-06-08T17:55:48.651985+00:00 app[web.1]: Processing by Admin::RestaurantsController#show as HTML
+2015-06-08T17:55:48.652034+00:00 app[web.1]:   Parameters: {"id"=>"5575d4b86563380003000000"}
+2015-06-08T17:55:48.729560+00:00 app[web.1]:   Rendered layouts/_map.slim (0.9ms)
+2015-06-08T17:55:48.729640+00:00 app[web.1]:   Rendered admin/restaurants/show.slim within layouts/admin (54.4ms)
+2015-06-08T17:55:48.743752+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.7ms)
+2015-06-08T17:55:48.759029+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (5.1ms)
+2015-06-08T17:55:48.787867+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.5ms)
+2015-06-08T17:55:48.791125+00:00 app[web.1]:   Rendered admin/_navbar.slim (2.2ms)
+2015-06-08T17:55:48.797588+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:55:48.796621+00:00 app[web.1]:   Rendered layouts/_head.slim (2.4ms)
+2015-06-08T17:55:48.804868+00:00 heroku[router]: at=info method=GET path="/admin/restaurants/5575d4b86563380003000000" host=diinner.herokuapp.com request_id=8213eb72-2d09-47ce-a5a6-9a4cfecadf72 fwd="188.78.200.252" dyno=web.1 connect=1ms service=155ms status=200 bytes=9071
+2015-06-08T17:55:52.212655+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.5ms)
+2015-06-08T17:55:52.157370+00:00 app[web.1]: Started GET "/admin/tables/5575d5866563380003070000" for 188.78.200.252 at 2015-06-08 17:55:52 +0000
+2015-06-08T17:55:52.250838+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.5ms)
+2015-06-08T17:55:52.253761+00:00 app[web.1]:   Rendered admin/_navbar.slim (2.0ms)
+2015-06-08T17:55:52.256866+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:55:52.226720+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (4.7ms)
+2015-06-08T17:55:52.256130+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T17:55:52.257033+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:55:52.257306+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:55:52.257359+00:00 app[web.1]:   Rendered layouts/_app.slim (2.3ms)
+2015-06-08T17:55:52.257653+00:00 app[web.1]: Completed 200 OK in 96ms (Views: 85.6ms)
+2015-06-08T17:55:52.161021+00:00 app[web.1]: Processing by Admin::TablesController#show as HTML
+2015-06-08T17:55:52.161050+00:00 app[web.1]:   Parameters: {"id"=>"5575d5866563380003070000"}
+2015-06-08T17:55:52.221385+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (8.1ms)
+2015-06-08T17:55:52.239632+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (12.3ms)
+2015-06-08T17:55:52.198597+00:00 app[web.1]:   Rendered admin/tables/show.slim within layouts/admin (13.7ms)
+2015-06-08T17:55:52.251487+00:00 app[web.1]:   Rendered admin/_logs.slim (52.6ms)
+2015-06-08T17:55:52.254902+00:00 app[web.1]:   Rendered admin/_sidebar.slim (1.0ms)
+2015-06-08T17:55:52.256703+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T17:55:52.261752+00:00 heroku[router]: at=info method=GET path="/admin/tables/5575d5866563380003070000" host=diinner.herokuapp.com request_id=e9c7782b-6e58-458b-8642-c6be2b00f89a fwd="188.78.200.252" dyno=web.1 connect=1ms service=104ms status=200 bytes=7509
+2015-06-08T17:55:56.803285+00:00 app[web.1]: Started GET "/admin/users" for 188.78.200.252 at 2015-06-08 17:55:56 +0000
+2015-06-08T17:55:56.845569+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.2ms)
+2015-06-08T17:55:56.831895+00:00 app[web.1]:   Rendered admin/users/index.slim within layouts/admin (16.5ms)
+2015-06-08T17:55:56.875920+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (8.7ms)
+2015-06-08T17:55:56.831793+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.2ms)
+2015-06-08T17:55:56.857522+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (3.9ms)
+2015-06-08T17:55:56.878420+00:00 app[web.1]:   Rendered admin/_navbar.slim (1.7ms)
+2015-06-08T17:55:56.880368+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T17:55:56.881039+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:55:56.881203+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:55:56.881766+00:00 app[web.1]: Completed 200 OK in 75ms (Views: 67.9ms)
+2015-06-08T17:55:56.881463+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:55:56.881512+00:00 app[web.1]:   Rendered layouts/_app.slim (2.1ms)
+2015-06-08T17:55:56.806586+00:00 app[web.1]: Processing by Admin::UsersController#index as HTML
+2015-06-08T17:55:56.853135+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (7.0ms)
+2015-06-08T17:55:56.866665+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (8.7ms)
+2015-06-08T17:55:56.876459+00:00 app[web.1]:   Rendered admin/_logs.slim (44.4ms)
+2015-06-08T17:55:56.880873+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T17:55:56.879364+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.8ms)
+2015-06-08T17:55:56.890235+00:00 heroku[router]: at=info method=GET path="/admin/users" host=diinner.herokuapp.com request_id=3b097706-6d07-4e39-8d8d-9e5f9c46e6bc fwd="188.78.200.252" dyno=web.1 connect=1ms service=85ms status=200 bytes=8520
+2015-06-08T17:55:58.068247+00:00 app[web.1]: Processing by Admin::UsersController#show as HTML
+2015-06-08T17:55:58.068273+00:00 app[web.1]:   Parameters: {"id"=>"554291fc3862380003020000"}
+2015-06-08T17:55:58.108775+00:00 app[web.1]:   Rendered admin/users/show.slim within layouts/admin (27.8ms)
+2015-06-08T17:55:58.129315+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (6.8ms)
+2015-06-08T17:55:58.254146+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (12.3ms)
+2015-06-08T17:55:58.270510+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.8ms)
+2015-06-08T17:55:58.266592+00:00 app[web.1]:   Rendered admin/_logs.slim (157.6ms)
+2015-06-08T17:55:58.272757+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:55:58.272370+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.5ms)
+2015-06-08T17:55:58.133716+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (3.9ms)
+2015-06-08T17:55:58.066403+00:00 app[web.1]: Started GET "/admin/users/554291fc3862380003020000" for 188.78.200.252 at 2015-06-08 17:55:58 +0000
+2015-06-08T17:55:58.266086+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.1ms)
+2015-06-08T17:55:58.269494+00:00 app[web.1]:   Rendered admin/_navbar.slim (2.6ms)
+2015-06-08T17:55:58.121964+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.0ms)
+2015-06-08T17:55:58.271722+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T17:55:58.273101+00:00 app[web.1]:   Rendered layouts/_app.slim (2.5ms)
+2015-06-08T17:55:58.273365+00:00 app[web.1]: Completed 200 OK in 205ms (Views: 193.9ms)
+2015-06-08T17:55:58.273045+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:55:58.272568+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:55:58.275871+00:00 heroku[router]: at=info method=GET path="/admin/users/554291fc3862380003020000" host=diinner.herokuapp.com request_id=eb4a3668-8385-416f-98a9-e4a7f03f9e73 fwd="188.78.200.252" dyno=web.1 connect=1ms service=210ms status=200 bytes=7381
+2015-06-08T17:56:07.719397+00:00 app[web.1]: Started GET "/admin/logs" for 188.78.200.252 at 2015-06-08 17:56:07 +0000
+2015-06-08T17:56:07.853624+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (16.3ms)
+2015-06-08T17:56:07.765921+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (28.6ms)
+2015-06-08T17:56:07.785658+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (6.3ms)
+2015-06-08T17:56:07.915159+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.4ms)
+2015-06-08T17:56:07.818930+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.3ms)
+2015-06-08T17:56:07.890136+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.1ms)
+2015-06-08T17:56:07.930569+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.0ms)
+2015-06-08T17:56:07.947770+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (8.9ms)
+2015-06-08T17:56:07.964936+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.2ms)
+2015-06-08T17:56:07.723178+00:00 app[web.1]: Processing by AdminController#logs as HTML
+2015-06-08T17:56:07.836837+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (17.4ms)
+2015-06-08T17:56:07.878271+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (24.0ms)
+2015-06-08T17:56:07.778890+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (12.1ms)
+2015-06-08T17:56:07.806891+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (20.8ms)
+2015-06-08T17:56:07.923163+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (7.5ms)
+2015-06-08T17:56:07.957377+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (8.3ms)
+2015-06-08T17:56:07.903939+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (13.4ms)
+2015-06-08T17:56:07.938389+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.5ms)
+2015-06-08T17:56:07.972257+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (6.9ms)
+2015-06-08T17:56:07.980238+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.6ms)
+2015-06-08T17:56:08.007283+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (18.6ms)
+2015-06-08T17:56:08.024951+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (13.7ms)
+2015-06-08T17:56:08.040943+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (5.9ms)
+2015-06-08T17:56:08.068632+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.1ms)
+2015-06-08T17:56:08.071335+00:00 app[web.1]:   Rendered admin/_navbar.slim (1.8ms)
+2015-06-08T17:56:08.073329+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T17:56:08.074183+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:56:07.988134+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.4ms)
+2015-06-08T17:56:08.010075+00:00 app[web.1]:   Rendered admin/logs.slim within layouts/admin (270.7ms)
+2015-06-08T17:56:08.034366+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (8.8ms)
+2015-06-08T17:56:08.072248+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.8ms)
+2015-06-08T17:56:08.056726+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (15.0ms)
+2015-06-08T17:56:08.069202+00:00 app[web.1]:   Rendered admin/_logs.slim (61.4ms)
+2015-06-08T17:56:08.074000+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.5ms)
+2015-06-08T17:56:08.074361+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-0
+6-08T17:56:08.074633+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:56:08.074693+00:00 app[web.1]:   Rendered layouts/_app.slim (2.3ms)
+2015-06-08T17:56:08.074995+00:00 app[web.1]: Completed 200 OK in 349ms (Views: 338.9ms)
+2015-06-08T17:56:08.081495+00:00 heroku[router]: at=info method=GET path="/admin/logs" host=diinner.herokuapp.com request_id=ddc9e955-9358-400b-897c-ed5002a7a1c6 fwd="188.78.200.252" dyno=web.1 connect=1ms service=364ms status=200 bytes=12760
+2015-06-08T17:56:17.476337+00:00 app[web.1]: Started GET "/admin/restaurants/5542b4b43763320003000000" for 188.78.200.252 at 2015-06-08 17:56:17 +0000
+2015-06-08T17:56:17.581039+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (7.1ms)
+2015-06-08T17:56:17.607076+00:00 app[web.1]:   Rendered admin/_logs.slim (45.5ms)
+2015-06-08T17:56:17.595509+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.3ms)
+2015-06-08T17:56:17.726575+00:00 app[web.1]:   Rendered admin/_sidebar.slim (116.7ms)
+2015-06-08T17:56:17.478209+00:00 app[web.1]: Processing by Admin::RestaurantsController#show as HTML
+2015-06-08T17:56:17.478235+00:00 app[web.1]:   Parameters: {"id"=>"5542b4b43763320003000000"}
+2015-06-08T17:56:17.561347+00:00 app[web.1]:   Rendered layouts/_map.slim (0.8ms)
+2015-06-08T17:56:17.561401+00:00 app[web.1]:   Rendered admin/restaurants/show.slim within layouts/admin (72.3ms)
+2015-06-08T17:56:17.573404+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.1ms)
+2015-06-08T17:56:17.585616+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (4.1ms)
+2015-06-08T17:56:17.606513+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.3ms)
+2015-06-08T17:56:17.609497+00:00 app[web.1]:   Rendered admin/_navbar.slim (2.2ms)
+2015-06-08T17:56:17.728401+00:00 app[web.1]:   Rendered layouts/_head.slim (1.4ms)
+2015-06-08T17:56:17.729005+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T17:56:17.729432+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:56:17.729901+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:56:17.729963+00:00 app[web.1]:   Rendered layouts/_app.slim (3.1ms)
+2015-06-08T17:56:17.730227+00:00 app[web.1]: Completed 200 OK in 252ms (Views: 241.5ms)
+2015-06-08T17:56:17.729178+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:56:17.734726+00:00 heroku[router]: at=info method=GET path="/admin/restaurants/5542b4b43763320003000000" host=diinner.herokuapp.com request_id=e4f75635-5984-4a91-9634-d2457d7937ba fwd="188.78.200.252" dyno=web.1 connect=1ms service=258ms status=200 bytes=11594
+2015-06-08T17:56:27.798526+00:00 app[web.1]: Started GET "/admin/menus/55755a316330340003020000" for 188.78.200.252 at 2015-06-08 17:56:27 +0000
+2015-06-08T17:56:27.858881+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.8ms)
+2015-06-08T17:56:27.872755+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (5.0ms)
+2015-06-08T17:56:27.894320+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (9.7ms)
+2015-06-08T17:56:27.897104+00:00 app[web.1]:   Rendered admin/_navbar.slim (2.0ms)
+2015-06-08T17:56:27.899739+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:56:27.899023+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T17:56:27.899903+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:56:27.900217+00:00 app[web.1]:   Rendered layouts/_app.slim (2.1ms)
+2015-06-08T17:56:27.900158+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:56:27.900467+00:00 app[web.1]: Completed 200 OK in 98ms (Views: 88.9ms)
+2015-06-08T17:56:27.802188+00:00 app[web.1]:   Parameters: {"id"=>"55755a316330340003020000"}
+2015-06-08T17:56:27.802179+00:00 app[web.1]: Processing by Admin::MenusController#show as HTML
+2015-06-08T17:56:27.845892+00:00 app[web.1]:   Rendered admin/menus/show.slim within layouts/admin (21.6ms)
+2015-06-08T17:56:27.867145+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (7.6ms)
+2015-06-08T17:56:27.883978+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.6ms)
+2015-06-08T17:56:27.894861+00:00 app[web.1]:   Rendered admin/_logs.slim (48.6ms)
+2015-06-08T17:56:27.898005+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.7ms)
+2015-06-08T17:56:27.899573+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T17:56:27.903415+00:00 heroku[router]: at=info method=GET path="/admin/menus/55755a316330340003020000" host=diinner.herokuapp.com request_id=91ff4198-46ec-4aed-88db-2612c8e6d3bc fwd="188.78.200.252" dyno=web.1 connect=1ms service=107ms status=200 bytes=6566
+2015-06-08T17:56:36.658436+00:00 app[web.1]: Started GET "/admin/restaurants" for 188.78.200.252 at 2015-06-08 17:56:36 +0000
+2015-06-08T17:56:36.683510+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.2ms)
+2015-06-08T17:56:36.683631+00:00 app[web.1]:   Rendered admin/restaurants/index.slim within layouts/admin (14.7ms)
+2015-06-08T17:56:36.697761+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.5ms)
+2015-06-08T17:56:36.710444+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (4.2ms)
+2015-06-08T17:56:36.731980+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.0ms)
+2015-06-08T17:56:36.734649+00:00 app[web.1]:   Rendered admin/_navbar.slim (1.8ms)
+2015-06-08T17:56:36.736651+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T17:56:36.737343+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:56:36.737782+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:56:36.737839+00:00 app[web.1]:   Rendered layouts/_app.slim (2.1ms)
+2015-06-08T17:56:36.737516+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:56:36.738104+00:00 app[web.1]: Completed 200 OK in 78ms (Views: 69.7ms)
+2015-06-08T17:56:36.705684+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (7.3ms)
+2015-06-08T17:56:36.660448+00:00 app[web.1]: Processing by Admin::RestaurantsController#index as HTML
+2015-06-08T17:56:36.732527+00:00 app[web.1]:   Rendered admin/_logs.slim (48.7ms)
+2015-06-08T17:56:36.737173+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T17:56:36.721359+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.4ms)
+2015-06-08T17:56:36.735635+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.8ms)
+2015-06-08T17:56:36.741882+00:00 heroku[router]: at=info method=GET path="/admin/restaurants" host=diinner.herokuapp.com request_id=22741cc1-4b28-4d61-95cd-763f6ad9c71c fwd="188.78.200.252" dyno=web.1 connect=1ms service=83ms status=200 bytes=9859
+2015-06-08T17:57:02.366312+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (9.1ms)
+2015-06-08T17:57:02.194777+00:00 app[web.1]: Started GET "/admin/search?query=miguel" for 188.78.200.252 at 2015-06-08 17:57:02 +0000
+2015-06-08T17:57:02.336379+00:00 app[web.1]:   Rendered admin/search.slim within layouts/admin (122.4ms)
+2015-06-08T17:57:02.383805+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.8ms)
+2015-06-08T17:57:02.395909+00:00 app[web.1]:   Rendered admin/_logs.slim (59.3ms)
+2015-06-08T17:57:02.398887+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.7ms)
+2015-06-08T17:57:02.400595+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.5ms)
+2015-06-08T17:57:02.197011+00:00 app[web.1]: Processing by AdminController#search as HTML
+2015-06-08T17:57:02.197043+00:00 app[web.1]:   Parameters: {"query"=>"miguel"}
+2015-06-08T17:57:02.356500+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (14.1ms)
+2015-06-08T17:57:02.336089+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.3ms)
+2015-06-08T17:57:02.372395+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (5.4ms)
+2015-06-08T17:57:02.395276+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.8ms)
+2015-06-08T17:57:02.397984+00:00 app[web.1]:   Rendered admin/_navbar.slim (1.8ms)
+2015-06-08T17:57:02.400770+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:57:02.399972+00:00 app[web.1]:   Rendered layouts/_head.slim (0.9ms)
+2015-06-08T17:57:02.400935+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:57:02.401188+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:57:02.401524+00:00 app[web.1]: Completed 200 OK in 204ms (Views: 200.3ms)
+2015-06-08T17:57:02.401246+00:00 app[web.1]:   Rendered layouts/_app.slim (2.3ms)
+2015-06-08T17:57:02.406422+00:00 heroku[router]: at=info method=GET path="/admin/search?query=miguel" host=diinner.herokuapp.com request_id=6ba2c86f-6da3-4ad8-8eb2-d392bdc094f5 fwd="188.78.200.252" dyno=web.1 connect=1ms service=212ms status=200 bytes=6392
+2015-06-08T17:58:23.305544+00:00 heroku[router]: at=info method=GET path="/admins/sign_out" host=diinner.herokuapp.com request_id=23ed7705-1dc1-4ed1-95ec-21b186e8c942 fwd="188.78.200.252" dyno=web.1 connect=5ms service=13ms status=302 bytes=526
+2015-06-08T17:58:23.294297+00:00 app[web.1]: Processing by Devise::SessionsController#destroy as HTML
+2015-06-08T17:58:23.529565+00:00 app[web.1]: Processing by ApplicationController#index as HTML
+2015-06-08T17:58:23.540914+00:00 app[web.1]:   Rendered application/_footer.slim (1.8ms)
+2015-06-08T17:58:23.540978+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (10.8ms)
+2015-06-08T17:58:23.542600+00:00 app[web.1]:   Rendered layouts/_head.slim (1.2ms)
+2015-06-08T17:58:23.543342+00:00 app[web.1]: Completed 200 OK in 13ms (Views: 13.1ms)
+2015-06-08T17:58:23.542681+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T17:58:23.291904+00:00 app[web.1]: Started GET "/admins/sign_out" for 188.78.200.252 at 2015-06-08 17:58:23 +0000
+2015-06-08T17:58:23.300457+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/
+2015-06-08T17:58:23.300540+00:00 app[web.1]: Completed 302 Found in 6ms
+2015-06-08T17:58:23.528065+00:00 app[web.1]: Started GET "/" for 188.78.200.252 at 2015-06-08 17:58:23 +0000
+2015-06-08T17:58:23.531155+00:00 app[web.1]:   Rendered application/_navbar.slim (0.8ms)
+2015-06-08T17:58:23.544587+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=78598c74-f807-4d1d-a313-cd44ab558d4f fwd="188.78.200.252" dyno=web.1 connect=1ms service=19ms status=200 bytes=3165
+2015-06-08T17:58:26.162128+00:00 heroku[router]: at=info method=GET path="/users/login" host=diinner.herokuapp.com request_id=15c79465-8dbd-448b-94fe-f2c130cf15bb fwd="188.78.200.252" dyno=web.1 connect=1ms service=24ms status=304 bytes=338
+2015-06-08T17:58:26.148713+00:00 app[web.1]: Started GET "/users/login" for 188.78.200.252 at 2015-06-08 17:58:26 +0000
+2015-06-08T17:58:26.158308+00:00 app[web.1]:   Rendered users/users/login.slim (0.4ms)
+2015-06-08T17:58:26.158592+00:00 app[web.1]: Completed 200 OK in 8ms (Views: 1.0ms)
+2015-06-08T17:58:26.150044+00:00 app[web.1]: Processing by Users::UsersController#login as HTML
+2015-06-08T17:58:27.988512+00:00 app[web.1]: Started GET "/favicon.ico" for 188.78.200.252 at 2015-06-08 17:58:27 +0000
+2015-06-08T17:58:27.990585+00:00 app[web.1]: 
+2015-06-08T17:58:27.990588+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+2015-06-08T17:58:27.990591+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2015-06-08T17:58:27.990593+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2015-06-08T17:58:27.990594+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/rack/logger.rb:38:in `call_app'
+2015-06-08T17:58:27.990596+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/rack/logger.rb:20:in `block in call'
+2015-06-08T17:58:27.990599+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/tagged_logging.rb:26:in `tagged'
+2015-06-08T17:58:27.990604+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2015-06-08T17:58:27.990607+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+2015-06-08T17:58:27.990610+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/static.rb:84:in `call'
+2015-06-08T17:58:27.990597+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+2015-06-08T17:58:27.990608+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+2015-06-08T17:58:27.990623+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2015-06-08T17:58:27.990629+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:53:in `process'
+2015-06-08T17:58:27.990601+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.9/lib/active_support/tagged_logging.rb:68:in `tagged'
+2015-06-08T17:58:27.990602+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/rack/logger.rb:20:in `call'
+2015-06-08T17:58:27.990605+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+2015-06-08T17:58:27.990613+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-cors-0.4.0/lib/rack/cors.rb:80:in `call'
+2015-06-08T17:58:27.990628+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `pre_process'
+2015-06-08T17:58:27.990611+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2015-06-08T17:58:27.990614+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/engine.rb:514:in `call'
+2015-06-08T17:58:27.990632+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run_machine'
+2015-06-08T17:58:27.990641+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:81:in `block in server'
+2015-06-08T17:58:27.990627+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `catch'
+2015-06-08T17:58:27.990635+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/server.rb:162:in `start'
+2015-06-08T17:58:27.990637+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/handler/thin.rb:16:in `run'
+2015-06-08T17:58:27.990645+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+2015-06-08T17:58:27.990649+00:00 app[web.1]:   bin/rails:8:in `<main>'
+2015-06-08T17:58:27.990639+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/server.rb:69:in `start'
+2015-06-08T17:58:27.990644+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:76:in `server'
+2015-06-08T17:58:27.990615+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/application.rb:144:in `call'
+2015-06-08T17:58:27.990625+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in `block in pre_process'
+2015-06-08T17:58:27.990630+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection
+.rb:39:in `receive_data'
+2015-06-08T17:58:27.990638+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/server.rb:264:in `start'
+2015-06-08T17:58:27.990642+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands/commands_tasks.rb:76:in `tap'
+2015-06-08T17:58:27.990633+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run'
+2015-06-08T17:58:27.990646+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.1.9/lib/rails/commands.rb:17:in `<top (required)>'
+2015-06-08T17:58:27.990648+00:00 app[web.1]:   bin/rails:8:in `require'
+2015-06-08T17:58:27.990651+00:00 app[web.1]: 
+2015-06-08T17:58:27.990634+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in `start'
+2015-06-08T17:58:27.990652+00:00 app[web.1]: 
+2015-06-08T17:58:27.995274+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=diinner.herokuapp.com request_id=0698effd-81d4-4b5a-a828-aeeb341baac0 fwd="188.78.200.252" dyno=web.1 connect=1ms service=7ms status=404 bytes=1772
+2015-06-08T17:58:31.244997+00:00 app[web.1]: Started GET "/auth/auth0/callback?code=ysdXZEEpJpJr6V0n&state=mJbhCzHKwGETLzRO" for 188.78.200.252 at 2015-06-08 17:58:31 +0000
+2015-06-08T17:58:31.245638+00:00 app[web.1]: I, [2015-06-08T17:58:31.245534 #3]  INFO -- omniauth: (auth0) Callback phase initiated.
+2015-06-08T17:58:31.638835+00:00 heroku[router]: at=info method=GET path="/auth/auth0/callback?code=ysdXZEEpJpJr6V0n&state=mJbhCzHKwGETLzRO" host=diinner.herokuapp.com request_id=b879d46d-c955-4d7f-add6-b1ba5e5be06b fwd="188.78.200.252" dyno=web.1 connect=2ms service=393ms status=302 bytes=460
+2015-06-08T17:58:31.630552+00:00 app[web.1]: Processing by Auth0Controller#callback as HTML
+2015-06-08T17:58:31.630963+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/index
+2015-06-08T17:58:31.630569+00:00 app[web.1]:   Parameters: {"code"=>"ysdXZEEpJpJr6V0n", "state"=>"mJbhCzHKwGETLzRO"}
+2015-06-08T17:58:31.631058+00:00 app[web.1]: Completed 302 Found in 0ms
+2015-06-08T17:58:31.950110+00:00 app[web.1]: Processing by BaseUsersController#users as HTML
+2015-06-08T17:58:32.027127+00:00 heroku[router]: at=info method=GET path="/index" host=diinner.herokuapp.com request_id=a6005efa-0592-4875-bdab-ebe05391d5d7 fwd="188.78.200.252" dyno=web.1 connect=1ms service=76ms status=302 bytes=522
+2015-06-08T17:58:32.021585+00:00 app[web.1]: Completed 302 Found in 71ms
+2015-06-08T17:58:31.948784+00:00 app[web.1]: Started GET "/index" for 188.78.200.252 at 2015-06-08 17:58:31 +0000
+2015-06-08T17:58:32.021318+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/users/users/553f844e3738330003000000
+2015-06-08T17:58:32.021416+00:00 app[web.1]: Filter chain halted as :redirect rendered or redirected
+2015-06-08T17:58:32.231811+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000" for 188.78.200.252 at 2015-06-08 17:58:32 +0000
+2015-06-08T17:58:32.235137+00:00 app[web.1]: Processing by Users::UsersController#show as HTML
+2015-06-08T17:58:32.235146+00:00 app[web.1]:   Parameters: {"id"=>"553f844e3738330003000000"}
+2015-06-08T17:58:32.481290+00:00 app[web.1]:   Rendered users/users/show.slim within layouts/user (159.1ms)
+2015-06-08T17:58:32.482631+00:00 app[web.1]:   Rendered layouts/_head.slim (0.9ms)
+2015-06-08T17:58:32.895333+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000" host=diinner.herokuapp.com request_id=cc7fa9b8-4376-44bd-a372-67814d79a3a5 fwd="188.78.200.252" dyno=web.1 connect=2ms service=663ms status=200 bytes=3583
+2015-06-08T17:58:32.889889+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.5ms)
+2015-06-08T17:58:32.890692+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:58:32.888448+00:00 app[web.1]:   Rendered users/_sidebar.slim (405.6ms)
+2015-06-08T17:58:32.889235+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:58:32.890210+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:58:32.891094+00:00 app[web.1]: Completed 200 OK in 656ms (Views: 569.8ms)
+2015-06-08T17:58:36.854835+00:00 app[web.1]: Processing by Users::ReservationsController#new as HTML
+2015-06-08T17:58:36.854856+00:00 app[web.1]:   Parameters: {"user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:58:36.957822+00:00 app[web.1]:   Rendered users/reservations/_company_fields.slim (9.2ms)
+2015-06-08T17:58:36.852824+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000/reservations/new" for 188.78.200.252 at 2015-06-08 17:58:36 +0000
+2015-06-08T17:58:36.968357+00:00 app[web.1]:   Rendered users/reservations/new.slim within layouts/user (39.2ms)
+2015-06-08T17:58:36.967739+00:00 app[web.1]:   Rendered users/reservations/_company_fields.slim (9.6ms)
+2015-06-08T17:58:36.969355+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T17:58:37.280580+00:00 app[web.1]:   Rendered users/_sidebar.slim (310.9ms)
+2015-06-08T17:58:37.281770+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:58:37.281591+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:58:37.282076+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:58:37.282345+00:00 app[web.1]: Completed 200 OK in 427ms (Views: 353.6ms)
+2015-06-08T17:58:37.281413+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:58:37.292208+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000/reservations/new" host=diinner.herokuapp.com request_id=6920ef48-f42a-4a51-9af7-ad851379062e fwd="188.78.200.252" dyno=web.1 connect=1ms service=437ms status=200 bytes=5762
+2015-06-08T17:58:43.792743+00:00 app[web.1]: Started POST "/users/users/553f844e3738330003000000/search" for 188.78.200.252 at 2015-06-08 17:58:43 +0000
+2015-06-08T17:58:43.795109+00:00 app[web.1]: Processing by Users::ReservationsController#search as HTML
+2015-06-08T17:58:43.795251+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"jMx/CZYRrTp3J2ad8js/F05k8y8jjgE2JcClDuRqjeA=", "reservation"=>{"date"=>"08/06/2015", "price"=>"20", "city"=>"556356be3938300003000000", "companies_attributes"=>{"0"=>{"gender"=>"", "age"=>""}, "1"=>{"gender"=>"", "age"=>""}}}, "commit"=>"Search tables", "user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:58:44.018499+00:00 app[web.1]:   Rendered users/reservations/search.slim within layouts/user (126.1ms)
+2015-06-08T17:58:44.018436+00:00 app[web.1]:   Rendered layouts/_map.slim (0.8ms)
+2015-06-08T17:58:44.019396+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T17:58:44.341439+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:58:44.340498+00:00 app[web.1]:   Rendered users/_sidebar.slim (320.8ms)
+2015-06-08T17:58:44.342042+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:58:44.342377+00:00 app[web.1]: Completed 200 OK in 547ms (Views: 450.5ms)
+2015-06-08T17:58:44.347266+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/search" host=diinner.herokuapp.com request_id=6457f15f-46f0-4cf4-8600-c0b25ba40b67 fwd="188.78.200.252" dyno=web.1 connect=2ms service=561ms status=200 bytes=5083
+2015-06-08T17:58:44.341253+00:00 app[web.1]:   Rendered users/_navbar.slim (0.5ms)
+2015-06-08T17:58:44.341684+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:58:46.715550+00:00 app[web.1]: Started POST "/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d7d365633800030f0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" for 188.78.200.252 at 2015-06-08 17:58:46 +0000
+2015-06-08T17:58:46.717494+00:00 app[web.1]: Processing by Users::ReservationsController#create as HTML
+2015-06-08T17:58:46.717539+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"jMx/CZYRrTp3J2ad8js/F05k8y8jjgE2JcClDuRqjeA=", "reservation"=>{"_id"=>"5575d7d365633800030f0000", "cancelled"=>"false", "charge_id"=>"", "created_at"=>"", "date"=>"08/06/2015", "paid"=>"false", "payment_error"=>"false", "price"=>"20", "table_id"=>"5575d5866563380003070000", "ticket_valid"=>"false", "updated_at"=>"", "user_id"=>"553f844e3738330003000000"}, "user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:58:51.793523+00:00 app[web.1]:   Rendered users/reservations/credit_card_form.slim within layouts/user (1.8ms)
+2015-06-08T17:58:51.794292+00:00 app[web.1]:   Rendered layouts/_head.slim (0.6ms)
+2015-06-08T17:58:52.107193+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d7d365633800030f0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" host=diinner.herokuapp.com request_id=54b70049-3423-4a3b-96a2-69f0857fae2c fwd="188.78.200.252" dyno=web.1 connect=1ms service=5392ms status=200 bytes=3918
+2015-06-08T17:58:52.101046+00:00 app[web.1]:   Rendered users/_sidebar.slim (306.4ms)
+2015-06-08T17:58:52.102010+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:58:52.102163+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:58:52.102458+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:58:52.101786+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:58:52.102699+00:00 app[web.1]: Completed 200 OK in 5385ms (Views: 311.5ms)
+2015-06-08T17:58:52.515981+00:00 heroku[router]: at=info method=GET path="/assets/stripe-36b5ed93f0f23b5fbb31fc14ad81acab.js" host=diinner.herokuapp.com request_id=24448125-1b8d-4dea-ab48-3f1669e7e129 fwd="188.78.200.252" dyno=web.1 connect=1ms service=5ms status=200 bytes=916
+2015-06-08T17:59:36.833223+00:00 app[web.1]: Started POST "/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d7d365633800030f0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" for 188.78.200.252 at 2015-06-08 17:59:36 +0000
+2015-06-08T17:59:36.923998+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T17:59:36.835590+00:00 app[web.1]: Processing by Users::ReservationsController#create as HTML
+2015-06-08T17:59:36.835638+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"jMx/CZYRrTp3J2ad8js/F05k8y8jjgE2JcClDuRqjeA=", "reservation"=>{"_id"=>"5575d7d365633800030f0000", "cancelled"=>"false", "charge_id"=>"", "created_at"=>"", "date"=>"08/06/2015", "paid"=>"false", "payment_error"=>"false", "price"=>"20", "table_id"=>"5575d5866563380003070000", "ticket_valid"=>"false", "updated_at"=>"", "user_id"=>"553f844e3738330003000000"}, "user_id"=>"553f844e3738330003000000"}
+2015-06-08T17:59:36.922797+00:00 app[web.1]:   Rendered users/reservations/credit_card_form.slim within layouts/user (2.1ms)
+2015-06-08T17:59:37.372702+00:00 app[web.1]:   Rendered users/_sidebar.slim (448.4ms)
+2015-06-08T17:59:37.373772+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T17:59:37.374318+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T17:59:37.373563+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T17:59:37.373979+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T17:59:37.374625+00:00 app[web.1]: Completed 200 OK in 539ms (Views: 454.5ms)
+2015-06-08T17:59:37.385515+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/reservations?reservation%5B_id%5D=5575d7d365633800030f0000&reservation%5Bcancelled%5D=false&reservation%5Bcharge_id%5D=&reservation%5Bcreated_at%5D=&reservation%5Bdate%5D=08%2F06%2F2015&reservation%5Bpaid%5D=false&reservation%5Bpayment_error%5D=false&reservation%5Bprice%5D=20&reservation%5Btable_id%5D=5575d5866563380003070000&reservation%5Bticket_valid%5D=false&reservation%5Bupdated_at%5D=&reservation%5Buser_id%5D=553f844e3738330003000000" host=diinner.herokuapp.com request_id=940b18e6-4ab5-4195-8890-b56e22227ed9 fwd="188.78.200.252" dyno=web.1 connect=1ms service=551ms status=200 bytes=3918
+2015-06-08T17:59:38.798355+00:00 heroku[router]: at=info method=GET path="/assets/application-5b7413c5c79d1a74e463163fd67500ce.js" host=diinner.herokuapp.com request_id=66353f85-919e-4b50-97d2-af21546782e1 fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=304 bytes=76
+2015-06-08T17:59:38.783662+00:00 heroku[router]: at=info method=GET path="/assets/application-9be39493d57747d6892e7dfd2e3e1e77.css" host=diinner.herokuapp.com request_id=c569f431-7876-485e-9fab-a8b8c3d7c8e3 fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=304 bytes=76
+2015-06-08T17:59:38.812357+00:00 heroku[router]: at=info method=GET path="/assets/brand-12e9716fdc162160e462c508a5e5528d.svg" host=diinner.herokuapp.com request_id=78ed6995-59b1-4e29-b3dc-d8d88cb6cc26 fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=304 bytes=76
+2015-06-08T17:59:40.446851+00:00 heroku[router]: at=info method=GET path="/assets/stripe-36b5ed93f0f23b5fbb31fc14ad81acab.js" host=diinner.herokuapp.com request_id=a97f80bc-0470-4c58-b425-f8dac83cb187 fwd="188.78.200.252" dyno=web.1 connect=0ms service=1ms status=304 bytes=76
+2015-06-08T17:59:40.478531+00:00 heroku[router]: at=info method=GET path="/assets/ProximaNova-Regular-c1458d2093a670b8f1fd0b24311e8da9.woff" host=diinner.herokuapp.com request_id=b4c93034-bb2e-4fa9-b3a5-987a9bb52bc9 fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=304 bytes=76
+2015-06-08T17:59:41.958006+00:00 heroku[router]: at=info method=GET path="/assets/ProximaNova-Semibold-76a302dd0540ab48908fca965b12c8e7.woff" host=diinner.herokuapp.com request_id=4e53e845-2ce1-46c9-a184-07c07c648e74 fwd="188.78.200.252" dyno=web.1 connect=0ms service=2ms status=304 bytes=76
+2015-06-08T17:59:45.041187+00:00 heroku[router]: at=info method=GET path="/assets/favicon-ca9eca25acad5fd7cec32b50420fb1e6.ico" host=diinner.herokuapp.com request_id=946350a2-020c-4798-98d7-d5e00feea804 fwd="188.78.200.252" dyno=web.1 connect=1ms service=70ms status=200 bytes=32213
+2015-06-08T17:59:59.040949+00:00 heroku[router]: at=info method=POST path="/users/users/553f844e3738330003000000/reservations/5575d8086563380003110000" host=diinner.herokuapp.com request_id=ec2b6d68-2413-4a87-9792-ca8e05167631 fwd="188.78.200.252" dyno=web.1 connect=0ms service=86ms status=302 bytes=730
+2015-06-08T17:59:58.955469+00:00 app[web.1]: Started PATCH "/users/users/553f844e3738330003000000/reservations/5575d8086563380003110000" for 188.78.200.252 at 2015-06-08 17:59:58 +0000
+2015-06-08T17:59:58.957478+00:00 app[web.1]: Processing by Users::ReservationsController#update as HTML
+2015-06-08T17:59:58.957536+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"jMx/CZYRrTp3J2ad8js/F05k8y8jjgE2JcClDuRqjeA=", "stripe_card_token"=>"", "terms_and_conditions"=>"1", "user_id"=>"553f844e3738330003000000", "id"=>"5575d8086563380003110000"}
+2015-06-08T17:59:59.
+035297+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/users/users/553f844e3738330003000000/reservations
+2015-06-08T17:59:59.035378+00:00 app[web.1]: Completed 302 Found in 78ms
+2015-06-08T18:00:00.650331+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000/reservations" for 188.78.200.252 at 2015-06-08 18:00:00 +0000
+2015-06-08T18:00:00.651809+00:00 app[web.1]:   Parameters: {"user_id"=>"553f844e3738330003000000"}
+2015-06-08T18:00:00.651802+00:00 app[web.1]: Processing by Users::ReservationsController#index as HTML
+2015-06-08T18:00:01.058280+00:00 app[web.1]:   Rendered users/reservations/index.slim within layouts/user (335.5ms)
+2015-06-08T18:00:01.059352+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:00:01.366383+00:00 app[web.1]:   Rendered users/_navbar.slim (0.5ms)
+2015-06-08T18:00:01.367332+00:00 app[web.1]: Completed 200 OK in 715ms (Views: 645.3ms)
+2015-06-08T18:00:01.365636+00:00 app[web.1]:   Rendered users/_sidebar.slim (306.0ms)
+2015-06-08T18:00:01.366555+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:00:01.366722+00:00 app[web.1]:   Rendered layouts/_container.slim (0.0ms)
+2015-06-08T18:00:01.367037+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:00:01.370187+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000/reservations" host=diinner.herokuapp.com request_id=a6c567fe-3d1d-475b-aa87-02e5fe547da8 fwd="188.78.200.252" dyno=web.1 connect=1ms service=721ms status=200 bytes=5424
+2015-06-08T18:00:02.897733+00:00 heroku[router]: at=info method=GET path="/assets/ProximaNova-Thin-e448edb509dd44422b9f42f72265ba30.woff" host=diinner.herokuapp.com request_id=4947b178-52aa-4a4a-a626-480ac26df472 fwd="188.78.200.252" dyno=web.1 connect=8ms service=3ms status=304 bytes=76
+2015-06-08T18:00:07.314864+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000/reservations/5575d7db6563380003100000" for 188.78.200.252 at 2015-06-08 18:00:07 +0000
+2015-06-08T18:00:07.316842+00:00 app[web.1]: Processing by Users::ReservationsController#show as HTML
+2015-06-08T18:00:07.316886+00:00 app[web.1]:   Parameters: {"user_id"=>"553f844e3738330003000000", "id"=>"5575d7db6563380003100000"}
+2015-06-08T18:00:07.668531+00:00 app[web.1]:   Rendered users/reservations/show.slim within layouts/user (264.2ms)
+2015-06-08T18:00:07.669768+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T18:00:08.078691+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000/reservations/5575d7db6563380003100000" host=diinner.herokuapp.com request_id=fb139e7f-30fc-4575-8ac9-32afff85b0cb fwd="188.78.200.252" dyno=web.1 connect=1ms service=764ms status=200 bytes=3119
+2015-06-08T18:00:08.073839+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:00:08.072891+00:00 app[web.1]:   Rendered users/_sidebar.slim (402.9ms)
+2015-06-08T18:00:08.074317+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:00:08.074020+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:00:08.073663+00:00 app[web.1]:   Rendered users/_navbar.slim (0.6ms)
+2015-06-08T18:00:08.074567+00:00 app[web.1]: Completed 200 OK in 758ms (Views: 684.3ms)
+2015-06-08T18:00:20.132463+00:00 app[web.1]: Started GET "/users/users/553f844e3738330003000000/reservations/5575d7db6563380003100000/restaurant" for 188.78.200.252 at 2015-06-08 18:00:20 +0000
+2015-06-08T18:00:20.134543+00:00 app[web.1]:   Parameters: {"user_id"=>"553f844e3738330003000000", "reservation_id"=>"5575d7db6563380003100000"}
+2015-06-08T18:00:20.242482+00:00 app[web.1]:   Rendered users/reservations/restaurant.slim within layouts/user (28.6ms)
+2015-06-08T18:00:20.243608+00:00 app[web.1]:   Rendered layouts/_head.slim (0.9ms)
+2015-06-08T18:00:20.134516+00:00 app[web.1]: Processing by Users::ReservationsController#restaurant as HTML
+2015-06-08T18:00:20.242419+00:00 app[web.1]:   Rendered layouts/_map.slim (0.8ms)
+2015-06-08T18:00:20.554168+00:00 heroku[router]: at=info method=GET path="/users/users/553f844e3738330003000000/reservations/5575d7db6563380003100000/restaurant" host=diinner.herokuapp.com request_id=2c928ca7-fbbe-40af-9db2-cf6a8d87fafa fwd="188.78.200.252" dyno=web.1 connect=31ms service=425ms status=200 bytes=4144
+2015-06-08T18:00:20.553114+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:00:20.552934+00:00 app[web.1]:   Rendered users/_navbar.slim (0.5ms)
+2015-06-08T18:00:20.553611+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:00:20.553305+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:00:20.553899+00:00 app[web.1]: Completed 200 OK in 419ms (Views: 341.5ms)
+2015-06-08T18:00:20.552170+00:00 app[web.1]:   Rendered users/_sidebar.slim (308.3ms)
+2015-06-08T18:00:30.412801+00:00 app[web.1]: Processing by ApplicationController#index as HTML
+2015-06-08T18:00:30.416520+00:00 app[web.1]:   Rendered application/_footer.slim (1.3ms)
+2015-06-08T18:00:30.416589+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (3.1ms)
+2015-06-08T18:00:30.418101+00:00 app[web.1]:   Rendered layouts/_head.slim (1.3ms)
+2015-06-08T18:00:30.418545+00:00 app[web.1]: Completed 200 OK in 6ms (Views: 5.5ms)
+2015-06-08T18:00:30.418384+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:00:30.410991+00:00 app[web.1]: Started GET "/" for 188.78.200.252 at 2015-06-08 18:00:30 +0000
+2015-06-08T18:00:30.414632+00:00 app[web.1]:   Rendered application/_navbar.slim (0.9ms)
+2015-06-08T18:00:30.423001+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=17df0983-e04b-47f1-af5c-b2e83be4c54f fwd="188.78.200.252" dyno=web.1 connect=1ms service=11ms status=304 bytes=338
+2015-06-08T18:00:46.981524+00:00 heroku[router]: at=info method=GET path="/restaurants/sign_in" host=diinner.herokuapp.com request_id=ba442d74-58a4-42ee-b0b8-2aa6bdf879af fwd="188.78.200.252" dyno=web.1 connect=4ms service=24ms status=200 bytes=2899
+2015-06-08T18:00:46.956232+00:00 app[web.1]: Started GET "/restaurants/sign_in" for 188.78.200.252 at 2015-06-08 18:00:46 +0000
+2015-06-08T18:00:46.974036+00:00 app[web.1]:   Rendered devise/shared/_links.html.erb (0.1ms)
+2015-06-08T18:00:46.974099+00:00 app[web.1]:   Rendered devise/sessions/new.slim within layouts/application (13.8ms)
+2015-06-08T18:00:46.974947+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T18:00:46.975667+00:00 app[web.1]: Completed 200 OK in 18ms (Views: 15.7ms)
+2015-06-08T18:00:46.957892+00:00 app[web.1]: Processing by Devise::SessionsController#new as HTML
+2015-06-08T18:00:46.975192+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:01:03.333309+00:00 app[web.1]: Processing by Devise::SessionsController#create as HTML
+2015-06-08T18:01:03.519993+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/restaurants/restaurants/5575d4b86563380003000000
+2015-06-08T18:01:03.333356+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"HVOxskpmdbkTtiL/3E+EoiH7kOm1bZE08AdjVZMIIng=", "restaurant"=>{"email"=>"miguel.123@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+2015-06-08T18:01:03.331544+00:00 app[web.1]: Started POST "/restaurants/sign_in" for 188.78.200.252 at 2015-06-08 18:01:03 +0000
+2015-06-08T18:01:03.520136+00:00 app[web.1]: Completed 302 Found in 187ms
+2015-06-08T18:01:03.526273+00:00 heroku[router]: at=info method=POST path="/restaurants/sign_in" host=diinner.herokuapp.com request_id=cbbdf25a-7570-4cff-b10a-825eaf1ee6a9 fwd="188.78.200.252" dyno=web.1 connect=1ms service=197ms status=302 bytes=804
+2015-06-08T18:01:06.214537+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000" for 188.78.200.252 at 2015-06-08 18:01:06 +0000
+2015-06-08T18:01:06.232560+00:00 app[web.1]:   Rendered restaurants/restaurants/show.slim within layouts/restaurants (7.1ms)
+2015-06-08T18:01:06.236178+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.7ms)
+2015-06-08T18:01:06.237736+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:01:06.238134+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:01:06.216329+00:00 app[web.1]: Processing by Restaurants::RestaurantsController#show as HTML
+2015-06-08T18:01:06.216336+00:00 app[web.1]:   Parameters: {"id"=>"5575d4b86563380003000000"}
+2015-06-08T18:01:06.232458+00:00 app[web.1]:   Rendered layouts/_map.slim (0.7ms)
+2015-06-08T18:01:06.235354+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (2.5ms)
+2015-06-08T18:01:06.237207+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:01:06.237943+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:01:06.238414+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:01:06.238472+00:00 app[web.1]:   Rendered layouts/_app.slim (2.2ms)
+2015-06-08T18:01:06.238724+00:00 app[web.1]: Completed 200 OK in 22ms (Views: 13.6ms)
+2015-06-08T18:01:06.242487+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000" host=diinner.herokuapp.com request_id=d2746324-0ca8-412a-9e1a-ed6e805b38d5 fwd="188.78.200.252" dyno=web.1 connect=1ms service=28ms status=200 bytes=5511
+2015-06-08T18:01:12.203001+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/notifications" for 188.78.200.252 at 2015-06-08 18:01:12 +0000
+2015-06-08T18:01:12.227845+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (2.8ms)
+2015-06-08T18:01:12.229658+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:01:12.230314+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:01:12.230477+00:00 app[web.1]:   Rendered layouts/_container.slim (0.0ms)
+2015-06-08T18:01:12.230728+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:01:12.230790+00:00 app[web.1]:   Rendered layouts/_app.slim (2.0ms)
+2015-06-08T18:01:12.231020+00:00 app[web.1]: Completed 200 OK in 24ms (Views: 11.8ms)
+2015-06-08T18:01:12.206700+00:00 app[web.1]: Processing by Restaurants::NotificationsController#index as HTML
+2015-06-08T18:01:12.206739+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:01:12.224813+00:00 app[web.1]:   Rendered restaurants/notifications/index.slim within layouts/restaurants (4.0ms)
+2015-06-08T18:01:12.228671+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.7ms)
+2015-06-08T18:01:12.230146+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:01:12.237920+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/notifications" host=diinner.herokuapp.com request_id=20173dde-338d-4d8b-8acc-03b5b22265fb fwd="188.78.200.252" dyno=web.1 connect=1ms service=33ms status=200 bytes=3250
+2015-06-08T18:01:16.592276+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/reservations" for 188.78.200.252 at 2015-06-08 18:01:16 +0000
+2015-06-08T18:01:16.658352+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.6ms)
+2015-06-08T18:01:16.595505+00:00 app[web.1]: Processing by Restaurants::ReservationsController#index as HTML
+2015-06-08T18:01:16.595525+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:01:16.654965+00:00 app[web.1]:   Rendered restaurants/reservations/index.slim within layouts/restaurants (34.2ms)
+2015-06-08T18:01:16.654914+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.1ms)
+2015-06-08T18:01:16.657545+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (2.4ms)
+2015-06-08T18:01:16.659912+00:00 app[web.1]:   Rendered layouts/_head.slim (0.9ms)
+2015-06-08T18:01:16.659977+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:01:16.660170+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:01:16.660319+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:01:16.660580+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:01:16.660896+00:00 app[web.1]: Completed 200 OK in 65ms (Views: 54.3ms)
+2015-06-08T18:01:16.660635+00:00 app[web.1]:   Rendered layouts/_app.slim (2.2ms)
+2015-06-08T18:01:16.667920+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/reservations" host=diinner.herokuapp.com request_id=e97d41ac-3c89-4c2c-af97-a3ebd61703ac fwd="188.78.200.252" dyno=web.1 connect=0ms service=72ms status=200 bytes=4729
+2015-06-08T18:01:23.851513+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/notifications" host=diinner.herokuapp.com request_id=aaddf5b4-9259-4add-a02c-1ac742c0ab87 fwd="188.78.200.252" dyno=web.1 connect=0ms service=27ms status=304 bytes=338
+2015-06-08T18:01:23.824218+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/notifications" for 188.78.200.252 at 2015-06-08 18:01:23 +0000
+2015-06-08T18:01:23.843362+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (3.6ms)
+2015-06-08T18:01:23.845565+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T18:01:23.846509+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:01:23.846677+00:00 app[web.1]:   Rendered layouts/_container.slim (0.0ms)
+2015-06-08T18:01:23.846984+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:01:23.847038+00:00 app[web.1]:   Rendered layouts/_app.slim (2.6ms)
+2015-06-08T18:01:23.847405+00:00 app[web.1]: Completed 200 OK in 21ms (Views: 8.7ms)
+2015-06-08T18:01:23.825871+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:01:23.825849+00:00 app[web.1]: Processing by Restaurants::NotificationsController#index as HTML
+2015-06-08T18:01:23.839511+00:00 app[web.1]:   Rendered restaurants/notifications/index.slim within layouts/restaurants (0.2ms)
+2015-06-08T18:01:23.846307+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.5ms)
+2015-06-08T18:01:23.844369+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.8ms)
+2015-06-08T18:01:26.840388+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/tables" for 188.78.200.252 at 2015-06-08 18:01:26 +0000
+2015-06-08T18:01:26.874590+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.6ms)
+2015-06-08T18:01:26.876124+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:01:26.842227+00:00 app[web.1]: Processing by Restaurants::TablesController#index as HTML
+2015-06-08T18:01:26.842283+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:01:26.870891+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.1ms)
+2015-06-08T18:01:26.870992+00:00 app[web.1]:   Rendered restaurants/tables/index.slim within layouts/restaurants (19.1ms)
+2015-06-08T18:01:26.873831+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (2.6ms)
+2015-06-08T18:01:26.875617+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:01:26.876288+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:01:26.876460+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:01:26.876734+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:01:26.876789+00:00 app[web.1]:   Rendered layouts/_app.slim (2.1ms)
+2015-06-08T18:01:26.877070+00:00 app[web.1]: Completed 200 OK in 35ms (Views: 25.7ms)
+2015-06-08T18:01:26.982614+00:00 heroku[router]: at=i
+nfo method=GET path="/restaurants/restaurants/5575d4b86563380003000000/tables" host=diinner.herokuapp.com request_id=3a6f68b0-1aae-4c36-99cd-692d60a661b9 fwd="188.78.200.252" dyno=web.1 connect=1ms service=141ms status=200 bytes=5271
+2015-06-08T18:01:43.693047+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/tables/5575d5866563380003070000" for 188.78.200.252 at 2015-06-08 18:01:43 +0000
+2015-06-08T18:01:43.754743+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (2.9ms)
+2015-06-08T18:01:43.757350+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:01:43.756657+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:01:43.757523+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:01:43.757802+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:01:43.757851+00:00 app[web.1]:   Rendered layouts/_app.slim (2.1ms)
+2015-06-08T18:01:43.758113+00:00 app[web.1]: Completed 200 OK in 63ms (Views: 47.3ms)
+2015-06-08T18:01:43.694916+00:00 app[web.1]: Processing by Restaurants::TablesController#show as HTML
+2015-06-08T18:01:43.694945+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000", "id"=>"5575d5866563380003070000"}
+2015-06-08T18:01:43.751471+00:00 app[web.1]:   Rendered restaurants/tables/show.slim within layouts/restaurants (40.1ms)
+2015-06-08T18:01:43.755612+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.7ms)
+2015-06-08T18:01:43.757179+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:01:43.760250+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/tables/5575d5866563380003070000" host=diinner.herokuapp.com request_id=9195635a-71e2-47ba-ac63-6eb2fc16f6b2 fwd="188.78.200.252" dyno=web.1 connect=1ms service=69ms status=200 bytes=5465
+2015-06-08T18:02:16.824860+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=d2a15c29-d9e8-4668-bdd9-645bd43bd249 fwd="54.227.7.239" dyno=web.1 connect=1ms service=10ms status=200 bytes=3217
+2015-06-08T18:02:16.815105+00:00 app[web.1]: Started GET "/" for 54.227.7.239 at 2015-06-08 18:02:16 +0000
+2015-06-08T18:02:16.818535+00:00 app[web.1]:   Rendered application/_navbar.slim (0.8ms)
+2015-06-08T18:02:16.821618+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:02:16.816840+00:00 app[web.1]: Processing by ApplicationController#index as */*
+2015-06-08T18:02:16.821799+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 4.7ms)
+2015-06-08T18:02:16.820338+00:00 app[web.1]:   Rendered application/_footer.slim (1.2ms)
+2015-06-08T18:02:16.820473+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (2.9ms)
+2015-06-08T18:02:16.821376+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T18:02:29.113066+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/reservations" host=diinner.herokuapp.com request_id=9877dede-e1ea-4b6c-b186-c72ff8db4e07 fwd="188.78.200.252" dyno=web.1 connect=3ms service=48ms status=304 bytes=338
+2015-06-08T18:02:29.066127+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/reservations" for 188.78.200.252 at 2015-06-08 18:02:29 +0000
+2015-06-08T18:02:29.107057+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.8ms)
+2015-06-08T18:02:29.108865+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.5ms)
+2015-06-08T18:02:29.109239+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:02:29.067909+00:00 app[web.1]: Processing by Restaurants::ReservationsController#index as HTML
+2015-06-08T18:02:29.067954+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:02:29.102904+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.2ms)
+2015-06-08T18:02:29.102981+00:00 app[web.1]:   Rendered restaurants/reservations/index.slim within layouts/restaurants (23.0ms)
+2015-06-08T18:02:29.106088+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (2.9ms)
+2015-06-08T18:02:29.108257+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T18:02:29.109064+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:02:29.109539+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:02:29.109598+00:00 app[web.1]:   Rendered layouts/_app.slim (2.4ms)
+2015-06-08T18:02:29.109909+00:00 app[web.1]: Completed 200 OK in 42ms (Views: 30.5ms)
+2015-06-08T18:02:38.624191+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/notifications" for 188.78.200.252 at 2015-06-08 18:02:38 +0000
+2015-06-08T18:02:38.646211+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:02:38.644337+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (3.0ms)
+2015-06-08T18:02:38.647080+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:02:38.647663+00:00 app[web.1]: Completed 200 OK in 21ms (Views: 7.2ms)
+2015-06-08T18:02:38.646918+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:02:38.647362+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:02:38.647420+00:00 app[web.1]:   Rendered layouts/_app.slim (2.1ms)
+2015-06-08T18:02:38.626541+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:02:38.626509+00:00 app[web.1]: Processing by Restaurants::NotificationsController#index as HTML
+2015-06-08T18:02:38.646745+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:02:38.641130+00:00 app[web.1]:   Rendered restaurants/notifications/index.slim within layouts/restaurants (0.1ms)
+2015-06-08T18:02:38.645175+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.7ms)
+2015-06-08T18:02:38.651605+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/notifications" host=diinner.herokuapp.com request_id=74f31f1f-7fbf-4502-be94-b1c8f8a4c818 fwd="188.78.200.252" dyno=web.1 connect=1ms service=28ms status=304 bytes=338
+2015-06-08T18:02:43.104698+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/tables" for 188.78.200.252 at 2015-06-08 18:02:43 +0000
+2015-06-08T18:02:43.182611+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.8ms)
+2015-06-08T18:02:43.185252+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:02:43.184858+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:02:43.107782+00:00 app[web.1]: Processing by Restaurants::TablesController#index as HTML
+2015-06-08T18:02:43.185070+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:02:43.185900+00:00 app[web.1]: Completed 200 OK in 78ms (Views: 51.6ms)
+2015-06-08T18:02:43.107814+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:02:43.181529+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (12.5ms)
+2015-06-08T18:02:43.185569+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:02:43.168585+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.3ms)
+2015-06-08T18:02:43.184199+00:00 app[web.1]:   Rendered layouts/_head.slim (1.2ms)
+2015-06-08T18:02:43.185615+00:00 app[web.1]:   Rendered layouts/_app.slim (2.8ms)
+2015-06-08T18:02:43.168667+00:00 app[web.1]:   Rendered restaurants/tables/index.slim within layouts/restaurants (33.9ms)
+2015-06-08T18:02:43.189378+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/tables" host=diinner.herokuapp.com request_id=e7fef212-a1d9-408c-a831-135c525bc5e2 fwd="188.78.200.252" dyno=web.1 connect=5ms service=90ms status=304 bytes=338
+2015-06-08T18:03:14.082440+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/tables" for 188.78.200.252 at 2015-06-08 18:03:14 +0000
+2015-06-08T18:03:14.116549+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.7ms)
+2015-06-08T18:03:14.118378+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:03:14.118830+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:03:14.084344+00:00 app[web.1]: Processing by Restaurants::TablesController#index as HTML
+2015-06-08T18:03:14.084389+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:03:14.111961+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.2ms)
+2015-06-08T18:03:14.112068+00:00 app[web.1]:   Rendered restaurants/tables/index.slim within layouts/restaurants (16.8ms)
+2015-06-08T18:03:14.115642+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (3.3ms)
+2015-06-08T18:03:14.117808+00:00 app[web.1]:   Rendered layouts/_head.slim (1.0ms)
+2015-06-08T18:03:14.118593+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:03:14.119153+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:03:14.119241+00:00 app[web.1]:   Rendered layouts/_app.slim (2.5ms)
+2015-06-08T18:03:14.119571+00:00 app[web.1]: Completed 200 OK in 35ms (Views: 25.0ms)
+2015-06-08T18:03:14.123442+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/tables" host=diinner.herokuapp.com request_id=98946bc5-bf7d-4155-b52c-25c1baf9632d fwd="188.78.200.252" dyno=web.1 connect=1ms service=42ms status=304 bytes=338
+2015-06-08T18:03:18.112864+00:00 heroku[router]: at=info method=GET path="/restaurants/restaurants/5575d4b86563380003000000/reservations" host=diinner.herokuapp.com request_id=911d20bf-28d7-47aa-ba22-dc565a00bb87 fwd="188.78.200.252" dyno=web.1 connect=1ms service=47ms status=304 bytes=338
+2015-06-08T18:03:18.066689+00:00 app[web.1]: Started GET "/restaurants/restaurants/5575d4b86563380003000000/reservations" for 188.78.200.252 at 2015-06-08 18:03:18 +0000
+2015-06-08T18:03:18.069166+00:00 app[web.1]:   Parameters: {"restaurant_id"=>"5575d4b86563380003000000"}
+2015-06-08T18:03:18.107783+00:00 app[web.1]:   Rendered restaurants/_sidebar.slim (0.7ms)
+2015-06-08T18:03:18.109348+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:03:18.068697+00:00 app[web.1]: Processing by Restaurants::ReservationsController#index as HTML
+2015-06-08T18:03:18.104257+00:00 app[web.1]:   Rendered admin/_admin_table.slim (0.1ms)
+2015-06-08T18:03:18.104320+00:00 app[web.1]:   Rendered restaurants/reservations/index.slim within layouts/restaurants (21.3ms)
+2015-06-08T18:03:18.106964+00:00 app[web.1]:   Rendered restaurants/_navbar.slim (2.4ms)
+2015-06-08T18:03:18.108822+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:03:18.109512+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:03:18.110014+00:00 app[web.1]:   Rendered layouts/_app.slim (2.1ms)
+2015-06-08T18:03:18.109682+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:03:18.109958+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:03:18.110289+00:00 app[web.1]: Completed 200 OK in 41ms (Views: 27.7ms)
+2015-06-08T18:03:36.753847+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=4d42b68a-3493-4996-b81c-fd1f564167d0 fwd="188.78.200.252" dyno=web.1 connect=0ms service=11ms status=200 bytes=3217
+2015-06-08T18:03:36.744430+00:00 app[web.1]: Started GET "/" for 188.78.200.252 at 2015-06-08 18:03:36 +0000
+2015-06-08T18:03:36.747791+00:00 app[web.1]:   Rendered application/_navbar.slim (0.9ms)
+2015-06-08T18:03:36.750672+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:03:36.750838+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 4.5ms)
+2015-06-08T18:03:36.746077+00:00 app[web.1]: Processing by ApplicationController#index as HTML
+2015-06-08T18:03:36.750413+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:03:36.749402+00:00 app[web.1]:   Rendered application/_footer.slim (1.1ms)
+2015-06-08T18:03:36.749473+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (2.7ms)
+2015-06-08T18:03:37.101186+00:00 heroku[router]: at=info method=GET path="/assets/brand-12e9716fdc162160e462c508a5e5528d.svg" host=diinner.herokuapp.com request_id=bbf90933-07f0-4967-8901-5af0bc9b1693 fwd="188.78.200.252" dyno=web.1 connect=0ms service=105ms status=200 bytes=1824
+2015-06-08T18:03:37.182823+00:00 heroku[router]: at=info method=GET path="/assets/header-6fe35dff30e43198d24326a136523ab8.png" host=diinner.herokuapp.com request_id=849ca403-ac16-465c-8f14-f79e8899b4b7 fwd="188.78.200.252" dyno=web.1 connect=2ms service=156ms status=200 bytes=2124106
+2015-06-08T18:03:37.110361+00:00 heroku[router]: at=info method=GET path="/assets/gradient_bg-d0eea1700086197422924e8ad2bfa11d.jpg" host=diinner.herokuapp.com request_id=d6dc4cbe-c5c8-439d-8d5d-3aaa6a70ece2 fwd="188.78.200.252" dyno=web.1 connect=2ms service=82ms status=200 bytes=75437
+2015-06-08T18:03:37.105779+00:00 heroku[router]: at=info method=GET path="/assets/app_store-39eb8ee430dbbf4b3166591cd3469a1f.png" host=diinner.herokuapp.com request_id=7906d39f-0456-4067-9176-39f82b424035 fwd="188.78.200.252" dyno=web.1 connect=1ms service=82ms status=200 bytes=7164
+2015-06-08T18:03:37.109406+00:00 heroku[router]: at=info method=GET path="/assets/application-5b7413c5c79d1a74e463163fd67500ce.js" host=diinner.herokuapp.com request_id=1d95d69c-2f22-43da-9b96-92b1107cc183 fwd="188.78.200.252" dyno=web.1 connect=1ms service=122ms status=200 bytes=260823
+2015-06-08T18:03:37.258727+00:00 heroku[router]: at=info method=GET path="/assets/facebook-1270de73ab49367ca28b7661a599c0f4.png" host=diinner.herokuapp.com request_id=e50d72b0-47ed-4fcb-a37f-52714e490492 fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=200 bytes=5214
+2015-06-08T18:03:37.241996+00:00 heroku[router]: at=info method=GET path="/assets/google_play-84298858d66afadbe095a3eb63b434ad.png" host=diinner.herokuapp.com request_id=dc2a4e29-7bf2-486b-a029-671e4ea85a1c fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=200 bytes=8556
+2015-06-08T18:03:37.109637+00:00 heroku[router]: at=info method=GET path="/assets/application-9be39493d57747d6892e7dfd2e3e1e77.css" host=diinner.herokuapp.com request_id=54944274-fe7f-49e1-8eec-0aced9a5d517 fwd="188.78.200.252" dyno=web.1 connect=1ms service=131ms status=200 bytes=840643
+2015-06-08T18:03:37.382064+00:00 heroku[router]: at=info method=GET path="/assets/twitter-9c4e53b087c8a599adc09fb417b25810.png" host=diinner.herokuapp.com request_id=45e56d33-5305-4c7d-a463-59d77709aaf7 fwd="188.78.200.252" dyno=web.1 connect=1ms service=7ms status=200 bytes=6061
+2015-06-08T18:03:37.415583+00:00 heroku[router]: at=info method=GET path="/assets/linkedin-9b9f21a32af0ee054c68107ca3e61832.png" host=diinner.herokuapp.com request_id=4305dc45-40c6-4c1c-bac4-e2c7709b30cf fwd="188.78.200.252" dyno=web.1 connect=4ms service=5ms status=200 bytes=5437
+2015-06-08T18:03:37.514129+00:00 heroku[router]: at=info method=GET path="/assets/google-d49f1e5b6f72e4c35ea20d4919c1b7ee.png" host=diinner.herokuapp.com request_id=52c487b6-0eda-418c-8e00-fb1ff6cfe8c2 fwd="188.78.200.252" dyno=web.1 connect=1ms service=2ms status=200 bytes=6663
+2015-06-08T18:03:38.678980+00:00 heroku[router]: at=info method=GET path="/assets/ProximaNova-Semibold-76a302dd0540ab48908fca965b12c8e7.woff" host=diinner.herokuapp.com request_id=ffae111f-cea8-4b80-aa76-f826c5cc0734 fwd="188.78.200.252" dyno=web.1 connect=1ms service=5ms status=200 bytes=114921
+2015-06-08T18:03:38.669493+00:00 heroku[router]: at=info method=GET path="/assets/ProximaNova-Thin-e448edb509dd44422b9f42f72265ba30.woff" host=diinner.herokuapp.com request_id=da4ad9ec-e51e-476d-af47-8413ee02a7df fw
+d="188.78.200.252" dyno=web.1 connect=1ms service=5ms status=200 bytes=116137
+2015-06-08T18:03:38.661125+00:00 heroku[router]: at=info method=GET path="/assets/ProximaNova-Regular-c1458d2093a670b8f1fd0b24311e8da9.woff" host=diinner.herokuapp.com request_id=b3020bfa-66ee-4404-907b-60cdc9a6bdf0 fwd="188.78.200.252" dyno=web.1 connect=1ms service=6ms status=200 bytes=123397
+2015-06-08T18:03:40.823779+00:00 app[web.1]:   Rendered devise/shared/_links.html.erb (0.4ms)
+2015-06-08T18:03:40.807172+00:00 app[web.1]: Started GET "/admins/sign_in" for 188.78.200.252 at 2015-06-08 18:03:40 +0000
+2015-06-08T18:03:40.823836+00:00 app[web.1]:   Rendered devise/sessions/new.slim within layouts/application (12.7ms)
+2015-06-08T18:03:40.825224+00:00 app[web.1]: Completed 200 OK in 16ms (Views: 14.5ms)
+2015-06-08T18:03:40.824708+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T18:03:40.824985+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:03:40.809057+00:00 app[web.1]: Processing by Devise::SessionsController#new as HTML
+2015-06-08T18:03:40.832074+00:00 heroku[router]: at=info method=GET path="/admins/sign_in" host=diinner.herokuapp.com request_id=49aff6f9-4e9b-40e7-8285-a52a2aa34598 fwd="188.78.200.252" dyno=web.1 connect=0ms service=21ms status=200 bytes=2879
+2015-06-08T18:03:44.598894+00:00 app[web.1]: Started POST "/admins/sign_in" for 188.78.200.252 at 2015-06-08 18:03:44 +0000
+2015-06-08T18:03:44.600486+00:00 app[web.1]: Processing by Devise::SessionsController#create as HTML
+2015-06-08T18:03:44.600528+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Tw0bA+ibK+/ZaVkzNv8Z5QR7trIrutS/2ygDqP/ZPVI=", "admin"=>{"email"=>"admin@diinner.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+2015-06-08T18:03:44.721524+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/admin.552824733631310003000000
+2015-06-08T18:03:44.721625+00:00 app[web.1]: Completed 302 Found in 121ms
+2015-06-08T18:03:44.723614+00:00 heroku[router]: at=info method=POST path="/admins/sign_in" host=diinner.herokuapp.com request_id=25d8ba96-ff02-46b9-9a3a-44d5cd7297b0 fwd="188.78.200.252" dyno=web.1 connect=0ms service=128ms status=302 bytes=768
+2015-06-08T18:03:44.865596+00:00 heroku[router]: at=info method=GET path="/admin.552824733631310003000000" host=diinner.herokuapp.com request_id=b4548697-cce1-4c26-80d3-8fb6102cc2b2 fwd="188.78.200.252" dyno=web.1 connect=5ms service=11ms status=302 bytes=470
+2015-06-08T18:03:44.856591+00:00 app[web.1]: Started GET "/admin.552824733631310003000000" for 188.78.200.252 at 2015-06-08 18:03:44 +0000
+2015-06-08T18:03:44.861286+00:00 app[web.1]: Redirected to http://diinner.herokuapp.com/admin/logs
+2015-06-08T18:03:44.858160+00:00 app[web.1]: Processing by AdminController#index as 
+2015-06-08T18:03:44.983553+00:00 app[web.1]: Started GET "/admin/logs" for 188.78.200.252 at 2015-06-08 18:03:44 +0000
+2015-06-08T18:03:45.013477+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (18.1ms)
+2015-06-08T18:03:44.985162+00:00 app[web.1]: Processing by AdminController#logs as HTML
+2015-06-08T18:03:45.038743+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (24.3ms)
+2015-06-08T18:03:45.049196+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (9.5ms)
+2015-06-08T18:03:45.062462+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (12.6ms)
+2015-06-08T18:03:44.861375+00:00 app[web.1]: Completed 302 Found in 3ms
+2015-06-08T18:03:45.099655+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (19.6ms)
+2015-06-08T18:03:45.079038+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (15.8ms)
+2015-06-08T18:03:45.113327+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (13.0ms)
+2015-06-08T18:03:45.142305+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (15.0ms)
+2015-06-08T18:03:45.280993+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.7ms)
+2015-06-08T18:03:45.297636+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.5ms)
+2015-06-08T18:03:45.312570+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.3ms)
+2015-06-08T18:03:45.328547+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (6.9ms)
+2015-06-08T18:03:45.343605+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.0ms)
+2015-06-08T18:03:45.362256+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (11.1ms)
+2015-06-08T18:03:45.126659+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (12.8ms)
+2015-06-08T18:03:45.289761+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (8.4ms)
+2015-06-08T18:03:45.269773+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (127.0ms)
+2015-06-08T18:03:45.304918+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (6.9ms)
+2015-06-08T18:03:45.321254+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (8.3ms)
+2015-06-08T18:03:45.336218+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (7.3ms)
+2015-06-08T18:03:45.350790+00:00 app[web.1]:   Rendered public_activity/TestResponse/_create.slim (6.9ms)
+2015-06-08T18:03:45.362454+00:00 app[web.1]:   Rendered admin/logs.slim within layouts/admin (367.5ms)
+2015-06-08T18:03:45.376106+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.1ms)
+2015-06-08T18:03:45.385442+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (8.7ms)
+2015-06-08T18:03:45.402540+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.8ms)
+2015-06-08T18:03:45.414424+00:00 app[web.1]:   Rendered admin/_logs.slim (51.6ms)
+2015-06-08T18:03:45.418038+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.9ms)
+2015-06-08T18:03:45.419776+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:03:45.420146+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:03:45.390822+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (4.8ms)
+2015-06-08T18:03:45.413897+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (10.7ms)
+2015-06-08T18:03:45.416962+00:00 app[web.1]:   Rendered admin/_navbar.slim (2.2ms)
+2015-06-08T18:03:45.419204+00:00 app[web.1]:   Rendered layouts/_head.slim (0.9ms)
+2015-06-08T18:03:45.419940+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:03:45.420456+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:03:45.420508+00:00 app[web.1]:   Rendered layouts/_app.slim (2.4ms)
+2015-06-08T18:03:45.420780+00:00 app[web.1]: Completed 200 OK in 435ms (Views: 426.3ms)
+2015-06-08T18:03:45.419621+00:00 heroku[router]: at=info method=GET path="/admin/logs" host=diinner.herokuapp.com request_id=f579ce19-cb62-4337-b47e-c88b305799cd fwd="188.78.200.252" dyno=web.1 connect=1ms service=441ms status=200 bytes=12783
+2015-06-08T18:04:06.205010+00:00 app[web.1]: Started GET "/admin/users/553f844e3738330003000000" for 188.78.200.252 at 2015-06-08 18:04:06 +0000
+2015-06-08T18:04:06.436584+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (23.1ms)
+2015-06-08T18:04:06.206740+00:00 app[web.1]: Processing by Admin::UsersController#show as HTML
+2015-06-08T18:04:06.206758+00:00 app[web.1]:   Parameters: {"id"=>"553f844e3738330003000000"}
+2015-06-08T18:04:06.407183+00:00 app[web.1]:   Rendered admin/users/show.slim within layouts/admin (187.0ms)
+2015-06-08T18:04:06.449679+00:00 app[web.1]:   Rendered public_activity/menu/_create.slim (12.1ms)
+2015-06-08T18:04:06.457152+00:00 app[web.1]:   Rendered public_activity/restaurant/_create.slim (6.8ms)
+2015-06-08T18:04:06.495748+00:00 heroku[router]: at=info method=GET path="/admin/users/553f844e3738330003000000" host=diinner.herokuapp.com request_id=0fe477a6-86b6-404f-84d9-634b4f42b14d fwd="188.78.200.252" dyno=web.1 connect=1ms service=291ms status=200 bytes=10005
+2015-06-08T18:04:06.472187+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (14.2ms)
+2015-06-08T18:04:06.486168+00:00 app[web.1]:   Rendered admin/_logs.slim (78.4ms)
+2015-06-08T18:04:06.489184+00:00 app[web.1]:   Rendered admin/_sidebar.slim (0.7ms)
+2015-06-08T18:04:06.490825+00:00 app[web.1]:   Rendered layouts/_navbar.slim (0.4ms)
+2015-06-08T18:04:06.485523+00:00 app[web.1]:   Rendered public_activity/table/_create.slim (12.5ms)
+2015-06-08T18:04:06.488301+00:00 app[web.1]:   Rendered admin/_navbar.slim (1.8ms)
+2015-06-08T18:04:06.490290+00:00 app[web.1]:   Rendered layouts/_head.slim (0.8ms)
+2015-06-08T18:04:06.491173+00:00 app[web.1]:   Rendered layouts/_container.slim (0.1ms)
+2015-06-08T18:04:06.491004+00:00 app[web.1]:   Rendered layouts/_sidebar.slim (0.1ms)
+2015-06-08T18:04:06.491470+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.2ms)
+2015-06-08T18:04:06.491523+00:00 app[web.1]:   Rendered layouts/_app.slim (2.2ms)
+2015-06-08T18:04:06.491779+00:00 app[web.1]: Completed 200 OK in 285ms (Views: 272.5ms)
+2015-06-08T18:32:01.490814+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=45c3194d-e43c-43f6-a973-7fb615756378 fwd="54.197.147.187" dyno=web.1 connect=1ms service=11ms status=200 bytes=3217
+2015-06-08T18:32:01.479014+00:00 app[web.1]: Started GET "/" for 54.197.147.187 at 2015-06-08 18:32:01 +0000
+2015-06-08T18:32:01.482492+00:00 app[web.1]:   Rendered application/_navbar.slim (0.9ms)
+2015-06-08T18:32:01.485253+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T18:32:01.480682+00:00 app[web.1]: Processing by ApplicationController#index as */*
+2015-06-08T18:32:01.484089+00:00 app[web.1]:   Rendered application/_footer.slim (1.1ms)
+2015-06-08T18:32:01.484146+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (2.8ms)
+2015-06-08T18:32:01.485028+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T18:32:01.485419+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 4.5ms)
+2015-06-08T19:02:55.118516+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=e93d9c53-2878-40f8-bfda-5eea1d610f8e fwd="54.158.250.204" dyno=web.1 connect=2ms service=46ms status=200 bytes=3217
+2015-06-08T19:02:55.083221+00:00 app[web.1]: Processing by ApplicationController#index as */*
+2015-06-08T19:02:55.106559+00:00 app[web.1]:   Rendered application/_footer.slim (2.0ms)
+2015-06-08T19:02:55.113492+00:00 app[web.1]:   Rendered layouts/_head.slim (1.2ms)
+2015-06-08T19:02:55.114968+00:00 app[web.1]: Completed 200 OK in 27ms (Views: 26.7ms)
+2015-06-08T19:02:55.078920+00:00 app[web.1]: Started GET "/" for 54.158.250.204 at 2015-06-08 19:02:55 +0000
+2015-06-08T19:02:55.090585+00:00 app[web.1]:   Rendered application/_navbar.slim (1.2ms)
+2015-06-08T19:02:55.111793+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (22.6ms)
+2015-06-08T19:02:55.114463+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T19:31:17.556721+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=3585e359-70d3-48f0-b75b-0fe2f5c897e4 fwd="54.224.72.226" dyno=web.1 connect=1ms service=8ms status=200 bytes=3217
+2015-06-08T19:31:17.554724+00:00 app[web.1]: Started GET "/" for 54.224.72.226 at 2015-06-08 19:31:17 +0000
+2015-06-08T19:31:17.557251+00:00 app[web.1]:   Rendered application/_navbar.slim (0.6ms)
+2015-06-08T19:31:17.559869+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T19:31:17.555904+00:00 app[web.1]: Processing by ApplicationController#index as */*
+2015-06-08T19:31:17.558801+00:00 app[web.1]:   Rendered application/_footer.slim (1.0ms)
+2015-06-08T19:31:17.559662+00:00 app[web.1]:   Rendered layouts/_head.slim (0.6ms)
+2015-06-08T19:31:17.558861+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (2.4ms)
+2015-06-08T19:31:17.560039+00:00 app[web.1]: Completed 200 OK in 4ms (Views: 3.9ms)
+2015-06-08T20:03:18.665308+00:00 heroku[router]: at=info method=GET path="/" host=diinner.herokuapp.com request_id=b35cf610-f4c6-4908-b848-08695326111e fwd="54.198.190.235" dyno=web.1 connect=0ms service=9ms status=200 bytes=3217
+2015-06-08T20:03:18.657575+00:00 app[web.1]: Started GET "/" for 54.198.190.235 at 2015-06-08 20:03:18 +0000
+2015-06-08T20:03:18.660320+00:00 app[web.1]:   Rendered application/_navbar.slim (0.6ms)
+2015-06-08T20:03:18.663323+00:00 app[web.1]:   Rendered layouts/_alerts.slim (0.1ms)
+2015-06-08T20:03:18.662000+00:00 app[web.1]:   Rendered application/_footer.slim (1.1ms)
+2015-06-08T20:03:18.658890+00:00 app[web.1]: Processing by ApplicationController#index as */*
+2015-06-08T20:03:18.662136+00:00 app[web.1]:   Rendered application/index.slim within layouts/application (2.6ms)
+2015-06-08T20:03:18.663066+00:00 app[web.1]:   Rendered layouts/_head.slim (0.7ms)
+2015-06-08T20:03:18.663520+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 4.4ms)

@@ -29,19 +29,7 @@ class ReservationCell < BaseCell
     cell(:table, model.table)
   end
 
-  def restaurant_link
-    link_to model.restaurant.name, user_reservation_restaurant_path(current_user, model)
-  end
-
-  def menu_link
-    if model.menu != :undefined
-      link_to model.menu.name, user_reservation_menu_path(current_user, model) 
-    else
-      "undefined"
-    end
-  end
-
-   def validate_link
+  def validate_link
     # TODO Only validate when paid!
     if model.is_owned_by?(current_restaurant) && !model.cancelled?
       if !model.ticket_valid?
@@ -62,6 +50,9 @@ class ReservationCell < BaseCell
       render
     elsif model.is_owned_by?(current_restaurant)
       @path = restaurant_reservation_path(model.restaurant, model)
+      render
+    elsif model.is_owned_by?(current_user)
+      @path = user_reservation_path(current_user, model)
       render
     end
   end

@@ -47,6 +47,7 @@ class User
       :source => token,
       :description => name
     )
+    # TODO test sth is wrong
   end
 
   def update_customer_information! token

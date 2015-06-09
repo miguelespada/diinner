@@ -12,6 +12,7 @@ Feature: Admin Inspect Reservations
     And I can see the user reservation in the reservation section
     And I can see the reservation in the user section
     And I can see the reservation in the restaurant section
+    And I can see the reservation details
 
   @fail_capture_reservation
   Scenario:

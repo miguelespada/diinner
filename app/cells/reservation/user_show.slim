@@ -3,7 +3,7 @@
 
 .div.reservation
   div.bold-label RESTAURANT
-  == restaurant_link
+  == restaurant.show_link
   br
   div.bold-label DATE
   = model.date
@@ -12,7 +12,7 @@
   = hour
   br
   div.bold-label MENU
-  == menu_link
+  == menu.show_link
   br
   div.affinity
     span.bold-label AFFINITY

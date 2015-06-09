@@ -59,9 +59,12 @@ Rails.application.routes.draw do
   end
 
   get "/index" => "base_users#users", as: "users"
+
   namespace :users, as: nil do
     get "/login" => "users#login", as: "users_login"
     resources :users, except: [:index] do
+      resources :restaurants, only: [:show]
+      resources :menus, only: [:show]
       resources :notifications, only: [:index]
 
       post "test/:test_id" => "test_responses#create", as: "test_response"
@@ -69,8 +72,6 @@ Rails.application.routes.draw do
       post "search" => "reservations#search", as: "search_tables"
 
       resources :reservations do
-        get "restaurant" => "reservations#restaurant", as: "restaurant"
-        get "menu" => "reservations#menu", as: "menu"
         patch "user_reuse_card" => "reservations#reuse_card", as: "reuse_card"
         patch "cancel", as: "cancel"
       end

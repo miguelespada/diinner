@@ -35,3 +35,14 @@ Then(/^I can see the reservation in the restaurant section$/) do
     expect(page).to have_content "Pending"
   end
 end
+
+Then(/^I can see the reservation details$/) do
+  within('.restaurant-reservation') do
+    find(".show-link").click
+  end
+
+  within('.reservation') do
+    expect(page).to have_content @restaurant.name
+    expect(page).to have_content "Pending"
+  end
+end

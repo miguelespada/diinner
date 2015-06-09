@@ -1,6 +1,6 @@
 class  Users::ReservationsController < BaseUsersController
   load_resource :id_param => :reservation_id, :through => :user,
-                :only => [:reuse_card, :cancel, :menu, :restaurant]
+                :only => [:reuse_card, :cancel, :menu]
   load_resource :only => [:update, :destroy, :show], :through => :user
 
   def index
@@ -48,10 +48,6 @@ class  Users::ReservationsController < BaseUsersController
     @reservation.cancel
     @reservation.notify "cancel"
     redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
-  end
-
-  def restaurant
-    @restaurant = @reservation.restaurant
   end
 
   def menu

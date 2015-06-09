@@ -33,7 +33,7 @@ module.exports = function (grunt) {
     slim: {
       dist: {
         options: {
-          pretty: false
+          pretty: true
         },
         files: [{
           expand: true,
