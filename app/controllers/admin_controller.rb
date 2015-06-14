@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   layout "admin"
+  before_filter :sign_out_others
   before_filter :authenticate_admin!
 
   def index
@@ -33,5 +34,10 @@ class AdminController < ApplicationController
   def city_param
     name = params[:city][:city] if params[:city].present?
     City.where(name: name).first || City.first
+  end
+
+  def sign_out_others
+    sign_out(current_restaurant) if restaurant_signed_in?
+    UserSession.new(session).sign_out
   end
 end
