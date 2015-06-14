@@ -22,6 +22,9 @@ class  Users::ReservationsController < BaseUsersController
     @suggestions = suggestionEngine.search.first(3)
   end
 
+  def last_minute
+  end
+
   def create
     # TODO check again if reservation match the table (in case concurrency problems)
     @reservation = @user.reservations.create(reservation_params)

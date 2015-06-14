@@ -62,6 +62,13 @@ class UserCell < BaseCell
     end
   end
 
+  def last_minute_diinners_link
+    if model.is_owned_by?(current_user)
+      @path = user_last_minute_diinners_path(model)
+      render
+    end
+  end
+
   def age_preference
     "#{model.min_age}...#{model.max_age}" if !model.preference.nil?
   end
