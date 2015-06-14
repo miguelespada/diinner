@@ -3,11 +3,17 @@ Feature: User reserves last minute diinner
   I want to access to reserve a table for today
 
   Background:
-    Given There are some last minute diinners
     And I am a logged user
 
-  @user_reserves_a_last_minute_diinner
+  @user_reserves_a_last_minute_diinner_with_error
   Scenario:
+    Given I do not have prefences
+    When I try to reserve a last minute diinner
+    Then I should be notified that I have to fill my preferences
+
+  @user_reserves_a_last_minute_diinner_pending @wip
+  Scenario:
+    Given There are some last minute diinners
+    And I have prefences
     When I reserve a last minute diinner
-    And Another user reserves a last minute diinner
-    Then I shoud be notified that my plan is confirmed
+    Then I shoud be notified that my plan is pending

@@ -46,12 +46,13 @@ class SuggestionEngine
     results
   end
 
+  # TODO refactor and DRY
   def last_minute
     results = []
     Table.where(:date => Date.today).each do |table|
-      if table.city == @user.preference.city
+      if table.city == @user.city
         reservation = Reservation.new({user: @user,
-                                      price: @user.preference.price,
+                                      price: @user.menu_price,
                                       date: Date.today})
 
         if table.matches?(reservation)

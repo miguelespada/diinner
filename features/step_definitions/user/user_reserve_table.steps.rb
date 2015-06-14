@@ -135,6 +135,7 @@ Then(/^I can reserve again with the same card$/) do
 end
 
 When(/^the table manager process runs$/) do
+  allow(Date).to receive(:today).and_return Date.tomorrow
   TableManager.process
 end
 

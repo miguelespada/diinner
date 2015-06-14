@@ -1,6 +1,6 @@
 Given(/^There are some last minute diinners$/) do
-  city = FactoryGirl.create(:city)
-  @restaurant = FactoryGirl.create(:restaurant, city: city)
+  @city = FactoryGirl.create(:city)
+  @restaurant = FactoryGirl.create(:restaurant, city: @city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
   @restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
   @menu = @restaurant.menus.first
@@ -16,14 +16,35 @@ Given(/^There are some last minute diinners$/) do
 
 end
 
-When(/^I reserve a last minute diinner$/) do
+Given(/^I do not have prefences$/) do
+  # nothing to do, by default we don't have preferences
+end
+
+When(/^I try to reserve a last minute diinner$/) do
   click_on "Last minute diinners"
 end
 
-When(/^Another user reserves a last minute diinner$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should be notified that I have to fill my preferences$/) do
+  expect(page).to have_content "You need to fill your diinner preferences to access the last minute diinners!"
 end
 
-Then(/^I shoud be notified that my plan is confirmed$/) do
+Given(/^I have prefences$/) do
+  click_on "Last minute diinners"
+
+  fill_in "user_preference_attributes_max_age", with: "60"
+  fill_in "user_preference_attributes_min_age", with: "20"
+  select "20", :from => "user_preference_attributes_menu_price"
+  select @city.name, :from =>  "user_preference_attributes_city_id"
+  click_on "Update User"
+end
+
+When(/^I reserve a last minute diinner$/) do
+  click_on "Last minute diinners"
+  click_on "Reserve"
+  step "I fill in the credit card details"
+  click_on "Confirm"
+end
+
+Then(/^I shoud be notified that my plan is pending$/) do
   pending # express the regexp above with the code you wish you had
 end

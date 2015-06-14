@@ -23,9 +23,12 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def last_minute
-    suggestionEngine = SuggestionEngine.new @user
-
-    @suggestions = suggestionEngine.last_minute
+    if !@user.has_preferences?
+      redirect_to edit_user_path(@user), notice: 'You need to fill your diinner preferences to access the last minute diinners!'
+    else
+      suggestionEngine = SuggestionEngine.new @user
+      @suggestions = suggestionEngine.last_minute
+    end
   end
 
   def create
