@@ -76,4 +76,8 @@ class UserCell < BaseCell
   def city_preference
     model.city.name if !model.city.nil?
   end
+
+  def menu_preference
+    model.menu_price
+  end
 end

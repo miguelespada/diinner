@@ -23,6 +23,9 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def last_minute
+    suggestionEngine = SuggestionEngine.new @user
+
+    @suggestions = suggestionEngine.last_minute
   end
 
   def create
