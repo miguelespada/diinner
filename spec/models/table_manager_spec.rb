@@ -15,11 +15,13 @@ describe TableManager do
     end
     allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return return_value
     allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value
+    allow(Date).to receive(:today).and_return Date.tomorrow
+
   end
 
   it "returns today tables" do
     @reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
-    FactoryGirl.create(:table, date: Date.tomorrow)
+    FactoryGirl.create(:table, date: Date.today + 1.day)
     expect(Table.count).to eq 2
     expect(TableManager.today_tables.count).to eq 1
   end

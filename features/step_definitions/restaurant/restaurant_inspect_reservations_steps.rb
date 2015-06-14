@@ -12,6 +12,8 @@ end
 
 When(/^I process reservations$/) do
   find(".settings").click
+  allow(Date).to receive(:today).and_return Date.tomorrow
+
   click_on "Process reservations"
   expect(page).to have_content "Reservations processed succesfully!"
 end
