@@ -1,6 +1,23 @@
-a.item.item-thumbnail-left href="#"
-  img src="{{user.image_url}}"
-  h2
-    | {{user.name}}
-  p
-    | {{user.email}}
+ion-view title="User"
+  ion-content
+    span.item.item-thumbnail-left
+      img src="{{user.image_url}}"
+      h2
+        | {{user.name}}
+      p
+        | {{user.email}}
+
+
+    ion-list
+      ion-item
+        a href="#/profile"
+          | My profile
+      ion-item
+        a href="#"
+          | New reservation
+      ion-item
+        a href="#"
+          | My reservations
+      ion-item
+        a href="#"
+          | Last minute plan

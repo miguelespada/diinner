@@ -1,10 +1,6 @@
-angular.module('starter', ['ionic', 'ngResource'],
+var dinnerApp = angular.module('starter', ['ionic', 'ngResource']);
 
-.factory('User', ['$resource', function($resource) {
-  return $resource('http://localhost:3000/ionic/user.json')
-}])
-
-.run(function($ionicPlatform) {
+dinnerApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -16,22 +12,7 @@ angular.module('starter', ['ionic', 'ngResource'],
       StatusBar.styleLightContent();
     }
   });
-})
+});
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-    .state('index', {
-      url: "",
-      templateUrl: 'templates/links.html'
-    })
-    .state('user', {
-      url: "/user",
-      templateUrl: 'templates/user.html',
-      controller: 'UserCtrl'
-    })
-})
 
-.controller('UserCtrl', ['$scope', 'User', function($scope, User) {
-  $scope.user = User.get();
-}]);
 

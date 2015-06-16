@@ -23,9 +23,11 @@ html
     script src="cordova.js"
 
     script src="scripts/app.js"
-    / script src="scripts/controllers.js"
-    / script src="scripts/services.js"
-    / script src="scripts/configuration.js"
+    script src="scripts/config/routes.js"
+    script src="scripts/factories.js"
+    script src="scripts/controllers.js"
 
   body ng-app="starter"
+    ion-nav-bar.bar-positive.nav-title-slide-ios7
+      ion-nav-back-button.button-icon.ion-arrow-left-c
     ion-nav-view
