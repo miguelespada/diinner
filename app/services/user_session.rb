@@ -8,6 +8,10 @@ class UserSession
     @session[:userinfo].present?
   end
 
+  def sign_out
+    @session.delete(:userinfo) if logged?
+  end
+
   def user_from_session
     user = find_user
     if user.nil?

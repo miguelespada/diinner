@@ -4,6 +4,7 @@ class BaseUsersController < ApplicationController
   before_action :authenticate, except: [:login]
   before_action :redirect, only: [:users]
   load_resource :user
+  before_filter :sign_out_others
   before_action :authorize!
 
   def authorize!
@@ -27,6 +28,11 @@ class BaseUsersController < ApplicationController
   end
 
   def users
+  end
+
+  def sign_out_others
+    sign_out(current_restaurant) if restaurant_signed_in?
+    sign_out(current_admin) if admin_signed_in?
   end
 
 end

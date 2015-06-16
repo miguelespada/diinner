@@ -1,5 +1,6 @@
 class SuggestionEngine
-  def initialize user, params
+
+  def initialize user, params = {}
     @user = user
     @params = params
   end
@@ -35,6 +36,24 @@ class SuggestionEngine
                                       price: price,
                                       date: date,
                                       companies: companies})
+
+        if table.matches?(reservation)
+          reservation.table = table
+          results << reservation
+        end
+      end
+    end
+    results
+  end
+
+  # TODO refactor and DRY
+  def last_minute
+    results = []
+    Table.where(:date => Date.today).each do |table|
+      if table.city == @user.city
+        reservation = Reservation.new({user: @user,
+                                      price: @user.menu_price,
+                                      date: Date.today})
 
         if table.matches?(reservation)
           reservation.table = table

@@ -31,10 +31,10 @@ Rails.application.routes.draw do
       resources :tables do
         delete "batch_delete", on: :collection
       end
+
       resources :reservations, only: [:show, :index] do
         get "validate"
       end
-
     end
   end
 
@@ -70,6 +70,7 @@ Rails.application.routes.draw do
       post "test/:test_id" => "test_responses#create", as: "test_response"
       get "test" => "test_responses#new", as: "test"
       post "search" => "reservations#search", as: "search_tables"
+      get "last_minute_diiners" => "reservations#last_minute", as: "last_minute_diinners"
 
       resources :reservations do
         patch "user_reuse_card" => "reservations#reuse_card", as: "reuse_card"

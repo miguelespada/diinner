@@ -18,7 +18,7 @@ class User
 
   has_one :preference
   accepts_nested_attributes_for :preference
-  delegate :max_age, :min_age, :city, :to => :preference, :allow_nil => true
+  delegate :max_age, :min_age, :city, :menu_price, :to => :preference, :allow_nil => true
 
   def first_login?
     updated_at == created_at

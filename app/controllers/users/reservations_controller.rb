@@ -22,6 +22,15 @@ class  Users::ReservationsController < BaseUsersController
     @suggestions = suggestionEngine.search.first(3)
   end
 
+  def last_minute
+    if !@user.has_preferences?
+      redirect_to edit_user_path(@user), notice: 'You need to fill your diinner preferences to access the last minute diinners!'
+    else
+      suggestionEngine = SuggestionEngine.new @user
+      @suggestions = suggestionEngine.last_minute
+    end
+  end
+
   def create
     # TODO check again if reservation match the table (in case concurrency problems)
     @reservation = @user.reservations.create(reservation_params)
