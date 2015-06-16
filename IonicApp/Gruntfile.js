@@ -82,7 +82,7 @@ module.exports = function (grunt) {
       },
       slim: {
         files: ['<%= yeoman.app %>/slim/**/*.slim'],
-        tasks: ['slim']
+        tasks: ['newer:slim']
       },
       html: {
         files: ['<%= yeoman.app %>/**/*.html'],
