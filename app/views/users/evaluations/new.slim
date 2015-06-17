@@ -1,0 +1,11 @@
+div.container-fluid
+  div.row
+    div.col-md-12
+      div.col-md-8
+        h1
+          | Evaluation for plan at restaurant:
+          == @reservation.restaurant.name
+        = simple_form_for [@user, @reservation, @evaluation] do |f|
+          = f.error_notification
+          = f.comments
+          = f.button :submit

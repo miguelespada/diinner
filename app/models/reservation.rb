@@ -27,6 +27,7 @@ class Reservation
            :allow_destroy => true
 
   has_one :payment
+  has_one :evaluation
 
   def affinity
     # TODO Calculate affinity

@@ -14,7 +14,11 @@ module ReservationStatus
     end
 
     def can_be_evaluated?
-      passed? && paid?
+      passed? && paid? && !evaluated?
+    end
+
+    def evaluated?
+      !evaluation.nil?
     end
 
     def pending?

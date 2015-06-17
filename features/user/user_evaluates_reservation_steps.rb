@@ -6,4 +6,5 @@ Then(/^I can evaluate the reservation$/) do
   click_on "My reservations"
   find(".status-table > a").click
   click_on "Evaluate"
+  save_and_open_page
 end

@@ -74,7 +74,7 @@ class ReservationCell < BaseCell
 
   def evaluate_link
     if model.is_owned_by?(current_user) && model.can_be_evaluated?
-      @path = ""
+      @path = new_user_reservation_evaluation_path(current_user, model)
       render
     end
   end
