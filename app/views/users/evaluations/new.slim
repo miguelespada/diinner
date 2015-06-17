@@ -5,7 +5,7 @@ div.container-fluid
         h1
           | Evaluation for plan at restaurant:
           == @reservation.restaurant.name
-        = simple_form_for [@user, @reservation, @evaluation] do |f|
+        = simple_form_for [@user, @evaluation] do |f|
           = f.error_notification
           = f.comments
           = f.button :submit
