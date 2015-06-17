@@ -1,0 +1,2 @@
+- if activity.recipient.is_owned_by?(owner)
+  = link_to "delete", delete_activity_user_path(owner, activity), method: :delete

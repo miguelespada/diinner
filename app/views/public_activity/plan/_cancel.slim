@@ -1,10 +1,5 @@
 div.cancel-plan-log
   i.bi_misc-mood-sad
-  - if activity.recipient.is_owned_by?(@current_user)
-    | Your plan diinner for tonight 
-  - else
-    | Tonight's plan dinner for 
-    == cell(:user, activity.recipient).show_link 
-  |  at restaurant 
-  == cell(:restaurant, activity.trackable.restaurant).show_link
+  = render "public_activity/plan/show", activity: activity
   |  was cancelled
+  = render "public_activity/delete_activity", owner: @current_user, activity: activity

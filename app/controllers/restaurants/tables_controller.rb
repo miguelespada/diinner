@@ -36,6 +36,7 @@ class Restaurants::TablesController <  BaseRestaurantsController
   end
 
   def batch_delete
+    # TODO batch delete check if non_empty!
     tables = @restaurant.tables.any_in(:id => params[:table_ids]).destroy_all
     redirect_to restaurant_tables_path(@restaurant), notice: 'Tables were successfully destroyed.'
   end
