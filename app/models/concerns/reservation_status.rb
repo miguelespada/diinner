@@ -9,6 +9,14 @@ module ReservationStatus
     field :ticket_valid, type: Boolean, default: false
     field :payment_error, type: Boolean, default: false
 
+    def passed?
+      Date.today > date
+    end
+
+    def can_be_evaluated?
+      passed? && paid?
+    end
+
     def pending?
       customer.present? && !paid? && !cancelled?
     end
