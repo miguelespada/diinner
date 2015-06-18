@@ -1,0 +1,40 @@
+ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl"
+  ion-content
+    form ng-submit="editUser()"
+      ion-list
+        ion-item
+          .row
+            ion-radio.col ng-repeat="item in genderList" id="user-gender-{{item.value}}"  ng-value="item.value" ng-model="user.gender"
+              | {{ item.text }}
+        ion-item
+          label.item.item-input
+            span.input-label  Birth
+            input.birth type="birth" ng-model="user.birth"
+        ion-item
+          .row
+            .col-10
+              i Min. Age: {{ user.preference.min_age }}
+            .col-90
+              .item.range
+                input.min_age name="age" type="range" ng-model="user.preference.min_age"
+        ion-item
+          .row
+            .col-10
+              i Max. Age: {{ user.preference.max_age }}
+            .col-90
+              .item.range
+                input.max_age name="age" type="range" ng-model="user.preference.max_age"
+        ion-item
+          label.item.item-input.item-select
+            .input-label
+              | Preferred City
+            select.city ng-model="user.preference.city_id"
+              option ng-repeat="item in cityList.cities" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
+        ion-item
+          label.item.item-input.item-select
+            .input-label
+              | Plans price
+            select.menu-price ng-model="user.preference.menu_price" ng-options="item for item in priceList"
+        ion-item
+          button.button.button-energized type="submit" Submit
+

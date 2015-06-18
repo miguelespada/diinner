@@ -13,6 +13,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/profile",
       templateUrl: 'templates/profile.html'
     })
+    .state('preferences', {
+      url: "/preferences",
+      templateUrl: 'templates/preferences.html'
+    })
 });
 
 

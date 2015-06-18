@@ -83,4 +83,22 @@ class User
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 
+  def to_ionic_json
+    json = {
+        name: self.name,
+        email: self.email,
+        birth: self.birth,
+        image_url: self.image_url,
+        gender: self.gender
+    }
+    if self.preference
+      json.preference = {}
+      json.preference.min_age = self.preference.min_age ? self.preference.min_age : 18
+      json.preference.max_age = self.preference.max_age ? self.preference.min_age : 70
+      json.preference.city_id = self.preference.city ? self.preference.city.id.to_s : nil
+      json.preference.menu_price = self.preference.menu_price ? self.preference.menu_price : nil
+    end
+    json
+  end
+
 end

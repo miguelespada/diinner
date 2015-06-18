@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
-  get "ionic/user"
-  get "ionic/notifications"
+  scope :ionic, as: "ionic" do
+    get "user" => "ionic#user"
+    post "user" => "ionic#update_user"
+    get "cities" => "ionic#cities"
+    get "notifications" => "ionic#notifications"
+  end
 
   scope :auth, as: "auth" do
     get "auth0/callback" => "auth0#callback"

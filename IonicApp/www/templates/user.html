@@ -1,4 +1,4 @@
-<ion-view title="User"><ion-content><span class="item item-thumbnail-left"><img src="{{user.image_url}}" />
+<ion-view ng-controller="UserCtrl" title="User"><ion-content><span class="item item-thumbnail-left"><img src="{{user.image_url}}" />
       <h2>
         {{user.name}}
       </h2>
@@ -6,3 +6,4 @@
         {{user.email}}
       </p>
     </span><ion-list><ion-item><a href="#/profile">My profile</a></ion-item><ion-item><a href="#">New reservation</a></ion-item><ion-item><a href="#">My reservations</a></ion-item><ion-item><a href="#">Last minute plan</a></ion-item></ion-list></ion-content></ion-view>
+<script src="scripts/controllers/user_controller.js"></script>
