@@ -84,21 +84,19 @@ class User
   end
 
   def to_ionic_json
-    json = {
+    {
         name: self.name,
         email: self.email,
         birth: self.birth,
         image_url: self.image_url,
-        gender: self.gender
+        gender: self.gender,
+        preference: {
+            min_age: self.preference.min_age,
+            max_age: self.preference.max_age,
+            city_id: self.preference.city.id.to_s,
+            menu_price: self.preference.menu_price
+        }
     }
-    if self.preference
-      json.preference = {}
-      json.preference.min_age = self.preference.min_age ? self.preference.min_age : 18
-      json.preference.max_age = self.preference.max_age ? self.preference.min_age : 70
-      json.preference.city_id = self.preference.city ? self.preference.city.id.to_s : nil
-      json.preference.menu_price = self.preference.menu_price ? self.preference.menu_price : nil
-    end
-    json
   end
 
 end
