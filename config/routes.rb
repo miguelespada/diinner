@@ -71,6 +71,7 @@ Rails.application.routes.draw do
       resources :menus, only: [:show]
       resources :notifications, only: [:index]
 
+      delete "activity/delete/:activity_id" => "users#delete_activity", as: "delete_activity", on: :member
       post "test/:test_id" => "test_responses#create", as: "test_response"
       get "test" => "test_responses#new", as: "test"
       post "search" => "reservations#search", as: "search_tables"

@@ -20,6 +20,11 @@ class Users::UsersController < BaseUsersController
     end
   end
 
+  def delete_activity
+    @user.notifications.find(params[:activity_id]).destroy!
+    redirect_to :back, notice: 'Activity were successfully destroyed.'
+  end
+
   private
 
   def user_params
