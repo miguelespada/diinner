@@ -17,6 +17,10 @@ class ReservationCell < BaseCell
     cell(:user, model.user)
   end
 
+  def evaluation
+    cell(:evaluation, model.evaluation)
+  end
+
   def payment
     cell(:payment, model.payment) if !model.payment.nil?
   end

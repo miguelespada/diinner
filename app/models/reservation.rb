@@ -73,4 +73,8 @@ class Reservation
     self.create_activity key: "reservation.#{action}", owner: user, recipient: restaurant
   end
 
+  def has_evaluation?
+    !evaluation.nil?
+  end
+
 end

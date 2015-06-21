@@ -29,3 +29,7 @@ H1 Reservation
     div.reservation-payment
       span.bold-label PAYMENT
       = payment.show_link
+  - if model.has_evaluation?
+    div.reservation-evalutaion
+      span.bold-label EVALUATION
+      == evaluation
