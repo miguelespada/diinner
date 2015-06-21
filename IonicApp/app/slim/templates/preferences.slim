@@ -4,12 +4,12 @@ ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl"
       ion-list
         ion-item
           .row
-            ion-radio.col ng-repeat="item in genderList" id="user-gender-{{item.value}}"  ng-value="item.value" ng-model="user.gender"
+            ion-radio.col ng-repeat="item in genderList" id="user-gender-{{item.value}}" name="gender" ng-value="item.value" ng-model="user.gender"
               | {{ item.text }}
         ion-item
           label.item.item-input
             span.input-label  Birth
-            input.birth type="birth" ng-model="user.birth"
+            input.birth type="date" ng-model="user.birth"
         ion-item
           .row
             .col-10
@@ -36,5 +36,6 @@ ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl"
               | Plans price
             select.menu-price ng-model="user.preference.menu_price" ng-options="item for item in priceList"
         ion-item
-          button.button.button-energized type="submit" Submit
+          button.button.button-full.button-calm type="submit" Submit
+
 

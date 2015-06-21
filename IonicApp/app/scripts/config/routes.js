@@ -17,6 +17,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/preferences",
       templateUrl: 'templates/preferences.html'
     })
+    .state('new_reservation', {
+      url: "/new_reservation",
+      templateUrl: 'templates/new_reservation.html'
+    })
 });
 
 
