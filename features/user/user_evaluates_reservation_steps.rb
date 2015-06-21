@@ -6,5 +6,7 @@ Then(/^I can evaluate the reservation$/) do
   click_on "My reservations"
   find(".status-table > a").click
   click_on "Evaluate"
-  save_and_open_page
+  fill_in :evaluation_comments, with: "The food was great"
+  click_on "Update Evaluation"
+  expect(page).to have_content "Thanks for your evaluation!"
 end
