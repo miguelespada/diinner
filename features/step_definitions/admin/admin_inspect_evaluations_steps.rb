@@ -14,3 +14,18 @@ Then(/^I can see the evaluation$/) do
   end
   expect(page).to have_content "The food was great"
 end
+
+Then(/^I can access the evaluation through the restaurant page$/) do
+  click_on "Restaurants"
+  within ".restaurant-name" do
+    find(".show-link").click
+  end
+  within ".evaluation-comments" do
+    expect(page).to have_content "The food was great"
+  end
+end
+
+Then(/^I get notified about the evaluation$/) do
+  click_on "Logs"
+
+end

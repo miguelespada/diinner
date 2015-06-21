@@ -9,3 +9,5 @@ Feature: Adamin inspect evaluations
   @admin_inspect_evaluations
   Scenario:
     Then I can see the evaluation
+    Then I can access the evaluation through the restaurant page
+    Then I get notified about the evaluation

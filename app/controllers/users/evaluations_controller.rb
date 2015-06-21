@@ -7,9 +7,7 @@ class  Users::EvaluationsController < BaseUsersController
   end
 
   def create
-    @evaluation = Evaluation.new(evaluation_params)
-    @reservation.evaluation = @evaluation
-    @evaluation.save!
+    @evaluation = @reservation.evaluation.update!(evaluation_params)
     redirect_to users_path(@user), notice: 'Thanks for your evaluation!'
   rescue
     render :new

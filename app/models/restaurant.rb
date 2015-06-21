@@ -76,6 +76,10 @@ class Restaurant
     reservations.map{ |reservation| reservation.user}.uniq
   end
 
+  def evaluations
+    reservations.map{|r| r.evaluation if r.has_evaluation?}
+  end
+
   def is_customer? user
     customers.include?(user)
   end
