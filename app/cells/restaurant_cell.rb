@@ -79,8 +79,7 @@ class RestaurantCell < BaseCell
     end
   end
 
-   def evaluations
-    # TODO admin_restaurant_row???
+  def evaluations
     if admin_signed_in?
       table "Evaluations", \
           %w(Reservation User Comments), \

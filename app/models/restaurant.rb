@@ -77,7 +77,7 @@ class Restaurant
   end
 
   def evaluations
-    reservations.map{|r| r.evaluation if r.has_evaluation?}
+    reservations.map{|r| r.evaluation}.reject(&:nil?)
   end
 
   def is_customer? user

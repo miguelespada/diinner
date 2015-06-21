@@ -27,5 +27,5 @@ end
 
 Then(/^I get notified about the evaluation$/) do
   click_on "Logs"
-
+  # TODO define notification
 end
