@@ -25,7 +25,16 @@ Then(/^I can access the evaluation through the restaurant page$/) do
   end
 end
 
+Then(/^I can access the evaluation through the menu$/) do
+  within ".navigation" do
+    click_on "Evaluations"
+  end
+  within "#evaluations" do
+    expect(page).to have_content "The food was great"
+  end
+end
+
 Then(/^I get notified about the evaluation$/) do
   click_on "Logs"
-  # TODO define notification
+  expect(page).to have_content "New evaluation for restaurant restaurant_1"
 end

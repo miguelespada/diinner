@@ -10,4 +10,5 @@ Feature: Adamin inspect evaluations
   Scenario:
     Then I can see the evaluation
     Then I can access the evaluation through the restaurant page
+    Then I can access the evaluation through the menu
     Then I get notified about the evaluation
