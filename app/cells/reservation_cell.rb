@@ -17,6 +17,10 @@ class ReservationCell < BaseCell
     cell(:user, model.user)
   end
 
+  def evaluation
+    cell(:evaluation, model.evaluation)
+  end
+
   def payment
     cell(:payment, model.payment) if !model.payment.nil?
   end
@@ -64,9 +68,17 @@ class ReservationCell < BaseCell
     end
   end
 
-   def cancel_link
+  def cancel_link
+    # TODO if is not today
     if model.is_owned_by?(current_user) && !model.cancelled?
       @path = user_reservation_cancel_path(current_user, model)
+      render
+    end
+  end
+
+  def evaluate_link
+    if model.is_owned_by?(current_user) && model.can_be_evaluated?
+      @path = new_user_reservation_evaluation_path(current_user, model)
       render
     end
   end

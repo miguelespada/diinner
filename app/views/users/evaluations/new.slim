@@ -1,0 +1,12 @@
+div.container-fluid
+  div.row
+    div.col-md-12
+      div.col-md-8
+        h1
+          | Evaluation for diinner plan at restaurant:
+          == @reservation.restaurant.name
+        = simple_form_for [@user, @reservation, @evaluation], \
+            :url => user_reservation_evaluations_path, :method => :post do |f|
+          = f.error_notification
+          = f.input :comments
+          = f.button :submit

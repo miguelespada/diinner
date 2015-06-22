@@ -78,7 +78,8 @@ Rails.application.routes.draw do
       get "last_minute_diiners" => "reservations#last_minute", as: "last_minute_diinners"
 
       resources :reservations do
-        patch "user_reuse_card" => "reservations#reuse_card", as: "reuse_card"
+        resources :evaluations, only: [:new, :create]
+        patch "reuse_card" => "reservations#reuse_card"
         patch "cancel", as: "cancel"
       end
     end

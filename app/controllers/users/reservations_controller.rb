@@ -1,6 +1,6 @@
 class  Users::ReservationsController < BaseUsersController
   load_resource :id_param => :reservation_id, :through => :user,
-                :only => [:reuse_card, :cancel, :menu]
+                :only => [:reuse_card, :cancel, :menu, :new_evaluation]
   load_resource :only => [:update, :destroy, :show], :through => :user
 
   def index

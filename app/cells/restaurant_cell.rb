@@ -79,6 +79,14 @@ class RestaurantCell < BaseCell
     end
   end
 
+  def evaluations
+    if admin_signed_in?
+      table "Evaluations", \
+          %w(Reservation User Comments), \
+          cell(:evaluation, collection: model.evaluations, method: :admin_row)
+    end
+  end
+
   def cl_photo size
      cl_image_tag(model.photo.path, { size: "#{size}x#{size}", crop: :fill, radius: 2 }) if model.photo.present?
   end

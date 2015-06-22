@@ -27,6 +27,7 @@ class Reservation
            :allow_destroy => true
 
   has_one :payment
+  has_one :evaluation
 
   def affinity
     # TODO Calculate affinity
@@ -70,6 +71,10 @@ class Reservation
 
   def notify action
     self.create_activity key: "reservation.#{action}", owner: user, recipient: restaurant
+  end
+
+  def has_evaluation?
+    !evaluation.nil?
   end
 
 end
