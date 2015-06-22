@@ -20,9 +20,7 @@ Then(/^I can access the evaluation through the restaurant page$/) do
   within ".restaurant-name" do
     find(".show-link").click
   end
-  within ".evaluation-comments" do
-    expect(page).to have_content "The food was great"
-  end
+  step "I can see the evaluation row"
 end
 
 Then(/^I can access the evaluation through the menu$/) do
@@ -30,8 +28,26 @@ Then(/^I can access the evaluation through the menu$/) do
     click_on "Evaluations"
   end
   within "#evaluations" do
-    expect(page).to have_content "The food was great"
+    step "I can see the evaluation row"
   end
+end
+
+Then(/^I can see the evaluation row$/) do
+  within ".evaluation-restaurant" do
+      expect(page).to have_content "3"
+    end
+    within ".evaluation-menu" do
+      expect(page).to have_content "5"
+    end
+    within ".evaluation-fun" do
+      expect(page).to have_content "true"
+    end
+    within ".evaluation-recommend" do
+      expect(page).to have_content "false"
+    end
+    within ".evaluation-comments" do
+      expect(page).to have_content "The food was great"
+    end
 end
 
 Then(/^I get notified about the evaluation$/) do

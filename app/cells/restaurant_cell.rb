@@ -82,7 +82,7 @@ class RestaurantCell < BaseCell
   def evaluations
     if admin_signed_in?
       table "Evaluations", \
-          %w(Reservation User Comments), \
+          %w(Reservation User Comments, Fun?, Recommend?, Restaurant, Menu), \
           cell(:evaluation, collection: model.evaluations, method: :admin_row)
     end
   end

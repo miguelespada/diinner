@@ -16,6 +16,11 @@ class  Users::EvaluationsController < BaseUsersController
 
   private
   def evaluation_params
-    params.require(:evaluation).permit(:comments)
+    params.require(:evaluation).permit(:comments,
+                                      :had_fun,
+                                      :would_recommend,
+                                      :quality_of_restaurant,
+                                      :quality_of_menu
+                                    )
   end
 end
