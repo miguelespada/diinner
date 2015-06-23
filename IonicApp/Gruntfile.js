@@ -528,6 +528,9 @@ module.exports = function (grunt) {
     }
 
     grunt.config('concurrent.ionic.tasks', ['ionic:serve', 'watch']);
+    if (target === 'production') {
+      grunt.task.run(['wiredep', 'init-production', 'concurrent:ionic']);
+    }
     grunt.task.run(['wiredep', 'init', 'concurrent:ionic']);
   });
   grunt.registerTask('emulate', function() {
@@ -538,13 +541,28 @@ module.exports = function (grunt) {
     grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join(), 'watch']);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
+  grunt.registerTask('run-prod', function() {
+    grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join(), 'watch']);
+    return grunt.task.run(['init-production', 'concurrent:ionic']);
+  });
   grunt.registerTask('build', function() {
-    return grunt.task.run(['init', 'ionic:build:' + this.args.join()]);
+    return grunt.task.run(['init-production', 'ionic:build:' + this.args.join()]);
   });
 
   grunt.registerTask('init', [
     'clean',
     'ngconstant:development',
+    'wiredep',
+    'slim',
+    'concurrent:server',
+    'autoprefixer',
+    'newer:copy:app',
+    'newer:copy:tmp'
+  ]);
+
+  grunt.registerTask('init-production', [
+    'clean',
+    'ngconstant:production',
     'wiredep',
     'slim',
     'concurrent:server',
