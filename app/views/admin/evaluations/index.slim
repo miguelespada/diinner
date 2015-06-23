@@ -1,0 +1,18 @@
+- content_for(:title) do
+  | Evaluations
+
+- content_for(:thead) do
+  th Restaurant
+  th User
+  th Comments
+  th Fun?
+  th Recommend?
+  th Restaurant
+  th Menu
+
+- content_for(:tbody) do
+  == cell(:evaluation, collection: @evaluations, method: :admin_row)
+
+= render "admin/admin_table"
+
+= will_paginate @evaluations
