@@ -1,4 +1,6 @@
-var dinnerApp = angular.module('starter', ['ionic', 'ngResource']);
+"use strict";
+
+var dinnerApp = angular.module('starter', ['ionic', 'ngResource', 'environment']);
 
 dinnerApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

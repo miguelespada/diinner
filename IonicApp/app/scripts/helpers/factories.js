@@ -1,3 +1,5 @@
+"use strict";
+
 dinnerApp.factory('Cities', ['DataLoader', function($dataLoader) {
   //return $dataLoader.getCities().$promise.then(function(response) {
   //  var cityList = [];

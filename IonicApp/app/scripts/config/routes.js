@@ -1,3 +1,5 @@
+"use strict";
+
 dinnerApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('index', {
