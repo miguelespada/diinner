@@ -110,6 +110,19 @@ class Restaurant
     false
   end
 
+  def to_ionic_json
+    {
+        name: self.name,
+        description: self.description,
+        phone: self.phone,
+        address: self.address,
+        contact_person: self.contact_person,
+        city: self.city.id.to_s,
+        photo: Cloudinary::Utils.cloudinary_url(self.photo.path)
+
+    }
+  end
+
   private
 
   def check_password_changed

@@ -1,6 +1,6 @@
 "use strict";
 
-dinnerApp.directive('jsonDate', function() {
+dinnerApp.directive('jsonDate', ['$filter', function($filter) {
   return {
     restrict: 'A',
     require: 'ngModel',
@@ -16,8 +16,8 @@ dinnerApp.directive('jsonDate', function() {
 
       //format text from the user (view to model)
       ngModel.$parsers.push(function (value) {
-        return value;
+        return $filter('date')(value, 'dd/MM/yyyy');
       });
     }
   }
-});
+}]);

@@ -32,6 +32,8 @@ class SuggestionEngine
     results = []
     Table.where(:date => date).each do |table|
       if table.city == city
+
+
         reservation = Reservation.new({user: @user,
                                       price: price,
                                       date: date,

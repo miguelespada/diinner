@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post "user" => "ionic#update_user"
     get "cities" => "ionic#cities"
     get "notifications" => "ionic#notifications"
+    get "table/search" => "ionic#search_tables", as: "search_tables"
   end
 
   scope :auth, as: "auth" do

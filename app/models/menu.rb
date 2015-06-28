@@ -35,4 +35,16 @@ class Menu
   def notify action
     self.create_activity key: "menu.#{action}", owner: restaurant
   end
+
+  def to_ionic_json
+    {
+        name: self.name,
+        description: self.description,
+        price: self.price,
+        appetizer: self.appetizer,
+        main_dish: self.main_dish,
+        dessert: self.dessert,
+        drink: self.drink
+    }
+  end
 end

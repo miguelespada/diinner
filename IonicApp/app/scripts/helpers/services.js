@@ -17,3 +17,10 @@ dinnerApp.service('CityManager',['$resource', 'ENV', function($resource, ENV) {
     return $resource(ENV.apiEndPoint + '/cities.json').get();
   };
 }]);
+
+
+dinnerApp.service('TableManager',['$resource', 'ENV', function($resource, ENV) {
+  this.searchTables = function(filters) {
+    return $resource(ENV.apiEndPoint + '/table/search').get({filters: filters});
+  };
+}]);

@@ -30,6 +30,19 @@ class IonicController < ActionController::Base
     render json: @current_user.notifications
   end
 
+  def search_tables
+    suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
+    # TODO limit search on Engine
+
+    render json: {
+               reservations: suggestionEngine.search.first(3).map{ |reservation| {
+                   reservation: reservation.to_ionic_json
+                  }
+               }
+
+           }
+  end
+
   private
   def user_params
     params.require(:user).permit(:gender,

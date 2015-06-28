@@ -77,4 +77,14 @@ class Reservation
     !evaluation.nil?
   end
 
+  def to_ionic_json
+    {
+      date: self.date,
+      time: self.hour,
+      price: self.price,
+      restaurant: self.restaurant.to_ionic_json,
+      menu: self.menu.to_ionic_json
+    }
+  end
+
 end
