@@ -1,0 +1,19 @@
+ion-view title="Payment" ng-controller="PaymentCtrl"
+  ion-content
+    ion-list
+      ion-item
+        | Payment Details
+      ion-item
+        | Restaurant: {{ reservationSelected.restaurant.name }}
+      ion-item
+        | Address: {{ reservationSelected.restaurant.address }}
+      ion-item
+        | Date: {{ reservationSelected.date }}
+      ion-item
+        | Time: {{ reservationSelected.time }}
+      ion-item
+        | Price: {{ reservationSelected.price }}€
+      ion-item
+        button.button.button-full.button-calm type="submit" ng-click="confirmPayment($index)" Confirm Payment
+      ion-item
+        button.button.button-full type="submit" ng-click="changeCard($index)" Use different card

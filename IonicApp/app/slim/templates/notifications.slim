@@ -1,0 +1,6 @@
+ion-view title="Notifications" ng-controller="NotificationsCtrl"
+  ion-content
+    ion-list
+      ion-item ng-repeat="item in notificationList.notifications track by $index" id="notification-{{$index}}"
+        | {{ item }}
+

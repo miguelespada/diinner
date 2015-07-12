@@ -4,6 +4,9 @@ dinnerApp.service('UserManager',['$resource', 'ENV', function($resource, ENV) {
   this.getUser = function() {
     return $resource(ENV.apiEndPoint + '/user.json').get()
   };
+  this.getNotifications = function() {
+    return $resource(ENV.apiEndPoint + '/notifications.json').get()
+  };
 
   this.updateUser = function(user) {
     return $resource(ENV.apiEndPoint + '/user').save({user: user});
@@ -24,3 +27,4 @@ dinnerApp.service('TableManager',['$resource', 'ENV', function($resource, ENV) {
     return $resource(ENV.apiEndPoint + '/table/search').get({filters: filters});
   };
 }]);
+

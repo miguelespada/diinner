@@ -1,6 +1,22 @@
 "use strict";
 
-dinnerApp.controller('NewReservationCtrl', ['$scope', '$state', '$ionicSlideBoxDelegate', 'UserManager', 'CityManager', 'TableManager', function($scope, $state, $ionicSlideBoxDelegate, $userManager, $cityManager, $tableManager) {
+dinnerApp.controller('NewReservationCtrl',
+  [
+    '$scope',
+    '$state',
+    '$ionicSlideBoxDelegate',
+    'UserManager',
+    'CityManager',
+    'TableManager',
+    'SharedService',
+    function($scope,
+             $state,
+             $ionicSlideBoxDelegate,
+             $userManager,
+             $cityManager,
+             $tableManager,
+             $sharedService) {
+
   $scope.user = $userManager.getUser();
   $scope.cityList = $cityManager.getCities();
 
@@ -15,7 +31,7 @@ dinnerApp.controller('NewReservationCtrl', ['$scope', '$state', '$ionicSlideBoxD
     { text: "Male", value: "male" }
   ];
 
-  $scope.ageList = [18,19,20];
+  $scope.ageList = [18,19,20]; //TODO
 
   $scope.expectationList = [
     { text: "Diinner and bed", value: 1 },
@@ -42,5 +58,11 @@ dinnerApp.controller('NewReservationCtrl', ['$scope', '$state', '$ionicSlideBoxD
       $ionicSlideBoxDelegate.update();
     });
     $scope.panelShown = "search-results";
+  };
+
+  $scope.reserve = function(index){
+    $scope.reservationSelected = $scope.reservationList[index].reservation;
+    $sharedService.set({reservationSelected: $scope.reservationSelected});
+    $state.go('payment');
   };
 }]);

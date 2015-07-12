@@ -15,6 +15,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/profile",
       templateUrl: 'templates/profile.html'
     })
+    .state('notifications', {
+      url: "/notifications",
+      templateUrl: 'templates/notifications.html'
+    })
     .state('preferences', {
       url: "/preferences",
       templateUrl: 'templates/preferences.html'
@@ -22,6 +26,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
     .state('new_reservation', {
       url: "/new_reservation",
       templateUrl: 'templates/new_reservation.html'
+    })
+    .state('payment', {
+      url: "/payment",
+      templateUrl: 'templates/payment.html'
     })
 });
 

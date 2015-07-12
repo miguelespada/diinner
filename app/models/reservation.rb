@@ -79,9 +79,11 @@ class Reservation
 
   def to_ionic_json
     {
+      id: self.id.to_s,
       date: self.date,
       time: self.hour,
       price: self.price,
+      affinity: self.affinity,
       restaurant: self.restaurant.to_ionic_json,
       menu: self.menu.to_ionic_json
     }

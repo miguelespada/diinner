@@ -50,7 +50,7 @@ ion-view title="New Reservation" ng-controller="NewReservationCtrl"
 
 
 
-    #search-container ng-show="panelShown == 'search-results'"
+    #results-container ng-show="panelShown == 'search-results'"
       ion-slide-box active-slide="activeSlide"
         ion-slide ng-repeat="item in reservationList track by $index" id="reservation-result-{{$index}}"
           div.box
@@ -61,6 +61,9 @@ ion-view title="New Reservation" ng-controller="NewReservationCtrl"
               ion-item
                 .row
                   | {{ item.reservation.restaurant.name }}
+              ion-item
+                .row
+                  | Affinity: {{ item.reservation.affinity }}
               ion-item
                 .row
                   | {{ item.reservation.restaurant.address }}
@@ -83,4 +86,4 @@ ion-view title="New Reservation" ng-controller="NewReservationCtrl"
                   .col
                     | {{ item.reservation.menu.drink }}
               ion-item
-                button.button.button-full.button-calm type="submit" Reserve
+                button.button.button-full.button-calm type="submit" ng-click="reserve($index)" Reserve

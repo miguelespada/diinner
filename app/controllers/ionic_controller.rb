@@ -27,7 +27,9 @@ class IonicController < ActionController::Base
   end
 
   def notifications
-    render json: @current_user.notifications
+    render json: {
+               notifications: @current_user.notifications
+           }
   end
 
   def search_tables
