@@ -54,7 +54,8 @@
       &.today{
         a{
           text-align: center;
-          background-color: $themeYellow;
+          font-weight: 400;
+          text-decoration: underline !important;
           padding: 5px;
           border-radius: 20px;
         }
