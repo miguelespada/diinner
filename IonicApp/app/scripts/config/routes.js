@@ -31,6 +31,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/payment",
       templateUrl: 'templates/payment.html'
     })
+    .state('my_reservations', {
+      url: "/my_reservations",
+      templateUrl: 'templates/my_reservations.html'
+    })
 });
 
 

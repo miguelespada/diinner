@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get "cities" => "ionic#cities"
     get "notifications" => "ionic#notifications"
     get "table/search" => "ionic#search_tables", as: "search_tables"
+    get "reservations" => "ionic#reservations"
+    post "cancel_reservation" => "ionic#cancel_reservation"
   end
 
   scope :auth, as: "auth" do

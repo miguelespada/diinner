@@ -32,6 +32,25 @@ class IonicController < ActionController::Base
            }
   end
 
+  def reservations
+    render json: {
+               reservations: @current_user.reservations.where(:date.gte => Date.today).map{ |reservation| {
+                   reservation: reservation.to_ionic_json
+                }
+               }
+           }
+  end
+
+  def cancel_reservation
+      @reservation = @current_user.reservations.where(id: params[:reservation_id]).first
+      if @reservation.is_owned_by?(@current_user) and @reservation.cancel
+        @reservation.notify "cancel"
+        render json: {result: "success"}
+      else
+        render json: {result: "error"}
+      end
+  end
+
   def search_tables
     suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
     # TODO limit search on Engine

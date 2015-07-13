@@ -4,14 +4,22 @@ dinnerApp.service('UserManager',['$resource', 'ENV', function($resource, ENV) {
   this.getUser = function() {
     return $resource(ENV.apiEndPoint + '/user.json').get()
   };
-  this.getNotifications = function() {
-    return $resource(ENV.apiEndPoint + '/notifications.json').get()
-  };
 
   this.updateUser = function(user) {
     return $resource(ENV.apiEndPoint + '/user').save({user: user});
   };
 
+  this.getNotifications = function() {
+    return $resource(ENV.apiEndPoint + '/notifications.json').get()
+  };
+
+  this.getReservations = function() {
+    return $resource(ENV.apiEndPoint + '/reservations.json').get()
+  };
+
+  this.cancelReservation = function(reservation_id) {
+    return $resource(ENV.apiEndPoint + '/cancel_reservation').save({reservation_id: reservation_id})
+  };
 }]);
 
 

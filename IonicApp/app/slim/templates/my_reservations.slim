@@ -1,0 +1,38 @@
+ion-view title="My Reservation" ng-controller="MyReservationsCtrl"
+  ion-content
+    ion-slide-box active-slide="activeSlide"
+      ion-slide ng-repeat="item in reservationList track by $index" id="reservation-{{$index}}"
+        div.box
+          ion-list
+            ion-item
+              span.item.item-avatar
+                img src="{{item.reservation.restaurant.photo}}"
+            ion-item
+              .row
+                | {{ item.reservation.restaurant.name }}
+            ion-item
+              .row
+                | Affinity: {{ item.reservation.affinity }}
+            ion-item
+              .row
+                | {{ item.reservation.restaurant.address }}
+            ion-item
+              .row
+                | {{ item.reservation.menu.name }} {{ item.reservation.price }}
+            ion-item
+              .row
+                .col Appetizer
+                .col Main
+                .col Dessert
+                .col Drink
+              .row
+                .col
+                  | {{ item.reservation.menu.appetizer }}
+                .col
+                  | {{ item.reservation.menu.main_dish }}
+                .col
+                  | {{ item.reservation.menu.dessert }}
+                .col
+                  | {{ item.reservation.menu.drink }}
+            ion-item
+              button.button.button-full.button-calm type="submit" ng-click="cancel($index)" Cancel
