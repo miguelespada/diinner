@@ -492,3 +492,19 @@ section{
     display: block;
   }
 }
+
+@mixin custom-alert($tintColor){
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: 1px solid $tintColor;
+  border-radius: 3px;
+  width: 80%;
+  color: $tintColor;
+  background-color: lighten($tintColor, 50%);
+}
+
+.custom-alert{
+  &.custom-alert-warning{
+    @include custom-alert($alertWarning);
+  }
+}

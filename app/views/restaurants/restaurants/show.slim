@@ -1,6 +1,6 @@
 - if !@restaurant.has_changed_password
-  p
-    i.bi_interface-diag
+  p.custom-alert.custom-alert-warning
+    i.bi_web-warning 
     | For security reasons, you should change your password.
 = cell(:restaurant, @restaurant).call(:restaurant_show)
 == cell(:restaurant, @restaurant).location
