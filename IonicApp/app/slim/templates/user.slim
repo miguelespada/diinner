@@ -1,13 +1,13 @@
 ion-view title="User" ng-controller="UserCtrl"
   ion-content
-    span.item.item-thumbnail-left
-      img src="{{user.image_url}}"
-      h2
-        | {{user.name}}
-      p
-        | {{user.email}}
-
-
+    .user-image-container
+      .user-image-inner
+        img.user-thumbnail src="{{user.image_url}}"
+        p.user-name
+          | {{user.name}}
+        p.user-email
+          | {{user.email}}
+      img.user-background src="{{user.image_url}}"
     ion-list
       ion-item.item-icon-left.item-icon-right
         a href="#/profile"
