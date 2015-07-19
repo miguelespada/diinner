@@ -51,6 +51,24 @@ class IonicController < ActionController::Base
       end
   end
 
+  def reserve
+
+    reservation = params[:reservation]
+    companies = []
+    if reservation[:companies]
+      reservation[:companies].each{ |company|
+        companies.push([ company.id, company.gender, company.age ])
+      }
+    end
+    @reservation = @current_user.reservations.create(user_id: @current_user.id,
+                                             date: reservation[:date],
+                                             price: reservation[:price],
+                                             table_id: reservation[:table_id],
+                                             companies: companies)
+    @reservation.notify "create"
+    render json: {result: "success"}
+  end
+
   def search_tables
     suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
     # TODO limit search on Engine
@@ -62,6 +80,11 @@ class IonicController < ActionController::Base
                }
 
            }
+  end
+
+  def update_customer
+    @current_user.update_customer_information!(params[:payment_token])
+    render json: @current_user.to_ionic_json
   end
 
   private

@@ -20,6 +20,14 @@ dinnerApp.service('UserManager',['$resource', 'ENV', function($resource, ENV) {
   this.cancelReservation = function(reservation_id) {
     return $resource(ENV.apiEndPoint + '/cancel_reservation').save({reservation_id: reservation_id})
   };
+
+  this.reserve = function(reservation) {
+    return $resource(ENV.apiEndPoint + '/reserve').save({reservation: reservation})
+  };
+
+  this.updateCustomer = function(payment_token) {
+    return $resource(ENV.apiEndPoint + '/update_customer').save({payment_token: payment_token})
+  };
 }]);
 
 

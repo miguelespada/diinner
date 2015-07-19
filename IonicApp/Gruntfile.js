@@ -60,7 +60,8 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
-            apiEndPoint: 'http://localhost:3000/ionic'
+            apiEndPoint: 'http://localhost:3000/ionic',
+            stripePublishableKey: 'pk_test_aVle0kDCMX2iyIfuEvHoYcfq'
           }
         }
       },
@@ -68,7 +69,8 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndPoint: 'http://diinner.herokuapp.com/ionic'
+            apiEndPoint: 'http://diinner.herokuapp.com/ionic',
+            stripePublishableKey: 'pk_test_aVle0kDCMX2iyIfuEvHoYcfq'
           }
         }
       }

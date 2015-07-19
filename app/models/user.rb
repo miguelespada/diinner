@@ -70,6 +70,12 @@ class User
     end
   end
 
+  def retrieve_card_token
+    if !customer.nil?
+      Stripe::Customer.retrieve(customer).sources.data[0].id
+    end
+  end
+
   def default_card
     retrieve_card_from_stripe if !has_default_card?
     stripe_default_card
@@ -95,6 +101,10 @@ class User
             max_age: self.preference.max_age,
             city_id: self.preference.city.id.to_s,
             menu_price: self.preference.menu_price
+        },
+        payment: {
+            has_default_card: has_default_card?,
+            default_card: default_card
         }
     }
   end

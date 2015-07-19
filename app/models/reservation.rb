@@ -85,7 +85,12 @@ class Reservation
       price: self.price,
       affinity: self.affinity,
       restaurant: self.restaurant.to_ionic_json,
-      menu: self.menu.to_ionic_json
+      menu: self.menu.to_ionic_json,
+      table_id: self.table.id.to_s,
+      companies: self.companies.map{ |company| {
+          reservation: company.to_ionic_json
+        }
+      }
     }
   end
 

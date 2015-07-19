@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get "table/search" => "ionic#search_tables", as: "search_tables"
     get "reservations" => "ionic#reservations"
     post "cancel_reservation" => "ionic#cancel_reservation"
+    post "reserve" => "ionic#reserve"
+    post "update_customer" => "ionic#update_customer"
   end
 
   scope :auth, as: "auth" do

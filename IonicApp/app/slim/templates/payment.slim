@@ -1,5 +1,5 @@
 ion-view title="Payment" ng-controller="PaymentCtrl"
-  ion-content
+  ion-content ng-show="panelShown == 'payment_confirm'"
     ion-list
       ion-item
         | Payment Details
@@ -14,6 +14,29 @@ ion-view title="Payment" ng-controller="PaymentCtrl"
       ion-item
         | Price: {{ reservationSelected.price }}€
       ion-item
-        button.button.button-full.button-calm type="submit" ng-click="confirmPayment($index)" Confirm Payment
+        | Card: XXXX XXXX XXXX {{ paymentCard }}
+        button.button.button-full.button-calm type="submit" ng-click="confirmPayment()" Confirm Payment
       ion-item
-        button.button.button-full type="submit" ng-click="changeCard($index)" Use different card
+        button.button.button-full type="submit" ng-click="changeCard()" Use different card
+
+  ion-content ng-show="panelShown == 'change_card'"
+    ion-list
+      ion-item
+        | You are about to reserve a table at the restaurant {{ reservationSelected.restaurant.name }}. {{ reservationSelected.restaurant.address }}, on {{ reservationSelected.date }} at {{ reservationSelected.time }} for the price {{ reservationSelected.price }}€
+      ion-item.bar.bar-header.bar-assertive ng-show="cardError"
+          h1.title Please, verify your input data.
+      ion-item
+        form stripe-form="handleStripe" name="myForm"
+          div
+            | Card number
+            input.input-block-level type="text" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="myForm.number.$card.type"
+          div
+            | Expiry
+            input.input-block-level type="text" ng-model="expiry" payments-validate="expiry" payments-format="expiry"
+          div
+            | Name on card
+            input.input-block-level type="text"
+          div
+            | CVC
+            input.input-block-level type="text"  ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"
+          button.button.button-full type="submit" Confirm card

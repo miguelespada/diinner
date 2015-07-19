@@ -4,7 +4,8 @@
   "dependencies": {
     "ionic": "v1.0.0-rc.3",
     "ngCordova": "v0.1.14-alpha",
-    "angular-ui-calendar": "latest"
+    "angular-ui-calendar": "latest",
+    "angular-payments": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.6",
