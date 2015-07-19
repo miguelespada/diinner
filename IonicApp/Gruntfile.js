@@ -61,7 +61,9 @@ module.exports = function (grunt) {
           ENV: {
             name: 'development',
             apiEndPoint: 'http://localhost:3000/ionic',
-            stripePublishableKey: 'pk_test_aVle0kDCMX2iyIfuEvHoYcfq'
+            stripePublishableKey: 'pk_test_aVle0kDCMX2iyIfuEvHoYcfq',
+            auth0ClientID: 'BBLhUOEcSMo60RljToZKPWzNClPnAOPl',
+            auth0Domain: 'app35743745.eu.auth0.com'
           }
         }
       },
@@ -70,7 +72,9 @@ module.exports = function (grunt) {
           ENV: {
             name: 'production',
             apiEndPoint: 'http://diinner.herokuapp.com/ionic',
-            stripePublishableKey: 'pk_test_aVle0kDCMX2iyIfuEvHoYcfq'
+            stripePublishableKey: 'pk_test_aVle0kDCMX2iyIfuEvHoYcfq',
+            auth0ClientID: 'BBLhUOEcSMo60RljToZKPWzNClPnAOPl',
+            auth0Domain: 'app35743745.eu.auth0.com'
           }
         }
       }

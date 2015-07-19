@@ -1,6 +1,7 @@
 # This controller is for development pourposes
 
 class IonicController < ActionController::Base
+  attr_reader :current_user
   before_action :authenticate
 
   def update_user
@@ -96,6 +97,20 @@ class IonicController < ActionController::Base
   end
 
   def authenticate
-    @current_user = User.desc(:updated_at).first
+      token = params[:user_token]
+      decoded_token = JWT.decode token, nil, false
+      auth0 = Auth0Client.new(
+          :client_id => ENV["AUTH0_CLIENT_ID"],
+          :client_secret => ENV["AUTH0_CLIENT_SECRET"],
+          :domain => ENV["AUTH0_DOMAIN"]
+      )
+
+      user_id = decoded_token[0]["sub"]
+      query_response = auth0.users("user_id:#{user_id}")
+      auth0_user = query_response[0].deep_symbolize_keys!
+
+      @session ||= UserSession.new(auth0_user)
+      @current_user = @session.user_from_session_ionic
   end
+
 end

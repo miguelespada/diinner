@@ -24,6 +24,18 @@ class UserSession
     user
   end
 
+  def user_from_session_ionic #TODO Check if best way
+    user = find_user_ionic
+    if user.nil?
+      user = User.new(hash_from_omniauth_ionic)
+      user.save
+      user.create_activity key: 'user.create', owner: user
+    else
+      user.update(hash_from_omniauth_ionic)
+    end
+    user
+  end
+
   private
 
   def hash_from_omniauth
@@ -37,5 +49,18 @@ class UserSession
 
   def find_user
     User.where(email: @session[:userinfo][:info][:email]).first
+  end
+
+  def hash_from_omniauth_ionic #TODO Check if best way
+    logged_user_info = @session
+    {
+        email: logged_user_info[:email],
+        image_url: logged_user_info[:picture],
+        name: logged_user_info[:name]
+    }
+  end
+
+  def find_user_ionic #TODO Check if best way
+    User.where(email: @session[:email]).first
   end
 end

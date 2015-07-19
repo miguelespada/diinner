@@ -14,6 +14,4 @@ dinnerApp.controller('NotificationsCtrl',
   $scope.user = $userManager.getUser();
   $scope.notificationList = $userManager.getNotifications();
 
-
-  console.log($scope.notificationList);
 }]);

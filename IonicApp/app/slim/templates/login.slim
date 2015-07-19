@@ -1,0 +1,11 @@
+ion-view title="Login" ng-controller="LoginCtrl"
+  ion-content
+    ion-list
+      ion-item
+        | You are about to reserve a table at the restaurant {{ reservationSelected.restaurant.name }}. {{ reservationSelected.restaurant.address }}, on {{ reservationSelected.date }} at {{ reservationSelected.time }} for the price {{ reservationSelected.price }}€
+      ion-item.bar.bar-header.bar-assertive ng-show="cardError"
+        h1.title Please, verify your input data.
+      ion-item
+        input type="submit" ng-click="signin()"
+      ion-item
+        button.button.button-full type="submit" Confirm card

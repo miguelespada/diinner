@@ -4,7 +4,12 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('index', {
       url: "",
-      templateUrl: 'templates/links.html'
+      templateUrl: 'templates/main.html',
+      requiresLogin: true
+    })
+    .state('login', {
+      url: "/login",
+      templateUrl: 'templates/login.html'
     })
     .state('user', {
       url: "/user",

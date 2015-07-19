@@ -1,8 +1,10 @@
 "use strict";
 
-dinnerApp.service('UserManager',['$resource', 'ENV', function($resource, ENV) {
+dinnerApp.service('UserManager',['$resource', 'ENV', 'store', function($resource, ENV, store) {
   this.getUser = function() {
-    return $resource(ENV.apiEndPoint + '/user.json').get()
+    var token = store.get('token');
+    console.log(token);
+    return $resource(ENV.apiEndPoint + '/user.json').get({user_token: token})
   };
 
   this.updateUser = function(user) {

@@ -42,6 +42,9 @@ gem "simple_calendar", "~> 1.1.0"
 gem 'public_activity'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'active_model_serializers'
+# gem 'knock', '~> 1.2'
+gem 'auth0'
+gem 'jwt'
 
 group :test do
   gem "database_cleaner"
