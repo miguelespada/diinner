@@ -24,11 +24,12 @@ dinnerApp.controller('LoginCtrl',
           store.set('profile', profile);
           store.set('token', token);
           store.set('refreshToken', refreshToken);
-          $state.go('index');
+          $state.go('user');
         }, function() {
-          console.log("ERROR LOGGING");
           // Error callback
         });
-      }
+      };
+
+      $scope.signin();
 
 }]);
