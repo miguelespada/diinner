@@ -80,6 +80,7 @@ class Reservation
   def to_ionic_json
     {
       id: self.id.to_s,
+      cancelled: self.cancelled?,
       date: self.date,
       time: self.hour,
       price: self.price,

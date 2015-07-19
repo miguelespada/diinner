@@ -47,13 +47,15 @@ dinnerApp.controller('MyReservationsCtrl',
 
     angular.forEach($scope.reservationList, function(value, key) {
       var reservation = value.reservation;
-      var date = new Date(reservation.date);
-      var time = new Date(reservation.time);
-      date.setHours(time.getHours());
-      date.setMinutes(time.getMinutes());
-      var newEvent= {title: reservation.restaurant.name, start: date, reservation: reservation};
-      $scope.events.push(newEvent);
-      $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
+      if(!reservation.cancelled){
+        var date = new Date(reservation.date);
+        var time = new Date(reservation.time);
+        date.setHours(time.getHours());
+        date.setMinutes(time.getMinutes());
+        var newEvent= {title: reservation.restaurant.name, start: date, reservation: reservation};
+        $scope.events.push(newEvent);
+        $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
+      }
     });
   });
 
