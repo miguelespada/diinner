@@ -13,8 +13,7 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('user', {
       url: "/user",
-      templateUrl: 'templates/user.html',
-      controller: 'UserCtrl'
+      templateUrl: 'templates/user.html'
     })
     .state('profile', {
       url: "/profile",

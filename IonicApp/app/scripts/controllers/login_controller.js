@@ -15,7 +15,7 @@ dinnerApp.controller('LoginCtrl',
              store,
              $ionicNavBarDelegate) {
 
-      $ionicNavBarDelegate.showBackButton(false);
+      //$ionicNavBarDelegate.showBackButton(false);
       $scope.signin = function() {
         auth.signin({
           authParams: {

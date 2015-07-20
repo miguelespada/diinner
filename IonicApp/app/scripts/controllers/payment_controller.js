@@ -13,7 +13,7 @@ dinnerApp.controller('PaymentCtrl',
              $sharedService,
              $ionicNavBarDelegate) {
 
-  $ionicNavBarDelegate.showBackButton(true);
+  //$ionicNavBarDelegate.showBackButton(true);
   $scope.reservationSelected = $sharedService.get().reservationSelected;
 
 

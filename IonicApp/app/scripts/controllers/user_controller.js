@@ -13,5 +13,5 @@ dinnerApp.controller('UserCtrl',
              ENV,
              $ionicNavBarDelegate) {
   $scope.user = $userManager.getUser();
-  $ionicNavBarDelegate.showBackButton(false);
+  //$ionicNavBarDelegate.showBackButton(false);
 }]);

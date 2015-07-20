@@ -9,7 +9,7 @@ dinnerApp.controller('MainCtrl',
              $state,
              $ionicNavBarDelegate) {
 
-    $ionicNavBarDelegate.showBackButton(false);
+    //$ionicNavBarDelegate.showBackButton(false);
     $state.go('user');
 
 }]);

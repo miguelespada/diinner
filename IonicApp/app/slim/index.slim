@@ -47,6 +47,7 @@ html
     script src="scripts/helpers/filters.js"
     script src="scripts/helpers/factories.js"
     script src="scripts/helpers/services.js"
+    script src="scripts/controllers/back_controller.js"
     script src="scripts/controllers/main_controller.js"
     script src="scripts/controllers/login_controller.js"
     script src="scripts/controllers/user_controller.js"
@@ -58,6 +59,6 @@ html
     script src="scripts/controllers/reservation_controller.js"
 
   body ng-app="starter"
-    ion-nav-bar.bar-energized.nav-title-slide-ios7
-      ion-nav-back-button.button-icon.ion-ios-arrow-back.button-clear
+    ion-nav-bar.bar-energized ng-controller="BackCtrl"
+      ion-nav-back-button.button-clear ng-click="goBackAction()"
     ion-nav-view
