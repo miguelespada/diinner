@@ -51,16 +51,4 @@ class UserSession
     User.where(email: @session[:userinfo][:info][:email]).first
   end
 
-  def hash_from_omniauth_ionic #TODO Check if best way
-    logged_user_info = @session
-    {
-        email: logged_user_info[:email],
-        image_url: logged_user_info[:picture],
-        name: logged_user_info[:name]
-    }
-  end
-
-  def find_user_ionic #TODO Check if best way
-    User.where(email: @session[:email]).first
-  end
 end

@@ -102,7 +102,7 @@ class User
         }
     }
     if self.preference
-      json.preference = {
+      json[:preference] = {
           min_age: self.preference.min_age,
           max_age: self.preference.max_age,
           city_id: self.preference.city.id.to_s,
