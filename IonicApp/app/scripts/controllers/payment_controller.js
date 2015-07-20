@@ -6,12 +6,14 @@ dinnerApp.controller('PaymentCtrl',
     '$state',
     'UserManager',
     'SharedService',
+    '$ionicNavBarDelegate',
     function($scope,
              $state,
              $userManager,
-             $sharedService) {
+             $sharedService,
+             $ionicNavBarDelegate) {
 
-
+  $ionicNavBarDelegate.showBackButton(true);
   $scope.reservationSelected = $sharedService.get().reservationSelected;
 
 

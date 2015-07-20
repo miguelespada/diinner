@@ -4,9 +4,12 @@ dinnerApp.controller('MainCtrl',
   [
     '$scope',
     '$state',
+    '$ionicNavBarDelegate',
     function($scope,
-             $state) {
+             $state,
+             $ionicNavBarDelegate) {
 
-      $state.go('user');
+    $ionicNavBarDelegate.showBackButton(false);
+    $state.go('user');
 
 }]);

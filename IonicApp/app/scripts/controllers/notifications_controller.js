@@ -5,12 +5,12 @@ dinnerApp.controller('NotificationsCtrl',
     '$scope',
     '$state',
     'UserManager',
-    'SharedService',
+    '$ionicNavBarDelegate',
     function($scope,
              $state,
              $userManager,
-             $sharedService) {
-
+             $ionicNavBarDelegate) {
+  $ionicNavBarDelegate.showBackButton(true);
   $scope.user = $userManager.getUser();
   $scope.notificationList = $userManager.getNotifications();
 

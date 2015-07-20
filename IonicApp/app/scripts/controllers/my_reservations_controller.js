@@ -8,19 +8,18 @@ dinnerApp.controller('MyReservationsCtrl',
     'UserManager',
     'SharedService',
     'uiCalendarConfig',
+    '$ionicNavBarDelegate',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
              $userManager,
              $sharedService,
-            $uiCalendarConfig) {
-
+             $uiCalendarConfig,
+             $ionicNavBarDelegate) {
+  $ionicNavBarDelegate.showBackButton(true);
   $scope.user = $userManager.getUser();
 
   var date = new Date();
-  var d = date.getDate();
-  var m = date.getMonth();
-  var y = date.getFullYear();
 
   $scope.alertOnEventClick = function( date, jsEvent, view){
     $sharedService.set({reservationSelected: date.reservation});

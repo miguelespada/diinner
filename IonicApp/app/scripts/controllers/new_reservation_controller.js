@@ -9,14 +9,17 @@ dinnerApp.controller('NewReservationCtrl',
     'CityManager',
     'TableManager',
     'SharedService',
+    '$ionicNavBarDelegate',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
              $userManager,
              $cityManager,
              $tableManager,
-             $sharedService) {
+             $sharedService,
+             $ionicNavBarDelegate) {
 
+  $ionicNavBarDelegate.showBackButton(true);
   $scope.user = $userManager.getUser();
   $scope.cityList = $cityManager.getCities();
 

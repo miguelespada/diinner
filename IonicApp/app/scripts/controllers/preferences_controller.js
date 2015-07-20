@@ -1,6 +1,21 @@
 "use strict";
 
-dinnerApp.controller('PreferencesCtrl', ['$scope', '$state', 'UserManager', 'CityManager', function($scope, $state, $userManager, $cityManager) {
+dinnerApp.controller('PreferencesCtrl',
+  [
+    '$scope',
+    '$state',
+    'UserManager',
+    'CityManager',
+    '$ionicNavBarDelegate',
+    function(
+      $scope,
+      $state,
+      $userManager,
+      $cityManager,
+      $ionicNavBarDelegate
+    ) {
+
+  $ionicNavBarDelegate.showBackButton(true);
   $scope.user = $userManager.getUser();
   $scope.cityList = $cityManager.getCities();
 
