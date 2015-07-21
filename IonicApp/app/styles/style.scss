@@ -59,3 +59,27 @@ ion-list{
     filter: blur(30px);
   }
 }
+
+#login-container{
+  button{
+    width: 200px;
+    height: 40px;
+    padding: 10px 20px;
+    color: white;
+    font-family: "Proxima Nova";
+    font-weight: bold;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    span{
+      padding-left: 5px;
+    }
+    &.login-google{
+      background-color: rgba(#d55642, 0.9);
+    }
+    &.login-facebook{
+      background-color: rgba(#245a9a, 0.9);
+    }
+  }
+}
