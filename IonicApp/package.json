@@ -52,14 +52,10 @@
     "test": "grunt test"
   },
   "cordovaPlugins": [
-    "org.apache.cordova.device",
     "org.apache.cordova.console",
+    "org.apache.cordova.device",
     "com.ionic.keyboard",
-    "org.apache.cordova.inappbrowser",
-    "org.apache.cordova.console",
-    "org.apache.cordova.device",
-    "org.apache.cordova.inappbrowser",
-    "com.ionic.keyboard"
+    "org.apache.cordova.inappbrowser"
   ],
   "cordovaPlatforms": [
     "ios"

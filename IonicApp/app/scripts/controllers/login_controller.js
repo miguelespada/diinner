@@ -7,32 +7,47 @@ dinnerApp.controller('LoginCtrl',
     'UserManager',
     'auth',
     'store',
-    '$ionicNavBarDelegate',
     function($scope,
              $state,
              $userManager,
              auth,
-             store,
-             $ionicNavBarDelegate) {
+             store) {
 
-      //$ionicNavBarDelegate.showBackButton(false);
-      $scope.signin = function() {
+      $scope.login = function (connection) {
+        $scope.loading = true;
         auth.signin({
+          popup: true,
+          connection: connection,
           authParams: {
-            scope: 'openid offline_access',
+            scope: 'openid',
             device: 'Mobile device'
           }
-        }, function(profile, token, accessToken, state, refreshToken) {
-          // Success callback
-          store.set('profile', profile);
-          store.set('token', token);
-          store.set('refreshToken', refreshToken);
-          $state.go('user');
-        }, function() {
-          // Error callback
-        });
+        }, onLoginSuccess, onLoginFailed);
+
       };
 
-      $scope.signin();
+      $scope.loginWithGoogle = function(){
+        $scope.login('google-oauth2');
+      };
+
+      $scope.loginWithFacebook = function(){
+        $scope.login('facebook');
+      };
+
+
+      function onLoginSuccess(profile, token, accessToken, state, refreshToken) {
+        // Success callback
+        store.set('profile', profile);
+        store.set('token', token);
+        store.set('refreshToken', refreshToken);
+        $state.go('user');
+        $scope.loading = false;
+        console.log("success");
+      }
+
+      function onLoginFailed() {
+        console.log("failed");
+        $scope.loading = false;
+      }
 
 }]);
