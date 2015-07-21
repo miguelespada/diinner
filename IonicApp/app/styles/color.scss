@@ -1,0 +1,8 @@
+$customRed : #c0392b;
+
+.text-custom-red{
+  color: $customRed;
+  &:link, &:hover, &:active, &:visited{
+    color: $customRed;
+  }
+}

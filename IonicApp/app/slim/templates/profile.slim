@@ -16,8 +16,11 @@ ion-view title="My Profile" ng-controller="ProfileCtrl"
           i.icon.budicon.bi_web-share
           | Share Diinner
           i.icon.ion-ios-arrow-right
-      ion-item.item-icon-left.item-icon-right
-        input type="submit" ng-click="logout()" value="Logout"
+      ion-item.item.item-divider
+      ion-item.item-icon-left
+        #logout-item.text-custom-red
+          i.icon.budicon.bi_interface-logout-a
+          input#log-out-button.text-custom-red type="submit" ng-click="logout()" value="Logout"
 
 
 

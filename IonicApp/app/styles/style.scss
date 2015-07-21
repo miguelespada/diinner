@@ -1,4 +1,5 @@
 @import 'font';
+@import 'color';
 @import 'budicon/all';
 
 html, body{
@@ -81,5 +82,19 @@ ion-list{
     &.login-facebook{
       background-color: rgba(#245a9a, 0.9);
     }
+  }
+}
+
+#logout-item{
+  #log-out-button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+  .icon{
+    font-size: 1.2em;
   }
 }
