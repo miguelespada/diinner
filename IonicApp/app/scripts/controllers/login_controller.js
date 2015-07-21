@@ -42,11 +42,9 @@ dinnerApp.controller('LoginCtrl',
         store.set('refreshToken', refreshToken);
         $state.go('user');
         $scope.loading = false;
-        console.log("success");
       }
 
       function onLoginFailed() {
-        console.log("failed");
         $scope.loading = false;
       }
 

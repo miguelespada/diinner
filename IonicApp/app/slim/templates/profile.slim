@@ -1,4 +1,4 @@
-ion-view title="My Profile"
+ion-view title="My Profile" ng-controller="ProfileCtrl"
   ion-content
     ion-list
       ion-item.item-icon-left.item-icon-right
@@ -16,3 +16,8 @@ ion-view title="My Profile"
           i.icon.budicon.bi_web-share
           | Share Diinner
           i.icon.ion-ios-arrow-right
+      ion-item.item-icon-left.item-icon-right
+        input type="submit" ng-click="logout()" value="Logout"
+
+
+
