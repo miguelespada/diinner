@@ -1,1 +1,10 @@
-ion-view title="Main" hide-back-button="true" ng-controller="LoginCtrl"
+ion-view title="Login" hide-back-button="true" hide-nav-bar="true" ng-controller="LoginCtrl"
+  ion-content
+    br
+    br
+    br
+    div#login-container
+      div
+        button ng-disabled="loading" ng-click="loginWithGoogle()" Login with Google
+      div
+        button ng-disabled="loading" ng-click="loginWithFacebook()" Login with Facebook
