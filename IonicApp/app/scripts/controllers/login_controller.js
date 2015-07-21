@@ -19,7 +19,7 @@ dinnerApp.controller('LoginCtrl',
       $scope.signin = function() {
         auth.signin({
           authParams: {
-            scope: 'openid',
+            scope: 'openid offline_access',
             device: 'Mobile device'
           }
         }, function(profile, token, accessToken, state, refreshToken) {

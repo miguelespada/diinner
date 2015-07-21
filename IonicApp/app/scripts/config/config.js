@@ -8,7 +8,7 @@ dinnerApp.config(function(ENV, authProvider) {
   authProvider.init({
     domain: ENV.auth0Domain,
     clientID: ENV.auth0ClientID,
-    loginState: 'login'
+    loginState: 'index'
   });
 });
 
@@ -38,7 +38,7 @@ dinnerApp.run(function(auth, $rootScope, store, jwtHelper, $location) {
           }
           return refreshingToken;
         } else {
-          $location.path('/login');
+          $location.path('/');
         }
       }
     }

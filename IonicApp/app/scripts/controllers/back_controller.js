@@ -10,7 +10,9 @@ dinnerApp.controller('BackCtrl',
              $ionicNavBarDelegate) {
 
 
+
       $scope.goBackAction = function(){
+
         if($state.is('profile'))
         {
           $state.go('user');
