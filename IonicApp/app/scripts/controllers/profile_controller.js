@@ -17,6 +17,8 @@ dinnerApp.controller('ProfileCtrl',
     auth.signout();
     store.remove('profile');
     store.remove('token');
+    store.remove('user');
+    store.remove('refreshToken');
     $state.go('index');
   };
 }]);

@@ -6,16 +6,15 @@ dinnerApp.controller('ReservationCtrl',
     '$state',
     'UserManager',
     'SharedService',
-    '$ionicNavBarDelegate',
+    'store',
     function($scope,
              $state,
              $userManager,
              $sharedService,
-             $ionicNavBarDelegate) {
+             store) {
 
-  //$ionicNavBarDelegate.showBackButton(true);
 
-  $scope.user = $userManager.getUser();
+  $scope.user = store.get('user');
 
   $scope.reservation = $sharedService.get().reservationSelected;
 

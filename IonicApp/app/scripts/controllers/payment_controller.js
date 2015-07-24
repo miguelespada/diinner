@@ -6,14 +6,13 @@ dinnerApp.controller('PaymentCtrl',
     '$state',
     'UserManager',
     'SharedService',
-    '$ionicNavBarDelegate',
+    'store',
     function($scope,
              $state,
              $userManager,
              $sharedService,
-             $ionicNavBarDelegate) {
+             store) {
 
-  //$ionicNavBarDelegate.showBackButton(true);
   $scope.reservationSelected = $sharedService.get().reservationSelected;
 
 
@@ -22,8 +21,8 @@ dinnerApp.controller('PaymentCtrl',
     $scope.paymentCard = user.payment.default_card;
   };
 
-  $scope.user = $userManager.getUser();
-  $scope.user.$promise.then($scope.updateUserData );
+  $scope.user = store.get('user');
+  $scope.updateUserData($scope.user);
 
   $scope.changeCard = function(){
     $scope.panelShown = 'change_card';

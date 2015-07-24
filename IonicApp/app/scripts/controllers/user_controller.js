@@ -4,14 +4,13 @@ dinnerApp.controller('UserCtrl',
   [
     '$scope',
     'UserManager',
-    '$http',
-    'ENV',
-    '$ionicNavBarDelegate',
+    'store',
     function($scope,
              $userManager,
-             $http,
-             ENV,
-             $ionicNavBarDelegate) {
-  $scope.user = $userManager.getUser();
-  //$ionicNavBarDelegate.showBackButton(false);
+             store) {
+      $scope.user = store.get('user');
+      if (!$scope.user) {
+        $scope.user = $userManager.getUser();
+        store.set('user', $scope.user);
+      }
 }]);

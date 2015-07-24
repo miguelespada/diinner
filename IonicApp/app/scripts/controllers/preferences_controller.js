@@ -6,17 +6,16 @@ dinnerApp.controller('PreferencesCtrl',
     '$state',
     'UserManager',
     'CityManager',
-    '$ionicNavBarDelegate',
+    'store',
     function(
       $scope,
       $state,
       $userManager,
       $cityManager,
-      $ionicNavBarDelegate
+      store
     ) {
 
-  //$ionicNavBarDelegate.showBackButton(true);
-  $scope.user = $userManager.getUser();
+  $scope.user = store.get('user');
   $scope.cityList = $cityManager.getCities();
 
   $scope.genderList = [
@@ -27,7 +26,8 @@ dinnerApp.controller('PreferencesCtrl',
   $scope.priceList = [ 20, 40, 60 ];
 
   $scope.editUser = function(){
-    $userManager.updateUser($scope.user)
+    $userManager.updateUser($scope.user);
+    store.set('user', $scope.user);
     $state.go('profile');
   };
 }]);

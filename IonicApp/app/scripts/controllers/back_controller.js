@@ -4,12 +4,10 @@ dinnerApp.controller('BackCtrl',
   [
     '$scope',
     '$state',
-    '$ionicNavBarDelegate',
+    '$ionicPlatform',
     function($scope,
              $state,
-             $ionicNavBarDelegate) {
-
-
+             $ionicPlatform) {
 
       $scope.goBackAction = function(){
 
@@ -41,6 +39,7 @@ dinnerApp.controller('BackCtrl',
         {
           $state.go('my_reservations');
         }
-      }
+      };
 
+      $ionicPlatform.onHardwareBackButton($scope.goBackAction);
 }]);

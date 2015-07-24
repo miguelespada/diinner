@@ -98,7 +98,28 @@ class IonicController < ActionController::Base
   end
 
   def authenticate
-    profile = valid_json?(params[:user_profile]) ? JSON.parse(params[:user_profile]).deep_symbolize_keys! : params[:user_profile]
+    token = params[:user_token]
+    decoded_token = JWT.decode token, nil, false
+
+    auth0 = Auth0Client.new(
+        :client_id => ENV["AUTH0_CLIENT_ID"],
+        :client_secret => ENV["AUTH0_CLIENT_SECRET"],
+        :domain => ENV["AUTH0_DOMAIN"]
+    )
+
+    user_id = decoded_token[0]["sub"]
+    auth0_user = auth0.user(user_id).deep_symbolize_keys!
+
+    profile = {
+        userinfo:{
+            info:{
+                email: auth0_user[:email],
+                image: auth0_user[:picture],
+                name: auth0_user[:name]
+            }
+        }
+    }
+
     @session ||= UserSession.new(profile)
     @current_user = @session.user_from_session
   end
