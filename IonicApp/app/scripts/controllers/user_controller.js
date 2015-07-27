@@ -9,8 +9,4 @@ dinnerApp.controller('UserCtrl',
              $userManager,
              store) {
       $scope.user = store.get('user');
-      if (!$scope.user) {
-        $scope.user = $userManager.getUser();
-        store.set('user', $scope.user);
-      }
 }]);

@@ -40,8 +40,11 @@ dinnerApp.controller('LoginCtrl',
         store.set('profile', profile);
         store.set('token', token);
         store.set('refreshToken', refreshToken);
-        $state.go('user');
-        $scope.loading = false;
+        $userManager.getUser().$promise.then(function(user) {
+          store.set('user', user);
+          $state.go('user');
+          $scope.loading = false;
+        });
       }
 
       function onLoginFailed() {

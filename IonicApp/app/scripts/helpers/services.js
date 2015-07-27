@@ -28,6 +28,10 @@ dinnerApp.service('UserManager',['$resource', 'ENV', 'UserAuth0', function($reso
   this.updateCustomer = function(payment_token) {
     return $resource(ENV.apiEndPoint + '/update_customer').save({user_token: $userAuth0.getToken(), payment_token: payment_token})
   };
+
+  this.getTest = function() {
+    return $resource(ENV.apiEndPoint + '/test').get({user_token: $userAuth0.getToken()})
+  };
 }]);
 
 

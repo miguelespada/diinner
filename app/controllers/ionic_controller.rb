@@ -70,6 +70,10 @@ class IonicController < ActionController::Base
     render json: {result: "success"}
   end
 
+  def test
+    render json: @current_user.test_pending.sample
+  end
+
   def search_tables
 
     suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
