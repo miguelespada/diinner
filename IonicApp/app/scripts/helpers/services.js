@@ -32,6 +32,10 @@ dinnerApp.service('UserManager',['$resource', 'ENV', 'UserAuth0', function($reso
   this.getTest = function() {
     return $resource(ENV.apiEndPoint + '/test').get({user_token: $userAuth0.getToken()})
   };
+
+  this.saveTest = function(test_id, test_response) {
+    return $resource(ENV.apiEndPoint + '/save_test').save({user_token: $userAuth0.getToken(), test_id: test_id, test_response: test_response})
+  };
 }]);
 
 

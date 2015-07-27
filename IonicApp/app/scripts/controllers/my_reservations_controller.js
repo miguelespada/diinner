@@ -41,10 +41,16 @@ dinnerApp.controller('MyReservationsCtrl',
 
     angular.forEach($scope.reservationList, function(value, key) {
       var reservation = value.reservation;
+
       if(!reservation.cancelled){
         var date = new Date(reservation.date);
-        var newEvent= {title: reservation.restaurant.name, start: date, reservation: reservation};
-        newEvent.stick = true;
+
+        var newEvent = {
+          title: reservation.restaurant.name,
+          start: date,
+          reservation: reservation,
+          stick: true};
+
         $scope.events.push(newEvent);
         $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
       }

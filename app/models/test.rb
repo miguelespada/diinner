@@ -18,4 +18,17 @@ class Test
   enum :gender, [:male, :female, :undefined]
 
   has_many :responses, class_name: "TestResponse"
+
+  def to_ionic_json
+    {
+        id: self.id.to_s,
+        gender: self.gender,
+        question: self.question,
+        caption_A: self.caption_A,
+        caption_B: self.caption_B,
+        photo_A: Cloudinary::Utils.cloudinary_url(self.option_A.path),
+        photo_B: Cloudinary::Utils.cloudinary_url(self.option_B.path)
+
+    }
+  end
 end

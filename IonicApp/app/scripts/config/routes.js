@@ -43,6 +43,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/reservation",
       templateUrl: 'templates/reservation.html'
     })
+    .state('test', {
+      url: "/test",
+      templateUrl: 'templates/test.html'
+    })
 });
 
 

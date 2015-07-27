@@ -1,0 +1,18 @@
+ion-view title="Test" ng-controller="TestCtrl" cache-view="false"
+  ion-content
+    ion-list
+      ion-item
+        p.question
+          | {{ response.test.question }}
+      ion-item
+        span.item.item-avatar ng-click="saveTest('A')"
+          img src="{{ response.test.photo_A}}"
+            | {{ response.test.caption_A }}
+
+      ion-item
+        span.item.item-avatar ng-click="saveTest('B')"
+          img src="{{ response.test.photo_B}}"
+            | {{ response.test.caption_B }}
+
+
+

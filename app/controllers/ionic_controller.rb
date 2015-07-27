@@ -71,7 +71,18 @@ class IonicController < ActionController::Base
   end
 
   def test
-    render json: @current_user.test_pending.sample
+    test = @current_user.test_pending.sample
+    render json: {
+               test: test ? test.to_ionic_json : {},
+                has_test: test != nil
+           }
+  end
+
+  def save_test
+    test = @current_user.test_pending.where(id: params[:test_id]).first
+    response = @current_user.test_completed.create!(test: test, response: params[:test_response])
+    response.notify "create"
+    render json: {result: "success"}
   end
 
   def search_tables

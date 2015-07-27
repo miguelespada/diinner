@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     post "cancel_reservation" => "ionic#cancel_reservation"
     post "reserve" => "ionic#reserve"
     post "update_customer" => "ionic#update_customer"
+    get "test" => "ionic#test"
+    post "save_test" => "ionic#save_test"
   end
 
   scope :auth, as: "auth" do
