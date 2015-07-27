@@ -57,6 +57,10 @@ class Reservation
     false
   end
 
+  def date_and_time
+    DateTime.new(self.date.year, self.date.month, self.date.day, self.hour.hour, self.hour.min, self.hour.sec, self.hour.zone)
+  end
+
   def locator
     id.to_s.hex.to_s 32
   end
@@ -81,7 +85,7 @@ class Reservation
     {
       id: self.id.to_s,
       cancelled: self.cancelled?,
-      date: self.date,
+      date: self.date_and_time,
       time: self.hour,
       price: self.price,
       affinity: self.affinity,

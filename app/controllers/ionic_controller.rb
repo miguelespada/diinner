@@ -35,7 +35,7 @@ class IonicController < ActionController::Base
 
   def reservations
     render json: {
-               reservations: @current_user.reservations.where(:date.gte => Date.today).map{ |reservation| {
+               reservations: @current_user.reservations.map{ |reservation| {
                    reservation: reservation.to_ionic_json
                 }
                }

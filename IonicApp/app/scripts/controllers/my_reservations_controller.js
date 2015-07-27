@@ -36,8 +36,6 @@ dinnerApp.controller('MyReservationsCtrl',
   $scope.events = [];
   $scope.eventSources = [$scope.events];
 
-  $scope.activeSlide = 0;
-
   $userManager.getReservations().$promise.then(function(reservations) {
     $scope.reservationList = reservations.reservations;
 
@@ -45,16 +43,13 @@ dinnerApp.controller('MyReservationsCtrl',
       var reservation = value.reservation;
       if(!reservation.cancelled){
         var date = new Date(reservation.date);
-        var time = new Date(reservation.time);
-        date.setHours(time.getHours());
-        date.setMinutes(time.getMinutes());
         var newEvent= {title: reservation.restaurant.name, start: date, reservation: reservation};
+        newEvent.stick = true;
         $scope.events.push(newEvent);
         $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
       }
     });
 
-    $scope.eventSources = [$scope.events];
   });
 
 
