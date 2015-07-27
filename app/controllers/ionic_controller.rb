@@ -4,17 +4,17 @@ class IonicController < ActionController::Base
   attr_reader :current_user
   before_action :authenticate, except: [:cities]
 
+  def user
+    render json: @current_user.to_ionic_json
+  end
+
   def update_user
     if @current_user.update(user_params)
-      render json: {result: "success"}
+      render json: @current_user.to_ionic_json
     else
       render json: {result: "error"}
     end
 
-  end
-
-  def user
-    render json: @current_user.to_ionic_json
   end
 
   def cities

@@ -16,6 +16,8 @@ dinnerApp.controller('PreferencesCtrl',
     ) {
 
   $scope.user = store.get('user');
+
+  console.log($scope.user);
   $scope.cityList = $cityManager.getCities();
 
   $scope.genderList = [
@@ -26,8 +28,11 @@ dinnerApp.controller('PreferencesCtrl',
   $scope.priceList = [ 20, 40, 60 ];
 
   $scope.editUser = function(){
-    $userManager.updateUser($scope.user);
-    store.set('user', $scope.user);
-    $state.go('profile');
+    $scope.loading = true;
+    $userManager.updateUser($scope.user).$promise.then(function(user) {
+      store.set('user', user);
+      $state.go('profile');
+      $scope.loading = false;
+    });
   };
 }]);

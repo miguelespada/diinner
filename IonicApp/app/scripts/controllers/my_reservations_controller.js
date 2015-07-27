@@ -53,6 +53,8 @@ dinnerApp.controller('MyReservationsCtrl',
         $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
       }
     });
+
+    $scope.eventSources = [$scope.events];
   });
 
 
