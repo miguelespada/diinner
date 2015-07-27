@@ -37,6 +37,10 @@ dinnerApp.controller('BackCtrl',
         {
           $state.go('my_reservations');
         }
+        if($state.is('test'))
+        {
+          $state.go('profile');
+        }
       };
 
 }]);
