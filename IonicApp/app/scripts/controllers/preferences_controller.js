@@ -6,16 +6,14 @@ dinnerApp.controller('PreferencesCtrl',
     '$state',
     'UserManager',
     'CityManager',
-    'store',
     function(
       $scope,
       $state,
       $userManager,
-      $cityManager,
-      store
+      $cityManager
     ) {
 
-  $scope.user = store.get('user');
+  $scope.user = JSON.parse(window.localStorage.getItem("user"));
 
   console.log($scope.user);
   $scope.cityList = $cityManager.getCities();
@@ -30,7 +28,9 @@ dinnerApp.controller('PreferencesCtrl',
   $scope.editUser = function(){
     $scope.loading = true;
     $userManager.updateUser($scope.user).$promise.then(function(user) {
-      store.set('user', user);
+      if(user != null){
+        window.localStorage.setItem('user', JSON.stringify(user));
+      }
       $state.go('profile');
       $scope.loading = false;
     });

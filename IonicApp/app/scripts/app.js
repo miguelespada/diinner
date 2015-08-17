@@ -10,10 +10,12 @@ var dinnerApp = angular.module(
   'angularPayments',
   'auth0',
   'angular-storage',
-  'angular-jwt'
+  'angular-jwt',
+  'ngCordova'
 ]);
 
 dinnerApp.run(function($ionicPlatform) {
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,6 +27,7 @@ dinnerApp.run(function($ionicPlatform) {
       StatusBar.styleLightContent();
     }
   });
+
 });
 
 

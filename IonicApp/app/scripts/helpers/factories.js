@@ -16,9 +16,9 @@ dinnerApp.factory('SharedService', function() {
 
 });
 
-dinnerApp.factory('UserAuth0', function (store) {
+dinnerApp.factory('UserAuth0', function () {
   function getToken() {
-    return store.get('token');
+    return JSON.parse(window.localStorage.getItem("token"));
   }
 
   return {

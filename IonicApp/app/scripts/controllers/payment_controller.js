@@ -6,12 +6,10 @@ dinnerApp.controller('PaymentCtrl',
     '$state',
     'UserManager',
     'SharedService',
-    'store',
     function($scope,
              $state,
              $userManager,
-             $sharedService,
-             store) {
+             $sharedService) {
 
   $scope.reservationSelected = $sharedService.get().reservationSelected;
 
@@ -21,7 +19,7 @@ dinnerApp.controller('PaymentCtrl',
     $scope.paymentCard = user.payment.default_card;
   };
 
-  $scope.user = store.get('user');
+  $scope.user = JSON.parse(window.localStorage.getItem("user"));
   $scope.updateUserData($scope.user);
 
   $scope.changeCard = function(){

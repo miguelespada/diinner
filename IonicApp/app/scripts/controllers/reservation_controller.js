@@ -6,15 +6,13 @@ dinnerApp.controller('ReservationCtrl',
     '$state',
     'UserManager',
     'SharedService',
-    'store',
     function($scope,
              $state,
              $userManager,
-             $sharedService,
-             store) {
+             $sharedService) {
 
 
-  $scope.user = store.get('user');
+  $scope.user = JSON.parse(window.localStorage.getItem("user"));
 
   $scope.reservation = $sharedService.get().reservationSelected;
 

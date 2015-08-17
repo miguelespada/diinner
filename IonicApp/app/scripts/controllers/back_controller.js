@@ -6,7 +6,6 @@ dinnerApp.controller('BackCtrl',
     '$state',
     function($scope,
              $state) {
-
       $scope.goBackAction = function(){
 
         if($state.is('profile'))
@@ -42,5 +41,4 @@ dinnerApp.controller('BackCtrl',
           $state.go('profile');
         }
       };
-
 }]);

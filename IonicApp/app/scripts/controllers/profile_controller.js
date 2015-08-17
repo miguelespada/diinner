@@ -5,20 +5,24 @@ dinnerApp.controller('ProfileCtrl',
     '$scope',
     '$state',
     'auth',
-    'store',
+    '$cordovaSocialSharing',
     function(
       $scope,
       $state,
       auth,
-      store
+      $cordovaSocialSharing
     ) {
 
   $scope.logout = function() {
     auth.signout();
-    store.remove('profile');
-    store.remove('token');
-    store.remove('user');
-    store.remove('refreshToken');
+    window.localStorage.removeItem("profile");
+    window.localStorage.removeItem("token");
+    window.localStorage.removeItem("user");
+    window.localStorage.removeItem("refreshToken");
     $state.go('index');
   };
+
+  $scope.shareAnywhere = function() {
+    $cordovaSocialSharing.share("Mensaje de prueba", "Asunto de prueba", "www/images/ionic.png", "http://diinner.com");
+  }
 }]);

@@ -4,9 +4,7 @@ dinnerApp.controller('UserCtrl',
   [
     '$scope',
     'UserManager',
-    'store',
     function($scope,
-             $userManager,
-             store) {
-      $scope.user = store.get('user');
+             $userManager) {
+      $scope.user = JSON.parse(window.localStorage.getItem("user"));
 }]);

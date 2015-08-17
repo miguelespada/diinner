@@ -8,17 +8,15 @@ dinnerApp.controller('NewReservationCtrl',
     'CityManager',
     'TableManager',
     'SharedService',
-    'store',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
              $cityManager,
              $tableManager,
-             $sharedService,
-             store
+             $sharedService
              ) {
 
-  $scope.user = store.get('user');
+  $scope.user = JSON.parse(window.localStorage.getItem("user"));
   $scope.cityList = $cityManager.getCities();
 
   $scope.friendsList = [

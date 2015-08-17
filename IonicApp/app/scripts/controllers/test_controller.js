@@ -5,12 +5,10 @@ dinnerApp.controller('TestCtrl',
     '$scope',
     '$state',
     'UserManager',
-    'store',
     function($scope,
              $state,
-             $userManager,
-             store) {
-      $scope.user = store.get('user');
+             $userManager) {
+      $scope.user = JSON.parse(window.localStorage.getItem("user"));
       $scope.response = $userManager.getTest();
 
       $scope.response.$promise.then(function(response) {

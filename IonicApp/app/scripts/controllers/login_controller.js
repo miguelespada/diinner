@@ -6,12 +6,10 @@ dinnerApp.controller('LoginCtrl',
     '$state',
     'UserManager',
     'auth',
-    'store',
     function($scope,
              $state,
              $userManager,
-             auth,
-             store) {
+             auth) {
 
       $scope.login = function (connection) {
         $scope.loading = true;
@@ -37,12 +35,20 @@ dinnerApp.controller('LoginCtrl',
 
       function onLoginSuccess(profile, token, accessToken, state, refreshToken) {
         // Success callback
-        store.set('profile', profile);
-        store.set('token', token);
-        store.set('refreshToken', refreshToken);
+        if (profile != null){
+          window.localStorage.setItem('profile', JSON.stringify(profile));
+        }
+        if (token != null){
+          window.localStorage.setItem('token', JSON.stringify(token));
+        }
+        if (refreshToken != null){
+          window.localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+        }
         $userManager.getUser().$promise.then(function(user) {
-          store.set('user', user);
-          $state.go('user');
+          if (user != null){
+            window.localStorage.setItem('user', JSON.stringify(user));
+            $state.go('user');
+          }
           $scope.loading = false;
         });
       }
@@ -50,5 +56,4 @@ dinnerApp.controller('LoginCtrl',
       function onLoginFailed() {
         $scope.loading = false;
       }
-
 }]);
