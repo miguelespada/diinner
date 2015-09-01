@@ -104,4 +104,15 @@ class User
     }
   end
 
+  def age
+     now = Date.today
+     now.year - birth.year - ((now.month > birth.month || (now.month == birth.month && now.day >= birth.day)) ? 0 : 1)
+  end
+
+  def matches_age_preference? other
+    other.age <= max_age && other.age >= min_age
+  rescue
+    true
+  end
+
 end

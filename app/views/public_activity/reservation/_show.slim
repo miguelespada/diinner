@@ -1,12 +1,10 @@
-- if activity.trackable.nil? || activity.recipient.nil?
-  | that was removed
-- else
-  | by 
-  span.user-id == cell(:user, activity.owner).show_link
-  - if !activity.recipient.is_owned_by?(current_restaurant)
-    |  at 
-    span.restaurant-id == cell(:restaurant, activity.recipient).show_link if !activity.recipient.nil?
-  |  with id  
-  span.reservation-id == cell(:reservation, activity.trackable).show_link if !activity.trackable.nil?
-  |  
-  span == cell(:reservation, activity.trackable).updated_timeago if !activity.trackable.nil?
+
+| by 
+span.user-id == cell(:user, activity.owner).show_link
+- if !activity.recipient.is_owned_by?(current_restaurant)
+  |  at 
+  span.restaurant-id == cell(:restaurant, activity.recipient).show_link if !activity.recipient.nil?
+|  with id  
+span.reservation-id == cell(:reservation, activity.trackable).show_link if !activity.trackable.nil?
+|  
+span == cell(:reservation, activity.trackable).updated_timeago if !activity.trackable.nil?

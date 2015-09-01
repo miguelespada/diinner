@@ -1,6 +1,8 @@
 div#logs
   h2 Notifications
-
-  = render_activities(@notifications)
+  - @notifications.each do |activity|
+    - begin
+      = render_activitie(activity)
+    - rescue
 
   = will_paginate @notifications

@@ -2,10 +2,7 @@ div
   i.bi_beverage-tea
   | New table by 
   == cell(:restaurant, activity.owner).show_link
-  - if activity.trackable.nil?
-    |  but was removed
-  - else
-    |  with id 
-    == cell(:table, activity.trackable).show_link
-    |  created  
-    == cell(:table, activity.trackable).updated_timeago
+  |  with id 
+  == cell(:table, activity.trackable).show_link
+  |  created  
+  == cell(:table, activity.trackable).updated_timeago
