@@ -11,6 +11,10 @@ dinnerApp.controller('LoginCtrl',
              $userManager,
              auth) {
 
+      if(window.localStorage.getItem("user")){
+        $state.go('user');
+      }
+
       $scope.login = function (connection) {
         $scope.loading = true;
         auth.signin({

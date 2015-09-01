@@ -6,11 +6,13 @@ dinnerApp.controller('ProfileCtrl',
     '$state',
     'auth',
     '$cordovaSocialSharing',
+    '$ionicHistory',
     function(
       $scope,
       $state,
       auth,
-      $cordovaSocialSharing
+      $cordovaSocialSharing,
+      $ionicHistory
     ) {
 
   $scope.logout = function() {
@@ -19,6 +21,8 @@ dinnerApp.controller('ProfileCtrl',
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("user");
     window.localStorage.removeItem("refreshToken");
+    $ionicHistory.clearCache();
+    $ionicHistory.clearHistory();
     $state.go('index');
   };
 
