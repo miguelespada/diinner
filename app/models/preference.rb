@@ -5,4 +5,13 @@ class Preference
   field :menu_price, type: Integer
   belongs_to :city
   belongs_to :user
+
+  def to_ionic_json
+    {
+        min_age: self.min_age,
+        max_age: self.max_age,
+        city_id: self.city ? self.city.id.to_s : nil,
+        menu_price: self.menu_price
+    }
+  end
 end

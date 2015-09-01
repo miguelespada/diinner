@@ -90,26 +90,18 @@ class User
   end
 
   def to_ionic_json
-    json = {
-        name: self.name,
-        email: self.email,
-        birth: self.birth,
-        image_url: self.image_url,
-        gender: self.gender,
-        payment: {
-            has_default_card: has_default_card?,
-            default_card: default_card
-        }
+    {
+      name: self.name,
+      email: self.email,
+      birth: self.birth,
+      image_url: self.image_url,
+      gender: self.gender,
+      payment: {
+          has_default_card: has_default_card?,
+          default_card: default_card
+      },
+      preference: self.preference ? self.preference.to_ionic_json : nil
     }
-    if self.preference
-      json[:preference] = {
-          min_age: self.preference.min_age,
-          max_age: self.preference.max_age,
-          city_id: self.preference.city.id.to_s,
-          menu_price: self.preference.menu_price
-      }
-    end
-    json
   end
 
 end

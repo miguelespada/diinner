@@ -117,7 +117,7 @@ class Restaurant
         phone: self.phone,
         address: self.address,
         contact_person: self.contact_person,
-        city: self.city.id.to_s,
+        city: self.preference.city ? self.preference.city.id.to_s : nil,
         photo: Cloudinary::Utils.cloudinary_url(self.photo.path)
 
     }
