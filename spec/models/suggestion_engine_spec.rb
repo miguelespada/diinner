@@ -39,6 +39,42 @@ xdescribe SuggestionEngine do
       end
     end
 
+
+    describe "#matches_age?" do
+      before(:each) do
+        @table = FactoryGirl.create(:restaurant, :with_tables).tables.first
+        @user = FactoryGirl.create(:user, birth: 30.years.ago)
+        @new_reservation = FactoryGirl.create(:reservation, user: @user)
+
+        other = FactoryGirl.create(:user, birth: 20.years.ago)
+        other.preference =  FactoryGirl.build(:preference, min_age: 20, max_age: 40)
+        @table.reservations << FactoryGirl.create(:reservation, user: other)
+        
+        other = FactoryGirl.create(:user, birth: 40.years.ago)
+        other.preference =  FactoryGirl.create(:preference, min_age: 20, max_age: 40)
+        @table.reservations << FactoryGirl.create(:reservation, user: other)
+      end
+
+      it "does match" do
+        @user.preference = FactoryGirl.create(:preference, min_age: 20, max_age: 40)
+        expect(@table.matches_age?(@new_reservation.user)).to eq true
+      end
+
+      it "does not match new user preference" do
+        @user.preference = FactoryGirl.create(:preference, min_age: 20, max_age: 30)
+        expect(@table.matches_age?(@new_reservation.user)).to eq false
+      end
+
+      it "does not match old user preference" do
+        @user.preference = FactoryGirl.create(:preference, min_age: 20, max_age: 40)
+        other = FactoryGirl.create(:user, birth: 30.years.ago)
+        other.preference =  FactoryGirl.create(:preference, min_age: 35, max_age: 40)
+        @table.reservations << FactoryGirl.create(:reservation, user: other)
+        expect(@table.matches_age?(@new_reservation.user)).to eq false
+      end
+
+    end
+
     describe "match_price?" do
        before(:each) do
           @params = {:date => "2015-12-20",
@@ -74,10 +110,12 @@ xdescribe SuggestionEngine do
         restaurant = FactoryGirl.create(:restaurant, :with_tables)
         @table = restaurant.tables.first
       end
+      
       before(:each) do
         @params[:date] = @table.date.to_s
         @params[:price] = 20
       end
+
       it "returns the table" do
         @company = {"0" => {:gender => "female", :age => "20"},
                    "1" => {:gender => "male", :age =>"30"}}

@@ -56,7 +56,7 @@ describe User do
     end
   end
 
-  describe "#affinity" do
+  describe "#age?" do
     before(:each) do 
       @user = FactoryGirl.create(:user)
       @other = FactoryGirl.create(:user, birth: 30.years.ago)

@@ -70,9 +70,18 @@ class Table
     female_slots_left >= genders[:female]
   end
 
+  def matches_age? user
+    reservations.each do |r|
+      return false if !user.matches_age_preference? (r.user)
+      return false if !r.user.matches_age_preference? (user)
+    end
+    true
+  end
+
   def matches? reservation
     matches_menu_price?(reservation.price) &&
-    has_free_slots?(reservation.genders)
+    has_free_slots?(reservation.genders) &&
+    matches_age?(reservation.user)
   end
 
   def capture
