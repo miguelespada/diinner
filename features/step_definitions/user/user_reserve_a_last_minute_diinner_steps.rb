@@ -43,8 +43,12 @@ When(/^I reserve a last minute diinner$/) do
   click_on "Reserve"
   step "I fill in the credit card details"
   click_on "Confirm"
+  expect(page).to have_content "Table reserved succesfully!"
 end
 
 Then(/^I shoud be notified that my plan is pending$/) do
-  pending # express the regexp above with the code you wish you had
+  click_on "Notifications"
+  within("#logs .plan-pending-log") do
+    expect(page).to have_content "Your plan diinner for tonight at #{@table.restaurant.name} is waiting for confirmation!!!"
+  end
 end

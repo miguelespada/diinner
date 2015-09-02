@@ -45,6 +45,8 @@ class  Users::ReservationsController < BaseUsersController
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
       @reservation.notify "create"
+      @user.notify_pending_reservation @reservation
+     
       redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
     else
       # TODO handle properly errors

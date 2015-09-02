@@ -11,7 +11,7 @@ Feature: User reserves last minute diinner
     When I try to reserve a last minute diinner
     Then I should be notified that I have to fill my preferences
 
-  @user_reserves_a_last_minute_diinner_pending @wip
+  @user_reserves_a_last_minute_diinner_pending
   Scenario:
     Given There are some last minute diinners
     And I have prefences

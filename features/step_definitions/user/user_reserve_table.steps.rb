@@ -170,3 +170,12 @@ Then(/^I can see the plan confirmation notification$/) do
   end
 end
 
+Then(/^I can see the reservation notification$/) do
+  click_on "Notifications"
+  within("#logs .plan-pending-log") do
+    expect(page).to have_content "Your plan diinner for tonight at restaurant #{@table.restaurant.name} is waiting for confirmation!!!"
+  end
+end
+
+
+
