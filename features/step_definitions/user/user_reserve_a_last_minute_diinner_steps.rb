@@ -52,3 +52,30 @@ Then(/^I shoud be notified that my plan is pending$/) do
     expect(page).to have_content "Your plan diinner for tonight at #{@table.restaurant.name} is waiting for confirmation!!!"
   end
 end
+
+Given(/^They have been a reservation$/) do
+  other_she = FactoryGirl.create(:user, gender: :female)
+  FactoryGirl.create(:reservation, user: other_she, table: @table)
+end
+
+
+Then(/^I shoud be notified that my last minute plan is confirmed$/) do
+  click_on "Notifications"
+  within("#logs .plan-confirmed-log") do
+    expect(page).to have_content "Your plan diinner for tonight at #{@table.restaurant.name} is confirmed!!!"
+  end
+end
+
+Then(/^I can access to the reservation through my reservations$/) do
+  click_on "My reservations"
+  within(".calendar .today") do
+    click_on @table.hour.hour
+  end
+  within(".reservation-status") do
+    save_and_open_page
+    expect(page).to have_content "Confirmed"
+  end
+
+  expect(page).not_to have_content "Cancel reservation"
+end
+

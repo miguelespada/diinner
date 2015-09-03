@@ -45,8 +45,14 @@ class  Users::ReservationsController < BaseUsersController
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
       @reservation.notify "create"
-      @user.notify_pending_reservation @reservation
-     
+      
+      if @reservation.is_last_minute? && @reservation.table.full?
+        # TODO process reservation CHARGE And NOTIFY
+        @user.notify_confirmed_reservation @reservation
+      else
+        @user.notify_pending_reservation @reservation
+      end
+
       redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
     else
       # TODO handle properly errors

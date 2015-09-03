@@ -93,6 +93,10 @@ class User
     self.create_activity key: "reservation.pending", owner: reservation.restaurant, recipient: self
   end
 
+  def notify_confirmed_reservation reservation
+    self.create_activity key: "reservation.confirmed", owner: reservation.restaurant, recipient: self
+  end
+
   def to_ionic_json
     {
       name: self.name,
@@ -117,6 +121,13 @@ class User
     other.age <= max_age && other.age >= min_age
   rescue
     true
+  end
+
+  def affinity other
+    aff = 100
+    return aff if self.test_completed.count == 0 && other.test_completed.count == 0
+
+    # TODO add algorihtm of affinity
   end
 
 end

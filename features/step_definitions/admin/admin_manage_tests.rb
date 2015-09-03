@@ -4,6 +4,7 @@ When(/^I create a new test$/) do
   fill_in "Question", with: "What do you prefer, A/B?"
   fill_in "Caption a", with: "Option A"
   fill_in "Caption b", with: "Option B"
+  select 2, :from => "test_criterio_0"
   click_on "Create Test"
   expect(page).to have_content "Test was successfully created."
 end
@@ -13,6 +14,10 @@ Then(/^I should see the test in list of tests$/) do
   expect(page).to have_content "What do you prefer, A/B?"
   expect(page).to have_content "Option A"
   expect(page).to have_content "Option B"
+  within(".criterio_0") do
+    expect(page).to have_content "2"
+  end
+  save_and_open_page
 end
 
 When(/^I delete a test$/) do

@@ -81,6 +81,11 @@ class Reservation
     !evaluation.nil?
   end
 
+  def is_last_minute?
+    today = Date.today
+    date.day == today.day && date.month == today.month && date.year == today.year
+  end
+
   def to_ionic_json
     {
       id: self.id.to_s,

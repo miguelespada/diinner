@@ -9,6 +9,8 @@ class Test
   field :caption_A, type: String
   field :caption_B, type: String
 
+  field :criterio_0, type: Integer
+
   validates_presence_of :question, :caption_A, :caption_B
 
   has_attachment :option_A, accept: [:jpg, :png, :gif]
