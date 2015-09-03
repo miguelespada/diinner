@@ -80,7 +80,7 @@ describe User do
     end 
   end
 
-  describe "#affinity?" do
+  xdescribe "#affinity?" do
     before(:each) do 
       @user = FactoryGirl.create(:user)
       @other = FactoryGirl.create(:user)
