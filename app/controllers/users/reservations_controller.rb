@@ -20,15 +20,19 @@ class  Users::ReservationsController < BaseUsersController
     # TODO check date (from tomorrow + 10 days)
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
     # TODO limit search on Engine
+    # TODO fordward to no dinners feature
     @suggestions = suggestionEngine.search.first(3)
   end
 
   def last_minute
     # TODO check time (today from 9h to 18h00)
-    
-    suggestionEngine = SuggestionEngine.new @user
-    @suggestions = suggestionEngine.last_minute
-    render :no_dinners if @suggestions.empty?
+    if Reservation.off_the_clock?
+      render :off_the_clock 
+    else
+      suggestionEngine = SuggestionEngine.new @user
+      @suggestions = suggestionEngine.last_minute.first(3)
+      render :no_dinners if @suggestions.empty?
+    end
   end
 
   def create

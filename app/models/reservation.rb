@@ -86,6 +86,14 @@ class Reservation
     date.day == today.day && date.month == today.month && date.year == today.year
   end
 
+
+  def self.off_the_clock?
+    nine =DateTime.now.change({ hour: 9, min: 00, sec: 00 })
+    six = DateTime.now.change({ hour: 18, min: 00, sec: 00 })
+    now = DateTime.now
+    now < nine || now > six 
+  end
+
   def to_ionic_json
     {
       id: self.id.to_s,

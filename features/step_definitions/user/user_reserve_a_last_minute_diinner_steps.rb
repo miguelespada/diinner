@@ -22,6 +22,8 @@ Given(/^There are some last minute diinners$/) do
   allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value 
 
   TableManager.process_today_tables
+  allow(DateTime).to receive(:now).and_return DateTime.now.change({ hour: 12, min: 00, sec: 00 })
+
 end
 
 
@@ -114,9 +116,19 @@ end
 
 Given(/^There are no last minute diinners$/) do
   # Nothing to do, by default there're no dinners
+  allow(DateTime).to receive(:now).and_return DateTime.now.change({ hour: 12, min: 00, sec: 00 })
 end
 
 Then(/^I should be notified that there are no last minute dinners$/) do
    click_on "Last minute diinners"
    expect(page).to have_content "There are no diinners matching your search criteria"
+end
+
+Then(/^I should be notified that I cannot reserve dinners$/) do
+   click_on "Last minute diinners"
+   expect(page).to have_content "You can only reserve Last Minute dinners from 9h00 to 18h00"
+end
+
+Given(/^it is off the clock$/) do
+  allow(DateTime).to receive(:now).and_return DateTime.now.change({ hour: 8, min: 00, sec: 00 })
 end

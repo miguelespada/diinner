@@ -12,6 +12,12 @@ Feature: User reserves last minute diinner
     Given There are no last minute diinners
     Then I should be notified that there are no last minute dinners
 
+  @user_cannot_reserve_dinners_off_the_clock
+  Scenario:
+    Given There are some last minute diinners
+    And it is off the clock
+    Then I should be notified that I cannot reserve dinners
+
   @user_reserves_a_last_minute_diinner_pending
   Scenario:
     Given There are some last minute diinners
