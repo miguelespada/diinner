@@ -1,10 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+def create_admin
+  if Admin.count == 0
+    Admin.create(email: "admin@diinner.com", password: "12345678")
+  end
+  p "---ADMIN DATA---"
+  p "Email: " + Admin.first.email
+  p "Password: 12345678"
+  p "----------------"
+end
+
+create_admin
 
 def create_users
   5.times do |n|
@@ -84,7 +88,7 @@ def delete_all
   Company.delete_all
 end
 
-def create_context
+def create_basic_context
   @city = FactoryGirl.create(:city)
   @restaurant = FactoryGirl.create(:restaurant, city: @city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
@@ -98,14 +102,14 @@ end
 
 def create_last_minute_context_2_2
   delete_all
-  create_context
+  create_basic_context
 
   @he.update_customer_information!(Stripe::Token.create(valid_card).id)
   @she.update_customer_information!(Stripe::Token.create(valid_card).id)
 
   reservation =  FactoryGirl.create(:reservation, user: @he, table: @table, date: 2.days.ago)
   reservation.companies.create(age: 35, gender: :male)
-  # reservation.companies.create(age: 30, gender: :male)
+  reservation.companies.create(age: 30, gender: :male)
   reservation.save!
 
   reservation =  FactoryGirl.create(:reservation, user: @she, table: @table, date: 3.days.ago)
@@ -115,11 +119,11 @@ def create_last_minute_context_2_2
   TableManager.process_today_tables
 end
 
-def create_last_minute_context_2_3 card
-  create_last_minute_context_2_2
+def last_minute_reservation card
   other_she = FactoryGirl.create(:user, gender: :female)
   other_she.update_customer_information!(Stripe::Token.create(card).id)
   FactoryGirl.create(:reservation, user: other_she, table: @table)
 end
 
-create_last_minute_context_2_3 valid_card
+create_last_minute_context_2_2
+# last_minute_reservation valid_card
