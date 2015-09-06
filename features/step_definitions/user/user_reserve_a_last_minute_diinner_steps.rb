@@ -25,20 +25,9 @@ Given(/^There are some last minute diinners$/) do
   TableManager.process_today_tables
 end
 
-Given(/^I do not have preferences$/) do
-  # nothing to do, by default we don't have preferences
-end
-
-When(/^I try to reserve a last minute diinner$/) do
-  click_on "Last minute diinners"
-end
-
-Then(/^I should be notified that I have to fill my preferences$/) do
-  expect(page).to have_content "You need to fill your diinner preferences to access the last minute diinners!"
-end
 
 Given(/^I have preferences$/) do
-  click_on "Last minute diinners"
+  click_on "Preferences diinner"
 
   fill_in "user_preference_attributes_max_age", with: "60"
   fill_in "user_preference_attributes_min_age", with: "20"

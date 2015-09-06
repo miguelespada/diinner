@@ -23,12 +23,9 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def last_minute
-    if !@user.has_preferences?
-      redirect_to edit_user_path(@user), notice: 'You need to fill your diinner preferences to access the last minute diinners!'
-    else
-      suggestionEngine = SuggestionEngine.new @user
-      @suggestions = suggestionEngine.last_minute
-    end
+    # TODO check time
+    suggestionEngine = SuggestionEngine.new @user
+    @suggestions = suggestionEngine.last_minute
   end
 
   def create
@@ -44,10 +41,15 @@ class  Users::ReservationsController < BaseUsersController
 
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
-       TableManager.process_table @reservation.table if @reservation.closes_last_minute_plan?
-      if !@reservation.cancelled?
-        @reservation.notify "create"
+      @reservation.notify "create"
+
+      if @reservation.closes_last_minute_plan?
+        TableManager.process_table @reservation.table 
+      else
         @user.notify_pending_reservation @reservation
+      end
+
+      if !@reservation.cancelled?
         redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
       else
         handle_reservation_error @reservation
@@ -62,7 +64,7 @@ class  Users::ReservationsController < BaseUsersController
       reservation.delete
       redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
   end
-  
+
   def cancel
     @reservation.cancel
     @reservation.notify "cancel"

@@ -5,12 +5,6 @@ Feature: User reserves last minute diinner
   Background:
     And I am a logged user
 
-  @user_reserves_a_last_minute_diinner_with_error
-  Scenario:
-    Given I do not have preferences
-    When I try to reserve a last minute diinner
-    Then I should be notified that I have to fill my preferences
-
   @user_reserves_a_last_minute_diinner_pending
   Scenario:
     Given There are some last minute diinners

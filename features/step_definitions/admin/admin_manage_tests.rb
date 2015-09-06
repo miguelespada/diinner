@@ -17,7 +17,6 @@ Then(/^I should see the test in list of tests$/) do
   within(".criterio_0") do
     expect(page).to have_content "2"
   end
-  save_and_open_page
 end
 
 When(/^I delete a test$/) do
