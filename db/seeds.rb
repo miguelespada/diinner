@@ -109,7 +109,7 @@ def create_last_minute_context_2_2
 
   reservation =  FactoryGirl.create(:reservation, user: @he, table: @table, date: 2.days.ago)
   reservation.companies.create(age: 35, gender: :male)
-  reservation.companies.create(age: 30, gender: :male)
+  # reservation.companies.create(age: 30, gender: :male)
   reservation.save!
 
   reservation =  FactoryGirl.create(:reservation, user: @she, table: @table, date: 3.days.ago)
@@ -125,5 +125,22 @@ def last_minute_reservation card
   FactoryGirl.create(:reservation, user: other_she, table: @table)
 end
 
-create_last_minute_context_2_2
+def create_last_minute_context_2_1
+  delete_all
+  create_basic_context
+
+  @he.update_customer_information!(Stripe::Token.create(valid_card).id)
+  @she.update_customer_information!(Stripe::Token.create(valid_card).id)
+
+  reservation =  FactoryGirl.create(:reservation, user: @he, table: @table, date: 2.days.ago)
+  reservation.save!
+
+  reservation =  FactoryGirl.create(:reservation, user: @she, table: @table, date: 3.days.ago)
+  reservation.companies.create(age: 30, gender: :female)
+  reservation.save!
+
+  TableManager.process_today_tables
+end
+
+create_last_minute_context_2_1
 # last_minute_reservation valid_card

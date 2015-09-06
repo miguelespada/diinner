@@ -1,14 +1,20 @@
+@last_minute
 Feature: User reserves last minute diinner
   As user
   I want to access to reserve a table for today
 
   Background:
     And I am a logged user
+    And I have preferences
+
+  @user_reserves_a_last_minute_dinner_and_there_are_no_dinners
+  Scenario:
+    Given There are no last minute diinners
+    Then I should be notified that there are no last minute dinners
 
   @user_reserves_a_last_minute_diinner_pending
   Scenario:
     Given There are some last minute diinners
-    And I have preferences
     When I reserve a last minute diinner
     Then I shoud be notified that my plan is pending
     And I can access to the pending reservation through my reservations
@@ -18,7 +24,6 @@ Feature: User reserves last minute diinner
   Scenario:
     Given There are some last minute diinners
     Given They have been a reservation
-    And I have preferences
     When I reserve a last minute diinner
     Then I should be notified that my last minute plan is confirmed
     And I can access to the confirmed reservation through my reservations
@@ -31,7 +36,6 @@ Feature: User reserves last minute diinner
   Scenario:
     Given There are some last minute diinners
     Given They have been a reservation with error
-    And I have preferences
     When I reserve a last minute diinner
     And I can access to the pending reservation through my reservations
     And The other user can see the cancelled last minute reservation
@@ -40,7 +44,6 @@ Feature: User reserves last minute diinner
   Scenario:
     Given There are some last minute diinners
     Given They have been a reservation
-    And I have preferences
     When I reserve a last minute diinner with error
     Then I should be notified that my last minute plan is cancelled
     And The other user can see the pending last minute reservation

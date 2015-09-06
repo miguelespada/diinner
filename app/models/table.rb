@@ -66,6 +66,7 @@ class Table
   end
 
   def has_free_slots? genders
+    return false if cancelled?
     male_slots_left >= genders[:male] &&
     female_slots_left >= genders[:female]
   end

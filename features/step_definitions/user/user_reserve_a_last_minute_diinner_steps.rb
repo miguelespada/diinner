@@ -1,5 +1,4 @@
 Given(/^There are some last minute diinners$/) do
-  @city = FactoryGirl.create(:city)
   @restaurant = FactoryGirl.create(:restaurant, city: @city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
   @restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
@@ -27,6 +26,9 @@ end
 
 
 Given(/^I have preferences$/) do
+
+  @city = FactoryGirl.create(:city)
+
   click_on "Preferences diinner"
 
   fill_in "user_preference_attributes_max_age", with: "60"
@@ -108,4 +110,13 @@ Then(/^The admin should see the confirmed last minute reservation$/) do
   click_on "Reservations"
   expect(page).to have_content @user.name
   expect(page).to have_content @other_she.name
+end
+
+Given(/^There are no last minute diinners$/) do
+  # Nothing to do, by default there're no dinners
+end
+
+Then(/^I should be notified that there are no last minute dinners$/) do
+   click_on "Last minute diinners"
+   expect(page).to have_content "There are no diinners matching your search criteria"
 end
