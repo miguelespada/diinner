@@ -331,7 +331,7 @@ module.exports = function (grunt) {
       ionic: {
         tasks: [],
         options: {
-          logConcurrentOutput: true
+          logConcurrentOutput: false
         }
       },
       server: [
@@ -533,7 +533,7 @@ module.exports = function (grunt) {
       return grunt.task.run(['compress', 'ionic:serve']);
     }
 
-    grunt.config('concurrent.ionic.tasks', ['ionic:serve', 'watch']);
+     grunt.config('concurrent.ionic.tasks', ['ionic:serve', 'watch']);
     if (target === 'production') {
       grunt.task.run(['wiredep', 'init-production', 'concurrent:ionic']);
     }

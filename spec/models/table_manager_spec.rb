@@ -28,7 +28,7 @@ describe TableManager do
 
   it "cancels partial tables" do
     @reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
-    TableManager.process
+    TableManager.process_today_tables
     @table.reload
     expect(@table.status).to eq :cancelled
     @reservation.reload
@@ -46,7 +46,7 @@ describe TableManager do
     end
 
     it "cancel partial tables with payment errors" do
-      TableManager.process
+      TableManager.process_today_tables
       @table.reload
       expect(@table.status).to eq :cancelled
       Reservation.each do |r|
@@ -69,7 +69,7 @@ describe TableManager do
       FactoryGirl.create(:reservation, user: @she, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
 
-      TableManager.process
+      TableManager.process_today_tables
       @table.reload
       expect(@table.status).to eq :plan_closed
 
@@ -93,7 +93,8 @@ describe TableManager do
       FactoryGirl.create(:reservation, user: @she, table: @table)
       FactoryGirl.create(:reservation, user: @error_user, table: @table)
 
-      TableManager.process
+      TableManager.process_today_tables
+
 
       @table.reload
       @he.reload

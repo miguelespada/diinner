@@ -136,7 +136,7 @@ end
 
 When(/^the table manager process runs$/) do
   allow(Date).to receive(:today).and_return Date.tomorrow
-  TableManager.process
+  TableManager.process_today_tables
 end
 
 Then(/^I can see the cancellation notification$/) do

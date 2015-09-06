@@ -1,7 +1,17 @@
 class TableManager
 
-  def self.process
-    tables = self.cancel_partial(today_tables)
+  def self.process_table table
+    # We built a list of a single item an proceed 
+    # Used in last minute dinners
+    self.process [table]
+  end
+
+  def self.process_today_tables
+    self.process today_tables
+  end
+
+  def self.process tables
+    tables = self.cancel_partial(tables)
     self.capture(tables)
     self.refund_partial(tables)
     tables = self.cancel_partial(tables)

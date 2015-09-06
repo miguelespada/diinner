@@ -27,6 +27,7 @@ module ReservationPayment
     end
 
     def capture
+      return true if paid?
       payment_id = create_stripe_charge
       if payment_id
         self.update(charge_id: payment_id)
@@ -42,6 +43,7 @@ module ReservationPayment
     end
 
     def charge
+      return true if paid?
       return false if !payment_reserved?
       data = stripe_capture
       if data
