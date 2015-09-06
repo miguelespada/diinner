@@ -3,7 +3,7 @@
 	[
 		{
 			"path": "/Users/miguel/Diinner",
-      "folder_exclude_patterns": ["ionicApp", "log", "tmp", ".idea", "vendor", "lib", "bin", "script", "db", "app/assets/stylesheets/budicon", "app/assets/fonts"],
+      "folder_exclude_patterns": ["ionicApp", "log", "tmp", ".idea", "vendor", "lib", "bin", "script", "app/assets/stylesheets/budicon", "app/assets/fonts"],
       "file_exclude_patterns": ["*.sublime-workspace", "a.log"]
 		}
 	]

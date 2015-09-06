@@ -45,21 +45,24 @@ class  Users::ReservationsController < BaseUsersController
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
        TableManager.process_table @reservation.table if @reservation.closes_last_minute_plan?
-      if @reservation.cancelled?
-        redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('  
-      else
+      if !@reservation.cancelled?
         @reservation.notify "create"
         @user.notify_pending_reservation @reservation
         redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+      else
+        handle_reservation_error @reservation
       end
-
     else
-      # TODO handle properly card errors
-      @reservation.delete
-      redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
+      handle_reservation_error @reservation
     end
   end
 
+  def handle_reservation_error reservation
+      # TODO handle properly card errors
+      reservation.delete
+      redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
+  end
+  
   def cancel
     @reservation.cancel
     @reservation.notify "cancel"

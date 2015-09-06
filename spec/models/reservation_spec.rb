@@ -14,6 +14,8 @@ describe Reservation do
       }}
   end
 
+  # TODO check invalid card
+
   describe "capture & charge" do
     it "is not paid when created" do
       expect(@reservation.paid?).to be false

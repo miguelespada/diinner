@@ -46,6 +46,8 @@ gem 'active_model_serializers'
 gem 'auth0'
 gem 'jwt'
 
+gem "factory_girl_rails"
+
 group :test do
   gem "database_cleaner"
   gem "mongoid-rspec"
@@ -53,7 +55,6 @@ group :test do
   gem "capybara"
   gem "capybara-webkit", "~> 1.3.1"
   gem "launchy"
-  gem "factory_girl_rails"
   gem "rspec-rails"
   gem 'jasmine'
   gem 'ruby-prof'

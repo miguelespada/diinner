@@ -47,13 +47,3 @@ Then(/^The other user can see the pending last minute reservation$/) do
   visit users_path
   step "I can access to the pending reservation through my reservations"
 end
-
-When(/^I can access to the cancelled reservation through my reservations$/) do
-  click_on "My reservations"
-  within(".calendar .today") do
-    click_on @table.hour.hour
-  end
-  within(".reservation-status") do
-    expect(page).to have_content "STATUS pending"
-  end
-end

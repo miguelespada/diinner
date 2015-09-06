@@ -4,5 +4,8 @@ FactoryGirl.define do
     table :table
     price 20
     date Date.today
+    trait :paid do
+      paid :true
+    end
   end
 end
