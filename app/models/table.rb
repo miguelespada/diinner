@@ -96,6 +96,20 @@ class Table
     reservations.map{|r| r.refund}
   end
 
+
+  def must_cancel_last_minute? 
+    must_cancel = false
+    reservations.each do |r|
+      return true if r.is_last_minute? && r.cancelled?
+    end
+
+    must_cancel
+  end
+
+  def refund_last_minute
+    reservations.map{|r| r.refund if r.is_last_minute?}
+  end
+
   def male_count
     self.count :male, reservations
   end

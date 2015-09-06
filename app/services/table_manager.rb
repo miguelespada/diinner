@@ -14,6 +14,7 @@ class TableManager
     tables = self.cancel_partial(tables)
     self.capture(tables)
     self.refund_partial(tables)
+    self.refund_last_minute(tables)
     tables = self.cancel_partial(tables)
     self.charge(tables)
     self.notify_plans(tables)
@@ -38,6 +39,10 @@ class TableManager
 
   def self.refund_partial tables
     tables.map{|table| table.refund if !table.plan_closed?}
+  end
+
+  def self.refund_last_minute tables
+    tables.map{|table| table.refund_last_minute if table.must_cancel_last_minute?}
   end
 
   def self.capture tables
