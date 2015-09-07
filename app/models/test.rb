@@ -19,7 +19,7 @@ class Test
   # TODO: do not add features without a test
   enum :gender, [:male, :female, :undefined]
 
-  has_many :responses, class_name: "TestResponse"
+  has_many :responses, class_name: "TestResponse", :dependent => :destroy
 
   def to_ionic_json
     {

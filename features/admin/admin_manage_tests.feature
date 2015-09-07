@@ -24,3 +24,4 @@ Feature: Admin Manage Restaurants
   Scenario: I delete a test
     When I delete a test
     Then I should not see the test in the list of tests
+    
