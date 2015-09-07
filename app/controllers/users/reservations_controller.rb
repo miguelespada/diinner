@@ -25,7 +25,6 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def last_minute
-    # TODO check time (today from 9h to 18h00)
     if Reservation.off_the_clock?
       render :off_the_clock 
     else
@@ -68,7 +67,7 @@ class  Users::ReservationsController < BaseUsersController
 
   def handle_reservation_error reservation
       # TODO handle properly card errors
-      reservation.delete
+      reservation.destroy
       redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
   end
 

@@ -142,5 +142,5 @@ def create_last_minute_context_2_1
   TableManager.process_today_tables
 end
 
-create_last_minute_context_2_1
+create_last_minute_context_2_2
 # last_minute_reservation valid_card
