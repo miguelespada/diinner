@@ -63,10 +63,14 @@ class Restaurant
   field :latitude,          type: String, default: "40.550344000000000000"
   field :longitude,         type: String, default: "-1.651008000000047000"
 
-  has_many :menus
-  has_many :tables
-  has_many :payments
+  has_many :menus, :dependent => :destroy
+  has_many :tables, :dependent => :destroy
+  has_many :payments, :dependent => :destroy
   has_attachment :photo, accept: [:jpg, :png, :gif]
+
+  def can_be_deleted?
+    self.reservations.count == 0
+  end
 
   def reservations
     Reservation.in(table_id: tables.map{|table| table.id})
