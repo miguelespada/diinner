@@ -66,8 +66,6 @@ end
 
 Given(/^There are some reservations$/) do
   restaurant = Restaurant.first
-  restaurant.menus.create(FactoryGirl.build(:menu).attributes)
-  restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
   table = restaurant.tables.first
   he = FactoryGirl.create(:user)
   FactoryGirl.create(:reservation, user: he, table: table, date: 2.days.ago)

@@ -20,14 +20,15 @@ class Reservation
   delegate :customer, :to => :user
   delegate :city, :to => :restaurant, :allow_nil => true
 
+
   embeds_many :companies
 
   accepts_nested_attributes_for :companies,
            :reject_if => :all_blank,
            :allow_destroy => true
 
-  has_one :payment
-  has_one :evaluation
+  has_one :payment, :dependent => :destroy
+  has_one :evaluation, :dependent => :destroy
 
   def affinity
     # TODO Calculate affinity

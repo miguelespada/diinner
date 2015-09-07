@@ -36,8 +36,8 @@ class Restaurants::TablesController <  BaseRestaurantsController
   end
 
   def batch_delete
-    # TODO batch delete check if non_empty!
-    tables = @restaurant.tables.any_in(:id => params[:table_ids]).destroy_all
+    tables = @restaurant.tables.any_in(:id => params[:table_ids])
+    tables.map{|table| table.destroy if table.can_be_deleted?}
     redirect_to restaurant_tables_path(@restaurant), notice: 'Tables were successfully destroyed.'
   end
 
@@ -60,7 +60,9 @@ class Restaurants::TablesController <  BaseRestaurantsController
   end
 
   def redirect_if_non_empty
-    redirect_to :back, :notice => 'Operation not allowed: table has users' if !@table.empty?
+    if !@table.can_be_deleted?
+      redirect_to :back, :notice => 'Operation not allowed: table has users'
+    end 
   end
 
   def create_multiple_tables from_date, repeat_until, number

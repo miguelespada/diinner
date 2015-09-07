@@ -17,6 +17,10 @@ class Table
 
   attr_accessor :number, :repeat_until
 
+  def can_be_deleted?
+    self.empty?
+  end
+
   def price
     empty? ? :undefined : reservations.first.price
   end

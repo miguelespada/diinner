@@ -35,3 +35,9 @@ Feature: Restaurant manage tables
   Scenario: I duplicate a table
     Given I create multiple tables
     When I can delete multiple tables at the time
+
+  @restaurant_safe_delete_multiple_tables
+  Scenario: I duplicate a table
+    Given I create multiple tables
+    And one table has a reservation
+    When I cannot delete the table
