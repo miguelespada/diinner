@@ -15,8 +15,6 @@ Then(/^I shoud not see the reservation in my reservations$/) do
 end
 
 When(/^I should be notified that there are no tables matching by criteria$/) do
-
-
   expect(page).to have_content "There are no diinners matching your search criteria"
 end
 
