@@ -1,1 +1,1 @@
-PublicActivity.config.orm :mongoid
+PublicActivity.config.orm :mongoid 
