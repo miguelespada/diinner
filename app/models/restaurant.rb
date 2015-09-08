@@ -2,9 +2,11 @@ class Restaurant
   include Mongoid::Document
   include Mongoid::Timestamps
   include RestaurantSearchable
-  include PublicActivity::Common
-  before_update :check_password_changed
   include DestroyActivities
+  
+  include PublicActivity::Common
+
+  before_update :check_password_changed
   after_destroy :remove_activities
 
   # Include default devise modules. Others available are:
