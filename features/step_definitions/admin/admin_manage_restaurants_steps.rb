@@ -64,3 +64,19 @@ Then(/^I should see the updated restaurant in the list of restaurants$/) do
   end
 end
 
+Given(/^There are some reservations$/) do
+  restaurant = Restaurant.first
+  restaurant.menus.create(FactoryGirl.build(:menu).attributes)
+  restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
+  table = restaurant.tables.first
+  he = FactoryGirl.create(:user)
+  FactoryGirl.create(:reservation, user: he, table: table, date: 2.days.ago)
+end
+
+Then(/^I cannot delete the restaurant$/) do
+  expect(page).to have_content "This restaurant cannot be deleted."
+  within(:css, ".restaurant-name") do
+    expect(page).to have_content "dummy restaurant"
+  end
+end
+

@@ -14,6 +14,7 @@ Feature: User Reserves table
     And I can see the reserved table in my reservations
     And I can access restaurant data
     And I can access menu data
+    And I shoud be notified that my plan is pending
 
   @user_cancel_reservation
   Scenario: User cancel reservation

@@ -55,4 +55,50 @@ describe User do
       expect(@user.test_pending.count).to eq 0
     end
   end
+
+  describe "#age?" do
+    before(:each) do 
+      @user = FactoryGirl.create(:user)
+      @other = FactoryGirl.create(:user, birth: 30.years.ago)
+    end
+
+    it "returns the correct age" do
+      expect(@other.age).to be 30
+    end 
+
+
+    it "matches age" do
+      @user.preference = FactoryGirl.build(:preference, min_age: 20, max_age: 40)
+      expect(@user.matches_age_preference?(@other)).to be true
+    end 
+
+    it "does not match age" do
+      @user.preference = FactoryGirl.build(:preference, min_age: 31, max_age: 40)
+      expect(@user.matches_age_preference?(@other)).to be false
+      @user.preference = FactoryGirl.build(:preference, min_age: 20, max_age: 29)
+      expect(@user.matches_age_preference?(@other)).to be false
+    end 
+  end
+
+  xdescribe "#affinity?" do
+    before(:each) do 
+      @user = FactoryGirl.create(:user)
+      @other = FactoryGirl.create(:user)
+      @test_0 = FactoryGirl.create(:test)
+      @test_1 = FactoryGirl.create(:test)
+    end
+
+    it "with no responses" do
+      expect(@other.affinity(@user)).to be 100
+      expect(@user.affinity(@other)).to be 100
+    end
+
+    it "affinity maximum" do
+      TestResponse.create(response: @test_0.caption_A, user: @user, test: @test_0)
+      TestResponse.create(response: @test_1.caption_A, user: @other, test: @test_0)
+      
+      expect(@other.affinity(@user)).to be 100
+      expect(@user.affinity(@other)).to be 100
+    end
+  end
 end

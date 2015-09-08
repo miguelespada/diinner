@@ -28,7 +28,7 @@ H1 Reservation
   - if !payment.nil?
     div.reservation-payment
       span.bold-label PAYMENT
-      = payment.show_link
+      == payment.show_link
   - if model.has_evaluation?
     div.reservation-evalutaion
       span.bold-label EVALUATION

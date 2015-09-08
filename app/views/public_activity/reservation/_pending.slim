@@ -1,0 +1,5 @@
+div.plan-pending-log
+  i.bi_doc-wboard-line
+  span Your plan diinner for tonight at 
+  span.restaurant-id == cell(:restaurant, activity.owner).show_link if !activity.owner.nil?
+  span  is waiting for confirmation!!!

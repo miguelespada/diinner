@@ -14,6 +14,5 @@ class Company
         gender: self.gender,
         age: self.age
     }
-
   end
 end

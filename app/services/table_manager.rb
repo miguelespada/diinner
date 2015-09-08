@@ -1,9 +1,20 @@
 class TableManager
 
-  def self.process
-    tables = self.cancel_partial(today_tables)
+  def self.process_table table
+    # We built a list of a single item an proceed 
+    # Used in last minute dinners
+    self.process [table]
+  end
+
+  def self.process_today_tables
+    self.process today_tables
+  end
+
+  def self.process tables
+    tables = self.cancel_partial(tables)
     self.capture(tables)
     self.refund_partial(tables)
+    self.refund_last_minute(tables)
     tables = self.cancel_partial(tables)
     self.charge(tables)
     self.notify_plans(tables)
@@ -28,6 +39,10 @@ class TableManager
 
   def self.refund_partial tables
     tables.map{|table| table.refund if !table.plan_closed?}
+  end
+
+  def self.refund_last_minute tables
+    tables.map{|table| table.refund_last_minute if table.must_cancel_last_minute?}
   end
 
   def self.capture tables

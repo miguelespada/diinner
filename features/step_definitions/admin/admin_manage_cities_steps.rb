@@ -58,3 +58,15 @@ Then(/^I should not see the city in the list of cities$/) do
   expect(page).not_to have_content "4.223"
   expect(page).not_to have_content "-0.0005"
 end
+
+Given(/^There are some restaurants in the city$/) do
+  city = City.first
+  FactoryGirl.create(:restaurant, city: city)
+end
+
+When(/^I cannot delete the city$/) do
+  expect(page).to have_content "This city cannot be deleted."
+  within(:css, ".city-name") do
+    expect(page).to have_content "Madrid"
+  end
+end

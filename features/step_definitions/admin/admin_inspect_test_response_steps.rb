@@ -23,3 +23,14 @@ Then(/^I can see the user test responses$/) do
     expect(page).to have_content @test.caption_A
   end
 end
+
+Then(/^I cannot see the test response$/) do
+  click_on "Users"
+  within "#content" do
+    click_on @user.name
+  end
+  within('.test-responses') do
+    expect(page).not_to have_content @test.question
+    expect(page).not_to have_content @test.caption_A
+  end
+end

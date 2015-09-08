@@ -2,7 +2,9 @@
   "name": "Diinner",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "graceful-fs": "^4.1.2"
+  },
   "devDependencies": {
     "cordova": "~4.2.0",
     "elementtree": "0.1.6",
@@ -24,6 +26,7 @@
     "grunt-newer": "~1.1.0",
     "grunt-ng-annotate": "~0.9.2",
     "grunt-ng-constant": "^1.0.0",
+    "grunt-npm-install": "^0.2.0",
     "grunt-slim": "^0.1.0",
     "grunt-usemin": "~3.0.0",
     "grunt-wiredep": "^2.0.0",

@@ -58,3 +58,19 @@ Then(/^I can only create a menu of each price$/) do
   page.has_select?("Price", :with_options => [60]).should == false
 end
 
+Given(/^one table has a reservation$/) do
+  restaurant = Restaurant.first
+  table = restaurant.tables.first
+  he = FactoryGirl.create(:user)
+  FactoryGirl.create(:reservation, user: he, table: table, date: 2.days.ago)
+end
+
+When(/^I cannot delete the table$/) do
+  page.all('.table-check').each do |element|
+    within element do
+      check :table_ids_
+    end
+  end
+  click_button "Delete selected"
+  expect(page).to have_css(".table-id")
+end

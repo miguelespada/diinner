@@ -136,7 +136,7 @@ end
 
 When(/^the table manager process runs$/) do
   allow(Date).to receive(:today).and_return Date.tomorrow
-  TableManager.process
+  TableManager.process_today_tables
 end
 
 Then(/^I can see the cancellation notification$/) do
@@ -169,4 +169,13 @@ Then(/^I can see the plan confirmation notification$/) do
     expect(page).to have_content "Your plan diinner for tonight at restaurant #{@table.restaurant.name} is confirmed!!!"
   end
 end
+
+Then(/^I can see the reservation notification$/) do
+  click_on "Notifications"
+  within("#logs .plan-pending-log") do
+    expect(page).to have_content "Your plan diinner for tonight at restaurant #{@table.restaurant.name} is waiting for confirmation!!!"
+  end
+end
+
+
 

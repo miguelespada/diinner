@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:image_url) { |n| "user_#{n}.jpg" }
     sequence(:name)  { |n| "user_#{n}" }
     gender :male
-    birth { (18..50).to_a.sample.years.seconds.ago }
+    birth { 20.years.ago }
 
     trait :with_customer_id do
       customer :stripe_123

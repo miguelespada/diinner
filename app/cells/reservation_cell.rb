@@ -69,8 +69,7 @@ class ReservationCell < BaseCell
   end
 
   def cancel_link
-    # TODO if is not today
-    if model.is_owned_by?(current_user) && !model.cancelled?
+    if model.is_owned_by?(current_user) && model.can_be_cancelled?
       @path = user_reservation_cancel_path(current_user, model)
       render
     end

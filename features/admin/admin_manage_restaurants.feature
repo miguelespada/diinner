@@ -20,3 +20,9 @@ Feature: Admin Manage Restaurants
   Scenario: I delete a restaurant
     When I delete a restaurant
     Then I should not see the restaurant in the list of restaurants
+
+  @safe_delete_restaurant
+  Scenario: I delete a restaurant
+    Given There are some reservations
+    When I delete a restaurant
+    Then I cannot delete the restaurant

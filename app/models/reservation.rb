@@ -20,14 +20,15 @@ class Reservation
   delegate :customer, :to => :user
   delegate :city, :to => :restaurant, :allow_nil => true
 
+
   embeds_many :companies
 
   accepts_nested_attributes_for :companies,
            :reject_if => :all_blank,
            :allow_destroy => true
 
-  has_one :payment
-  has_one :evaluation
+  has_one :payment, :dependent => :destroy
+  has_one :evaluation, :dependent => :destroy
 
   def affinity
     # TODO Calculate affinity
@@ -79,6 +80,19 @@ class Reservation
 
   def has_evaluation?
     !evaluation.nil?
+  end
+
+  def is_last_minute?
+    today = Date.today
+    date.day == today.day && date.month == today.month && date.year == today.year
+  end
+
+
+  def self.off_the_clock?
+    nine =DateTime.now.change({ hour: 9, min: 00, sec: 00 })
+    six = DateTime.now.change({ hour: 18, min: 00, sec: 00 })
+    now = DateTime.now
+    now < nine || now > six 
   end
 
   def to_ionic_json

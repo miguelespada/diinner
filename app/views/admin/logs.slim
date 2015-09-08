@@ -1,6 +1,10 @@
 div#logs
   h2 Logs
 
-  = render_activities(@logs)
+  - @logs.each do |activity|
+    - begin
+      = render_activities(activity)
+    - rescue
+
 
   = will_paginate @logs

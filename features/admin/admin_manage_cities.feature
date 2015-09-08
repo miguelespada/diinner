@@ -20,3 +20,9 @@ Feature: Admin Manage Cities
   Scenario: I delete a restaurant
     When I delete a city
     Then I should not see the city in the list of cities
+
+  @admin_safe_delete_city
+  Scenario: I delete a restaurant
+    Given There are some restaurants in the city
+    When I delete a city
+    Then I cannot delete the city

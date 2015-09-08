@@ -9,6 +9,14 @@ module ReservationStatus
     field :ticket_valid, type: Boolean, default: false
     field :payment_error, type: Boolean, default: false
 
+    def can_be_cancelled?
+      pending? && !is_last_minute?
+    end
+
+    def closes_last_minute_plan?
+      is_last_minute? && table.full?
+    end
+
     def passed?
       Date.today > date
     end

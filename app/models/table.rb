@@ -17,6 +17,10 @@ class Table
 
   attr_accessor :number, :repeat_until
 
+  def can_be_deleted?
+    self.empty?
+  end
+
   def price
     empty? ? :undefined : reservations.first.price
   end
@@ -66,13 +70,23 @@ class Table
   end
 
   def has_free_slots? genders
+    return false if cancelled?
     male_slots_left >= genders[:male] &&
     female_slots_left >= genders[:female]
   end
 
+  def matches_age? user
+    reservations.each do |r|
+      return false if !user.matches_age_preference? (r.user)
+      return false if !r.user.matches_age_preference? (user)
+    end
+    true
+  end
+
   def matches? reservation
     matches_menu_price?(reservation.price) &&
-    has_free_slots?(reservation.genders)
+    has_free_slots?(reservation.genders) &&
+    matches_age?(reservation.user)
   end
 
   def capture
@@ -85,6 +99,20 @@ class Table
 
   def refund
     reservations.map{|r| r.refund}
+  end
+
+
+  def must_cancel_last_minute? 
+    must_cancel = false
+    reservations.each do |r|
+      return true if r.is_last_minute? && r.cancelled?
+    end
+
+    must_cancel
+  end
+
+  def refund_last_minute
+    reservations.map{|r| r.refund if r.is_last_minute?}
   end
 
   def male_count
