@@ -138,7 +138,7 @@ class Table
   end
 
   def notify_cancellation
-    self.create_activity key: 'table.cancel', recipient: restaurant, recipient: Admin.first
+    self.create_activity key: 'table.cancel', owner: Admin.first, recipient: restaurant
     reservations.map{|r| r.notify_plan("cancel")}
   end
 

@@ -16,7 +16,7 @@ describe TableManager do
     allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return return_value
     allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value
     allow(Date).to receive(:today).and_return Date.tomorrow
-
+    Admin.create(email: "need_one_admin@gmail.com", password: "12345678")
   end
 
   it "returns today tables" do

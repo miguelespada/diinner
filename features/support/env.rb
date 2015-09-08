@@ -75,6 +75,7 @@ Before do
 
   allow(Pony).to receive(:deliver)
 
+  Admin.create(email: "need_one_admin@gmail.com", password: "12345678")
 end
 
 
