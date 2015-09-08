@@ -39,10 +39,6 @@ class Admin
   end
 
   def self.logs
-    # TODO DRY this
-    PublicActivity::Activity.where(recipient: nil).delete_all
-    PublicActivity::Activity.where(owner: nil).delete_all
-    PublicActivity::Activity.where(trackable: nil).delete_all
     PublicActivity::Activity.all.desc(:created_at)
   end
 

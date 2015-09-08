@@ -34,6 +34,7 @@ class  Admin::RestaurantsController < AdminController
   def destroy
     if @restaurant.can_be_deleted?
       @restaurant.destroy
+
       redirect_to admin_restaurants_path, notice: 'Restaurant was successfully destroyed.'
     else
       redirect_to admin_restaurants_path, notice: 'This restaurant cannot be deleted.'

@@ -5,6 +5,10 @@ class Reservation
   include ReservationPayment
   include ReservationStatus
   extend SimpleCalendar
+  include DestroyActivities
+  after_destroy :remove_activities
+
+
   has_calendar :attribute => :date
 
   belongs_to :user

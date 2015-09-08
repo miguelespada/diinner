@@ -3,6 +3,9 @@ class Table
   include Mongoid::Timestamps
   include PublicActivity::Common
   extend SimpleCalendar
+  include DestroyActivities
+  after_destroy :remove_activities
+
 
   has_calendar :attribute => :date
 

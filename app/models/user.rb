@@ -4,6 +4,8 @@ class User
   include UserSearchable
   include Mongoid::Enum
   include PublicActivity::Common
+  include DestroyActivities
+  after_destroy :remove_activities
 
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""
@@ -86,10 +88,6 @@ class User
   end
 
   def notifications
-    # TODO DRY this
-    PublicActivity::Activity.where(recipient: nil).delete_all
-    PublicActivity::Activity.where(owner: nil).delete_all
-    PublicActivity::Activity.where(trackable: nil).delete_all
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 

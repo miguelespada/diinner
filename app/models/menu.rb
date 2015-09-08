@@ -2,6 +2,9 @@ class Menu
   include Mongoid::Document
   include Mongoid::Timestamps
   include PublicActivity::Common
+  include DestroyActivities
+  after_destroy :remove_activities
+
 
   field :name,  type: String
   field :price, type: Integer

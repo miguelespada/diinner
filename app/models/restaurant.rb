@@ -4,6 +4,8 @@ class Restaurant
   include RestaurantSearchable
   include PublicActivity::Common
   before_update :check_password_changed
+  include DestroyActivities
+  after_destroy :remove_activities
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -89,10 +91,6 @@ class Restaurant
   end
 
   def notifications
-    # TODO DRY this
-    PublicActivity::Activity.where(recipient: nil).delete_all
-    PublicActivity::Activity.where(owner: nil).delete_all
-    PublicActivity::Activity.where(trackable: nil).delete_all
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 
@@ -136,4 +134,5 @@ class Restaurant
   def check_password_changed
     self.has_changed_password = true if self.encrypted_password_changed?
   end
+
 end

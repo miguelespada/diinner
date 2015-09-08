@@ -2,6 +2,9 @@ class TestResponse
   include Mongoid::Document
   include Mongoid::Timestamps
   include PublicActivity::Common
+  include DestroyActivities
+  after_destroy :remove_activities
+
 
   belongs_to :user, autosave: :true
   belongs_to :test, autosave: :true
