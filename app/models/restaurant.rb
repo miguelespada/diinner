@@ -89,6 +89,10 @@ class Restaurant
   end
 
   def notifications
+    # TODO DRY this
+    PublicActivity::Activity.where(recipient: nil).delete_all
+    PublicActivity::Activity.where(owner: nil).delete_all
+    PublicActivity::Activity.where(trackable: nil).delete_all
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 

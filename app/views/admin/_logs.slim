@@ -1,11 +1,7 @@
 a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#"
   i.bi_web-rss
 ul.dropdown-menu.navbar-log-menu
-  - @logs = PublicActivity::Activity.all.desc(:created_at).limit(5)
-  - @logs.each do |activity|
-    - begin
-      = render_activities(activity)
-    - rescue
+  = render_activities(Admin.logs.take(5))
   li.divider
   li.widget-footer
     = link_to "All logs", admin_logs_path

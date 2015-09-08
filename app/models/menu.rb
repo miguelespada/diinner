@@ -32,7 +32,7 @@ class Menu
   end
 
   def notify action
-    self.create_activity key: "menu.#{action}", owner: restaurant
+    self.create_activity key: "menu.#{action}", owner: restaurant, recipient: Admin.first
   end
 
   def to_ionic_json

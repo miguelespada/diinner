@@ -4,16 +4,24 @@
 		"selected_items":
 		[
 			[
+				"Compa",
+				"company"
+			],
+			[
+				"res",
+				"restaurant"
+			],
+			[
+				"reser",
+				"reservations"
+			],
+			[
 				"lat",
 				"last_minute_reservation"
 			],
 			[
 				"toda",
 				"today_tables"
-			],
-			[
-				"reser",
-				"reservation"
 			],
 			[
 				"matches",
@@ -66,10 +74,6 @@
 			[
 				"prie",
 				"prices_left"
-			],
-			[
-				"res",
-				"reservation"
 			],
 			[
 				"date_",
@@ -300,31 +304,63 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/app/controllers/admin/restaurants_controller.rb",
+		"/Users/miguel/Diinner/app/views/admin/_logs.slim",
+		"/Users/miguel/Diinner/app/cells/restaurant_cell.rb",
+		"/Users/miguel/Diinner/app/models/table.rb",
+		"/Users/miguel/Diinner/app/models/reservation.rb",
+		"/Users/miguel/Diinner/app/models/test_response.rb",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_logs_steps.rb",
+		"/Users/miguel/Diinner/app/models/menu.rb",
+		"/Users/miguel/Diinner/app/controllers/users/evaluations_controller.rb",
+		"/Users/miguel/Diinner/app/views/admin/logs.slim",
+		"/Users/miguel/Diinner/app/views/public_activity/evaluation/_create.slim",
+		"/Users/miguel/Diinner/app/views/public_activity/plan/_show.slim",
+		"/Users/miguel/Diinner/app/views/public_activity/menu/_create.slim",
+		"/Users/miguel/Diinner/factories/table.rb",
+		"/Users/miguel/Diinner/db/seeds.rb",
+		"/Users/miguel/Diinner/config/routes.rb",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_restaurants_steps.rb",
+		"/Users/miguel/Diinner/app/models/restaurant.rb",
+		"/Users/miguel/Diinner/app/controllers/users/reservations_controller.rb",
+		"/Users/miguel/Diinner/spec/models/reservation_spec.rb",
+		"/Users/miguel/Diinner/features/admin/admin_manage_restaurants.feature",
+		"/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature",
+		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb",
+		"/Users/miguel/Diinner/features/step_definitions/common_steps.rb",
+		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_multiple_tables_steps.rb",
+		"/Users/miguel/Diinner/features/restaurant/restaurant_manage_tables.feature",
+		"/Users/miguel/Diinner/app/controllers/restaurants/tables_controller.rb",
+		"/Users/miguel/Diinner/app/controllers/restaurants/menus_controller.rb",
+		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_tables_steps.rb",
+		"/Users/miguel/Diinner/app/models/test.rb",
+		"/Users/miguel/Diinner/factories/preference.rb",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_cities_steps.rb",
+		"/Users/miguel/Diinner/features/admin/admin_manage_cities.feature",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_test_response_steps.rb",
+		"/Users/miguel/Diinner/features/admin/admin_manage_tests.feature",
+		"/Users/miguel/Diinner/features/admin/admin_inspect_test_response.feature",
+		"/Users/miguel/Diinner/app/models/evaluation.rb",
+		"/Users/miguel/Diinner/app/models/city.rb",
+		"/Users/miguel/Diinner/app/controllers/admin/cities_controller.rb",
+		"/Users/miguel/Diinner/app/models/company.rb",
+		"/Users/miguel/Diinner/app/models/preference.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table.steps.rb",
-		"/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature",
 		"/Users/miguel/Diinner/features/user/user_reserve_table_with_no_tables.feature",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table_with_errors_steps.rb",
-		"/Users/miguel/Diinner/app/controllers/users/reservations_controller.rb",
-		"/Users/miguel/Diinner/db/seeds.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/off_the_clock.slim",
 		"/Users/miguel/Diinner/app/views/users/reservations/show.slim",
-		"/Users/miguel/Diinner/app/models/reservation.rb",
 		"/Users/miguel/Diinner/features/user/user_reserve_table.feature",
 		"/Users/miguel/Diinner/app/views/users/reservations/no_dinners.slim",
 		"/Users/miguel/Diinner/app/services/suggestion_engine.rb",
-		"/Users/miguel/Diinner/app/models/table.rb",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_tests.rb",
-		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_manage_preferences_steps.rb",
 		"/Users/miguel/Diinner/app/cells/user/preferences_link.slim",
 		"/Users/miguel/Diinner/spec/models/table_manager_spec.rb",
-		"/Users/miguel/Diinner/app/models/city.rb",
 		"/Users/miguel/Diinner/spec/models/suggestion_engine_spec.rb",
-		"/Users/miguel/Diinner/app/models/company.rb",
 		"/Users/miguel/Diinner/app/services/table_manager.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/reservations_controller.rb",
-		"/Users/miguel/Diinner/spec/models/reservation_spec.rb",
 		"/Users/miguel/Diinner/app/cells/payment/admin_show.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/admin_show.slim",
 		"/Users/miguel/Diinner/app/cells/payment/show_link.slim",
@@ -342,29 +378,19 @@
 		"/Users/miguel/Desktop/Web de prensa /press_site/standard/webapp/pages/gestionCategorias.php",
 		"/Users/miguel/Diinner/app/cells/test/row.slim",
 		"/Users/miguel/Diinner/app/views/admin/tests/index.slim",
-		"/Users/miguel/Diinner/app/models/test.rb",
 		"/Users/miguel/Diinner/app/views/admin/tests/_form.slim",
-		"/Users/miguel/Diinner/features/admin/admin_manage_tests.feature",
 		"/Users/miguel/Diinner/log/test.log",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_sessions.rb",
-		"/Users/miguel/Diinner/features/step_definitions/common_steps.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/reservation/_confirmed.slim",
 		"/Users/miguel/Diinner/app/views/users/notifications/index.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/user_show.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/reservation/_show.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/reservation/_pending.slim",
 		"/Users/miguel/Diinner/app/views/users/reservations/last_minute.slim",
-		"/Users/miguel/Diinner/app/views/admin/logs.slim",
-		"/Users/miguel/Diinner/app/views/admin/_logs.slim",
 		"/Users/miguel/Diinner/app/views/restaurants/notifications/index.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/table/_create.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/restaurant/_create.slim",
-		"/Users/miguel/Diinner/app/views/public_activity/menu/_create.slim",
-		"/Users/miguel/Diinner/app/views/public_activity/evaluation/_create.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/_delete_activity.slim",
-		"/Users/miguel/Diinner/app/models/preference.rb",
-		"/Users/miguel/Diinner/config/routes.rb",
-		"/Users/miguel/Diinner/factories/preference.rb",
 		"/Users/miguel/Diinner/spec/models/user_spec.rb",
 		"/Users/miguel/Documents/Projects/Lescer_server/app/views/exercices/index.html.slim",
 		"/Users/miguel/Documents/Projects/unitldawn_server/app/models/user.rb",
@@ -375,18 +401,12 @@
 		"/Users/miguel/Documents/Code/of_v0.8.4_osx_release/examples/OpenFrameworks_projects/until_dawn_flow/.gitignore",
 		"/Users/miguel/Diinner/app/cells/evaluation_cell.rb",
 		"/Users/miguel/Diinner/app/cells/evaluation/show.slim",
-		"/Users/miguel/Diinner/app/cells/restaurant_cell.rb",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_evaluations_steps.rb",
 		"/Users/miguel/Diinner/features/admin/admin_inspect_evaluations_steps.rb",
-		"/Users/miguel/Diinner/app/controllers/admin/restaurants_controller.rb",
 		"/Users/miguel/Diinner/features/admin/admin_inspect_evaluations.feature",
-		"/Users/miguel/Diinner/app/controllers/users/evaluations_controller.rb",
-		"/Users/miguel/Diinner/app/models/evaluation.rb",
 		"/Users/miguel/Diinner/app/views/users/evaluations/new.slim",
 		"/Users/miguel/Diinner/features/user/user_evaluates_reservation_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/users/users_controller.rb",
-		"/Users/miguel/Diinner/app/controllers/restaurants/tables_controller.rb",
-		"/Users/miguel/Diinner/app/models/restaurant.rb",
 		"/Users/miguel/Diinner/app/views/devise/confirmations/new.html.erb",
 		"/Users/miguel/Diinner/app/views/users/reservations/new_evaluation.slim",
 		"/Users/miguel/Diinner/app/controllers/users/evaluation_controller.rb",
@@ -395,14 +415,12 @@
 		"/Users/miguel/Diinner/features/step_definitions/user/user_delete_notification_steps.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_confirmed.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_cancel.slim",
-		"/Users/miguel/Diinner/app/views/public_activity/plan/_show.slim",
 		"/Users/miguel/Diinner/features/user/user_delete_notification_steps.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_delete_activity.slim",
 		"/Users/miguel/Diinner/features/user/user_delete_notification.feature",
 		"/Users/miguel/Diinner/factories/restaurant.rb",
 		"/Users/miguel/Diinner/app/cells/base/delete_link.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_delete_link.slim",
-		"/Users/miguel/Diinner/factories/table.rb",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_reservations_steps.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/new.slim",
 		"/Users/miguel/Diinner/app/views/users/users/_form_fields.slim",
@@ -413,21 +431,7 @@
 		"/Users/miguel/Diinner/app/cells/user/side_bar.slim",
 		"/Users/miguel/Diinner/features/user/user_reserve_a_last_minu_diinner.feature",
 		"/Users/miguel/Diinner/features/user/user_reserve_a_last_minu_d  i",
-		"/Users/miguel/Diinner/config/initializers/devise.rb",
-		"/Users/miguel/Diinner/app/services/user_session.rb",
-		"/Users/miguel/Diinner/app/controllers/base_users_controller.rb",
-		"/Users/miguel/Diinner/app/controllers/base_restaurants_controller.rb",
-		"/Users/miguel/Diinner/features/admin/admin_inspect_reservations.feature",
-		"/Users/miguel/Diinner/app/views/restaurants/_sidebar.slim",
-		"/Users/miguel/Diinner/app/views/restaurants/payments/index.slim",
-		"/Users/miguel/Diinner/app/controllers/restaurants/payments_controller.rb",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_tables_steps.rb",
-		"/Users/miguel/Diinner/features/restaurant/restaurant_inspect_payments.feature",
-		"/Users/miguel/Diinner/app/cells/payment/restaurant_row.slim",
-		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_payments_steps.rb",
-		"/Users/miguel/Diinner/app/views/admin/restaurants/new.slim",
-		"/Users/miguel/Diinner/app/controllers/admin/users_controller.rb",
-		"/Users/miguel/Diinner/app/controllers/admin/tables_controller.rb"
+		"/Users/miguel/Diinner/config/initializers/devise.rb"
 	],
 	"find":
 	{
@@ -435,7 +439,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 105.0,
 		"where_history":
 		[
 			"",
@@ -453,6 +457,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"create_activity",
+			"<em>",
+			"create_activity",
+			"Activity",
+			"updated_timeago",
+			"render partial",
+			"dev",
+			" @safe_delete_restaurant",
+			"require \"pry\"",
+			"I reserve a last minute diinner with error",
+			"I can delete multiple tables at the time",
+			"batch_delete",
+			"I cannot delete the city",
+			"has_one :city",
+			"belongs_to :city",
 			"off_the_clock.slim",
 			"reser",
 			"save_and_open_page",
@@ -565,22 +584,7 @@
 			"user_from_session",
 			"menu_link",
 			"restaurant_link",
-			"herre",
-			"update_customer_information",
-			"reservat",
-			"create",
-			"save_and_open_page",
-			"There are some available tables",
-			"A user has reserved a table",
-			"paym",
-			"def create",
-			"association",
-			"will_pa",
-			"UserSerializer",
-			"restaurant_calendars_path",
-			"calendar_path",
-			"calendars_path",
-			"calendar_path"
+			"herre"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -665,15 +669,119 @@
 		"selected_items":
 		[
 			[
-				"resecon",
+				"log",
+				"app/views/admin/_logs.slim"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"table",
+				"factories/table.rb"
+			],
+			[
+				"se",
+				"db/seeds.rb"
+			],
+			[
+				"see",
+				"db/seeds.rb"
+			],
+			[
+				"adminma",
+				"features/step_definitions/admin/admin_manage_restaurants_steps.rb"
+			],
+			[
+				"resta",
+				"app/models/restaurant.rb"
+			],
+			[
+				"restaco",
+				"app/controllers/admin/restaurants_controller.rb"
+			],
+			[
+				"reercon",
 				"app/controllers/users/reservations_controller.rb"
 			],
 			[
+				"seed",
+				"db/seeds.rb"
+			],
+			[
 				"reser",
-				"app/models/reservation.rb"
+				"spec/models/reservation_spec.rb"
+			],
+			[
+				"com",
+				"features/step_definitions/common_steps.rb"
+			],
+			[
+				"last",
+				"features/user/user_reserve_a_last_minute_diinner.feature"
 			],
 			[
 				"resercon",
+				"app/controllers/users/reservations_controller.rb"
+			],
+			[
+				"men",
+				"app/controllers/restaurants/menus_controller.rb"
+			],
+			[
+				"tablecontr",
+				"app/controllers/restaurants/tables_controller.rb"
+			],
+			[
+				"adminman",
+				"features/step_definitions/admin/admin_manage_restaurants_steps.rb"
+			],
+			[
+				"tableco",
+				"app/controllers/restaurants/tables_controller.rb"
+			],
+			[
+				"test",
+				"app/models/test.rb"
+			],
+			[
+				"restaurantcon",
+				"app/controllers/admin/restaurants_controller.rb"
+			],
+			[
+				"adminmanaci",
+				"features/step_definitions/admin/admin_manage_cities_steps.rb"
+			],
+			[
+				"adminmanageres",
+				"features/step_definitions/admin/admin_manage_restaurants_steps.rb"
+			],
+			[
+				"rest",
+				"app/models/restaurant.rb"
+			],
+			[
+				"restauco",
+				"app/controllers/admin/restaurants_controller.rb"
+			],
+			[
+				"prefer",
+				"factories/preference.rb"
+			],
+			[
+				"adm",
+				"features/admin/admin_manage_tests.feature"
+			],
+			[
+				"city",
+				"app/models/city.rb"
+			],
+			[
+				"prefe",
+				"app/models/preference.rb"
+			],
+			[
+				"resecon",
 				"app/controllers/users/reservations_controller.rb"
 			],
 			[
@@ -685,20 +793,8 @@
 				"app/services/suggestion_engine.rb"
 			],
 			[
-				"table",
-				"app/models/table.rb"
-			],
-			[
-				"see",
-				"db/seeds.rb"
-			],
-			[
 				"reservatiocn",
 				"app/controllers/admin/reservations_controller.rb"
-			],
-			[
-				"com",
-				"app/models/company.rb"
 			],
 			[
 				"tableman",
@@ -741,10 +837,6 @@
 				"app/controllers/admin/reservations_controller.rb"
 			],
 			[
-				"last",
-				"features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb"
-			],
-			[
 				"paymen",
 				"app/models/concerns/reservation_payment.rb"
 			],
@@ -779,10 +871,6 @@
 			[
 				"tetcon",
 				"app/controllers/admin/tests_controller.rb"
-			],
-			[
-				"test",
-				"app/models/test.rb"
 			],
 			[
 				"eval",
@@ -835,14 +923,6 @@
 			[
 				"sugg",
 				"spec/models/suggestion_engine_spec.rb"
-			],
-			[
-				"prefe",
-				"app/models/preference.rb"
-			],
-			[
-				"route",
-				"config/routes.rb"
 			],
 			[
 				"gem",
@@ -949,10 +1029,6 @@
 				"features/step_definitions/user/user_delete_notification_steps.rb"
 			],
 			[
-				"rest",
-				"factories/restaurant.rb"
-			],
-			[
 				"user.",
 				"app/models/user.rb"
 			],
@@ -1041,10 +1117,6 @@
 				"app/controllers/ionic_controller.rb"
 			],
 			[
-				"resta",
-				"app/models/restaurant.rb"
-			],
-			[
 				"adminrestac",
 				"app/controllers/admin/restaurants_controller.rb"
 			],
@@ -1059,10 +1131,6 @@
 			[
 				"restpro",
 				"features/restaurant/restaurant_profile.feature"
-			],
-			[
-				"adm",
-				"app/models/admin.rb"
 			],
 			[
 				"restarcon",
@@ -1111,70 +1179,6 @@
 			[
 				"circ",
 				"circle.yml"
-			],
-			[
-				"ioni",
-				"features/hello_ionic.feature"
-			],
-			[
-				"men",
-				"app/models/menu.rb"
-			],
-			[
-				"baseus",
-				"app/controllers/base_users_controller.rb"
-			],
-			[
-				"resersp",
-				"spec/models/reservation_spec.rb"
-			],
-			[
-				"reserpa",
-				"app/models/concerns/reservation_payment.rb"
-			],
-			[
-				"tes",
-				"factories/test.rb"
-			],
-			[
-				"spe",
-				"spec/spec_helper.rb"
-			],
-			[
-				"admin",
-				"app/models/admin.rb"
-			],
-			[
-				"restce",
-				"app/cells/restaurant_cell.rb"
-			],
-			[
-				"tescel",
-				"app/cells/test_cell.rb"
-			],
-			[
-				"att",
-				"factories/attachinary.rb"
-			],
-			[
-				"userdoes",
-				"features/user/user_does_test_steps.rb"
-			],
-			[
-				"testre",
-				"app/controllers/test_responses_controller.rb"
-			],
-			[
-				"admininste",
-				"features/admin/admin_inspect_test_response.feature"
-			],
-			[
-				"restaaut",
-				"features/step_definitions/restaurant/restaurant_authorization_steps.rb"
-			],
-			[
-				"restaau",
-				"features/step_definitions/restaurant/restaurant_authorization_steps.rb"
 			]
 		],
 		"width": 0.0
@@ -1191,6 +1195,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 393.0,
+	"side_bar_width": 235.0,
 	"status_bar_visible": true
 }

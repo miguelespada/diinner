@@ -71,7 +71,7 @@ class Reservation
   end
 
   def notify_plan action
-    self.create_activity key: "plan.#{action}", recipient: user
+    self.create_activity key: "plan.#{action}", owner: Admin.first, recipient: user
   end
 
   def notify action

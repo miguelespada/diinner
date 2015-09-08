@@ -1,6 +1,6 @@
 When(/^a new user is registered$/) do
   first_time_user_login
-  @first_time_user.create_activity key: 'user.create', owner: @first_time_user
+  @first_time_user.create_activity key: 'user.create', owner: @first_time_user, recipient: Admin.first
 end
 
 Then(/^I should see the log of the creation of the new user$/) do

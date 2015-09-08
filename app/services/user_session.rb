@@ -17,7 +17,7 @@ class UserSession
     if user.nil?
       user = User.new(hash_from_omniauth)
       user.save
-      user.create_activity key: 'user.create', owner: user
+      user.create_activity key: 'user.create', owner: user, recipient: Admin.first
     else
       user.update(hash_from_omniauth)
     end

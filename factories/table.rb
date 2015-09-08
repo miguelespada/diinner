@@ -6,5 +6,9 @@ FactoryGirl.define do
     trait :for_today do
       date Date.today
     end
+    
+    trait :for_tomorrow do
+      date Date.tomorrow
+    end
   end
 end
