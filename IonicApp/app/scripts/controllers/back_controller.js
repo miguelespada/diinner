@@ -40,5 +40,9 @@ dinnerApp.controller('BackCtrl',
         {
           $state.go('profile');
         }
+        if($state.is('test'))
+        {
+        }
+
       };
 }]);
