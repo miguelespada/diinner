@@ -41,13 +41,13 @@ dinnerApp.controller('NewReservationCtrl',
 
   $scope.panelShown = "search-form";
 
-  $scope.user.$promise.then(function(user) {
+  //$scope.user.$promise.then(function(user) {
     $scope.filters = {
-      price: user.preference.menu_price,
-      city: user.preference.city_id,
+      price: $scope.user.preference.menu_price,
+      city: $scope.user.preference.city_id,
       companies_attributes: []
     };
-  });
+  //});
 
   $scope.activeSlide = 0;
 
