@@ -4,8 +4,16 @@ class User
   include UserSearchable
   include Mongoid::Enum
   include PublicActivity::Common
-  include DestroyActivities
+
   after_destroy :remove_activities
+
+  def remove_activities
+    # TODO dry this
+    PublicActivity::Activity.where(recipient: id).delete_all
+    PublicActivity::Activity.where(owner: id).delete_all
+    PublicActivity::Activity.where(trackable: id).delete_all
+  end
+
 
   field :email, type: String, default: ""
   field :image_url, type: String, default: ""

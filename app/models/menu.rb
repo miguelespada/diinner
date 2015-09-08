@@ -2,8 +2,15 @@ class Menu
   include Mongoid::Document
   include Mongoid::Timestamps
   include PublicActivity::Common
-  include DestroyActivities
   after_destroy :remove_activities
+
+  def remove_activities
+    # TODO dry this
+    PublicActivity::Activity.where(recipient: id).delete_all
+    PublicActivity::Activity.where(owner: id).delete_all
+    PublicActivity::Activity.where(trackable: id).delete_all
+  end
+
 
 
   field :name,  type: String
