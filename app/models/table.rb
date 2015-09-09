@@ -108,7 +108,6 @@ class Table
     reservations.each do |r|
       return true if r.is_last_minute? && r.cancelled?
     end
-
     must_cancel
   end
 
@@ -145,6 +144,17 @@ class Table
     # Note that the plan is confirmed but some of the reservation may not
     reservations.map{|r| r.paid? ? r.notify_confirmation : r.notify_cancellation }
   end
+
+
+  def notify_cancel_last_minute
+    reservations.map{|r| r.notify_cancellation if r.cancelled?}
+  end
+
+  def cancel_last_minute
+    reservations.map{|r| r.cancel if r.pending? }
+  end
+
+
 
   def is_owned_by? user
     return true if restaurant == user

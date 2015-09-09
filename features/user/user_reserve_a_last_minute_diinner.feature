@@ -53,3 +53,11 @@ Feature: User reserves last minute diinner
     When I reserve a last minute diinner with error
     Then I should be notified that my last minute plan is cancelled
     And The other user can see the pending last minute reservation
+
+  @user_reserves_a_last_minute_diinner_and_it_is_cancel_at_six
+  Scenario:
+    Given There are some last minute diinners
+    When I reserve a last minute diinner
+    Then I shoud be notified that my plan is pending
+    When Last minute tables are processed at six
+    Then I should see that my last minute plan is cancelled

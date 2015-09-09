@@ -132,3 +132,12 @@ end
 Given(/^it is off the clock$/) do
   allow(DateTime).to receive(:now).and_return DateTime.now.change({ hour: 8, min: 00, sec: 00 })
 end
+
+When(/^Last minute tables are processed at six$/) do
+  TableManager.process_last_minute_tables
+end
+
+Then(/^I should see that my last minute plan is cancelled$/) do
+  click_on "Notifications"
+  expect(page).to have_content "Your plan diinner for tonight at restaurant restaurant_1 was cancelled"
+end
