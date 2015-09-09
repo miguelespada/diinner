@@ -77,12 +77,12 @@ class  Users::ReservationsController < BaseUsersController
 
     if @reservation.closes_last_minute_plan?
       TableManager.process_table reservation.table 
-    else
-      @user.notify_pending_reservation reservation
     end
 
     if !reservation.cancelled?
       NotificationManager.notify_user_create_reservation(object: reservation)
+      NotificationManager.notify_reservation_pending(object: reservation)
+
       redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
     else
       handle_reservation_error reservation

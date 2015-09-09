@@ -1,5 +1,4 @@
 class NotificationManager
-
   def self.notify_admin_create_restaurant(from: Admin.first, object: nil, to: Admin.first)
     object.create_activity key: 'restaurant.create', owner: from, recipient: to
   end
@@ -46,5 +45,9 @@ class NotificationManager
 
   def self.notify_user_cancel_reservation(object: nil)
     object.create_activity key: "reservation.cancel", owner: object.user, recipient: object.restaurant
+  end
+
+  def self.notify_reservation_pending(object: nil)
+    object.create_activity key: "reservation.pending", recipient: object.user, owner: object.restaurant
   end
 end

@@ -90,14 +90,6 @@ class User
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 
-  def notify_pending_reservation reservation
-    self.create_activity key: "reservation.pending", owner: reservation.restaurant, recipient: self
-  end
-
-  def notify_confirmed_reservation reservation
-    self.create_activity key: "reservation.confirmed", owner: reservation.restaurant, recipient: self
-  end
-
   def to_ionic_json
     {
       name: self.name,

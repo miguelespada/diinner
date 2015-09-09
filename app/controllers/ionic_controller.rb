@@ -45,7 +45,8 @@ class IonicController < ActionController::Base
   def cancel_reservation
       @reservation = @current_user.reservations.where(id: params[:reservation_id]).first
       if @reservation.is_owned_by?(@current_user) and @reservation.cancel
-        @reservation.notify "cancel"
+        NotificationManager.notify_user_cancel_reservation(object: @reservation)
+
         render json: {result: "success"}
       else
         render json: {result: "error"}
@@ -66,7 +67,8 @@ class IonicController < ActionController::Base
                                              price: reservation[:price],
                                              table_id: reservation[:table_id],
                                              companies: companies)
-    @reservation.notify "create"
+    NotificationManager.notify_user_create_reservation(object: @reservation)
+
     render json: {result: "success"}
   end
 
@@ -81,7 +83,7 @@ class IonicController < ActionController::Base
   def save_test
     test = @current_user.test_pending.where(id: params[:test_id]).first
     response = @current_user.test_completed.create!(test: test, response: params[:test_response])
-    response.notify "create"
+    NotificationManager.notify_user_create_test_response object: response, from: @current_user
     render json: {result: "success"}
   end
 

@@ -130,12 +130,10 @@ Then(/^I should not see the log of the creation of the new test response$/) do
   end
 end
 
-
-Then(/^I should not see the log of the evaluation$/) do
+Then(/^I should see the log of the evaluation$/) do
   click_on "Logs"
   expect(page).to have_content "New evaluation for restaurant restaurant_1"
 end
-
 
 Then(/^a restaurant deletes the table$/) do
   click_on "Delete"
@@ -145,4 +143,3 @@ Then(/^I should not see the log of the creation of the new table$/) do
   click_on "Logs"
   expect(page).not_to have_content "New table"
 end
-
