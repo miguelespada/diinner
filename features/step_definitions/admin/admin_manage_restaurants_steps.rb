@@ -24,6 +24,11 @@ Then(/^I should see the restaurant in the list of restaurants$/) do
   end
 end
 
+Then(/^I should be notified that the restaurant is created$/) do
+  click_on "Logs"
+  expect(page).to have_content "New restaurant dummy restaurant created"
+end
+
 When(/^I delete a restaurant$/) do
   within(:css, ".restaurant-actions") do
     find(".delete").click
@@ -80,3 +85,7 @@ Then(/^I cannot delete the restaurant$/) do
   end
 end
 
+Then(/^I should not see the restuarant notifications$/) do
+  click_on "Logs"
+  expect(page).not_to have_content "New restaurant dummy restaurant"
+end

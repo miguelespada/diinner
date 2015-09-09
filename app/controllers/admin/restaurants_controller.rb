@@ -18,7 +18,7 @@ class  Admin::RestaurantsController < AdminController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save!
-    @restaurant.create_activity key: 'restaurant.create', owner: current_admin, recipient: Admin.first
+    NotificationManager.notify_admin_create_restaurant object: @restaurant
     redirect_to admin_restaurants_path, :notice => 'Restaurant was successfully created.'
   rescue
     render :new
