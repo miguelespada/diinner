@@ -132,7 +132,7 @@ end
 
 Then(/^I should see the log of the evaluation$/) do
   click_on "Logs"
-  expect(page).to have_content "New evaluation for restaurant restaurant_1"
+  expect(page).to have_content "New evaluation for restaurant"
 end
 
 Then(/^a restaurant deletes the table$/) do
