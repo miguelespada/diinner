@@ -36,6 +36,7 @@ Feature: User reserves last minute diinner
     And I cannot cancel the reservation
     And The other user can see the confirmed last minute reservation
     And The restaurant should be see the confirmed last minute reservation
+    And The restaurant should be notified of last minute reservation
     And The admin should see the confirmed last minute reservation
   
   @user_closes_a_last_minute_diinner_with_error_in_the_other_reservation

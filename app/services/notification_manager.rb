@@ -31,6 +31,10 @@ class NotificationManager
     object.create_activity key: "table.cancel", owner: from, recipient: to
   end
 
+  def self.notify_full_table(from: Admin.first, object: nil, to: Admin.first)
+    object.create_activity key: "table.full", owner: from, recipient: to
+  end
+
   def self.notify_cancel_plan(from: Admin.first, object: nil, to: Admin.first)
     object.create_activity key: "plan.cancel", owner: from, recipient: to
   end
@@ -50,4 +54,6 @@ class NotificationManager
   def self.notify_reservation_pending(object: nil)
     object.create_activity key: "reservation.pending", recipient: object.user, owner: object.restaurant
   end
+
+
 end

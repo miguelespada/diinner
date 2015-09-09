@@ -76,7 +76,10 @@ class  Users::ReservationsController < BaseUsersController
   def handle_reservation reservation
 
     if @reservation.closes_last_minute_plan?
-      TableManager.process_table reservation.table 
+      TableManager.process_table reservation.table
+      if reservation.table.full?
+        NotificationManager.notify_full_table(object: reservation.table, to: reservation.restaurant)
+      end
     end
 
     if !reservation.cancelled?

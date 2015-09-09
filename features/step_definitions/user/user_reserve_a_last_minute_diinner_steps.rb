@@ -106,6 +106,11 @@ Then(/^The restaurant should be see the confirmed last minute reservation$/) do
   expect(page).to have_content @other_she.name
 end
 
+Then(/^The restaurant should be notified of last minute reservation$/) do
+  click_on "Notifications"
+  expect(page).to have_content "Table #{@table.id} for tonight is full!!!"
+end
+
 Then(/^The admin should see the confirmed last minute reservation$/) do
   step "I logout"
   step "I am logged as admin"
