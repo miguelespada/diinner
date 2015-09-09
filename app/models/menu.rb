@@ -4,15 +4,6 @@ class Menu
   include PublicActivity::Common
   after_destroy :remove_activities
 
-  def remove_activities
-    # TODO dry this
-    PublicActivity::Activity.where(recipient: id).delete_all
-    PublicActivity::Activity.where(owner: id).delete_all
-    PublicActivity::Activity.where(trackable: id).delete_all
-  end
-
-
-
   field :name,  type: String
   field :price, type: Integer
   field :description, type: String

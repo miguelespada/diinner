@@ -7,13 +7,6 @@ class Restaurant
   before_update :check_password_changed
   after_destroy :remove_activities
 
-  def remove_activities
-    # TODO dry this
-    PublicActivity::Activity.where(recipient: id).delete_all
-    PublicActivity::Activity.where(owner: id).delete_all
-    PublicActivity::Activity.where(trackable: id).delete_all
-  end
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -141,5 +134,6 @@ class Restaurant
   def check_password_changed
     self.has_changed_password = true if self.encrypted_password_changed?
   end
-
+  
+ 
 end
