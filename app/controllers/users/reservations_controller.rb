@@ -41,36 +41,15 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def reuse_card
-    NotificationManager.notify_user_create_reservation(object: @reservation)
-
-    # TODO last minute with reused card!
-    redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+    handle_reservation(@reservation)
   end
 
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
-      NotificationManager.notify_user_create_reservation(object: @reservation)
-
-      if @reservation.closes_last_minute_plan?
-        TableManager.process_table @reservation.table 
-      else
-        @user.notify_pending_reservation @reservation
-      end
-
-      if !@reservation.cancelled?
-        redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
-      else
-        handle_reservation_error @reservation
-      end
+      handle_reservation(@reservation)
     else
       handle_reservation_error @reservation
     end
-  end
-
-  def handle_reservation_error reservation
-      # TODO handle properly card errors
-      reservation.destroy
-      redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
   end
 
   def cancel
@@ -92,6 +71,28 @@ class  Users::ReservationsController < BaseUsersController
                                        :table_id,
                                        :stripe_card_token,
                                        companies: [:id, :_gender, :age])
+  end
+
+  def handle_reservation reservation
+
+    if @reservation.closes_last_minute_plan?
+      TableManager.process_table reservation.table 
+    else
+      @user.notify_pending_reservation reservation
+    end
+
+    if !reservation.cancelled?
+      NotificationManager.notify_user_create_reservation(object: reservation)
+      redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+    else
+      handle_reservation_error reservation
+    end
+  end
+
+  def handle_reservation_error reservation
+      # TODO handle properly card errors
+      reservation.destroy
+      redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
   end
 
 end
