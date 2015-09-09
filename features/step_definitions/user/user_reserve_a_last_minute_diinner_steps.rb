@@ -144,5 +144,5 @@ end
 
 Then(/^I should see that my last minute plan is cancelled$/) do
   click_on "Notifications"
-  expect(page).to have_content "Your plan diinner for tonight at restaurant restaurant_1 was cancelled"
+  expect(page).to have_content "Your plan diinner for tonight at restaurant #{@restaurant.name} was cancelled"
 end
