@@ -19,7 +19,7 @@ class Restaurants::MenusController <  BaseRestaurantsController
   def create
     if allowed_price?
       @menu = @restaurant.menus.create(menu_params)
-      @menu.notify "create"
+      NotificationManager.notify_restaurant_create_menu object: @menu, from: @restaurant
       redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
     else
       redirect_to restaurant_menus_path(@restaurant)

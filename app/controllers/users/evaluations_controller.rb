@@ -8,7 +8,7 @@ class  Users::EvaluationsController < BaseUsersController
 
   def create
     @evaluation = @reservation.evaluation.update!(evaluation_params)
-    @reservation.create_activity key: "evaluation.create", owner: @user, recipient: @reservation.restaurant
+    NotificationManager.notify_user_create_evaluation object: @reservation, from: @user
     redirect_to users_path(@user), notice: 'Thanks for your evaluation!'
   rescue
     render :new

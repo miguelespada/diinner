@@ -134,19 +134,16 @@ class Table
     self.save!
   end
 
-  def notify action
-    self.create_activity key: "table.#{action}", owner: restaurant, recipient: Admin.first
-  end
 
   def notify_cancellation
-    self.create_activity key: 'table.cancel', owner: Admin.first, recipient: restaurant
-    reservations.map{|r| r.notify_plan("cancel")}
+    NotificationManager.notify_cancel_table(object: self, to: restaurant)
+    reservations.map{|r| r.notify_cancellation }
   end
 
-  def notify_plan
-    self.create_activity key: 'table.confirmed', owner: Admin.first, recipient: restaurant
-    reservations.map{|r| r.notify_plan("confirmed") if r.paid?}
-    reservations.map{|r| r.notify_plan("cancel") if r.cancelled?}
+  def notify_confirmation
+    NotificationManager.notify_comfirm_table(object: self, to: restaurant)
+    # Note that the plan is confirmed but some of the reservation may not
+    reservations.map{|r| r.paid? ? r.notify_confirmation : r.notify_cancellation }
   end
 
   def is_owned_by? user

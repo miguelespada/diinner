@@ -71,7 +71,7 @@ class Restaurants::TablesController <  BaseRestaurantsController
         @table = @restaurant.tables.new(table_params)
         @table.date = from_date
         @table.save!
-        @table.notify "create"
+        NotificationManager.notify_restaurant_create_table object: @table, from: @restaurant
       end
       from_date += 1.week
     end

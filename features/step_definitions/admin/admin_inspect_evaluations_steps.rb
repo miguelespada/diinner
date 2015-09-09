@@ -50,7 +50,3 @@ Then(/^I can see the evaluation row$/) do
     end
 end
 
-Then(/^I get notified about the evaluation$/) do
-  click_on "Logs"
-  expect(page).to have_content "New evaluation for restaurant restaurant_1"
-end

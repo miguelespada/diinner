@@ -2,7 +2,7 @@ Given(/^I have some notifications$/) do
   restaurant = FactoryGirl.create(:restaurant, :with_tables)
   table = restaurant.tables.first
   reservation = FactoryGirl.create(:reservation, table: table, user: @user)
-  reservation.notify_plan "confirmed"
+  reservation.notify_confirmation
 end
 
 When(/^I delete a notification$/) do

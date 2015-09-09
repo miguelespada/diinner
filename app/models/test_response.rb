@@ -9,7 +9,4 @@ class TestResponse
 
   field :response, type: String
 
-  def notify action
-    self.create_activity key: "TestResponse.#{action}", owner: user, recipient: Admin.first
-  end
 end

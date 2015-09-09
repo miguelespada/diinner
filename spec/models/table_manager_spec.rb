@@ -77,9 +77,9 @@ describe TableManager do
         expect(r.status).to eq :confirmed
       end
 
-      expect(@restaurant.notifications.last.key).to eq "table.confirmed"
-      expect(@he.notifications.last.key).to eq "plan.confirmed"
-      expect(@she.notifications.last.key).to eq "plan.confirmed"
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
     end
 
     it "confirm plans with some errors" do
@@ -112,9 +112,9 @@ describe TableManager do
         expect(r.status).to eq :confirmed
       end
 
-      expect(@restaurant.notifications.last.key).to eq "table.confirmed"
-      expect(@he.notifications.last.key).to eq "plan.confirmed"
-      expect(@she.notifications.last.key).to eq "plan.confirmed"
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
       expect(@error_user.notifications.last.key).to eq "plan.cancel"
     end
   end

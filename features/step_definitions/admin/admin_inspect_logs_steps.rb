@@ -1,6 +1,6 @@
 When(/^a new user is registered$/) do
   first_time_user_login
-  @first_time_user.create_activity key: 'user.create', owner: @first_time_user, recipient: Admin.first
+  NotificationManager.notify_user_creation object: @first_time_user, from: @first_time_user
 end
 
 Then(/^I should see the log of the creation of the new user$/) do
@@ -10,7 +10,6 @@ Then(/^I should see the log of the creation of the new user$/) do
     expect(page).to have_content "New user"
     expect(page).to have_content @first_time_user.name
   end
-  # TODO add to shortlist
 end
 
 Then(/^I can access to the new user the data$/) do
@@ -27,7 +26,6 @@ Then(/^I should see the log of the creation of the new restaurant$/) do
     expect(page).to have_content "New restaurant"
     expect(page).to have_content "dummy restaurant"
   end
-  # TODO add to shortlist
 end
 
 Then(/^I can access to the new restaurant the data$/) do
@@ -107,3 +105,44 @@ Then(/^I should see the log of the new reservation$/) do
     expect(page).to have_content @user.name
   end
 end
+
+When(/^a restaurant has created a menu and delete it$/) do
+  step "a restaurant has created a menu"
+  step "I delete a menu"
+  step "I logout"
+end
+
+Then(/^I should not see the log of the creation of the new menu$/) do
+  click_on "Logs"
+  expect(page).not_to have_content "New menu"
+end
+
+
+When(/^I delete the test$/) do
+  click_on  "Tests"
+  click_on "Delete"
+end
+
+Then(/^I should not see the log of the creation of the new test response$/) do
+  click_on "Logs"
+  within(:css, "#logs") do
+    expect(page).not_to have_content "New test"
+  end
+end
+
+
+Then(/^I should not see the log of the evaluation$/) do
+  click_on "Logs"
+  expect(page).to have_content "New evaluation for restaurant restaurant_1"
+end
+
+
+Then(/^a restaurant deletes the table$/) do
+  click_on "Delete"
+end
+
+Then(/^I should not see the log of the creation of the new table$/) do
+  click_on "Logs"
+  expect(page).not_to have_content "New table"
+end
+

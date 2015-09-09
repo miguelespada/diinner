@@ -72,12 +72,12 @@ class Reservation
     self.update(cancelled: true)
   end
 
-  def notify_plan action
-    self.create_activity key: "plan.#{action}", owner: Admin.first, recipient: user
+  def notify_cancellation
+    NotificationManager.notify_cancel_plan(object: self, to: user)
   end
 
-  def notify action
-    self.create_activity key: "reservation.#{action}", owner: user, recipient: restaurant
+  def notify_confirmation
+    NotificationManager.notify_confirm_plan(object: self, to: user)
   end
 
   def has_evaluation?

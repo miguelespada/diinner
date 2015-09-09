@@ -41,13 +41,15 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def reuse_card
-    @reservation.notify "create"
+    NotificationManager.notify_user_create_reservation(object: @reservation)
+
+    # TODO last minute with reused card!
     redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
   end
 
   def update
     if @user.update_customer_information!(params[:stripe_card_token])
-      @reservation.notify "create"
+      NotificationManager.notify_user_create_reservation(object: @reservation)
 
       if @reservation.closes_last_minute_plan?
         TableManager.process_table @reservation.table 
@@ -73,7 +75,7 @@ class  Users::ReservationsController < BaseUsersController
 
   def cancel
     @reservation.cancel
-    @reservation.notify "cancel"
+    NotificationManager.notify_user_cancel_reservation(object: @reservation)
     redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
   end
 

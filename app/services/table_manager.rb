@@ -17,7 +17,7 @@ class TableManager
     self.refund_last_minute(tables)
     tables = self.cancel_partial(tables)
     self.charge(tables)
-    self.notify_plans(tables)
+    self.notify_confirmations(tables)
   end
 
   def self.today_tables
@@ -53,7 +53,7 @@ class TableManager
     tables.map{|table| table.charge}
   end
 
-  def self.notify_plans tables
-    tables.map{|table| table.notify_plan}
+  def self.notify_confirmations tables
+    tables.map{|table| table.notify_confirmation}
   end
 end

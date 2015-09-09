@@ -1,4 +1,4 @@
 div.new-evaluation-log
   i.bi_doc-wboard-line
   | New evaluation for restaurant 
-  == cell(:restaurant, activity.recipient).show_link
+  == cell(:restaurant, activity.trackable.restaurant).show_link

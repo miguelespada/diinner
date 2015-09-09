@@ -244,10 +244,42 @@
 	"buffers":
 	[
 		{
-			"file": "app/models/restaurant.rb",
+			"file": "app/models/test_response.rb",
 			"settings":
 			{
-				"buffer_size": 3930,
+				"buffer_size": 255,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/users/test_responses_controller.rb",
+			"settings":
+			{
+				"buffer_size": 558,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/restaurants/menus_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1697,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/services/notification_manager.rb",
+			"settings":
+			{
+				"buffer_size": 784,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/admin/admin_inspect_logs.feature",
+			"settings":
+			{
+				"buffer_size": 1384,
 				"line_ending": "Unix"
 			}
 		}
@@ -312,20 +344,28 @@
 	},
 	"file_history":
 	[
-		"/Users/miguel/Diinner/config/initializers/public_activity.rb",
-		"/Users/miguel/Diinner/app/models/user.rb",
-		"/Users/miguel/Diinner/app/models/test_response.rb",
-		"/Users/miguel/Diinner/app/models/table.rb",
-		"/Users/miguel/Diinner/app/models/restaurant.rb",
-		"/Users/miguel/Diinner/app/models/reservation.rb",
+		"/Users/miguel/Diinner/app/controllers/admin/tests_controller.rb",
+		"/Users/miguel/Diinner/app/services/user_session.rb",
+		"/Users/miguel/Diinner/app/services/notification_manager.rb",
 		"/Users/miguel/Diinner/app/models/menu.rb",
+		"/Users/miguel/Diinner/app/controllers/restaurants/menus_controller.rb",
+		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_menus_steps.rb",
+		"/Users/miguel/Diinner/features/admin/admin_inspect_logs.feature",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_logs_steps.rb",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_restaurants_steps.rb",
+		"/Users/miguel/Diinner/features/admin/admin_manage_restaurants.feature",
+		"/Users/miguel/Diinner/app/controllers/admin/restaurants_controller.rb",
+		"/Users/miguel/Diinner/app/models/test_response.rb",
+		"/Users/miguel/Diinner/app/controllers/ionic_controller.rb",
+		"/Users/miguel/Diinner/app/models/reservation.rb",
+		"/Users/miguel/Diinner/app/models/user.rb",
+		"/Users/miguel/Diinner/app/models/table.rb",
+		"/Users/miguel/Diinner/config/initializers/public_activity.rb",
+		"/Users/miguel/Diinner/app/models/restaurant.rb",
 		"/Users/miguel/Diinner/app/models/admin.rb",
 		"/Users/miguel/Diinner/app/models/concerns/destroy_activities.rb",
 		"/Users/miguel/Diinner/spec/models/table_manager_spec.rb",
 		"/Users/miguel/Diinner/app/cells/restaurant_cell.rb",
-		"/Users/miguel/Diinner/features/admin/admin_manage_restaurants.feature",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_restaurants_steps.rb",
-		"/Users/miguel/Diinner/app/controllers/admin/restaurants_controller.rb",
 		"/Users/miguel/Diinner/spec/spec_helper.rb",
 		"/Users/miguel/Diinner/app/cells/reservation_cell.rb",
 		"/Users/miguel/Diinner/features/support/env.rb",
@@ -337,8 +377,6 @@
 		"/Users/miguel/Diinner/app/views/admin/logs.slim",
 		"/Users/miguel/Diinner/app/views/admin/_logs.slim",
 		"/Users/miguel/Diinner/app/controllers/admin_controller.rb",
-		"/Users/miguel/Diinner/app/services/user_session.rb",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_logs_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/users/evaluations_controller.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/evaluation/_create.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_show.slim",
@@ -354,7 +392,6 @@
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_multiple_tables_steps.rb",
 		"/Users/miguel/Diinner/features/restaurant/restaurant_manage_tables.feature",
 		"/Users/miguel/Diinner/app/controllers/restaurants/tables_controller.rb",
-		"/Users/miguel/Diinner/app/controllers/restaurants/menus_controller.rb",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_tables_steps.rb",
 		"/Users/miguel/Diinner/app/models/test.rb",
 		"/Users/miguel/Diinner/factories/preference.rb",
@@ -434,12 +471,7 @@
 		"/Users/miguel/Diinner/features/user/user_delete_notification.feature",
 		"/Users/miguel/Diinner/factories/restaurant.rb",
 		"/Users/miguel/Diinner/app/cells/base/delete_link.slim",
-		"/Users/miguel/Diinner/app/views/public_activity/plan/_delete_link.slim",
-		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_reservations_steps.rb",
-		"/Users/miguel/Diinner/app/views/users/reservations/new.slim",
-		"/Users/miguel/Diinner/app/views/users/users/_form_fields.slim",
-		"/Users/miguel/Diinner/features/user/user_manage_preferences.feature",
-		"/Users/miguel/Diinner/app/cells/user/show.slim"
+		"/Users/miguel/Diinner/app/views/public_activity/plan/_delete_link.slim"
 	],
 	"find":
 	{
@@ -465,6 +497,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"notify",
+			"I am logged as admin",
+			"a restaurant has created a menu",
+			" a restaurant has created a menu",
+			"I should see the log of the creation of the new menu",
+			"notify",
+			"a new user is registered",
+			"user_from_session",
+			"user creation",
+			"create_activity",
+			"notify",
+			"create_activity",
+			"I should see the restaurant in the list of restaurants",
+			"@delete_restaurant",
+			"create_activity",
+			"activity",
+			"save_and_open_page",
+			"remove_activities",
+			"I should not see the restaurant in the list of restaurants",
+			"@delete_restaurant",
+			"notify",
+			"create_activity",
+			"activity",
+			"acti",
 			"I delete a restaurant",
 			" @delete_restaurant",
 			"notifica",
@@ -568,31 +624,7 @@
 			"string",
 			"textoEsp",
 			"texto",
-			"subtitulo",
-			"coleccion",
-			"collecion",
-			"categoria",
-			"categori",
-			"kids",
-			"drag",
-			"detalleListaBean",
-			"width",
-			"PublicActivity",
-			"fill_in",
-			"simple_form_fo",
-			"simple_form_for",
-			"allow_any_ins",
-			"status-table",
-			"allow_any_instance",
-			"delete",
-			"notify_plan",
-			"create_activity",
-			"faldas",
-			"lookbook",
-			"lookbock",
-			"lookbook",
-			"I process reservations",
-			"TableManager"
+			"subtitulo"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -626,28 +658,140 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/models/restaurant.rb",
+					"file": "app/models/test_response.rb",
 					"settings":
 					{
-						"buffer_size": 3930,
+						"buffer_size": 255,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								141,
-								141
+								251,
+								251
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/users/test_responses_controller.rb",
+					"settings":
+					{
+						"buffer_size": 558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								454,
+								454
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/controllers/restaurants/menus_controller.rb",
+					"settings":
+					{
+						"buffer_size": 1697,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/services/notification_manager.rb",
+					"settings":
+					{
+						"buffer_size": 784,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								745,
+								745
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "features/admin/admin_inspect_logs.feature",
+					"settings":
+					{
+						"buffer_size": 1384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								611,
+								575
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Cucumber/Cucumber Plain Text Feature.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -705,6 +849,46 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"adminins",
+				"features/admin/admin_inspect_logs.feature"
+			],
+			[
+				"noti",
+				"app/services/notification_manager.rb"
+			],
+			[
+				"menucon",
+				"app/controllers/restaurants/menus_controller.rb"
+			],
+			[
+				"testcon",
+				"app/controllers/admin/tests_controller.rb"
+			],
+			[
+				"test",
+				"app/models/test_response.rb"
+			],
+			[
+				"restman",
+				"features/step_definitions/restaurant/restaurant_manage_menus_steps.rb"
+			],
+			[
+				"menucontro",
+				"app/controllers/restaurants/menus_controller.rb"
+			],
+			[
+				"men",
+				"app/models/menu.rb"
+			],
+			[
+				"notiti",
+				"app/services/notification_manager.rb"
+			],
+			[
+				"pub",
+				"config/initializers/public_activity.rb"
+			],
 			[
 				"rest",
 				"app/models/restaurant.rb"
@@ -802,10 +986,6 @@
 				"app/controllers/users/reservations_controller.rb"
 			],
 			[
-				"men",
-				"app/controllers/restaurants/menus_controller.rb"
-			],
-			[
 				"tablecontr",
 				"app/controllers/restaurants/tables_controller.rb"
 			],
@@ -816,10 +996,6 @@
 			[
 				"tableco",
 				"app/controllers/restaurants/tables_controller.rb"
-			],
-			[
-				"test",
-				"app/models/test.rb"
 			],
 			[
 				"restaurantcon",
@@ -1098,10 +1274,6 @@
 				"app/models/user.rb"
 			],
 			[
-				"adminins",
-				"features/admin/admin_inspect_reservations.feature"
-			],
-			[
 				"restaurant_inspect_reservations_steps.rb",
 				"features/step_definitions/restaurant/restaurant_inspect_reservations_steps.rb"
 			],
@@ -1188,34 +1360,6 @@
 			[
 				"base",
 				"app/controllers/base_restaurants_controller.rb"
-			],
-			[
-				"restpro",
-				"features/restaurant/restaurant_profile.feature"
-			],
-			[
-				"restarcon",
-				"app/controllers/restaurants_controller.rb"
-			],
-			[
-				"_side",
-				"app/views/restaurants/_sidebar.slim"
-			],
-			[
-				"_cre",
-				"app/views/public_activity/menu/_create.slim"
-			],
-			[
-				"_form",
-				"app/views/menus/_form.slim"
-			],
-			[
-				"menucon",
-				"app/controllers/menus_controller.rb"
-			],
-			[
-				"restauranman",
-				"features/restaurant/restaurant_manage_tables.feature"
 			]
 		],
 		"width": 0.0
