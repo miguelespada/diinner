@@ -1,3 +1,4 @@
+@restaurant_manage_tables
 Feature: Restaurant manage tables
   As restaurant
   I want to manage tables
@@ -10,6 +11,11 @@ Feature: Restaurant manage tables
   Scenario: I create a new table
     Then I should see the table in the list of tables
     And I can see the table in my calendar
+
+  @restaurant_create_table_with_wrong_date
+  Scenario:
+    When I create a new table with wrong date
+    And I should the wrong date error message
 
   @restaurant_edit_table
   Scenario: I edit a table

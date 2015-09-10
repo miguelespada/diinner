@@ -8,7 +8,7 @@ end
 
 Then(/^I should see there are multiple tables with the same day\/hour$/) do
   within("#tables") do
-    expect(page).to have_content(Date.tomorrow, count: 2)
+    expect(page).to have_content(Date.tomorrow, count: 3)
     expect(page).to have_content("21:00", count: 2)
   end
 end

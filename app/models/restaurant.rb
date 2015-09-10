@@ -134,6 +134,5 @@ class Restaurant
   def check_password_changed
     self.has_changed_password = true if self.encrypted_password_changed?
   end
-  
- 
+
 end

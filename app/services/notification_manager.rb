@@ -54,6 +54,4 @@ class NotificationManager
   def self.notify_reservation_pending(object: nil)
     object.create_activity key: "reservation.pending", recipient: object.user, owner: object.restaurant
   end
-
-
 end
