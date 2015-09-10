@@ -1,7 +1,8 @@
 - if !@restaurant.has_changed_password
   p.custom-alert.custom-alert-warning
     i.bi_web-warning 
-    | For security reasons, you should change your password.
+    | For security reasons, you should change your password. 
+    == link_to "Change password", edit_restaurant_registration_path(@restaurant)
 = cell(:restaurant, @restaurant).call(:restaurant_show)
 == cell(:restaurant, @restaurant).location
 = render "/layouts/map"

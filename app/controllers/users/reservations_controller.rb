@@ -48,6 +48,7 @@ class  Users::ReservationsController < BaseUsersController
     if @user.update_customer_information!(params[:stripe_card_token])
       handle_reservation(@reservation)
     else
+      # TODO handle card errors
       handle_reservation_error @reservation
     end
   end

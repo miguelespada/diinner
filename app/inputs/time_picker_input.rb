@@ -13,7 +13,7 @@ class TimePickerInput < DatePickerInput
     date_options_base
   end
 
-   def input_button
+  def input_button
     template.content_tag :span, class: 'input-group-btn' do
       template.content_tag :button, class: 'btn btn-default', type: 'button' do
         template.content_tag :span, '', class: 'glyphicon glyphicon-time'

@@ -1,7 +1,6 @@
 = simple_form_for [@restaurant, @table] do |f|
   = f.error_notification
-  = f.input :date, as: :date_picker, html5: true,
-            input_html: {data: {date_options: {minDate: '09/09/2015'}}}
+  = f.input :date, as: :date_picker, html5: true
   = f.input :hour, as: :time_picker, html5: true
   - if controller.action_name == "new"
     = f.input :number, :collection => (1..3).to_a, :allow_blank => false, :default => 1
@@ -9,9 +8,11 @@
   = f.button :submit
 
 javascript:
-/ TODO add range starting from tomorrow up to one month
-  $(document).ready(function () {
-    var tomorrow = moment().add(1, 'days').format('DD/MM/YYYY')
-    $('#table_date').val(tomorrow);
-    $('#table_hour').val("21:00");
+  $(document).on('ready page:change', function() {
+     var tomorrow = moment({ hour:21, minute:00 }).add(1, 'days');
+     $('.datetimepicker').each(function(){
+      $(this).data("DateTimePicker").date(tomorrow);
+      $(this).data("DateTimePicker").minDate(tomorrow);
+      $(this).data("DateTimePicker").maxDate(moment().add(30, 'days'));
+     });
   });

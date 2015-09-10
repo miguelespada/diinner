@@ -16,7 +16,6 @@ class  Admin::CitiesController < AdminController
   end
 
   def destroy
-    # TODO: only delete if no restaurant attached and no preferences
     if @city.can_be_deleted?
       @city.destroy
       redirect_to admin_cities_path, notice: 'City was successfully destroyed.'

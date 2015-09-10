@@ -22,5 +22,6 @@
 //= require rails-timeago
 //= require alerts
 //= require moment
+//= require moment/es.js
 //= require bootstrap-datetimepicker
 //= require pickers
