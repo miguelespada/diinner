@@ -1,5 +1,16 @@
 class TableManager
 
+  def self.remove_old_tables 
+    n = 0
+    Table.all.each do |table|
+      if table.passed? && table.can_be_deleted?
+        table.destroy
+        n += 1 
+      end
+    end
+    n
+  end
+
   def self.process_table table
     # We built a list of a single item an proceed 
     # Used in last minute dinners

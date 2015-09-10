@@ -21,7 +21,11 @@ class Table
   def can_be_deleted?
     self.empty?
   end
-
+  
+  def passed?
+    date < Date.today  
+  end
+  
   def price
     empty? ? :undefined : reservations.first.price
   end

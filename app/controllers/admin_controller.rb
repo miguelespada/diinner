@@ -29,6 +29,11 @@ class AdminController < ApplicationController
     redirect_to settings_path, notice: 'Reservations processed succesfully!'
   end
 
+  def remove_old_tables
+    n = TableManager.remove_old_tables
+    redirect_to settings_path, notice: "#{n} table(s) removed!"
+  end
+
   private
 
   def city_param

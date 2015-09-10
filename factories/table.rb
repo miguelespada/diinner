@@ -10,5 +10,9 @@ FactoryGirl.define do
     trait :for_tomorrow do
       date Date.tomorrow
     end
+
+    trait :for_yesterday do
+      date 1.day.ago.to_date
+    end
   end
 end
