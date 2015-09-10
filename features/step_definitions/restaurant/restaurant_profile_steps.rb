@@ -41,7 +41,9 @@ Then(/^I should see my restaurant profile updated$/) do
 end
 
 When(/^I change my restaurant password$/) do
-  click_on "Change password"
+  within(".custom-alert-warning") do
+    click_on "Change password"
+  end
   fill_in "Current password", with: @restaurant.password
   fill_in "Password", with: "updated1111"
   fill_in "Password confirmation", with: "updated1111"
