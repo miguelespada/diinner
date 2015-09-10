@@ -20,6 +20,10 @@ class SuggestionEngine
     Date.strptime(@params[:date], "%d/%m/%Y")
   end
 
+  def date_in_range?
+    date >= Date.tomorrow && date <= 2.weeks.from_now
+  end
+
   def price
     @params[:price].to_i
   end

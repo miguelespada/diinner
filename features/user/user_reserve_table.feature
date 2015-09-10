@@ -16,6 +16,12 @@ Feature: User Reserves table
     And I can access menu data
     And I shoud be notified that my plan is pending
 
+
+  @user_reserves_table_bad_date
+  Scenario: 
+    When I search a table with bad date
+    And I shoud be notified that my date is out of range
+
   @user_cancel_reservation
   Scenario: User cancel reservation
     When I cancel my reservation

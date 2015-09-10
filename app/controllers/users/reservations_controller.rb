@@ -19,9 +19,13 @@ class  Users::ReservationsController < BaseUsersController
   def search
     # TODO check date (from tomorrow + 10 days)
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
-    # TODO limit search on Engine
-    @suggestions = suggestionEngine.search.first(3)
-    render :no_dinners if @suggestions.empty?
+    if suggestionEngine.date_in_range?
+      # TODO limit search on Engine
+      @suggestions = suggestionEngine.search.first(3)
+      render :no_dinners if @suggestions.empty?
+    else
+      redirect_to :back, notice: 'You can only reserve Diiners from tomorrow within two weeks.'
+    end
   end
 
   def last_minute

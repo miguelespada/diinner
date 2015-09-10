@@ -14,6 +14,20 @@ Given(/^There are some available tables$/) do
   @table = @restaurant.tables.first
 end
 
+When(/^I search a table with bad date$/) do
+  step "I go to the user page"
+  click_on "New reservation"
+  select(20, :from => "reservation_price")
+  fill_in "Date", with: Date.today
+  select "Madrid", :from => "reservation_city"
+  click_on "Search tables"
+end
+
+When(/^I shoud be notified that my date is out of range$/) do
+  expect(page).to have_content("You can only reserve Diiners from tomorrow within two weeks")
+end
+
+
 When(/^I search a table$/) do
   step "I go to the user page"
   click_on "New reservation"
