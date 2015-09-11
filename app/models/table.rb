@@ -161,7 +161,7 @@ class Table
   def locator
     # TODO DRY this
     i = (id.to_s[5..7] + id.to_s[18..20]).to_i(30)
-    Hashids.new("The salt of every").encode(i)
+    "T_" + Hashids.new("The salt of every").encode(i)
   end
 
   def is_owned_by? user

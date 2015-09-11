@@ -63,7 +63,7 @@ end
 
 Then(/^I can access to the table data$/) do
   within "#content" do
-    click_on Table.first.id
+    click_on Table.first.locator
   end
   expect(page).to have_content @restaurant.name
   expect(page).to have_content "3/3"

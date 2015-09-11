@@ -6,7 +6,7 @@ end
 Then(/^I should see the table in the tables list$/) do
   click_on "Tables"
   expect(page).to have_content @restaurant.name
-  expect(page).to have_content @table.id
+  expect(page).to have_content @table.locator
   expect(page).to have_content "3/3"
 end
 
@@ -20,7 +20,7 @@ end
 Then(/^I can see the user reservation in the table section$/) do
   click_on "Tables"
   within "#content" do
-    click_on @table.id
+    click_on @table.locator
   end
   within('.reservations') do
     expect(page).to have_content @user.name

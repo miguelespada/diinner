@@ -66,7 +66,7 @@ class Reservation
 
   def locator
     i = (id.to_s[5..7] + id.to_s[18..20]).to_i(30)
-    Hashids.new("The salt of every").encode(i)
+    "R_" + Hashids.new("The salt of every").encode(i)
   end
 
   def cancel

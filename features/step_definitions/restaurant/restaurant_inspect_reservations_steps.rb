@@ -26,7 +26,7 @@ end
 
 When(/^I can see the slots left of the reserved table$/) do
   click_on "Tables"
-  expect(page).to have_content @table.id
+  expect(page).to have_content @table.locator
   within(".table-slots") do
     expect(page).to have_content "2/2"
   end
@@ -49,6 +49,6 @@ end
 Then(/^I can see the table confirmation in my notifications$/) do
   click_on "Notifications"
   within("#logs .confirmation-table-log") do
-    expect(page).to have_content "Table #{@table.id} for tonight was confirmed!!!"
+    expect(page).to have_content "Table #{@table.locator} for tonight was confirmed!!!"
   end
 end

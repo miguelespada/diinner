@@ -15,7 +15,7 @@ When(/^I can see the cancellation in my reservations$/) do
     expect(page).to have_content "0/0"
   end
   expect(page).to have_content "Cancelled"
-  click_on @table.id
+  click_on @table.locator
   expect(page).to have_content "3/3"
 end
 
