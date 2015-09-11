@@ -1,4 +1,3 @@
-# TODO-- get from ENV
 Rails.application.config.middleware.use OmniAuth::Builder do
     provider(
         :auth0,

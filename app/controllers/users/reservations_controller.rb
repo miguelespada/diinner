@@ -17,7 +17,6 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def search
-    # TODO check date (from tomorrow + 10 days)
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
     if suggestionEngine.date_in_range?
       # TODO limit search on Engine
@@ -98,7 +97,6 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def handle_reservation_error reservation
-      # TODO handle properly card errors
       reservation.destroy
       redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
   end

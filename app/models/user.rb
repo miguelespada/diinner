@@ -119,8 +119,6 @@ class User
   def affinity other
     aff = 100
     return aff if self.test_completed.count == 0 && other.test_completed.count == 0
-
-    # TODO add algorihtm of affinity
   end
 
 end

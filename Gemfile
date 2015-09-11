@@ -45,6 +45,7 @@ gem 'active_model_serializers'
 # gem 'knock', '~> 1.2'
 gem 'auth0'
 gem 'jwt'
+gem 'hashid-rails'
 
 gem "factory_girl_rails"
 

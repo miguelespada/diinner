@@ -9,6 +9,11 @@ class ReservationCell < BaseCell
     cell(:table, model.table).hour
   end
 
+  def total_amount
+    model.charge_amount / 100
+  end
+
+
   def status
     model.status.capitalize
   end

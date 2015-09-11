@@ -6,7 +6,7 @@ Feature: User manage notifications
     Given I am a logged user
     And I have some notifications
 
-  @user_delete_notifications
+  @user_delete_notifications @wip
   Scenario:
     When I delete a notification
     Then I do not see the notification

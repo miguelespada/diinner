@@ -148,7 +148,7 @@ def there_is_one_table_for_tomorrow
   @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow).attributes)
 end
 
-there_is_one_table_for_tomorrow
+# there_is_one_table_for_tomorrow
 
-# create_last_minute_context_2_2
+ create_last_minute_context_2_2
 # last_minute_reservation valid_card
