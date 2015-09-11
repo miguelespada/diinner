@@ -149,7 +149,17 @@ def there_is_one_table_for_tomorrow
   @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow).attributes)
 end
 
-# there_is_one_table_for_tomorrow
+def there_is_one_reservation
+  delete_all
+  create_basic_context
+  @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow).attributes)
+  
+  reservation =  FactoryGirl.create(:reservation, user: @he, table: @restaurant.tables.last, date: 2.days.ago)
+  reservation.save!
+end
 
- create_last_minute_context_2_2
+# there_is_one_table_for_tomorrow
+there_is_one_reservation
+
+# create_last_minute_context_2_2
 # last_minute_reservation valid_card

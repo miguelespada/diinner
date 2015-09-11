@@ -2,5 +2,6 @@ tr
   td.payment-date == model.reservation.date
   td.payment-user == reservation.user.show_link
   td.payment-reservation == reservation.show_link
-  td.payment-amount = reservation.price
+  td.payment-amount = "#{reservation.price} €"
+  td.payment-total-amount = "#{reservation.total_amount} €"
   td.payment-status = reservation.status
