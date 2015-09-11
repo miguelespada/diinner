@@ -1,7 +1,7 @@
 a.dropdown-toggle.navbar-link data-toggle="dropdown" href="#"
   i.bi_web-rss
 ul.dropdown-menu.navbar-log-menu
-  / = render_activities(Admin.logs.take(5))
+  = render_activities(Admin.logs.take(5))
   li.divider
   li.widget-footer
     = link_to "All logs", admin_logs_path

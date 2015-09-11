@@ -78,6 +78,7 @@ def invalid_card
 end
 
 def delete_all
+  PublicActivity::Activity.delete_all
   City.delete_all
   Menu.delete_all
   Table.delete_all
