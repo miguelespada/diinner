@@ -32,7 +32,18 @@ When(/^I can see the slots left of the reserved table$/) do
   end
 end
 
+Then(/^I cannot validate the reservation$/) do
+  click_on "Reservations"
+  expect(page).not_to have_content "validate"
+end
+
+When(/^The reservation is paid$/) do
+   allow_any_instance_of(Reservation).to receive(:paid?).and_return true
+end
+
+
 Then(/^I can validate the reservation$/) do
+  click_on "Reservations"
   click_on "validate"
   expect(page).to have_content "unvalidate"
   expect(page).to have_content "Validated"

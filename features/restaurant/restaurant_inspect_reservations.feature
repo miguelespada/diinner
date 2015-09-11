@@ -18,6 +18,8 @@ Feature: Restaurant manage reservations
 
   @restaurant_validates_reservation
   Scenario:
+    Then I cannot validate the reservation
+    When The reservation is paid
     Then I can validate the reservation
 
   @restaurant_notification_after_table_cancellation
