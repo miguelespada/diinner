@@ -16,7 +16,6 @@ Feature: User Reserves table
     And I can access menu data
     And I shoud be notified that my plan is pending
 
-
   @user_reserves_table_bad_date
   Scenario: 
     When I search a table with bad date

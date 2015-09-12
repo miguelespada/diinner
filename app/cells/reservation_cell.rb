@@ -4,11 +4,16 @@ class ReservationCell < BaseCell
   property :price
   property :status
   property :date
+  property :locator
 
   def hour
     cell(:table, model.table).hour
   end
 
+  def after_plan
+    model.go_for_drinks? ? "Go for drinks" : "Go to sleep"  
+  end
+  
   def total_amount
     model.charge_amount / 100
   end

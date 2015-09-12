@@ -1,5 +1,7 @@
 class UserCell < BaseCell
 
+
+
   def default_card
     "**** **** **** #{model.default_card}" if !model.default_card.nil?
   end
@@ -79,5 +81,10 @@ class UserCell < BaseCell
 
   def menu_preference
     model.menu_price
+
+  end
+
+  def after_plan_preference
+    model.after_plan ? "Go for drinks" : "Go to sleep"  
   end
 end

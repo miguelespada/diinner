@@ -4,8 +4,9 @@ FactoryGirl.define do
     table :table
     price 20
     date Date.today
+    after_plan true
     trait :paid do
-      paid :true
+      paid true
     end
   end
 end

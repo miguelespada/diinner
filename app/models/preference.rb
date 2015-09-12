@@ -3,6 +3,7 @@ class Preference
   field :max_age, type: Integer
   field :min_age, type: Integer
   field :menu_price, type: Integer
+  field :after_plan, type: Boolean
   belongs_to :city
   belongs_to :user
 

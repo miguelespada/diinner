@@ -74,6 +74,7 @@ class  Users::ReservationsController < BaseUsersController
                                        :price,
                                        :table_id,
                                        :stripe_card_token,
+                                       :after_plan,
                                        companies: [:id, :_gender, :age])
   end
 

@@ -5,6 +5,7 @@ h3 Preferences
 = f.simple_fields_for :preference do |c|
   = c.input :max_age
   = c.input :min_age
+  = c.collection_radio_buttons :after_plan, [[true, 'Go for drinks'] ,[false, 'Go to sleep']], :first, :last
   = c.input :menu_price, :collection => [ 20, 40, 60 ], :include_blank => false
   = c.association :city, :include_blank => false
 = f.button :submit

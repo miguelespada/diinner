@@ -34,7 +34,7 @@ When(/^I search a table$/) do
   select(20, :from => "reservation_price")
   fill_in "Date", with: @table.date.to_date
   select "Madrid", :from => "reservation_city"
-
+  choose "Go for drinks"
   select :female, :from => "reservation_companies_attributes_0_gender"
   fill_in "reservation_companies_attributes_0_age",  with: 20
 

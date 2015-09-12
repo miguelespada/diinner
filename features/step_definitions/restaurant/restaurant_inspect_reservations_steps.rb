@@ -3,6 +3,7 @@ When(/^I can see the user reservation$/) do
   expect(page).to have_content @user.name
   expect(page).to have_content @table.menu.name
   expect(page).to have_content @table.date
+  expect(page).to have_content "Go for drinks"
   within(".slots") do
     expect(page).to have_content "1/1"
   end

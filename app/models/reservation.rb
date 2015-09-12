@@ -14,6 +14,7 @@ class Reservation
 
   field :price, type: Integer
   field :date, type: Date
+  field :after_plan, type: Boolean
 
   delegate  :restaurant,
             :hour,
@@ -32,6 +33,14 @@ class Reservation
   has_one :payment, :dependent => :destroy
   has_one :evaluation, :dependent => :destroy
 
+  def go_for_drinks?
+    after_plan
+  end
+
+  def go_to_sleep?
+    !go_for_drinks
+  end
+  
   def affinity
     # TODO Calculate affinity
     "80%"

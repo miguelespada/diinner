@@ -1,6 +1,9 @@
 H1 Reservation
 
 .div.reservation
+  div.bold-label ID
+  == locator
+  br
   div.bold-label RESTAURANT
   == restaurant.show_link
   br
@@ -19,12 +22,15 @@ H1 Reservation
   div.bold-label MENU
   == menu.show_link
   br
+  div.bold-label PLAN
+  == after_plan
+  br
   div.affinity
     span.bold-label AFFINITY
-    = model.affinity
+    == model.affinity
   div.reservation-status
     span.bold-label STATUS
-    = status
+    == status
   - if !payment.nil?
     div.reservation-payment
       span.bold-label PAYMENT

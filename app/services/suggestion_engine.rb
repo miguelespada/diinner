@@ -28,6 +28,10 @@ class SuggestionEngine
     @params[:price].to_i
   end
 
+  def after_plan
+    @params[:after_plan]
+  end
+
   def city
     City.find(@params[:city])
   end
@@ -40,6 +44,7 @@ class SuggestionEngine
         reservation = Reservation.new({user: @user,
                                       price: price,
                                       date: date,
+                                      after_plan: after_plan,
                                       companies: companies})
 
         if table.matches?(reservation)
