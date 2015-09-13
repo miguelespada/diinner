@@ -41,9 +41,12 @@ class Reservation
     !go_for_drinks
   end
   
-  def affinity
-    # TODO Calculate affinity
-    "80%"
+  def plan_affinity other
+    self.after_plan == other.after_plan ? 1.0 : 0.0 
+  end 
+
+  def affinity other
+    (self.user.affinity(other.user) + plan_affinity(other) ) / 2.0
   end
 
   def male_count
