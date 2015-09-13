@@ -137,12 +137,15 @@ class User
 
 
   def affinity other
-    (
+    a = (
       (profile(:extraversion) - other.profile(:extraversion)).abs +
       (profile(:educacion) - other.profile(:educacion)).abs + 
       (profile(:freakismo) - other.profile(:freakismo)).abs +
       (profile(:hipsterismo) - other.profile(:hipsterismo)).abs
     ) / 4.0
+
+    # NOTE: we normalize the value 1 (highiest) - 0 (lowest)
+    1.0 - (a / 4.0)
   end
 
 end
