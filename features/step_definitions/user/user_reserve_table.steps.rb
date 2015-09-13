@@ -61,7 +61,7 @@ Then(/^I can see the table details$/) do
   expect(page).to have_content(@menu.name)
   expect(page).to have_content(@menu.price)
   within ".affinity" do
-    expect(page).to have_content("80%")
+    expect(page).to have_content("#{@table.affinity}%")
   end
 end
 

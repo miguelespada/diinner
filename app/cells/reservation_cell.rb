@@ -93,6 +93,6 @@ class ReservationCell < BaseCell
   end
 
   def affinity
-    model.table.affinity
+    "#{model.table.affinity}%"
   end
 end

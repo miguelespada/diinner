@@ -18,8 +18,21 @@ class Table
 
   attr_accessor :number, :repeat_until
 
-  def affinity 
-    "80%"
+  def affinity
+    # TODO memoize
+    return 100 if reservations.count == 0
+    aff = 0
+    i = 0
+    while i < reservations.count - 1 do
+      j = i + 1
+      while j <  reservations.count do
+        aff += reservations[i].affinity(reservations[j])
+        j += 1
+      end
+      i += 1
+    end
+    aff /= reservations.count.to_f
+    (70 + aff * 30).to_i
   end
 
   def can_be_deleted?

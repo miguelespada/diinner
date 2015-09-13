@@ -76,12 +76,11 @@ describe User do
   end
 
   describe "#table affinity?" do
-    it "with diffent plan" do
-      r_0 =  FactoryGirl.create(:reservation, user: @user, after_plan: true)
-      r_1 =  FactoryGirl.create(:reservation, user: @other, after_plan: false)
-
-      expect(r_0.affinity(r_1)).to be 0.5
-      expect(r_1.affinity(r_0)).to be 0.5
+    it "computes" do
+      table =  FactoryGirl.create(:table)
+      FactoryGirl.create(:reservation, user: @user, table: table)
+      FactoryGirl.create(:reservation, user: @other, table: table)
+      expect(table.affinity).to be 85
     end
   end
   

@@ -130,7 +130,7 @@ class User
   end
 
   def profile criteria
-    return 0 if test_completed.count == 0
+    return 0.0 if test_completed.count == 0
     @profile ||= generate_profile
     @profile[criteria] / test_completed.count.to_f
   end
