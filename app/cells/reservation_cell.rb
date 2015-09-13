@@ -91,4 +91,8 @@ class ReservationCell < BaseCell
       render
     end
   end
+
+  def affinity
+    model.table.affinity
+  end
 end

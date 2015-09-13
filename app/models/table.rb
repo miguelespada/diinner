@@ -18,6 +18,10 @@ class Table
 
   attr_accessor :number, :repeat_until
 
+  def affinity 
+    "80%"
+  end
+
   def can_be_deleted?
     self.empty?
   end
@@ -160,6 +164,7 @@ class Table
 
   def locator
     # TODO DRY this
+    # TODO store key in env
     i = (id.to_s[5..7] + id.to_s[18..20]).to_i(30)
     "T_" + Hashids.new("The salt of every").encode(i)
   end
