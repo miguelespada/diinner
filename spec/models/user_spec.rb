@@ -79,26 +79,4 @@ describe User do
       expect(@user.matches_age_preference?(@other)).to be false
     end 
   end
-
-  xdescribe "#affinity?" do
-    before(:each) do 
-      @user = FactoryGirl.create(:user)
-      @other = FactoryGirl.create(:user)
-      @test_0 = FactoryGirl.create(:test)
-      @test_1 = FactoryGirl.create(:test)
-    end
-
-    it "with no responses" do
-      expect(@other.affinity(@user)).to be 100
-      expect(@user.affinity(@other)).to be 100
-    end
-
-    it "affinity maximum" do
-      TestResponse.create(response: @test_0.caption_A, user: @user, test: @test_0)
-      TestResponse.create(response: @test_1.caption_A, user: @other, test: @test_0)
-      
-      expect(@other.affinity(@user)).to be 100
-      expect(@user.affinity(@other)).to be 100
-    end
-  end
 end

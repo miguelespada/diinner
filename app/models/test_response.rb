@@ -8,5 +8,10 @@ class TestResponse
   belongs_to :test, autosave: :true
 
   field :response, type: String
+  
+  delegate :extraversion, :educacion, :freakismo, :hipsterismo, :to => :test
 
+  def response_is_a?
+    response == test.caption_A
+  end
 end

@@ -116,9 +116,33 @@ class User
     true
   end
 
+  def generate_profile
+    # TODO maybe save in database and update on callbacks
+    @profile =  { :extraversion => 0, :educacion => 0, :freakismo => 0, :hipsterismo => 0}
+    test_completed.each do |t|
+      factor = t.response_is_a? ? 1 : -1
+      @profile[:extraversion] += (t.extraversion * factor)
+      @profile[:educacion] += (t.educacion * factor)
+      @profile[:freakismo] += (t.freakismo * factor)
+      @profile[:hipsterismo] += (t.hipsterismo * factor)
+    end
+    @profile
+  end
+
+  def profile criteria
+    return 0 if test_completed.count == 0
+    @profile ||= generate_profile
+    @profile[criteria] / test_completed.count.to_f
+  end
+
+
   def affinity other
-    aff = 100
-    return aff if self.test_completed.count == 0 && other.test_completed.count == 0
+    (
+      (profile(:extraversion) - other.profile(:extraversion)).abs +
+      (profile(:educacion) - other.profile(:educacion)).abs + 
+      (profile(:freakismo) - other.profile(:freakismo)).abs +
+      (profile(:hipsterismo) - other.profile(:hipsterismo)).abs
+    ) / 4.0
   end
 
 end
