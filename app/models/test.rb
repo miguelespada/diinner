@@ -9,7 +9,10 @@ class Test
   field :caption_A, type: String
   field :caption_B, type: String
 
-  field :criterio_0, type: Integer
+  field :extraversion, type: Integer
+  field :educacion, type: Integer
+  field :hipsterismo, type: Integer
+  field :freakismo, type: Integer
 
   validates_presence_of :question, :caption_A, :caption_B
 
