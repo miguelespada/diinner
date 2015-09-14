@@ -9,6 +9,15 @@ class Preference
   before_save :check_age_range
 
   def check_age_range
+    if self.min_age.nil?
+      self.min_age = user.age - 10
+      self.min_age = 18 if self.min_age < 18
+    end
+
+    if self.max_age.nil?
+      self.max_age = user.age + 10
+    end
+
     if self.min_age > self.max_age
       aux = self.max_age
       self.max_age = self.min_age

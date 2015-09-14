@@ -1,3 +1,11 @@
+When(/^I can see the default preferences$/) do
+  click_on "Preferences diinner"
+  click_on "Update User"
+  expect(page).to have_content "18...30"
+  # TODO add rest of defaults
+end
+
+
 When(/^I change my preferences$/) do
   FactoryGirl.create(:city, name: "madrid")
   FactoryGirl.create(:city, name: "barcelona")
@@ -17,4 +25,5 @@ end
 Then(/^I see my preferences applied to the table search$/) do
   click_on "New reservation"
   expect(page).to have_select('reservation_city', selected: "barcelona")
+  # TODO add rest of defaults
 end
