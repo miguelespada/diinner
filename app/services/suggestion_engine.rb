@@ -17,6 +17,7 @@ class SuggestionEngine
   end
 
   def date
+    return Date.tomorrow if @params[:date].empty?
     Date.strptime(@params[:date], "%d/%m/%Y")
   end
 
