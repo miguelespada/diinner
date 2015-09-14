@@ -10,6 +10,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/login",
       templateUrl: 'templates/login.html'
     })
+    .state('first_login', {
+      url: "/first_login",
+      templateUrl: 'templates/first_login.html'
+    })
     .state('user', {
       url: "/user",
       templateUrl: 'templates/user.html'

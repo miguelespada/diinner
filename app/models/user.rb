@@ -101,7 +101,8 @@ class User
           has_default_card: has_default_card?,
           default_card: default_card
       },
-      preference: self.preference ? self.preference.to_ionic_json : nil
+      preference: has_preferences? ? self.preference.to_ionic_json : nil,
+      first_login: first_login?
     }
   end
 
