@@ -78,6 +78,13 @@ def invalid_card
 end
 
 def delete_all
+  Restaurant.__elasticsearch__.client.indices.delete index: Restaurant.index_name rescue nil
+  User.__elasticsearch__.client.indices.delete index: User.index_name rescue nil
+
+  Restaurant.__elasticsearch__.create_index! index: Restaurant.index_name
+  User.__elasticsearch__.create_index! index: User.index_name
+ 
+
   PublicActivity::Activity.delete_all
   City.delete_all
   Menu.delete_all

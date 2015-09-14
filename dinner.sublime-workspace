@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"reser",
+				"reservations"
+			],
+			[
+				"gen",
+				"generate_profile"
+			],
+			[
+				"his",
+				"hipsterismo"
+			],
+			[
 				"af",
 				"after_plan"
 			],
@@ -18,10 +30,6 @@
 			[
 				"suggestio",
 				"suggestionEngine"
-			],
-			[
-				"reser",
-				"reservation"
 			],
 			[
 				"rese",
@@ -224,10 +232,6 @@
 				"render_thumbnail"
 			],
 			[
-				"gen",
-				"generate_link"
-			],
-			[
 				"en",
 				"english"
 			],
@@ -263,6 +267,88 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "spec/models/affinity_spec.rb",
+			"settings":
+			{
+				"buffer_size": 3069,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/step_definitions/user/user_reserve_table.steps.rb",
+			"settings":
+			{
+				"buffer_size": 6193,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 447 files for \"80%\"\n\n/Users/miguel/Diinner/app/assets/stylesheets/application.scss:\n  296    #content{\n  297      position: absolute;\n  298:     width: 80%;\n  299      margin-left: 20%;\n  300      padding: 65px 15px 50px 15px;\n  ...\n  499    border: 1px solid $tintColor;\n  500    border-radius: 3px;\n  501:   width: 80%;\n  502    color: $tintColor;\n  503    background-color: lighten($tintColor, 50%);\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table.steps.rb:\n   62    expect(page).to have_content(@menu.price)\n   63    within \".affinity\" do\n   64:     expect(page).to have_content(\"80%\")\n   65    end\n   66  end\n\n3 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 675,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/cells/reservation/user_show.slim",
+			"settings":
+			{
+				"buffer_size": 425,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/table.rb",
+			"settings":
+			{
+				"buffer_size": 3848,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/step_definitions/user/user_does_test_steps.rb",
+			"settings":
+			{
+				"buffer_size": 298,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "factories/test.rb",
+			"settings":
+			{
+				"buffer_size": 473,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/seeds.rb",
+			"settings":
+			{
+				"buffer_size": 4204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/user.rb",
+			"settings":
+			{
+				"buffer_size": 3783,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/cells/reservation_cell.rb",
+			"settings":
+			{
+				"buffer_size": 2054,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -324,26 +410,37 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/app/cells/reservation/suggestion.slim",
+		"/Users/miguel/Diinner/app/cells/reservation/admin_show.slim",
+		"/Users/miguel/Diinner/app/cells/reservation_cell.rb",
+		"/Users/miguel/Diinner/app/models/reservation.rb",
+		"/Users/miguel/Diinner/db/seeds.rb",
+		"/Users/miguel/Diinner/app/models/test_response.rb",
+		"/Users/miguel/Diinner/factories/reservation.rb",
+		"/Users/miguel/Diinner/factories/test.rb",
+		"/Users/miguel/Diinner/app/models/user.rb",
+		"/Users/miguel/Diinner/spec/models/user_spec.rb",
+		"/Users/miguel/Diinner/app/views/admin/tests/index.slim",
+		"/Users/miguel/Diinner/features/admin/admin_manage_tests.feature",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_tests.rb",
+		"/Users/miguel/Diinner/app/views/admin/tests/_form.slim",
+		"/Users/miguel/Diinner/app/models/test.rb",
+		"/Users/miguel/Diinner/app/controllers/admin/tests_controller.rb",
+		"/Users/miguel/Diinner/app/cells/test/row.slim",
 		"/Users/miguel/Diinner/app/cells/user/show.slim",
 		"/Users/miguel/Diinner/features/user/user_manage_preferences.feature",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_manage_preferences_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/users/users_controller.rb",
 		"/Users/miguel/Diinner/app/models/preference.rb",
-		"/Users/miguel/Diinner/app/cells/reservation_cell.rb",
 		"/Users/miguel/Diinner/app/cells/user_cell.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/new.slim",
 		"/Users/miguel/Diinner/app/views/users/users/_form_fields.slim",
-		"/Users/miguel/Diinner/app/models/user.rb",
-		"/Users/miguel/Diinner/app/models/reservation.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table.steps.rb",
-		"/Users/miguel/Diinner/factories/reservation.rb",
 		"/Users/miguel/Diinner/app/services/suggestion_engine.rb",
-		"/Users/miguel/Diinner/db/seeds.rb",
 		"/Users/miguel/Diinner/app/cells/table_cell.rb",
 		"/Users/miguel/Diinner/app/cells/reservation/table_row.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/restaurant_row.slim",
 		"/Users/miguel/Diinner/app/views/restaurants/reservations/index.slim",
-		"/Users/miguel/Diinner/app/cells/reservation/admin_show.slim",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_reservations_steps.rb",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_reservations_steps.rb",
 		"/Users/miguel/Diinner/features/admin/admin_inspect_reservations.feature",
@@ -395,7 +492,6 @@
 		"/Users/miguel/Diinner/app/views/restaurants/restaurants/show.slim",
 		"/Users/miguel/Diinner/app/assets/javascripts/application.js",
 		"/Users/miguel/Diinner/app/controllers/admin/cities_controller.rb",
-		"/Users/miguel/Diinner/app/models/test.rb",
 		"/Users/miguel/Diinner/Gemfile.lock",
 		"/Users/miguel/Diinner/app/inputs/time_picker_input.rb",
 		"/Users/miguel/Diinner/app/inputs/date_picker_input.rb",
@@ -414,7 +510,6 @@
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_tables_steps.rb",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_multiple_tables_steps.rb",
 		"/Users/miguel/Diinner/features/admin/admin_manage_tables.feature",
-		"/Users/miguel/Diinner/app/views/admin/tests/_form.slim",
 		"/Users/miguel/Diinner/config/initializers/public_activity.rb",
 		"/Users/miguel/Diinner/app/models/admin.rb",
 		"/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature",
@@ -429,8 +524,6 @@
 		"/Users/miguel/Diinner/app/views/public_activity/evaluation/_create.slim",
 		"/Users/miguel/Diinner/features/admin/admin_inspect_evaluations.feature",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_evaluations_steps.rb",
-		"/Users/miguel/Diinner/app/models/test_response.rb",
-		"/Users/miguel/Diinner/app/controllers/admin/tests_controller.rb",
 		"/Users/miguel/Diinner/app/services/user_session.rb",
 		"/Users/miguel/Diinner/app/models/menu.rb",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_menus_steps.rb",
@@ -444,14 +537,7 @@
 		"/Users/miguel/Diinner/app/views/restaurants/notifications/index.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/menu/_create.slim",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb",
-		"/Users/miguel/Diinner/features/step_definitions/common_steps.rb",
-		"/Users/miguel/Diinner/factories/preference.rb",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_cities_steps.rb",
-		"/Users/miguel/Diinner/features/admin/admin_manage_cities.feature",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_test_response_steps.rb",
-		"/Users/miguel/Diinner/features/admin/admin_manage_tests.feature",
-		"/Users/miguel/Diinner/features/admin/admin_inspect_test_response.feature",
-		"/Users/miguel/Diinner/app/models/evaluation.rb"
+		"/Users/miguel/Diinner/features/step_definitions/common_steps.rb"
 	],
 	"find":
 	{
@@ -459,7 +545,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 105.0,
 		"where_history":
 		[
 			"",
@@ -477,6 +563,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"80%",
+			"affinity",
+			"delegate",
+			"affinity",
+			"criterio 0",
+			"I create a new test",
+			"criterio_0",
 			"I change my preferences",
 			"Go for drinks",
 			"I reserve a table",
@@ -597,14 +690,7 @@
 			"notifications",
 			"create_activity",
 			"<em>",
-			"create_activity",
-			"Activity",
-			"updated_timeago",
-			"render partial",
-			"dev",
-			" @safe_delete_restaurant",
-			"require \"pry\"",
-			"I reserve a last minute diinner with error"
+			"create_activity"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -639,8 +725,311 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "spec/models/affinity_spec.rb",
+					"settings":
+					{
+						"buffer_size": 3069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3048,
+								3048
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1208.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "features/step_definitions/user/user_reserve_table.steps.rb",
+					"settings":
+					{
+						"buffer_size": 6193,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1992,
+								1992
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Cucumber/Cucumber Steps.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1064.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"settings":
+					{
+						"buffer_size": 675,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										162,
+										165
+									],
+									[
+										327,
+										330
+									],
+									[
+										619,
+										622
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								481,
+								481
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/cells/reservation/user_show.slim",
+					"settings":
+					{
+						"buffer_size": 425,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/models/table.rb",
+					"settings":
+					{
+						"buffer_size": 3848,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								516,
+								516
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 58.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "features/step_definitions/user/user_does_test_steps.rb",
+					"settings":
+					{
+						"buffer_size": 298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								75,
+								75
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "factories/test.rb",
+					"settings":
+					{
+						"buffer_size": 473,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								341,
+								354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "db/seeds.rb",
+					"settings":
+					{
+						"buffer_size": 4204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1813,
+								2085
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1613.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/models/user.rb",
+					"settings":
+					{
+						"buffer_size": 3783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3268,
+								3268
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2680.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/cells/reservation_cell.rb",
+					"settings":
+					{
+						"buffer_size": 2054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2044,
+								2044
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1461.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -698,6 +1087,34 @@
 				"app/models/user.rb"
 			],
 			[
+				"seed",
+				"db/seeds.rb"
+			],
+			[
+				"test",
+				"factories/test.rb"
+			],
+			[
+				"step_definitions/user/user_does_test_steps.rb",
+				"features/step_definitions/user/user_does_test_steps.rb"
+			],
+			[
+				"table",
+				"app/models/table.rb"
+			],
+			[
+				"see",
+				"db/seeds.rb"
+			],
+			[
+				"tesr",
+				"app/models/test_response.rb"
+			],
+			[
+				"test.",
+				"factories/test.rb"
+			],
+			[
 				"usercon",
 				"app/controllers/users/users_controller.rb"
 			],
@@ -734,20 +1151,12 @@
 				"app/services/notification_manager.rb"
 			],
 			[
-				"seed",
-				"db/seeds.rb"
-			],
-			[
 				"reserce",
 				"app/cells/reservation_cell.rb"
 			],
 			[
 				"gem",
 				"Gemfile"
-			],
-			[
-				"table",
-				"app/models/table.rb"
 			],
 			[
 				"pay",
@@ -824,10 +1233,6 @@
 			[
 				"not",
 				"app/services/notification_manager.rb"
-			],
-			[
-				"see",
-				"db/seeds.rb"
 			],
 			[
 				"userdele",
@@ -988,10 +1393,6 @@
 			[
 				"testcon",
 				"app/controllers/admin/tests_controller.rb"
-			],
-			[
-				"test",
-				"app/models/test_response.rb"
 			],
 			[
 				"menucontro",
@@ -1188,18 +1589,6 @@
 			[
 				"reservationconr",
 				"app/controllers/admin/reservations_controller.rb"
-			],
-			[
-				"u",
-				"factories/user.rb"
-			],
-			[
-				"reservationcon",
-				"app/controllers/users/reservations_controller.rb"
-			],
-			[
-				"userspe",
-				"spec/models/user_spec.rb"
 			]
 		],
 		"width": 0.0
