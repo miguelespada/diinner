@@ -6,6 +6,7 @@ class ReservationCell < BaseCell
   property :date
   property :locator
 
+
   def hour
     cell(:table, model.table).hour
   end
