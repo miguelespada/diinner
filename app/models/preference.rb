@@ -6,9 +6,10 @@ class Preference
   field :after_plan, type: Boolean
   belongs_to :city
   belongs_to :user
-  before_save :check_age_range
+  before_save :set_defaults
 
   def check_age_range
+
     if self.min_age.nil?
       self.min_age = user.age - 10
       self.min_age = 18 if self.min_age < 18

@@ -106,8 +106,10 @@ class User
   end
 
   def age
-     now = Date.today
-     now.year - birth.year - ((now.month > birth.month || (now.month == birth.month && now.day >= birth.day)) ? 0 : 1)
+    now = Date.today
+    now.year - birth.year - ((now.month > birth.month || (now.month == birth.month && now.day >= birth.day)) ? 0 : 1)
+    rescue
+      30
   end
 
   def matches_age_preference? other
