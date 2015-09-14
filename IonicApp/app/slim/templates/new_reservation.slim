@@ -51,6 +51,8 @@ ion-view title="New Reservation" ng-controller="NewReservationCtrl"
 
 
     #results-container ng-show="panelShown == 'search-results'"
+      div ng-show="reservationList.length == 0"
+        | No results found
       ion-slide-box active-slide="activeSlide"
         ion-slide ng-repeat="item in reservationList track by $index" id="reservation-result-{{$index}}"
           div.box

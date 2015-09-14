@@ -40,7 +40,10 @@ dinnerApp.controller('BackCtrl',
         {
           $state.go('profile');
         }
-        if($state.is('test'))
+        if($state.is('user'))
+        {
+        }
+        if($state.is('login'))
         {
         }
 
