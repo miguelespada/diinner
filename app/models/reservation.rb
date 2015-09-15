@@ -103,7 +103,7 @@ class Reservation
   end
 
   def self.off_the_clock?
-    nine =DateTime.now.change({ hour: 9, min: 00, sec: 00 })
+    nine = DateTime.now.change({ hour: 9, min: 00, sec: 00 })
     six = DateTime.now.change({ hour: 18, min: 00, sec: 00 })
     now = DateTime.now
     now < nine || now > six 
@@ -116,7 +116,7 @@ class Reservation
       date: self.date_and_time,
       time: self.hour,
       price: self.price,
-      affinity: self.affinity,
+      affinity: self.plan_affinity(self.user),
       restaurant: self.restaurant.to_ionic_json,
       menu: self.menu.to_ionic_json,
       table_id: self.table.id.to_s,
