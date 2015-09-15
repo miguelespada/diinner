@@ -24,10 +24,6 @@ class Preference
     end
   end
 
-  def set_defaults
-    check_age_range
-  end
-
   def to_ionic_json
     {
         min_age: self.min_age,
