@@ -20,10 +20,12 @@ class Preference
     end
 
     if self.min_age > self.max_age
-      aux = self.max_age
-      self.max_age = self.min_age
-      self.min_age = aux
+      self.min_age, self.max_age = self.max_age, self.min_age
     end
+  end
+
+  def set_defaults
+    check_age_range
   end
 
   def to_ionic_json
