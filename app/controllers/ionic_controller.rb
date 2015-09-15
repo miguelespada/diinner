@@ -29,7 +29,16 @@ class IonicController < ActionController::Base
 
   def notifications
     render json: {
-               notifications: @current_user.notifications
+               notifications: @current_user.notifications.map{ |notification|{
+                  key: notification.key,
+                  owner: {
+                       type: notification.owner_type,
+                       id: notification.owner_id.to_s,
+                       name: notification.owner_type.constantize.find(notification.owner_id).name
+                   },
+                  creation_date: notification.created_at
+                }
+               }
            }
   end
 
