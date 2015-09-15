@@ -1,0 +1,22 @@
+ion-view title="First Login" ng-controller="FirstLoginCtrl"
+  ion-content
+    form ng-submit="editUser()"
+      ion-list
+        ion-item
+          .row
+            ion-radio.col ng-repeat="item in genderList" id="user-gender-{{item.value}}" name="gender" ng-value="item.value" ng-model="user.gender"
+              | {{ item.text }}
+        ion-item
+          label.item.item-input
+            span.input-label  Birth
+            input.birth type="date" ng-model="user.birth" json-date=""
+        ion-item
+          label.item.item-input.item-select
+            .input-label
+              | Preferred City
+            select.city ng-model="user.preference.city_id"
+              option ng-repeat="item in cityList.cities" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
+        ion-item
+          button.button.button-full.button-calm type="submit" Submit
+
+

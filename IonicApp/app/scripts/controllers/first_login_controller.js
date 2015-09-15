@@ -1,6 +1,6 @@
 "use strict";
 
-dinnerApp.controller('PreferencesCtrl',
+dinnerApp.controller('FirstLoginCtrl',
   [
     '$scope',
     '$state',
@@ -22,15 +22,13 @@ dinnerApp.controller('PreferencesCtrl',
     { text: "Male", value: "male" }
   ];
 
-  $scope.priceList = [ 20, 40, 60 ];
-
   $scope.editUser = function(){
     $scope.loading = true;
     $userManager.updateUser($scope.user).$promise.then(function(user) {
       if(user != null){
         window.localStorage.setItem('user', JSON.stringify(user));
       }
-      $state.go('profile');
+      $state.go('user');
       $scope.loading = false;
     });
   };
