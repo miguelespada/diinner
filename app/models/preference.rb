@@ -8,7 +8,7 @@ class Preference
   belongs_to :user
   before_save :set_defaults
 
-  def check_age_range
+  def set_defaults
 
     if self.min_age.nil?
       self.min_age = user.age - 10
