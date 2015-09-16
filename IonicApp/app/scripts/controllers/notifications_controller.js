@@ -11,5 +11,10 @@ dinnerApp.controller('NotificationsCtrl',
 
   $scope.user = JSON.parse(window.localStorage.getItem("user"));
   $scope.notificationList = $userManager.getNotifications();
+      console.log($scope.notificationList);
+
+  $scope.getNotificationSrc = function (notificationKey) {
+    return 'templates/notifications/' + notificationKey.replace(".","_") + '.html';
+  };
 
 }]);

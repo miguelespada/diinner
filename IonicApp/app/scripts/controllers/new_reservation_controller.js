@@ -54,7 +54,8 @@ dinnerApp.controller('NewReservationCtrl',
       $scope.reservationList = reservations.reservations;
       $ionicSlideBoxDelegate.update();
     });
-    $scope.panelShown = "search-results";
+    $scope.panelShown = "slide-results";
+    $ionicSlideBoxDelegate.update();
   };
 
   $scope.reserve = function(index){

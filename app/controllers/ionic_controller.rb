@@ -29,7 +29,16 @@ class IonicController < ActionController::Base
 
   def notifications
     render json: {
-               notifications: @current_user.notifications
+               notifications: @current_user.notifications.map{ |notification|{
+                  key: notification.key,
+                  owner: {
+                       type: notification.owner_type,
+                       id: notification.owner_id.to_s,
+                       name: notification.owner_type.constantize.find(notification.owner_id).name
+                   },
+                  creation_date: notification.created_at
+                }
+               }
            }
   end
 
@@ -96,6 +105,20 @@ class IonicController < ActionController::Base
                reservations: suggestionEngine.search.first(3).map{ |reservation| {
                    reservation: reservation.to_ionic_json
                   }
+               }
+
+           }
+  end
+
+  def last_minute
+
+    suggestionEngine = SuggestionEngine.new @current_user
+    # TODO limit search on Engine
+
+    render json: {
+               reservations: suggestionEngine.last_minute.first(4).map{ |reservation| {
+                   reservation: reservation.to_ionic_json
+               }
                }
 
            }
