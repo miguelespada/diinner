@@ -3,4 +3,4 @@ ion-view title="My Reservations" ng-controller="MyReservationsCtrl"
     button class="button" ng-click="changeView()" Change View
   ion-content
     #calendar-container ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar" config="uiConfig.calendar" ng-show="panelShown == 'calendar-results'"
-    #grid-container ng-show="panelShown == 'grid-results'" ng-include="" src="'templates/partial/grid-results.html'"
+    #grid-container ng-show="panelShown == 'grid-results'" ng-include="" src="'templates/partial/grid_results.html'"
