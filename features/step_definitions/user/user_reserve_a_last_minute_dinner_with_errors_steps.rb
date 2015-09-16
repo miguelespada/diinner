@@ -31,6 +31,9 @@ end
 
 When(/^I reserve a last minute diinner with error$/) do
   click_on "Last minute diinners"
+  select(20, :from => "reservation_price")
+  select "Madrid", :from => "reservation_city"
+  click_on "Search last minute tables"
   click_on "Reserve"
   step "I fill in the credit card details"
   step "There is an error processing my credit card"

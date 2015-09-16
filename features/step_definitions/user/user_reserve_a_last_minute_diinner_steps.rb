@@ -42,6 +42,9 @@ end
 
 When(/^I reserve a last minute diinner$/) do
   click_on "Last minute diinners"
+  select(20, :from => "reservation_price")
+  select "Madrid", :from => "reservation_city"
+  click_on "Search last minute tables"
   click_on "Reserve"
   step "I fill in the credit card details"
   click_on "Confirm"
@@ -126,12 +129,14 @@ end
 
 Then(/^I should be notified that there are no last minute dinners$/) do
    click_on "Last minute diinners"
+   click_on "Search last minute tables"
    expect(page).to have_content "There are no diinners matching your search criteria"
 end
 
 Then(/^I should be notified that I cannot reserve dinners$/) do
-   click_on "Last minute diinners"
-   expect(page).to have_content "You can only reserve Last Minute dinners from 9h00 to 18h00"
+  click_on "Last minute diinners"
+  click_on "Search last minute tables"
+  expect(page).to have_content "You can only reserve Last Minute dinners from 9h00 to 18h00"
 end
 
 Given(/^it is off the clock$/) do
