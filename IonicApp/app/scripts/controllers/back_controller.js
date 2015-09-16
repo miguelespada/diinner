@@ -4,8 +4,10 @@ dinnerApp.controller('BackCtrl',
   [
     '$scope',
     '$state',
+    '$ionicHistory',
     function($scope,
-             $state) {
+             $state,
+             $ionicHistory) {
       $scope.goBackAction = function(){
 
         if($state.is('profile'))
@@ -26,7 +28,7 @@ dinnerApp.controller('BackCtrl',
         }
         if($state.is('payment'))
         {
-          $state.go('new_reservation');
+          $ionicHistory.goBack();
         }
         if($state.is('my_reservations'))
         {
@@ -39,6 +41,10 @@ dinnerApp.controller('BackCtrl',
         if($state.is('test'))
         {
           $state.go('profile');
+        }
+        if($state.is('last_minute'))
+        {
+          $state.go('user');
         }
         if($state.is('user'))
         {

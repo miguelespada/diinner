@@ -110,6 +110,20 @@ class IonicController < ActionController::Base
            }
   end
 
+  def last_minute
+
+    suggestionEngine = SuggestionEngine.new @current_user
+    # TODO limit search on Engine
+
+    render json: {
+               reservations: suggestionEngine.last_minute.first(4).map{ |reservation| {
+                   reservation: reservation.to_ionic_json
+               }
+               }
+
+           }
+  end
+
   def update_customer
     @current_user.update_customer_information!(params[:payment_token])
     render json: @current_user.to_ionic_json

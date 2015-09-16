@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get "cities" => "ionic#cities"
     get "notifications" => "ionic#notifications"
     get "table/search" => "ionic#search_tables", as: "search_tables"
+    get "table/last_minute" => "ionic#last_minute", as: "last_minute"
     get "reservations" => "ionic#reservations"
     post "cancel_reservation" => "ionic#cancel_reservation"
     post "reserve" => "ionic#reserve"
