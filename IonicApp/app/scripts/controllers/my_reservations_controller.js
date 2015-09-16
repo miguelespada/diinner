@@ -25,6 +25,11 @@ dinnerApp.controller('MyReservationsCtrl',
     $state.go('reservation');
   };
 
+  $scope.gridAction = function(index){
+    $sharedService.set({reservationSelected: $scope.reservationList[index].reservation});
+    $state.go('reservation');
+  };
+
 
   $scope.uiConfig = {
     calendar:{

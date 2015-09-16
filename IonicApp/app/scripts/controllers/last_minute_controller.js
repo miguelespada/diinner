@@ -28,7 +28,7 @@ dinnerApp.controller('LastMinuteCtrl',
     $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
   });
 
-  $scope.showSlide = function(index){
+  $scope.gridAction = function(index){
     $scope.activeSlide = index;
     $scope.panelShown = "slide-results";
     $ionicSlideBoxDelegate.update();
