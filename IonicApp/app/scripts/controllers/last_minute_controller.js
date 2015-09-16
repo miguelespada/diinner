@@ -7,11 +7,13 @@ dinnerApp.controller('LastMinuteCtrl',
     '$ionicSlideBoxDelegate',
     'TableManager',
     'SharedService',
+    'UtilService',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
              $tableManager,
-             $sharedService
+             $sharedService,
+             $utilService
              ) {
 
   $scope.user = JSON.parse(window.localStorage.getItem("user"));
@@ -20,17 +22,10 @@ dinnerApp.controller('LastMinuteCtrl',
 
   $scope.activeSlide = 0;
 
-  function chunk(arr, size) {
-    var newArr = [];
-    for (var i=0; i<arr.length; i+=size) {
-      newArr.push(arr.slice(i, i+size));
-    }
-    return newArr;
-  }
 
   $tableManager.searchLastMinute().$promise.then(function(reservations) {
     $scope.reservationList = reservations.reservations;
-    $scope.chunkedData = chunk($scope.reservationList, 2);
+    $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
   });
 
   $scope.showSlide = function(index){
