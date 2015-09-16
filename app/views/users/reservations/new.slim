@@ -1,12 +1,21 @@
-/ TODO fill with preferences
-h3 New Reservation
+h3 New Reservation!
 = simple_form_for [@user, @reservation], url: user_search_tables_path  do |f|
   = f.error_notification
   = f.input :date, :as => :date_picker, html5: true
-  = f.input :price, :collection => [ 20, 40, 60 ], :include_blank => false
-  = f.collection_radio_buttons :after_plan, [[true, 'Go for drinks'] ,[false, 'Go to sleep']], :first, :last
+  = f.input :price, :collection => [ 20, 40, 60 ], :include_blank => false, :selected => @user.menu_price
+  = f.collection_radio_buttons :after_plan, [[true, 'Go for drinks'] ,[false, 'Go to sleep']], :first, :last, :checked => @user.after_plan
   = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
   h4 Company
   = f.simple_fields_for :companies do |company|
     = render 'company_fields', :f => company
   = f.button :submit, 'Search tables'
+
+javascript:
+  $(document).on('ready page:change', function() {
+     var tomorrow = moment({ hour:21, minute:00 }).add(1, 'days');
+     $('.datetimepicker').each(function(){
+      $(this).data("DateTimePicker").date(tomorrow);
+      $(this).data("DateTimePicker").minDate(tomorrow);
+      $(this).data("DateTimePicker").maxDate(moment().add(30, 'days'));
+     });
+  });
