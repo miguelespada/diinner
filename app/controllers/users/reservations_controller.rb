@@ -27,11 +27,16 @@ class  Users::ReservationsController < BaseUsersController
     end
   end
 
-  def last_minute
+  def new_last_minute
+    @reservation = @user.reservations.new
+    @reservation.date = Date.today
+  end
+
+  def search_last_minute
     if Reservation.off_the_clock?
       render :off_the_clock 
     else
-      suggestionEngine = SuggestionEngine.new @user
+      suggestionEngine = SuggestionEngine.new @user, params[:reservation]
       @suggestions = suggestionEngine.last_minute.first(3)
       render :no_dinners if @suggestions.empty?
     end

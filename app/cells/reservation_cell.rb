@@ -45,7 +45,6 @@ class ReservationCell < BaseCell
   end
 
   def validate_link
-    p model.paid?
     if model.is_owned_by?(current_restaurant) && model.paid?
       if !model.ticket_valid?
         link_to "validate", restaurant_reservation_validate_path(current_restaurant, model, :ticket_valid => true)
