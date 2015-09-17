@@ -19,7 +19,11 @@ dinnerApp.controller('LoginCtrl',
         $scope.loading = true;
         auth.signin({
           popup: true,
+          popupOptions: { clearcache: true, clearsessioncache: true },
           connection: connection,
+          loginAfterSignup: false,
+          rememberLastLogin: false,
+          sso: false,
           authParams: {
             scope: 'openid',
             device: 'Mobile device'

@@ -116,7 +116,7 @@ class Reservation
       date: self.date_and_time,
       time: self.hour,
       price: self.price,
-      affinity: self.plan_affinity(self.user),
+      affinity: self.table.affinity,
       restaurant: self.restaurant.to_ionic_json,
       menu: self.menu.to_ionic_json,
       table_id: self.table.id.to_s,
