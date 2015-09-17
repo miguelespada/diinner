@@ -4,10 +4,8 @@ end
 
 Then(/^I am notified that I should evalute the plan$/) do
   Reservation.invite_to_evaluate
-  Reservation.invite_to_evaluate
   click_on "Notifications"
   expect(page).to have_content "You can evaluate the diinner"
-  save_and_open_page
 end
 
 Then(/^I can evaluate the reservation$/) do

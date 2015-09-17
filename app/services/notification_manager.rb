@@ -68,6 +68,9 @@ class NotificationManager
   end
 
   def self.notify_invitation_to_evaluate(from: Admin.first, object: nil, to: Admin.first)
-    object.create_activity key: "reservation.evaluate", recipient: to, owner: from
+    key = "reservation.evaluate"
+    if to.notifications.where(trackable: object, key: key).count == 0 
+      object.create_activity key: key, recipient: to, owner: from
+    end
   end
 end
