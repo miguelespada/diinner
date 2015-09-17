@@ -23,8 +23,13 @@ Feature: Admin Inspect Reservations
   Scenario:
     Then I should see the log of the new reservation
 
+  # TODO finish feature
   @capture_reservation @wip
   Scenario:
     Given There enough reservation
     When I process reservations
     Then I can see that the reservation is paid
+
+  @admin_processes_last_minute
+  Scenario:
+    Then I can process last minute diinners

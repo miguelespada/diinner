@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     get "/map" => "admin#map", as: "admin_map"
     get "/settings" => "admin#settings", as: "settings"
     get "/process_reservations" => "admin#process_reservations", as: "process_reservations"
+    get "/process_last_minute" => "admin#process_last_minute_diinners", as: "process_last_minute_diinners"
     get "/remove_old_tables" => "admin#remove_old_tables", as: "remove_old_tables"
     get "/invite_users_to_evaluate" => "admin#invite_users_to_evaluate", as: "invite_users_to_evaluate"
     get "/remove_old_logs" => "admin#remove_old_logs", as: "remove_old_logs"

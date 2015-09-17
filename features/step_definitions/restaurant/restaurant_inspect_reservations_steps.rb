@@ -33,6 +33,13 @@ When(/^I can see the slots left of the reserved table$/) do
   end
 end
 
+Then(/^I can process last minute diinners$/) do
+  find(".settings").click
+
+  click_on "Process last minute diinners"
+  expect(page).to have_content "Last minute diinners processed succesfully!"
+end
+
 Then(/^I cannot validate the reservation$/) do
   click_on "Reservations"
   expect(page).not_to have_content "validate"

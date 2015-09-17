@@ -29,6 +29,12 @@ class AdminController < ApplicationController
     redirect_to settings_path, notice: 'Reservations processed succesfully!'
   end
 
+  def process_last_minute_diinners
+    TableManager.process_last_minute_tables
+    # TODO give usefull information
+    redirect_to settings_path, notice: 'Last minute diinners processed succesfully!'
+  end
+
   def remove_old_tables
     n = TableManager.remove_old_tables
     redirect_to settings_path, notice: "#{n} table(s) removed!"
