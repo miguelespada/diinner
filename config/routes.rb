@@ -59,7 +59,7 @@ Rails.application.routes.draw do
     get "/process_reservations" => "admin#process_reservations", as: "process_reservations"
     get "/remove_old_tables" => "admin#remove_old_tables", as: "remove_old_tables"
     get "/invite_users_to_evaluate" => "admin#invite_users_to_evaluate", as: "invite_users_to_evaluate"
-
+    get "/remove_old_logs" => "admin#remove_old_logs", as: "remove_old_logs"
   end
 
   namespace :admin do

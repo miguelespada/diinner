@@ -63,3 +63,8 @@ Feature: Admin Log
     Then a restaurant deletes the table
     And I am logged as admin
     Then I should not see the log of the creation of the new table
+
+  @admin_removes_old_notifications
+  Scenario:
+    When I am logged as admin
+    Then I can remove all notifications

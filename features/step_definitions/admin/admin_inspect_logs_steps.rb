@@ -143,3 +143,9 @@ Then(/^I should not see the log of the creation of the new table$/) do
   click_on "Logs"
   expect(page).not_to have_content "New table"
 end
+
+Then(/^I can remove all notifications$/) do
+  find(".settings").click
+  click_on "Remove old logs"
+  expect(page).to have_content "You have removed 0 log(s)"
+end

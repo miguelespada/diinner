@@ -39,6 +39,13 @@ class AdminController < ApplicationController
     redirect_to settings_path, notice: "You have invited #{n} user(s) to evaluate their dinners!"
   end
 
+  def remove_old_logs
+    criteria = PublicActivity::Activity.where(:created_at.lt => 7.days.ago)
+    n = criteria.count
+    criteria.delete_all
+    redirect_to settings_path, notice: "You have removed #{n} log(s)"
+  end
+
   private
 
   def city_param
