@@ -12,14 +12,23 @@ html, body{
 
 ion-list{
   ion-item{
-    a:link, a:hover, a:active, a:visited{
+    span{
       text-decoration: none;
       color: black;
-      .icon{
-        font-size: 1.2em;
-      }
     }
   }
+}
+
+.nav-bar-title{
+  img{
+    margin-top: 6px;
+    height: 30px;
+    width: auto;
+  }
+}
+
+.item-icon-left .icon, .item-icon-right .icon{
+  font-size: 1.2em !important;
 }
 
 .user-image-container{
@@ -93,8 +102,5 @@ ion-list{
     font-family: inherit;
     font-size: inherit;
     padding: 0;
-  }
-  .icon{
-    font-size: 1.2em;
   }
 }

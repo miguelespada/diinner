@@ -1,4 +1,6 @@
-ion-view title="User" hide-back-button="true" hide-nav-bar="true" ng-controller="UserCtrl" cache-view="false"
+ion-view title="User" hide-back-button="true" hide-nav-bar="false" ng-controller="UserCtrl" cache-view="false"
+  ion-nav-title
+    img src="images/logo.png"
   ion-content
     .user-image-container
       .user-image-inner
@@ -9,28 +11,28 @@ ion-view title="User" hide-back-button="true" hide-nav-bar="true" ng-controller=
           | {{user.email}}
       img.user-background src="{{user.image_url}}"
     ion-list
-      ion-item.item-icon-left.item-icon-right
-        a href="#/profile"
+      ion-item.item-icon-left.item-icon-right ng-href="#/profile"
+        span
           i.icon.budicon.bi_user-alt
           | My profile
           i.icon.ion-ios-arrow-right
-      ion-item.item-icon-left.item-icon-right
-        a href="#/notifications"
+      ion-item.item-icon-left.item-icon-right ng-href="#/notifications"
+        span
           i.icon.budicon.bi_com-bell
           | Notifications
           i.icon.ion-ios-arrow-right
-      ion-item.item-icon-left.item-icon-right
-        a href="#/new_reservation"
+      ion-item.item-icon-left.item-icon-right ng-href="#/new_reservation"
+        span
           i.icon.budicon.bi_doc-wboard-line
           | New reservation
           i.icon.ion-ios-arrow-right
-      ion-item.item-icon-left.item-icon-right
-        a href="#/my_reservations"
+      ion-item.item-icon-left.item-icon-right ng-href="#/my_reservations"
+        span
           i.icon.budicon.bi_doc-wboard-tick
           | My reservations
           i.icon.ion-ios-arrow-right
-      ion-item.item-icon-left.item-icon-right
-        a href="#/last_minute"
+      ion-item.item-icon-left.item-icon-right ng-href="#/last_minute"
+        span
           i.icon.budicon.bi_time-clock
           | Last minute plan
           i.icon.ion-ios-arrow-right

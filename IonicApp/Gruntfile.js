@@ -304,6 +304,12 @@ module.exports = function (grunt) {
         dest: '<%= yeoman.app %>/fonts/',
         src: '*'
       },
+      images: {
+        expand: true,
+        cwd: 'app/bower_components/ionic/release/images/',
+        dest: '<%= yeoman.app %>/images/',
+        src: '*'
+      },
       vendor: {
         expand: true,
         cwd: '<%= yeoman.app %>/vendor',
@@ -338,19 +344,22 @@ module.exports = function (grunt) {
         'compass:server',
         'copy:styles',
         'copy:vendor',
-        'copy:fonts'
+        'copy:fonts',
+        'copy:images'
       ],
       test: [
         'compass',
         'copy:styles',
         'copy:vendor',
-        'copy:fonts'
+        'copy:fonts',
+        'copy:images'
       ],
       dist: [
         'compass:dist',
         'copy:styles',
         'copy:vendor',
-        'copy:fonts'
+        'copy:fonts',
+        'copy:images'
       ]
     },
 
