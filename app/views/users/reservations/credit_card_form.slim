@@ -5,7 +5,6 @@
     = form_tag user_reservation_reuse_card_path(@user, @reservation),\
        :method => :patch, :id => "reuse_card" do
       = submit_tag "Use saved card"
-/ TODO use simple form
 div
   = javascript_include_tag "https://js.stripe.com/v2/"
   = tag :div, :id => "stripe-key", :data => {:content => ENV['STRIPE_PUBLISHABLE_KEY']}
@@ -28,7 +27,6 @@ div
       = label_tag(:experition, "Expiration (MM/YYYY)")
       = text_field_tag :exp_month, nil, name: nil, size: 2
       = text_field_tag :exp_year, nil, name: nil, size: 4
-      / TODO handle I accept bla, bla...
-    = check_box_tag :terms_and_conditions
+    = check_box_tag :terms_and_conditions, :id="accept_terms"
     = label_tag "I accept the terms and conditions"
     = submit_tag "Confirm"
