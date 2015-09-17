@@ -34,6 +34,11 @@ class AdminController < ApplicationController
     redirect_to settings_path, notice: "#{n} table(s) removed!"
   end
 
+  def invite_users_to_evaluate
+    n = Reservation.invite_to_evaluate
+    redirect_to settings_path, notice: "You have invited #{n} user(s) to evaluate their dinners!"
+  end
+
   private
 
   def city_param

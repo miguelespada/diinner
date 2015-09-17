@@ -50,3 +50,8 @@ Then(/^I can see the evaluation row$/) do
     end
 end
 
+Then(/^I can invite user to evaluate the dinners$/) do
+  find(".settings").click
+  click_on "Invite users to evaluate diinners"
+  expect(page).to have_content "You have invited 1 user(s) to evaluate their dinners!"
+end

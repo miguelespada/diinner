@@ -110,7 +110,14 @@ class Reservation
   end
 
   def self.invite_to_evaluate
-    Reservation.each.map{ |r| r.invite_to_evaluate if r.can_be_evaluated? }
+    n = 0
+    Reservation.each do |r|
+      if r.can_be_evaluated?
+        r.invite_to_evaluate
+        n += 1
+      end
+    end
+    n 
   end
 
   def invite_to_evaluate

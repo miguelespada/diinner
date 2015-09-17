@@ -11,3 +11,7 @@ Feature: Admin inspect evaluations
     Then I can see the evaluation
     Then I can access the evaluation through the restaurant page
     Then I can access the evaluation through the menu
+
+  @admin_invite_to_evaluate
+  Scenario:
+    Then I can invite user to evaluate the dinners

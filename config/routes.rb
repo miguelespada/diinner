@@ -58,6 +58,8 @@ Rails.application.routes.draw do
     get "/settings" => "admin#settings", as: "settings"
     get "/process_reservations" => "admin#process_reservations", as: "process_reservations"
     get "/remove_old_tables" => "admin#remove_old_tables", as: "remove_old_tables"
+    get "/invite_users_to_evaluate" => "admin#invite_users_to_evaluate", as: "invite_users_to_evaluate"
+
   end
 
   namespace :admin do
