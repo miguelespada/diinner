@@ -86,7 +86,8 @@ class TableManager
     tables.map{|table| table.notify_confirmation}
   end
 
-   def self.notify_cancel_last_minute tables
+  def self.notify_cancel_last_minute tables
     tables.map{|table| table.notify_cancel_last_minute}
   end
+
 end

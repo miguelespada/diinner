@@ -109,6 +109,14 @@ class Reservation
     now < nine || now > six 
   end
 
+  def self.invite_to_evaluate
+    Reservation.each.map{ |r| r.invite_to_evaluate if r.can_be_evaluated? }
+  end
+
+  def invite_to_evaluate
+    NotificationManager.notify_invitation_to_evaluate(object: self, to: user)
+  end
+
   def to_ionic_json
     {
       id: self.id.to_s,

@@ -10,4 +10,5 @@ Feature: User Reserves table
 
   Scenario:
     When The diinner has passed
+    Then I am notified that I should evalute the plan
     Then I can evaluate the reservation

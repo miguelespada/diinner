@@ -66,4 +66,8 @@ class NotificationManager
   def self.notify_reservation_pending(object: nil)
     object.create_activity key: "reservation.pending", recipient: object.user, owner: object.restaurant
   end
+
+  def self.notify_invitation_to_evaluate(from: Admin.first, object: nil, to: Admin.first)
+    object.create_activity key: "reservation.evaluate", recipient: to, owner: from
+  end
 end

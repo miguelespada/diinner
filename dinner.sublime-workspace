@@ -267,56 +267,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app/views/users/reservations/new_last_minute.slim",
-			"settings":
-			{
-				"buffer_size": 687,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "features/user/user_reserve_a_last_minute_diinner.feature",
-			"settings":
-			{
-				"buffer_size": 2554,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
-			"settings":
-			{
-				"buffer_size": 5420,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 448 files for \"p \"\n\n/Users/miguel/Diinner/Gemfile:\n   50  gem \"factory_girl_rails\"\n   51  \n   52: group :test do\n   53    gem \"database_cleaner\"\n   54    gem \"mongoid-rspec\"\n   ..\n   62  end\n   63  \n   64: group :development do\n   65    gem \"better_errors\"\n   66    gem 'pry'\n\n/Users/miguel/Diinner/Gemfile.lock:\n  283        coderay (~> 1.1.0)\n  284        method_source (~> 0.8.1)\n  285:       slop (~> 3.4)\n  286      pry-rails (0.3.3)\n  287        pry (>= 0.9.10)\n  ...\n  377        railties (>= 3.1, < 5.0)\n  378        slim (~> 3.0)\n  379:     slop (3.6.0)\n  380      sprockets (2.12.3)\n  381        hike (~> 1.2)\n\n/Users/miguel/Diinner/Procfile:\n    1: web: bundle exec rails server thin -p $PORT -e $RACK_ENV\n\n/Users/miguel/Diinner/README.rdoc:\n   11  Run cucumber specific tests\n   12  \n   13: * cucumber -p ionic\n\n/Users/miguel/Diinner/app/assets/javascripts/map.js:\n    5  });\n    6  \n    7: var MAP = {};\n    8  \n    9  // TODO put in a config file\n   ..\n   11  MAP.markerColor = '#777777';\n   12  \n   13: MAP.initializeMap = function(){\n   14    L.mapbox.accessToken = $('#map-config').data('token');\n   15  \n   ..\n   25  };\n   26  \n   27: MAP.updateMap = function(){\n   28    var googleAPIKey = $('#map-config').data('google-key');\n   29    var address = $('#restaurant_address').val();\n\n/Users/miguel/Diinner/app/cells/reservation_cell.rb:\n   46  \n   47    def validate_link\n   48:     p model.paid?\n   49      if model.is_owned_by?(current_restaurant) && model.paid?\n   50        if !model.ticket_valid?\n\n/Users/miguel/Diinner/app/cells/reservation/user_show.slim:\n   27      span.bold-label STATUS \n   28      = status\n   29:   p == cancel_link\n   30:   p == evaluate_link\n\n/Users/miguel/Diinner/app/cells/test/row.slim:\n    1  tr\n    2    td\n    3:     p == show_link\n    4    td\n    5:     p = cl_image model.option_A, 125, 125\n    6:     p = model.caption_A\n    7    td\n    8:     p = cl_image model.option_B, 125, 125\n    9:     p = model.caption_B\n   10    td\n   11      ul\n\n/Users/miguel/Diinner/app/inputs/date_picker_input.rb:\n    4      set_value_html_option\n    5  \n    6:     template.content_tag :div, class: 'input-group date datetimepicker' do\n    7        input = super(wrapper_options) # leave StringInput do the real rendering\n    8        input + input_button\n\n/Users/miguel/Diinner/app/views/devise/registrations/edit.slim:\n    9      \n   10          - if devise_mapping.confirmable? && resource.pending_reconfirmation?\n   11:           p | Currently waiting confirmation for: \n   12              = resource.unconfirmed_email\n   13      \n\n/Users/miguel/Diinner/app/views/users/reservations/no_dinners.slim:\n    1: p There are no diinners matching your search criteria\n\n/Users/miguel/Diinner/app/views/users/reservations/off_the_clock.slim:\n    1: p You can only reserve Last Minute dinners from 9h00 to 18h00\n\n/Users/miguel/Diinner/config/boot.rb:\n    1: # Set up gems listed in the Gemfile.\n    2  ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)\n    3  \n\n/Users/miguel/Diinner/config/cucumber.yml:\n    2  rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : \"\"\n    3  rerun_opts = rerun.to_s.strip.empty? ? \"--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} features\" : \"--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}\"\n    4: std_opts = \"--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip --tags ~@ionic\"\n    5  %>\n    6  default: <%= std_opts %> features\n    7: wip: --tags @wip:3 --wip features\n    8  ionic: --tags @ionic\n    9  rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip\n\n/Users/miguel/Diinner/config/mongoid.yml:\n   54      # use_activesupport_time_zone: true\n   55  \n   56:     # Ensure all times are UTC in the app side. (default: false)\n   57      # use_utc: false\n   58  test:\n\n/Users/miguel/Diinner/config/routes.rb:\n   24    end\n   25  \n   26:   devise_for :restaurants, :skip => [:passwords]\n   27    as :restaurant do\n   28      get 'restaurants/password/edit' => 'devise/registrations#edit', :as => 'edit_restaurant_registration'\n   ..\n  105    #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase\n  106  \n  107:   # Example resource route (maps HTTP verbs to controller actions automatically):\n  108    #   resources :products\n  109  \n\n/Users/miguel/Diinner/config/secrets.yml:\n   17    secret_key_base: ab701260cbfc899a32618f2daee86cc99256773cfb7cc8b5f7b6ad968337471869eed9419160731a89591668d67d917e3e6bdf7a6b82050db197837c35f07b29\n   18  \n   19: # Do not keep production secrets in the repository,\n   20  # instead read values from the environment.\n   21  production:\n\n/Users/miguel/Diinner/config/environments/production.rb:\n   15    config.action_controller.perform_caching = true\n   16  \n   17:   # Enable Rack::Cache to put a simple HTTP cache in front of your application\n   18    # Add `rack-cache` to your Gemfile before enabling this.\n   19    # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.\n   ..\n   39    # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx\n   40  \n   41:   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.\n   42    # config.force_ssl = true\n   43  \n   ..\n   71    # config.autoflush_log = false\n   72  \n   73:   # Use default logging formatter so that PID and timestamp are not suppressed.\n   74    config.log_formatter = ::Logger::Formatter.new\n   75  end\n\n/Users/miguel/Diinner/config/initializers/devise.rb:\n    1  # Use this hook to configure devise mailer, warden hooks and so forth.\n    2  # Many of these configuration options can be set straight in your model.\n    3: Devise.setup do |config|\n    4    # The secret key used by Devise. Devise uses this key to generate\n    5    # random tokens. Changing this key will render invalid all existing\n    .\n   55    # config.params_authenticatable = true\n   56  \n   57:   # Tell if authentication through HTTP Auth is enabled. False by default.\n   58:   # It can be set to an array that will enable http authentication only for the\n   59    # given strategies, for example, `config.http_authenticatable = [:database]` will\n   60    # enable it only for database authentication. The supported strategies are:\n   ..\n   65    # config.http_authenticatable_on_xhr = true\n   66  \n   67:   # The realm used in Http Basic Authentication. 'Application' by default.\n   68    # config.http_authentication_realm = 'Application'\n   69  \n   ..\n   73    # config.paranoid = true\n   74  \n   75:   # By default Devise will store the user in session. You can skip storage for\n   76    # particular strategies by setting this option.\n   77    # Notice that if you are skipping storage for all authentication paths, you\n   ..\n   80    config.skip_session_storage = [:http_auth]\n   81  \n   82:   # By default, Devise cleans up the CSRF token on authentication to\n   83    # avoid CSRF token fixation attacks. This means that, when using AJAX\n   84    # requests for sign in and sign up, you need to get a new CSRF token\n   ..\n   97    config.stretches = Rails.env.test? ? 1 : 10\n   98  \n   99:   # Setup a pepper to generate the encrypted password.\n  100    # config.pepper = 'a1dbfea50b690aa5c2b8bcf39a664d8a771fa0bbdd3b63f2ebe9b58b39dd9dfda4ffa7c9e172e272bca3ae72968a94ba242d7ed81904d8962b2573e0a97ae82c'\n  101  \n  ...\n  146    # one (and only one) @ exists in the given string. This is mainly\n  147    # to give user feedback and not to assert the e-mail validity.\n  148:   # config.email_regexp = /\\A[^@]+@[^@]+\\z/\n  149  \n  150    # ==> Configuration for :timeoutable\n  ...\n  227    # config.navigational_formats = ['*/*', :html]\n  228  \n  229:   # The default HTTP method used to sign out a resource. Default is :delete.\n  230    config.sign_out_via = :get\n  231  \n  232    # ==> OmniAuth\n  233    # Add a new OmniAuth provider. Check the wiki for more information on setting\n  234:   # up on your models and hooks.\n  235    # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'\n  236  \n\n/Users/miguel/Diinner/config/initializers/inflections.rb:\n    8  #   inflect.singular /^(ox)en/i, '\\1'\n    9  #   inflect.irregular 'person', 'people'\n   10: #   inflect.uncountable %w( fish sheep )\n   11  # end\n   12  \n\n/Users/miguel/Diinner/config/initializers/ranged_datetime_wrapper.rb:\n    1: SimpleForm.setup do |config|\n    2:   config.wrappers :ranged_datetime, tag: 'div', class: 'form-group col-md-6', error_class: 'has-error' do |b|\n    3      b.use :html5\n    4      b.use :placeholder\n\n/Users/miguel/Diinner/config/initializers/simple_form.rb:\n    1: # Use this setup block to configure all options available in SimpleForm.\n    2: SimpleForm.setup do |config|\n    3    # Wrappers are used by the form builder to generate a\n    4    # complete input. You can remove any component from the\n    5    # wrapper, change the order or even add your own to the\n    6:   # stack. The options given below are used to wrap the\n    7    # whole input.\n    8    config.wrappers :default, class: :input,\n    .\n   56  \n   57    # Define the way to render check boxes / radio buttons with labels.\n   58:   # Defaults to :nested for bootstrap config.\n   59    #   inline: input + label\n   60    #   nested: label > input\n   ..\n   64    config.button_class = 'btn'\n   65  \n   66:   # Method used to tidy up errors. Specify any Rails Array method.\n   67    # :first lists the first message for each field.\n   68    # Use :to_sentence to list all errors for each field.\n   ..\n   84    # config.collection_value_methods = [ :id, :to_s ]\n   85  \n   86:   # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.\n   87    # config.collection_wrapper_tag = nil\n   88  \n   ..\n   90    # config.collection_wrapper_class = nil\n   91  \n   92:   # You can wrap each item in a collection of radio/check boxes with a tag,\n   93    # defaulting to :span.\n   94    # config.item_wrapper_tag = :span\n   ..\n  116    # These validations are enabled in SimpleForm's internal config but disabled by default\n  117    # in this configuration, which is recommended due to some quirks from different browsers.\n  118:   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,\n  119    # change this configuration to true.\n  120    config.browser_validations = false\n  ...\n  125    # Custom mappings for input types. This should be a hash containing a regexp\n  126    # to match as key, and the input type that will be used when the field name\n  127:   # matches the regexp as value.\n  128    # config.input_mappings = { /count/ => :integer }\n  129  \n\n/Users/miguel/Diinner/config/initializers/simple_form_bootstrap.rb:\n    1: # Use this setup block to configure all options available in SimpleForm.\n    2: SimpleForm.setup do |config|\n    3    config.error_notification_class = 'alert alert-danger'\n    4    config.button_class = 'btn btn-default'\n    .\n  133      end\n  134    end\n  135:   # Wrappers for forms and inputs using the Bootstrap toolkit.\n  136:   # Check the Bootstrap docs (http://getbootstrap.com)\n  137    # to learn about the different styles for forms and inputs,\n  138    # buttons and other elements.\n\n/Users/miguel/Diinner/config/locales/devise.en.yml:\n   15        not_found_in_database: \"Invalid %{authentication_keys} or password.\"\n   16        timeout: \"Your session expired. Please sign in again to continue.\"\n   17:       unauthenticated: \"You need to sign in or sign up before continuing.\"\n   18        unconfirmed: \"You have to confirm your email address before continuing.\"\n   19      mailer:\n   ..\n   35      registrations:\n   36        destroyed: \"Bye! Your account has been successfully cancelled. We hope to see you again soon.\"\n   37:       signed_up: \"Welcome! You have signed up successfully.\"\n   38:       signed_up_but_inactive: \"You have signed up successfully. However, we could not sign you in because your account is not yet activated.\"\n   39:       signed_up_but_locked: \"You have signed up successfully. However, we could not sign you in because your account is locked.\"\n   40        signed_up_but_unconfirmed: \"A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.\"\n   41        update_needs_confirmation: \"You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.\"\n\n/Users/miguel/Diinner/db/seeds.rb:\n    3      Admin.create(email: \"admin@diinner.com\", password: \"12345678\")\n    4    end\n    5:   p \"---ADMIN DATA---\"\n    6:   p \"Email: \" + Admin.first.email\n    7:   p \"Password: 12345678\"\n    8:   p \"----------------\"\n    9  end\n   10  \n\n/Users/miguel/Diinner/factories/test.rb:\n   10      gender { :undefined }\n   11  \n   12:     # Note building images is very slow, by default we use no image to speed up rspecs\n   13      trait :with_images do\n   14          option_A FactoryGirl.build(:attachinary)\n\n/Users/miguel/Diinner/features/ionic/user_profile_steps.rb:\n   29  \n   30  When(/^I access to the preferences page$/) do\n   31:   step \"I access to the profile page\"\n   32    click_on \"Diinner preferences\"\n   33    expect(page).to have_content(\"Diinner Preferences\")\n\n/Users/miguel/Diinner/features/restaurant/restaurant_map.feature:\n    7  \n    8    @restaurant_map\n    9:   Scenario: I see a map in the map\n   10      When I visit my profile page\n   11      Then I should see a map\n\n/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_evaluations_steps.rb:\n    1  Given(/^A user has evaluated a plan$/) do\n    2:     step \"There are some available tables\"\n    3:     step \"I am a logged user\"\n    4:     step \"I reserve a table\"\n    5:     step \"The diinner has passed\"\n    6:     step \"I can evaluate the reservation\"\n    7:     step \"I logout\"\n    8  end\n    9  \n   ..\n   21      find(\".show-link\").click\n   22    end\n   23:   step \"I can see the evaluation row\"\n   24  end\n   25  \n   ..\n   29    end\n   30    within \"#evaluations\" do\n   31:     step \"I can see the evaluation row\"\n   32    end\n   33  end\n\n/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_logs_steps.rb:\n   47  \n   48  When(/^a restaurant creates a table$/) do\n   49:    step \"I am logged as restaurant\"\n   50:    step \"I create a new table having a menu\"\n   51  end\n   52  \n   ..\n   71  \n   72  When(/^a restaurant has created a menu$/) do\n   73:   step \"I am logged as restaurant\"\n   74:   step \"I create a menu\"\n   75    @menu = Menu.first\n   76  end\n   ..\n  108  \n  109  When(/^a restaurant has created a menu and delete it$/) do\n  110:   step \"a restaurant has created a menu\"\n  111:   step \"I delete a menu\"\n  112:   step \"I logout\"\n  113  end\n  114  \n\n/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_tables_steps.rb:\n   13  \n   14  Given(/^A user has reserved a table$/) do\n   15:   step \"I am a logged user\"\n   16:   step \"There are some available tables\"\n   17:   step \"I reserve a table\"\n   18  end\n   19  \n\n/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_test_response_steps.rb:\n    1  Given(/^A user has done a test$/) do\n    2:   step \"I am a logged user\"\n    3:   step \"I do a test\"\n    4:   step \"I logout\"\n    5  end\n    6  \n\n/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_users_steps.rb:\n    1  When(/^I edit a user$/) do\n    2:   step \"I list users\"\n    3    click_on @users[0].name\n    4    find(\".edit\").click\n\n/Users/miguel/Diinner/features/step_definitions/admin/admin_sessions.rb:\n   23  \n   24  Then(/^I should not see the admin page$/) do\n   25:   expect(page).to have_content \"You need to sign in or sign up before continuing.\"\n   26  end\n   27  \n\n/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_cancellations_steps.rb:\n    1  Given(/^A user has cancelled a reservation$/) do\n    2:   step \"There are some available tables\"\n    3:   step \"I am a logged user\"\n    4:   step \"I reserve a table\"\n    5:   step \"I cancel my reservation\"\n    6:   step \"I logout\"\n    7  end\n    8  \n\n/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_menus_steps.rb:\n    9  \n   10  When(\"I create a menu\") do\n   11:   step \"I create a menu 20\"\n   12  end\n   13  \n   ..\n   16    click_on \"New\"\n   17    select price, from: \"Price\"\n   18:   step \"I fill the basic menu data\"\n   19    click_on \"Create Menu\"\n   20  end\n\n/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_multiple_tables_steps.rb:\n   48  \n   49  Then(/^I can only create a menu of each price$/) do\n   50:   step \"I create a menu 20\"\n   51    page.has_select?(\"Price\", :with_options => [20]).should == false\n   52:   step \"I create a menu 40\"\n   53    page.has_select?(\"Price\", :with_options => [20]).should == false\n   54    page.has_select?(\"Price\", :with_options => [40]).should == false\n   55:   step \"I create a menu 60\"\n   56    page.has_select?(\"Price\", :with_options => [20]).should == false\n   57    page.has_select?(\"Price\", :with_options => [40]).should == false\n\n/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_tables_steps.rb:\n    8  \n    9  When(/^I create a new table having a menu$/) do\n   10:   step \"I create a menu\"\n   11    click_on \"Tables\"\n   12    click_on \"New\"\n\n/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_profile_steps.rb:\n   54  Then(/^I should check my password has changed$/) do\n   55    click_on \"Restaurant\"\n   56:   step \"I logout\"\n   57    click_on \"Restaurant\"\n   58    fill_in \"Email\", with: @restaurant.email\n\n/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_session_steps.rb:\n   19  \n   20  Then(/^I should not see the restaurant page$/) do\n   21:   expect(page).to have_content \"You need to sign in or sign up before continuing.\"\n   22  end\n   23  \n\n/Users/miguel/Diinner/features/step_definitions/user/user_does_test_steps.rb:\n    1  Given(/^I do a test$/) do\n    2    @test = FactoryGirl.create(:test,  :with_images)\n    3:   step \"I go to the user page\"\n    4    find(\".test\").click()\n    5    within(\".option_A\") do\n\n/Users/miguel/Diinner/features/step_definitions/user/user_profile_steps.rb:\n    1  Given(/^Is the first time I login as user$/) do\n    2    first_time_user_login\n    3:   step \"I go to the user page\"\n    4  end\n    5  \n    .\n   15  \n   16  When(/^I edit my profile$/) do\n   17:   step \"I go to the user page\"\n   18    find(\".edit\").click()\n   19:   step \"I change my user profile\"\n   20  end\n   21  \n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb:\n   47    click_on \"Search last minute tables\"\n   48    click_on \"Reserve\"\n   49:   step \"I fill in the credit card details\"\n   50    click_on \"Confirm\"\n   51    expect(page).to have_content \"Table reserved succesfully!\"\n   ..\n   96  \n   97  Then(/^The other user can see the confirmed last minute reservation$/) do\n   98:   step \"I logout\"\n   99    login_as_user @other_she\n  100    visit users_path\n  101:   step \"I can access to the confirmed reservation through my reservations\"\n  102  end\n  103  \n  104  Then(/^The restaurant should be see the confirmed last minute reservation$/) do\n  105:   step \"I logout\"\n  106    login_as_restaurant @restaurant\n  107    click_on \"Reservations\"\n  ...\n  116  \n  117  Then(/^The admin should see the confirmed last minute reservation$/) do\n  118:   step \"I logout\"\n  119:   step \"I am logged as admin\"\n  120    click_on \"Reservations\"\n  121    expect(page).to have_content @user.name\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb:\n    7  \n    8  When(/^The other user can see the cancelled last minute reservation$/) do\n    9:   step \"I logout\"\n   10    login_as_user @other_she\n   11    visit users_path\n   12:   step \"I can access to the cancelled reservation through my reservations\"\n   13  end\n   14  \n   ..\n   33    click_on \"Last minute diinners\"\n   34    click_on \"Reserve\"\n   35:   step \"I fill in the credit card details\"\n   36:   step \"There is an error processing my credit card\"\n   37    click_on \"Confirm\"\n   38  end\n   ..\n   43  \n   44  Then(/^The other user can see the pending last minute reservation$/) do\n   45:  step \"I logout\"\n   46    login_as_user @other_she\n   47    visit users_path\n   48:   step \"I can access to the pending reservation through my reservations\"\n   49  end\n   50  \n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table.steps.rb:\n    2  \n    3    # We mock the following steps\n    4:     # step \"I am logged as restaurant\"\n    5:     # step \"I create a menu\"\n    6:     # step \"I create a new table\"\n    7:     # step \"I logout\"\n    8  \n    9    city = FactoryGirl.create(:city)\n   ..\n   16  \n   17  When(/^I search a table with bad date$/) do\n   18:   step \"I go to the user page\"\n   19    click_on \"New reservation\"\n   20    select(20, :from => \"reservation_price\")\n   ..\n   30  \n   31  When(/^I search a table$/) do\n   32:   step \"I go to the user page\"\n   33    click_on \"New reservation\"\n   34    select(20, :from => \"reservation_price\")\n   ..\n   98  \n   99  When(/^I cancel my reservation$/) do\n  100:   step \"I go to the user page\"\n  101    click_on \"My reservations\"\n  102    find(\".status-table > a\").click\n  ...\n  127  \n  128  Then(/^I can access menu data$/) do\n  129:   step \"I go to the user page\"\n  130    click_on \"My reservations\"\n  131    find(\".status-table > a\").click\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table_with_errors_steps.rb:\n   21  When(/^I search a table with no matchs$/) do\n   22  \n   23:   step \"I go to the user page\"\n   24    click_on \"New reservation\"\n   25    select(20, :from => \"reservation_price\")\n\n/Users/miguel/Diinner/features/support/env.rb:\n   10  # Capybara defaults to CSS3 selectors rather than XPath.\n   11  # If you'd prefer to use XPath, just uncomment this line and adjust any\n   12: # selectors in your step definitions to use the XPath syntax.\n   13  # Capybara.default_selector = :xpath\n   14  \n   ..\n   19  #\n   20  # Sometimes we want to override this default behaviour and allow Rails to rescue\n   21: # exceptions and display an error page (just like when the app is running in production).\n   22  # Typical scenarios where you want to do this is when you test your error pages.\n   23  # There are two ways to allow Rails to rescue exceptions:\n   ..\n   30  ActionController::Base.allow_rescue = false\n   31  \n   32: # Remove/comment out the lines below if your app doesn't have a database.\n   33  # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.\n   34  begin\n\n/Users/miguel/Diinner/public/403.html:\n   31    }\n   32  \n   33:   body > p {\n   34      width: 33em;\n   35      margin: 0 auto 1em;\n\n/Users/miguel/Diinner/public/404.html:\n   38    }\n   39  \n   40:   div.dialog > p {\n   41      margin: 0 0 1em;\n   42      padding: 1em;\n\n/Users/miguel/Diinner/public/422.html:\n   38    }\n   39  \n   40:   div.dialog > p {\n   41      margin: 0 0 1em;\n   42      padding: 1em;\n\n/Users/miguel/Diinner/public/500.html:\n   38    }\n   39  \n   40:   div.dialog > p {\n   41      margin: 0 0 1em;\n   42      padding: 1em;\n\n/Users/miguel/Diinner/spec/rails_helper.rb:\n   15  #\n   16  # The following line is provided for convenience purposes. It has the downside\n   17: # of increasing the boot-up time by auto-requiring all files in the support\n   18  # directory. Alternatively, in the individual `*_spec.rb` files, manually\n   19  # require only the support files necessary.\n\n/Users/miguel/Diinner/spec/spec_helper.rb:\n    5  # files.\n    6  #\n    7: # Given that it is always loaded, you are encouraged to keep this file as\n    8  # light-weight as possible. Requiring heavyweight dependencies from this file\n    9  # will add to the boot time of your test suite on EVERY test run, even for an\n   ..\n   74    config.formatter = :documentation\n   75    # Print the 10 slowest examples and example groups at the\n   76:   # end of the spec run, to help surface which specs are running\n   77    # particularly slow.\n   78    config.profile_examples = 10\n\n139 matches across 53 files\n\n\nSearching 323 files for \"p \"\n\n/Users/miguel/Diinner/app/assets/javascripts/map.js:\n    5  });\n    6  \n    7: var MAP = {};\n    8  \n    9  // TODO put in a config file\n   ..\n   11  MAP.markerColor = '#777777';\n   12  \n   13: MAP.initializeMap = function(){\n   14    L.mapbox.accessToken = $('#map-config').data('token');\n   15  \n   ..\n   25  };\n   26  \n   27: MAP.updateMap = function(){\n   28    var googleAPIKey = $('#map-config').data('google-key');\n   29    var address = $('#restaurant_address').val();\n\n/Users/miguel/Diinner/app/assets/stylesheets/budicon/budicon-embedded.scss:\n   13  }\n   14  /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */\n   15: /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */\n   16  /*\n   17  @media screen and (-webkit-min-device-pixel-ratio:0) {\n   ..\n   40    text-transform: none;\n   41       \n   42:   /* fix buttons height, for twitter bootstrap */\n   43    line-height: 1em;\n   44   \n\n/Users/miguel/Diinner/app/assets/stylesheets/budicon/budicon-ie7-codes.scss:\n   11  .bi_animal-pig { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe809;&nbsp;'); }\n   12  .bi_animal-pig-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80a;&nbsp;'); }\n   13: .bi_animal-sheep { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80b;&nbsp;'); }\n   14: .bi_animal-shrimp { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80c;&nbsp;'); }\n   15  .bi_animal-wolf { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80d;&nbsp;'); }\n   16  .bi_animal-bull { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80e;&nbsp;'); }\n   ..\n   40  .bi_com-group-bubble-c { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe826;&nbsp;'); }\n   41  .bi_com-group-bubble-d { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe827;&nbsp;'); }\n   42: .bi_com-help { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe828;&nbsp;'); }\n   43  .bi_com-help-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe829;&nbsp;'); }\n   44  .bi_com-megaphone { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe82a;&nbsp;'); }\n   ..\n  161  .bi_media-video { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe89f;&nbsp;'); }\n  162  .bi_media-video-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a0;&nbsp;'); }\n  163: .bi_media-video-clip { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a1;&nbsp;'); }\n  164  .bi_media-video-r { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a2;&nbsp;'); }\n  165  .bi_business-tie { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a3;&nbsp;'); }\n  ...\n  199  .bi_ecommerce-shirt-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c5;&nbsp;'); }\n  200  .bi_ecommerce-shoes { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c6;&nbsp;'); }\n  201: .bi_ecommerce-shop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c7;&nbsp;'); }\n  202  .bi_ecommerce-shopcart { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c8;&nbsp;'); }\n  203  .bi_ecommerce-shopcart-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c9;&nbsp;'); }\n  ...\n  268  .bi_building-sofa-twin { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90a;&nbsp;'); }\n  269  .bi_building-sofa-twin-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90b;&nbsp;'); }\n  270: .bi_building-table-lamp { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90c;&nbsp;'); }\n  271  .bi_building-table-lamp-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90d;&nbsp;'); }\n  272  .bi_building-tower { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90e;&nbsp;'); }\n  ...\n  298  .bi_beverage-coffee-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe928;&nbsp;'); }\n  299  .bi_beverage-coffee-b { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe929;&nbsp;'); }\n  300: .bi_beverage-coffee-cup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe92a;&nbsp;'); }\n  301  .bi_beverage-coffee-cup-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe92b;&nbsp;'); }\n  302  .bi_beverage-cokctail { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe92c;&nbsp;'); }\n  ...\n  307  .bi_beverage-tea { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe931;&nbsp;'); }\n  308  .bi_beverage-tea-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe932;&nbsp;'); }\n  309: .bi_beverage-tea-cup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe933;&nbsp;'); }\n  310  .bi_beverage-tea-cup-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe934;&nbsp;'); }\n  311  .bi_beverage-water { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe935;&nbsp;'); }\n  ...\n  344  .bi_kitchen-hood-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe956;&nbsp;'); }\n  345  .bi_kitchen-jam { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe957;&nbsp;'); }\n  346: .bi_kitchen-ketchup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe958;&nbsp;'); }\n  347  .bi_kitchen-leaf { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe959;&nbsp;'); }\n  348  .bi_kitchen-microwave { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe95a;&nbsp;'); }\n  ...\n  433  .bi_location-avenue { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9af;&nbsp;'); }\n  434  .bi_location-compass { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b0;&nbsp;'); }\n  435: .bi_location-map { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b1;&nbsp;'); }\n  436  .bi_location-pin { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b2;&nbsp;'); }\n  437  .bi_location-pin-blank { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b3;&nbsp;'); }\n  438  .bi_location-pin-check { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b4;&nbsp;'); }\n  439: .bi_location-pin-map { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b5;&nbsp;'); }\n  440  .bi_location-pin-map-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b6;&nbsp;'); }\n  441  .bi_location-pin-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b7;&nbsp;'); }\n  ...\n  456  .bi_tool-headphone { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c6;&nbsp;'); }\n  457  .bi_tool-headphone-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c7;&nbsp;'); }\n  458: .bi_tool-laptop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c8;&nbsp;'); }\n  459  .bi_tool-magic-wand { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c9;&nbsp;'); }\n  460  .bi_tool-magic-wand-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ca;&nbsp;'); }\n  ...\n  493  .bi_transport-car-b { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9eb;&nbsp;'); }\n  494  .bi_transport-car-c { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ec;&nbsp;'); }\n  495: .bi_transport-ship { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ed;&nbsp;'); }\n  496  .bi_transport-train { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ee;&nbsp;'); }\n  497  .bi_transport-truck { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ef;&nbsp;'); }\n  ...\n  518  .bi_user-single-a-check { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea04;&nbsp;'); }\n  519  .bi_user-single-a-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea05;&nbsp;'); }\n  520: .bi_user-single-a-group { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea06;&nbsp;'); }\n  521  .bi_user-single-a-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea07;&nbsp;'); }\n  522  .bi_user-single-a-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea08;&nbsp;'); }\n  ...\n  530  .bi_user-alt-check { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea10;&nbsp;'); }\n  531  .bi_user-alt-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea11;&nbsp;'); }\n  532: .bi_user-alt-group { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea12;&nbsp;'); }\n  533  .bi_user-alt-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea13;&nbsp;'); }\n  534  .bi_user-alt-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea14;&nbsp;'); }\n  ...\n  537  .bi_user-female { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea17;&nbsp;'); }\n  538  .bi_user-female-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea18;&nbsp;'); }\n  539: .bi_user-female-group { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea19;&nbsp;'); }\n  540  .bi_user-female-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea1a;&nbsp;'); }\n  541  .bi_user-female-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea1b;&nbsp;'); }\n  ...\n  581  .bi_web-menu-collapse-left { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea43;&nbsp;'); }\n  582  .bi_web-menu-collapse-right { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea44;&nbsp;'); }\n  583: .bi_web-menu-collapse-up { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea45;&nbsp;'); }\n  584  .bi_web-reading-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea46;&nbsp;'); }\n  585  .bi_web-report { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea47;&nbsp;'); }\n  ...\n  632  .bi_logo-rdio { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea76;&nbsp;'); }\n  633  .bi_logo-squarespace { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea77;&nbsp;'); }\n  634: .bi_logo-squareup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea78;&nbsp;'); }\n  635  .bi_logo-twitter { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea79;&nbsp;'); }\n  636  .bi_misc-one-click { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea7a;&nbsp;'); }\n  ...\n  680  .bi_music-speaker { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa6;&nbsp;'); }\n  681  .bi_music-speaker-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa7;&nbsp;'); }\n  682: .bi_music-stop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa8;&nbsp;'); }\n  683  .bi_music-stop-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa9;&nbsp;'); }\n  684  .bi_volume-high { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaaa;&nbsp;'); }\n  ...\n  722  .bi_interface-box-right-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead0;&nbsp;'); }\n  723  .bi_interface-box-tick { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead1;&nbsp;'); }\n  724: .bi_interface-box-top { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead2;&nbsp;'); }\n  725  .bi_interface-box-top-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead3;&nbsp;'); }\n  726  .bi_interface-bulleye { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead4;&nbsp;'); }\n  ...\n  738  .bi_interface-cloud-upload { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae0;&nbsp;'); }\n  739  .bi_interface-cmd { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae1;&nbsp;'); }\n  740: .bi_interface-crop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae2;&nbsp;'); }\n  741  .bi_interface-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae3;&nbsp;'); }\n  742  .bi_interface-dashboard { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae4;&nbsp;'); }\n  ...\n  753  .bi_interface-hamburger { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf1;&nbsp;'); }\n  754  .bi_interface-heart { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf2;&nbsp;'); }\n  755: .bi_interface-help { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf3;&nbsp;'); }\n  756  .bi_interface-help-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf4;&nbsp;'); }\n  757  .bi_interface-home { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf5;&nbsp;'); }\n  ...\n  777  .bi_interface-places-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb09;&nbsp;'); }\n  778  .bi_interface-plus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0a;&nbsp;'); }\n  779: .bi_interface-popup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0b;&nbsp;'); }\n  780  .bi_interface-power { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0c;&nbsp;'); }\n  781  .bi_interface-refresh { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0d;&nbsp;'); }\n  ...\n  802  .bi_interface-thumbnail { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb22;&nbsp;'); }\n  803  .bi_interface-tick { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb23;&nbsp;'); }\n  804: .bi_interface-top { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb24;&nbsp;'); }\n  805  .bi_interface-top-k { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb25;&nbsp;'); }\n  806  .bi_interface-top-r { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb26;&nbsp;'); }\n  ...\n  845  .bi_interface-arrow-right-circle { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb4d;&nbsp;'); }\n  846  .bi_interface-arrow-right-t { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb4e;&nbsp;'); }\n  847: .bi_interface-arrow-top { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb4f;&nbsp;'); }\n  848  .bi_interface-arrow-top-circle { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb50;&nbsp;'); }\n  849  .bi_animal-dog-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb51;&nbsp;'); }\n\n/Users/miguel/Diinner/app/assets/stylesheets/budicon/budicon-ie7.scss:\n   22  .bi_animal-pig { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe809;&nbsp;'); }\n   23  .bi_animal-pig-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80a;&nbsp;'); }\n   24: .bi_animal-sheep { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80b;&nbsp;'); }\n   25: .bi_animal-shrimp { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80c;&nbsp;'); }\n   26  .bi_animal-wolf { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80d;&nbsp;'); }\n   27  .bi_animal-bull { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80e;&nbsp;'); }\n   ..\n   51  .bi_com-group-bubble-c { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe826;&nbsp;'); }\n   52  .bi_com-group-bubble-d { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe827;&nbsp;'); }\n   53: .bi_com-help { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe828;&nbsp;'); }\n   54  .bi_com-help-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe829;&nbsp;'); }\n   55  .bi_com-megaphone { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe82a;&nbsp;'); }\n   ..\n  172  .bi_media-video { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe89f;&nbsp;'); }\n  173  .bi_media-video-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a0;&nbsp;'); }\n  174: .bi_media-video-clip { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a1;&nbsp;'); }\n  175  .bi_media-video-r { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a2;&nbsp;'); }\n  176  .bi_business-tie { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8a3;&nbsp;'); }\n  ...\n  210  .bi_ecommerce-shirt-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c5;&nbsp;'); }\n  211  .bi_ecommerce-shoes { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c6;&nbsp;'); }\n  212: .bi_ecommerce-shop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c7;&nbsp;'); }\n  213  .bi_ecommerce-shopcart { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c8;&nbsp;'); }\n  214  .bi_ecommerce-shopcart-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe8c9;&nbsp;'); }\n  ...\n  279  .bi_building-sofa-twin { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90a;&nbsp;'); }\n  280  .bi_building-sofa-twin-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90b;&nbsp;'); }\n  281: .bi_building-table-lamp { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90c;&nbsp;'); }\n  282  .bi_building-table-lamp-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90d;&nbsp;'); }\n  283  .bi_building-tower { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90e;&nbsp;'); }\n  ...\n  309  .bi_beverage-coffee-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe928;&nbsp;'); }\n  310  .bi_beverage-coffee-b { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe929;&nbsp;'); }\n  311: .bi_beverage-coffee-cup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe92a;&nbsp;'); }\n  312  .bi_beverage-coffee-cup-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe92b;&nbsp;'); }\n  313  .bi_beverage-cokctail { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe92c;&nbsp;'); }\n  ...\n  318  .bi_beverage-tea { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe931;&nbsp;'); }\n  319  .bi_beverage-tea-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe932;&nbsp;'); }\n  320: .bi_beverage-tea-cup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe933;&nbsp;'); }\n  321  .bi_beverage-tea-cup-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe934;&nbsp;'); }\n  322  .bi_beverage-water { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe935;&nbsp;'); }\n  ...\n  355  .bi_kitchen-hood-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe956;&nbsp;'); }\n  356  .bi_kitchen-jam { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe957;&nbsp;'); }\n  357: .bi_kitchen-ketchup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe958;&nbsp;'); }\n  358  .bi_kitchen-leaf { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe959;&nbsp;'); }\n  359  .bi_kitchen-microwave { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe95a;&nbsp;'); }\n  ...\n  444  .bi_location-avenue { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9af;&nbsp;'); }\n  445  .bi_location-compass { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b0;&nbsp;'); }\n  446: .bi_location-map { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b1;&nbsp;'); }\n  447  .bi_location-pin { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b2;&nbsp;'); }\n  448  .bi_location-pin-blank { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b3;&nbsp;'); }\n  449  .bi_location-pin-check { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b4;&nbsp;'); }\n  450: .bi_location-pin-map { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b5;&nbsp;'); }\n  451  .bi_location-pin-map-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b6;&nbsp;'); }\n  452  .bi_location-pin-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9b7;&nbsp;'); }\n  ...\n  467  .bi_tool-headphone { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c6;&nbsp;'); }\n  468  .bi_tool-headphone-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c7;&nbsp;'); }\n  469: .bi_tool-laptop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c8;&nbsp;'); }\n  470  .bi_tool-magic-wand { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9c9;&nbsp;'); }\n  471  .bi_tool-magic-wand-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ca;&nbsp;'); }\n  ...\n  504  .bi_transport-car-b { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9eb;&nbsp;'); }\n  505  .bi_transport-car-c { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ec;&nbsp;'); }\n  506: .bi_transport-ship { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ed;&nbsp;'); }\n  507  .bi_transport-train { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ee;&nbsp;'); }\n  508  .bi_transport-truck { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe9ef;&nbsp;'); }\n  ...\n  529  .bi_user-single-a-check { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea04;&nbsp;'); }\n  530  .bi_user-single-a-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea05;&nbsp;'); }\n  531: .bi_user-single-a-group { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea06;&nbsp;'); }\n  532  .bi_user-single-a-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea07;&nbsp;'); }\n  533  .bi_user-single-a-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea08;&nbsp;'); }\n  ...\n  541  .bi_user-alt-check { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea10;&nbsp;'); }\n  542  .bi_user-alt-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea11;&nbsp;'); }\n  543: .bi_user-alt-group { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea12;&nbsp;'); }\n  544  .bi_user-alt-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea13;&nbsp;'); }\n  545  .bi_user-alt-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea14;&nbsp;'); }\n  ...\n  548  .bi_user-female { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea17;&nbsp;'); }\n  549  .bi_user-female-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea18;&nbsp;'); }\n  550: .bi_user-female-group { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea19;&nbsp;'); }\n  551  .bi_user-female-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea1a;&nbsp;'); }\n  552  .bi_user-female-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea1b;&nbsp;'); }\n  ...\n  592  .bi_web-menu-collapse-left { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea43;&nbsp;'); }\n  593  .bi_web-menu-collapse-right { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea44;&nbsp;'); }\n  594: .bi_web-menu-collapse-up { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea45;&nbsp;'); }\n  595  .bi_web-reading-list { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea46;&nbsp;'); }\n  596  .bi_web-report { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea47;&nbsp;'); }\n  ...\n  643  .bi_logo-rdio { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea76;&nbsp;'); }\n  644  .bi_logo-squarespace { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea77;&nbsp;'); }\n  645: .bi_logo-squareup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea78;&nbsp;'); }\n  646  .bi_logo-twitter { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea79;&nbsp;'); }\n  647  .bi_misc-one-click { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xea7a;&nbsp;'); }\n  ...\n  691  .bi_music-speaker { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa6;&nbsp;'); }\n  692  .bi_music-speaker-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa7;&nbsp;'); }\n  693: .bi_music-stop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa8;&nbsp;'); }\n  694  .bi_music-stop-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaa9;&nbsp;'); }\n  695  .bi_volume-high { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaaa;&nbsp;'); }\n  ...\n  733  .bi_interface-box-right-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead0;&nbsp;'); }\n  734  .bi_interface-box-tick { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead1;&nbsp;'); }\n  735: .bi_interface-box-top { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead2;&nbsp;'); }\n  736  .bi_interface-box-top-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead3;&nbsp;'); }\n  737  .bi_interface-bulleye { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xead4;&nbsp;'); }\n  ...\n  749  .bi_interface-cloud-upload { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae0;&nbsp;'); }\n  750  .bi_interface-cmd { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae1;&nbsp;'); }\n  751: .bi_interface-crop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae2;&nbsp;'); }\n  752  .bi_interface-cross { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae3;&nbsp;'); }\n  753  .bi_interface-dashboard { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeae4;&nbsp;'); }\n  ...\n  764  .bi_interface-hamburger { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf1;&nbsp;'); }\n  765  .bi_interface-heart { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf2;&nbsp;'); }\n  766: .bi_interface-help { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf3;&nbsp;'); }\n  767  .bi_interface-help-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf4;&nbsp;'); }\n  768  .bi_interface-home { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeaf5;&nbsp;'); }\n  ...\n  788  .bi_interface-places-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb09;&nbsp;'); }\n  789  .bi_interface-plus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0a;&nbsp;'); }\n  790: .bi_interface-popup { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0b;&nbsp;'); }\n  791  .bi_interface-power { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0c;&nbsp;'); }\n  792  .bi_interface-refresh { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb0d;&nbsp;'); }\n  ...\n  813  .bi_interface-thumbnail { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb22;&nbsp;'); }\n  814  .bi_interface-tick { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb23;&nbsp;'); }\n  815: .bi_interface-top { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb24;&nbsp;'); }\n  816  .bi_interface-top-k { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb25;&nbsp;'); }\n  817  .bi_interface-top-r { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb26;&nbsp;'); }\n  ...\n  856  .bi_interface-arrow-right-circle { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb4d;&nbsp;'); }\n  857  .bi_interface-arrow-right-t { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb4e;&nbsp;'); }\n  858: .bi_interface-arrow-top { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb4f;&nbsp;'); }\n  859  .bi_interface-arrow-top-circle { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb50;&nbsp;'); }\n  860  .bi_animal-dog-a { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb51;&nbsp;'); }\n\n/Users/miguel/Diinner/app/assets/stylesheets/budicon/budicon.scss:\n   10  }\n   11  /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */\n   12: /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */\n   13  /*\n   14  @media screen and (-webkit-min-device-pixel-ratio:0) {\n   ..\n   37    text-transform: none;\n   38       \n   39:   /* fix buttons height, for twitter bootstrap */\n   40    line-height: 1em;\n   41   \n\n/Users/miguel/Diinner/app/cells/reservation/user_show.slim:\n   27      span.bold-label STATUS \n   28      = status\n   29:   p == cancel_link\n   30:   p == evaluate_link\n\n/Users/miguel/Diinner/app/cells/reservation_cell.rb:\n   46  \n   47    def validate_link\n   48:     p model.paid?\n   49      if model.is_owned_by?(current_restaurant) && model.paid?\n   50        if !model.ticket_valid?\n\n/Users/miguel/Diinner/app/cells/test/row.slim:\n    1  tr\n    2    td\n    3:     p == show_link\n    4    td\n    5:     p = cl_image model.option_A, 125, 125\n    6:     p = model.caption_A\n    7    td\n    8:     p = cl_image model.option_B, 125, 125\n    9:     p = model.caption_B\n   10    td\n   11      ul\n\n/Users/miguel/Diinner/app/inputs/date_picker_input.rb:\n    4      set_value_html_option\n    5  \n    6:     template.content_tag :div, class: 'input-group date datetimepicker' do\n    7        input = super(wrapper_options) # leave StringInput do the real rendering\n    8        input + input_button\n\n/Users/miguel/Diinner/app/views/devise/registrations/edit.slim:\n    9      \n   10          - if devise_mapping.confirmable? && resource.pending_reconfirmation?\n   11:           p | Currently waiting confirmation for: \n   12              = resource.unconfirmed_email\n   13      \n\n/Users/miguel/Diinner/app/views/users/reservations/no_dinners.slim:\n    1: p There are no diinners matching your search criteria\n\n/Users/miguel/Diinner/app/views/users/reservations/off_the_clock.slim:\n    1: p You can only reserve Last Minute dinners from 9h00 to 18h00\n\n69 matches across 12 files\n\n\nSearching 323 files for \"I should be notified that there are no last minute dinners\"\n\n0 matches across 0 files\n\n\nSearching 448 files for \"I should be notified that there are no last minute dinners\"\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb:\n  128  end\n  129  \n  130: Then(/^I should be notified that there are no last minute dinners$/) do\n  131     click_on \"Last minute diinners\"\n  132     expect(page).to have_content \"There are no diinners matching your search criteria\"\n\n/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature:\n   11    Scenario:\n   12      Given There are no last minute diinners\n   13:     Then I should be notified that there are no last minute dinners\n   14  \n   15    @user_cannot_reserve_dinners_off_the_clock\n\n2 matches across 2 files\n\n\nSearching 448 files for \"When I reserve a last minute diinner with error\"\n\n/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature:\n   52      Given There are some last minute diinners\n   53      Given They have been a reservation\n   54:     When I reserve a last minute diinner with error\n   55      Then I should be notified that my last minute plan is cancelled\n   56      And The other user can see the pending last minute reservation\n\n1 match in 1 file\n\n\nSearching 448 files for \"I reserve a last minute diinner with error\"\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb:\n   30  end\n   31  \n   32: When(/^I reserve a last minute diinner with error$/) do\n   33    click_on \"Last minute diinners\"\n   34    click_on \"Reserve\"\n\n/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature:\n   52      Given There are some last minute diinners\n   53      Given They have been a reservation\n   54:     When I reserve a last minute diinner with error\n   55      Then I should be notified that my last minute plan is cancelled\n   56      And The other user can see the pending last minute reservation\n\n2 matches across 2 files\n\n\nSearching 448 files for \"I reserve a last minute diinner with error\"\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb:\n   30  end\n   31  \n   32: When(/^I reserve a last minute diinner with error$/) do\n   33    click_on \"Last minute diinners\"\n   34    click_on \"Reserve\"\n\n/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature:\n   52      Given There are some last minute diinners\n   53      Given They have been a reservation\n   54:     When I reserve a last minute diinner with error\n   55      Then I should be notified that my last minute plan is cancelled\n   56      And The other user can see the pending last minute reservation\n\n2 matches across 2 files\n\n\nSearching 448 files for \"I should be notified that I cannot reserve dinners\"\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb:\n  134  end\n  135  \n  136: Then(/^I should be notified that I cannot reserve dinners$/) do\n  137     click_on \"Last minute diinners\"\n  138     expect(page).to have_content \"You can only reserve Last Minute dinners from 9h00 to 18h00\"\n\n/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature:\n   17      Given There are some last minute diinners\n   18      And it is off the clock\n   19:     Then I should be notified that I cannot reserve dinners\n   20  \n   21    @user_reserves_a_last_minute_diinner_pending\n\n2 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 60009,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb",
-			"settings":
-			{
-				"buffer_size": 1670,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "features/step_definitions/user/user_reserve_table.steps.rb",
-			"settings":
-			{
-				"buffer_size": 6193,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -378,10 +328,18 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/db/seeds.rb",
+		"/Users/miguel/Diinner/app/views/users/reservations/new.slim",
+		"/Users/miguel/Diinner/app/views/users/reservations/credit_card_form.slim",
+		"/Users/miguel/Diinner/app/views/admin/tests/_form.slim",
+		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table.steps.rb",
+		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb",
+		"/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature",
+		"/Users/miguel/Diinner/app/views/users/reservations/new_last_minute.slim",
+		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/search_last_minute.slim",
 		"/Users/miguel/Diinner/app/controllers/users/reservations_controller.rb",
 		"/Users/miguel/Diinner/config/routes.rb",
-		"/Users/miguel/Diinner/app/views/users/reservations/new.slim",
 		"/Users/miguel/Diinner/app/services/suggestion_engine.rb",
 		"/Users/miguel/Diinner/features/user/user_reserve_table.feature",
 		"/Users/miguel/Diinner/app/cells/reservation_cell.rb",
@@ -393,12 +351,10 @@
 		"/Users/miguel/Diinner/app/views/users/users/_form_fields.slim",
 		"/Users/miguel/Diinner/app/models/table.rb",
 		"/Users/miguel/Diinner/app/cells/reservation/user_show.slim",
-		"/Users/miguel/Diinner/db/seeds.rb",
 		"/Users/miguel/Diinner/app/models/preference.rb",
 		"/Users/miguel/Diinner/factories/test.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_does_test_steps.rb",
 		"/Users/miguel/Diinner/spec/models/affinity_spec.rb",
-		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table.steps.rb",
 		"/Users/miguel/Diinner/app/cells/reservation/suggestion.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/admin_show.slim",
 		"/Users/miguel/Diinner/app/models/reservation.rb",
@@ -408,7 +364,6 @@
 		"/Users/miguel/Diinner/app/views/admin/tests/index.slim",
 		"/Users/miguel/Diinner/features/admin/admin_manage_tests.feature",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_tests.rb",
-		"/Users/miguel/Diinner/app/views/admin/tests/_form.slim",
 		"/Users/miguel/Diinner/app/models/test.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/tests_controller.rb",
 		"/Users/miguel/Diinner/app/cells/test/row.slim",
@@ -431,7 +386,6 @@
 		"/Users/miguel/Diinner/features/restaurant/restaurant_inspect_reservations.feature",
 		"/Users/miguel/Diinner/Gemfile",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_cancellations_steps.rb",
-		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 		"/Users/miguel/Diinner/app/cells/menu_cell.rb",
 		"/Users/miguel/Diinner/app/cells/payment/restaurant_row.slim",
 		"/Users/miguel/Diinner/app/views/restaurants/payments/index.slim",
@@ -461,7 +415,6 @@
 		"/Users/miguel/Diinner/app/views/users/notifications/index.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_cancel.slim",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_profile_steps.rb",
-		"/Users/miguel/Diinner/app/views/users/reservations/credit_card_form.slim",
 		"/Users/miguel/Diinner/app/views/restaurants/restaurants/show.slim",
 		"/Users/miguel/Diinner/app/assets/javascripts/application.js",
 		"/Users/miguel/Diinner/app/controllers/admin/cities_controller.rb",
@@ -483,7 +436,6 @@
 		"/Users/miguel/Diinner/features/admin/admin_manage_tables.feature",
 		"/Users/miguel/Diinner/config/initializers/public_activity.rb",
 		"/Users/miguel/Diinner/app/models/admin.rb",
-		"/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature",
 		"/Users/miguel/Diinner/app/views/public_activity/table/_full.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_full.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/table/_confirm.slim",
@@ -503,9 +455,7 @@
 		"/Users/miguel/Diinner/app/controllers/admin/restaurants_controller.rb",
 		"/Users/miguel/Diinner/app/models/concerns/destroy_activities.rb",
 		"/Users/miguel/Diinner/app/cells/restaurant_cell.rb",
-		"/Users/miguel/Diinner/spec/spec_helper.rb",
-		"/Users/miguel/Diinner/features/support/env.rb",
-		"/Users/miguel/Diinner/app/views/restaurants/notifications/index.slim"
+		"/Users/miguel/Diinner/spec/spec_helper.rb"
 	],
 	"find":
 	{
@@ -513,7 +463,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 105.0,
 		"where_history":
 		[
 			"",
@@ -533,6 +483,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"user_search_last_minute_tables_path",
+			"javascript",
 			"I should be notified that I cannot reserve dinners",
 			"I reserve a last minute diinner with error",
 			"When I reserve a last minute diinner with error",
@@ -658,9 +610,7 @@
 			"create_activity",
 			"activity",
 			"save_and_open_page",
-			"remove_activities",
-			"I should not see the restaurant in the list of restaurants",
-			"@delete_restaurant"
+			"remove_activities"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -695,1057 +645,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/views/users/reservations/new_last_minute.slim",
-					"settings":
-					{
-						"buffer_size": 687,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								54,
-								54
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "features/user/user_reserve_a_last_minute_diinner.feature",
-					"settings":
-					{
-						"buffer_size": 2554,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								312,
-								370
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Cucumber/Cucumber Plain Text Feature.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
-					"settings":
-					{
-						"buffer_size": 5420,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4882,
-								4882
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2726.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"settings":
-					{
-						"buffer_size": 60009,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										112,
-										114
-									],
-									[
-										220,
-										222
-									],
-									[
-										409,
-										411
-									],
-									[
-										563,
-										565
-									],
-									[
-										706,
-										708
-									],
-									[
-										825,
-										827
-									],
-									[
-										919,
-										921
-									],
-									[
-										1044,
-										1046
-									],
-									[
-										1175,
-										1177
-									],
-									[
-										1411,
-										1413
-									],
-									[
-										1655,
-										1657
-									],
-									[
-										1681,
-										1683
-									],
-									[
-										1781,
-										1783
-									],
-									[
-										1819,
-										1821
-									],
-									[
-										1868,
-										1870
-									],
-									[
-										1911,
-										1913
-									],
-									[
-										1960,
-										1962
-									],
-									[
-										2159,
-										2161
-									],
-									[
-										2483,
-										2485
-									],
-									[
-										2660,
-										2662
-									],
-									[
-										2793,
-										2795
-									],
-									[
-										2908,
-										2910
-									],
-									[
-										3386,
-										3388
-									],
-									[
-										3485,
-										3487
-									],
-									[
-										3754,
-										3756
-									],
-									[
-										3920,
-										3922
-									],
-									[
-										4213,
-										4215
-									],
-									[
-										4525,
-										4527
-									],
-									[
-										4807,
-										4809
-									],
-									[
-										5158,
-										5160
-									],
-									[
-										5387,
-										5389
-									],
-									[
-										5706,
-										5708
-									],
-									[
-										5979,
-										5981
-									],
-									[
-										6073,
-										6075
-									],
-									[
-										6378,
-										6380
-									],
-									[
-										6616,
-										6618
-									],
-									[
-										6876,
-										6878
-									],
-									[
-										7153,
-										7155
-									],
-									[
-										7548,
-										7550
-									],
-									[
-										7720,
-										7722
-									],
-									[
-										7945,
-										7947
-									],
-									[
-										8263,
-										8265
-									],
-									[
-										8381,
-										8383
-									],
-									[
-										8467,
-										8469
-									],
-									[
-										8647,
-										8649
-									],
-									[
-										8727,
-										8729
-									],
-									[
-										8991,
-										8993
-									],
-									[
-										9205,
-										9207
-									],
-									[
-										9368,
-										9370
-									],
-									[
-										9627,
-										9629
-									],
-									[
-										9845,
-										9847
-									],
-									[
-										10200,
-										10202
-									],
-									[
-										10579,
-										10581
-									],
-									[
-										10749,
-										10751
-									],
-									[
-										10829,
-										10831
-									],
-									[
-										11049,
-										11051
-									],
-									[
-										11089,
-										11091
-									],
-									[
-										11505,
-										11507
-									],
-									[
-										11823,
-										11825
-									],
-									[
-										11895,
-										11897
-									],
-									[
-										12042,
-										12044
-									],
-									[
-										12634,
-										12636
-									],
-									[
-										12664,
-										12666
-									],
-									[
-										12705,
-										12707
-									],
-									[
-										12737,
-										12739
-									],
-									[
-										12945,
-										12947
-									],
-									[
-										13177,
-										13179
-									],
-									[
-										13440,
-										13442
-									],
-									[
-										13682,
-										13684
-									],
-									[
-										13732,
-										13734
-									],
-									[
-										13769,
-										13771
-									],
-									[
-										13805,
-										13807
-									],
-									[
-										13846,
-										13848
-									],
-									[
-										13895,
-										13897
-									],
-									[
-										13994,
-										13996
-									],
-									[
-										14113,
-										14115
-									],
-									[
-										14324,
-										14326
-									],
-									[
-										14367,
-										14369
-									],
-									[
-										14503,
-										14505
-									],
-									[
-										14545,
-										14547
-									],
-									[
-										14696,
-										14698
-									],
-									[
-										14744,
-										14746
-									],
-									[
-										14776,
-										14778
-									],
-									[
-										14963,
-										14965
-									],
-									[
-										14998,
-										15000
-									],
-									[
-										15046,
-										15048
-									],
-									[
-										15236,
-										15238
-									],
-									[
-										15271,
-										15273
-									],
-									[
-										15299,
-										15301
-									],
-									[
-										15461,
-										15463
-									],
-									[
-										15742,
-										15744
-									],
-									[
-										15954,
-										15956
-									],
-									[
-										16002,
-										16004
-									],
-									[
-										16037,
-										16039
-									],
-									[
-										16071,
-										16073
-									],
-									[
-										16111,
-										16113
-									],
-									[
-										16291,
-										16293
-									],
-									[
-										16412,
-										16414
-									],
-									[
-										16669,
-										16671
-									],
-									[
-										16778,
-										16780
-									],
-									[
-										16961,
-										16963
-									],
-									[
-										17302,
-										17304
-									],
-									[
-										17564,
-										17566
-									],
-									[
-										17880,
-										17882
-									],
-									[
-										18103,
-										18105
-									],
-									[
-										18367,
-										18369
-									],
-									[
-										18476,
-										18478
-									],
-									[
-										18545,
-										18547
-									],
-									[
-										18778,
-										18780
-									],
-									[
-										19019,
-										19021
-									],
-									[
-										19104,
-										19106
-									],
-									[
-										19292,
-										19294
-									],
-									[
-										19484,
-										19486
-									],
-									[
-										19509,
-										19511
-									],
-									[
-										19827,
-										19829
-									],
-									[
-										19912,
-										19914
-									],
-									[
-										20088,
-										20090
-									],
-									[
-										20138,
-										20140
-									],
-									[
-										20329,
-										20331
-									],
-									[
-										20414,
-										20416
-									],
-									[
-										20647,
-										20649
-									],
-									[
-										20693,
-										20695
-									],
-									[
-										20729,
-										20731
-									],
-									[
-										20770,
-										20772
-									],
-									[
-										20910,
-										20912
-									],
-									[
-										21085,
-										21087
-									],
-									[
-										21267,
-										21269
-									],
-									[
-										21439,
-										21441
-									],
-									[
-										21709,
-										21711
-									],
-									[
-										22042,
-										22044
-									],
-									[
-										22304,
-										22306
-									],
-									[
-										22605,
-										22607
-									],
-									[
-										22816,
-										22818
-									],
-									[
-										22956,
-										22958
-									],
-									[
-										23094,
-										23096
-									],
-									[
-										23232,
-										23234
-									],
-									[
-										23462,
-										23464
-									],
-									[
-										23779,
-										23781
-									],
-									[
-										24118,
-										24120
-									],
-									[
-										24366,
-										24368
-									],
-									[
-										24491,
-										24493
-									],
-									[
-										24622,
-										24624
-									],
-									[
-										25029,
-										25031
-									],
-									[
-										25223,
-										25225
-									],
-									[
-										25594,
-										25596
-									],
-									[
-										25711,
-										25713
-									],
-									[
-										26303,
-										26305
-									],
-									[
-										26892,
-										26894
-									],
-									[
-										27489,
-										27491
-									],
-									[
-										28110,
-										28112
-									],
-									[
-										28724,
-										28726
-									],
-									[
-										29330,
-										29332
-									],
-									[
-										29928,
-										29930
-									],
-									[
-										30526,
-										30528
-									],
-									[
-										31006,
-										31008
-									],
-									[
-										31609,
-										31611
-									],
-									[
-										32211,
-										32213
-									],
-									[
-										32824,
-										32826
-									],
-									[
-										33429,
-										33431
-									],
-									[
-										34027,
-										34029
-									],
-									[
-										34651,
-										34653
-									],
-									[
-										35241,
-										35243
-									],
-									[
-										35831,
-										35833
-									],
-									[
-										36436,
-										36438
-									],
-									[
-										37047,
-										37049
-									],
-									[
-										37655,
-										37657
-									],
-									[
-										38258,
-										38260
-									],
-									[
-										38862,
-										38864
-									],
-									[
-										39488,
-										39490
-									],
-									[
-										40152,
-										40154
-									],
-									[
-										40269,
-										40271
-									],
-									[
-										40861,
-										40863
-									],
-									[
-										41450,
-										41452
-									],
-									[
-										42047,
-										42049
-									],
-									[
-										42668,
-										42670
-									],
-									[
-										43282,
-										43284
-									],
-									[
-										43888,
-										43890
-									],
-									[
-										44486,
-										44488
-									],
-									[
-										45084,
-										45086
-									],
-									[
-										45564,
-										45566
-									],
-									[
-										46167,
-										46169
-									],
-									[
-										46769,
-										46771
-									],
-									[
-										47382,
-										47384
-									],
-									[
-										47987,
-										47989
-									],
-									[
-										48585,
-										48587
-									],
-									[
-										49209,
-										49211
-									],
-									[
-										49799,
-										49801
-									],
-									[
-										50389,
-										50391
-									],
-									[
-										50994,
-										50996
-									],
-									[
-										51605,
-										51607
-									],
-									[
-										52213,
-										52215
-									],
-									[
-										52816,
-										52818
-									],
-									[
-										53420,
-										53422
-									],
-									[
-										54046,
-										54048
-									],
-									[
-										54648,
-										54650
-									],
-									[
-										54842,
-										54844
-									],
-									[
-										55008,
-										55010
-									],
-									[
-										55034,
-										55036
-									],
-									[
-										55153,
-										55155
-									],
-									[
-										55353,
-										55355
-									],
-									[
-										55391,
-										55393
-									],
-									[
-										55440,
-										55442
-									],
-									[
-										55483,
-										55485
-									],
-									[
-										55532,
-										55534
-									],
-									[
-										55731,
-										55733
-									],
-									[
-										56055,
-										56057
-									],
-									[
-										56232,
-										56234
-									],
-									[
-										56365,
-										56367
-									],
-									[
-										56787,
-										56845
-									],
-									[
-										57154,
-										57212
-									],
-									[
-										57566,
-										57613
-									],
-									[
-										57996,
-										58038
-									],
-									[
-										58310,
-										58352
-									],
-									[
-										58742,
-										58784
-									],
-									[
-										59056,
-										59098
-									],
-									[
-										59485,
-										59535
-									],
-									[
-										59870,
-										59920
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								59526,
-								59526
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 8,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 32430.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "features/step_definitions/user/user_reserve_a_last_minute_dinner_with_errors_steps.rb",
-					"settings":
-					{
-						"buffer_size": 1670,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1154,
-								1115
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 426.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "features/step_definitions/user/user_reserve_table.steps.rb",
-					"settings":
-					{
-						"buffer_size": 6193,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2539,
-								2539
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Cucumber/Cucumber Steps.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1599.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1794,6 +695,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"seed",
+				"db/seeds.rb"
+			],
 			[
 				"step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 				"features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb"
@@ -1856,10 +761,6 @@
 			],
 			[
 				"see",
-				"db/seeds.rb"
-			],
-			[
-				"seed",
 				"db/seeds.rb"
 			],
 			[
