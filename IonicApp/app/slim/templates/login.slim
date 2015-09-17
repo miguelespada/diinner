@@ -1,9 +1,11 @@
 ion-view title="Login" hide-back-button="true" hide-nav-bar="true" ng-controller="LoginCtrl" cache-view="false"
-  ion-content
+  ion-content.content-with-background
     br
     br
     br
     div#login-container
+      div.login-logo-container
+        img src="images/logo-yellow.png"
       div
         button.row.login-facebook ng-disabled="loading" ng-click="loginWithFacebook()"
           i.icon.ion-social-facebook.col-10
