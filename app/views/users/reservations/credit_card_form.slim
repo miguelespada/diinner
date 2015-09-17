@@ -27,6 +27,19 @@ div
       = label_tag(:experition, "Expiration (MM/YYYY)")
       = text_field_tag :exp_month, nil, name: nil, size: 2
       = text_field_tag :exp_year, nil, name: nil, size: 4
-    = check_box_tag :terms_and_conditions, :id="accept_terms"
+    = check_box_tag :terms_and_conditions
     = label_tag "I accept the terms and conditions"
     = submit_tag "Confirm"
+
+javascript:
+
+  $( "#new_reservation" ).submit(function( event ) {
+     if(!$("#terms_and_conditions").is(":checked")){
+      alert('You must accept terms of service.');
+      return false;
+    }
+    else{
+      return true
+    }
+  });
+
