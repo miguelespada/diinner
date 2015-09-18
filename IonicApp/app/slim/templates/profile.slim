@@ -6,7 +6,7 @@ ion-view title="My Profile" ng-controller="ProfileCtrl" cache-view="false"
           i.icon.budicon.bi_interface-heart
           | Diinner preferences
           i.icon.ion-ios-arrow-right
-      ion-item.item-icon-left.item-icon-right
+      ion-item.item-icon-left.item-icon-right ng-href="#/test"
         span
           i.icon.budicon.bi_doc-paper-line
           | Test
@@ -22,10 +22,11 @@ ion-view title="My Profile" ng-controller="ProfileCtrl" cache-view="false"
           | Share Diinner
           i.icon.ion-ios-arrow-right
       ion-item.item.item-divider
-      ion-item.item-icon-left
+      ion-item.item-icon-left.item-icon-right ng-click="logout()"
+        span
         #logout-item.text-custom-red
           i.icon.budicon.bi_interface-logout-a
-          input#log-out-button.text-custom-red type="submit" ng-click="logout()" value="Logout"
+          .text-custom-red Logout
 
 
 
