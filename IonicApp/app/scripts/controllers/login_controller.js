@@ -5,18 +5,21 @@ dinnerApp.controller('LoginCtrl',
     '$scope',
     '$state',
     'UserManager',
+    'LoadingService',
     'auth',
     function($scope,
              $state,
              $userManager,
-             auth) {
+             $loadingService,
+             auth
+    ) {
 
       if(window.localStorage.getItem("user")){
         $state.go('user');
       }
 
       $scope.login = function (connection) {
-        $scope.loading = true;
+        $loadingService.loading(true);
         auth.signin({
           popup: true,
           popupOptions: { clearcache: true, clearsessioncache: true },
@@ -57,11 +60,11 @@ dinnerApp.controller('LoginCtrl',
             window.localStorage.setItem('user', JSON.stringify(user));
             $state.go('user');
           }
-          $scope.loading = false;
+          $loadingService.loading(false);
         });
       }
 
       function onLoginFailed() {
-        $scope.loading = false;
+        $loadingService.loading(false);
       }
 }]);

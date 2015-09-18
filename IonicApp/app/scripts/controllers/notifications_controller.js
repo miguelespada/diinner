@@ -5,16 +5,21 @@ dinnerApp.controller('NotificationsCtrl',
     '$scope',
     '$state',
     'UserManager',
+    'LoadingService',
     function($scope,
              $state,
-             $userManager) {
+             $userManager,
+             $loadingService
+    ) {
+      $scope.user = JSON.parse(window.localStorage.getItem("user"));
+      $loadingService.loading(true);
+      $userManager.getNotifications().$promise.then(function(notifications) {
+        $scope.notificationList = notifications;
+        $loadingService.loading(false);
+      });
 
-  $scope.user = JSON.parse(window.localStorage.getItem("user"));
-  $scope.notificationList = $userManager.getNotifications();
-      console.log($scope.notificationList);
-
-  $scope.getNotificationSrc = function (notificationKey) {
-    return 'templates/notifications/' + notificationKey.replace(".","_") + '.html';
-  };
+      $scope.getNotificationSrc = function (notificationKey) {
+        return 'templates/notifications/' + notificationKey.replace(".","_") + '.html';
+      };
 
 }]);

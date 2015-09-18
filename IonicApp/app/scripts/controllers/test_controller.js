@@ -5,13 +5,18 @@ dinnerApp.controller('TestCtrl',
     '$scope',
     '$state',
     'UserManager',
+    'LoadingService',
     function($scope,
              $state,
-             $userManager) {
+             $userManager,
+             $loadingService
+    ) {
       $scope.user = JSON.parse(window.localStorage.getItem("user"));
-      $scope.response = $userManager.getTest();
 
-      $scope.response.$promise.then(function(response) {
+      $loadingService.loading(true);
+      $userManager.getTest().$promise.then(function(response) {
+        $scope.response = response;
+        $loadingService.loading(false);
         if(!response.has_test){
           $state.go('profile');
         }
