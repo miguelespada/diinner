@@ -21,4 +21,8 @@ dinnerApp.controller('ReservationCtrl',
     $state.go('user');
   };
 
+  $scope.openMap = function(){
+    $state.go('map');
+  };
+
 }]);

@@ -54,6 +54,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/test",
       templateUrl: 'templates/test.html'
     })
+    .state('map', {
+      url: "/map",
+      templateUrl: 'templates/map.html'
+    })
 });
 
 

@@ -52,6 +52,10 @@ dinnerApp.controller('BackCtrl',
         if($state.is('login'))
         {
         }
+        if($state.is('map'))
+        {
+          $ionicHistory.goBack();
+        }
 
       };
 }]);

@@ -10,7 +10,7 @@ ion-view title="Reservation" ng-controller="ReservationCtrl" cache-view="false"
       ion-item
         .row
           | Affinity: {{ reservation.affinity }}
-      ion-item
+      ion-item ng-click="openMap()"
         .row
           | {{ reservation.restaurant.address }}
       ion-item
