@@ -49,25 +49,28 @@ dinnerApp.controller('MyReservationsCtrl',
 
       $loadingService.loading(true);
       $userManager.getReservations().$promise.then(function(reservations) {
-        $scope.reservationList = reservations.reservations;
-        $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
+        if (reservations) {
+          $scope.reservationList = reservations.reservations;
+          $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
 
-        angular.forEach($scope.reservationList, function(value, key) {
-          var reservation = value.reservation;
+          angular.forEach($scope.reservationList, function (value, key) {
+            var reservation = value.reservation;
 
-          if(!reservation.cancelled){
-            var date = new Date(reservation.date);
+            if (!reservation.cancelled) {
+              var date = new Date(reservation.date);
 
-            var newEvent = {
-              title: reservation.restaurant.name,
-              start: date,
-              reservation: reservation,
-              stick: true};
+              var newEvent = {
+                title: reservation.restaurant.name,
+                start: date,
+                reservation: reservation,
+                stick: true
+              };
 
-            $scope.events.push(newEvent);
-            $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
-          }
-        });
+              $scope.events.push(newEvent);
+              $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
+            }
+          });
+        }
 
         $loadingService.loading(false);
 

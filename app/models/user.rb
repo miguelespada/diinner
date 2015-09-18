@@ -124,10 +124,10 @@ class User
     @profile =  { :extraversion => 0, :educacion => 0, :freakismo => 0, :hipsterismo => 0}
     test_completed.each do |t|
       factor = t.response_is_a? ? 1 : -1
-      @profile[:extraversion] += (t.extraversion * factor)
-      @profile[:educacion] += (t.educacion * factor)
-      @profile[:freakismo] += (t.freakismo * factor)
-      @profile[:hipsterismo] += (t.hipsterismo * factor)
+      @profile[:extraversion] += ((t.extraversion || 0) * factor)
+      @profile[:educacion] += ((t.educacion || 0) * factor)
+      @profile[:freakismo] += ((t.freakismo || 0) * factor)
+      @profile[:hipsterismo] += ((t.hipsterismo || 0)* factor)
     end
     @profile
   end
