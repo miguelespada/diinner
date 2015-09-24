@@ -1,3 +1,5 @@
+/ TODO add change view method
 ion-view title="Results" ng-controller="SearchResultsCtrl" cache-view="false"
   ion-content
-    #slide-container ng-include="" src="'templates/partial/slide_results.html'"
+    #slide-container ng-show="panelShown == 'slide-results'" ng-include="" src="'templates/partial/slide_results.html'"
+    #grid-container ng-show="panelShown == 'grid-results'" ng-include="" src="'templates/partial/grid_results.html'"

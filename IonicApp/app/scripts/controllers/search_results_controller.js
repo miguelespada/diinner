@@ -6,23 +6,33 @@ dinnerApp.controller('SearchResultsCtrl',
     '$state',
     '$ionicSlideBoxDelegate',
     'SharedService',
+    'UtilService',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
-             $sharedService
+             $sharedService,
+             $utilService
     ) {
 
+      $scope.panelShown = "slide-results";
       $scope.reservationList = $sharedService.get().reservationList;
+      $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
+
+      $scope.changeViewMode = function(){
+        $scope.panelShown = $scope.panelShown == "slide-results" ? "grid-results" : "slide-results";
+      };
 
       selectReservationFromSlide($sharedService.get().selectedSlide || 0);
 
       function selectReservationFromSlide(index){
         $scope.activeSlide = index;
-        $scope.reservationSelected = $scope.reservationList[index].reservation;
-        $sharedService.set({
-          reservationSelected: $scope.reservationSelected,
-          selectedSlide: index
-        });
+        if ($scope.reservationList.length > 0){
+          $scope.reservationSelected = $scope.reservationList[index].reservation;
+          $sharedService.set({
+            reservationSelected: $scope.reservationSelected,
+            selectedSlide: index
+          });
+        }
       }
 
       $scope.slideChanged = function(index){

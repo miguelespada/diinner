@@ -51,8 +51,8 @@ dinnerApp.service('TableManager',['$resource', 'ENV', 'UserAuth0', function($res
     return $resource(ENV.apiEndPoint + '/table/search').get({user_token: $userAuth0.getToken(), filters: filters});
   };
 
-  this.searchLastMinute = function() {
-    return $resource(ENV.apiEndPoint + '/table/last_minute').get({user_token: $userAuth0.getToken()});
+  this.searchLastMinute = function(filters) {
+    return $resource(ENV.apiEndPoint + '/table/last_minute').get({user_token: $userAuth0.getToken(), filters: filters});
   };
 }]);
 
