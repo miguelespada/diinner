@@ -8,10 +8,10 @@ ion-list ng-controller="ReservationInfoCtrl"
   ion-item
     .row
       | Affinity: {{ reservation.affinity }}
-  ion-item
+  ion-item ng-show="panelShown == 'slide-results'"
     .row
       | {{ reservation.menu.name }} {{ reservation.price }}
-  ion-item
+  ion-item ng-show="panelShown == 'slide-results'"
     .row
       .col Appetizer
       .col Main

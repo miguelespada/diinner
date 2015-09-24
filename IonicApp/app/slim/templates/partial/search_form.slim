@@ -1,21 +1,25 @@
 form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
   ion-list
-    label.item.item-input ng-show="searchFormType == 'newReservation'"
+    ion-item ng-show="searchFormType == 'newReservation'"
+      | Date
       .row
-        .col
-          ion-radio name="selectedDate" ng-value="'tomorrow'" ng-model="selectedDate" Tomorrow
-        .col
-          ion-radio name="selectedDate" ng-value="'afterTomorrow'" ng-model="selectedDate" After Tomorrow
-        .col
-          ion-radio name="selectedDate" ng-value="'other'" ng-model="selectedDate" ng-show="selectedDate != 'other'" Other Day
-          input.date type="date" ng-model="filters.date" json-date="" ng-show="selectedDate == 'other'"
+        .col ng-repeat="item in dateList"
+          ion-radio id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
+            | {{ item.text }}
+      .row ng-show="filters.selectedDate == 'other'"
+        .col.col-33.col-offset-50
+          label.item.item-input
+            span.input-label  Date
+            input.date type="date" ng-model="filters.date" json-date=""
+
     ion-item
+      | Friends
       .row
         .col ng-repeat="item in friendsList"
           ion-radio id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
             | {{ item.text }}
       .row ng-repeat="friend_number in [1,2] track by $index" ng-show="friend_number <= filters.friends"
-        .col Friend {{ friend_number }}
+        h2.col.col-10 +{{ friend_number }}
         .col ng-repeat="gender in genderList"
           ion-radio name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number-1].gender"
             | {{ gender.text }}

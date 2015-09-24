@@ -73,10 +73,16 @@ dinnerApp.factory('UtilService', function(){
     return dd+'/'+mm+'/'+yyyy;
   }
 
+  function stringToDate(strDate){
+    var dateParts = strDate.split("/");
+    return new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+  }
+
   return {
     chunkInRows: chunkInRows,
     extendObject: extendObject,
     dateToString: dateToString,
+    stringToDate: stringToDate,
     dateValue: dateValue
   }
 });

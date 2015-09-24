@@ -20,8 +20,6 @@ dinnerApp.controller('SearchFormCtrl',
              $utilService
     ) {
 
-      $scope.selectedDate = "today";
-
       $scope.searchFormType = $sharedService.get().searchFormType;
 
       $scope.user = JSON.parse(window.localStorage.getItem("user"));
@@ -31,10 +29,15 @@ dinnerApp.controller('SearchFormCtrl',
         $loadingService.loading(false);
       });
 
+      $scope.dateList = [
+        { text: "Tomorrow", value: 'tomorrow' },
+        { text: "Later", value: 'other' }
+      ];
+
       $scope.friendsList = [
-        { text: "Solo", value: 0 },
-        { text: "+1", value: 1 },
-        { text: "+2", value: 2 }
+        { text: "0", value: 0 },
+        { text: "1", value: 1 },
+        { text: "2", value: 2 }
       ];
 
       $scope.genderList = [
@@ -48,30 +51,35 @@ dinnerApp.controller('SearchFormCtrl',
       }
 
       $scope.expectationList = [
-        { text: "Diinner and bed", value: 1 },
-        { text: "Diinner and party", value: 2 }
+        { text: "Bed", value: 1 },
+        { text: "Party", value: 2 }
       ];
 
       $scope.priceList = [ 20, 40, 60 ];
 
       $scope.filters = {
-        price: $scope.user.preference.menu_price,
-        city: $scope.user.preference.city_id,
-        companies_attributes: []
+        price: $scope.user.preference.menu_price || 20,
+        city: $scope.user.preference.city_id || $scope.cityList[0].id,
+        companies_attributes: [],
+        selectedDate: "tomorrow",
+        friends: 0
       };
 
       $scope.searchReservations = function(filters){
-        if ($scope.selectedDate != 'other'){
-          filters.date = $utilService.dateToString($utilService.dateValue($scope.selectedDate));
+
+
+        if (filters.selectedDate != 'other'){
+          filters.date = $utilService.dateToString($utilService.dateValue(filters.selectedDate));
         }
 
-        $loadingService.loading(true);
-        if($scope.searchFormType == "lastMinute"){
-          $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
-        } else {
-          $tableManager.searchTables(filters).$promise.then(handleReservationResults);
+        if($utilService.stringToDate(filters.date).getTime() > new Date().getTime()){
+          $loadingService.loading(true);
+          if($scope.searchFormType == "lastMinute"){
+            $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
+          } else {
+            $tableManager.searchTables(filters).$promise.then(handleReservationResults);
+          }
         }
-
       };
 
       function handleReservationResults(reservations){

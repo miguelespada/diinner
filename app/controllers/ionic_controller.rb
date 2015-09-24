@@ -112,7 +112,7 @@ class IonicController < ActionController::Base
 
   def last_minute
 
-    suggestionEngine = SuggestionEngine.new @current_user
+    suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
     # TODO limit search on Engine
 
     render json: {
