@@ -44,38 +44,19 @@ dinnerApp.controller('NewReservationCtrl',
 
       $scope.priceList = [ 20, 40, 60 ];
 
-      $scope.panelShown = "search-form";
-
       $scope.filters = {
         price: $scope.user.preference.menu_price,
         city: $scope.user.preference.city_id,
         companies_attributes: []
       };
 
-      $scope.activeSlide = 0;
-
       $scope.searchReservations = function(filters){
         $loadingService.loading(true);
         $tableManager.searchTables(filters).$promise.then(function(reservations) {
-          $scope.reservationList = reservations.reservations;
-          $ionicSlideBoxDelegate.update();
+          $sharedService.set({reservationList: reservations.reservations});
           $loadingService.loading(false);
-          selectReservationFromSlide(0);
+          $state.go('search_results');
         });
-        $scope.panelShown = "slide-results";
-        $ionicSlideBoxDelegate.update();
       };
 
-      function selectReservationFromSlide(index){
-        $scope.reservationSelected = $scope.reservationList[index].reservation;
-        $sharedService.set({reservationSelected: $scope.reservationSelected});
-      }
-
-      $scope.slideChanged = function(index){
-        selectReservationFromSlide(index);
-      };
-
-      $scope.reserve = function(index){
-        $state.go('payment');
-      };
 }]);

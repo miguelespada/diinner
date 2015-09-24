@@ -1,53 +1,48 @@
 ion-view title="New Reservation" ng-controller="NewReservationCtrl" cache-view="false"
   ion-content
-    #search-container ng-show="panelShown == 'search-form'"
-      form ng-submit="searchReservations(filters)"
-        ion-list
+    form ng-submit="searchReservations(filters)"
+      ion-list
+        .row
+          .col
+            ion-item
+              label.item.item-input
+                span.input-label  Date
+                input.date type="date" ng-model="filters.date" json-date=""
+          .col
+            ion-item
+              label.item.item-input
+                span.input-label  Time
+                input.time type="time" ng-model="filters.time"
+        ion-item
           .row
-            .col
-              ion-item
-                label.item.item-input
-                  span.input-label  Date
-                  input.date type="date" ng-model="filters.date" json-date=""
-            .col
-              ion-item
-                label.item.item-input
-                  span.input-label  Time
-                  input.time type="time" ng-model="filters.time"
-          ion-item
-            .row
-              ion-radio.col ng-repeat="item in friendsList" id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
-                | {{ item.text }}
-            .row ng-repeat="friend_number in [1,2] track by $index" ng-show="friend_number <= filters.friends"
-              .col Friend {{ friend_number }}
-              ion-radio.col ng-repeat="item in genderList" name="friends-gender-{{friend_number}}" ng-value="item.value" ng-model="filters.companies_attributes[$index].gender"
-                | {{ item.text }}
-              label.item.item-input.item-select.col
-                .input-label
-                  | Age
-                select.menu-price ng-model="filters.companies_attributes[$index].age" ng-options="item for item in ageList"
+            ion-radio.col ng-repeat="item in friendsList" id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
+              | {{ item.text }}
+          .row ng-repeat="friend_number in [1,2] track by $index" ng-show="friend_number <= filters.friends"
+            .col Friend {{ friend_number }}
+            ion-radio.col ng-repeat="item in genderList" name="friends-gender-{{friend_number}}" ng-value="item.value" ng-model="filters.companies_attributes[$index].gender"
+              | {{ item.text }}
+            label.item.item-input.item-select.col
+              .input-label
+                | Age
+              select.menu-price ng-model="filters.companies_attributes[$index].age" ng-options="item for item in ageList"
 
-          ion-item
-            label.item.item-input.item-select
-              .input-label
-                | City
-              select.city ng-model="filters.city"
-                option ng-repeat="item in cityList.cities" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
-          ion-item
-            label.item.item-input.item-select
-              .input-label
-                | Budget
-              select.menu-price ng-model="filters.price" ng-options="item for item in priceList"
-          ion-item
+        ion-item
+          label.item.item-input.item-select
             .input-label
-              | What do you expect of the diinner?
-            .row
-              ion-radio.col ng-repeat="item in expectationList" id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
-                | {{ item.text }}
+              | City
+            select.city ng-model="filters.city"
+              option ng-repeat="item in cityList.cities" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
+        ion-item
+          label.item.item-input.item-select
+            .input-label
+              | Budget
+            select.menu-price ng-model="filters.price" ng-options="item for item in priceList"
+        ion-item
+          .input-label
+            | What do you expect of the diinner?
+          .row
+            ion-radio.col ng-repeat="item in expectationList" id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
+              | {{ item.text }}
 
-          ion-item
-            button.button.button-full.button-calm type="submit" GO!
-
-
-
-    #slide-container ng-show="panelShown == 'slide-results'" ng-include="" src="'templates/partial/slide_results.html'"
+        ion-item
+          button.button.button-full.button-calm type="submit" GO!

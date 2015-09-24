@@ -34,6 +34,10 @@ dinnerApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/new_reservation",
       templateUrl: 'templates/new_reservation.html'
     })
+    .state('search_results', {
+      url: "/search_results",
+      templateUrl: 'templates/search_results.html'
+    })
     .state('last_minute', {
       url: "/last_minute",
       templateUrl: 'templates/last_minute.html'

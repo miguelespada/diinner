@@ -2,11 +2,20 @@
 
 dinnerApp.factory('SharedService', function() {
   var savedData = {};
+
   function set(data) {
-    savedData = data;
+    savedData = extendObject(savedData, data);
   }
+
   function get() {
     return savedData;
+  }
+
+  function extendObject(destination, source) {
+    for (var property in source) {
+      destination[property] = source[property];
+    }
+    return destination;
   }
 
   return {
