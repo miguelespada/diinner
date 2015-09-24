@@ -1,4 +1,4 @@
-div ng-show="reservationList"
+div ng-show="reservationList.length == 0"
   | No results found
 ion-slide-box active-slide="activeSlide" on-slide-changed="slideChanged(index)"
   ion-slide ng-repeat="item in reservationList track by $index"  ng-init="reservation = item.reservation" id="reservation-result-{{$index}}"

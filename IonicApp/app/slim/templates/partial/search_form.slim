@@ -1,28 +1,35 @@
 form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
   ion-list
-    ion-item
-      label.item.item-input ng-show="searchFormType == 'newReservation'"
-        span.input-label  Date
-        input.date type="date" ng-model="filters.date" json-date=""
+    label.item.item-input ng-show="searchFormType == 'newReservation'"
+      .row
+        .col
+          ion-radio name="selectedDate" ng-value="'tomorrow'" ng-model="selectedDate" Tomorrow
+        .col
+          ion-radio name="selectedDate" ng-value="'afterTomorrow'" ng-model="selectedDate" After Tomorrow
+        .col
+          ion-radio name="selectedDate" ng-value="'other'" ng-model="selectedDate" ng-show="selectedDate != 'other'" Other Day
+          input.date type="date" ng-model="filters.date" json-date="" ng-show="selectedDate == 'other'"
     ion-item
       .row
-        ion-radio.col ng-repeat="item in friendsList" id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
-          | {{ item.text }}
+        .col ng-repeat="item in friendsList"
+          ion-radio id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
+            | {{ item.text }}
       .row ng-repeat="friend_number in [1,2] track by $index" ng-show="friend_number <= filters.friends"
         .col Friend {{ friend_number }}
-        ion-radio.col ng-repeat="item in genderList" name="friends-gender-{{friend_number}}" ng-value="item.value" ng-model="filters.companies_attributes[$index].gender"
-          | {{ item.text }}
-        label.item.item-input.item-select.col
-          .input-label
-            | Age
-          select.menu-price ng-model="filters.companies_attributes[$index].age" ng-options="item for item in ageList"
+        .col ng-repeat="gender in genderList"
+          ion-radio name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number-1].gender"
+            | {{ gender.text }}
+        .col
+          label.item.item-input.item-select
+            .input-label
+              | Age
+            select.menu-price ng-model="filters.companies_attributes[friend_number-1].age" ng-options="age for age in ageList"
 
     ion-item
       label.item.item-input.item-select
         .input-label
           | City
-        select.city ng-model="filters.city"
-          option ng-repeat="item in cityList.cities" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
+        select.city ng-model="filters.city" ng-options="item.id as item.name for item in cityList"
     ion-item
       label.item.item-input.item-select
         .input-label
@@ -32,8 +39,9 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
       .input-label
         | What do you expect of the diinner?
       .row
-        ion-radio.col ng-repeat="item in expectationList" id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
-          | {{ item.text }}
+        .col ng-repeat="item in expectationList"
+          ion-radio id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
+            | {{ item.text }}
 
     ion-item
       button.button.button-full.button-calm type="submit" GO!

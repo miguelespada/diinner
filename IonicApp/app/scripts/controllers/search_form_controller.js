@@ -9,21 +9,25 @@ dinnerApp.controller('SearchFormCtrl',
     'TableManager',
     'SharedService',
     'LoadingService',
+    'UtilService',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
              $cityManager,
              $tableManager,
              $sharedService,
-             $loadingService
+             $loadingService,
+             $utilService
     ) {
+
+      $scope.selectedDate = "today";
 
       $scope.searchFormType = $sharedService.get().searchFormType;
 
       $scope.user = JSON.parse(window.localStorage.getItem("user"));
       $loadingService.loading(true);
-      $cityManager.getCities().$promise.then(function(cities) {
-        $scope.cityList = cities;
+      $cityManager.getCities().$promise.then(function(response) {
+        $scope.cityList = response.cities;
         $loadingService.loading(false);
       });
 
@@ -37,6 +41,11 @@ dinnerApp.controller('SearchFormCtrl',
         { text: "Female", value: "female" },
         { text: "Male", value: "male" }
       ];
+
+      $scope.ageList = [];
+      for (var i = 18; i < 65; i++){
+        $scope.ageList.push(i);
+      }
 
       $scope.expectationList = [
         { text: "Diinner and bed", value: 1 },
@@ -52,7 +61,10 @@ dinnerApp.controller('SearchFormCtrl',
       };
 
       $scope.searchReservations = function(filters){
-        console.log(filters);
+        if ($scope.selectedDate != 'other'){
+          filters.date = $utilService.dateToString($utilService.dateValue($scope.selectedDate));
+        }
+
         $loadingService.loading(true);
         if($scope.searchFormType == "lastMinute"){
           $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);

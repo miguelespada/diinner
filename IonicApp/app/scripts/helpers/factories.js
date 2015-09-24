@@ -1,29 +1,24 @@
 "use strict";
 
-dinnerApp.factory('SharedService', function() {
+dinnerApp.service('SharedService',['UtilService', function($utilService) {
   var savedData = {};
 
   function set(data) {
-    savedData = extendObject(savedData, data);
+    savedData = $utilService.extendObject(savedData, data);
   }
 
   function get() {
     return savedData;
   }
 
-  function extendObject(destination, source) {
-    for (var property in source) {
-      destination[property] = source[property];
-    }
-    return destination;
-  }
+
 
   return {
     set: set,
     get: get
   }
 
-});
+}]);
 
 dinnerApp.factory('UserAuth0', function () {
   function getToken() {
@@ -45,8 +40,44 @@ dinnerApp.factory('UtilService', function(){
     return newArr;
   }
 
+  function extendObject(destination, source) {
+    for (var property in source) {
+      destination[property] = source[property];
+    }
+    return destination;
+  }
+
+  function dateValue(stringValue, quantity){
+    var oneDay = 24 * 60 * 60 * 1000;
+    switch(stringValue){
+      case "today": return new Date(); break;
+      case "tomorrow": return new Date(new Date().getTime() + oneDay); break;
+      case "afterTomorrow": return new Date(new Date().getTime() + oneDay * (quantity ? 1 + quantity : 2)); break;
+      default: return new Date();
+    }
+  }
+
+  function dateToString(date){
+    var dd = date.getDate();
+    var mm = date.getMonth()+1; //January is 0!
+    var yyyy = date.getFullYear();
+
+    if(dd<10) {
+      dd='0'+dd
+    }
+
+    if(mm<10) {
+      mm='0'+mm
+    }
+
+    return dd+'/'+mm+'/'+yyyy;
+  }
+
   return {
-    chunkInRows: chunkInRows
+    chunkInRows: chunkInRows,
+    extendObject: extendObject,
+    dateToString: dateToString,
+    dateValue: dateValue
   }
 });
 
@@ -81,7 +112,6 @@ dinnerApp.factory('BackActionService',
     function goBackAction(){
 
       var newState = getBackState($ionicHistory.currentStateName());
-      console.log(newState);
       if (newState){
         newState === 'default' ? $ionicHistory.goBack() : $state.go(newState);
       }
