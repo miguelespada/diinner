@@ -1,35 +1,5 @@
 ion-view title="Reservation" ng-controller="ReservationCtrl" cache-view="false"
   ion-content
-    ion-list
-      ion-item
-        span.item.item-avatar
-          img src="{{reservation.restaurant.photo}}"
-      ion-item
-        .row
-          | {{ reservation.restaurant.name }}
-      ion-item
-        .row
-          | Affinity: {{ reservation.affinity }}
-      ion-item ng-click="openMap()"
-        .row
-          | {{ reservation.restaurant.address }}
-      ion-item
-        .row
-          | {{ reservation.menu.name }} {{ reservation.price }}
-      ion-item
-        .row
-          .col Appetizer
-          .col Main
-          .col Dessert
-          .col Drink
-        .row
-          .col
-            | {{ reservation.menu.appetizer }}
-          .col
-            | {{ reservation.menu.main_dish }}
-          .col
-            | {{ reservation.menu.dessert }}
-          .col
-            | {{ reservation.menu.drink }}
-      ion-item
-        button.button.button-full.button-calm type="submit" ng-click="cancel()" Cancel
+    div ng-include="" src="'templates/partial/reservation_info.html'"
+    ion-item
+      button.button.button-full.button-calm type="submit" ng-click="cancel()" Cancel

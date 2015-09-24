@@ -1,0 +1,28 @@
+ion-list ng-controller="ReservationInfoCtrl"
+  ion-item ng-click="openRestaurant()"
+    span.item.item-avatar
+      img src="{{reservation.restaurant.photo}}"
+  ion-item ng-click="openRestaurant()"
+    .row
+      | {{ reservation.restaurant.name }}
+  ion-item
+    .row
+      | Affinity: {{ reservation.affinity }}
+  ion-item
+    .row
+      | {{ reservation.menu.name }} {{ reservation.price }}
+  ion-item
+    .row
+      .col Appetizer
+      .col Main
+      .col Dessert
+      .col Drink
+    .row
+      .col
+        | {{ reservation.menu.appetizer }}
+      .col
+        | {{ reservation.menu.main_dish }}
+      .col
+        | {{ reservation.menu.dessert }}
+      .col
+        | {{ reservation.menu.drink }}

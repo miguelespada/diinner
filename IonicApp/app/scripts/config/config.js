@@ -4,9 +4,10 @@ dinnerApp.config(function(ENV) {
   Stripe.setPublishableKey(ENV.stripePublishableKey);
 });
 
-//dinnerApp.config(function($ionicConfigProvider) {
-//  $ionicConfigProvider.platform.android.views.transition("none");
-//});
+dinnerApp.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.views.transition("none");
+});
+
 
 dinnerApp.config(function(ENV, authProvider) {
   authProvider.init({

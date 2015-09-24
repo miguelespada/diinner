@@ -1,0 +1,13 @@
+ion-view title="Restaurant" ng-controller="RestaurantCtrl" cache-view="false"
+  ion-content
+    ion-list
+      ion-item
+        span.item.item-avatar
+          img src="{{restaurant.photo}}"
+      ion-item
+        .row
+          | {{ restaurant.name }}
+      ion-item
+        .row
+          | {{ restaurant.address }}
+    #map data-tap-disabled="true"

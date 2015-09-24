@@ -3,59 +3,20 @@
 dinnerApp.controller('BackCtrl',
   [
     '$scope',
-    '$state',
-    '$ionicHistory',
+    '$ionicPlatform',
+    'BackActionService',
     function($scope,
-             $state,
-             $ionicHistory) {
-      $scope.goBackAction = function(){
+             $ionicPlatform,
+             $backActionService
+    ) {
+      $ionicPlatform.registerBackButtonAction(function (e) {
+        console.log("backbutton pressed");
+        console.log(e);
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        $backActionService.goBackAction();
+      }, 100);
 
-        if($state.is('profile'))
-        {
-          $state.go('user');
-        }
-        if($state.is('notifications'))
-        {
-          $state.go('user');
-        }
-        if($state.is('preferences'))
-        {
-          $state.go('profile');
-        }
-        if($state.is('new_reservation'))
-        {
-          $state.go('user');
-        }
-        if($state.is('payment'))
-        {
-          $ionicHistory.goBack();
-        }
-        if($state.is('my_reservations'))
-        {
-          $state.go('user');
-        }
-        if($state.is('reservation'))
-        {
-          $state.go('my_reservations');
-        }
-        if($state.is('test'))
-        {
-          $state.go('profile');
-        }
-        if($state.is('last_minute'))
-        {
-          $state.go('user');
-        }
-        if($state.is('user'))
-        {
-        }
-        if($state.is('login'))
-        {
-        }
-        if($state.is('map'))
-        {
-          $ionicHistory.goBack();
-        }
-
-      };
+      $scope.goBackAction = $backActionService.goBackAction;
 }]);

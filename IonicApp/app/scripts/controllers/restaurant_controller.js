@@ -1,6 +1,6 @@
 "use strict";
 
-dinnerApp.controller('MapCtrl',
+dinnerApp.controller('RestaurantCtrl',
   [
     '$scope',
     'SharedService',
@@ -13,6 +13,7 @@ dinnerApp.controller('MapCtrl',
     ) {
 
       var reservation = $sharedService.get().reservationSelected;
+      $scope.restaurant = reservation.restaurant;
       var location = reservation.restaurant.address || "Madrid, Spain";
 
       function initializeWithAddress(address){

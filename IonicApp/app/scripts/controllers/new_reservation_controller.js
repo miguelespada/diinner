@@ -60,14 +60,22 @@ dinnerApp.controller('NewReservationCtrl',
           $scope.reservationList = reservations.reservations;
           $ionicSlideBoxDelegate.update();
           $loadingService.loading(false);
+          selectReservationFromSlide(0);
         });
         $scope.panelShown = "slide-results";
         $ionicSlideBoxDelegate.update();
       };
 
-      $scope.reserve = function(index){
+      function selectReservationFromSlide(index){
         $scope.reservationSelected = $scope.reservationList[index].reservation;
         $sharedService.set({reservationSelected: $scope.reservationSelected});
+      }
+
+      $scope.slideChanged = function(index){
+        selectReservationFromSlide(index);
+      };
+
+      $scope.reserve = function(index){
         $state.go('payment');
       };
 }]);
