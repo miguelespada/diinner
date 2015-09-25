@@ -42,4 +42,9 @@ dinnerApp.controller('SearchResultsCtrl',
       $scope.reserve = function(index){
         $state.go('payment');
       };
+
+      $scope.gridAction = function(index){
+        $scope.changeView();
+        $scope.slideChanged(index);
+      };
 }]);

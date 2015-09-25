@@ -117,18 +117,18 @@ class Restaurant
   end
 
   def has_city?
-    !city.nil?
+    !city.nil? and defined? city
   end
 
   def to_ionic_json
     {
-        name: self.name,
-        description: self.description,
-        phone: self.phone,
-        address: self.address,
-        contact_person: self.contact_person,
-        city: has_city? ? self.city.id.to_s : nil,
-        photo: Cloudinary::Utils.cloudinary_url(self.photo.path)
+        name: name,
+        description: description,
+        phone: phone,
+        address: address,
+        contact_person: contact_person,
+        city: has_city? ? city.id.to_s : nil,
+        photo: Cloudinary::Utils.cloudinary_url(photo.path)
 
     }
   end

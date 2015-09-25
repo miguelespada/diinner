@@ -34,13 +34,13 @@ class Menu
 
   def to_ionic_json
     {
-        name: self.name,
-        description: self.description,
-        price: self.price,
-        appetizer: self.appetizer,
-        main_dish: self.main_dish,
-        dessert: self.dessert,
-        drink: self.drink
+        name: name,
+        description: description,
+        price: price,
+        appetizer: appetizer,
+        main_dish: main_dish,
+        dessert: dessert,
+        drink: drink
     }
   end
 end

@@ -125,29 +125,29 @@ class Reservation
   end
 
   def has_menu?
-    !menu.nil?
+    !menu.nil? and defined? menu
   end
 
   def has_table?
-    !table.nil?
+    !table.nil? and defined? table
   end
 
   def has_restaurant?
-    !restaurant.nil?
+    !restaurant.nil? and defined? restaurant
   end
 
   def to_ionic_json
     {
-      id: self.id.to_s,
-      cancelled: self.cancelled?,
-      date: self.date_and_time,
-      time: self.hour,
-      price: self.price,
-      affinity: self.table.affinity,
-      restaurant: has_restaurant? ? self.restaurant.to_ionic_json : nil,
-      menu: has_menu? ? self.menu.to_ionic_json : nil,
-      table_id: has_table? ? self.table.id.to_s : nil,
-      companies: self.companies.map{ |company| {
+      id: id.to_s,
+      cancelled: cancelled?,
+      date: date_and_time,
+      time: hour,
+      price: price,
+      affinity: table.affinity,
+      restaurant: has_restaurant? ? restaurant.to_ionic_json : nil,
+      menu: has_menu? ? menu.to_ionic_json : nil,
+      table_id: has_table? ? table.id.to_s : nil,
+      companies: companies.map{ |company| {
           reservation: company.to_ionic_json
         }
       }

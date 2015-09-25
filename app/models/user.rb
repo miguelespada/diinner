@@ -36,7 +36,7 @@ class User
   end
 
   def has_preferences?
-    !preference.nil?
+    !preference.nil? and defined? preference
   end
 
   def test_pending
@@ -92,16 +92,16 @@ class User
 
   def to_ionic_json
     {
-      name: self.name,
-      email: self.email,
-      birth: self.birth,
-      image_url: self.image_url,
-      gender: self.gender,
+      name: name,
+      email: email,
+      birth: birth,
+      image_url: image_url,
+      gender: gender,
       payment: {
           has_default_card: has_default_card?,
           default_card: default_card
       },
-      preference: has_preferences? ? self.preference.to_ionic_json : nil,
+      preference: has_preferences? ? preference.to_ionic_json : nil,
       first_login: first_login?
     }
   end

@@ -107,7 +107,6 @@ dinnerApp.factory('LoadingService', function($ionicLoading, BackActionService){
   }
   function rejectedPromise(){
     loading(false);
-    BackActionService.goBackAction();
   }
 
   return {

@@ -25,15 +25,15 @@ class Preference
   end
 
   def has_city?
-    !city.nil?
+    !city.nil? and defined? city
   end
 
   def to_ionic_json
     {
-        min_age: self.min_age,
-        max_age: self.max_age,
-        city_id: self.city ? self.city.id.to_s : nil,
-        menu_price: self.menu_price
+        min_age: min_age,
+        max_age: max_age,
+        city_id: has_city? ? city.id.to_s : nil,
+        menu_price: menu_price
     }
   end
 end

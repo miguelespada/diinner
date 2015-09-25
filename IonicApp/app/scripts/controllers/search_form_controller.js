@@ -66,8 +66,11 @@ dinnerApp.controller('SearchFormCtrl',
       };
 
       $scope.searchReservations = function(filters){
+        $sharedService.set({
+          selectedSlide: 0
+        });
 
-
+        console.log($sharedService.get());
         if (filters.selectedDate != 'other'){
           filters.date = $utilService.dateToString($utilService.dateValue(filters.selectedDate));
         }

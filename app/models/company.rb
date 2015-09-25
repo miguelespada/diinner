@@ -10,9 +10,9 @@ class Company
 
   def to_ionic_json
     {
-        id: self.id,
-        gender: self.gender,
-        age: self.age
+        id: id,
+        gender: gender,
+        age: age
     }
   end
 end
