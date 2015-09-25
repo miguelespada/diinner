@@ -36,7 +36,7 @@ class User
   end
 
   def has_preferences?
-    !preference.nil? and defined? preference
+    !preference.nil? and preference.respond_to? :to_ionic_json
   end
 
   def test_pending

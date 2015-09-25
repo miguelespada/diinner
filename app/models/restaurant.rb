@@ -117,7 +117,7 @@ class Restaurant
   end
 
   def has_city?
-    !city.nil? and defined? city
+    !city.nil?
   end
 
   def to_ionic_json

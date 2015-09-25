@@ -125,15 +125,15 @@ class Reservation
   end
 
   def has_menu?
-    !menu.nil? and defined? menu
+    !menu.nil? and menu.respond_to? :to_ionic_json
   end
 
   def has_table?
-    !table.nil? and defined? table
+    !table.nil?
   end
 
   def has_restaurant?
-    !restaurant.nil? and defined? restaurant
+    !restaurant.nil? and restaurant.respond_to? :to_ionic_json
   end
 
   def to_ionic_json
