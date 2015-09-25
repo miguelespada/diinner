@@ -78,3 +78,7 @@ dinnerApp.config(function (authProvider, $httpProvider, jwtInterceptorProvider) 
 
 });
 
+dinnerApp.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.views.swipeBackEnabled(false);
+});
+
