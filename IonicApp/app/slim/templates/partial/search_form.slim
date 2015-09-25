@@ -7,7 +7,7 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
           ion-radio id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
             | {{ item.text }}
       .row ng-show="filters.selectedDate == 'other'"
-        .col.col-33.col-offset-50
+        .col.col-100
           label.item.item-input
             span.input-label  Date
             input.date type="date" ng-model="filters.date" json-date=""
