@@ -16,7 +16,7 @@ dinnerApp.controller('NotificationsCtrl',
       $userManager.getNotifications().$promise.then(function(notifications) {
         $scope.notificationList = notifications;
         $loadingService.loading(false);
-      });
+      }, $loadingService.rejectedPromise());
 
       $scope.getNotificationSrc = function (notificationKey) {
         return 'templates/notifications/' + notificationKey.replace(".","_") + '.html';

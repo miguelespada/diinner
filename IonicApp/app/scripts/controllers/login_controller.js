@@ -61,7 +61,7 @@ dinnerApp.controller('LoginCtrl',
             $state.go('user');
           }
           $loadingService.loading(false);
-        });
+        }, $loadingService.rejectedPromise());
       }
 
       function onLoginFailed() {

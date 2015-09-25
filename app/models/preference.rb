@@ -24,6 +24,10 @@ class Preference
     end
   end
 
+  def has_city?
+    !city.nil?
+  end
+
   def to_ionic_json
     {
         min_age: self.min_age,

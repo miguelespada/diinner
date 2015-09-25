@@ -87,7 +87,7 @@ dinnerApp.factory('UtilService', function(){
   }
 });
 
-dinnerApp.factory('LoadingService', function($ionicLoading){
+dinnerApp.factory('LoadingService', function($ionicLoading, BackActionService){
   var isLoading = false;
 
   function loading(newValue) {
@@ -105,9 +105,14 @@ dinnerApp.factory('LoadingService', function($ionicLoading){
 
     return isLoading;
   }
+  function rejectedPromise(){
+    loading(false);
+    BackActionService.goBackAction();
+  }
 
   return {
-    loading: loading
+    loading: loading,
+    rejectedPromise: rejectedPromise
   }
 });
 

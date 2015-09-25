@@ -20,7 +20,7 @@ dinnerApp.controller('TestCtrl',
         if(!response.has_test){
           $state.go('profile');
         }
-      });
+      }, $loadingService.rejectedPromise());
 
 
       $scope.saveTest = function(option){

@@ -124,6 +124,18 @@ class Reservation
     NotificationManager.notify_invitation_to_evaluate(object: self, to: user)
   end
 
+  def has_menu?
+    !menu.nil?
+  end
+
+  def has_table?
+    !table.nil?
+  end
+
+  def has_restaurant?
+    !restaurant.nil?
+  end
+
   def to_ionic_json
     {
       id: self.id.to_s,
@@ -132,9 +144,9 @@ class Reservation
       time: self.hour,
       price: self.price,
       affinity: self.table.affinity,
-      restaurant: self.restaurant.to_ionic_json,
-      menu: self.menu.to_ionic_json,
-      table_id: self.table.id.to_s,
+      restaurant: has_restaurant? ? self.restaurant.to_ionic_json : nil,
+      menu: has_menu? ? self.menu.to_ionic_json : nil,
+      table_id: has_table? ? self.table.id.to_s : nil,
       companies: self.companies.map{ |company| {
           reservation: company.to_ionic_json
         }

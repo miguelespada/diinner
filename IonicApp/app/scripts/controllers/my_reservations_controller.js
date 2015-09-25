@@ -74,7 +74,7 @@ dinnerApp.controller('MyReservationsCtrl',
 
         $loadingService.loading(false);
 
-      });
+      }, $loadingService.rejectedPromise());
 
       $scope.changeView = function(){
         $scope.panelShown = $scope.panelShown == 'calendar-results' ? 'grid-results' : 'calendar-results';

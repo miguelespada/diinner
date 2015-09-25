@@ -6,11 +6,13 @@ dinnerApp.controller('FirstLoginCtrl',
     '$state',
     'UserManager',
     'CityManager',
+    'LoadingService',
     function(
       $scope,
       $state,
       $userManager,
-      $cityManager
+      $cityManager,
+      $loadingService
     ) {
 
   $scope.user = JSON.parse(window.localStorage.getItem("user"));
@@ -23,13 +25,13 @@ dinnerApp.controller('FirstLoginCtrl',
   ];
 
   $scope.editUser = function(){
-    $scope.loading = true;
+    $loadingService.loading(true);
     $userManager.updateUser($scope.user).$promise.then(function(user) {
       if(user != null){
         window.localStorage.setItem('user', JSON.stringify(user));
       }
       $state.go('user');
-      $scope.loading = false;
-    });
+      $loadingService.loading(false);
+    }, $loadingService.rejectedPromise());
   };
 }]);
