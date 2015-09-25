@@ -27,7 +27,7 @@ dinnerApp.controller('SearchFormCtrl',
       $cityManager.getCities().$promise.then(function(response) {
         $scope.cityList = response.cities;
         $loadingService.loading(false);
-      }, $loadingService.rejectedPromise());
+      });
 
       $scope.dateList = [
         { text: "Tomorrow", value: 'tomorrow' },
@@ -78,9 +78,9 @@ dinnerApp.controller('SearchFormCtrl',
         if($utilService.stringToDate(filters.date).getTime() > new Date().getTime()){
           $loadingService.loading(true);
           if($scope.searchFormType == "lastMinute"){
-            $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults, $loadingService.rejectedPromise());
+            $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
           } else {
-            $tableManager.searchTables(filters).$promise.then(handleReservationResults, $loadingService.rejectedPromise());
+            $tableManager.searchTables(filters).$promise.then(handleReservationResults);
           }
         }
       };

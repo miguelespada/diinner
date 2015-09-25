@@ -21,7 +21,7 @@ dinnerApp.controller('PreferencesCtrl',
   $cityManager.getCities().$promise.then(function(cities) {
     $scope.cityList = cities;
     $loadingService.loading(false);
-  }, $loadingService.rejectedPromise());
+  });
 
 
 
@@ -40,6 +40,6 @@ dinnerApp.controller('PreferencesCtrl',
       }
       $loadingService.loading(false);
       $state.go('profile');
-    }, $loadingService.rejectedPromise());
+    });
   };
 }]);

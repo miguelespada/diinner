@@ -32,6 +32,6 @@ dinnerApp.controller('FirstLoginCtrl',
       }
       $state.go('user');
       $loadingService.loading(false);
-    }, $loadingService.rejectedPromise());
+    });
   };
 }]);
