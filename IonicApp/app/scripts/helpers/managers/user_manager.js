@@ -38,21 +38,3 @@ dinnerApp.service('UserManager',['$resource', 'ENV', function($resource, ENV) {
   };
 }]);
 
-
-dinnerApp.service('CityManager',['$resource', 'ENV', function($resource, ENV) {
-  this.getCities = function() {
-    return $resource(ENV.apiEndPoint + '/cities.json').get();
-  };
-}]);
-
-
-dinnerApp.service('TableManager',['$resource', 'ENV', function($resource, ENV) {
-  this.searchTables = function(filters) {
-    return $resource(ENV.apiEndPoint + '/table/search').get({filters: filters});
-  };
-
-  this.searchLastMinute = function(filters) {
-    return $resource(ENV.apiEndPoint + '/table/last_minute').get({filters: filters});
-  };
-}]);
-
