@@ -7,6 +7,7 @@ var dinnerApp = angular.module(
   'ngResource',
   'environment',
   'ui.calendar',
+  'rzModule',
   'angularPayments',
   'auth0',
   'angular-storage',
