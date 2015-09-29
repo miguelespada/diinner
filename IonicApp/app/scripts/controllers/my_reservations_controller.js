@@ -21,7 +21,7 @@ dinnerApp.controller('MyReservationsCtrl',
     ) {
       $scope.user = JSON.parse(window.localStorage.getItem("user"));
 
-      $scope.panelShown = 'calendar-results';
+      $scope.panelShown = 'grid-results';
 
       $scope.alertOnEventClick = function( date, jsEvent, view){
         $sharedService.set({reservationSelected: date.reservation});
@@ -51,7 +51,7 @@ dinnerApp.controller('MyReservationsCtrl',
       $userManager.getReservations().$promise.then(function(reservations) {
         if (reservations) {
           $scope.reservationList = reservations.reservations;
-          $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
+          $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 1);
 
           angular.forEach($scope.reservationList, function (value, key) {
             var reservation = value.reservation;
