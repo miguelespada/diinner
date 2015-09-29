@@ -5,30 +5,26 @@ dinnerApp.controller('FirstLoginCtrl',
     '$scope',
     '$state',
     'UserManager',
-    'CityManager',
+    'InitService',
     'LoadingService',
     function(
       $scope,
       $state,
       $userManager,
-      $cityManager,
+      $sharedService,
       $loadingService
     ) {
 
-  $scope.user = JSON.parse(window.localStorage.getItem("user"));
-
-  $scope.cityList = $cityManager.getCities();
-
-  $scope.genderList = [
-    { text: "Female", value: "female" },
-    { text: "Male", value: "male" }
-  ];
+  $scope.user = $sharedService.get().user;
+  $scope.cityList = $sharedService.get().cityList;
+  $scope.genderList = $sharedService.get().genderList;
 
   $scope.editUser = function(){
     $loadingService.loading(true);
     $userManager.updateUser($scope.user).$promise.then(function(user) {
       if(user != null){
         window.localStorage.setItem('user', JSON.stringify(user));
+        $sharedService.set({user: user});
       }
       $state.go('user');
       $loadingService.loading(false);

@@ -5,7 +5,6 @@ dinnerApp.controller('SearchFormCtrl',
     '$scope',
     '$state',
     '$ionicSlideBoxDelegate',
-    'CityManager',
     'TableManager',
     'SharedService',
     'LoadingService',
@@ -13,48 +12,22 @@ dinnerApp.controller('SearchFormCtrl',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
-             $cityManager,
              $tableManager,
              $sharedService,
              $loadingService,
              $utilService
     ) {
 
-      $scope.searchFormType = $sharedService.get().searchFormType;
+      $scope.searchFormType = $sharedService.get().search.formType;
 
-      $scope.user = JSON.parse(window.localStorage.getItem("user"));
-      $loadingService.loading(true);
-      $cityManager.getCities().$promise.then(function(response) {
-        $scope.cityList = response.cities;
-        $loadingService.loading(false);
-      });
-
-      $scope.dateList = [
-        { text: "Tomorrow", value: 'tomorrow' },
-        { text: "Other Day", value: 'other' }
-      ];
-
-      $scope.friendsList = [
-        { text: "1", value: 1 },
-        { text: "2", value: 2 }
-      ];
-
-      $scope.genderList = [
-        { text: "Female", value: "female" },
-        { text: "Male", value: "male" }
-      ];
-
-      $scope.ageList = [];
-      for (var i = 18; i < 65; i++){
-        $scope.ageList.push(i);
-      }
-
-      $scope.expectationList = [
-        { text: "Diinner and Bed", value: 1 },
-        { text: "Diinner and Party", value: 2 }
-      ];
-
-      $scope.priceList = [ 20, 40, 60 ];
+      $scope.user = $sharedService.get().user;
+      $scope.cityList = $sharedService.get().cityList;
+      $scope.dateList = $sharedService.get().dateList;
+      $scope.friendsList = $sharedService.get().friendsList;
+      $scope.genderList = $sharedService.get().genderList;
+      $scope.ageList = $sharedService.get().ageList;
+      $scope.expectationList = $sharedService.get().expectationList;
+      $scope.priceList = $sharedService.get().priceList;
 
       $scope.filters = {
         price: $scope.user.preference.menu_price || 20,
@@ -69,7 +42,6 @@ dinnerApp.controller('SearchFormCtrl',
           selectedSlide: 0
         });
 
-        console.log($sharedService.get());
         if (filters.selectedDate != 'other'){
           filters.date = $utilService.dateToString($utilService.dateValue(filters.selectedDate));
         }
@@ -84,8 +56,12 @@ dinnerApp.controller('SearchFormCtrl',
         }
       };
 
-      function handleReservationResults(reservations){
-        $sharedService.set({reservationList: reservations.reservations});
+      function handleReservationResults(response){
+        $sharedService.set({
+          reservations: {
+            results: response.reservations
+          }
+        });
         $loadingService.loading(false);
         $state.go('search_results');
       }

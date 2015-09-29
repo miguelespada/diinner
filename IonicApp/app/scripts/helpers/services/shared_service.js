@@ -11,11 +11,14 @@ dinnerApp.service('SharedService',['UtilService', function($utilService) {
     return savedData;
   }
 
-
+  function clear(){
+    savedData = {};
+  }
 
   return {
     set: set,
-    get: get
+    get: get,
+    clear: clear
   }
 
 }]);

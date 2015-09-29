@@ -12,7 +12,7 @@ dinnerApp.controller('RestaurantCtrl',
              $compile
     ) {
 
-      var reservation = $sharedService.get().reservationSelected;
+      var reservation = $sharedService.get().reservations.selected;
       $scope.restaurant = reservation.restaurant;
       var location = reservation.restaurant.address || "Madrid, Spain";
 

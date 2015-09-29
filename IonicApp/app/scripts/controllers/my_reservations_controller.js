@@ -9,27 +9,33 @@ dinnerApp.controller('MyReservationsCtrl',
     'SharedService',
     'UtilService',
     'uiCalendarConfig',
-    'LoadingService',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
              $userManager,
              $sharedService,
              $utilService,
-             $uiCalendarConfig,
-             $loadingService
+             $uiCalendarConfig
     ) {
-      $scope.user = JSON.parse(window.localStorage.getItem("user"));
+      $scope.user = $sharedService.get().user;
 
       $scope.panelShown = 'grid-results';
 
       $scope.alertOnEventClick = function( date, jsEvent, view){
-        $sharedService.set({reservationSelected: date.reservation});
+        $sharedService.set({
+          reservations: {
+            selected: date.reservation
+          }
+        });
         $state.go('reservation');
       };
 
       $scope.gridAction = function(index){
-        $sharedService.set({reservationSelected: $scope.reservationList[index].reservation});
+        $sharedService.set({
+          reservations: {
+            selected: $scope.reservationList[index].reservation
+          }
+        });
         $state.go('reservation');
       };
 
@@ -47,34 +53,29 @@ dinnerApp.controller('MyReservationsCtrl',
       $scope.eventSources = [$scope.events];
 
 
-      $loadingService.loading(true);
-      $userManager.getReservations().$promise.then(function(reservations) {
-        if (reservations) {
-          $scope.reservationList = reservations.reservations;
-          $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 1);
+      if ($sharedService.get().reservations.hasReservations) {
+        $scope.reservationList = $sharedService.get().reservations.all;
+        $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 1);
 
-          angular.forEach($scope.reservationList, function (value, key) {
-            var reservation = value.reservation;
+        angular.forEach($scope.reservationList, function (value, key) {
+          var reservation = value.reservation;
 
-            if (!reservation.cancelled) {
-              var date = new Date(reservation.date);
+          if (!reservation.cancelled) {
+            var date = new Date(reservation.date);
 
-              var newEvent = {
-                title: reservation.restaurant.name,
-                start: date,
-                reservation: reservation,
-                stick: true
-              };
+            var newEvent = {
+              title: reservation.restaurant.name,
+              start: date,
+              reservation: reservation,
+              stick: true
+            };
 
-              $scope.events.push(newEvent);
-              $uiCalendarConfig.calendars['myCalendar'].fullCalendar('addEventSource', newEvent);
-            }
-          });
-        }
+            $scope.events.push(newEvent);
+            angular.element($('#calendar-container')).fullCalendar('addEventSource', newEvent);
+          }
+        });
+      }
 
-        $loadingService.loading(false);
-
-      });
 
       $scope.changeView = function(){
         $scope.panelShown = $scope.panelShown == 'calendar-results' ? 'grid-results' : 'calendar-results';

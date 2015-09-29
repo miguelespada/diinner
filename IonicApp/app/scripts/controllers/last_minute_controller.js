@@ -6,5 +6,9 @@ dinnerApp.controller('LastMinuteCtrl',
     function(
       $sharedService
     ) {
-      $sharedService.set({searchFormType: 'lastMinute'});
+      $sharedService.set({
+        search: {
+          formType: 'lastMinute'
+        }
+      });
     }]);

@@ -7,20 +7,22 @@ dinnerApp.controller('PaymentCtrl',
     'UserManager',
     'SharedService',
     'LoadingService',
+    'InitService',
     function($scope,
              $state,
              $userManager,
              $sharedService,
-             $loadingService
+             $loadingService,
+             $initService
     ) {
-      $scope.reservationSelected = $sharedService.get().reservationSelected;
+      $scope.reservationSelected = $sharedService.get().reservations.selected;
 
       $scope.updateUserData = function(user) {
         $scope.panelShown = user.payment.has_default_card ? 'payment_confirm' : 'change_card';
         $scope.paymentCard = user.payment.default_card;
       };
 
-      $scope.user = JSON.parse(window.localStorage.getItem("user"));
+      $scope.user = $sharedService.get().user;
       $scope.updateUserData($scope.user);
 
       $scope.changeCard = function(){
@@ -34,6 +36,7 @@ dinnerApp.controller('PaymentCtrl',
         } else {
           $loadingService.loading(true);
           $userManager.updateCustomer(response.id).$promise.then(function(user) {
+            $sharedService.set({user: user});
             $scope.user = user;
             $scope.updateUserData(user);
             $loadingService.loading(false);
@@ -45,6 +48,7 @@ dinnerApp.controller('PaymentCtrl',
       $scope.confirmPayment = function(){
         $loadingService.loading(true);
         $userManager.reserve($scope.reservationSelected).$promise.then(function(response) {
+          $initService.initReservations();
           $loadingService.loading(false);
           $state.go('user');
         });

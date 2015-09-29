@@ -5,20 +5,22 @@ dinnerApp.controller('TestCtrl',
     '$scope',
     '$state',
     'UserManager',
+    'SharedService',
     'LoadingService',
     function($scope,
              $state,
              $userManager,
+             $sharedService,
              $loadingService
     ) {
-      $scope.user = JSON.parse(window.localStorage.getItem("user"));
+      $scope.user = $sharedService.get().user;
 
       $scope.hasTest = false;
 
       $loadingService.loading(true);
       $userManager.getTest().$promise.then(function(response) {
         $scope.response = response;
-        $scope.hasTest = response.has_test
+        $scope.hasTest = response.has_test;
         $loadingService.loading(false);
       });
 
