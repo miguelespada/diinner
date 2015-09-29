@@ -13,13 +13,13 @@ dinnerApp.controller('TestCtrl',
     ) {
       $scope.user = JSON.parse(window.localStorage.getItem("user"));
 
+      $scope.hasTest = false;
+
       $loadingService.loading(true);
       $userManager.getTest().$promise.then(function(response) {
         $scope.response = response;
+        $scope.hasTest = response.has_test
         $loadingService.loading(false);
-        if(!response.has_test){
-          $state.go('profile');
-        }
       });
 
 
