@@ -31,11 +31,10 @@ dinnerApp.controller('SearchFormCtrl',
 
       $scope.dateList = [
         { text: "Tomorrow", value: 'tomorrow' },
-        { text: "Later", value: 'other' }
+        { text: "Other Day", value: 'other' }
       ];
 
       $scope.friendsList = [
-        { text: "0", value: 0 },
         { text: "1", value: 1 },
         { text: "2", value: 2 }
       ];
@@ -51,8 +50,8 @@ dinnerApp.controller('SearchFormCtrl',
       }
 
       $scope.expectationList = [
-        { text: "Bed", value: 1 },
-        { text: "Party", value: 2 }
+        { text: "Diinner and Bed", value: 1 },
+        { text: "Diinner and Party", value: 2 }
       ];
 
       $scope.priceList = [ 20, 40, 60 ];

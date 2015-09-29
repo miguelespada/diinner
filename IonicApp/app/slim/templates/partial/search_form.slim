@@ -2,10 +2,9 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
   ion-list
     ion-item ng-show="searchFormType == 'newReservation'"
       | Date
-      .row
-        .col ng-repeat="item in dateList"
-          ion-radio id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
-            | {{ item.text }}
+      .row.col ng-repeat="item in dateList"
+        ion-radio id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
+          | {{ item.text }}
       .row ng-show="filters.selectedDate == 'other'"
         .col.col-100
           label.item.item-input
@@ -28,7 +27,8 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
             .input-label
               | Age
             select.menu-price ng-model="filters.companies_attributes[friend_number-1].age" ng-options="age for age in ageList"
-
+      .row.col ng-show="filters.friends > 0"
+        ion-radio name="friends" ng-value="0" ng-model="filters.friends" Delete Friends
     ion-item
       label.item.item-input.item-select
         .input-label
@@ -42,10 +42,9 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
     ion-item
       .input-label
         | What do you expect of the diinner?
-      .row
-        .col ng-repeat="item in expectationList"
-          ion-radio id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
-            | {{ item.text }}
+      .row.col ng-repeat="item in expectationList"
+        ion-radio id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
+          | {{ item.text }}
 
     ion-item
       button.button.button-full.button-calm type="submit" GO!
