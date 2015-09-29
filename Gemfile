@@ -48,6 +48,7 @@ gem 'jwt'
 gem 'hashids'
 
 gem "factory_girl_rails"
+gem 'airbrake'
 
 group :test do
   gem "database_cleaner"
