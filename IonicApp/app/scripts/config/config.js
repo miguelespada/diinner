@@ -53,11 +53,13 @@ dinnerApp.run(function(auth, $rootScope, jwtHelper, $state) {
 });
 
 dinnerApp.config(function (authProvider, $httpProvider, jwtInterceptorProvider) {
+
   jwtInterceptorProvider.tokenGetter = function(jwtHelper, auth) {
     var idToken = JSON.parse(window.localStorage.getItem("token"));
 
     var refreshToken = JSON.parse(window.localStorage.getItem("refreshToken"));
     // If no token return null
+
     if (!idToken || !refreshToken) {
       return null;
     }
