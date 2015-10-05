@@ -1,6 +1,6 @@
 {
   "name": "Diinner",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "graceful-fs": "^4.1.2"
@@ -62,7 +62,8 @@
     "org.apache.cordova.device",
     "org.apache.cordova.console",
     "org.apache.cordova.inappbrowser",
-    "com.ionic.keyboard"
+    "com.ionic.keyboard",
+    "phonegap-plugin-push"
   ],
   "cordovaPlatforms": [
     "ios"
