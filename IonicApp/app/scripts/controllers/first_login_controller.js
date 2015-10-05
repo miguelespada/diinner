@@ -16,8 +16,8 @@ dinnerApp.controller('FirstLoginCtrl',
     ) {
 
   $scope.user = $sharedService.get().user;
-  $scope.cityList = $sharedService.get().cityList;
-  $scope.genderList = $sharedService.get().genderList;
+  $scope.cityList = $sharedService.get().default.cityList;
+  $scope.genderList = $sharedService.get().default.genderList;
 
   $scope.editUser = function(){
     $loadingService.loading(true);

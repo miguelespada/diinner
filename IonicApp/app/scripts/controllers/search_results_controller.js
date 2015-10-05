@@ -16,8 +16,8 @@ dinnerApp.controller('SearchResultsCtrl',
 
       $scope.panelShown = "slide-results";
       $scope.reservationList = $sharedService.get().reservations.results;
-      console.log($scope.reservationList);
-      $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
+      $scope.cols = 2;
+      $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, $scope.cols);
 
       $scope.changeView = function(){
         $scope.panelShown = $scope.panelShown == "slide-results" ? "grid-results" : "slide-results";

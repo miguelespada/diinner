@@ -55,7 +55,8 @@ dinnerApp.controller('MyReservationsCtrl',
 
       if ($sharedService.get().reservations.hasReservations) {
         $scope.reservationList = $sharedService.get().reservations.all;
-        $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 1);
+        $scope.cols = 1;
+        $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, $scope.cols);
 
         angular.forEach($scope.reservationList, function (value, key) {
           var reservation = value.reservation;

@@ -21,13 +21,13 @@ dinnerApp.controller('SearchFormCtrl',
       $scope.searchFormType = $sharedService.get().search.formType;
 
       $scope.user = $sharedService.get().user;
-      $scope.cityList = $sharedService.get().cityList;
-      $scope.dateList = $sharedService.get().dateList;
-      $scope.friendsList = $sharedService.get().friendsList;
-      $scope.genderList = $sharedService.get().genderList;
-      $scope.ageList = $sharedService.get().ageList;
-      $scope.expectationList = $sharedService.get().expectationList;
-      $scope.priceList = $sharedService.get().priceList;
+      $scope.cityList = $sharedService.get().default.cityList;
+      $scope.dateList = $sharedService.get().default.dateList;
+      $scope.friendsList = $sharedService.get().default.friendsList;
+      $scope.genderList = $sharedService.get().default.genderList;
+      $scope.ageList = $sharedService.get().default.ageList;
+      $scope.expectationList = $sharedService.get().default.expectationList;
+      $scope.priceList = $sharedService.get().default.priceList;
 
       $scope.filters = {
         price: $scope.user.preference.menu_price || 20,
