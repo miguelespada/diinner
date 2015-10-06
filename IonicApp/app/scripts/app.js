@@ -3,16 +3,16 @@
 var dinnerApp = angular.module(
   'starter',
   [
-  'ionic',
-  'ngResource',
-  'environment',
-  'ui.calendar',
-  'rzModule',
-  'angularPayments',
-  'auth0',
-  'angular-storage',
-  'angular-jwt',
-  'ngCordova'
+    'ionic',
+    'ngResource',
+    'environment',
+    'ui.calendar',
+    'rzModule',
+    'angularPayments',
+    'auth0',
+    'angular-storage',
+    'angular-jwt',
+    'ngCordova'
 ]);
 
 dinnerApp.run(function($ionicPlatform) {
@@ -30,9 +30,16 @@ dinnerApp.run(function($ionicPlatform) {
 
     Ionic.io();
 
-    var push = new Ionic.Push({
-      "debug": true
-    });
+    var push =  new Ionic.Push({
+        "debug": true,
+        "onNotification": function(notification) {
+          console.log(notification);
+        },
+        "onRegister": function(data) {
+          console.log(data);
+         }
+       });
+
 
     push.register(function(token) {
       console.log("Device token:",token.token);

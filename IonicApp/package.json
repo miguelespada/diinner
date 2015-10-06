@@ -63,9 +63,17 @@
     "org.apache.cordova.console",
     "org.apache.cordova.inappbrowser",
     "com.ionic.keyboard",
+    "phonegap-plugin-push",
+    "com.ionic.keyboard",
+    "org.apache.cordova.console",
+    "org.apache.cordova.device",
+    "com.ionic.keyboard",
+    "org.apache.cordova.inappbrowser",
+    "org.apache.cordova.device",
+    "org.apache.cordova.console",
+    "org.apache.cordova.inappbrowser",
+    "com.ionic.keyboard",
     "phonegap-plugin-push"
   ],
-  "cordovaPlatforms": [
-    "ios"
-  ]
+  "cordovaPlatforms": []
 }
