@@ -30,15 +30,21 @@ dinnerApp.run(function($ionicPlatform) {
 
     Ionic.io();
 
-    var push =  new Ionic.Push({
-        "debug": true,
-        "onNotification": function(notification) {
-          console.log(notification);
-        },
-        "onRegister": function(data) {
-          console.log(data);
-         }
-       });
+    var push = new Ionic.Push({
+      debug: true,
+      canShowAlert: true,
+      canSetBadge: true,
+      canPlaySound: true,
+      canRunActionsOnWake: true,
+      onNotification: function(notification) {
+        console.log(notification);
+        return true;
+      },
+      onRegister: function(data) {
+        console.log(data);
+        return true;
+       }
+     });
 
 
     push.register(function(token) {
