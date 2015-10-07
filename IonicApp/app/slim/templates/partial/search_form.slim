@@ -1,6 +1,8 @@
 form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
   ion-list
-    ion-item ng-show="searchFormType == 'newReservation'"
+    ion-item
+      ion-toggle toggle-class="toggle-calm" ng-model="isLastMinute" ng-change="toggleChange()" ¿Quieres reservar para esta noche?
+    ion-item ng-show="!isLastMinute"
       | Date
       .row.col ng-repeat="item in dateList"
         ion-radio id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"

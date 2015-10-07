@@ -18,7 +18,7 @@ dinnerApp.controller('SearchFormCtrl',
              $utilService
     ) {
 
-      $scope.searchFormType = $sharedService.get().search.formType;
+      $scope.isLastMinute = false;
 
       $scope.user = $sharedService.get().user;
       $scope.cityList = $sharedService.get().default.cityList;
@@ -37,6 +37,10 @@ dinnerApp.controller('SearchFormCtrl',
         friends: 0
       };
 
+      $scope.toggleChange = function() {
+        $scope.isLastMinute = !$scope.isLastMinute;
+      };
+
       $scope.searchReservations = function(filters){
         $sharedService.set({
           selectedSlide: 0
@@ -48,7 +52,7 @@ dinnerApp.controller('SearchFormCtrl',
 
         if($utilService.stringToDate(filters.date).getTime() > new Date().getTime()){
           $loadingService.loading(true);
-          if($scope.searchFormType == "lastMinute"){
+          if($scope.isLastMinute){
             $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
           } else {
             $tableManager.searchTables(filters).$promise.then(handleReservationResults);
