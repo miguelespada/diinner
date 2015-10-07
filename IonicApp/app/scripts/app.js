@@ -38,7 +38,7 @@ dinnerApp.run(function($ionicPlatform) {
       canRunActionsOnWake: true,
       onNotification: function(notification) {
         console.log(notification);
-        
+
         return true;
       },
       onRegister: function(data) {

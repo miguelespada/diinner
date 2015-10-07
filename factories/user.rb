@@ -5,6 +5,7 @@ FactoryGirl.define do
     sequence(:name)  { |n| "user_#{n}" }
     gender :male
     birth { 20.years.ago }
+    notifications_read_at { 1.month.ago }
 
     trait :with_customer_id do
       customer :stripe_123
