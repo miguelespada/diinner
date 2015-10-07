@@ -14,6 +14,12 @@ dinnerApp.controller('UserCtrl',
       $scope.user = JSON.parse(window.localStorage.getItem("user"));
       $initService.initUser($scope.user);
 
+      $scope.hasUnreadNotifications = true;
+
+      $scope.openNotifications = function(){
+        $state.go('notifications');
+      };
+
       if($scope.user.first_login){
         $state.go('first_login');
       }

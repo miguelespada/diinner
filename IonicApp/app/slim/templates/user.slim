@@ -1,6 +1,9 @@
 ion-view title="User" hide-back-button="true" hide-nav-bar="false" ng-controller="UserCtrl" cache-view="false"
   ion-nav-title
     img src="images/logo.png"
+  ion-nav-buttons side="secondary"
+    button.button.icon.ion-android-notifications ng-click="openNotifications()" ng-show="hasUnreadNotifications"
+    button.button.icon.ion-android-notifications-off ng-click="openNotifications()" ng-show="!hasUnreadNotifications"
   ion-content
     .user-image-container
       .user-image-inner
@@ -15,11 +18,6 @@ ion-view title="User" hide-back-button="true" hide-nav-bar="false" ng-controller
         span
           i.icon.budicon.bi_user-alt
           | My profile
-          i.icon.ion-ios-arrow-right
-      ion-item.item-icon-left.item-icon-right ng-href="#/notifications"
-        span
-          i.icon.budicon.bi_com-bell
-          | Notifications
           i.icon.ion-ios-arrow-right
       ion-item.item-icon-left.item-icon-right ng-href="#/new_reservation"
         span
