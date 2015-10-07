@@ -9,11 +9,17 @@ dinnerApp.service('UtilService', function(){
     return newArr;
   }
 
-  function extendObject(destination, source) {
-    for (var property in source) {
-      destination[property] = source[property];
+  function extendObject(target, source) {
+    for (var i in source) {
+      try {
+        // Property in destination object set; update its value.
+        target[i] = (source[i].constructor==Object) ? extendObject(target[i], source[i]) : source[i];
+      } catch(e) {
+        // Property in destination object not set; create it and set its value.
+        target[i] = source[i];
+      }
     }
-    return destination;
+    return target;
   }
 
   function dateValue(stringValue, quantity){
