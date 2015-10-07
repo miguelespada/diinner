@@ -67,7 +67,7 @@ dinnerApp.service('InitService',
         $userManager.getReservations().$promise.then(function(response) {
           if (response) {
             var reservations = response.reservations;
-            var todayReservation = reservations[0]; //TODO get today reservation
+            var todayReservation = $utilService.isDateToday(reservations[reservations.length - 1].reservation.date) ? reservations[reservations.length - 1] : false;
 
             $sharedService.set({
               reservations: {

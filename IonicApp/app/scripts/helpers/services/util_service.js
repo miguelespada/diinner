@@ -53,11 +53,21 @@ dinnerApp.service('UtilService', function(){
     return new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
   }
 
+  function isDateToday(date){
+    var lastDate = new Date(date);
+    var todayDate = new Date();
+
+    return lastDate.getYear() == todayDate.getYear()
+      && lastDate.getMonth() == todayDate.getMonth()
+      && lastDate.getDay() == todayDate.getDay()
+  }
+
   return {
     chunkInRows: chunkInRows,
     extendObject: extendObject,
     dateToString: dateToString,
     stringToDate: stringToDate,
-    dateValue: dateValue
+    dateValue: dateValue,
+    isDateToday: isDateToday
   }
 });
