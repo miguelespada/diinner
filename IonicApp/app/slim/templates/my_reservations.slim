@@ -1,5 +1,6 @@
 ion-view title="My Reservations" ng-controller="MyReservationsCtrl" cache-view="false"
   ion-nav-buttons side="secondary"
+    button.button.icon.ion-ios-clock ng-click="loadTodayReservation()" ng-show="hasTodayReservation"
     button.button.icon.ion-calendar ng-click="changeView()" ng-show="panelShown == 'grid-results'"
     button.button.icon.ion-ios-list ng-click="changeView()" ng-show="panelShown == 'calendar-results'"
   ion-content

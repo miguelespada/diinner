@@ -8,37 +8,37 @@ dinnerApp.controller('MyReservationsCtrl',
     'UserManager',
     'SharedService',
     'UtilService',
-    'uiCalendarConfig',
     function($scope,
              $state,
              $ionicSlideBoxDelegate,
              $userManager,
              $sharedService,
-             $utilService,
-             $uiCalendarConfig
+             $utilService
     ) {
       $scope.user = $sharedService.get().user;
-
       $scope.panelShown = 'grid-results';
+      $scope.hasTodayReservation = $sharedService.get().reservations.today != false;
+
+      $scope.loadTodayReservation = function(){
+        loadReservation($sharedService.get().reservations.today);
+      };
 
       $scope.alertOnEventClick = function( date, jsEvent, view){
-        $sharedService.set({
-          reservations: {
-            selected: date.reservation
-          }
-        });
-        $state.go('reservation');
+        loadReservation(date);
       };
 
       $scope.gridAction = function(index){
+        loadReservation($scope.reservationList[index]);
+      };
+
+      function loadReservation(reservation){
         $sharedService.set({
           reservations: {
-            selected: $scope.reservationList[index].reservation
+            selected: reservation.reservation
           }
         });
         $state.go('reservation');
-      };
-
+      }
 
       $scope.uiConfig = {
         calendar:{
@@ -51,7 +51,6 @@ dinnerApp.controller('MyReservationsCtrl',
       };
       $scope.events = [];
       $scope.eventSources = [$scope.events];
-
 
       if ($sharedService.get().reservations.hasReservations) {
         $scope.reservationList = $sharedService.get().reservations.all;
@@ -77,11 +76,8 @@ dinnerApp.controller('MyReservationsCtrl',
         });
       }
 
-
       $scope.changeView = function(){
         $scope.panelShown = $scope.panelShown == 'calendar-results' ? 'grid-results' : 'calendar-results';
       };
-
-
 
 }]);
