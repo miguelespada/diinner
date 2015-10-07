@@ -54,12 +54,13 @@ dinnerApp.service('UtilService', function(){
   }
 
   function isDateToday(date){
-    var lastDate = new Date(date);
-    var todayDate = new Date();
+    return isSameDate(new Date(date), new Date());
+  }
 
-    return lastDate.getYear() == todayDate.getYear()
-      && lastDate.getMonth() == todayDate.getMonth()
-      && lastDate.getDay() == todayDate.getDay()
+  function isSameDate(date_1, date_2){
+    return date_1.getYear() == date_2.getYear()
+      && date_1.getMonth() == date_2.getMonth()
+      && date_1.getDay() == date_2.getDay()
   }
 
   return {
@@ -68,6 +69,7 @@ dinnerApp.service('UtilService', function(){
     dateToString: dateToString,
     stringToDate: stringToDate,
     dateValue: dateValue,
+    isSameDate: isSameDate,
     isDateToday: isDateToday
   }
 });

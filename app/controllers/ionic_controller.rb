@@ -42,6 +42,10 @@ class IonicController < ActionController::Base
            }
   end
 
+  def read_notifications
+    @current_user.read_notifications
+  end
+
   def reservations
     render json: {
                reservations: @current_user.reservations.map{ |reservation| {

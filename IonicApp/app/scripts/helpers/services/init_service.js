@@ -14,7 +14,11 @@ dinnerApp.service('InitService',
 
       function initDefault(){
         $cityManager.getCities().$promise.then(function(response) {
-          $sharedService.set({cityList: response.cities});
+          $sharedService.set({
+            default: {
+              cityList: response.cities
+            }
+          });
         });
 
         var ageList = [];
@@ -43,31 +47,41 @@ dinnerApp.service('InitService',
             ],
             priceList: [20, 40, 60]
           }
-      });
+       });
       }
 
-      function initUser(user){
+      function initUser(user, callbacks){
         $sharedService.set({user: user});
-        initReservations();
-        initNotifications();
+        var reservationsCallback = (callbacks != null) ? callbacks.reservations : null;
+        var notificationsCallback = (callbacks != null) ? callbacks.notifications : null;
+        initReservations(reservationsCallback);
+        initNotifications(user, notificationsCallback);
+
       }
 
-      function initNotifications(){
+      function initNotifications(user, callback){
         $userManager.getNotifications().$promise.then(function(notifications) {
+          var hasUnreadNotifications = notifications.length > 0 ? $utilService.isSameDate(notifications[notifications.length-1], user.notifications_read_last) : false;
           $sharedService.set({
+            user: {
+              hasUnreadNotifications: hasUnreadNotifications
+            },
             notifications: {
-              hasNotifications: true,
               all: notifications
             }
           });
+          if(callback != null){
+            callback();
+          }
         });
       }
 
-      function initReservations(){
+      function initReservations(callback){
         $userManager.getReservations().$promise.then(function(response) {
           if (response) {
             var reservations = response.reservations;
-            var todayReservation = $utilService.isDateToday(reservations[reservations.length - 1].reservation.date) ? reservations[reservations.length - 1] : false;
+
+            var todayReservation = (reservations.length > 0) && $utilService.isDateToday(reservations[reservations.length - 1].reservation.date) ? reservations[reservations.length - 1] : false;
 
             $sharedService.set({
               reservations: {
@@ -82,6 +96,9 @@ dinnerApp.service('InitService',
                 hasReservations: false
               }
             });
+          }
+          if(callback != null){
+            callback();
           }
         });
       }

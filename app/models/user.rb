@@ -14,6 +14,8 @@ class User
   field :customer, type: String
   field :stripe_default_card, type: String
 
+  field :notifications_read_at, type: Date
+
   has_many :test_completed, class_name: "TestResponse"
   has_many :reservations
 
@@ -90,12 +92,20 @@ class User
     PublicActivity::Activity.where(recipient: self).desc(:created_at)
   end
 
+  def read_notifications
+    self.notifications_read_at = DateTime.now
+    self.save!
+  rescue
+    false
+  end
+
   def to_ionic_json
     {
       name: name,
       email: email,
       birth: birth,
       image_url: image_url,
+      notifications_read_at: notifications_read_at,
       gender: gender,
       payment: {
           has_default_card: has_default_card?,

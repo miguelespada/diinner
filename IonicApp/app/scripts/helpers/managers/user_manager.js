@@ -13,6 +13,10 @@ dinnerApp.service('UserManager',['$resource', 'ENV', function($resource, ENV) {
     return $resource(ENV.apiEndPoint + '/notifications.json').get()
   };
 
+  this.readNotifications = function() {
+    return $resource(ENV.apiEndPoint + '/read_notifications.json').get()
+  };
+
   this.getReservations = function() {
     return $resource(ENV.apiEndPoint + '/reservations.json').get()
   };

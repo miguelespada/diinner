@@ -22,7 +22,7 @@ ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl" cache-view=
             .input-label
               | Preferred City
             select.city ng-model="user.preference.city_id"
-              option ng-repeat="item in cityList.cities" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
+              option ng-repeat="item in cityList" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
         ion-item
           label.item.item-input.item-select
             .input-label

@@ -4,10 +4,14 @@ dinnerApp.controller('NotificationsCtrl',
   [
     '$scope',
     'SharedService',
+    'UserManager',
     function($scope,
-             $sharedService
+             $sharedService,
+             $userManager
     ) {
       $scope.user = $sharedService.get().user;
+
+      $userManager.readNotifications();
       $scope.notificationList = $sharedService.get().notifications.all;
 
       $scope.getNotificationSrc = function (notificationKey) {

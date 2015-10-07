@@ -5,7 +5,7 @@ dinnerApp.controller('FirstLoginCtrl',
     '$scope',
     '$state',
     'UserManager',
-    'InitService',
+    'SharedService',
     'LoadingService',
     function(
       $scope,
