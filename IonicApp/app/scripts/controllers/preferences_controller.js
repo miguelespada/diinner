@@ -14,7 +14,6 @@ dinnerApp.controller('PreferencesCtrl',
       $sharedService,
       $loadingService
     ) {
-
   $scope.user = $sharedService.get().user;
   $scope.cityList = $sharedService.get().default.cityList;
   $scope.genderList = $sharedService.get().default.genderList;

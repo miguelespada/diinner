@@ -23,32 +23,33 @@ dinnerApp.service('InitService',
         }
 
         $sharedService.set({
-          dateList: [
-            { text: "Tomorrow", value: 'tomorrow' },
-            { text: "Other Day", value: 'other' }
-          ],
-          friendsList: [
-            { text: "1", value: 1 },
-            { text: "2", value: 2 }
-          ],
-          genderList: [
-            { text: "Female", value: "female" },
-            { text: "Male", value: "male" }
-          ],
-          ageList: ageList,
-          expectationList: [
-            { text: "Diinner and Bed", value: 1 },
-            { text: "Diinner and Party", value: 2 }
-          ],
-          priceList: [ 20, 40, 60 ]
-        });
+          default: {
+            dateList: [
+              {text: "Tomorrow", value: 'tomorrow'},
+              {text: "Other Day", value: 'other'}
+            ],
+            friendsList: [
+              {text: "1", value: 1},
+              {text: "2", value: 2}
+            ],
+            genderList: [
+              {text: "Female", value: "female"},
+              {text: "Male", value: "male"}
+            ],
+            ageList: ageList,
+            expectationList: [
+              {text: "Diinner and Bed", value: 1},
+              {text: "Diinner and Party", value: 2}
+            ],
+            priceList: [20, 40, 60]
+          }
+      });
       }
 
       function initUser(user){
         $sharedService.set({user: user});
         initReservations();
         initNotifications();
-
       }
 
       function initNotifications(){
