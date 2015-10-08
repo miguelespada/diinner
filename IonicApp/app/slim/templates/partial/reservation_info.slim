@@ -8,7 +8,8 @@ ion-list ng-controller="ReservationInfoCtrl"
   ion-item
     .row
       | Affinity: 
-      span.affinity {{ reservation.affinity }}
+      span.affinity 
+        | {{ reservation.affinity }}
   ion-item
     .row
       | Ticket diinner: {{ reservation.locator }}
