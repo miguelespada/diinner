@@ -63,20 +63,20 @@ dinnerApp.service('UtilService', function(){
         return date_1.getYear() == date_2.getYear()
           && date_1.getMonth() == date_2.getMonth()
           && date_1.getDay() == date_2.getDay();
-      case "gte":
-        return date_1.getYear() >= date_2.getYear()
+      case "gt":
+        return date_1.getYear() > date_2.getYear()
           || (
             date_1.getYear() == date_2.getYear()
-            && date_1.getMonth() >= date_2.getMonth()
+            && date_1.getMonth() > date_2.getMonth()
           )
           || (
             date_1.getYear() == date_2.getYear()
             && date_1.getMonth() == date_2.getMonth()
-            && date_1.getDay() >= date_2.getDay()
+            && date_1.getDay() > date_2.getDay()
           );
-      case "gt":
-        return compareDates("gte", date_1, date_2)
-          && !compareDates("eq", date_1, date_2);
+      case "gte":
+        return compareDates("gt", date_1, date_2)
+          || compareDates("eq", date_1, date_2);
       default:
         return false
     }
@@ -89,20 +89,20 @@ dinnerApp.service('UtilService', function(){
           return time_1.getHours() == time_2.getHours()
             && time_1.getMinutes() == time_2.getMinutes()
             && time_1.getSeconds() == time_2.getSeconds();
-      case "gte":
-          return time_1.getHours() >= time_2.getHours()
+      case "gt":
+          return time_1.getHours() > time_2.getHours()
             || (
               time_1.getHours() == time_2.getHours()
-              && time_1.getMinutes() >= time_2.getMinutes()
+              && time_1.getMinutes() > time_2.getMinutes()
             )
             || (
               time_1.getHours() == time_2.getHours()
               && time_1.getMinutes() == time_2.getMinutes()
-              && time_1.getSeconds() >= time_2.getSeconds()
+              && time_1.getSeconds() > time_2.getSeconds()
             );
-      case "gt":
-         return compareTimes("gte", time_1, time_2)
-           && !compareTimes("eq", time_1, time_2);
+      case "gte":
+         return compareTimes("gt", time_1, time_2)
+           || compareTimes("eq", time_1, time_2);
       default:
             return false
     }

@@ -12,6 +12,7 @@ dinnerApp.controller('UserCtrl',
       $sharedService
     ) {
 
+
       if (!$sharedService.get().loaded) {
         $scope.user = JSON.parse(window.localStorage.getItem("user"));
         $sharedService.set({
@@ -21,6 +22,7 @@ dinnerApp.controller('UserCtrl',
       } else {
         $scope.user = $sharedService.get().user;
       }
+
 
       if ($sharedService.get().requireInitUser){
         $initService.initUser($scope.user);
