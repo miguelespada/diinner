@@ -54,13 +54,78 @@ dinnerApp.service('UtilService', function(){
   }
 
   function isDateToday(date){
-    return isSameDate(new Date(date), new Date());
+    return compareDates("eq", new Date(date), new Date());
   }
 
-  function isSameDate(date_1, date_2){
-    return date_1.getYear() == date_2.getYear()
-      && date_1.getMonth() == date_2.getMonth()
-      && date_1.getDay() == date_2.getDay()
+  function compareDates(type, date_1, date_2){
+    switch(type) {
+      case "eq":
+        return date_1.getYear() == date_2.getYear()
+          && date_1.getMonth() == date_2.getMonth()
+          && date_1.getDay() == date_2.getDay();
+      case "gte":
+        return date_1.getYear() >= date_2.getYear()
+          || (
+            date_1.getYear() == date_2.getYear()
+            && date_1.getMonth() >= date_2.getMonth()
+          )
+          || (
+            date_1.getYear() == date_2.getYear()
+            && date_1.getMonth() == date_2.getMonth()
+            && date_1.getDay() >= date_2.getDay()
+          );
+      case "gt":
+        return compareDates("gte", date_1, date_2)
+          && !compareDates("eq", date_1, date_2);
+      default:
+        return false
+    }
+
+  }
+
+  function compareTimes(type, time_1, time_2){
+    switch(type) {
+      case "eq":
+          return time_1.getHours() == time_2.getHours()
+            && time_1.getMinutes() == time_2.getMinutes()
+            && time_1.getSeconds() == time_2.getSeconds();
+      case "gte":
+          return time_1.getHours() >= time_2.getHours()
+            || (
+              time_1.getHours() == time_2.getHours()
+              && time_1.getMinutes() >= time_2.getMinutes()
+            )
+            || (
+              time_1.getHours() == time_2.getHours()
+              && time_1.getMinutes() == time_2.getMinutes()
+              && time_1.getSeconds() >= time_2.getSeconds()
+            );
+      case "gt":
+         return compareTimes("gte", time_1, time_2)
+           && !compareTimes("eq", time_1, time_2);
+      default:
+            return false
+    }
+  }
+
+  function compareDatesAndTimes(type, date_1, date_2){
+    switch(type){
+      case "eq":
+        return compareDates(type, date_1, date_2)
+          && compareTimes(type, date_1, date_2);
+      case "gt":
+        return compareDates(type, date_1, date_2)
+          || (
+            compareDates("eq", date_1, date_2)
+            && compareTimes(type, date_1, date_2)
+          );
+      case "gte":
+        return compareDatesAndTimes("eq", date_1, date_2)
+          || compareDatesAndTimes("gt", date_1, date_2);
+      default:
+        return false
+    }
+
   }
 
   return {
@@ -69,7 +134,9 @@ dinnerApp.service('UtilService', function(){
     dateToString: dateToString,
     stringToDate: stringToDate,
     dateValue: dateValue,
-    isSameDate: isSameDate,
-    isDateToday: isDateToday
+    isDateToday: isDateToday,
+    compareDates: compareDates,
+    compareTimes: compareTimes,
+    compareDatesAndTimes: compareDatesAndTimes
   }
 });

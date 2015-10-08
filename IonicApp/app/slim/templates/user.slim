@@ -2,8 +2,8 @@ ion-view title="User" hide-back-button="true" hide-nav-bar="false" ng-controller
   ion-nav-title
     img src="images/logo.png"
   ion-nav-buttons side="secondary"
-    button.button.button-calm.icon.ion-android-notifications ng-click="openNotifications()" ng-show="hasUnreadNotifications"
-    button.button.icon.ion-android-notifications ng-click="openNotifications()" ng-show="!hasUnreadNotifications"
+    button.button.button-calm.icon.ion-android-notifications ng-click="openNotifications()" ng-show="user.hasUnreadNotifications"
+    button.button.icon.ion-android-notifications ng-click="openNotifications()" ng-show="!user.hasUnreadNotifications"
   ion-content
     .user-image-container
       .user-image-inner

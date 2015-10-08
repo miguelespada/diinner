@@ -61,7 +61,19 @@ dinnerApp.service('InitService',
 
       function initNotifications(user, callback){
         $userManager.getNotifications().$promise.then(function(notifications) {
-          var hasUnreadNotifications = notifications.length > 0 ? $utilService.isSameDate(notifications[notifications.length-1], user.notifications_read_last) : false;
+          notifications = notifications.notifications;
+          
+          var hasUnreadNotifications = true;
+          if (notifications.length > 0) {
+            if (user.notifications_read_at != null) {
+              var lastNotificationDate = new Date(notifications[notifications.length - 1].creation_date);
+              var notificationReadDate = new Date(user.notifications_read_at);
+              hasUnreadNotifications = notifications.length > 0 ? $utilService.compareDatesAndTimes("gt", lastNotificationDate, notificationReadDate) : false;
+            }
+          } else{
+            hasUnreadNotifications = false;
+          }
+
           $sharedService.set({
             user: {
               hasUnreadNotifications: hasUnreadNotifications

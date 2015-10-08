@@ -19,8 +19,6 @@ dinnerApp.controller('UserCtrl',
 
       $initService.initUser($scope.user);
 
-      $scope.hasUnreadNotifications = $scope.user.hasUnreadNotifications;
-
       $scope.openNotifications = function(){
         $state.go('notifications');
       };
