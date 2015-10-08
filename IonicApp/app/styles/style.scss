@@ -153,11 +153,25 @@ ion-list{
 }
 
 rzslider{
-  max-width: 140px;
+  max-width: 120px;
   font-size: 12px;
 }
 
 .rz-bubble{
   color: $customBlack !important;
   text-decoration: none !important;
+}
+
+.restaurant-photo-container{
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  img{
+    width: 100%;
+  }
+}
+
+.affinity{
+  color: $textGray;
+  font-size: 36px;
 }
