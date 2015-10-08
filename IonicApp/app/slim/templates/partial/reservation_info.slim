@@ -1,13 +1,14 @@
 ion-list ng-controller="ReservationInfoCtrl"
   ion-item ng-click="openRestaurant()"
-    span.item.item-avatar
+    span.item.restaurant-photo-container
       img src="{{reservation.restaurant.photo}}"
   ion-item ng-click="openRestaurant()"
     .row
       | {{ reservation.restaurant.name }}
   ion-item
     .row
-      | Affinity: {{ reservation.affinity }}
+      | Affinity: 
+      span.affinity {{ reservation.affinity }}
   ion-item
     .row
       | Ticket diinner: {{ reservation.locator }}
