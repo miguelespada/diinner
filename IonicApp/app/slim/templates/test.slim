@@ -1,6 +1,6 @@
 ion-view title="Test" ng-controller="TestCtrl" cache-view="false"
   ion-content
-    div ng-show="!hasTest"
+    div.notification-container ng-show="!hasTest"
       | You have no more tests to do
     ion-list ng-show="hasTest"
       ion-item
