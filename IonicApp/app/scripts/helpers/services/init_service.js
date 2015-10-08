@@ -5,20 +5,24 @@ dinnerApp.service('InitService',
     'SharedService',
     'CityManager',
     'UserManager',
+    'LoadingService',
     function(
       $utilService,
       $sharedService,
       $cityManager,
-      $userManager
+      $userManager,
+      $loadingService
     ) {
 
       function initDefault(){
+        $loadingService.addLoading();
         $cityManager.getCities().$promise.then(function(response) {
           $sharedService.set({
             default: {
               cityList: response.cities
             }
           });
+          $loadingService.removeLoading();
         });
 
         var ageList = [];
@@ -60,9 +64,10 @@ dinnerApp.service('InitService',
       }
 
       function initNotifications(user, callback){
+        $loadingService.addLoading();
         $userManager.getNotifications().$promise.then(function(notifications) {
           notifications = notifications.notifications;
-          
+
           var hasUnreadNotifications = true;
           if (notifications.length > 0) {
             if (user.notifications_read_at != null) {
@@ -73,7 +78,6 @@ dinnerApp.service('InitService',
           } else{
             hasUnreadNotifications = false;
           }
-
           $sharedService.set({
             user: {
               hasUnreadNotifications: hasUnreadNotifications
@@ -82,6 +86,7 @@ dinnerApp.service('InitService',
               all: notifications
             }
           });
+          $loadingService.removeLoading();
           if(callback != null){
             callback();
           }
@@ -89,6 +94,7 @@ dinnerApp.service('InitService',
       }
 
       function initReservations(callback){
+        $loadingService.addLoading();
         $userManager.getReservations().$promise.then(function(response) {
           if (response) {
             var reservations = response.reservations;
@@ -109,6 +115,7 @@ dinnerApp.service('InitService',
               }
             });
           }
+          $loadingService.removeLoading();
           if(callback != null){
             callback();
           }

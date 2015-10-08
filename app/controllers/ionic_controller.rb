@@ -43,9 +43,7 @@ class IonicController < ActionController::Base
   end
 
   def read_notifications
-    render json: {
-               response: @current_user.read_notifications
-           }
+    render json:  @current_user.to_ionic_json
   end
 
   def reservations
