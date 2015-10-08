@@ -3,7 +3,7 @@ ion-view title="User" hide-back-button="true" hide-nav-bar="false" ng-controller
     img src="images/logo.png"
   ion-nav-buttons side="secondary"
     button.button.button-calm.icon.ion-android-notifications ng-click="openNotifications()" ng-show="user.hasUnreadNotifications"
-    button.button.icon.ion-android-notifications ng-click="openNotifications()" ng-show="!user.hasUnreadNotifications"
+    button.button.icon.budicon.bi_com-bell.title-bar-button ng-click="openNotifications()" ng-show="!user.hasUnreadNotifications"
   ion-content
     .user-image-container
       .user-image-inner
@@ -12,7 +12,7 @@ ion-view title="User" hide-back-button="true" hide-nav-bar="false" ng-controller
           | {{user.name}}
         p.user-email
           | {{user.email}}
-      /img.user-background src="{{user.image_url}}"
+      img.user-background src="images/background.png"
     ion-list
       ion-item.item-icon-left.item-icon-right ng-href="#/profile"
         span
