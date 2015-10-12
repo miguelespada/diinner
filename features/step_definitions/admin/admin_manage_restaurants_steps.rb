@@ -8,6 +8,7 @@ When(/^I create a new restaurant$/) do
   fill_in "Name", with: "dummy restaurant"
   select "Madrid", :from => "restaurant_city_id"
   fill_in "Password", with: "12345678"
+  fill_in "Info", with: "Dummy info"
   click_button 'Create Restaurant'
 end
 
@@ -21,6 +22,17 @@ Then(/^I should see the restaurant in the list of restaurants$/) do
   end
   within(:css, ".restaurant-status") do
     expect(page).to have_content "Last time active: never"
+  end
+end
+
+Then(/^I can access restaurant data from the restaurant list$/) do
+  click_on "Restaurants"
+  within(:css, ".restaurant-name") do
+    click_on "dummy restaurant"
+  end
+  within(:css, ".restaurant-info") do
+    expect(page).to have_content "This information is not seen by the restaurant"
+    expect(page).to have_content "Dummy info"
   end
 end
 

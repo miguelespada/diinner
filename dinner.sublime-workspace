@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"yes",
+				"yesterday_tables"
+			],
+			[
 				"reser",
 				"reservations"
 			],
@@ -267,6 +271,72 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "Searching 449 files for \"navbar_search\"\n\n/Users/miguel/Diinner/app/views/admin/_navbar.slim:\n    6    == current_admin.dropdown_menu\n    7  \n    8: - content_for(:navbar_search) do\n    9:   == current_admin.navbar_search\n   10  \n   11  - content_for(:navbar_more_links) do\n\n/Users/miguel/Diinner/app/views/layouts/_navbar.slim:\n    4        = image_tag \"brand.svg\"\n    5      ul.nav.navbar-nav.navbar-right\n    6:       li.nav-item = yield(:navbar_search)\n    7        li.dropdown.nav-item\n    8          = yield(:logs)\n\n3 matches across 2 files\n\n\nSearching 451 files for \"enumera\"\n\n0 matches across 0 files\n\n\nSearching 451 files for \"collection_select\"\n\n/Users/miguel/Diinner/app/views/admin/map.slim:\n    1  div.form-group\n    2    = form_tag admin_map_path(current_admin), :method => :get do\n    3:     = collection_select(:city, :city, City.all, :name, :name, {:selected => @city.name}, :onchange => \"this.form.submit()\", class: \"form-control\")\n    4  \n    5  / TODO move to cell\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 1003,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/views/admin/map.slim",
+			"settings":
+			{
+				"buffer_size": 513,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/_navbar.slim",
+			"settings":
+			{
+				"buffer_size": 533,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/cells/admin/navbar_search.slim",
+			"settings":
+			{
+				"buffer_size": 355,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 2038,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/initializers/runtimeerror_notifier.rb",
+			"settings":
+			{
+				"buffer_size": 375,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/cells/reservation/admin_user_row.slim",
+			"settings":
+			{
+				"buffer_size": 165,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/routes.rb",
+			"settings":
+			{
+				"buffer_size": 5143,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -328,6 +398,25 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/config/initializers/public_activity.rb",
+		"/Users/miguel/Diinner/app/services/table_manager.rb",
+		"/Users/miguel/Diinner/app/views/admin/settings.slim",
+		"/Users/miguel/Diinner/config/routes.rb",
+		"/Users/miguel/Diinner/app/controllers/admin_controller.rb",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_logs_steps.rb",
+		"/Users/miguel/Diinner/features/admin/admin_inspect_reservations.feature",
+		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_reservations_steps.rb",
+		"/Users/miguel/Diinner/app/views/admin/search.slim",
+		"/Users/miguel/Diinner/features/admin/admin_inspect_logs.feature",
+		"/Users/miguel/Diinner/features/admin/admin_inspect_evaluations.feature",
+		"/Users/miguel/Diinner/app/models/reservation.rb",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_reservations_steps.rb",
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_evaluations_steps.rb",
+		"/Users/miguel/Diinner/app/views/public_activity/reservation/_evaluate.slim",
+		"/Users/miguel/Diinner/app/models/concerns/reservation_status.rb",
+		"/Users/miguel/Diinner/app/services/notification_manager.rb",
+		"/Users/miguel/Diinner/features/user/user_evaluates_reservation.feature",
+		"/Users/miguel/Diinner/features/step_definitions/user/user_evaluates_reservation_steps.rb",
 		"/Users/miguel/Diinner/db/seeds.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/new.slim",
 		"/Users/miguel/Diinner/app/views/users/reservations/credit_card_form.slim",
@@ -339,7 +428,6 @@
 		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/search_last_minute.slim",
 		"/Users/miguel/Diinner/app/controllers/users/reservations_controller.rb",
-		"/Users/miguel/Diinner/config/routes.rb",
 		"/Users/miguel/Diinner/app/services/suggestion_engine.rb",
 		"/Users/miguel/Diinner/features/user/user_reserve_table.feature",
 		"/Users/miguel/Diinner/app/cells/reservation_cell.rb",
@@ -357,7 +445,6 @@
 		"/Users/miguel/Diinner/spec/models/affinity_spec.rb",
 		"/Users/miguel/Diinner/app/cells/reservation/suggestion.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/admin_show.slim",
-		"/Users/miguel/Diinner/app/models/reservation.rb",
 		"/Users/miguel/Diinner/app/models/test_response.rb",
 		"/Users/miguel/Diinner/factories/reservation.rb",
 		"/Users/miguel/Diinner/spec/models/user_spec.rb",
@@ -374,15 +461,11 @@
 		"/Users/miguel/Diinner/app/cells/reservation/table_row.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/restaurant_row.slim",
 		"/Users/miguel/Diinner/app/views/restaurants/reservations/index.slim",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_reservations_steps.rb",
-		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_reservations_steps.rb",
-		"/Users/miguel/Diinner/features/admin/admin_inspect_reservations.feature",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_tables_steps.rb",
 		"/Users/miguel/Diinner/app/views/admin/reservations/index.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/admin_row.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/admin_restaurant_row.slim",
 		"/Users/miguel/Diinner/features/ionic/user_reserve_table.feature",
-		"/Users/miguel/Diinner/app/services/notification_manager.rb",
 		"/Users/miguel/Diinner/features/restaurant/restaurant_inspect_reservations.feature",
 		"/Users/miguel/Diinner/Gemfile",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_inspect_cancellations_steps.rb",
@@ -392,8 +475,6 @@
 		"/Users/miguel/Diinner/app/cells/reservation/show_link.slim",
 		"/Users/miguel/Diinner/app/cells/table/show_link.slim",
 		"/Users/miguel/Diinner/app/cells/payment/show_link.slim",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_logs_steps.rb",
-		"/Users/miguel/Diinner/features/admin/admin_inspect_logs.feature",
 		"/Users/miguel/Diinner/features/admin/admin_inspect_tables.feature",
 		"/Users/miguel/Diinner/app/models/payment.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_confirm.slim",
@@ -406,7 +487,6 @@
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_show.slim",
 		"/Users/miguel/Diinner/app/views/restaurants/reservations/show.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/restaurant_show.slim",
-		"/Users/miguel/Diinner/app/controllers/admin_controller.rb",
 		"/Users/miguel/Diinner/config/initializers/auth0.rb",
 		"/Users/miguel/Diinner/spec/models/reservation_spec.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/_delete_activity.slim",
@@ -422,8 +502,6 @@
 		"/Users/miguel/Diinner/app/inputs/time_picker_input.rb",
 		"/Users/miguel/Diinner/app/inputs/date_picker_input.rb",
 		"/Users/miguel/Diinner/app/inputs/datetime_picker_input.rb",
-		"/Users/miguel/Diinner/app/services/table_manager.rb",
-		"/Users/miguel/Diinner/app/views/admin/settings.slim",
 		"/Users/miguel/Diinner/factories/table.rb",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_tables_steps.rb",
 		"/Users/miguel/Diinner/app/cells/admin/navbar_settings_link.slim",
@@ -434,7 +512,6 @@
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_tables_steps.rb",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_multiple_tables_steps.rb",
 		"/Users/miguel/Diinner/features/admin/admin_manage_tables.feature",
-		"/Users/miguel/Diinner/config/initializers/public_activity.rb",
 		"/Users/miguel/Diinner/app/models/admin.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/table/_full.slim",
 		"/Users/miguel/Diinner/app/views/public_activity/plan/_full.slim",
@@ -445,17 +522,10 @@
 		"/Users/miguel/Diinner/app/controllers/users/evaluations_controller.rb",
 		"/Users/miguel/Diinner/app/controllers/restaurants/menus_controller.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/evaluation/_create.slim",
-		"/Users/miguel/Diinner/features/admin/admin_inspect_evaluations.feature",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_inspect_evaluations_steps.rb",
 		"/Users/miguel/Diinner/app/services/user_session.rb",
 		"/Users/miguel/Diinner/app/models/menu.rb",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_menus_steps.rb",
-		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_restaurants_steps.rb",
-		"/Users/miguel/Diinner/features/admin/admin_manage_restaurants.feature",
-		"/Users/miguel/Diinner/app/controllers/admin/restaurants_controller.rb",
-		"/Users/miguel/Diinner/app/models/concerns/destroy_activities.rb",
-		"/Users/miguel/Diinner/app/cells/restaurant_cell.rb",
-		"/Users/miguel/Diinner/spec/spec_helper.rb"
+		"/Users/miguel/Diinner/features/step_definitions/admin/admin_manage_restaurants_steps.rb"
 	],
 	"find":
 	{
@@ -463,7 +533,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 105.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -483,6 +553,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"collection_select",
+			"enumera",
+			"navbar_search",
+			"I can process last minute diinners",
+			"I process reservations",
+			"\"Process reservations\"",
+			"where(created_at:",
+			"settings",
+			"proces",
+			"process",
+			"settings",
+			"can_be_evaluated?",
+			"can_be_evaluated",
+			"I can evaluate the reservation",
 			"user_search_last_minute_tables_path",
 			"javascript",
 			"I should be notified that I cannot reserve dinners",
@@ -596,21 +680,7 @@
 			"notify",
 			"I am logged as admin",
 			"a restaurant has created a menu",
-			" a restaurant has created a menu",
-			"I should see the log of the creation of the new menu",
-			"notify",
-			"a new user is registered",
-			"user_from_session",
-			"user creation",
-			"create_activity",
-			"notify",
-			"create_activity",
-			"I should see the restaurant in the list of restaurants",
-			"@delete_restaurant",
-			"create_activity",
-			"activity",
-			"save_and_open_page",
-			"remove_activities"
+			" a restaurant has created a menu"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -645,8 +715,253 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 1003,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										163,
+										176
+									],
+									[
+										207,
+										220
+									],
+									[
+										441,
+										454
+									],
+									[
+										808,
+										825
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								696,
+								696
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 552.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/admin/map.slim",
+					"settings":
+					{
+						"buffer_size": 513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/layouts/_navbar.slim",
+					"settings":
+					{
+						"buffer_size": 533,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/cells/admin/navbar_search.slim",
+					"settings":
+					{
+						"buffer_size": 355,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Gemfile",
+					"settings":
+					{
+						"buffer_size": 2038,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1684,
+								1684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 477.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "config/initializers/runtimeerror_notifier.rb",
+					"settings":
+					{
+						"buffer_size": 375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/cells/reservation/admin_user_row.slim",
+					"settings":
+					{
+						"buffer_size": 165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "config/routes.rb",
+					"settings":
+					{
+						"buffer_size": 5143,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1517,
+								1500
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -696,6 +1011,82 @@
 		"selected_items":
 		[
 			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"admin_user_",
+				"app/cells/reservation/admin_user_row.slim"
+			],
+			[
+				"run",
+				"config/initializers/runtimeerror_notifier.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"features/admin/admin_inspect_reservations.feature",
+				"features/admin/admin_inspect_reservations.feature"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"tableman",
+				"app/services/table_manager.rb"
+			],
+			[
+				"pu",
+				"config/initializers/public_activity.rb"
+			],
+			[
+				"admincon",
+				"app/controllers/admin_controller.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"set",
+				"app/views/admin/settings.slim"
+			],
+			[
+				"adminspelogs",
+				"features/step_definitions/admin/admin_inspect_logs_steps.rb"
+			],
+			[
+				"reser",
+				"app/models/reservation.rb"
+			],
+			[
+				"settings",
+				"app/views/admin/settings.slim"
+			],
+			[
+				"adminreser",
+				"features/step_definitions/admin/admin_inspect_reservations_steps.rb"
+			],
+			[
+				"admininsteva",
+				"features/step_definitions/admin/admin_inspect_evaluations_steps.rb"
+			],
+			[
+				"noti",
+				"app/services/notification_manager.rb"
+			],
+			[
+				"tablem",
+				"app/services/table_manager.rb"
+			],
+			[
+				"usereval",
+				"features/step_definitions/user/user_evaluates_reservation_steps.rb"
+			],
+			[
 				"seed",
 				"db/seeds.rb"
 			],
@@ -710,10 +1101,6 @@
 			[
 				"su",
 				"app/services/suggestion_engine.rb"
-			],
-			[
-				"route",
-				"config/routes.rb"
 			],
 			[
 				"reservon",
@@ -734,10 +1121,6 @@
 			[
 				"userlast",
 				"features/user/user_reserve_a_last_minute_diinner.feature"
-			],
-			[
-				"reser",
-				"app/controllers/users/reservations_controller.rb"
 			],
 			[
 				"table",
@@ -800,16 +1183,8 @@
 				"features/ionic/user_reserve_table.feature"
 			],
 			[
-				"noti",
-				"app/services/notification_manager.rb"
-			],
-			[
 				"reserce",
 				"app/cells/reservation_cell.rb"
-			],
-			[
-				"gem",
-				"Gemfile"
 			],
 			[
 				"pay",
@@ -822,10 +1197,6 @@
 			[
 				"features/admin/admin_inspect_tables.feature",
 				"features/admin/admin_inspect_tables.feature"
-			],
-			[
-				"features/admin/admin_inspect_reservations.feature",
-				"features/admin/admin_inspect_reservations.feature"
 			],
 			[
 				"/admin_inspect_logs.feature",
@@ -932,20 +1303,12 @@
 				"app/services/table_manager.rb"
 			],
 			[
-				"tableman",
-				"app/services/table_manager.rb"
-			],
-			[
 				"rou",
 				"config/routes.rb"
 			],
 			[
 				"setting",
 				"app/cells/admin/navbar_settings_link.slim"
-			],
-			[
-				"tablem",
-				"app/services/table_manager.rb"
 			],
 			[
 				"restman",
@@ -1080,10 +1443,6 @@
 				"app/views/admin/_logs.slim"
 			],
 			[
-				"admincon",
-				"app/controllers/admin_controller.rb"
-			],
-			[
 				"notifications",
 				"app/views/users/notifications/index.slim"
 			],
@@ -1162,50 +1521,6 @@
 			[
 				"reservatiocn",
 				"app/controllers/admin/reservations_controller.rb"
-			],
-			[
-				"reserco",
-				"app/controllers/users/reservations_controller.rb"
-			],
-			[
-				"ci",
-				"app/models/city.rb"
-			],
-			[
-				"resersta",
-				"app/models/concerns/reservation_status.rb"
-			],
-			[
-				"tabl",
-				"app/models/table.rb"
-			],
-			[
-				"resrsta",
-				"app/models/concerns/reservation_status.rb"
-			],
-			[
-				"paymen",
-				"app/models/concerns/reservation_payment.rb"
-			],
-			[
-				"payment",
-				"app/models/concerns/reservation_payment.rb"
-			],
-			[
-				"",
-				".env"
-			],
-			[
-				"menu",
-				"standard/include/menuArbolDesplegado.php"
-			],
-			[
-				"gestionc",
-				"standard/webapp/pages/gestionCategorias.php"
-			],
-			[
-				"load",
-				"standard/itxrest/loadCategoria.json"
 			]
 		],
 		"width": 0.0

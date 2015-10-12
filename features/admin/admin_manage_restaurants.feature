@@ -11,6 +11,7 @@ Feature: Admin Manage Restaurants
   Scenario: I create a restaurant
     Then I should see the restaurant in the list of restaurants
     Then I should be notified that the restaurant is created
+    Then I can access restaurant data from the restaurant list
 
   @admin_edit_restaurant
   Scenario: I edit a restaurant

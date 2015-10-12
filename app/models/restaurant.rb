@@ -12,7 +12,7 @@ class Restaurant
 
   def self.permitted_params
     [:name, :description, :password, :email, :phone, :address,
-    :city_id, :latitude, :longitude, :photo, :contact_person]
+    :city_id, :latitude, :longitude, :photo, :contact_person, :info]
   end
 
   devise :database_authenticatable,
@@ -60,6 +60,7 @@ class Restaurant
   field :phone,             type: String, default: ""
   field :address,           type: String, default: ""
   field :contact_person,     type: String
+  field :info,     type: String
   belongs_to :city
 
   field :latitude,          type: String, default: "40.550344000000000000"
