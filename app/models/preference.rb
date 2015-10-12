@@ -1,8 +1,11 @@
 class Preference
   include Mongoid::Document
+  include Mongoid::Enum
+
   field :max_age, type: Integer
   field :min_age, type: Integer
-  field :menu_price, type: Integer
+
+  enum :menu_range, [:lowcost, :regular, :premium]
   field :after_plan, type: Boolean
   belongs_to :city
   belongs_to :user
@@ -33,7 +36,7 @@ class Preference
         min_age: min_age,
         max_age: max_age,
         city_id: has_city? ? city.id.to_s : nil,
-        menu_price: menu_price
+        menu_range: menu_range
     }
   end
 end

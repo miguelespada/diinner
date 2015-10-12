@@ -137,7 +137,7 @@ class IonicController < ActionController::Base
   def user_params
     params.require(:user).permit(:gender,
                                  :birth,
-                                 :preference => [:max_age, :min_age, :menu_price, :id,
+                                 :preference => [:max_age, :min_age, :menu_range, :id,
                                                  :city_id])
   end
 

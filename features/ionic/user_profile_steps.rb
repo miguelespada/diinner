@@ -43,7 +43,7 @@ And(/^I can modify my preferences$/) do
   fill_in "Birth", with: "20/01/1981"
   fill_in "max_age", with: "60"
   fill_in "min_age", with: "20"
-  select "40", :from => "menu_price"
+  select "regular", :from => "menu_range"
   select "Madrid", :from =>  "city"
   click_on "Submit"
 end
