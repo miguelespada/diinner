@@ -61,6 +61,8 @@ When(/^I edit a restaurant$/) do
   fill_in "Addres", with: "dummy address"
   fill_in "Phone", with: "666666"
   select "Barcelona", :from => "restaurant_city_id"
+
+  fill_in "Info", with: "New dummy info"
   click_button "Update Restaurant"
 end
 

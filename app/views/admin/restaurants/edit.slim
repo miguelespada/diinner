@@ -1,3 +1,5 @@
 = simple_form_for [:admin, @restaurant] do |f|
   = render "restaurants/restaurants/form_fields", :f => f
+  = f.input :info, as: :text
+  = f.button :submit
 = render "/layouts/map"
