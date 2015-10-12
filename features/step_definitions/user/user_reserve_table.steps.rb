@@ -9,8 +9,8 @@ Given(/^There are some available tables$/) do
   city = FactoryGirl.create(:city)
   @restaurant = FactoryGirl.create(:restaurant, city: city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
-  @restaurant.tables.create(FactoryGirl.build(:table).attributes)
   @menu = @restaurant.menus.first
+  @restaurant.tables.create(FactoryGirl.build(:table, menu: @menu).attributes)
   @table = @restaurant.tables.first
 end
 

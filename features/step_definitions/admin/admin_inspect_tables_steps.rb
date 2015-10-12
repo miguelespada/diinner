@@ -1,6 +1,8 @@
 Given(/^a restaurant has created a table$/) do
   @restaurant = FactoryGirl.create(:restaurant)
   @table = @restaurant.tables.create
+  @table.menu =  FactoryGirl.create(:menu)
+  @table.save! 
 end
 
 Then(/^I should see the table in the tables list$/) do

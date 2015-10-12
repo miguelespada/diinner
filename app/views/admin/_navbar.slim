@@ -2,6 +2,9 @@
 - content_for(:navbar_username) do
   | Admin
 
+- content_for(:home_link) do
+  = admin_reservations_path
+
 - content_for(:navbar_menu) do
   == current_admin.dropdown_menu
 

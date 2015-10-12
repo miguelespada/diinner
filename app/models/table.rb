@@ -13,7 +13,9 @@ class Table
 
   belongs_to :restaurant
   has_many :reservations
-  delegate :menus, :to => :restaurant
+  belongs_to :menu
+
+  delegate :price, :to => :menu
   delegate :city, :to => :restaurant
 
   attr_accessor :number, :repeat_until
@@ -41,14 +43,6 @@ class Table
   
   def passed?
     date < Date.today  
-  end
-  
-  def price
-    empty? ? :undefined : reservations.first.price
-  end
-
-  def menu
-    empty? ? :undefined : menus.select{|menu| menu.price == self.price}.first
   end
 
   def user_count
@@ -88,7 +82,7 @@ class Table
   end
 
   def matches_menu_price? target_price
-    menus.select{|menu| menu.price == target_price} != []
+    menu.price == target_price
   end
 
   def has_free_slots? genders

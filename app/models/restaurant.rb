@@ -103,14 +103,6 @@ class Restaurant
     menus.count > 0
   end
 
-  def menu_prices_left
-    [ 20, 40, 60 ] - menus.map{|m| m.price}
-  end
-
-  def menus_full?
-    menus.count == 3
-  end
-
   def is_owned_by? user
     return true if self == user
   rescue

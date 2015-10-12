@@ -105,3 +105,13 @@ Then(/^I cannot create a table without menus$/) do
   click_on "New"
   expect(page).to have_content "Operation not allowed: you need to add menus first"
 end
+
+When(/^I create a table with this menu$/) do
+  step "I create a new table"
+end
+
+When(/^I cannot delete the menu$/) do
+  click_on "Menus"
+  click_on "Delete"
+  expect(page).to have_content "Operation not allowed: there are tables using this menu"
+end

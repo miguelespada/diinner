@@ -48,7 +48,7 @@ class Restaurants::TablesController <  BaseRestaurantsController
   private
 
   def table_params
-    params.require(:table).permit(:date, :hour)
+    params.require(:table).permit(:date, :hour, :menu)
   end
 
   def table_date

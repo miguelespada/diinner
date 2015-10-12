@@ -1,5 +1,7 @@
 class MenuCell < BaseCell
 
+  property :price
+  
   def delete_link
     if model.is_owned_by?(current_restaurant)
       @path = restaurant_menu_path(model.restaurant, model)
