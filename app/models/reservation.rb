@@ -2,6 +2,7 @@ class Reservation
   include Mongoid::Document
   include Mongoid::Timestamps
   include PublicActivity::Common
+  include Mongoid::Enum
   include ReservationPayment
   include ReservationStatus
   extend SimpleCalendar
@@ -12,9 +13,9 @@ class Reservation
   belongs_to :user
   belongs_to :table
 
-  field :price, type: Integer
   field :date, type: Date
   field :after_plan, type: Boolean
+  enum :menu_range, [:lowcost, :regular, :premium]
 
   delegate  :restaurant,
             :hour,
@@ -126,6 +127,10 @@ class Reservation
 
   def has_menu?
     !menu.nil? and menu.respond_to? :to_ionic_json
+  end
+
+  def price
+    menu.price
   end
 
   def has_table?

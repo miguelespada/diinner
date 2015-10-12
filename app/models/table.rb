@@ -81,8 +81,10 @@ class Table
     return :partial
   end
 
-  def matches_menu_price? target_price
-    menu.price == target_price
+  def matches_menu_price? range
+    return menu.price.between?(10, 35) if range == :lowcost
+    return menu.price.between?(35, 50) if range == :regular
+    return menu.price.between?(50, 90) if range == :premium
   end
 
   def has_free_slots? genders
@@ -100,7 +102,7 @@ class Table
   end
 
   def matches? reservation
-    matches_menu_price?(reservation.price) &&
+    matches_menu_price?(reservation.menu_range) &&
     has_free_slots?(reservation.genders) &&
     matches_age?(reservation.user)
   end

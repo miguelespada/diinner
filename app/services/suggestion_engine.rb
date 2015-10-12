@@ -26,7 +26,7 @@ class SuggestionEngine
   end
 
   def price
-    @params[:price]
+    @params[:price].to_s
   end
 
   def after_plan
@@ -43,7 +43,7 @@ class SuggestionEngine
       if table.city == city
         # TODO plan is today should be plan_closed?
         reservation = Reservation.new({user: @user,
-                                      price: range_to_price(price),
+                                      menu_range: price,
                                       date: date,
                                       after_plan: after_plan,
                                       companies: companies})
@@ -63,7 +63,7 @@ class SuggestionEngine
     Table.where(:date => Date.today).each do |table|
       if table.city == @user.city
         reservation = Reservation.new({user: @user,
-                                      price: range_to_price(@user.menu_range),
+                                      menu_range: @user.menu_range,
                                       date: Date.today})
 
         if table.matches?(reservation)
@@ -75,9 +75,4 @@ class SuggestionEngine
     results
   end
 
-  def range_to_price range
-    return 20 if range == "lowcost"
-    return 40 if range == "regular"
-    return 60 if range == "premium"
-  end
 end
