@@ -99,9 +99,11 @@ end
 def create_basic_context
   @city = FactoryGirl.create(:city)
   @restaurant = FactoryGirl.create(:restaurant, city: @city)
+
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
-  @restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
   @menu = @restaurant.menus.first
+  @restaurant.tables.create(FactoryGirl.build(:table, :for_today, menu: @menu).attributes)
+  
   @table = @restaurant.tables.first
 
   @he = FactoryGirl.create(:user, gender: :male)
@@ -153,13 +155,13 @@ end
 def there_is_one_table_for_tomorrow
   delete_all
   create_basic_context
-  @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow).attributes)
+  @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow, menu: @menu).attributes)
 end
 
 def there_is_one_reservation
   delete_all
   create_basic_context
-  @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow).attributes)
+  @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow, menu: @menu).attributes)
   
   reservation =  FactoryGirl.create(:reservation, user: @he, table: @restaurant.tables.last, date: 2.days.ago)
   reservation.save!
