@@ -3,20 +3,21 @@
 dinnerApp.controller('NotificationsCtrl',
   [
     '$scope',
-    '$state',
+    'SharedService',
     'UserManager',
-    'LoadingService',
     function($scope,
-             $state,
-             $userManager,
-             $loadingService
+             $sharedService,
+             $userManager
     ) {
-      $scope.user = JSON.parse(window.localStorage.getItem("user"));
-      $loadingService.loading(true);
-      $userManager.getNotifications().$promise.then(function(notifications) {
-        $scope.notificationList = notifications;
-        $loadingService.loading(false);
-      });
+      $scope.user = $sharedService.get().user;
+
+      $userManager.readNotifications().$promise.then(function(user) {
+        if(user != null){
+          window.localStorage.setItem('user', JSON.stringify(user));
+          $sharedService.set({user: user});
+        }
+      });;
+      $scope.notificationList = $sharedService.get().notifications.all;
 
       $scope.getNotificationSrc = function (notificationKey) {
         return 'templates/notifications/' + notificationKey.replace(".","_") + '.html';

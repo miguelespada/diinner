@@ -21,6 +21,7 @@ html
     script src="bower_components/angular-ui-router/release/angular-ui-router.js"
     script src="bower_components/ionic/release/js/ionic.js"
     script src="bower_components/ionic/release/js/ionic-angular.js"
+    script src="bower_components/ionic-platform-web-client/dist/ionic.io.bundle.js"
     script src="bower_components/ngCordova/dist/ng-cordova.js"
 
     script src="cordova.js"
@@ -30,6 +31,10 @@ html
     script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"
     script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"
     script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"
+
+
+    link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css"
+    script type="text/javascript" src="bower_components/angularjs-slider/dist/rzslider.min.js"
 
     script type="text/javascript" src="https://js.stripe.com/v2/"
     script src="bower_components/angular-payments/lib/angular-payments.min.js"
@@ -47,8 +52,21 @@ html
     script src="scripts/config/routes.js"
     script src="scripts/helpers/directives.js"
     script src="scripts/helpers/filters.js"
-    script src="scripts/helpers/factories.js"
-    script src="scripts/helpers/services.js"
+
+    /* Services */
+    script src="scripts/helpers/services/util_service.js"
+    script src="scripts/helpers/services/shared_service.js"
+    script src="scripts/helpers/services/init_service.js"
+    script src="scripts/helpers/services/auth0_service.js"
+    script src="scripts/helpers/services/back_service.js"
+    script src="scripts/helpers/services/loading_service.js"
+
+    /* Managers */
+    script src="scripts/helpers/managers/user_manager.js"
+    script src="scripts/helpers/managers/city_manager.js"
+    script src="scripts/helpers/managers/table_manager.js"
+
+    /* Controllers */
     script src="scripts/controllers/back_controller.js"
     script src="scripts/controllers/splash_controller.js"
     script src="scripts/controllers/first_login_controller.js"

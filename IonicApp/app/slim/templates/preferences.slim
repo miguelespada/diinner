@@ -11,25 +11,18 @@ ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl" cache-view=
             span.input-label  Birth
             input.birth type="date" ng-model="user.birth" json-date=""
         ion-item
-          .row
-            .col-10
-              i Min. Age: {{ user.preference.min_age }}
-            .col-90
-              .item.range
-                input.min_age name="age" type="range" ng-model="user.preference.min_age"
-        ion-item
-          .row
-            .col-10
-              i Max. Age: {{ user.preference.max_age }}
-            .col-90
-              .item.range
-                input.max_age name="age" type="range" ng-model="user.preference.max_age"
+          label.item.item-input
+            span.input-label  Preferred Age
+            i Min
+            rzslider rz-slider-floor="18" rz-slider-ceil="65" rz-slider-model="user.preference.min_age" rz-slider-high="user.preference.max_age"
+            i Max
+
         ion-item
           label.item.item-input.item-select
             .input-label
               | Preferred City
             select.city ng-model="user.preference.city_id"
-              option ng-repeat="item in cityList.cities" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
+              option ng-repeat="item in cityList" ng-selected="{{ item.id == user.preference.city_id }}" ng-value="item.id" {{ item.name }}
         ion-item
           label.item.item-input.item-select
             .input-label

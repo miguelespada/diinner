@@ -6,5 +6,9 @@ dinnerApp.controller('NewReservationCtrl',
     function(
              $sharedService
     ) {
-      $sharedService.set({searchFormType: 'newReservation'});
+      $sharedService.set({
+        search: {
+          formType: 'newReservation'
+        }
+      });
 }]);

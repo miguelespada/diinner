@@ -15,8 +15,9 @@ dinnerApp.controller('SearchResultsCtrl',
     ) {
 
       $scope.panelShown = "slide-results";
-      $scope.reservationList = $sharedService.get().reservationList;
-      $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, 2);
+      $scope.reservationList = $sharedService.get().reservations.results;
+      $scope.cols = 2;
+      $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, $scope.cols);
 
       $scope.changeView = function(){
         $scope.panelShown = $scope.panelShown == "slide-results" ? "grid-results" : "slide-results";
@@ -29,7 +30,9 @@ dinnerApp.controller('SearchResultsCtrl',
         if ($scope.reservationList.length > 0){
           $scope.reservationSelected = $scope.reservationList[index].reservation;
           $sharedService.set({
-            reservationSelected: $scope.reservationSelected,
+            reservations: {
+              selected: $scope.reservationSelected
+            },
             selectedSlide: index
           });
         }

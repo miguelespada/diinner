@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post "user" => "ionic#update_user"
     get "cities" => "ionic#cities"
     get "notifications" => "ionic#notifications"
+    get "read_notifications" => "ionic#read_notifications"
     get "table/search" => "ionic#search_tables", as: "search_tables"
     get "table/last_minute" => "ionic#last_minute", as: "last_minute"
     get "reservations" => "ionic#reservations"

@@ -12,12 +12,11 @@ dinnerApp.controller('ReservationCtrl',
              $sharedService) {
 
 
-  $scope.user = JSON.parse(window.localStorage.getItem("user"));
-
-  $scope.reservation = $sharedService.get().reservationSelected;
+  $scope.user = $sharedService.get().user;
+  $scope.reservation = $sharedService.get().reservations.selected;
 
   $scope.cancel = function(){
-    $userManager.cancelReservation($scope.reservation.id);
+    $userManager.cancelReservation($scope.reservation.id); //TODO update reservations
     $state.go('user');
   };
 

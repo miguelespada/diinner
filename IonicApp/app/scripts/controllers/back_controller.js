@@ -10,8 +10,6 @@ dinnerApp.controller('BackCtrl',
              $backActionService
     ) {
       $ionicPlatform.registerBackButtonAction(function (e) {
-        console.log("backbutton pressed");
-        console.log(e);
         e.preventDefault();
         e.stopImmediatePropagation();
         e.stopPropagation();

@@ -28,7 +28,7 @@ dinnerApp.controller('LoginCtrl',
           rememberLastLogin: false,
           sso: false,
           authParams: {
-            scope: 'openid',
+            scope: 'openid offline_access',
             device: 'Mobile device'
           }
         }, onLoginSuccess, onLoginFailed);
@@ -53,6 +53,7 @@ dinnerApp.controller('LoginCtrl',
           window.localStorage.setItem('token', JSON.stringify(token));
         }
         if (refreshToken != null){
+
           window.localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
         }
         $userManager.getUser().$promise.then(function(user) {

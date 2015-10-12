@@ -139,6 +139,7 @@ class Reservation
   def to_ionic_json
     {
       id: id.to_s,
+      locator: locator,
       cancelled: cancelled?,
       date: date_and_time,
       time: hour,

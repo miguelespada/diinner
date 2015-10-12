@@ -1,6 +1,8 @@
 ion-view title="My Reservations" ng-controller="MyReservationsCtrl" cache-view="false"
   ion-nav-buttons side="secondary"
-    button class="button" ng-click="changeView()" Change View
+    button.button.icon.budicon.bi_time-clock-a.title-bar-button ng-click="loadTodayReservation()" ng-show="hasTodayReservation"
+    button.button.icon.budicon.bi_doc-list.title-bar-button ng-click="changeView()" ng-show="panelShown == 'grid-results'"
+    button.button.icon.budicon.bi_time-calendar-a.title-bar-button ng-click="changeView()" ng-show="panelShown == 'calendar-results'"
   ion-content
     #calendar-container ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar" config="uiConfig.calendar" ng-show="panelShown == 'calendar-results'"
     #grid-container ng-show="panelShown == 'grid-results'" ng-include="" src="'templates/partial/grid_results.html'"

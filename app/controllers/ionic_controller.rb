@@ -42,6 +42,10 @@ class IonicController < ActionController::Base
            }
   end
 
+  def read_notifications
+    render json:  @current_user.to_ionic_json
+  end
+
   def reservations
     render json: {
                reservations: @current_user.reservations.map{ |reservation| {
@@ -137,9 +141,15 @@ class IonicController < ActionController::Base
                                                  :city_id])
   end
 
+  def http_auth_token
+    @http_auth_token ||= if request.headers['Authorization'].present?
+                           request.headers['Authorization'].split(' ').last
+                         end
+    return @http_auth_token
+  end
+
   def authenticate
-    token = params[:user_token]
-    decoded_token = JWT.decode token, nil, false
+    user_id = JWT.decode(http_auth_token, nil, false)[0]["sub"]
 
     auth0 = Auth0Client.new(
         :client_id => ENV["AUTH0_CLIENT_ID"],
@@ -147,7 +157,6 @@ class IonicController < ActionController::Base
         :domain => ENV["AUTH0_DOMAIN"]
     )
 
-    user_id = decoded_token[0]["sub"]
     auth0_user = auth0.user(user_id).deep_symbolize_keys!
 
     profile = {

@@ -1,8 +1,7 @@
-$customRed : #c0392b;
-
-.text-custom-red{
-  color: $customRed;
-  &:link, &:hover, &:active, &:visited{
-    color: $customRed;
-  }
-}
+$customRed   : #c0392b;
+$customBlack : black;
+$customWhite : white;
+$textGray    : #777777;
+$facebook    : #245a9a;
+$google      : #d55642;
+$themeYellow : #ffc900;
