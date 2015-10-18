@@ -41,6 +41,7 @@ When(/^I can delete multiple tables at the time$/) do
   end
   click_button "Delete selected"
   expect(page).not_to have_css(".table-id")
+  expect(page).to have_content("3 table(s) were successfully destroyed.")
 end
 
 

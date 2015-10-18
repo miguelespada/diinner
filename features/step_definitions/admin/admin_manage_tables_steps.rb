@@ -5,7 +5,6 @@ Given(/^There are some tables$/) do
   restaurant.tables.create(FactoryGirl.build(:table, :for_yesterday).attributes)
   restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
   restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow).attributes)
- 
 
   he = FactoryGirl.create(:user)
 end

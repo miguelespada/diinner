@@ -1,5 +1,5 @@
 When(/^I go to my profile page$/) do
-  find(".show").click()
+  click_on "Profile"
 end
 
 Then(/^I should see my profile$/) do
@@ -9,6 +9,7 @@ Then(/^I should see my profile$/) do
 end
 
 Then(/^I edit my restaurant profile$/) do
+  step "I go to my profile page"
   find(".edit").click()
   fill_in "Name", with: "Dummy restaurant"
   fill_in "Description", with: "Dummy description"
@@ -41,6 +42,7 @@ Then(/^I should see my restaurant profile updated$/) do
 end
 
 When(/^I change my restaurant password$/) do
+  step "I go to my profile page"
   within(".custom-alert-warning") do
     click_on "Change password"
   end
@@ -58,7 +60,7 @@ Then(/^I should check my password has changed$/) do
   fill_in "Email", with: @restaurant.email
   fill_in "Password", with: "updated1111"
   click_button 'Log in'
-  expect(page).to have_content @restaurant.email
+  expect(page).to have_content @restaurant.name
   expect(page).not_to have_content "For security reasons, you should change your password."
 end
 

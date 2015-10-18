@@ -81,7 +81,7 @@ Then(/^I should see the updated table in the list of tables$/) do
 end
 
 Then(/^I can see the table in my calendar$/) do
-  find('.calendar-link').click
+  click_on "Calendar"
   expect(page).to have_css ".calendar"
   within(".has-events") do
     within(".empty") do

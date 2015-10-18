@@ -41,8 +41,14 @@ class Restaurants::TablesController <  BaseRestaurantsController
 
   def batch_delete
     tables = @restaurant.tables.any_in(:id => params[:table_ids])
-    tables.map{|table| table.destroy if table.can_be_deleted?}
-    redirect_to restaurant_tables_path(@restaurant), notice: 'Tables were successfully destroyed.'
+    n = 0
+    tables.each do |table|
+      if table.can_be_deleted?
+        table.destroy 
+        n += 1
+      end
+    end
+    redirect_to restaurant_tables_path(@restaurant), notice: "#{n} table(s) were successfully destroyed."
   end
 
   private
