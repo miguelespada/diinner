@@ -8,7 +8,8 @@ When(/^I login as restaurant$/) do
 end
 
 Then(/^I should see my personal restaurant space$/) do
-  within('#content') do
+  expect(page).to have_css ".calendar"
+  within('.user-name') do
     should have_content @restaurant.name
   end
 end

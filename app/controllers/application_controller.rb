@@ -5,8 +5,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    # Using metaprogramming to send to class paths
-    send("#{resource.model_name.param_key}_path", resource.id)
+    # TODO I don't like this way (but cannot find alternative)
+
+    if resource.class.name == "Restaurant"
+      restaurant_calendar_path(resource)
+    else
+      send("#{resource.model_name.param_key}_path", resource.id)
+    end
   end
 
   def after_sign_out_path_for(resource)
