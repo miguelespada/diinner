@@ -1,8 +1,8 @@
 Given(/^There are some last minute diinners$/) do
   @restaurant = FactoryGirl.create(:restaurant, city: @city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
-  @restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
   @menu = @restaurant.menus.first
+  @restaurant.tables.create(FactoryGirl.build(:table, :for_today, menu: @menu).attributes)
   @table = @restaurant.tables.first
 
   he = FactoryGirl.create(:user, :with_customer_id,  gender: :male)
