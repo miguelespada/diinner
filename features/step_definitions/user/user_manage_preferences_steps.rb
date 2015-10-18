@@ -25,3 +25,11 @@ Then(/^I see my preferences applied to the table search$/) do
   expect(page).to have_select('reservation_city', selected: "barcelona")
   # TODO add rest of defaults
 end
+
+Then(/^I cannot reserve diinner$/) do
+  allow_any_instance_of(User).to receive(:birth).and_return nil
+  click_on "New reservation"
+  expect(page).to have_content "You have to fill your profile information."
+  click_on "Last minute diinners"
+  expect(page).to have_content "You have to fill your profile information."
+end

@@ -5,12 +5,15 @@ Feature: User manage preferences
   Background:
     Given I am a logged user
 
-#  TODO Figure out why it doesn't work in CircleCI only
-#  @user_default_preferences
-#  Scenario:
-#    When I can see the default preferences
+ @user_default_preferences
+ Scenario:
+   When I can see the default preferences
 
   @user_edit_preferences
   Scenario:
     When I change my preferences
     Then I see my preferences applied to the table search
+
+  @user_cannot_reserve_without_preferences
+  Scenario:
+    Then I cannot reserve diinner
