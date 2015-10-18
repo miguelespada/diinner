@@ -13,9 +13,19 @@
 javascript:
   $(document).on('ready page:change', function() {
      var tomorrow = moment({ hour:21, minute:00 }).add(1, 'days');
-     $('.datetimepicker').each(function(){
-      $(this).data("DateTimePicker").date(tomorrow);
-      $(this).data("DateTimePicker").minDate(tomorrow);
-      $(this).data("DateTimePicker").maxDate(moment().add(30, 'days'));
-     });
+
+     table_date = $($('.table_date .datetimepicker')).data("DateTimePicker");
+     table_time = $($('.table_hour .datetimepicker')).data("DateTimePicker");
+     table_repeat = $($('.table_repeat_until .datetimepicker')).data("DateTimePicker");
+     table_date.date(tomorrow);
+     table_date.minDate(tomorrow);
+     table_date.maxDate(moment().add(30, 'days'));
+     table_time.date(tomorrow);
+
+      $('.table_repeat_until .date_picker').focus(function() {
+        if(!$(this).val()){
+          $(this).val($('#table_date').val());
+        }
+      });
+
   });

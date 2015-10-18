@@ -30,7 +30,7 @@ When(/^I should the wrong date error message$/) do
 end
 
 Then(/^I should see the table in the list of tables$/) do
-  expect(page).to have_content "Table(s) was successfully created."
+  expect(page).to have_content "1 table(s) was successfully created."
   within(:css, ".table-date") do
     expect(page).to have_content Date.tomorrow.strftime("%d/%m/%Y")
   end

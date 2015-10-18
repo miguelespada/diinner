@@ -19,8 +19,8 @@ class Restaurants::TablesController <  BaseRestaurantsController
 
   def create
     if table_date.to_date > Date.today
-      create_multiple_tables(table_date, repeat_until_date, number_of_repetitions)
-      redirect_to restaurant_tables_path(@restaurant), :notice => 'Table(s) was successfully created.'
+      n = create_multiple_tables(table_date, repeat_until_date, number_of_repetitions)
+      redirect_to restaurant_tables_path(@restaurant), :notice => "#{n} table(s) was successfully created."
     else
       redirect_to restaurant_tables_path(@restaurant), :notice => 'You can only create tables starting from tomorrow'
     end
@@ -76,14 +76,17 @@ class Restaurants::TablesController <  BaseRestaurantsController
   end
 
   def create_multiple_tables from_date, repeat_until, number
+    n = 0
     while from_date <= repeat_until
       number.times do
         @table = @restaurant.tables.new(table_params)
         @table.date = from_date
         @table.save!
+        n += 1
         NotificationManager.notify_restaurant_create_table object: @table, from: @restaurant
       end
       from_date += 1.week
     end
+    n 
   end
 end
