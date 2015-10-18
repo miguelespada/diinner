@@ -167,8 +167,28 @@ def there_is_one_reservation
   reservation.save!
 end
 
+def full_table_for_today
+  delete_all
+  create_basic_context
+
+  @he.update_customer_information!(Stripe::Token.create(valid_card).id)
+  @she.update_customer_information!(Stripe::Token.create(valid_card).id)
+
+  reservation = FactoryGirl.create(:reservation, user: @he, table: @restaurant.tables.first, date: 2.days.ago)
+  reservation.companies.create(age: 30, gender: :male)
+  reservation.companies.create(age: 30, gender: :male)
+  reservation.save!
+
+  reservation = FactoryGirl.create(:reservation, user: @she, table: @restaurant.tables.first, date: 1.days.ago)
+  reservation.companies.create(age: 30, gender: :female)
+  reservation.companies.create(age: 30, gender: :female)
+  reservation.save!
+end
+
 # there_is_one_table_for_tomorrow
-there_is_one_reservation
+# there_is_one_reservation
 
 # create_last_minute_context_2_2
 # last_minute_reservation valid_card
+
+full_table_for_today
