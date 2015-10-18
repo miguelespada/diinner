@@ -49,7 +49,11 @@ dinnerApp.service('InitService',
               {text: "Diinner and Bed", value: 1},
               {text: "Diinner and Party", value: 2}
             ],
-            priceList: [20, 40, 60]
+            priceList: [
+              {text: 'Lowcost', value: 'lowcost'},
+              {text: 'Regular', value: 'regular'},
+              {text: 'Premium', value: 'premium'}
+            ]
           }
        });
       }

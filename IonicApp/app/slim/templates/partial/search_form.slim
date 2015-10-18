@@ -40,7 +40,7 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
       label.item.item-input.item-select
         .input-label
           | Budget
-        select.menu-price ng-model="filters.price" ng-options="item for item in priceList"
+        select.menu-price ng-model="filters.price" ng-options="item.value as item.text for item in priceList"
     ion-item
       .input-label
         | What do you expect of the diinner?

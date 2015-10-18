@@ -30,7 +30,7 @@ dinnerApp.controller('SearchFormCtrl',
       $scope.priceList = $sharedService.get().default.priceList;
 
       $scope.filters = {
-        price: $scope.user.preference.menu_price || 20,
+        price: $scope.user.preference.menu_range || 'lowcost',
         city: $scope.user.preference.city_id || $scope.cityList[0].id,
         companies_attributes: [],
         selectedDate: "tomorrow",

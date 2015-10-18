@@ -40,8 +40,8 @@ dinnerApp.controller('PaymentCtrl',
             $scope.user = user;
             $scope.updateUserData(user);
             $loadingService.loading(false);
+            $scope.panelShown = 'payment_confirm';
           });
-          $scope.panelShown = 'payment_confirm';
         }
       };
 
@@ -51,6 +51,8 @@ dinnerApp.controller('PaymentCtrl',
           $initService.initReservations();
           $loadingService.loading(false);
           $state.go('user');
+        }, function(error){
+          $loadingService.loading(false);
         });
       };
 }]);

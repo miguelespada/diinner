@@ -24,7 +24,7 @@ ion-view title="Payment" ng-controller="PaymentCtrl" cache-view="false"
       ion-item
         | You are about to reserve a table at the restaurant {{ reservationSelected.restaurant.name }}. {{ reservationSelected.restaurant.address }}, on {{ reservationSelected.date }} at {{ reservationSelected.time }} for the price {{ reservationSelected.price }}€
       ion-item.bar.bar-header.bar-assertive ng-show="cardError"
-          h1.title Please, verify your input data.
+        h1.title Please, verify your input data.
       ion-item
         form stripe-form="handleStripe" name="myForm"
           div

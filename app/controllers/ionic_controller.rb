@@ -77,7 +77,7 @@ class IonicController < ActionController::Base
     end
     @reservation = @current_user.reservations.create(user_id: @current_user.id,
                                              date: reservation[:date],
-                                             price: reservation[:price],
+                                             menu_range: reservation[:price],
                                              table_id: reservation[:table_id],
                                              companies: companies)
     NotificationManager.notify_user_create_reservation(object: @reservation)
