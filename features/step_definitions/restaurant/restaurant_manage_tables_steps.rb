@@ -2,7 +2,8 @@ When(/^I create a new table$/) do
   click_on "Tables"
   click_on "New"
   fill_in "Date", with: Date.tomorrow.strftime("%d/%m/%Y")
-  fill_in "Hour", with: "19:00"
+  fill_in "Hour", with: "19:00" 
+  select "Dummy menu", from: :table_menu
   click_button 'Create Table'
 end
 
@@ -12,6 +13,7 @@ When(/^I create a new table having a menu$/) do
   click_on "New"
   fill_in "Date", with: Date.tomorrow.strftime("%d/%m/%Y")
   fill_in "Hour", with: "19:00"
+  select "Dummy menu", from: :table_menu
   click_button 'Create Table'
 end
 
@@ -28,7 +30,7 @@ When(/^I should the wrong date error message$/) do
 end
 
 Then(/^I should see the table in the list of tables$/) do
-  expect(page).to have_content "Table(s) was successfully created."
+  expect(page).to have_content "1 table(s) was successfully created."
   within(:css, ".table-date") do
     expect(page).to have_content Date.tomorrow.strftime("%d/%m/%Y")
   end
@@ -40,6 +42,12 @@ Then(/^I should see the table in the list of tables$/) do
   end
   within(:css, ".table-status") do
     expect(page).to have_content "empty"
+  end
+  within(:css, ".table-price") do
+    expect(page).to have_content 20
+  end
+  within(:css, ".table-menu") do
+    expect(page).to have_content "Dummy menu"
   end
 end
 
@@ -73,7 +81,7 @@ Then(/^I should see the updated table in the list of tables$/) do
 end
 
 Then(/^I can see the table in my calendar$/) do
-  find('.calendar-link').click
+  click_on "Calendar"
   expect(page).to have_css ".calendar"
   within(".has-events") do
     within(".empty") do

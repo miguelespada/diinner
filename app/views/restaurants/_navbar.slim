@@ -1,10 +1,9 @@
 - content_for(:navbar_username) do
   = current_restaurant.name
 
+- content_for(:home_link) do
+  = restaurant_calendar_path current_restaurant
 
 - content_for(:navbar_menu) do
   == cell(:restaurant, current_restaurant).dropdown_menu
 
-- content_for(:navbar_more_links) do
-  == cell(:restaurant, current_restaurant).navbar_profile_link
-  == cell(:restaurant, current_restaurant).navbar_calendar_link

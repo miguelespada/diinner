@@ -33,7 +33,7 @@ MAP.updateMap = function(){
 };
 
 MAP.drawMapTiles = function(style, latlng){
-  MAP.container = L.mapbox.map('map', style).setView(latlng, 14);
+  MAP.container = L.mapbox.map('map', style).setView(latlng, 30);
   MAP.container.scrollWheelZoom.disable();
 };
 

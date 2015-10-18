@@ -2,10 +2,12 @@
 tr
   td.table-check == check_box_tag("table_ids[]", model.id)
   td.table-id == show_link
-  td.table-date = model.date
+  td.table-date = date
   td.table-hour = hour
   td.table-slots = slots_left
   td.table-status == status
+  td.table-menu == menu.show_link
+  td.table-price == menu.price
   td.table-actions.text-right
     == edit_link
     == delete_link

@@ -16,3 +16,10 @@ Feature: Admin Session
     Given I am logged as admin
     When I logout
     Then I should see the homepage
+
+  @admin_change_password
+  Scenario:
+    Given I am admin
+    When I login as admin
+    When I change my admin password
+    Then I should see that my admin password has changed

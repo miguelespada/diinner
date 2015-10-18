@@ -34,29 +34,16 @@ end
 
 
 When(/^I can delete multiple tables at the time$/) do
-
   page.all('.table-check').each do |element|
     within element do
       check :table_ids_
     end
   end
   click_button "Delete selected"
-
-   expect(page).not_to have_css(".table-id")
-
+  expect(page).not_to have_css(".table-id")
+  expect(page).to have_content("3 table(s) were successfully destroyed.")
 end
 
-Then(/^I can only create a menu of each price$/) do
-  step "I create a menu 20"
-  page.has_select?("Price", :with_options => [20]).should == false
-  step "I create a menu 40"
-  page.has_select?("Price", :with_options => [20]).should == false
-  page.has_select?("Price", :with_options => [40]).should == false
-  step "I create a menu 60"
-  page.has_select?("Price", :with_options => [20]).should == false
-  page.has_select?("Price", :with_options => [40]).should == false
-  page.has_select?("Price", :with_options => [60]).should == false
-end
 
 Given(/^one table has a reservation$/) do
   restaurant = Restaurant.first

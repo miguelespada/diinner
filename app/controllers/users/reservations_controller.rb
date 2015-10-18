@@ -8,6 +8,7 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def new
+    check_preferences
     @reservation = @user.reservations.new
     @reservation.companies.build
     @reservation.companies.build
@@ -28,6 +29,7 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def new_last_minute
+    check_preferences
     @reservation = @user.reservations.new
     @reservation.date = Date.today
   end
@@ -72,6 +74,12 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   private
+  def check_preferences
+    if @user.birth.nil? || @user.gender.nil?
+      redirect_to user_path(@user),  notice: 'You have to fill your profile information.'
+    end
+  end
+
 
   def reservation_params
     params.require(:reservation).permit(:user_id,

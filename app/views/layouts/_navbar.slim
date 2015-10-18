@@ -1,6 +1,6 @@
 header
   nav.navbar.navbar-default.navbar-fixed-top.navbar-main#navbar-base
-    a.navbar-brand href="#"
+    a.navbar-brand href="#{yield(:home_link)}"
       = image_tag "brand.svg"
     ul.nav.navbar-nav.navbar-right
       li.nav-item = yield(:navbar_search)

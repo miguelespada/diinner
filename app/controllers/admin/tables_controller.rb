@@ -1,5 +1,5 @@
 class Admin::TablesController < AdminController
-  load_resource :only => [:show]
+  load_resource :only => [:show, :process_payment]
 
   def index
     @tables = Table.desc(:created_at).page(params[:page])
@@ -8,4 +8,8 @@ class Admin::TablesController < AdminController
   def show
   end
 
+  def process_payment
+    TableManager.process_table @table
+    redirect_to admin_tables_path
+  end
 end

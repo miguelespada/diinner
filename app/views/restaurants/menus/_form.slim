@@ -1,11 +1,9 @@
-- prices_left = @restaurant.menu_prices_left
-- prices_left << @menu.price if @menu.price.present?
-
+= link_to 'Cancel', :back
 = simple_form_for [@restaurant, @menu] do |f|
   = f.error_notification
   = f.input :name
   = f.input :description
-  = f.input :price, :collection => prices_left, :include_blank => false
+  = f.input :price, :collection => (15..80).step(1).to_a, :include_blank => false
   = f.input :appetizer
   = f.input :main_dish
   = f.input :dessert

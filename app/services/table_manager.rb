@@ -32,6 +32,7 @@ class TableManager
     self.capture(tables)
     self.refund_partial(tables)
     self.refund_last_minute(tables)
+    self.mark_as_processed(tables)
     tables = self.cancel_partial(tables)
     self.charge(tables)
     self.notify_confirmations(tables)
@@ -90,4 +91,7 @@ class TableManager
     tables.map{|table| table.notify_cancel_last_minute}
   end
 
+  def self.mark_as_processed tables
+    tables.map{|table| table.update_attribute(:processed, :true) }
+  end
 end

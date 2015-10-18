@@ -17,27 +17,30 @@ class Restaurants::MenusController <  BaseRestaurantsController
   end
 
   def create
-    if allowed_price?
-      @menu = @restaurant.menus.create(menu_params)
+    @menu = @restaurant.menus.new(menu_params)
+    if @menu.save
       NotificationManager.notify_restaurant_create_menu object: @menu, from: @restaurant
       redirect_to restaurant_menus_path(@restaurant), :notice => 'Menu was successfully created.'
     else
-      redirect_to restaurant_menus_path(@restaurant)
+      redirect_to :back, notice: 'Error: menu was not saved.'
     end
   end
 
   def update
-    if allowed_price? || @menu.price == price_param
-      @menu.update(menu_params)
+    if @menu.update(menu_params)
       redirect_to restaurant_menus_path(@restaurant), notice: 'Menu was successfully updated.'
     else
-      render :edit
+      redirect_to :back, notice: 'Error: menu was not saved.'
     end
   end
 
   def destroy
-    @menu.destroy
-    redirect_to restaurant_menus_path(@restaurant), notice: 'Menu was successfully destroyed.'
+    if @menu.can_be_deleted?
+      @menu.destroy
+      redirect_to restaurant_menus_path(@restaurant), notice: 'Menu was successfully destroyed.'
+    else
+      redirect_to :back, :notice => 'Operation not allowed: there are tables using this menu'
+    end
   end
 
   private
@@ -62,7 +65,4 @@ class Restaurants::MenusController <  BaseRestaurantsController
     params[:menu][:price].to_i
   end
 
-  def allowed_price?
-    @restaurant.menu_prices_left.include? price_param
-  end
 end

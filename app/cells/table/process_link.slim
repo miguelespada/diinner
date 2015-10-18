@@ -1,0 +1,4 @@
+- if !model.processed?
+  = link_to "Process", process_payment_admin_table_path(model), class: "process-link"
+- else
+  | Processed

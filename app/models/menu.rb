@@ -13,18 +13,22 @@ class Menu
   field :drink, type: String, default: ""
 
   belongs_to :restaurant
+  has_many :tables
 
-  validates :name, presence: true
+  validates_presence_of :name
 
   def user_count
-    restaurant.tables.select{|table| table.menu == self}
-                      .map{|table| table.user_count}
-                      .inject(:+) || 0
+    tables.map{|table| table.user_count}.inject(:+) || 0
   end
 
   def empty?
     user_count == 0
   end
+  
+  def can_be_deleted?
+    tables.count == 0
+  end
+
 
   def is_owned_by? user
     return true if restaurant == user

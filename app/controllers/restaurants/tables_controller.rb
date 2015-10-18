@@ -19,8 +19,8 @@ class Restaurants::TablesController <  BaseRestaurantsController
 
   def create
     if table_date.to_date > Date.today
-      create_multiple_tables(table_date, repeat_until_date, number_of_repetitions)
-      redirect_to restaurant_tables_path(@restaurant), :notice => 'Table(s) was successfully created.'
+      n = create_multiple_tables(table_date, repeat_until_date, number_of_repetitions)
+      redirect_to restaurant_tables_path(@restaurant), :notice => "#{n} table(s) was successfully created."
     else
       redirect_to restaurant_tables_path(@restaurant), :notice => 'You can only create tables starting from tomorrow'
     end
@@ -41,14 +41,20 @@ class Restaurants::TablesController <  BaseRestaurantsController
 
   def batch_delete
     tables = @restaurant.tables.any_in(:id => params[:table_ids])
-    tables.map{|table| table.destroy if table.can_be_deleted?}
-    redirect_to restaurant_tables_path(@restaurant), notice: 'Tables were successfully destroyed.'
+    n = 0
+    tables.each do |table|
+      if table.can_be_deleted?
+        table.destroy 
+        n += 1
+      end
+    end
+    redirect_to restaurant_tables_path(@restaurant), notice: "#{n} table(s) were successfully destroyed."
   end
 
   private
 
   def table_params
-    params.require(:table).permit(:date, :hour)
+    params.require(:table).permit(:date, :hour, :menu)
   end
 
   def table_date
@@ -70,14 +76,17 @@ class Restaurants::TablesController <  BaseRestaurantsController
   end
 
   def create_multiple_tables from_date, repeat_until, number
+    n = 0
     while from_date <= repeat_until
       number.times do
         @table = @restaurant.tables.new(table_params)
         @table.date = from_date
         @table.save!
+        n += 1
         NotificationManager.notify_restaurant_create_table object: @table, from: @restaurant
       end
       from_date += 1.week
     end
+    n 
   end
 end

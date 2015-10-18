@@ -10,10 +10,13 @@ class Table
   field :date, type: Date
   field :hour, type: Time
   field :cancelled, type: Boolean, default: false
-
+  field :processed, type: Boolean, default: false
+  
   belongs_to :restaurant
   has_many :reservations
-  delegate :menus, :to => :restaurant
+  belongs_to :menu
+
+  delegate :price, :to => :menu
   delegate :city, :to => :restaurant
 
   attr_accessor :number, :repeat_until
@@ -41,14 +44,6 @@ class Table
   
   def passed?
     date < Date.today  
-  end
-  
-  def price
-    empty? ? :undefined : reservations.first.price
-  end
-
-  def menu
-    empty? ? :undefined : menus.select{|menu| menu.price == self.price}.first
   end
 
   def user_count
@@ -87,8 +82,10 @@ class Table
     return :partial
   end
 
-  def matches_menu_price? target_price
-    menus.select{|menu| menu.price == target_price} != []
+  def matches_menu_price? range
+    return menu.price.between?(10, 35) if range == :lowcost
+    return menu.price.between?(35, 50) if range == :regular
+    return menu.price.between?(50, 90) if range == :premium
   end
 
   def has_free_slots? genders
@@ -106,7 +103,7 @@ class Table
   end
 
   def matches? reservation
-    matches_menu_price?(reservation.price) &&
+    matches_menu_price?(reservation.menu_range) &&
     has_free_slots?(reservation.genders) &&
     matches_age?(reservation.user)
   end

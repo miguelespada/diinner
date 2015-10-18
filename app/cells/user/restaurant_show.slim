@@ -1,0 +1,15 @@
+/ TODO dry this [with show]
+div.row
+  div.col-sm-4
+    p.user-avatar.section-photo
+      = image_tag model.image_url, size: "200"
+  div.col-sm-8
+    h1.user-name
+      = model.name
+    div.section-info
+      div.user-gender.info-item
+        div.bold-label GENDER
+        = model.gender
+      div.user-birth.info-item
+        div.bold-label BIRTHDAY
+        = model.birth

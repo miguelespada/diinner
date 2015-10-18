@@ -1,4 +1,10 @@
 - content_for(:sidebar) do
+  li = link_to restaurant_path(@restaurant) do
+    i.bi_user-alt-list 
+    span Profile
+  li = link_to restaurant_calendar_path(@restaurant) do
+    i.bi_time-calendar-a
+    span Calendar
   li = link_to restaurant_tables_path(@restaurant) do
     i.bi_beverage-tea
     span Tables

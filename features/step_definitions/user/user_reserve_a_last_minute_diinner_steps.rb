@@ -1,8 +1,8 @@
 Given(/^There are some last minute diinners$/) do
   @restaurant = FactoryGirl.create(:restaurant, city: @city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
-  @restaurant.tables.create(FactoryGirl.build(:table, :for_today).attributes)
   @menu = @restaurant.menus.first
+  @restaurant.tables.create(FactoryGirl.build(:table, :for_today, menu: @menu).attributes)
   @table = @restaurant.tables.first
 
   he = FactoryGirl.create(:user, :with_customer_id,  gender: :male)
@@ -35,14 +35,14 @@ Given(/^I have preferences$/) do
 
   fill_in "user_preference_attributes_max_age", with: "60"
   fill_in "user_preference_attributes_min_age", with: "20"
-  select "20", :from => "user_preference_attributes_menu_price"
+  select :lowcost, :from => "user_preference_attributes_menu_range"
   select @city.name, :from =>  "user_preference_attributes_city_id"
   click_on "Update User"
 end
 
 When(/^I reserve a last minute diinner$/) do
   click_on "Last minute diinners"
-  select(20, :from => "reservation_price")
+  select(:lowcost, :from => "reservation_price")
   select "Madrid", :from => "reservation_city"
   click_on "Search last minute tables"
   click_on "Reserve"

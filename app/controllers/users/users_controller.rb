@@ -31,7 +31,7 @@ class Users::UsersController < BaseUsersController
     params.require(:user).permit(:gender,
                                   :birth,
                                   :preference_attributes => [:max_age, :min_age, :after_plan,
-                                                             :city_id, :menu_price, :id])
+                                                             :city_id, :menu_range, :id])
   end
 
 end

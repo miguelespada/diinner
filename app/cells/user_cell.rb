@@ -80,8 +80,7 @@ class UserCell < BaseCell
   end
 
   def menu_preference
-    model.menu_price
-
+    model.menu_range 
   end
 
   def after_plan_preference

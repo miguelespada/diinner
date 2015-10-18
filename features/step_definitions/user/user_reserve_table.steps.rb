@@ -9,15 +9,15 @@ Given(/^There are some available tables$/) do
   city = FactoryGirl.create(:city)
   @restaurant = FactoryGirl.create(:restaurant, city: city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
-  @restaurant.tables.create(FactoryGirl.build(:table).attributes)
   @menu = @restaurant.menus.first
+  @restaurant.tables.create(FactoryGirl.build(:table, menu: @menu).attributes)
   @table = @restaurant.tables.first
 end
 
 When(/^I search a table with bad date$/) do
   step "I go to the user page"
   click_on "New reservation"
-  select(20, :from => "reservation_price")
+  select("lowcost", :from => "reservation_price")
   fill_in "Date", with: Date.today
   select "Madrid", :from => "reservation_city"
   click_on "Search tables"
@@ -31,13 +31,12 @@ end
 When(/^I search a table$/) do
   step "I go to the user page"
   click_on "New reservation"
-  select(20, :from => "reservation_price")
+  select(:lowcost, :from => "reservation_price")
   fill_in "Date", with: @table.date.to_date
   select "Madrid", :from => "reservation_city"
   choose "Go for drinks"
   select :female, :from => "reservation_companies_attributes_0_gender"
   fill_in "reservation_companies_attributes_0_age",  with: 20
-
   click_on "Search tables"
 end
 

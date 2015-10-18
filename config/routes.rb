@@ -30,7 +30,11 @@ Rails.application.routes.draw do
     patch 'restaurants/password/:id' => 'devise/registrations#update', :as => 'restaurant_registration'
   end
 
-  devise_for :admins
+  devise_for :admins, :skip => [:passwords]
+  as :admin do
+    get 'admins/password/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'
+    patch 'admins/password/:id' => 'devise/registrations#update', :as => 'admin_registration'
+  end
 
   namespace :restaurants, as: nil do
     resources :restaurants, only: [:index, :edit, :update, :show] do
@@ -69,7 +73,10 @@ Rails.application.routes.draw do
     resources :tests
     resources :cities
     resources :users, except: [:new, :create]
-    resources :tables, only: [:show, :index]
+    resources :tables, only: [:show, :index] do
+      get "process_payment",  on: :member
+    end
+
     resources :menus, only: [:show, :index]
     resources :reservations, only: [:show, :index]
     resources :payments, only: [:index, :show]

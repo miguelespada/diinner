@@ -1,5 +1,11 @@
 class TableCell < BaseCell
 
+  property :date
+  
+  def menu
+    cell(:menu, model.menu)
+  end
+
   def hour
     model.hour.strftime("%H:%M") if !model.hour.nil?
   end
