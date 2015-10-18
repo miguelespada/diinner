@@ -10,7 +10,8 @@ class Table
   field :date, type: Date
   field :hour, type: Time
   field :cancelled, type: Boolean, default: false
-
+  field :processed, type: Boolean, default: false
+  
   belongs_to :restaurant
   has_many :reservations
   belongs_to :menu

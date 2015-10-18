@@ -73,7 +73,10 @@ Rails.application.routes.draw do
     resources :tests
     resources :cities
     resources :users, except: [:new, :create]
-    resources :tables, only: [:show, :index]
+    resources :tables, only: [:show, :index] do
+      get "process_payment",  on: :member
+    end
+
     resources :menus, only: [:show, :index]
     resources :reservations, only: [:show, :index]
     resources :payments, only: [:index, :show]

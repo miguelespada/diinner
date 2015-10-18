@@ -17,3 +17,11 @@ end
 Then(/^I should not see the old tables$/) do
   expect(page).to have_content "1 table(s) removed!"
 end
+
+Then(/^I can process a table$/) do
+  click_on "Tables"
+  click_on "Process"
+  expect(page).to have_content "Processed"
+  click_on "Payments"
+  expect(page).to have_content "Confirmed"
+end

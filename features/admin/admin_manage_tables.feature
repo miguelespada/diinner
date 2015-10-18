@@ -9,3 +9,10 @@ Feature: Admin Manage Tables
     And There are some tables
     When I batch delete the tables
     Then I should not see the old tables
+
+  @admin_process_table
+  Scenario: I create a restaurant
+    Given A user has reserved a table
+    And There are enough reservations
+    Then I am logged as admin
+    Then I can process a table
