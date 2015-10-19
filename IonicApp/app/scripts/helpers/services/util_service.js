@@ -125,7 +125,13 @@ dinnerApp.service('UtilService', function(){
       default:
         return false
     }
+  }
 
+  function calculateAge(birthday) {
+    var birthdayDate = stringToDate(birthday);
+    var ageDifMs = Date.now() - birthdayDate.getTime();
+    var ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
   return {
@@ -137,6 +143,7 @@ dinnerApp.service('UtilService', function(){
     isDateToday: isDateToday,
     compareDates: compareDates,
     compareTimes: compareTimes,
-    compareDatesAndTimes: compareDatesAndTimes
+    compareDatesAndTimes: compareDatesAndTimes,
+    calculateAge: calculateAge
   }
 });

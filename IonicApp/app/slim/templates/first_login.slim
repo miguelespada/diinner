@@ -15,7 +15,9 @@ ion-view title="First Login" ng-controller="FirstLoginCtrl" cache-view="false"
             .input-label
               | Preferred City
             select.city ng-model="user.preference.city_id" ng-options="item.id as item.name for item in cityList"
-        ion-item ng-show="user.preference.city_id != null && user.gender != null && user.birth != null"
+        ion-item.bar.bar-header.bar-assertive ng-show="ageError"
+          h1.title You must be 18 or older.
+        ion-item ng-show="noEmptyFields()"
           button.button.button-full.button-calm type="submit" Submit
 
 
