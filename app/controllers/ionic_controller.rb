@@ -80,7 +80,7 @@ class IonicController < ActionController::Base
                                              menu_range: reservation[:price],
                                              table_id: reservation[:table_id],
                                              companies: companies)
-    NotificationManager.notify_user_create_reservation(object: @reservation)
+    # NotificationManager.notify_user_create_reservation(object: @reservation)
 
     render json: {result: "success"}
   end
