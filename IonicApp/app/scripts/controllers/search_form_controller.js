@@ -34,11 +34,17 @@ dinnerApp.controller('SearchFormCtrl',
         city: $scope.user.preference.city_id || $scope.cityList[0].id,
         companies_attributes: [],
         selectedDate: "tomorrow",
-        friends: 0
+        friends: 0,
+        expectation: 1
       };
 
       $scope.toggleChange = function() {
         $scope.isLastMinute = !$scope.isLastMinute;
+        $scope.removeFriends();
+      };
+
+      $scope.removeFriends = function() {
+        $scope.filters.friends = 0;
       };
 
       $scope.searchReservations = function(filters){

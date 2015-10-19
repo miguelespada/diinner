@@ -4,33 +4,30 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
       ion-toggle toggle-class="toggle-calm" ng-model="isLastMinute" ng-change="toggleChange()" ¿Quieres reservar para esta noche?
     ion-item ng-show="!isLastMinute"
       | Date
-      .row.col ng-repeat="item in dateList"
-        ion-radio id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
-          | {{ item.text }}
+      ion-radio.row.col ng-repeat="item in dateList" id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
+        | {{ item.text }}
       .row ng-show="filters.selectedDate == 'other'"
         .col.col-100
           label.item.item-input
             span.input-label  Date
             input.date type="date" ng-model="filters.date" json-date=""
 
-    ion-item
+    ion-item ng-show="!isLastMinute"
       | Friends
       .row
-        .col ng-repeat="item in friendsList"
-          ion-radio id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
-            | {{ item.text }}
+        ion-radio.col ng-repeat="item in friendsList" id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
+          | {{ item.text }}
       .row ng-repeat="friend_number in [1,2] track by $index" ng-show="friend_number <= filters.friends"
         h2.col.col-10 +{{ friend_number }}
-        .col ng-repeat="gender in genderList"
-          ion-radio name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number-1].gender"
-            | {{ gender.text }}
+        ion-radio.col ng-repeat="gender in genderList" name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number-1].gender"
+          | {{ gender.text }}
         .col
           label.item.item-input.item-select
             .input-label
               | Age
             select.menu-price ng-model="filters.companies_attributes[friend_number-1].age" ng-options="age for age in ageList"
       .row.col ng-show="filters.friends > 0"
-        ion-radio name="friends" ng-value="0" ng-model="filters.friends" Delete Friends
+        .button.button-full.button-assertive name="friends" ng-click="removeFriends()" ng-value="0" ng-model="filters.friends" Go alone
     ion-item
       label.item.item-input.item-select
         .input-label
@@ -44,9 +41,7 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
     ion-item
       .input-label
         | What do you expect of the diinner?
-      .row.col ng-repeat="item in expectationList"
-        ion-radio id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
-          | {{ item.text }}
-
+      ion-radio.row.col ng-repeat="item in expectationList" id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
+        | {{ item.text }}
     ion-item
       button.button.button-full.button-calm type="submit" GO!
