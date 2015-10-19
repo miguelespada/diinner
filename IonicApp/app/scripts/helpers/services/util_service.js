@@ -32,7 +32,7 @@ dinnerApp.service('UtilService', function(){
     }
   }
 
-  function dateToString(date){
+  function dateToString(date, range){
     var dd = date.getDate();
     var mm = date.getMonth()+1; //January is 0!
     var yyyy = date.getFullYear();
@@ -45,7 +45,7 @@ dinnerApp.service('UtilService', function(){
       mm='0'+mm
     }
 
-    return dd+'/'+mm+'/'+yyyy;
+    return range ? yyyy+'-'+mm+'-'+dd : dd+'/'+mm+'/'+yyyy;
   }
 
   function stringToDate(strDate){
