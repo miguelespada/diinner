@@ -113,6 +113,10 @@ class Restaurant
     !city.nil?
   end
 
+  def has_photo?
+    !photo.nil? && !photo.path.nil?
+  end
+
   def to_ionic_json
     {
         name: name,
@@ -121,8 +125,7 @@ class Restaurant
         address: address,
         contact_person: contact_person,
         city: has_city? ? city.id.to_s : nil,
-        photo: Cloudinary::Utils.cloudinary_url(photo.path)
-
+        photo: has_photo? ? Cloudinary::Utils.cloudinary_url(photo.path) : nil
     }
   end
 

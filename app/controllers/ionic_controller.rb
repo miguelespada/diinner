@@ -77,10 +77,10 @@ class IonicController < ActionController::Base
     end
     @reservation = @current_user.reservations.create(user_id: @current_user.id,
                                              date: reservation[:date],
-                                             menu_range: reservation[:price],
+                                             menu_range: reservation[:menu_range],
                                              table_id: reservation[:table_id],
                                              companies: companies)
-    # NotificationManager.notify_user_create_reservation(object: @reservation)
+    NotificationManager.notify_user_create_reservation(object: @reservation)
 
     render json: {result: "success"}
   end
@@ -145,7 +145,7 @@ class IonicController < ActionController::Base
     @http_auth_token ||= if request.headers['Authorization'].present?
                            request.headers['Authorization'].split(' ').last
                          end
-    return @http_auth_token
+    @http_auth_token
   end
 
   def authenticate

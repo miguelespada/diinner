@@ -148,6 +148,7 @@ class Reservation
       cancelled: cancelled?,
       date: date_and_time,
       time: hour,
+      menu_range: menu_range,
       price: price,
       affinity: table.affinity,
       restaurant: has_restaurant? ? restaurant.to_ionic_json : nil,
