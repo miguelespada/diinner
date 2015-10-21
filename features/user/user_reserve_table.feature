@@ -15,6 +15,7 @@ Feature: User Reserves table
     And I can access restaurant data
     And I can access menu data
     And I shoud be notified that my plan is pending
+    And I cannot reserve a table the same date
 
   @user_reserves_table_bad_date
   Scenario: 

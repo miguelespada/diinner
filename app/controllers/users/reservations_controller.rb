@@ -19,8 +19,10 @@ class  Users::ReservationsController < BaseUsersController
 
   def search
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
+    # TODO DRY with last minute
+    redirect_to :back, notice: 'You already have a reservation for this date' if @user.busy?(suggestionEngine.date)
+    
     if suggestionEngine.date_in_range?
-      # TODO limit search on Engine
       @suggestions = suggestionEngine.search.first(3)
       render :no_dinners if @suggestions.empty?
     else
@@ -39,8 +41,12 @@ class  Users::ReservationsController < BaseUsersController
       render :off_the_clock 
     else
       suggestionEngine = SuggestionEngine.new @user, params[:reservation]
-      @suggestions = suggestionEngine.last_minute.first(3)
-      render :no_dinners if @suggestions.empty?
+      if @user.busy?(suggestionEngine.date)
+        redirect_to :back, notice: 'You already have a reservation for this date'
+      else
+        @suggestions = suggestionEngine.last_minute.first(3)
+        render :no_dinners if @suggestions.empty?
+      end
     end
   end
 

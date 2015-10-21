@@ -161,4 +161,7 @@ class User
     1.0 - (a / 4.0)
   end
 
+  def busy? date
+    reservations.where(date: date).count > 0
+  end
 end

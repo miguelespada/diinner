@@ -190,5 +190,9 @@ Then(/^I can see the reservation notification$/) do
   end
 end
 
+Then(/^I cannot reserve a table the same date$/) do
+  step "I search a table"
+  expect(page).to have_content "You already have a reservation for this date"
+end
 
 

@@ -25,6 +25,7 @@ Feature: User reserves last minute diinner
     Then I shoud be notified that my plan is pending
     And I can access to the pending reservation through my reservations
     And I cannot cancel the reservation
+    And I cannot reserve again for the same date
 
   @user_closes_a_last_minute_diinner
   Scenario:

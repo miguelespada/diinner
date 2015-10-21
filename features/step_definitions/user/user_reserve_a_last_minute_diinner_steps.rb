@@ -40,11 +40,16 @@ Given(/^I have preferences$/) do
   click_on "Update User"
 end
 
-When(/^I reserve a last minute diinner$/) do
+When(/^Search last minute$/) do
+
   click_on "Last minute diinners"
   select(:lowcost, :from => "reservation_price")
   select "Madrid", :from => "reservation_city"
   click_on "Search last minute tables"
+end
+
+When(/^I reserve a last minute diinner$/) do
+  step "Search last minute"
   click_on "Reserve"
   step "I fill in the credit card details"
   click_on "Confirm"
@@ -150,4 +155,10 @@ end
 Then(/^I should see that my last minute plan is cancelled$/) do
   click_on "Notifications"
   expect(page).to have_content "Your plan diinner for tonight at restaurant #{@restaurant.name} was cancelled"
+end
+
+Then(/^I cannot reserve again for the same date$/) do
+  step "Search last minute"
+  
+  expect(page).to have_content "You already have a reservation for this date"
 end
