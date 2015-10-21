@@ -32,3 +32,7 @@ Feature: Restaurant manage reservations
     Given There are enough reservations
     When the table manager process runs
     Then I can see the table confirmation in my notifications
+
+  @restaurant_search_ticket
+  Scenario:
+    Then I can search user reservation by ticket

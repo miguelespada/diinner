@@ -7,6 +7,7 @@ class Reservation
   include ReservationStatus
   extend SimpleCalendar
   after_destroy :remove_activities
+  before_save :generate_locator
 
   has_calendar :attribute => :date
 
@@ -15,6 +16,8 @@ class Reservation
 
   field :date, type: Date
   field :after_plan, type: Boolean
+  field :locator, type: String
+
   enum :menu_range, [:lowcost, :regular, :premium]
 
   delegate  :restaurant,
@@ -77,9 +80,9 @@ class Reservation
     DateTime.new(self.date.year, self.date.month, self.date.day, self.hour.hour, self.hour.min, self.hour.sec, self.hour.zone)
   end
 
-  def locator
+  def generate_locator
     i = (id.to_s[5..7] + id.to_s[18..20]).to_i(30)
-    "R_" + Hashids.new("The salt of every").encode(i)
+    self.locator = "R_" + Hashids.new("The salt of every").encode(i)
   end
 
   def cancel

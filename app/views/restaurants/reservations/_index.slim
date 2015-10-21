@@ -1,0 +1,15 @@
+
+- content_for(:thead) do
+  th Reservation ID
+  th Table ID
+  th User
+  th Details
+  th Status
+  th Actions
+
+- content_for(:tbody) do
+  == cell(:reservation, collection: @reservations, method: :restaurant_row)
+
+= render "admin/admin_table"
+
+= will_paginate @reservations

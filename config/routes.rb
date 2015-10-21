@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
       resources :reservations, only: [:show, :index] do
         get "validate"
+        get "search_by_ticket", on: :collection
       end
     end
   end

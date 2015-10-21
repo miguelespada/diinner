@@ -71,3 +71,15 @@ Then(/^I can see the table confirmation in my notifications$/) do
     expect(page).to have_content "Table #{@table.locator} for tonight was confirmed!!!"
   end
 end
+
+Then(/^I can search user reservation by ticket$/) do
+  click_on "Tickets Diinner"
+  fill_in "query", with: "XXX"
+  find("#search-button").click
+  expect(page).to have_content "No tickets where found"
+  fill_in "query", with: Reservation.first.locator
+  find("#search-button").click
+  expect(page).to have_content  Reservation.first.table.locator
+end
+
+
