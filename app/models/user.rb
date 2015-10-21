@@ -162,6 +162,9 @@ class User
   end
 
   def busy? date
-    reservations.where(date: date).count > 0
+    reservations.where(date: date).each do |r|
+      return true if !r.cancelled?
+    end
+    false
   end
 end

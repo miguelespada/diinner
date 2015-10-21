@@ -141,6 +141,7 @@ Then(/^I can see my default card on my profile$/) do
 end
 
 Then(/^I can reserve again with the same card$/) do
+  step("I cancel my reservation")
   step("I search a table")
   click_on("Reserve")
   click_on "Use saved card"
