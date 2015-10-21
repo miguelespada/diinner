@@ -67,6 +67,7 @@ Rails.application.routes.draw do
     get "/remove_old_tables" => "admin#remove_old_tables", as: "remove_old_tables"
     get "/invite_users_to_evaluate" => "admin#invite_users_to_evaluate", as: "invite_users_to_evaluate"
     get "/remove_old_logs" => "admin#remove_old_logs", as: "remove_old_logs"
+    get "/test_email_notification" => "admin#test_email_notification", as: "test_email_notification"
   end
 
   namespace :admin do

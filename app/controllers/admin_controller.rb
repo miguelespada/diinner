@@ -52,6 +52,11 @@ class AdminController < ApplicationController
     redirect_to settings_path, notice: "You have removed #{n} log(s)"
   end
 
+  def test_email_notification
+    EmailNotifications.notify(params[:email], "This is a test message")
+    redirect_to :back, notice: "An email was sent to " + params[:email]
+  end
+
   private
 
   def city_param

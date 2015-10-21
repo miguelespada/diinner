@@ -5,3 +5,8 @@ div
     li = link_to "Remove old tables", remove_old_tables_path
     li = link_to "Invite users to evaluate diinners", invite_users_to_evaluate_path
     li = link_to "Remove old logs", remove_old_logs_path
+
+    li 
+      = form_tag test_email_notification_path, method: "get" do
+        = text_field_tag 'email', nil, placeholder: 'Enter your email...', size: 75
+        = submit_tag "Test email notification"
