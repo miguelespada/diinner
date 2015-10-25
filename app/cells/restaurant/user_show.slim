@@ -1,1 +1,12 @@
-== _show
+div.row
+  div.col-sm-4
+    div.restaurant-photo.section-photo
+      = cl_photo 200
+  div.col-sm-8
+    h1.restaurant-name
+      = model.name
+    h4.restaurant-description.section-subtitle
+      = model.description
+    div.section-info
+      == _address 
+  == _map 
