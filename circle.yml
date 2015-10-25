@@ -3,6 +3,8 @@ machine:
     version: 2.0.0
   services:
     - elasticsearch
+  timezone:
+    Europe/Madrid
 test:
  override:
    - bundle exec rspec
