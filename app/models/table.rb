@@ -21,20 +21,25 @@ class Table
 
   attr_accessor :number, :repeat_until
 
+  def uncancelled_reservations
+    reservations.reject{|r| r.cancelled?}
+  end
+
   def affinity
     # TODO memoize
-    return 100 if reservations.count == 0
+    res = uncancelled_reservations
+    return 100 if res.count <= 1
     aff = 0
     i = 0
-    while i < reservations.count - 1 do
+    while i < res.count - 1 do
       j = i + 1
-      while j <  reservations.count do
-        aff += reservations[i].affinity(reservations[j])
+      while j <  res.count do
+        aff += res[i].affinity(reservations[j])
         j += 1
       end
       i += 1
     end
-    aff /= reservations.count.to_f
+    aff /= res.count.to_f
     (70 + aff * 30).to_i
   end
 

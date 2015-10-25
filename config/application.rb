@@ -32,6 +32,7 @@ module Dinner
     # config.i18n.default_locale = :es
     config.time_zone = 'Europe/Madrid'
 
+    # heroku config:add TZ="Europe/Madrid"
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'

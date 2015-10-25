@@ -52,8 +52,12 @@ class  Users::ReservationsController < BaseUsersController
 
   def create
     # TODO check again if reservation match the table (in case concurrency problems)
-    @reservation = @user.reservations.create(reservation_params)
-    render :credit_card_form
+    if @user.busy?(Reservation.new(reservation_params).date)
+      redirect_to :back, notice: 'You already have a reservation for this date' 
+    else
+      @reservation = @user.reservations.create(reservation_params)
+      render :credit_card_form
+    end
   end
 
   def reuse_card
@@ -61,12 +65,12 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def update
-    if @user.update_customer_information!(params[:stripe_card_token])
-      handle_reservation(@reservation)
-    else
-      # TODO handle card errors
-      handle_reservation_error @reservation
-    end
+      if @user.update_customer_information!(params[:stripe_card_token])
+        handle_reservation(@reservation)
+      else
+        # TODO handle card errors
+        handle_reservation_error @reservation
+      end
   end
 
   def cancel
