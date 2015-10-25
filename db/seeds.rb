@@ -129,6 +129,25 @@ def create_last_minute_context_2_2
   TableManager.process_today_tables
 end
 
+def create_last_minute_context_2_3
+  delete_all
+  create_basic_context
+
+  @he.update_customer_information!(Stripe::Token.create(valid_card).id)
+  @she.update_customer_information!(Stripe::Token.create(valid_card).id)
+
+  reservation =  FactoryGirl.create(:reservation, user: @he, table: @table, date: 2.days.ago)
+  reservation.companies.create(age: 35, gender: :male)
+  reservation.companies.create(age: 30, gender: :female)
+  reservation.save!
+
+  reservation =  FactoryGirl.create(:reservation, user: @she, table: @table, date: 3.days.ago)
+  reservation.companies.create(age: 30, gender: :female)
+  reservation.save!
+
+  TableManager.process_today_tables
+end
+
 def last_minute_reservation card
   other_she = FactoryGirl.create(:user, gender: :female)
   other_she.update_customer_information!(Stripe::Token.create(card).id)
@@ -185,10 +204,12 @@ def full_table_for_today
   reservation.save!
 end
 
-there_is_one_table_for_tomorrow
+# there_is_one_table_for_tomorrow
 # there_is_one_reservation
 
 # create_last_minute_context_2_2
 # last_minute_reservation valid_card
 
 #  full_table_for_today
+
+create_last_minute_context_2_3
