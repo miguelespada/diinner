@@ -104,7 +104,7 @@ class IonicController < ActionController::Base
 
     suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
 
-    if suggestionEngine.date_in_range?
+    if !suggestionEngine.date_in_range?
       render json: {
                  reservations: [],
                  error: 'wrong_date'
