@@ -10,7 +10,7 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
         .col.col-100
           label.item.item-input
             span.input-label  Date
-            input.date type="date" ng-model="filters.date" json-date="" min="{{minSearchDate}}" max="{{maxSearchDate}}"
+            input.date type="date" ng-model="filters.otherDate" min="{{minSearchDate}}" max="{{maxSearchDate}}"
 
     ion-item ng-show="!isLastMinute"
       | Friends

@@ -38,6 +38,7 @@ dinnerApp.controller('SearchFormCtrl',
         companies_attributes: [],
         selectedDate: "tomorrow",
         friends: 0,
+        otherDate: $utilService.dateValue("afterTomorrow"),
         expectation: 1
       };
 
@@ -56,10 +57,13 @@ dinnerApp.controller('SearchFormCtrl',
         });
 
         if (filters.selectedDate != 'other'){
-          filters.date = $utilService.dateToString($utilService.dateValue(filters.selectedDate));
+          filters.date = $utilService.dateValue(filters.selectedDate);
+        } else {
+          filters.date = filters.otherDate;
         }
 
-        if($utilService.stringToDate(filters.date).getTime() > new Date().getTime()){
+        if(filters.date.getTime() > new Date().getTime()){
+          filters.date = $utilService.dateToString(filters.date);
           $loadingService.loading(true);
           if($scope.isLastMinute){
             $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
