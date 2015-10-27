@@ -15,6 +15,7 @@ dinnerApp.controller('ReservationCtrl',
   $scope.user = $sharedService.get().user;
   $scope.reservation = $sharedService.get().reservations.selected;
 
+
   $scope.cancel = function(){
     $userManager.cancelReservation($scope.reservation.id); //TODO update reservations
     $state.go('user');

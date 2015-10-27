@@ -7,10 +7,10 @@ ion-list ng-controller="ReservationInfoCtrl"
       | {{ reservation.restaurant.name }}
   ion-item
     .row
-      | Affinity: 
-      span.affinity 
+      | Affinity:
+      span.affinity
         | {{ reservation.affinity }}
-  ion-item
+  ion-item ng-show="showTicketDiinner"
     .row
       | Ticket diinner: {{ reservation.locator }}
   ion-item ng-show="panelShown == 'slide-results'"

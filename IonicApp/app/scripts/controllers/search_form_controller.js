@@ -74,6 +74,8 @@ dinnerApp.controller('SearchFormCtrl',
       };
 
       function handleReservationResults(response){
+        //console.log(response);
+
         $sharedService.set({
           reservations: {
             results: response.reservations,

@@ -17,6 +17,7 @@ dinnerApp.controller('MyReservationsCtrl',
     ) {
       $scope.user = $sharedService.get().user;
       $scope.panelShown = 'grid-results';
+      $scope.showTicketDiinner = true;
       $scope.hasTodayReservation = $sharedService.get().reservations.today != false;
 
       $scope.loadTodayReservation = function(){

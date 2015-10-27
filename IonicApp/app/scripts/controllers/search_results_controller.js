@@ -15,6 +15,7 @@ dinnerApp.controller('SearchResultsCtrl',
     ) {
 
       $scope.panelShown = "slide-results";
+      $scope.showTicketDiinner = false;
       $scope.reservationList = $sharedService.get().reservations.results;
 
       checkReservationErrors();
