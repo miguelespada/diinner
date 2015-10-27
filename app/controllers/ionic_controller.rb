@@ -103,29 +103,47 @@ class IonicController < ActionController::Base
   def search_tables
 
     suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
-    # TODO limit search on Engine
 
-    render json: {
-               reservations: suggestionEngine.search.first(3).map{ |reservation| {
-                   reservation: reservation.to_ionic_json
-                  }
-               }
-
-           }
+    if suggestionEngine.date_in_range?
+      render json: {
+                 reservations: {},
+                 error: 'wrong_date'
+             }
+    elsif @current_user.busy?(suggestionEngine.date)
+      render json: {
+                 reservations: {},
+                 error: 'reserved_date'
+             }
+    else
+      render json: {
+                 reservations: suggestionEngine.search.first(3).map{ |reservation| {
+                     reservation: reservation.to_ionic_json
+                    }
+                 },
+                 error: 'none'
+             }
+    end
   end
 
   def last_minute
 
     suggestionEngine = SuggestionEngine.new @current_user, JSON.parse(params[:filters]).symbolize_keys!
-    # TODO limit search on Engine
 
-    render json: {
-               reservations: suggestionEngine.last_minute.first(4).map{ |reservation| {
-                   reservation: reservation.to_ionic_json
-               }
-               }
+    if @current_user.busy?(suggestionEngine.date)
+      render json: {
+                 reservations: {},
+                 error: 'reserved_date'
+             }
+    else
+      render json: {
+                 reservations: suggestionEngine.last_minute.first(4).map{ |reservation| {
+                     reservation: reservation.to_ionic_json
+                   }
+                 },
+                 error: 'none'
 
-           }
+             }
+    end
   end
 
   def update_customer

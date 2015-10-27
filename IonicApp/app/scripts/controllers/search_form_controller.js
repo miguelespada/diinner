@@ -30,7 +30,7 @@ dinnerApp.controller('SearchFormCtrl',
       $scope.priceList = $sharedService.get().default.priceList;
 
       $scope.minSearchDate = $utilService.dateToString($utilService.dateValue("afterTomorrow"), true);
-      $scope.maxSearchDate = $utilService.dateToString($utilService.dateValue("afterTomorrow", 30), true);
+      $scope.maxSearchDate = $utilService.dateToString($utilService.dateValue("afterTomorrow", 13), true);
 
       $scope.filters = {
         price: $scope.user.preference.menu_range || 'lowcost',
