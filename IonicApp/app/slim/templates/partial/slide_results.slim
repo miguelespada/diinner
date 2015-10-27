@@ -1,6 +1,7 @@
-div.notification-container ng-show="reservationList.length == 0"
-  | No results found
-ion-slide-box active-slide="activeSlide" on-slide-changed="slideChanged(index)"
+div.notification-container ng-show="reservationError.hasError"
+  | {{reservationError.errorMessage}}
+
+ion-slide-box active-slide="activeSlide" on-slide-changed="slideChanged(index)" ng-show="!reservationError.hasError"
   ion-slide ng-repeat="item in reservationList track by $index"  ng-init="reservation = item.reservation" id="reservation-result-{{$index}}"
     div.box ng-include="" src="'templates/partial/reservation_info.html'"
 

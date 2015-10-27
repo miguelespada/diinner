@@ -18,7 +18,6 @@ dinnerApp.service('BackActionService',
       switch (actualState){
         case 'profile':
         case 'notifications':
-        case 'last_minute':
         case 'new_reservation':
         case 'my_reservations': return 'user';
 

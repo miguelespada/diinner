@@ -16,6 +16,32 @@ dinnerApp.controller('SearchResultsCtrl',
 
       $scope.panelShown = "slide-results";
       $scope.reservationList = $sharedService.get().reservations.results;
+
+      checkReservationErrors();
+      function checkReservationErrors(){
+        var rError = $sharedService.get().reservations.error;
+        $scope.reservationError = {
+          hasError: false,
+          errorMessage: ''
+        };
+        if ($scope.reservationList.length == 0 || rError != 'none'){
+          $scope.reservationError.hasError = true;
+          switch(rError){
+            case 'none':
+              $scope.reservationError.errorMessage = 'No results found';
+              break;
+            case 'reserved_date':
+              $scope.reservationError.errorMessage = 'You already have a reservation for this date';
+              break;
+            case 'wrong_date':
+              $scope.reservationError.errorMessage = 'You can only reserve Diinners from tomorrow within two weeks';
+              break;
+            default:
+              $scope.reservationError.errorMessage = 'An error has occurred';
+          }
+        }
+      }
+
       $scope.cols = 2;
       $scope.chunkedData = $utilService.chunkInRows($scope.reservationList, $scope.cols);
 
