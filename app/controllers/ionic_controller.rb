@@ -106,12 +106,12 @@ class IonicController < ActionController::Base
 
     if suggestionEngine.date_in_range?
       render json: {
-                 reservations: {},
+                 reservations: [],
                  error: 'wrong_date'
              }
     elsif @current_user.busy?(suggestionEngine.date)
       render json: {
-                 reservations: {},
+                 reservations: [],
                  error: 'reserved_date'
              }
     else
@@ -131,7 +131,7 @@ class IonicController < ActionController::Base
 
     if @current_user.busy?(suggestionEngine.date)
       render json: {
-                 reservations: {},
+                 reservations: [],
                  error: 'reserved_date'
              }
     else
