@@ -1,8 +1,8 @@
 ion-view title="Test" ng-controller="TestCtrl" cache-view="false"
   ion-content
-    div.notification-container ng-show="!hasTest"
+    div.notification-container ng-show="!hasTest && hasLoaded"
       | You have no more tests to do
-    ion-list ng-show="hasTest"
+    ion-list ng-show="hasTest && hasLoaded"
       ion-item
         p.question
           | {{ response.test.question }}
