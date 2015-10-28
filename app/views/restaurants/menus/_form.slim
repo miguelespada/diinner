@@ -1,4 +1,5 @@
-= link_to 'Cancel', :back
+h4.title-button  
+  = link_to 'Cancel', :back, class: 'link-btn'
 = simple_form_for [@restaurant, @menu] do |f|
   = f.error_notification
   = f.input :name

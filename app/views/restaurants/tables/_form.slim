@@ -1,5 +1,5 @@
-
-= link_to 'Cancel', :back
+h4.title-button
+  = link_to 'Cancel', :back, class: 'link-btn'
 = simple_form_for [@restaurant, @table] do |f|
   = f.error_notification
   = f.input :date, as: :date_picker, html5: true
