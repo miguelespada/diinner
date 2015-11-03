@@ -32,7 +32,7 @@ gem 'cloudinary'
 gem 'attachinary', git: 'git://github.com/rochers/attachinary.git'
 gem "pony"
 gem 'sendgrid-rails', '~> 2.0'
-gem 'mongoid-enum'
+gem 'mongoid-enum', git: 'git://github.com/Bartuz/mongoid-enum.git'
 gem 'faker', '~> 1.4.3'
 gem 'rails-timeago', '~> 2.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
@@ -52,7 +52,7 @@ gem 'airbrake'
 
 group :test do
   gem "database_cleaner"
-  gem "mongoid-rspec"
+  gem 'mongoid-rspec'
   gem "cucumber-rails", require: false
   gem "capybara"
   gem "capybara-webkit", "~> 1.3.1"
