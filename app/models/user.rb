@@ -42,7 +42,7 @@ class User
   end
 
   def test_pending
-    Test.not_in(id: test_completed.map{|m| m.test.id}, gender: opposite_sex)
+    Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
   end
 
   def get_stripe_create_customer! token
