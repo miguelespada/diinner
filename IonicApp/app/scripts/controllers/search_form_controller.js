@@ -63,19 +63,18 @@ dinnerApp.controller('SearchFormCtrl',
         }
 
         if(filters.date.getTime() > new Date().getTime()){
-          filters.date = $utilService.dateToString(filters.date);
           $loadingService.loading(true);
           if($scope.isLastMinute){
+            filters.date = $utilService.dateToString(new Date());
             $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
           } else {
+            filters.date = $utilService.dateToString(filters.date);
             $tableManager.searchTables(filters).$promise.then(handleReservationResults);
           }
         }
       };
 
       function handleReservationResults(response){
-        console.log(response);
-
         $sharedService.set({
           reservations: {
             results: response.reservations,
