@@ -3,43 +3,32 @@
 dinnerApp.controller('MyReservationsCtrl',
   [
     '$scope',
-    '$state',
     '$ionicSlideBoxDelegate',
     'UserManager',
     'SharedService',
     'UtilService',
+    'ModelService',
     function($scope,
-             $state,
              $ionicSlideBoxDelegate,
              $userManager,
              $sharedService,
-             $utilService
+             $utilService,
+             $modelService
     ) {
       $scope.user = $sharedService.get().user;
       $scope.panelShown = 'grid-results';
       $scope.showTicketDiinner = true;
-      $scope.hasTodayReservation = $sharedService.get().reservations.today != false;
 
-      $scope.loadTodayReservation = function(){
-        loadReservation($sharedService.get().reservations.today);
-      };
 
       $scope.alertOnEventClick = function( date, jsEvent, view){
-        loadReservation(date);
+        $modelService.loadReservation(date);
       };
 
       $scope.gridAction = function(index){
-        loadReservation($scope.reservationList[index]);
+        $modelService.loadReservation($scope.reservationList[index]);
       };
 
-      function loadReservation(reservation){
-        $sharedService.set({
-          reservations: {
-            selected: reservation.reservation
-          }
-        });
-        $state.go('reservation');
-      }
+
 
       $scope.uiConfig = {
         calendar:{

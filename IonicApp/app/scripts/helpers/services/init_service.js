@@ -100,30 +100,30 @@ dinnerApp.service('InitService',
       function initReservations(callback){
         $loadingService.addLoading();
         $userManager.getReservations().$promise.then(function(response) {
-          if (response) {
-            var reservations = response.reservations;
-
-            var todayReservation = (reservations.length > 0) && $utilService.isDateToday(reservations[reservations.length - 1].reservation.date) ? reservations[reservations.length - 1] : false;
-
-            $sharedService.set({
-              reservations: {
-                hasReservations: true,
-                all: reservations,
-                today: todayReservation
-              }
-            });
-          } else{
-            $sharedService.set({
-              reservations: {
-                hasReservations: false
-              }
-            });
+        var res_hash = {};
+        if (response) {
+          var reservations = response.reservations;
+          var todayReservation = (reservations.length > 0) && $utilService.isDateToday(reservations[reservations.length - 1].reservation.date) ? reservations[reservations.length - 1] : false;
+          res_hash = {
+            reservations: {
+              hasReservations: true,
+              all: reservations,
+              today: todayReservation
+            }
+          };
+        } else{
+          res_hash = {
+            reservations: {
+              hasReservations: false
+            }
           }
-          $loadingService.removeLoading();
-          if(callback != null){
-            callback();
-          }
-        });
+        }
+        $sharedService.set(res_hash);
+        $loadingService.removeLoading();
+        if(callback != null){
+          callback(res_hash);
+        }
+      });
       }
 
       function clear(){

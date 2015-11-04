@@ -1,6 +1,7 @@
 "use strict";
 
 dinnerApp.service('UtilService', function(){
+
   function chunkInRows(arr, size) {
     var newArr = [];
     for (var i=0; i<arr.length; i+=size) {

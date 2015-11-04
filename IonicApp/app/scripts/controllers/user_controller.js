@@ -5,11 +5,13 @@ dinnerApp.controller('UserCtrl',
     '$state',
     'InitService',
     'SharedService',
+    'ModelService',
     function(
       $scope,
       $state,
       $initService,
-      $sharedService
+      $sharedService,
+      $modelService
     ) {
 
 
@@ -25,11 +27,24 @@ dinnerApp.controller('UserCtrl',
 
 
       if ($sharedService.get().requireInitUser){
-        $initService.initUser($scope.user);
+        $initService.initUser($scope.user,
+          {
+            reservations: function(response){
+              $scope.todayReservation = response.reservations.hasReservations ? response.reservations.today : null;
+            }
+          }
+        );
         $sharedService.set({
           requireInitUser: false
         })
+      } else {
+        $scope.todayReservation = $sharedService.get().reservations.hasReservations ? $sharedService.get().reservations.today : null;
       }
+
+
+      $scope.openTodayReservation = function(){
+        $modelService.loadReservation($scope.todayReservation);
+      };
 
       $scope.openNotifications = function(){
         $state.go('notifications');
@@ -37,6 +52,6 @@ dinnerApp.controller('UserCtrl',
 
       if($scope.user.first_login){
         $state.go('first_login');
-      }
+      };
 
 }]);

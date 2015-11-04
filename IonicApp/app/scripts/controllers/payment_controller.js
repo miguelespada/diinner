@@ -48,7 +48,9 @@ dinnerApp.controller('PaymentCtrl',
       $scope.confirmPayment = function(){
         $loadingService.loading(true);
         $userManager.reserve($scope.reservationSelected).$promise.then(function(response) {
-          $initService.initReservations();
+          $sharedService.set({
+            requireInitUser: true
+          });
           $loadingService.loading(false);
           $state.go('user');
         }, function(error){

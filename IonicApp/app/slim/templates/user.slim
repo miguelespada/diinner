@@ -14,6 +14,11 @@ ion-view title="User" hide-back-button="true" hide-nav-bar="false" ng-controller
           | {{user.email}}
       img.user-background src="images/background.png"
     ion-list
+      ion-item.item-icon-left.item-icon-right ng-click="openTodayReservation()" ng-show='todayReservation'
+        span
+          i.icon.budicon.bi_doc-wboard-tick
+          | Today's Reservation
+          i.icon.ion-ios-arrow-right
       ion-item.item-icon-left.item-icon-right ng-href="#/profile"
         span
           i.icon.budicon.bi_user-alt
