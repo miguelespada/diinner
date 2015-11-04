@@ -17,17 +17,16 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
       .row
         ion-radio.col ng-repeat="item in friendsList" id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
           | {{ item.text }}
-      .row ng-repeat="friend_number in [1,2] track by $index" ng-show="friend_number <= filters.friends"
-        h2.col.col-10 +{{ friend_number }}
-        ion-radio.col ng-repeat="gender in genderList" name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number-1].gender"
+      .row ng-repeat="friend_number in [0,1] track by $index" ng-show="friend_number+1 <= filters.friends"
+        ion-radio.col ng-repeat="gender in genderList" name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number].gender"
           | {{ gender.text }}
         .col
           label.item.item-input.item-select
             .input-label
               | Age
-            select.menu-price ng-model="filters.companies_attributes[friend_number-1].age" ng-options="age for age in ageList"
-      .row.col ng-show="filters.friends > 0"
-        .button.button-full.button-assertive name="friends" ng-click="removeFriends()" ng-value="0" ng-model="filters.friends" Go alone
+            select.menu-price ng-model="filters.companies_attributes[friend_number].age" ng-options="age for age in ageList"
+        .col-10
+          .button.button-full.button-assertive name="friends" ng-click="removeFriends(friend_number)" ng-value="0" ng-model="filters.friends" X
     ion-item
       label.item.item-input.item-select
         .input-label

@@ -46,9 +46,13 @@ dinnerApp.controller('SearchFormCtrl',
         $scope.isLastMinute = !$scope.isLastMinute;
         $scope.removeFriends();
       };
+      $scope.removeFriends = function(removed_index) {
+        if (removed_index == 0) {
+          $scope.filters.companies_attributes[0].gender = $scope.filters.companies_attributes[1].gender;
+          $scope.filters.companies_attributes[0].age = $scope.filters.companies_attributes[1].age;
+        }
 
-      $scope.removeFriends = function() {
-        $scope.filters.friends = 0;
+        $scope.filters.friends--;
       };
 
       $scope.searchReservations = function(filters){
