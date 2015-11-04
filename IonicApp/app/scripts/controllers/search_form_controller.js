@@ -55,6 +55,12 @@ dinnerApp.controller('SearchFormCtrl',
         $scope.filters.friends--;
       };
 
+      $scope.isLastMinuteBlocked = function(){
+        var now = new Date();
+        var hour = now.getHours();
+        return hour > 8 || hour < 19
+      };
+
       $scope.searchReservations = function(filters){
         $sharedService.set({
           selectedSlide: 0

@@ -1,6 +1,13 @@
 form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
   ion-list
     ion-item
+      .bar.bar-header.bar-calm ng-show="!isLastMinute"
+        h2.title Reservations are confirmed at 00:00
+      .bar.bar-header.bar-calm ng-show="isLastMinute && !isLastMinuteBlocked()"
+        h2.title Last minute reservations are confirmed at 18:00
+      .bar.bar-header.bar-calm ng-show="isLastMinute && isLastMinuteBlocked()"
+        h2.title Last minute is active from 9:00 to 18:00
+    ion-item
       ion-toggle toggle-class="toggle-calm" ng-model="isLastMinute" ng-change="toggleChange()" ¿Quieres reservar para esta noche?
     ion-item ng-show="!isLastMinute"
       | Date
@@ -43,4 +50,4 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
       ion-radio.row.col ng-repeat="item in expectationList" id="filters-expectation-{{item.value}}" name="expectation" ng-value="item.value" ng-model="filters.expectation"
         | {{ item.text }}
     ion-item
-      button.button.button-full.button-calm type="submit" GO!
+      button.button.button-full.button-calm type="submit" ng-show="!isLastMinute || !isLastMinuteBlocked()" GO!
