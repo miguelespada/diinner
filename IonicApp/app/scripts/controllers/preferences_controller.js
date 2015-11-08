@@ -7,17 +7,25 @@ dinnerApp.controller('PreferencesCtrl',
     'UserManager',
     'SharedService',
     'LoadingService',
+    'BackActionService',
     function(
       $scope,
       $state,
       $userManager,
       $sharedService,
-      $loadingService
+      $loadingService,
+      $backActionService
     ) {
   $scope.user = $sharedService.get().user;
   $scope.cityList = $sharedService.get().default.cityList;
   $scope.genderList = $sharedService.get().default.genderList;
   $scope.priceList = $sharedService.get().default.priceList;
+
+
+  $scope.editUserAndGoBack = function(){
+    $scope.editUser();
+    $backActionService.goBackAction();
+  };
 
   $scope.editUser = function(){
     $loadingService.loading(true);
