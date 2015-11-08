@@ -31,9 +31,6 @@ dinnerApp.service('InitService',
         }
 
         $sharedService.set({
-          back: {
-            hasBackAction: false
-          },
           default: {
             dateList: [
               {text: "Today (Last Minute)", value: 'today'},

@@ -13,6 +13,12 @@ dinnerApp.controller('TestCtrl',
              $sharedService,
              $loadingService
     ) {
+
+      $sharedService.set({
+        back: {
+          hasBackAction: false
+        }
+      });
       $scope.user = $sharedService.get().user;
 
       $scope.hasLoaded = false;

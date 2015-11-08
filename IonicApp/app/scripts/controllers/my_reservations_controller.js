@@ -19,6 +19,12 @@ dinnerApp.controller('MyReservationsCtrl',
       $scope.panelShown = 'grid-results';
       $scope.showTicketDiinner = true;
 
+      $sharedService.set({
+        back: {
+          hasBackAction: false
+        }
+      });
+
 
       $scope.alertOnEventClick = function( date, jsEvent, view){
         $modelService.loadReservation(date);

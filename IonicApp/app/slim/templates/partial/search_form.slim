@@ -9,7 +9,7 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
         h2.title Last minute is active from 9:00 to 18:00
     ion-item
       | Date
-      ion-radio.row.col ng-repeat="item in dateList" id="filters-date-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate" ng-change="toggleChange()"
+      ion-radio.row.col ng-repeat="item in dateList" id="filters-date-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
         | {{ item.text }}
       .row ng-show="filters.selectedDate == 'other'"
         .col.col-100

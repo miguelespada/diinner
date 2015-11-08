@@ -17,6 +17,12 @@ dinnerApp.controller('ProfileCtrl',
       $initService
     ) {
 
+      $sharedService.set({
+        back: {
+          hasBackAction: false
+        }
+      });
+
   $scope.logout = function() {
     auth.signout();
     window.localStorage.removeItem("profile");

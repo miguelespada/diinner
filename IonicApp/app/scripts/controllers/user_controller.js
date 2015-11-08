@@ -54,4 +54,38 @@ dinnerApp.controller('UserCtrl',
         $state.go('first_login');
       };
 
+
+      var backPressed = false;
+
+      var userBackAction = function() {
+        if (backPressed) {
+          ionic.Platform.exitApp();
+        } else {
+          backPressed = true;
+          window.plugins.toast.showShortCenter(
+            "Press back button again to exit", function (a) {
+            }, function (b) {
+            }
+          );
+          $sharedService.set({
+            back: {
+              hasBackAction: true,
+              backAction: userBackAction
+            }
+          });
+
+          setTimeout(function () {
+            backPressed = false;
+          }, 2000);
+        }
+      };
+
+      $scope.goBackAction = userBackAction;
+      $sharedService.set({
+        back: {
+          hasBackAction: true,
+          backAction: userBackAction
+        }
+      });
+
 }]);

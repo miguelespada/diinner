@@ -57,12 +57,16 @@ dinnerApp.controller('SearchFormCtrl',
         }
       };
 
+      $scope.$watch('filters.selectedDate', function(newVal, oldVal){
+        $scope.toggleChange();
+      });
+
       $scope.removeFriends = function() {
         $scope.filters.friends = 0;
         for (var i = 0; i < 2; i++) {
+          $scope.filters.companies_attributes[i] = {};
           $scope.filters.companies_attributes[i].gender = null;
           $scope.filters.companies_attributes[i].age = null;
-          $scope.filters.companies_attributes[i] = {};
         }
       };
 

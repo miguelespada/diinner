@@ -58,4 +58,5 @@
     <plugin name="phonegap-plugin-push" spec="^1.3.0" />
     <access origin="*" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.0.7" />
+    <plugin name="cordova-plugin-x-toast" spec="^2.2.1" />
 </widget>

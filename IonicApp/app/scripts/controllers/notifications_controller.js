@@ -9,6 +9,11 @@ dinnerApp.controller('NotificationsCtrl',
              $sharedService,
              $userManager
     ) {
+      $sharedService.set({
+        back: {
+          hasBackAction: false
+        }
+      });
       $scope.user = $sharedService.get().user;
 
       $userManager.readNotifications().$promise.then(function(user) {
