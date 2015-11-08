@@ -88,7 +88,7 @@ dinnerApp.controller('SearchFormCtrl',
         }
 
         if(filters.date.getTime() > new Date().getTime()){
-          $loadingService.loading(true);
+          $loadingService.loading(true, true);
           filters.date = $utilService.dateToString(filters.date);
           if($scope.isLastMinute){
             $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
