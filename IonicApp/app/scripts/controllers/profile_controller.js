@@ -8,20 +8,22 @@ dinnerApp.controller('ProfileCtrl',
     '$cordovaSocialSharing',
     '$ionicHistory',
     'InitService',
+    'SharedService',
     function(
       $scope,
       $state,
       auth,
       $cordovaSocialSharing,
       $ionicHistory,
-      $initService
+      $initService,
+      $sharedService
     ) {
 
-      $sharedService.set({
-        back: {
-          hasBackAction: false
-        }
-      });
+    $sharedService.set({
+      back: {
+        hasBackAction: false
+      }
+    });
 
   $scope.logout = function() {
     auth.signout();

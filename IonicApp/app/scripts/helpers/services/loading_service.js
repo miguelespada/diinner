@@ -11,7 +11,7 @@ dinnerApp.service('LoadingService', function($ionicLoading, BackActionService){
 
     if(isLoading){
       $ionicLoading.show({
-        template: 'Loading...'
+        template: '<ion-spinner class="spinner-energized" icon="spiral"></ion-spinner>'
       });
     } else {
       $ionicLoading.hide();
