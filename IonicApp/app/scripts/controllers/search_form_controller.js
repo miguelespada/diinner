@@ -19,6 +19,7 @@ dinnerApp.controller('SearchFormCtrl',
     ) {
 
       $scope.isLastMinute = false;
+      $scope.bringFriends = false;
 
       $scope.user = $sharedService.get().user;
       $scope.cityList = $sharedService.get().default.cityList;
@@ -43,24 +44,31 @@ dinnerApp.controller('SearchFormCtrl',
       };
 
       $scope.toggleChange = function() {
-        $scope.isLastMinute = $scope.filters.selectedDate == 'today';
         if ($scope.isLastMinute){
+          $scope.bringFriends = false;
+          $scope.removeFriends();
+        }
+
+        $scope.isLastMinute = $scope.filters.selectedDate == 'today';
+
+        if ($scope.isLastMinute){
+          $scope.bringFriends = false;
           $scope.removeFriends();
         }
       };
-      $scope.removeFriends = function(removed_index) {
-        if (removed_index == 0) {
-          $scope.filters.companies_attributes[0].gender = $scope.filters.companies_attributes[1].gender;
-          $scope.filters.companies_attributes[0].age = $scope.filters.companies_attributes[1].age;
-        }
 
-        $scope.filters.friends--;
+      $scope.removeFriends = function() {
+        $scope.filters.friends = 0;
+        for (var i = 0; i < 2; i++) {
+          $scope.filters.companies_attributes[i].gender = null;
+          $scope.filters.companies_attributes[i].age = null;
+          $scope.filters.companies_attributes[i] = {};
+        }
       };
 
       $scope.isLastMinuteBlocked = function(){
         var now = new Date();
         var hour = now.getHours();
-        console.log(hour);
         return hour < 9 || hour > 17
       };
 

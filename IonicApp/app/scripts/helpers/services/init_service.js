@@ -42,8 +42,8 @@ dinnerApp.service('InitService',
               {text: "2", value: 2}
             ],
             genderList: [
-              {text: "Female", value: "female"},
-              {text: "Male", value: "male"}
+              {text: "♀", value: "female"},
+              {text: "♂", value: "male"}
             ],
             ageList: ageList,
             expectationList: [

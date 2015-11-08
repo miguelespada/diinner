@@ -28,19 +28,20 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
         select.menu-price ng-model="filters.price" ng-options="item.value as item.text for item in priceList"
     ion-item ng-show="!isLastMinute"
       | Friends
-      .row
-        ion-radio.col ng-repeat="item in friendsList" id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
-          | {{ item.text }}
-      .row ng-repeat="friend_number in [0,1] track by $index" ng-show="friend_number+1 <= filters.friends"
-        ion-radio.col ng-repeat="gender in genderList" name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number].gender"
-          | {{ gender.text }}
-        .col
-          label.item.item-input.item-select
-            .input-label
-              | Age
-            select.menu-price ng-model="filters.companies_attributes[friend_number].age" ng-options="age for age in ageList"
-        .col-10
-          .button.button-full.button-assertive name="friends" ng-click="removeFriends(friend_number)" ng-value="0" ng-model="filters.friends" X
+      ion-toggle toggle-class="toggle-calm" ng-model="bringFriends" ng-change="removeFriends()" Are you going with friends?
+      .bringFriends ng-show="bringFriends"
+        | How many?
+        .row
+          ion-radio.col ng-repeat="item in friendsList" id="filters-friends-{{item.value}}" name="friends" ng-value="item.value" ng-model="filters.friends"
+            | {{ item.text }}
+        .row ng-repeat="friend_number in [0,1] track by $index" ng-show="friend_number+1 <= filters.friends"
+          ion-radio.col-25 ng-repeat="gender in genderList" name="friends-gender-{{friend_number}}" ng-value="gender.value" ng-model="filters.companies_attributes[friend_number].gender" class="{{gender.value}}"
+            | {{ gender.text }}
+          .col-50
+            label.item.item-input.item-select
+              .input-label
+                | Age
+              select.menu-price ng-model="filters.companies_attributes[friend_number].age" ng-options="age for age in ageList"
     ion-item
       .input-label
         | What do you expect of the diinner?
