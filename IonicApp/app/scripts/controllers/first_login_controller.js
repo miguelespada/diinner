@@ -37,7 +37,7 @@ dinnerApp.controller('FirstLoginCtrl',
           window.localStorage.setItem('user', JSON.stringify(user));
           $sharedService.set({user: user});
         }
-        $state.go('user');
+        $state.go('first_login_test');
         $loadingService.loading(false);
       });
     }
