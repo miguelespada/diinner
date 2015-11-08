@@ -26,6 +26,9 @@ dinnerApp.controller('TestCtrl',
         $loadingService.loading(false);
       });
 
+      $scope.skip = function(){
+        $state.go('test', {}, {reload: true});
+      };
 
       $scope.saveTest = function(option){
        switch(option){
