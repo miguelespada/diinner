@@ -43,8 +43,10 @@ dinnerApp.controller('SearchFormCtrl',
       };
 
       $scope.toggleChange = function() {
-        $scope.isLastMinute = !$scope.isLastMinute;
-        $scope.removeFriends();
+        $scope.isLastMinute = $scope.filters.selectedDate == 'today';
+        if ($scope.isLastMinute){
+          $scope.removeFriends();
+        }
       };
       $scope.removeFriends = function(removed_index) {
         if (removed_index == 0) {
@@ -58,7 +60,8 @@ dinnerApp.controller('SearchFormCtrl',
       $scope.isLastMinuteBlocked = function(){
         var now = new Date();
         var hour = now.getHours();
-        return hour > 8 || hour < 19
+        console.log(hour);
+        return hour < 9 || hour > 17
       };
 
       $scope.searchReservations = function(filters){
@@ -74,11 +77,10 @@ dinnerApp.controller('SearchFormCtrl',
 
         if(filters.date.getTime() > new Date().getTime()){
           $loadingService.loading(true);
+          filters.date = $utilService.dateToString(filters.date);
           if($scope.isLastMinute){
-            filters.date = $utilService.dateToString(new Date());
             $tableManager.searchLastMinute(filters).$promise.then(handleReservationResults);
           } else {
-            filters.date = $utilService.dateToString(filters.date);
             $tableManager.searchTables(filters).$promise.then(handleReservationResults);
           }
         }

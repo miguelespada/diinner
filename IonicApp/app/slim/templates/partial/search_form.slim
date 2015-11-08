@@ -8,17 +8,24 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
       .bar.bar-header.bar-calm ng-show="isLastMinute && isLastMinuteBlocked()"
         h2.title Last minute is active from 9:00 to 18:00
     ion-item
-      ion-toggle toggle-class="toggle-calm" ng-model="isLastMinute" ng-change="toggleChange()" ¿Quieres reservar para esta noche?
-    ion-item ng-show="!isLastMinute"
       | Date
-      ion-radio.row.col ng-repeat="item in dateList" id="filters-friends-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate"
+      ion-radio.row.col ng-repeat="item in dateList" id="filters-date-{{item.value}}" name="selectedDate" ng-value="item.value" ng-model="filters.selectedDate" ng-change="toggleChange()"
         | {{ item.text }}
       .row ng-show="filters.selectedDate == 'other'"
         .col.col-100
           label.item.item-input
             span.input-label  Date
             input.date type="date" ng-model="filters.otherDate" min="{{minSearchDate}}" max="{{maxSearchDate}}"
-
+    ion-item
+      label.item.item-input.item-select
+        .input-label
+          | City
+        select.city ng-model="filters.city" ng-options="item.id as item.name for item in cityList"
+    ion-item
+      label.item.item-input.item-select
+        .input-label
+          | Budget
+        select.menu-price ng-model="filters.price" ng-options="item.value as item.text for item in priceList"
     ion-item ng-show="!isLastMinute"
       | Friends
       .row
@@ -34,16 +41,6 @@ form ng-submit="searchReservations(filters)" ng-controller="SearchFormCtrl"
             select.menu-price ng-model="filters.companies_attributes[friend_number].age" ng-options="age for age in ageList"
         .col-10
           .button.button-full.button-assertive name="friends" ng-click="removeFriends(friend_number)" ng-value="0" ng-model="filters.friends" X
-    ion-item
-      label.item.item-input.item-select
-        .input-label
-          | City
-        select.city ng-model="filters.city" ng-options="item.id as item.name for item in cityList"
-    ion-item
-      label.item.item-input.item-select
-        .input-label
-          | Budget
-        select.menu-price ng-model="filters.price" ng-options="item.value as item.text for item in priceList"
     ion-item
       .input-label
         | What do you expect of the diinner?

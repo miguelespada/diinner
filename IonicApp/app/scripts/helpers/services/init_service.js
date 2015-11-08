@@ -33,6 +33,7 @@ dinnerApp.service('InitService',
         $sharedService.set({
           default: {
             dateList: [
+              {text: "Today (Last Minute)", value: 'today'},
               {text: "Tomorrow", value: 'tomorrow'},
               {text: "Other Day", value: 'other'}
             ],
