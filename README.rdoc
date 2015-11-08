@@ -11,3 +11,7 @@ Start ionic server
 Run cucumber specific tests
 
 * cucumber -p ionic
+
+
+Theme Android
+* Cordova manually specifies the old black theme - you can make the app use the system default theme by removing android:theme="@android:style/Theme.Black.NoTitleBar" from platforms/android/AndroidManifest.xml.
