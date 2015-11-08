@@ -7,27 +7,19 @@ dinnerApp.controller('PreferencesCtrl',
     'UserManager',
     'SharedService',
     'LoadingService',
-    'BackActionService',
     function(
       $scope,
       $state,
       $userManager,
       $sharedService,
-      $loadingService,
-      $backActionService
+      $loadingService
     ) {
   $scope.user = $sharedService.get().user;
   $scope.cityList = $sharedService.get().default.cityList;
   $scope.genderList = $sharedService.get().default.genderList;
   $scope.priceList = $sharedService.get().default.priceList;
 
-
-  $scope.editUserAndGoBack = function(){
-    $scope.editUser();
-    $backActionService.goBackAction();
-  };
-
-  $scope.editUser = function(){
+  var editUser = function(){
     $loadingService.loading(true);
     $userManager.updateUser($scope.user).$promise.then(function(user) {
       if(user != null){
@@ -38,4 +30,11 @@ dinnerApp.controller('PreferencesCtrl',
       $loadingService.loading(false);
     });
   };
+  $scope.goBackAction = editUser;
+  $sharedService.set({
+    back: {
+      hasBackAction: true,
+      backAction: editUser
+    }
+  });
 }]);

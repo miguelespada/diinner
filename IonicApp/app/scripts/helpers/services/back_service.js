@@ -1,14 +1,26 @@
 "use strict";
 
 dinnerApp.service('BackActionService',
+  [ '$state',
+    '$ionicHistory',
+    'SharedService',
   function($state,
-           $ionicHistory){
+           $ionicHistory,
+           $sharedService){
 
     function goBackAction(){
-
-      var newState = getBackState($ionicHistory.currentStateName());
-      if (newState){
-        newState === 'default' ? $ionicHistory.goBack() : $state.go(newState);
+      if ($sharedService.get().back.hasBackAction){
+        $sharedService.set({
+          back: {
+            hasBackAction: false
+          }
+        });
+        $sharedService.get().back.backAction();
+      } else {
+        var newState = getBackState($ionicHistory.currentStateName());
+        if (newState) {
+          newState === 'default' ? $ionicHistory.goBack() : $state.go(newState);
+        }
       }
 
     }
@@ -39,5 +51,5 @@ dinnerApp.service('BackActionService',
     return {
       goBackAction: goBackAction
     }
-});
+}]);
 

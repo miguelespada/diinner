@@ -1,7 +1,4 @@
-ion-view title="Diinner Preferences" hide-back-button="true" ng-controller="PreferencesCtrl" cache-view="false"
-  ion-nav-buttons side="primary"
-    button.button.back-button.buttons.button-clear.button-clear.header-item ng-click="editUserAndGoBack()"
-      i.icon.ion-ios-arrow-back Save
+ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl" cache-view="false"
   ion-content
     form ng-submit="editUser()"
       ion-list
@@ -9,8 +6,8 @@ ion-view title="Diinner Preferences" hide-back-button="true" ng-controller="Pref
         ion-item
           |Gender
           .row
-            ion-radio.col ng-repeat="item in genderList" id="user-gender-{{item.value}}" name="gender" ng-value="item.value" ng-model="user.gender"
-              | {{ item.text }}
+            ion-radio.col ng-repeat="gender in genderList" id="user-gender-{{item.value}}" name="gender" ng-value="gender.value" ng-model="user.gender" class="{{gender.value}}"
+              | {{ gender.text }}
         ion-item
           .row
             label.item.item-input

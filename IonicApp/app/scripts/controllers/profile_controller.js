@@ -29,7 +29,11 @@ dinnerApp.controller('ProfileCtrl',
     $state.go('index');
   };
 
-  $scope.shareAnywhere = function() {
-    $cordovaSocialSharing.share("Mensaje de prueba", "Asunto de prueba", "www/images/ionic.png", "http://diinner.com");
+  var shareSubject = 'Diinner, cenar para quedar';
+  var shareMessage = 'Entra a Diinner y conoce a alguien interesante. ¡Nosotros te organizamos la cena!';
+  var shareImage = 'http://diinner.herokuapp.com/assets/favicon-19fdc6c8030891813b94848079c31838.png';
+  var shareLink = 'http://diinner.herokuapp.com';
+  $scope.share = function() {
+    window.plugins.socialsharing.share(shareMessage, shareSubject, shareImage, shareLink);
   }
 }]);
