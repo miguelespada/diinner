@@ -36,13 +36,14 @@ dinnerApp.service('BackActionService',
         case 'test':
         case 'preferences': return 'profile';
 
-        case 'reservation': return 'my_reservations';
+        //case 'reservation': return 'my_reservations';
 
         case 'login':
         case 'user': return false;
 
         case 'payment':
         case 'map':
+        case 'reservation':
         default: return 'default';
 
       }

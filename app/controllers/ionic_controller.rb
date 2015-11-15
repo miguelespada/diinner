@@ -34,8 +34,12 @@ class IonicController < ActionController::Base
                   owner: {
                        type: notification.owner_type,
                        id: notification.owner_id.to_s,
-                       name: notification.owner_type.constantize.find(notification.owner_id).name
+                       name: notification.owner_type.constantize == 'Restaurant' ? notification.owner_type.constantize.find(notification.owner_id).name : 'Admin'
                    },
+                  trackable: {
+                      type: notification.trackable_type,
+                      id: notification.trackable_id.to_s
+                  },
                   creation_date: notification.created_at
                 }
                }
@@ -43,6 +47,7 @@ class IonicController < ActionController::Base
   end
 
   def read_notifications
+    @current_user.read_notifications
     render json:  @current_user.to_ionic_json
   end
 

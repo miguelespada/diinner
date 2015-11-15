@@ -2,5 +2,5 @@ ion-view title="Notifications" ng-controller="NotificationsCtrl" cache-view="fal
   ion-content
     ion-list
       ion-item ng-repeat="item in notificationList track by $index" id="notification-{{$index}}"
-        div ng-include="" src="getNotificationSrc(item.key)"
+        div ng-include="" src="getNotificationSrc(item.key)" ng-click="openNotification(item)"
 

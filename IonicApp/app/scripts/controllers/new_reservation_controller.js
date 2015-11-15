@@ -8,7 +8,7 @@ dinnerApp.controller('NewReservationCtrl',
     ) {
       $sharedService.set({
         back: {
-          hasBackAction: false,
+          hasBackAction: false
         },
         search: {
           formType: 'newReservation'

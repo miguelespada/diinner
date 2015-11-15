@@ -63,9 +63,9 @@ dinnerApp.service('UtilService', function(){
       case "eq":
         return date_1.getYear() == date_2.getYear()
           && date_1.getMonth() == date_2.getMonth()
-          && date_1.getDay() == date_2.getDay();
+          && date_1.getDate() == date_2.getDate();
       case "gt":
-        return date_1.getYear() > date_2.getYear()
+        return date_1.getMonth() > date_2.getMonth()
           || (
             date_1.getYear() == date_2.getYear()
             && date_1.getMonth() > date_2.getMonth()
@@ -73,7 +73,7 @@ dinnerApp.service('UtilService', function(){
           || (
             date_1.getYear() == date_2.getYear()
             && date_1.getMonth() == date_2.getMonth()
-            && date_1.getDay() > date_2.getDay()
+            && date_1.getDate() > date_2.getDate()
           );
       case "gte":
         return compareDates("gt", date_1, date_2)
