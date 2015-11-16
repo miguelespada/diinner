@@ -2,7 +2,8 @@ ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl" cache-view=
   ion-content
     form ng-submit="editUser()"
       ion-list
-        | Personal Data
+        ion-item.item-divider
+          | Personal Data
         ion-item
           |Gender
           .row
@@ -14,7 +15,8 @@ ion-view title="Diinner Preferences" ng-controller="PreferencesCtrl" cache-view=
               span.input-label  Birth
               input.birth type="date" ng-model="user.birth" json-date=""
       ion-list
-        | Search Preferences
+        ion-item.item-divider
+          | Search Preferences
         ion-item
           .row Preferred Age
           .row

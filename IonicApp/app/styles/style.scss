@@ -198,3 +198,30 @@ rzslider{
 .loading{
   background-color: rgba(0,0,0,0.1);
 }
+
+.test-item{
+  width: 100%;
+  .test-image{
+    max-width: 40%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid $lineGray;
+    border-radius: 15px;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .test-text{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.bar-header{
+  h2{
+    font-family: 'Proxima Nova';
+    line-height: 30px !important;
+  }
+}

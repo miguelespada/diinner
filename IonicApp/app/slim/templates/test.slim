@@ -4,16 +4,20 @@ ion-view title="Test" ng-controller="TestCtrl" cache-view="false"
       | You have no more tests to do
     ion-list ng-show="hasTest && hasLoaded"
       ion-item
-        p.question
+        .question
           | {{ response.test.question }}
       ion-item
-        span.item.item-avatar ng-click="saveTest('A')"
-          img src="{{ response.test.photo_A}}"
+        span.item.test-item ng-click="saveTest('A')"
+          .test-image
+            img src="{{ response.test.photo_A}}"
+          .test-text
             | {{ response.test.caption_A }}
 
       ion-item
-        span.item.item-avatar ng-click="saveTest('B')"
-          img src="{{ response.test.photo_B}}"
+        span.item.test-item ng-click="saveTest('B')"
+          .test-image
+            img src="{{ response.test.photo_B}}"
+          .test-text
             | {{ response.test.caption_B }}
 
 
