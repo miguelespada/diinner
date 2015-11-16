@@ -1,11 +1,12 @@
 ion-view title="First Login" ng-controller="FirstLoginTestCtrl" cache-view="false" hide-back-button="true" hide-nav-bar="true"
   ion-content
-    | If you want, you can do some tests to improve your Diinner profile. The more tests you do the better affinity you get when meeting people.
+    .first-login-title
+      | If you want, you can do some tests to improve your Diinner profile. The more tests you do the better affinity you get when meeting people.
 
     .row
       .col
-        button.button.button-full.button-light ng-click="skip()" Skip
+        button.button.button-full.button-light.wizard-button ng-click="skip()" Skip
       .col
-        button.button.button-full.button-calm ng-click="doTest()" Go!
+        button.button.button-full.button-calm.wizard-button ng-click="doTest()" Go!
 
 

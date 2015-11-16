@@ -225,3 +225,22 @@ rzslider{
     line-height: 30px !important;
   }
 }
+
+.long-text{
+  padding: 15px;
+}
+
+.login-reminder{
+  max-width: 70%;
+  margin: 30px auto;
+}
+
+.first-login-title{
+  background-color: $themeYellow;
+  color: $customWhite;
+  padding: 15px;
+}
+
+.wizard-button{
+  border: 1px solid $lineGray !important;
+}

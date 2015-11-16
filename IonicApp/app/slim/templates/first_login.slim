@@ -1,12 +1,14 @@
 ion-view title="First Login" ng-controller="FirstLoginCtrl" cache-view="false" hide-back-button="true" hide-nav-bar="true"
   ion-content
-    |Please, fill in the data below to get a better experience with Diinner.
+    .first-login-title
+      | Please, fill in the data below to get a better experience with Diinner.
     form ng-submit="editUser()"
       ion-list
         ion-item
           .row
-            ion-radio.col ng-repeat="item in genderList" id="user-gender-{{item.value}}" name="gender" ng-value="item.value" ng-model="user.gender"
-              | {{ item.text }}
+            ion-radio.col ng-repeat="item in genderList" id="user-gender-{{item.value}}" name="gender" class="{{item.value}}" ng-value="item.value" ng-model="user.gender"
+              span
+                | {{ item.text }}
         ion-item
           label.item.item-input
             span.input-label  Birth
