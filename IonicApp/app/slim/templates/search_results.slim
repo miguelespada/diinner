@@ -1,6 +1,7 @@
 ion-view title="Results" ng-controller="SearchResultsCtrl" cache-view="false"
   ion-nav-buttons side="secondary"
-    button class="button" ng-click="changeView()" Change View
+    button.button.icon.budicon.bi_doc-file-stack.title-bar-button ng-click="changeView()" ng-show="panelShown == 'grid-results'"
+    button.button.icon.budicon.bi_doc-list.title-bar-button ng-click="changeView()" ng-show="panelShown == 'slide-results'"
   ion-content
     #slide-container ng-show="panelShown == 'slide-results'" ng-include="" src="'templates/partial/slide_results.html'"
     #grid-container ng-show="panelShown == 'grid-results'" ng-include="" src="'templates/partial/grid_results.html'"

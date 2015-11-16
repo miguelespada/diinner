@@ -14,9 +14,8 @@ ion-list ng-controller="ReservationInfoCtrl"
     .row
       | Ticket diinner: {{ reservation.locator }}
   ion-item ng-show="panelShown == 'slide-results'"
-    .row
+    .row 
       | {{ reservation.menu.name }} {{ reservation.price }}
-  ion-item ng-show="panelShown == 'slide-results'"
     .row
       .col Appetizer
       .col Main
