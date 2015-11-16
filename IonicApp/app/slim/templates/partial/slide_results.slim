@@ -3,7 +3,8 @@ div.notification-container ng-show="reservationError.hasError"
 
 ion-slide-box active-slide="activeSlide" on-slide-changed="slideChanged(index)" ng-show="!reservationError.hasError"
   ion-slide ng-repeat="item in reservationList track by $index"  ng-init="reservation = item.reservation" id="reservation-result-{{$index}}"
-    div.box ng-include="" src="'templates/partial/reservation_info.html'"
+    div.card
+      div.box ng-include="" src="'templates/partial/reservation_info.html'"
 
-    ion-item
-      button.button.button-full.button-calm type="submit" ng-click="reserve($index)" Reserve
+      ion-item
+        button.button.button-full.button-calm type="submit" ng-click="reserve($index)" Reserve

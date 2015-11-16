@@ -149,6 +149,13 @@ ion-list{
   color: $textGray;
 }
 
+.menu-details{
+  display: block;
+  .menu-title{
+    font-weight: 700;
+  }
+}
+
 .text-custom-red{
   color: $customRed;
   &:link, &:hover, &:active, &:visited{

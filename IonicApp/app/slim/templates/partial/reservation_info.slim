@@ -14,19 +14,17 @@ ion-list ng-controller="ReservationInfoCtrl"
     .row
       | Ticket diinner: {{ reservation.locator }}
   ion-item ng-show="panelShown == 'slide-results'"
-    .row 
-      | {{ reservation.menu.name }} {{ reservation.price }}
     .row
-      .col Appetizer
-      .col Main
-      .col Dessert
-      .col Drink
-    .row
-      .col
-        | {{ reservation.menu.appetizer }}
-      .col
-        | {{ reservation.menu.main_dish }}
-      .col
-        | {{ reservation.menu.dessert }}
-      .col
-        | {{ reservation.menu.drink }}
+      .menu-details
+        .menu-title
+          | {{ reservation.menu.name }}
+        br
+        | Price: {{ reservation.price }}
+        br
+        | Appetizer: {{ reservation.menu.appetizer }}
+        br
+        | Main: {{ reservation.menu.main_dish }}
+        br
+        | Dessert: {{ reservation.menu.dessert }}
+        br
+        | Drink: {{ reservation.menu.drink }}
