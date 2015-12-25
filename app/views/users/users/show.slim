@@ -1,7 +1,13 @@
-= image_tag @user.image_url, size: "200"
+.user-image-wrapper
+  .wrapper-background
+    = image_tag @user.image_url, size: "200", class: 'image-background'
+    .wrapper-center
+      = image_tag @user.image_url, size: "200", class: 'user-image'
+      = @user.name
 
-= render "/users/sidebar"
-= render "/layouts/sidebar"
+.menu-wrapper
+  = render "/users/sidebar"
+  = render "/layouts/sidebar"
 
 
 /== cell(:user, @user)

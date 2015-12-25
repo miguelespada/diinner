@@ -20,10 +20,10 @@
         white-space: nowrap;
 
         &.left {
-          width: 70%;
+          width: 82%;
         }
         &.right {
-          width: 30%;
+          width: 16%;
         }
 
         .logo, .menu {
@@ -37,11 +37,13 @@
 
           .menu-icon {
             width: 21px;
+            z-index: 300;
           }
         }
 
         .logo img{
           height: 1.5rem;
+          z-index: 30;
         }
       }
     }
