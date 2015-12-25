@@ -4,24 +4,36 @@
 @import "user/general";
 @import "user/navigation";
 
+html, body{
+  width: 100%;
+  height: 100%;
+  font-family: "Proxima Nova";
+}
+
 
 .user-image-wrapper{
   position: relative;
   width: 100%;
   .wrapper-background{
     width: 100%;
-    margin-top: -60px;
     .image-background{
       width: 100%;
-      @include filter(blur(4px))
+      @include filter(blur(4px));
     }
     .wrapper-center{
       position: absolute;
       left: 50%;
       top: 50%;
+      text-align: center;
       @include translate(-50%, -50%);
       .user-image {
         border-radius: 50%;
+      }
+      .user-name{
+        font-size: 1.5rem;
+        color: white;
+        font-weight: bold;
+        margin-top: 10px;
       }
     }
   }
