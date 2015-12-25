@@ -1,4 +1,21 @@
-header
-  nav.navbar.navbar-default.navbar-fixed-top.navbar-main#navbar-base
-    a.navbar-brand href="#"
-      = image_tag "brand.svg"
+#navigation-sm-xs
+  .table.block
+    .row
+      .cell.left
+        .cell
+          .logo
+            = image_tag "brand.svg"
+      .cell.right
+        .cell
+          .menu
+            .menu-icon.bi_user-alt-list
+  #dropdown
+    .table.toggle
+      .row
+        .cell.left
+          .list
+            .list-item.social
+              span.fa.fa-twitter
+              span.fa.fa-facebook
+              span.fa.fa-instagram
+              span.fa.fa-tumblr

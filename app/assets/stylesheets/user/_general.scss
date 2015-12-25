@@ -1,0 +1,80 @@
+/* GENERAL SETTINGS
+========================================================================== */
+
+html, body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: $font-size-base;
+}
+
+.table {
+  display: table;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float: right;
+}
+
+.text-right {
+  text-align: right;
+  text-align: -webkit-right;
+}
+
+.text-left {
+  text-align: left;
+  text-align: -webkit-left;
+}
+
+.text-center {
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/*
+ * Pixels to rem font-size
+ */
+
+@function calculateRem($size) {
+  @return #{$size / $font-size-base}rem;
+}
+
+@mixin font-size($size) {
+  font-size: calculateRem($size);
+}
+
+/*
+ * Pixels to %
+ */
+
+@function calculatePercent($size, $base-size) {
+  @return #{(($size / $base-size) * 100) + "%"};
+}
+
+@mixin width-percent($size, $base-size) {
+  width: calculatePercent($size, $base-size);
+}
+
+/*
+ * Vertical align
+ */
+
+@mixin vertical-align($align) {
+  vertical-align: $align;
+}
