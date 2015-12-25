@@ -1,4 +1,10 @@
-== cell(:user, @user)
+= image_tag @user.image_url, size: "200"
 
-h4.title-button
-  == cell(:user, @user).edit_link
+= render "/users/sidebar"
+= render "/layouts/sidebar"
+
+
+/== cell(:user, @user)
+/
+/h4.title-button
+/  == cell(:user, @user).edit_link
