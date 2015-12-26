@@ -7,10 +7,7 @@
 html, body{
   width: 100%;
   font-family: "Proxima Nova";
-}
-
-.content{
-  margin-top: 60px;
+  overflow-x: hidden;
 }
 
 .user-image-wrapper{
@@ -44,12 +41,22 @@ html, body{
   }
 }
 
+.label{
+  background-color: $themeYellow;
+  width: 100%;
+  line-height: 42px;
+  font-size: 1.5rem;
+  text-align: center;
+  vertical-align: center;
+  color: white;
+  border: 1px solid #e6b500;
+}
+
 .button {
-  background-color: #f8f8f8;
+  background-color: $linkBlue;
   color: #444;
   position: relative;
   display: inline-block;
-  margin: 0;
   padding: 0 12px;
   min-width: 52px;
   border: 1px solid #b2b2b2;
@@ -69,4 +76,26 @@ html, body{
 
 .new-reservation{
   margin-top: 30px;
+}
+
+.data, .preferences{
+  width: 100%;
+}
+
+.form-group{
+  padding: 12px;
+  .control-label{
+
+    display: list-item;
+  }
+  .form-control{
+    margin: 6px;
+    padding: 6px;
+  }
+  .input-group{
+    display: inline;
+    .input-group-btn{
+      height: 100%;
+    }
+  }
 }

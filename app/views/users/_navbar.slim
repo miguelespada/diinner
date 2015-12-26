@@ -4,7 +4,8 @@
       .cell.left
         .cell
           .logo
-            = image_tag "brand.svg"
+            = link_to user_path(@user)
+              = image_tag "brand.svg"
       .cell.right
         .cell
           .menu
