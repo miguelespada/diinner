@@ -6,6 +6,7 @@ html
       /= render "/users/sidebar"
       = render "/users/navbar"
       /= render "/layouts/sidebar"
-      == yield
+      .content
+        == yield
       = render "/layouts/alerts"
 

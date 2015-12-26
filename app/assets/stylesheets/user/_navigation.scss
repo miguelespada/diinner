@@ -1,12 +1,16 @@
 /* NAVIGATION
 ========================================================================== */
 
-@media (min-width: 320px) and (max-width: 1023px) {
+//@media (min-width: 320px) and (max-width: 1023px) {
   #navigation-lg, #navigation-md {
     display: none;
   }
 
   #navigation-sm-xs {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    width: 100%;
     display: block;
 
     .table.block {
@@ -101,4 +105,4 @@
       right: 0;
     }
   }
-}
+//}

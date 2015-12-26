@@ -10,15 +10,19 @@ html, body{
   font-family: "Proxima Nova";
 }
 
+.content{
+  margin-top: 60px;
+}
 
 .user-image-wrapper{
   position: relative;
   width: 100%;
   .wrapper-background{
     width: 100%;
+    height: 50%;
     .image-background{
       width: 100%;
-      @include filter(blur(4px));
+      @include filter(blur(2px));
     }
     .wrapper-center{
       position: absolute;
@@ -28,6 +32,8 @@ html, body{
       @include translate(-50%, -50%);
       .user-image {
         border-radius: 50%;
+        width: 30vw;
+        border: 3px solid $themeYellow;
       }
       .user-name{
         font-size: 1.5rem;
@@ -40,5 +46,4 @@ html, body{
 }
 
 .menu-wrapper{
-  clear: both;
 }
