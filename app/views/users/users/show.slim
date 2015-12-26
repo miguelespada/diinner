@@ -1,15 +1,18 @@
 .user-image-wrapper
   .wrapper-background
     = image_tag 'background.png', class: 'image-background'
-    .wrapper-center
+    .wrapper-center.text-center
       = image_tag @user.image_url, size: "200", class: 'user-image'
       .user-name
         = @user.name
 
-.menu-wrapper
-  = render "/users/sidebar"
-  = render "/layouts/sidebar"
+.new-reservation.text-center
+  = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
 
+
+/.menu-wrapper
+/  = render "/users/sidebar"
+/  = render "/layouts/sidebar"
 
 /== cell(:user, @user)
 /
