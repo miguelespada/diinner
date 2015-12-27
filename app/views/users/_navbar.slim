@@ -1,12 +1,30 @@
-#navigation-sm-xs
-  .table.block
-    .row
-      .cell.left
-        .cell
-          .logo
-            = link_to user_path(@user)
-              = image_tag "brand.svg"
-      .cell.right
-        .cell
-          .menu
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      .navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to user_path(@user), class: 'navbar-brand'
+        = image_tag "brand.svg"
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li
+          = link_to 'My profile', user_path(@user)
+        li
+          = link_to 'My reservations', user_reservations_path(@user)
+        li
+          = link_to  'Last minute diinners', user_last_minute_diinners_path(@user)
+        li
+          = link_to 'Test', user_test_path(@user)
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to edit_user_path(@user)
+            .glyphicon.glyphicon-cog
+        li
+          = link_to user_notifications_path(@user)
             .menu-icon.bi_com-bell
+        li
+          = link_to auth_logout_path
+            .glyphicon.glyphicon-log-out
