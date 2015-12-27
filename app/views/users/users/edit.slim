@@ -1,3 +1,26 @@
-.label = t("your_data")
 = simple_form_for [@user] do |f|
-  = render "form_fields", :f => f
+  .row
+    .big-label.yellow = t("your_data")
+  .row
+    .col-xs-12
+      = f.error_notification
+      = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']]
+      = f.input :birth, as: :date_picker, html5: true
+  .row
+    .big-label.yellow = t("your_preferences")
+  .row
+    .col-xs-12
+      = f.simple_fields_for :preference do |c|
+        = c.input :max_age
+        = c.input :min_age
+        .text-center
+          = c.input :after_plan, as: :boolean, label: false
+        = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
+        = c.association :city, :include_blank => false
+        .text-center
+          = f.button :submit, class: "button button-calm"
+  javascript:
+    $("#user_preference_attributes_after_plan").bootstrapSwitch({
+      'onText': 'Go for drinks',
+      'offText': 'Go to sleep'
+    });

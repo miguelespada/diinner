@@ -1,0 +1,68 @@
+form{
+  .form-yellow{
+    background-color: $themeYellow;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: white;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 0;
+
+  }
+
+
+}
+.big-label{
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  color: $textDarkGray;
+  border: 1px solid #e6b500;
+  margin-bottom: 1rem;
+
+  &.yellow{
+    background-color: $themeYellow;
+    color: white;
+  }
+}
+
+.button {
+  background-color: $linkBlue;
+  color: #444;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding: 0 12px;
+  min-width: 52px;
+  border: 1px solid #b2b2b2;
+  border-radius: 0;
+  vertical-align: center;
+  text-align: center;
+  text-overflow: ellipsis;
+  line-height: 42px;
+  cursor: pointer;
+  text-decoration: none;
+  &.button-calm{
+    border-color: #0a9dc7;
+    background-color: #11c1f3;
+    color: #fff;
+  }
+}
+
+.bootstrap-switch{
+  border-radius: 0;
+  .bootstrap-switch-handle-on{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: $buttonYellow !important;
+  }
+
+}
