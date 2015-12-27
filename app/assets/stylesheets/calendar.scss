@@ -9,7 +9,7 @@
     span{
       font-weight: 200;
       color: $textDarkGray;
-      padding: 0px 30px;
+      padding: 0 30px;
     }
     a{
       font-weight: 200;
@@ -32,11 +32,15 @@
   table{
     font-size: 1.5em;
     table-layout: fixed;
+    width: 100%;
+    padding: 12px;
     th{
       text-align: center;
       font-weight: 400;
+      padding: 10px;
     }
     .day{
+      padding: 10px;
       font-weight: 200;
       text-align: center;
       color: $textDarkGray;
