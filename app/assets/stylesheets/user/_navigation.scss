@@ -1,105 +1,23 @@
-/* NAVIGATION
-========================================================================== */
-
-//@media (min-width: 320px) and (max-width: 1023px) {
-  #navigation-lg, #navigation-md {
-    display: none;
-  }
-
-  #navigation-sm-xs {
-    width: 100%;
-    display: block;
-
-    .table.block {
-      width: 100%;
+.navbar{
+  &.navbar-default{
+    background-color: white;
+    .navbar-toggle{
+      border: none;
       background-color: white;
-      .cell {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        color: white;
-        vertical-align: middle;
-        white-space: nowrap;
-
-        &.left {
-          width: 82%;
-        }
-        &.right {
-          width: 16%;
-        }
-
-        .logo, .menu {
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
-
-        .menu {
-          font-size: 1.5rem;
-          color: black;
-
-          .menu-icon {
-            width: 21px;
-            z-index: 300;
-          }
-        }
-
-        .logo img{
-          height: 1.5rem;
-          z-index: 30;
-        }
+    }
+    .icon-bar{
+      background-color: $textDarkGray;
+    }
+    li {
+      background-color: white;
+      color: $textDarkGray;
+      a, a:hover, a:active{
+        color: $textDarkGray;
       }
     }
-
-    .table.toggle {
-      width: 100%;
-      .cell.left .list {
-        font-family: 'Proxima Nova';
-        font-size: calculateRem(14px);
-        padding-right: 0;
-      }
-
-      .cell.right .cell:first-child .list {
-        padding-left: 0;
-        padding-right: 1rem;
-      }
-
-      .cell.right .cell:last-child .list {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-
-      .cell.right .cell {
-        font-family: 'Proxima Nova';
-        font-size: calculateRem(10px);
-      }
-
-      .cell.right .cell:last-child .list .list-item:last-child {
-        font-family: 'Proxima Nova';
-        font-size: calculateRem(12px);
-      }
-
-      .list {
-        list-style: none;
-        padding: 1.5rem;
-
-      }
-
-      .list-item {
-        color: white;
-        display: list-item;
-        padding-bottom: 1rem;
-
-        &:last-child {
-          padding-bottom: 0;
-        }
-      }
-    }
-
-    #dropdown {
-      background: white;
-      display: none;
-      position: absolute;
-      left: 0;
-      right: 0;
+    .navbar-brand img{
+      height: 100%;
     }
   }
-//}
+
+}
