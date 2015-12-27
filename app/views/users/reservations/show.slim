@@ -8,7 +8,7 @@
     /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
     .col-xs-12
       .main-info
-        .row
+        .row.separator
           .col-xs-6
             .restaurant-name
               == @reservation.restaurant.name
@@ -19,20 +19,21 @@
               .value
                 = "#{@reservation.table.affinity}%"
               .text COMPATIBLE
-        .row
+        .row.separator
+          .big-label Plan information
           .col-xs-12
             .menu
               == @reservation.menu.name
               ==< "#{@reservation.menu.price} €"
-        .row
           .col-xs-12
-            == "Plan: #{@reservation.after_plan_to_s}"
-        .row
+            == "#{t("the_plan_is")} #{@reservation.after_plan_to_s}"
           .col-xs-12
-            == "Status: #{@reservation.status.capitalize}"
-        .row
+            == "#{t("the_status_is")} #{@reservation.status.capitalize}"
+        .row.separator
+          .big-label Address
           .col-xs-12
-            == "Location: #{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
+            .address
+              == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
             == cell(:restaurant, @reservation.restaurant)._map
             == cell(:restaurant, @reservation.restaurant).location
             = render "/layouts/map"
