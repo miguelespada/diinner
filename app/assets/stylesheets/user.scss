@@ -49,3 +49,25 @@ html, body{
 .new-reservation{
   margin-top: 30px;
 }
+
+.reservation{
+  width: 100%;
+  padding: 5% 10%;
+  height: auto;
+  .restaurant-image {
+    width: 100%;
+  }
+
+  .restaurant-name {
+    font-size: 1.5rem;
+  }
+
+  .affinity{
+    text-align: center;
+  }
+  .reservation-menu{
+    clear: both;
+    padding: 5% 0;
+  }
+
+}

@@ -1,1 +1,28 @@
-== cell(:reservation, @reservation).user_show
+.big-label.yellow Reservation
+.reservation
+  /= model.restaurant.photo.path.to_json
+  .text-center
+    = cl_image_tag(@reservation.restaurant.photo.path, { crop: :fill, radius: 2, class: "restaurant-image" })
+  /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
+  .col-xs-12
+    .row
+      .col-xs-6
+        .restaurant-name
+          == @reservation.restaurant.name
+        .reservation-date
+          = @reservation.date_and_time
+      .col-xs-6
+        .affinity
+          = "#{@reservation.table.affinity}%"
+    .row
+      .bold-label MENU
+      == @reservation.menu.name
+      .bold-label MENU PRICE
+      == "#{@reservation.menu.price} €"
+      .bold-label PLAN
+      == @reservation.after_plan_to_s
+  .reservation-status
+    span.bold-label STATUS 
+    == @reservation.status.capitalize
+  p == cell(:reservation, @reservation).cancel_link
+  p == cell(:reservation, @reservation).evaluate_link
