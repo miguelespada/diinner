@@ -22,13 +22,13 @@
         .row.separator
           .big-label Plan information
           .col-xs-6
-            == "#{t("the_plan_is")}"
-          .col-xs-6.text-right
-            = @reservation.after_plan_to_s
-          .col-xs-6
             == "#{t("the_status_is")}"
           .col-xs-6.text-right
             = @reservation.status.capitalize
+          .col-xs-6
+            == "#{t("the_plan_is")}"
+          .col-xs-6.text-right
+            = @reservation.after_plan_to_s
         .row.separator
           .big-label Menú
           .menu
