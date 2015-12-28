@@ -1,4 +1,11 @@
 .navbar{
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  margin: 0 !important;
+  top: 0;
+  left: 0;
+  right: 0;
   &.navbar-default{
     background-color: white;
     .navbar-toggle{

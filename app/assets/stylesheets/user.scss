@@ -11,22 +11,25 @@ html, body{
   overflow-x: hidden;
 }
 
+
+/* User view
+========================================================================== */
+
+/* mobile
+-------------------*/
+
 .user-image-wrapper{
   position: relative;
+  overflow: hidden;
   width: 100%;
+
   .wrapper-background{
     width: 100%;
-    height: 50%;
+
     .image-background{
-      width: 100%;
       @include filter(blur(2px));
     }
     .wrapper-center{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 100%;
-      @include translate(-50%, -50%);
       .user-image {
         border-radius: 50%;
         width: 30vw;
@@ -42,13 +45,115 @@ html, body{
   }
 }
 
+@media (orientation: portrait) {
+  .wrapper-background {
+    .image-background {
+      width: auto;
+    }
 
+    .wrapper-center {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 100%;
+      @include translate(-50%, -50%);
+    }
 
-
-
-.new-reservation{
-  margin-top: 30px;
+    .new-reservation {
+      @include translate(0%, -50%);
+      position: absolute;
+      top: 70%;
+      width: 100%;
+    }
+  }
 }
+
+@media (orientation: landscape) {
+  .wrapper-background {
+    .image-background {
+      width: 100%;
+      height: auto;
+    }
+
+    .wrapper-center {
+      @include translate(-50%, -50%);
+      position: absolute;
+      left: 30%;
+      top: 50%;
+      width: 50%
+    }
+
+    .new-reservation {
+      @include translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 75%;
+      width: 50%;
+    }
+  }
+}
+
+/* tablet
+-------------------*/
+
+@media (min-width: 768px) {
+  .user-image-wrapper {
+    display: none;
+  }
+
+  .row {
+    margin-top: 10px;
+  }
+
+  .wrapper-center{
+    .user-image {
+      border: 3px solid $themeYellow;
+      border-radius: 50%;
+      box-sizing: border-box;
+      margin-top: 15px;
+      width: 80%;
+    }
+    .user-name{
+      font-size: 1.2rem;
+      color: $textDarkGray;
+      margin-top: 10px;
+    }
+    .new-reservation {
+      margin-top: 25px;
+    }
+  }
+
+  .separator {
+    border-right: 2px solid $themeYellow;
+    box-sizing: border-box;
+  }
+
+  .wrapper-control {
+    padding-top: 15px;
+
+    .panel-yellow {
+      border-color: $themeYellow;
+
+      .panel-heading {
+        background-color: $themeYellow;
+        color: white;
+      }
+    }
+
+  }
+
+  .row {
+    @include flexbox;
+  }
+}
+
+/* desktop
+-------------------*/
+
+
+
+/* Reservation
+========================================================================== */
 
 .reservation{
   width: 100%;
@@ -94,5 +199,4 @@ html, body{
   .menu{
     font-size: 1.3rem;
   }
-
 }
