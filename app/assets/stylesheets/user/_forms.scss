@@ -30,19 +30,20 @@ form{
 
   &.yellow{
     background-color: $themeYellow;
+    border-color: $themeYellow;
     color: white;
   }
 }
 
 .button {
-  background-color: $linkBlue;
-  color: #444;
+  background-color: white;
+  color: $textDarkGray;
   text-transform: uppercase;
   position: relative;
   display: inline-block;
   padding: 0 12px;
   min-width: 52px;
-  border: 1px solid #b2b2b2;
+  border: 1px solid $textDarkGray;
   border-radius: 0;
   vertical-align: center;
   text-align: center;
@@ -51,8 +52,18 @@ form{
   cursor: pointer;
   text-decoration: none;
   &.button-calm{
-    border-color: #0a9dc7;
-    background-color: #11c1f3;
+    border-color: $themeBlue;
+    background-color: $themeBlue;
+    color: #fff;
+  }
+  &.button-assertive{
+    border-color: $assertiveRed;
+    background-color: $assertiveRed;
+    color: #fff;
+  }
+  &.button-balanced{
+    border-color: $balancedGreen;
+    background-color: $balancedGreen;
     color: #fff;
   }
 }

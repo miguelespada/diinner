@@ -21,14 +21,42 @@
               .text COMPATIBLE
         .row.separator
           .big-label Plan information
-          .col-xs-12
-            .menu
-              == @reservation.menu.name
-              ==< "#{@reservation.menu.price} €"
-          .col-xs-12
-            == "#{t("the_plan_is")} #{@reservation.after_plan_to_s}"
-          .col-xs-12
-            == "#{t("the_status_is")} #{@reservation.status.capitalize}"
+          .col-xs-6
+            == "#{t("the_plan_is")}"
+          .col-xs-6.text-right
+            = @reservation.after_plan_to_s
+          .col-xs-6
+            == "#{t("the_status_is")}"
+          .col-xs-6.text-right
+            = @reservation.status.capitalize
+        .row.separator
+          .big-label Menú
+          .menu
+            .col-xs-9
+              .menu-title
+                == @reservation.menu.name
+            .col-xs-3
+              .menu-price
+                ==< "#{@reservation.menu.price} €"
+            .col-xs-12.text-center
+              .menu-description
+                = @reservation.menu.description
+            .col-xs-4
+              | APPETIZER
+            .col-xs-8.text-right
+              = @reservation.menu.appetizer
+            .col-xs-4
+              | MAIN DISH
+            .col-xs-8.text-right
+              = @reservation.menu.main_dish
+            .col-xs-4
+              | DESSERT
+            .col-xs-8.text-right
+              = @reservation.menu.dessert
+            .col-xs-4
+              | DRINK
+            .col-xs-8.text-right
+              = @reservation.menu.drink
         .row.separator
           .big-label Address
           .col-xs-12
@@ -37,6 +65,8 @@
             == cell(:restaurant, @reservation.restaurant)._map
             == cell(:restaurant, @reservation.restaurant).location
             = render "/layouts/map"
-
-    p == cell(:reservation, @reservation).cancel_link
-    p == cell(:reservation, @reservation).evaluate_link
+    .col-xs-12
+      .text-center
+        == cell(:reservation, @reservation).cancel_link
+      .text-center
+        == cell(:reservation, @reservation).evaluate_link

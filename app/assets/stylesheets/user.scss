@@ -42,10 +42,6 @@ html, body{
   }
 }
 
-
-
-
-
 .new-reservation{
   margin-top: 30px;
 }
@@ -72,7 +68,7 @@ html, body{
     .affinity {
       padding: 10px;
       text-align: center;
-      background-color: $linkBlue;
+      background-color: $themeBlue;
       border-radius: 2px;
       margin-bottom: 5%;
       color: white;
@@ -92,7 +88,9 @@ html, body{
   }
 
   .menu{
-    font-size: 1.3rem;
+    .menu-title, .menu-price {
+      font-size: 1.3rem;
+    }
   }
 
 }
