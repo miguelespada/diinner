@@ -3,10 +3,12 @@
 @import "user/variables";
 @import "user/general";
 @import "user/navigation";
+@import "user/forms";
 @import 'calendar';
 
 html, body{
   width: 100%;
+  height: 100%;
   font-family: "Proxima Nova";
   overflow-x: hidden;
 }
@@ -146,9 +148,6 @@ html, body{
     }
 
   }
-
-  .row {
-  }
 }
 
 /* desktop
@@ -215,4 +214,25 @@ html, body{
       font-size: 1.3rem;
     }
   }
+}
+
+
+/* Login
+========================================================================== */
+
+.login-wrapper{
+  display: table-cell;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  #login-panel{
+    display: table-cell;
+    width: 40%;
+    vertical-align: middle;
+
+    img{
+      width: 100%;
+    }
+  }
+
 }

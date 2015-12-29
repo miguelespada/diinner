@@ -1,9 +1,16 @@
-h3 New last minute reservation
-/ TODO dry common forms
 = simple_form_for [@user, @reservation], url: user_search_last_minute_diinners_path  do |f|
-  = f.error_notification
-  = f.input :date, :as => :hidden
-  = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range ) 
-  = f.collection_radio_buttons :after_plan, [[true, 'Go for drinks'] ,[false, 'Go to sleep']], :first, :last, :checked => (@user.after_plan.nil? ? true : @user.after_plan ) 
-  = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
-  = f.button :submit, 'Search last minute tables'
+  .big-label.yellow New last minute reservation
+  .col-xs-12
+    = f.error_notification
+    = f.input :date, :as => :hidden
+    = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
+    .text-center
+      = f.input :after_plan, as: :boolean, label: false
+    = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
+    .text-center
+      = f.button :submit, 'Search last minute tables', class: 'button button-calm'
+  javascript:
+    $("#reservation_after_plan").bootstrapSwitch({
+      'onText': 'Go for drinks',
+      'offText': 'Go to sleep'
+    });
