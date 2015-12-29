@@ -45,7 +45,6 @@ html, body{
   }
 }
 
-<<<<<<< HEAD
 @media (orientation: portrait) {
   .wrapper-background {
     .image-background {
@@ -103,7 +102,13 @@ html, body{
   }
 
   .row {
+    @include flexbox;
     margin-top: 10px;
+  }
+
+  .sm-separator {
+    border-right: 2px solid $themeYellow;
+    box-sizing: border-box;
   }
 
   .wrapper-center{
@@ -124,9 +129,8 @@ html, body{
     }
   }
 
-  .separator {
-    border-right: 2px solid $themeYellow;
-    box-sizing: border-box;
+  .lg-separator {
+    display: none;
   }
 
   .wrapper-control {
@@ -144,13 +148,22 @@ html, body{
   }
 
   .row {
-    @include flexbox;
   }
 }
 
 /* desktop
 -------------------*/
+@media (min-width: 1200px) {
+  .sm-separator {
+    border: none;
+  }
 
+  .lg-separator {
+    display: block;
+    border-right: 2px solid $themeYellow;
+    box-sizing: border-box;
+  }
+}
 
 
 /* Reservation

@@ -23,14 +23,14 @@
 
 .container-fluid
   .row
-    .col-sm-4.col-lg-offset-1.col-lg-2.user-profile
+    .col-sm-4.col-lg-offset-1.col-lg-2.user-profile.sm-separator
       .wrapper-center.text-center
         = image_tag @user.image_url, size: "100", class: 'user-image'
         .user-name
           = @user.name
         .new-reservation.text-center
           = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
-    .col-lg-1.separator
+    .col-lg-1.lg-separator
     .col-sm-8.col-lg-offset-1.col-lg-6.wrapper-control
       .panel.panel-yellow
         .panel-heading Notifications
