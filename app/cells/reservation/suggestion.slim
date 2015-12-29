@@ -1,33 +1,16 @@
 / TODO DRY this
 / TODO show_link for user!
-
-div.search-result-item
-  div.search-result-head
-    h1 == restaurant.name
-    h4 = model.restaurant.description
-    div.image-restaurant == restaurant.cl_photo 200
-    div.info-item
-      div.bold-label ADDRESS
-      = model.restaurant.address
-    div.info-item
-      div.bold-label CITY
-      = model.restaurant.city.name
-    div.info-item
-      div.bold-label PHONE
-      = model.restaurant.phone
-  
-  div.search-result-date.search-result-section
-    h3 Date
-    div 
-      = model.date
-      | , 
-      = hour
-  
-  div.search-result-details.search-result-section
-    == menu.call(:user_show)
-  
-  div.search-result-affinity.search-result-section
-    h3 Affinity
-    div.affinity = affinity
-  
-  == reserve_link
+= link_to reserve_link
+  .col-md-4.search-result-item
+    div.search-result-head
+      == restaurant.photo
+      .title
+        span.bi_interface-circle
+        == restaurant.name
+    div.search-result-details.search-result-section
+      .menu == "#{menu.model.name} #{menu.model.price}€"
+    div.search-result-affinity.search-result-section
+      .affinity
+        .value
+          = affinity
+        .text COMPATIBLE

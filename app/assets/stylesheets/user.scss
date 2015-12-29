@@ -216,7 +216,45 @@ html, body{
   }
 }
 
+.search-results{
+  margin-top: 15px;
+  a, a:hover, a:active{
+    text-decoration: none;
+    color: $textDarkGray;
+  }
+  .search-result-item{
+      img{
+        width: 100% !important;
+      }
+    .title{
+      font-size: 2rem;
+      .bi_interface-circle{
+        font-size: 1rem;
+        color: $buttonYellow;
+      }
+    }
+    .menu{
+      font-size: 1.3rem;
+    }
+    .affinity {
+      padding: 10px;
+      text-align: center;
+      background-color: $themeBlue;
+      border-radius: 2px;
+      margin-bottom: 5%;
+      color: white;
+      .value{
+        padding: 6px;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .text{
+        font-size: 1.2rem;
+      }
+    }
 
+  }
+}
 /* Login
 ========================================================================== */
 

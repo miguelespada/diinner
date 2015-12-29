@@ -91,6 +91,10 @@ class RestaurantCell < BaseCell
      cl_image_tag(model.photo.path, { size: "#{size}x#{size}", crop: :fill, radius: 2 }) if model.photo.present?
   end
 
+  def photo
+    cl_image_tag(model.photo.path) if model.photo.present?
+  end
+
   private
 
   def status
