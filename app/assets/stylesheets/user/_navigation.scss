@@ -1,11 +1,12 @@
 .navbar{
-  width: 100%;
-  position: fixed;
-  z-index: 9999;
   margin: 0 !important;
+  max-height: 51px;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  z-index: 9999;
   &.navbar-default{
     background-color: white;
     .navbar-toggle{
