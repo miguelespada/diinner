@@ -22,7 +22,7 @@ javascript:
     resizeElements();
   });
 
-.user-image-wrapper
+.user-image-wrapper.user-xs
   .wrapper-background
     = image_tag 'background.png', class: 'image-background'
     .wrapper-center.text-center
@@ -41,7 +41,7 @@ javascript:
 /h4.title-button
 /  == cell(:user, @user).edit_link
 
-.container-fluid
+.container-fluid.user-sm
   .row
     .col-sm-4.col-lg-offset-1.col-lg-2.user-profile.sm-separator
       .wrapper-center.text-center

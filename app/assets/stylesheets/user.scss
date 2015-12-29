@@ -47,6 +47,12 @@ html, body{
   }
 }
 
+@media (max-width: 767px) {
+  .user-sm {
+    display: none;
+  }
+}
+
 @media (orientation: portrait) {
   .wrapper-background {
     .image-background {
@@ -99,7 +105,7 @@ html, body{
 -------------------*/
 
 @media (min-width: 768px) {
-  .user-image-wrapper {
+  .user-xs {
     display: none;
   }
 
@@ -164,6 +170,9 @@ html, body{
   }
 }
 
+.separator{
+  min-height: 5vh;
+}
 
 /* Reservation
 ========================================================================== */
@@ -176,32 +185,24 @@ html, body{
     width: 100%;
   }
 
-  .separator{
-    margin-top: 5%;
+  .affinity{
+    margin-bottom: 5%;
+    .value{
+      padding-top: 6px;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .text{
+      font-size: 1.2rem;
+    }
   }
+
   .main-info {
     padding: 5% 0;
     min-height: 100px;
     line-height: 40px;
     .restaurant-name {
       font-size: 1.7rem;
-    }
-
-    .affinity {
-      padding: 10px;
-      text-align: center;
-      background-color: $themeBlue;
-      border-radius: 2px;
-      margin-bottom: 5%;
-      color: white;
-      .value{
-        padding: 6px;
-        font-size: 3rem;
-        font-weight: bold;
-      }
-      .text{
-        font-size: 1.2rem;
-      }
     }
 
     .address{
@@ -216,44 +217,48 @@ html, body{
   }
 }
 
-.search-results{
+.search-results {
   margin-top: 15px;
-  a, a:hover, a:active{
+  a, a:hover, a:active {
     text-decoration: none;
     color: $textDarkGray;
   }
-  .search-result-item{
-      img{
-        width: 100% !important;
-      }
-    .title{
+  .search-result-item {
+    img {
+      width: 100% !important;
+    }
+    .title {
       font-size: 2rem;
-      .bi_interface-circle{
+      .bi_interface-circle {
         font-size: 1rem;
         color: $buttonYellow;
       }
     }
-    .menu{
+    .menu {
       font-size: 1.3rem;
     }
-    .affinity {
-      padding: 10px;
-      text-align: center;
-      background-color: $themeBlue;
-      border-radius: 2px;
-      margin-bottom: 5%;
-      color: white;
-      .value{
-        padding: 6px;
-        font-size: 3rem;
-        font-weight: bold;
-      }
-      .text{
-        font-size: 1.2rem;
-      }
-    }
-
   }
+}
+.big-box {
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  border: 2px solid $themeBlue;
+  border-radius: 2px;
+  color: $textDarkGray;
+  &.blue{
+    background-color: $themeBlue;
+    color: white;
+  }
+}
+
+/* Payment
+========================================================================== */
+.card{
+  font-size: 4rem;
+}
+.card-text{
+  font-size: 1.3rem;
 }
 /* Login
 ========================================================================== */
