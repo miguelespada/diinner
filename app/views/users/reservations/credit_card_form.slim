@@ -29,48 +29,45 @@
     #other-card.big-box
       .row
         .col-xs-12 Use other card
-  - if @reservation.user.has_default_card?
-    #other-card-form.hidden
-  -else 
-    #other-card-form
-      = javascript_include_tag "https://js.stripe.com/v2/"
-      = tag :div, :id => "stripe-key", :data => {:content => ENV['STRIPE_PUBLISHABLE_KEY']}
-      = javascript_include_tag "stripe.js"
+  #other-card-form class=('hidden' if @reservation.user.has_default_card?)
+    = javascript_include_tag "https://js.stripe.com/v2/"
+    = tag :div, :id => "stripe-key", :data => {:content => ENV['STRIPE_PUBLISHABLE_KEY']}
+    = javascript_include_tag "stripe.js"
 
-      = form_tag user_reservation_path(@user, @reservation), :method => :patch, :id => "new_reservation" do
-        span.stripe-error
-        = hidden_field_tag :stripe_card_token
-        .row.form-group
-          .col-xs-5
-            label.control-label Card holder:
-          .col-xs-7
-            = text_field_tag :card_holder, nil, name: nil, class: "form-control"
-        .row.form-group
-          .col-xs-5
-            label.control-label Card number:
-          .col-xs-7
-            = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control"
-        .row.form-group
-          .col-xs-5
-            label.control-label CVC:
-          .col-xs-7
-            = text_field_tag :card_cvc, nil, name: nil, size: 3, class: "form-control"
-        .row.form-group
-          .col-xs-5
-            label.control-label Expiration (MM/YYYY):
-          .col-xs-3
-            = text_field_tag :exp_month, nil, name: nil, size: 2, class: "form-control"
-          .col-xs-4
-            = text_field_tag :exp_year, nil, name: nil, size: 4, class: "form-control"
-        .row.form-group
-          .col-xs-2.text-right
-            = check_box_tag :terms_and_conditions, class: "form-control"
-          .col-xs-10
-            = label_tag "I accept the terms and conditions"
-        #submit-other-card.col-xs-12.text-center
-          .button.button-calm Confirm
-        .separator
-        = submit_tag "Confirm", class: "hidden"
+    = form_tag user_reservation_path(@user, @reservation), :method => :patch, :id => "new_reservation" do
+      span.stripe-error
+      = hidden_field_tag :stripe_card_token
+      .row.form-group
+        .col-xs-5
+          label.control-label Card holder:
+        .col-xs-7
+          = text_field_tag :card_holder, nil, name: nil, class: "form-control"
+      .row.form-group
+        .col-xs-5
+          label.control-label Card number:
+        .col-xs-7
+          = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control"
+      .row.form-group
+        .col-xs-5
+          label.control-label CVC:
+        .col-xs-7
+          = text_field_tag :card_cvc, nil, name: nil, size: 3, class: "form-control"
+      .row.form-group
+        .col-xs-5
+          label.control-label Expiration (MM/YYYY):
+        .col-xs-3
+          = text_field_tag :exp_month, nil, name: nil, size: 2, class: "form-control"
+        .col-xs-4
+          = text_field_tag :exp_year, nil, name: nil, size: 4, class: "form-control"
+      .row.form-group
+        .col-xs-2.text-right
+          = check_box_tag :terms_and_conditions, class: "form-control"
+        .col-xs-10
+          = label_tag "I accept the terms and conditions"
+      #submit-other-card.col-xs-12.text-center
+        .button.button-calm Confirm
+      .separator
+      = submit_tag "Confirm", class: "hidden"
 
 javascript:
 

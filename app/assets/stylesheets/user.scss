@@ -229,6 +229,11 @@ html, body{
     color: $textDarkGray;
   }
   .search-result-item {
+    border: 1px solid $textDarkGray;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     img {
       width: 100% !important;
     }
