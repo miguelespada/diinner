@@ -2,26 +2,6 @@
   = stylesheet_link_tag 'calendar', media: 'all'
   = javascript_include_tag 'utils'
 
-javascript:
-  function resizeElements()
-  {
-    var size = windowSize();
-
-    $(".user-image-wrapper").height(size.height - 51);
-    $(".wrapper-background").height(size.height - 51);
-    $(".image-background").height(size.height - 51);
-  }
-
-  $(document).ready(function ()
-  {
-    resizeElements();
-  });
-
-  $(window).resize(function ()
-  {
-    resizeElements();
-  });
-
 .user-image-wrapper.user-xs
   .wrapper-background
     = image_tag 'background.png', class: 'image-background'
