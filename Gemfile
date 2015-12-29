@@ -50,6 +50,8 @@ gem 'hashids'
 gem "factory_girl_rails"
 gem 'airbrake'
 
+gem 'bootstrap-slider-rails'
+
 group :test do
   gem "database_cleaner"
   gem 'mongoid-rspec'
