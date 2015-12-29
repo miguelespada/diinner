@@ -24,12 +24,17 @@ html, body{
   position: relative;
   overflow: hidden;
   width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 
   .wrapper-background{
     width: 100%;
+    overflow: hidden;
 
     .image-background{
       @include filter(blur(2px));
+      height:100vh;
     }
     .wrapper-center{
       .user-image {
@@ -170,6 +175,10 @@ html, body{
   }
 }
 
+.separator{
+  min-height: 5vh;
+}
+
 /* User preferences
 ========================================================================== */
 .age-slider {
@@ -189,7 +198,6 @@ html, body{
   }
 }
 
-
 /* Reservation
 ========================================================================== */
 
@@ -201,32 +209,24 @@ html, body{
     width: 100%;
   }
 
-  .separator{
-    margin-top: 5%;
+  .affinity{
+    margin-bottom: 5%;
+    .value{
+      padding-top: 6px;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .text{
+      font-size: 1.2rem;
+    }
   }
+
   .main-info {
     padding: 5% 0;
     min-height: 100px;
     line-height: 40px;
     .restaurant-name {
       font-size: 1.7rem;
-    }
-
-    .affinity {
-      padding: 10px;
-      text-align: center;
-      background-color: $themeBlue;
-      border-radius: 2px;
-      margin-bottom: 5%;
-      color: white;
-      .value{
-        padding: 6px;
-        font-size: 3rem;
-        font-weight: bold;
-      }
-      .text{
-        font-size: 1.2rem;
-      }
     }
 
     .address{
@@ -241,7 +241,54 @@ html, body{
   }
 }
 
+.search-results {
+  margin-top: 15px;
+  a, a:hover, a:active {
+    text-decoration: none;
+    color: $textDarkGray;
+  }
+  .search-result-item {
+    border: 1px solid $textDarkGray;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    img {
+      width: 100% !important;
+    }
+    .title {
+      font-size: 2rem;
+      .bi_interface-circle {
+        font-size: 1rem;
+        color: $buttonYellow;
+      }
+    }
+    .menu {
+      font-size: 1.3rem;
+    }
+  }
+}
+.big-box {
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  border: 2px solid $themeBlue;
+  border-radius: 2px;
+  color: $textDarkGray;
+  &.blue{
+    background-color: $themeBlue;
+    color: white;
+  }
+}
 
+/* Payment
+========================================================================== */
+.card{
+  font-size: 4rem;
+}
+.card-text{
+  font-size: 1.3rem;
+}
 /* Login
 ========================================================================== */
 

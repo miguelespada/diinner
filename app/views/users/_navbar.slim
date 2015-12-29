@@ -1,32 +1,3 @@
-//nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      .navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to user_path(@user), class: 'navbar-brand'
-        = image_tag "brand.svg"
-    ul.navbar-nav.list-inline
-      li
-        = link_to user_notifications_path(@user)
-          .menu-icon.bi_com-bell
-    #navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        li
-          = link_to 'My reservations', user_reservations_path(@user)
-        li
-          = link_to 'Test', user_test_path(@user)
-    ul.nav.navbar-nav.navbar-right
-      li
-        = link_to edit_user_path(@user)
-          .glyphicon.glyphicon-cog
-      li
-        = link_to auth_logout_path
-          .glyphicon.glyphicon-log-out
-
-        script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
 nav.navbar.navbar-default.navbar-fixed-top role="navigation"
   .container-fluid
     /! Title
@@ -37,19 +8,17 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
     .navbar-header.pull-right
       ul.nav.navbar-nav.pull-left
         /! This works well for static text, like a username
-        li
+        li.notifications
           = link_to user_notifications_path(@user)
-            .glyphicon.glyphicon-bell
+            .menu-icon.bi_com-bell
       /! Required bootstrap placeholder for the collapsed menu
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-    /! The Collapsing items            navbar-left or navbar-right
     .collapse.navbar-collapse.navbar-left
-      /! pull-right keeps the drop-down in line
-      ul.nav.navbar-nav.pull-right
+      ul.nav.navbar-nav
         li
           = link_to 'My reservations', user_reservations_path(@user)
         li
@@ -60,7 +29,7 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
       ul.nav.navbar-nav.pull-right
         li
           = link_to edit_user_path(@user)
-            .glyphicon.glyphicon-cog
+            .menu-icon.bi_setting-gear
         li
           = link_to auth_logout_path
-            .glyphicon.glyphicon-log-out
+            .menu-icon.bi_web-logout
