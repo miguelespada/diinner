@@ -12,6 +12,11 @@
       border: none;
       background-color: white;
     }
+    .navbar-nav{
+      .notifications{
+        z-index: 10;
+      }
+    }
     .icon-bar{
       background-color: $textDarkGray;
     }
