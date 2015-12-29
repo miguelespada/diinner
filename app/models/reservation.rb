@@ -41,6 +41,10 @@ class Reservation
     after_plan
   end
 
+  def after_plan_to_s
+    go_for_drinks? ? "Go for drinks" : "Go to sleep"
+  end
+
   def go_to_sleep?
     !go_for_drinks
   end

@@ -47,6 +47,7 @@ html, body{
 .new-reservation{
   margin-top: 30px;
 }
+
 .login-wrapper{
   display: table-cell;
   overflow: hidden;
@@ -64,3 +65,50 @@ html, body{
 
 }
 
+
+.reservation{
+  width: 100%;
+  padding: 0 0;
+  height: auto;
+  .restaurant-image {
+    width: 100%;
+  }
+
+  .separator{
+    margin-top: 5%;
+  }
+  .main-info {
+    padding: 5% 0;
+    min-height: 100px;
+    line-height: 40px;
+    .restaurant-name {
+      font-size: 1.7rem;
+    }
+
+    .affinity {
+      padding: 10px;
+      text-align: center;
+      background-color: $linkBlue;
+      border-radius: 2px;
+      margin-bottom: 5%;
+      color: white;
+      .value{
+        padding: 6px;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .text{
+        font-size: 1.2rem;
+      }
+    }
+
+    .address{
+      font-size: 1.5rem;
+    }
+  }
+
+  .menu{
+    font-size: 1.3rem;
+  }
+
+}
