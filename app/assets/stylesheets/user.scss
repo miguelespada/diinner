@@ -47,6 +47,12 @@ html, body{
   }
 }
 
+@media (max-width: 767px) {
+  .user-sm {
+    display: none;
+  }
+}
+
 @media (orientation: portrait) {
   .wrapper-background {
     .image-background {
@@ -99,7 +105,7 @@ html, body{
 -------------------*/
 
 @media (min-width: 768px) {
-  .user-image-wrapper {
+  .user-xs {
     display: none;
   }
 
