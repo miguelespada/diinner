@@ -1,3 +1,7 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'calendar', media: 'all'
+
+
 .user-image-wrapper
   .wrapper-background
     = image_tag 'background.png', class: 'image-background'
@@ -5,10 +9,8 @@
       = image_tag @user.image_url, size: "200", class: 'user-image'
       .user-name
         = @user.name
-
-.new-reservation.text-center
-  = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
-
+    .new-reservation.text-center
+      = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
 
 /.menu-wrapper
   = render "/users/sidebar"
@@ -18,3 +20,56 @@
 /
 /h4.title-button
 /  == cell(:user, @user).edit_link
+
+.container-fluid
+  .row
+    .col-sm-4.col-lg-offset-1.col-lg-2.user-profile
+      .wrapper-center.text-center
+        = image_tag @user.image_url, size: "100", class: 'user-image'
+        .user-name
+          = @user.name
+        .new-reservation.text-center
+          = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
+    .col-lg-1.separator
+    .col-sm-8.col-lg-offset-1.col-lg-6.wrapper-control
+      .panel.panel-yellow
+        .panel-heading Notifications
+
+        ul.list-group
+          li.list-group-item Notification
+          li.list-group-item Notification
+          li.list-group-item Notification
+          li.list-group-item Notification
+      .panel.panel-yellow
+        .panel-heading = t("my_reservations")
+
+        / TODO create a partial
+        .calendar
+          = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
+            = link_to date.day, "#"
+            - reservations.each do |reservation|
+              .status-table
+                = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+
+
+
+
+javascript:
+  function resizeElements()
+  {
+    var size = windowSize();
+
+    $(".user-image-wrapper").height(size.height - 51);
+    $(".wrapper-background").height(size.height - 51);
+    $(".image-background").height(size.height - 51);
+  }
+
+  $(document).ready(function ()
+  {
+    resizeElements();
+  });
+
+  $(window).resize(function ()
+  {
+    resizeElements();
+  });

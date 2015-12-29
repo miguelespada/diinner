@@ -26,3 +26,4 @@
 //= require moment/es.js
 //= require bootstrap-datetimepicker
 //= require pickers
+//= require utils

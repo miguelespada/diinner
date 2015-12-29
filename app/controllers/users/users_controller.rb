@@ -10,6 +10,7 @@ class Users::UsersController < BaseUsersController
 
   def show
     redirect_to edit_user_path(@current_user) if @current_user.first_login?
+    @reservations = @user.reservations.where(cancelled: false)
   end
 
   def update
