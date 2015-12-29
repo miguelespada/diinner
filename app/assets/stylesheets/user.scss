@@ -24,12 +24,17 @@ html, body{
   position: relative;
   overflow: hidden;
   width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 
   .wrapper-background{
     width: 100%;
+    overflow: hidden;
 
     .image-background{
       @include filter(blur(2px));
+      height:100vh;
     }
     .wrapper-center{
       .user-image {
