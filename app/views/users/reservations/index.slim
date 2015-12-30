@@ -3,10 +3,10 @@
 
 .big-label.yellow = t("my_reservations")
 
-/ TODO create a partial
-.calendar
-  = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
-    = link_to date.day, "#"
-    - reservations.each do |reservation|
-      .status-table
-        = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+.col-xs-12
+  .calendar
+    = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
+      = link_to date.day, "#"
+      - reservations.each do |reservation|
+        .status-table
+          = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)

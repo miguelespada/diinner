@@ -23,16 +23,23 @@ html, body{
   clear: both;
 }
 
+.no-padding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* mobile
 -------------------*/
 
 .user-image-wrapper{
-  position: relative;
   overflow: hidden;
   width: 100%;
-  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
+  height: 100vh;
 
   .wrapper-background{
     width: 100%;
@@ -104,6 +111,11 @@ html, body{
 @media (max-width: 767px) {
   .user-sm {
     display: none;
+  }
+
+  .no-padding-xs {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
 
@@ -197,6 +209,7 @@ html, body{
 
   .wrapper-control {
     padding-top: 15px;
+    border-left: 2px solid $themeYellow;
 
     .panel-yellow {
       border-color: $themeYellow;
@@ -212,6 +225,9 @@ html, body{
   .notification-list{
     max-height: 30vh;
     overflow: auto;
+    &.full{
+      max-height: 100vh;
+    }
   }
   
 }

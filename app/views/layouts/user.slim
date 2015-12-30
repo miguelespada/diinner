@@ -7,6 +7,17 @@ html
       = render "/users/navbar"
       /= render "/layouts/sidebar"
       .content
-        == yield
+        .hidden-xs.col-sm-4.col-lg-3
+          .col-lg-12
+            .wrapper-center.text-center
+              = image_tag @user.image_url, size: "100", class: 'user-image'
+              .user-name
+                = @user.name
+              .new-reservation.text-center
+                = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
+        /.hidden-xs.hidden-sm.col-lg-1.user-profile
+        .col-xs-12.col-sm-8.col-lg-9.no-padding-xs.wrapper-control
+          .col-lg-10.col-lg-offset-1.no-padding-xs
+            == yield
       //= render "/layouts/alerts"
 
