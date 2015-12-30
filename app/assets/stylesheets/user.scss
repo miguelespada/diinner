@@ -255,10 +255,20 @@ html, body{
 .age-slider {
   margin-bottom: 25px;
   width: 100%;
+
+  .age-span {
+    display: inline-block;
+    width: 10%;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
 }
 
 #age-slider {
-  width: 100%;
+  text-align: center;
+  width: 80%;
 
   .slider-handle {
     background: $buttonYellow;
@@ -269,8 +279,34 @@ html, body{
   }
 }
 
+@media (min-width: 768px) {
+  .age-slider {
+    .age-span {
+      width: 8%;
+    }
+  }
+
+  #age-slider {
+    width: 84%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .age-slider {
+    .age-span {
+      width: 7%;
+    }
+  }
+
+  #age-slider {
+    width: 86%;
+  }
+}
 /* Reservation
 ========================================================================== */
+input.company {
+  margin-right: 5px;
+}
 
 .reservation{
   width: 100%;
