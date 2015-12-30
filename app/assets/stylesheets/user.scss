@@ -280,6 +280,23 @@ html, body{
     color: white;
   }
 }
+.choosing-box{
+  width: 96%;
+  margin: 2%;
+  border-radius: 2px;
+
+  .text{
+    width: 50%;
+    margin-bottom: 15px;
+    float: left;
+    font-size: 1.2em;
+    padding: 10px;
+    border: 1px solid $lightGray;
+    &.selected{
+     background-color: $themeBlue;
+    }
+  }
+}
 
 /* Payment
 ========================================================================== */

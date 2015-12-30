@@ -1,3 +1,9 @@
-.nested-fields
-  = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']], :include_blank => true, :selected => 1
-  = f.input :age
+.nested-fields.friend hidden=true
+  h4 Friend
+  .col-lg-6
+    .choosing-box
+      .text.friend-toggle data-gender="male" Male
+      .text.friend-toggle data-gender="female" Female
+  .col-lg-6
+    = f.input :gender, as: :hidden, :input_html => { class: 'gender', value: ''}
+    = f.input :age

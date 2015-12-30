@@ -1,7 +1,8 @@
 .row
   .big-label.yellow New reservation
+.container
 .row
-  .col-xs-12
+  .col-xs-offset-1.col-xs-10.col-lg-offset-2.col-lg-8
     = simple_form_for [@user, @reservation], url: user_search_tables_path  do |f|
       = f.error_notification
       = f.input :date, :as => :date_picker, html5: true
@@ -9,9 +10,17 @@
       .text-center
         = f.input :after_plan, as: :boolean, label: false, :checked => (@user.after_plan.nil? ? true : @user.after_plan )
       = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
-      h4 Company
-      = f.simple_fields_for :companies do |company|
-        = render 'company_fields', :f => company
+      .friends-question
+        label.control-label Friends
+        h4
+          input.company type="checkbox" Are you going with friends?
+      .company-container hidden=true
+        h4 How many?
+        .choosing-box
+          .text.toggle data-number=1 1
+          .text.toggle data-number=2 2
+        = f.simple_fields_for :companies do |company|
+          = render 'company_fields', :f => company
       .text-center
         = f.button :submit, 'Search tables', class: 'button button-calm'
 
@@ -28,4 +37,32 @@ javascript:
       'onText': 'Go for drinks',
       'offText': 'Go to sleep'
     });
+
+    $(".company").change(function(){
+      if($(this).is(":checked")){
+        $(".company-container").show();
+      }else{
+        $(".company-container").hide();
+      }
+
+    });
+
+    $(".friend-toggle").click(function () {
+
+      $(this).siblings().removeClass("selected");
+      $(this).addClass("selected");
+      $($(this).parent().parent().parent().find(".gender")).val(($(this).data("gender")));
+    });
+
+    $(".toggle").click(function () {
+      $(".friend").hide();
+
+      $(".toggle").removeClass("selected");
+      $(this).addClass("selected");
+      if ($(this).data("number") == 1) {
+        $($(".friend")[0]).show();
+      } else {
+        $(".friend").show();
+      }
+    })
   });
