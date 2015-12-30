@@ -1,5 +1,6 @@
-div.plan-pending-log
-  i.bi_doc-wboard-line
-  span Your plan diinner for tonight at 
-  span.restaurant-id == cell(:restaurant, activity.owner).show_link if !activity.owner.nil?
-  span  is waiting for confirmation!!!
+= link_to user_restaurant_path(@user, activity.owner)
+  .notification
+    .message
+      | Tu plan diinner en #{activity.owner.name} está pendiente de confirmación.
+    .time
+      == activity.created_at

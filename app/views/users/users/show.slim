@@ -2,7 +2,7 @@
   = stylesheet_link_tag 'calendar', media: 'all'
   = javascript_include_tag 'utils'
 
-.user-image-wrapper.user-xs
+.user-image-wrapper.visible-xs
   .wrapper-background
     = image_tag 'background.png', class: 'image-background'
     .wrapper-center.text-center
@@ -12,41 +12,20 @@
     .new-reservation.text-center
       = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
 
-/.menu-wrapper
-  = render "/users/sidebar"
-  = render "/layouts/sidebar"
+.hidden-xs
+  .col-md-12
+    .big-label.yellow Notifications
+    .col-md-12.notification-list
+      = render_activities(@user.notifications.take(10))
+  .separator
+  .col-md-12
+    .big-label.yellow
+      = t("my_reservations")
 
-/== cell(:user, @user)
-/
-/h4.title-button
-/  == cell(:user, @user).edit_link
-
-.container-fluid.user-sm
-  .row
-    .col-sm-4.col-lg-offset-1.col-lg-2.user-profile.sm-separator
-      .wrapper-center.text-center
-        = image_tag @user.image_url, size: "100", class: 'user-image'
-        .user-name
-          = @user.name
-        .new-reservation.text-center
-          = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
-    .col-lg-1.lg-separator
-    .col-sm-8.col-lg-offset-1.col-lg-6.wrapper-control
-      .panel.panel-yellow
-        .panel-heading Notifications
-
-        ul.list-group
-          li.list-group-item Notification
-          li.list-group-item Notification
-          li.list-group-item Notification
-          li.list-group-item Notification
-      .panel.panel-yellow
-        .panel-heading = t("my_reservations")
-
-        / TODO create a partial
-        .calendar
-          = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
-            = link_to date.day, "#"
-            - reservations.each do |reservation|
-              .status-table
-                = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+    / TODO create a partial
+    .calendar
+      = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
+        = link_to date.day, "#"
+        - reservations.each do |reservation|
+          .status-table
+            = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)

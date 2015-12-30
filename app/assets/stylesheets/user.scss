@@ -17,16 +17,29 @@ html, body{
 /* User view
 ========================================================================== */
 
+.separator{
+  min-height: 5vh;
+  position: relative;
+  clear: both;
+}
+
+.no-padding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* mobile
 -------------------*/
 
 .user-image-wrapper{
-  position: relative;
   overflow: hidden;
   width: 100%;
-  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
+  height: 100vh;
 
   .wrapper-background{
     width: 100%;
@@ -52,9 +65,57 @@ html, body{
   }
 }
 
+
+.test{
+  text-align: center;
+  .question{
+    font-size: 1.3rem;
+  }
+  .responses{
+    height: 70vh;
+    min-height: 70vh;
+    .option {
+      padding: 5%;
+      height: 50%;
+      position: relative;
+      .image{
+        height: 100%;
+        border-radius: 2%;
+      }
+      .text{
+        font-size: 1.3rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include translate(-50%, -50%);
+      }
+    }
+  }
+
+}
+
+.notification-list{
+  .notification{
+    padding: 2% 0;
+    border: 0 solid $themeYellow;
+    border-bottom-width: 1px;
+    .message{
+      color: $textDarkGray;
+    }
+    .time{
+      color: $textGray;
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .user-sm {
     display: none;
+  }
+
+  .no-padding-xs {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
 
@@ -148,6 +209,7 @@ html, body{
 
   .wrapper-control {
     padding-top: 15px;
+    border-left: 2px solid $themeYellow;
 
     .panel-yellow {
       border-color: $themeYellow;
@@ -159,7 +221,18 @@ html, body{
     }
 
   }
+
+  .notification-list{
+    max-height: 30vh;
+    overflow: auto;
+    &.full{
+      max-height: 100vh;
+    }
+  }
+  
 }
+
+
 
 /* desktop
 -------------------*/
@@ -173,10 +246,8 @@ html, body{
     border-right: 2px solid $themeYellow;
     box-sizing: border-box;
   }
-}
 
-.separator{
-  min-height: 5vh;
+
 }
 
 /* User preferences
@@ -293,7 +364,7 @@ html, body{
     padding: 10px;
     border: 1px solid $lightGray;
     &.selected{
-     background-color: $themeBlue;
+     background-color: $themeYellow;
     }
   }
 }
