@@ -19,6 +19,8 @@ html, body{
 
 .separator{
   min-height: 5vh;
+  position: relative;
+  clear: both;
 }
 
 /* mobile
@@ -83,6 +85,20 @@ html, body{
     }
   }
 
+}
+
+.notification-list{
+  .notification{
+    padding: 2% 0;
+    border: 0 solid $themeYellow;
+    border-bottom-width: 1px;
+    .message{
+      color: $textDarkGray;
+    }
+    .time{
+      color: $textGray;
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -192,6 +208,11 @@ html, body{
     }
 
   }
+
+  .notification-list{
+    max-height: 30vh;
+    overflow: auto;
+  }
   
 }
 
@@ -213,6 +234,24 @@ html, body{
 
 }
 
+/* User preferences
+========================================================================== */
+.age-slider {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+#age-slider {
+  width: 100%;
+
+  .slider-handle {
+    background: $buttonYellow;
+  }
+
+  .slider-selection {
+    background: $themeYellow;
+  }
+}
 
 /* Reservation
 ========================================================================== */

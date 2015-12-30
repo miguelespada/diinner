@@ -128,6 +128,8 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap-slider-rails (5.3.3)
+      railties (>= 3.2, < 5.0)
     bson (3.2.6)
     bson_ext (1.5.1)
     builder (3.2.2)
@@ -425,6 +427,7 @@ DEPENDENCIES
   binding_of_caller
   bonsai-elasticsearch-rails
   bootstrap-sass (~> 3.3.4.1)
+  bootstrap-slider-rails
   bson_ext
   cancancan (~> 1.10)
   capybara
