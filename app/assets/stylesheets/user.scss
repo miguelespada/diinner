@@ -17,6 +17,10 @@ html, body{
 /* User view
 ========================================================================== */
 
+.separator{
+  min-height: 5vh;
+}
+
 /* mobile
 -------------------*/
 
@@ -50,6 +54,35 @@ html, body{
       }
     }
   }
+}
+
+
+.test{
+  text-align: center;
+  .question{
+    font-size: 1.3rem;
+  }
+  .responses{
+    height: 70vh;
+    min-height: 70vh;
+    .option {
+      padding: 5%;
+      height: 50%;
+      position: relative;
+      .image{
+        height: 100%;
+        border-radius: 2%;
+      }
+      .text{
+        font-size: 1.3rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include translate(-50%, -50%);
+      }
+    }
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -159,7 +192,10 @@ html, body{
     }
 
   }
+  
 }
+
+
 
 /* desktop
 -------------------*/
@@ -173,11 +209,10 @@ html, body{
     border-right: 2px solid $themeYellow;
     box-sizing: border-box;
   }
+
+
 }
 
-.separator{
-  min-height: 5vh;
-}
 
 /* Reservation
 ========================================================================== */
