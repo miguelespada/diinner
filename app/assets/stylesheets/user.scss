@@ -413,22 +413,3 @@ input.company {
 .card-text{
   font-size: 1.3rem;
 }
-/* Login
-========================================================================== */
-
-.login-wrapper{
-  display: table-cell;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  #login-panel{
-    display: table-cell;
-    width: 40%;
-    vertical-align: middle;
-
-    img{
-      width: 100%;
-    }
-  }
-
-}

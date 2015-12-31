@@ -1,7 +1,7 @@
 class Users::UsersController < BaseUsersController
 
   def login
-    render :layout => false
+    render layout: 'login'
   end
 
   def edit
