@@ -26,13 +26,17 @@ form{
   text-align: center;
   color: $textDarkGray;
   border: 1px solid #e6b500;
-  margin-bottom: 1rem;
+  line-height: 40px;
+  @media (max-width: 768px) {
+    margin-top: 6px;
+  }
 
   &.yellow{
     background-color: $themeYellow;
     border-color: $themeYellow;
     color: white;
   }
+
 }
 
 .button {

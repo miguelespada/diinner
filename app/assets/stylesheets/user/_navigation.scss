@@ -6,6 +6,13 @@
   right: 0;
   width: 100%;
   z-index: 9999;
+  .menu-icon{
+    font-size: 1.2rem;
+  }
+  .menu-text{
+    font-size: 1rem;
+    display: inline;
+  }
   &.navbar-default{
     background-color: white;
     .navbar-toggle{
