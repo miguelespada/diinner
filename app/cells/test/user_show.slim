@@ -2,16 +2,17 @@
   .question
     = model.question
   .responses
-    = link_to user_test_response_path(current_user, model, option: model.caption_A), method: :post, class: 'wrapper'
-      .option
-        - if model.option_A.present?
-          = cl_image_tag(model.option_A.path, { crop: :fill, radius: 2, class: 'image' })
-        - else
-          .text = model.caption_A
-
-    = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, class: 'wrapper'
-      .option
-        - if model.option_B.present?
-          = cl_image_tag(model.option_B.path, {crop: :fill, radius: 2, class: 'image'})
-        - else
-          .text = model.caption_B
+    .col-lg-6
+      = link_to user_test_response_path(current_user, model, option: model.caption_A), method: :post, class: 'wrapper'
+        .option
+          - if model.option_A.present?
+            = cl_image_tag(model.option_A.path, { crop: :fill, radius: 2, class: 'image' })
+          - else
+            .text.blue = model.caption_A
+    .col-lg-6
+      = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, class: 'wrapper'
+        .option
+          - if model.option_B.present?
+            = cl_image_tag(model.option_B.path, {crop: :fill, radius: 2, class: 'image'})
+          - else
+            .text.yellow = model.caption_B

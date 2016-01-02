@@ -69,25 +69,37 @@ html, body{
 .test{
   text-align: center;
   .question{
+    margin-top: 15px;
     font-size: 1.3rem;
   }
   .responses{
-    height: 70vh;
-    min-height: 70vh;
+    a, a:active, a:hover{
+      color: $textDarkGray !important;
+      text-decoration: none !important;
+    }
     .option {
-      padding: 5%;
-      height: 50%;
-      position: relative;
+      text-align: center;
+      min-height: 30vh;
+      width: 100%;
+      display: table;
+      margin-top: 15px;
       .image{
-        height: 100%;
+        width: 100%;
         border-radius: 2%;
       }
       .text{
-        font-size: 1.3rem;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        @include translate(-50%, -50%);
+        border: 1px solid $lightGray;
+        border-radius: 2px;
+
+        font-size: 2rem;
+        display: table-cell;
+        vertical-align: middle;
+        &.blue{
+          background-color: $themeBlue;
+        }
+        &.yellow{
+          background-color: $themeYellow;
+        }
       }
     }
   }
