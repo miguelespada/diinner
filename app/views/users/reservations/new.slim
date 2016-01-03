@@ -6,9 +6,13 @@
       = simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
         = f.error_notification
         .choosing-box
-          .text.long.day-toggle data-day="today" Today (Last Minute)
-          .text.long.day-toggle.selected data-day="tomorrow" Tomorrow
-          .text.long.last.day-toggle data-day="date" Other Day
+          .row
+            .col-lg-4.no-padding
+              .text.long.day-toggle data-day="today" Today
+            .col-lg-4.no-padding
+              .text.long.day-toggle.selected data-day="tomorrow" Tomorrow
+            .col-lg-4.no-padding
+              .text.long.last.day-toggle data-day="date" Other Day
         .date
           = f.input :date, :as => :date_picker, html5: true
         = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
@@ -60,7 +64,7 @@ javascript:
 
     $(".day-toggle").click(function () {
 
-      $(this).siblings().removeClass("selected");
+      $(".day-toggle").removeClass("selected");
       $(this).addClass("selected");
       $("#reservation-form").attr("action", "#{user_search_tables_path}");
       $(".date").hide();
