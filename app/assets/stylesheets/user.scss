@@ -413,6 +413,10 @@ input.company {
     border: 1px solid $lightGray;
     &.selected{
      background-color: $themeYellow;
+      &.blue{
+        background-color: $themeBlue;
+        color: white;
+      }
     }
 
     &.long{

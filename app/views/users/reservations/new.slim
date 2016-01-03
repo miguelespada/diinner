@@ -8,11 +8,11 @@
         .choosing-box
           .row
             .col-lg-4.no-padding
-              .text.long.day-toggle data-day="today" Today
+              .text.long.blue.day-toggle data-day="today" Today
             .col-lg-4.no-padding
-              .text.long.day-toggle.selected data-day="tomorrow" Tomorrow
+              .text.long.blue.day-toggle.selected data-day="tomorrow" Tomorrow
             .col-lg-4.no-padding
-              .text.long.last.day-toggle data-day="date" Other Day
+              .text.long.blue.last.day-toggle data-day="date" Other Day
         .date
           = f.input :date, :as => :date_picker, html5: true
         = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
