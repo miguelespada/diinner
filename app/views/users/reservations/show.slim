@@ -21,7 +21,8 @@
                 = "#{@reservation.table.affinity}%"
               .text COMPATIBLE
         .row.separator
-          .big-label Plan information
+          .col-xs-12
+            .big-label Plan information
           .col-xs-6
             == "#{t("the_status_is")}"
           .col-xs-6.text-right
@@ -31,7 +32,8 @@
           .col-xs-6.text-right
             = @reservation.after_plan_to_s
         .row.separator
-          .big-label Menú
+          .col-xs-12
+            .big-label Menú
           .menu
             .col-xs-9
               .menu-title
@@ -59,7 +61,8 @@
             .col-xs-8.text-right
               = @reservation.menu.drink
         .row.separator
-          .big-label Address
+          .col-xs-12
+            .big-label Address
           .col-xs-12
             .address
               == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
@@ -67,7 +70,7 @@
             == cell(:restaurant, @reservation.restaurant).location
             = render "/layouts/map"
     .col-xs-12
-      .text-center
+      .text-center style="margin-bottom: 20px;"
         == cell(:reservation, @reservation).cancel_link
-      .text-center
+      .text-center style="margin-bottom: 20px;"
         == cell(:reservation, @reservation).evaluate_link

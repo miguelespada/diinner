@@ -188,7 +188,7 @@ html, body{
   }
 
   .row {
-    @include flexbox;
+    //@include flexbox;
     margin-top: 10px;
   }
 
@@ -325,6 +325,7 @@ input.company {
   padding: 0 0;
   height: auto;
   .restaurant-image {
+    margin-top: 20px;
     width: 100%;
   }
 
