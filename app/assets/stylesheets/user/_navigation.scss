@@ -13,26 +13,15 @@
     font-size: 1rem;
     display: inline;
   }
-  &.navbar-default{
+  &.navbar-default {
     background-color: white;
-    .navbar-toggle{
+    .navbar-toggle {
       border: none;
       background-color: white;
+      margin-right: 0;
     }
-    .navbar-nav{
-      .notifications{
-        z-index: 10;
-      }
-    }
-    .icon-bar{
-      background-color: $textDarkGray;
-    }
-    li {
-      background-color: white;
-      color: $textDarkGray;
-      a, a:hover, a:active{
-        color: $textDarkGray;
-      }
+    a, a:hover, a:active {
+      color: $textDarkGray !important;
     }
     .navbar-brand img{
       height: 100%;
