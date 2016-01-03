@@ -414,6 +414,15 @@ input.company {
     &.selected{
      background-color: $themeYellow;
     }
+
+    &.long{
+      width: 100%;
+      margin-bottom: 0;
+
+      &.last{
+        margin-bottom: 15px;
+      }
+    }
   }
 }
 

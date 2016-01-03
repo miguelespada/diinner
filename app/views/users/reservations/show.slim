@@ -4,7 +4,8 @@
   .col-xs-12
     .col-xs-12
       .text-center
-        = cl_image_tag(@reservation.restaurant.photo.path, { crop: :fill, radius: 2, class: "restaurant-image" })
+        - if @reservation.restaurant.photo
+          = cl_image_tag(@reservation.restaurant.photo.path, { crop: :fill, radius: 2, class: "restaurant-image" })
     /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
     .col-xs-12
       .main-info

@@ -3,9 +3,14 @@
 .col-xs-12
   .row
     .col-xs-offset-1.col-xs-10.col-lg-offset-2.col-lg-8
-      = simple_form_for [@user, @reservation], url: user_search_tables_path  do |f|
+      = simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
         = f.error_notification
-        = f.input :date, :as => :date_picker, html5: true
+        .choosing-box
+          .text.long.day-toggle data-day="today" Today (Last Minute)
+          .text.long.day-toggle.selected data-day="tomorrow" Tomorrow
+          .text.long.last.day-toggle data-day="date" Other Day
+        .date
+          = f.input :date, :as => :date_picker, html5: true
         = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
         .text-center
           = f.input :after_plan, as: :boolean, label: false, :checked => (@user.after_plan.nil? ? true : @user.after_plan )
@@ -51,6 +56,37 @@ javascript:
       $(this).siblings().removeClass("selected");
       $(this).addClass("selected");
       $($(this).parent().parent().parent().find(".gender")).val(($(this).data("gender")));
+    });
+
+    $(".day-toggle").click(function () {
+
+      $(this).siblings().removeClass("selected");
+      $(this).addClass("selected");
+      $("#reservation-form").attr("action", "#{user_search_tables_path}");
+      $(".date").hide();
+
+      switch($(this).data("day")){
+        case "date": $(".date").show();
+          $(".friends-question").show();
+          break;
+        case "today":
+          $("#reservation-form").attr("action", "#{user_search_last_minute_diinners_path}");
+          $(".friends-question").hide();
+          var currentDate = new Date();
+          var day = currentDate.getDate();
+          var month = currentDate.getMonth() + 1;
+          var year = currentDate.getFullYear();
+          $("#reservation_date").val(day + "/" + month + "/" + year);
+              break;
+        case "tomorrow":
+          $(".friends-question").show();
+          var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+          var day = currentDate.getDate();
+          var month = currentDate.getMonth() + 1;
+          var year = currentDate.getFullYear();
+          $("#reservation_date").val(day + "/" + month + "/" + year);
+              break;
+      }
     });
 
     $(".toggle").click(function () {
