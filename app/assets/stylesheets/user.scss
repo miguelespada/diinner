@@ -5,6 +5,8 @@
 @import "user/navigation";
 @import "user/forms";
 @import 'calendar';
+@import 'j_growl_rails/jquery.jgrowl';
+
 
 html, body{
   width: 100%;
@@ -13,6 +15,25 @@ html, body{
   overflow-x: hidden;
 }
 
+.notice, .alert{
+  display: none;
+}
+
+#jGrowl{
+  top: 60px;
+  .jGrowl-notification{
+    color: $textGray;
+    background-color: $translucentWhite;
+    opacity: 1;
+    font-family: 'Proxima Nova';
+    font-size: 1.1em;
+    border: 1px solid $lightGray;
+    .jGrowl-close{
+      line-height: 1em;
+      font-size: 1.5em;
+    }
+  }
+}
 
 /* User view
 ========================================================================== */
@@ -433,6 +454,8 @@ input.company {
     }
   }
 }
+
+
 
 /* Payment
 ========================================================================== */
