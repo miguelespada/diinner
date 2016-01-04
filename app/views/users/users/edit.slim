@@ -21,8 +21,7 @@
             span 65
         = c.input :max_age, label: false, as: :hidden
         = c.input :min_age, label: false, as: :hidden
-        .text-center
-          = c.input :after_plan, as: :boolean, label: false
+        = render '/users/after_plan', f: f
         = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
         = c.association :city, :include_blank => false
         .text-center
@@ -30,13 +29,7 @@
   .row
     .col-lg-12
 
-
 javascript:
-  $("#user_preference_attributes_after_plan").bootstrapSwitch({
-    'onText': 'Go for drinks',
-    'offText': 'Go to sleep'
-  });
-
   $(document).ready(function () {
     // With JQuery
     //data-slider-value="[20,30]"
