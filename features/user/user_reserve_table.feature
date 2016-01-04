@@ -1,4 +1,4 @@
-@user_manage_reservations
+@user_manage_reservations @wip
 Feature: User Reserves table
   As user
   I want to access to reserve a table

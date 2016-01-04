@@ -1,3 +1,4 @@
+@wip
 Feature: User reserves table with error
   As user
   I want to access to reserve a table
