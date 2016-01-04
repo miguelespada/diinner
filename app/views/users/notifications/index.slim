@@ -1,4 +1,6 @@
-.big-label.yellow Notifications
-.col-xs-12.notification-list.full
-  = render_activities(@notifications)
-  = will_paginate @notifications
+.row
+  .big-label.yellow Notifications
+.row
+  .col-xs-12.notification-list.full
+    = render_activities(@notifications)
+    = will_paginate @notifications

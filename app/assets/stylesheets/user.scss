@@ -13,6 +13,7 @@ html, body{
   height: 100%;
   font-family: "Proxima Nova";
   overflow-x: hidden;
+  background-color: $backGray;
 }
 
 .notice, .alert{
@@ -36,7 +37,26 @@ html, body{
 
 /* User view
 ========================================================================== */
+@media (min-width: 769px) {
+  .user-container {
+    width: 55%;
+    margin: auto;
+  }
+}
+@media (max-width: 768px){
+  .user-container{
+    width: 90%;
+    margin: auto;
+  }
 
+}
+.row{
+  margin-top: 0;
+  background-color: white;
+}
+.panel-white{
+  background: white;
+}
 .separator{
   min-height: 5vh;
   position: relative;
@@ -207,10 +227,10 @@ html, body{
     display: none;
   }
 
-  .row {
-    //@include flexbox;
-    margin-top: 10px;
-  }
+  //.row {
+  //  //@include flexbox;
+  //  margin-top: 10px;
+  //}
 
   .sm-separator {
     border-right: 2px solid $themeYellow;
@@ -261,7 +281,7 @@ html, body{
       max-height: 100vh;
     }
   }
-  
+
 }
 
 
@@ -391,7 +411,9 @@ input.company {
     color: $textDarkGray;
   }
   .search-result-item {
-    border: 1px solid $textDarkGray;
+    .data-search-wrapper{
+      padding: 2px;
+    }
     border-radius: 2px;
     margin-bottom: 15px;
     padding-top: 10px;
@@ -400,14 +422,17 @@ input.company {
       width: 100% !important;
     }
     .title {
-      font-size: 2rem;
+      font-size: 1.5rem;
       .bi_interface-circle {
         font-size: 1rem;
         color: $buttonYellow;
       }
     }
     .menu {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
+      .menu-price {
+        text-align: right;
+      }
     }
   }
 }
@@ -424,7 +449,7 @@ input.company {
   }
 }
 .choosing-box{
-  margin-top: 15px;
+  //margin-top: 15px;
   width: 100%;
   border-radius: 2px;
 
@@ -433,7 +458,7 @@ input.company {
     margin-bottom: 15px;
     float: left;
     //font-size: 1.2em;
-    padding: 10px;
+    padding: 6px 12px;
     border: 1px solid $lightGray;
     &.selected{
      background-color: $themeYellow;

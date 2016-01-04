@@ -2,16 +2,17 @@
   .row
     .big-label.yellow = t("your_data")
   .row
-    .col-xs-offset-1.col-xs-10.col-sm-5.col-md-5.col-lg-offset-2.col-lg-4
+    .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
       = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']]
-    .col-xs-offset-1.col-xs-10.col-sm-offset-0.col-sm-5.col-md-offset-0.col-md-5.col-lg-4
       = f.input :birth, as: :date_picker, html5: true
+  .row
+    .separator
   .row
     .big-label.yellow = t("your_preferences")
   .row
-    = f.simple_fields_for :preference do |c|
-      .col-xs-offset-1.col-xs-10.col-lg-offset-2.col-lg-8
+    .col-xs-12.col-md-8.col-md-offset-2
+      = f.simple_fields_for :preference do |c|
         .input-group.age-slider
           label.select.optional.control-label style="display: block;" for="age" Age
           .age-span
@@ -26,9 +27,6 @@
         = c.association :city, :include_blank => false
         .text-center
           = f.button :submit, class: "button button-calm"
-  .row
-    .col-lg-12
-
 javascript:
   $(document).ready(function () {
     // With JQuery
