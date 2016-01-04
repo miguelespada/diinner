@@ -464,3 +464,84 @@ input.company {
 .card-text{
   font-size: 1.3rem;
 }
+
+/* Calendar
+========================================================================== */
+.calendar {
+  .calendar-header {
+    overflow: auto;
+
+    a {
+      &:first-child {
+        float: left;
+      }
+      &:last-child {
+        float: right;
+      }
+    }
+
+    span {
+      display: inline-block;
+      font-size: 1.45rem;
+      padding: 10.5px 0 !important;
+    }
+  }
+
+  .table {
+    thead {
+      font-size: 1.1rem;
+
+      th {
+        padding: 10px 0 !important;
+      }
+    }
+
+    tbody {
+      font-size: 1.1rem;
+
+      .status-table {
+        margin-right: -10px;
+        margin-left: -10px;
+
+        a {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .calendar {
+    .calendar-header {
+      span {
+        font-size: 2rem;
+        padding: 4px 0 !important;
+      }
+    }
+
+    .table {
+      thead {
+        font-size: 1.4rem;
+
+        th {
+          padding: 10px !important;
+        }
+      }
+
+      tbody {
+        font-size: 1.4rem;
+
+        .status-table {
+          margin-right: -10px;
+          margin-left: -10px;
+
+          a {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+
+}
