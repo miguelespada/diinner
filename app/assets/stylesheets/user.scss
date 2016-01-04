@@ -21,12 +21,12 @@ html, body{
 
 #jGrowl{
   .jGrowl-notification{
-    color: $textGray;
-    background-color: $translucentWhite;
+    color: white;
+    background-color: $themeBlue;
     opacity: 1;
     font-family: 'Proxima Nova';
-    font-size: 1.1em;
-    border: 1px solid $lightGray;
+    font-size: 1.3em;
+    border: 1px solid white;
     .jGrowl-close{
       line-height: 1em;
       font-size: 1.5em;

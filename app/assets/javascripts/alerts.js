@@ -6,6 +6,8 @@ var showAlerts = function(){
   var notice = $(".notice").text();
   var alert = $(".alert").text();
 
+    $.jGrowl("prueba");
+
   if (!isBlank(notice)){
     $.jGrowl(notice);
   }
