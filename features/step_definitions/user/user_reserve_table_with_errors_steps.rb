@@ -1,6 +1,6 @@
 When(/^I try to reserve a table$/) do
   step("I search a table")
-  click_on("Reserve")
+  click_on @table.restaurant.name
   step("I fill in the credit card details")
 end
 
@@ -21,12 +21,10 @@ end
 When(/^I search a table with no matchs$/) do
 
   step "I go to the user page"
-  click_on "New reservation"
-  select("lowcost", :from => "reservation_price")
-  fill_in "Date", with: 10.days.from_now.to_date
+  click_on "New Reservation", match: :first
+  select("Lowcost", :from => "reservation_price")
+  find("#reservation_date", visible: false).set 10.days.from_now.to_date
   select "Madrid", :from => "reservation_city"
 
-  select :female, :from => "reservation_companies_attributes_0_gender"
-  fill_in "reservation_companies_attributes_0_age",  with: 20
   click_on "Search tables"
 end

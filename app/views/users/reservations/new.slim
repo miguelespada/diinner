@@ -1,27 +1,25 @@
 .row
   .big-label.yellow New reservation
-.col-xs-12
-  .row
-    .col-xs-offset-1.col-xs-10.col-lg-offset-2.col-lg-8
-      = simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
-        = f.error_notification
-        .choosing-box
-          .col-lg-4.no-padding
-            .text.long.blue.day-toggle data-day="today" Today
-          .col-lg-4.no-padding
-            .text.long.blue.day-toggle.selected data-day="tomorrow" Tomorrow
-          .col-lg-4.no-padding
-            .text.long.blue.last.day-toggle data-day="date" Other Day
-        .date hidden=true
-          = f.input :date, :as => :date_picker, html5: true
-        = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
-        .text-center
-          = render '/users/after_plan', f: f
-        = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
-        .friends-question
-          label.control-label Friends
-          h4
-            input.company type="checkbox" Are you going with friends?
+.row
+  .col-xs-12.col-md-8.col-md-offset-2
+    = simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
+      = f.error_notification
+      label Date
+      .choosing-box
+        .col-lg-4.no-padding
+          .text.long.day-toggle data-day="today" Today
+        .col-lg-4.no-padding
+          .text.long.day-toggle.selected data-day="tomorrow" Tomorrow
+        .col-lg-4.no-padding
+          .text.long.last.day-toggle data-day="date" Other Day
+      .date hidden=true
+        = f.input :date, :as => :date_picker, html5: true, label:false
+      = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
+      = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
+      .friends-question
+        label.control-label Friends
+        h4
+          input.company type="checkbox" Are you going with friends?
         .company-container hidden=true
           h4 How many?
           .choosing-box
@@ -29,8 +27,10 @@
             .text.toggle data-number=2 2
           = f.simple_fields_for :companies do |company|
             = render 'company_fields', :f => company
-        .text-center
-          = f.button :submit, 'Search tables', class: 'button button-calm'
+      label Expectations
+      = render '/users/after_plan', f: f
+      .text-center
+        = f.button :submit, 'Search tables', class: 'button button-calm'
 javascript:
   $(document).on('ready page:change', function() {
      var tomorrow = moment({ hour:21, minute:00 }).add(1, 'days');

@@ -30,11 +30,12 @@ When(/^There is an error processing my credit card$/) do
 end
 
 When(/^I reserve a last minute diinner with error$/) do
-  click_on "Last minute diinners"
-  select(:lowcost, :from => "reservation_price")
+  click_on "New Reservation", match: :first
+  select("Lowcost", :from => "reservation_price")
   select "Madrid", :from => "reservation_city"
-  click_on "Search last minute tables"
-  click_on "Reserve"
+  find("#reservation_date", visible: false).set Date.today #TODO CHECK IF GOOD
+  click_on "Search tables"
+  click_on @restaurant.name
   step "I fill in the credit card details"
   step "There is an error processing my credit card"
   click_on "Confirm"

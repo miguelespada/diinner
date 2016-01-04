@@ -1,4 +1,4 @@
-@last_minute
+@last_minute 
 Feature: User reserves last minute diinner
   As user
   I want to access to reserve a table for today

@@ -1,6 +1,6 @@
 .choosing-box
-  .text.after-toggle data-after=1 Go for drinks
-  .text.after-toggle data-after=0 Go to sleep
+  .text.after-toggle class="#{@user.after_plan.nil? || @user.after_plan ? 'selected': ''}" data-after=1 Go for drinks
+  .text.after-toggle class="#{!@user.after_plan ? 'selected': ''}" data-after=0 Go to sleep
 .sr-only.after-plan
   = f.input :after_plan, as: :boolean, label: false, :checked => (@user.after_plan.nil? ? true : @user.after_plan )
 javascript:

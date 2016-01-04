@@ -3,9 +3,9 @@ When(/^I can see the user reservation$/) do
   expect(page).to have_content @user.name
   expect(page).to have_content @table.menu.name
   expect(page).to have_content @table.date
-  expect(page).to have_content "Go for drinks"
+  expect(page).to have_content "Go to sleep"
   within(".slots") do
-    expect(page).to have_content "1/1"
+    expect(page).to have_content "1/0" #TODO FRIEND 1/1
   end
   expect(page).to have_content @table.hour.strftime("%H:%M")
   expect(page).to have_content "Pending"

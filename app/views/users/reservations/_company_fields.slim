@@ -6,4 +6,4 @@
       .text.friend-toggle data-gender="female" Female
   .col-lg-6
     = f.input :gender, as: :hidden, :input_html => { class: 'gender', value: ''}
-    = f.input :age
+    = f.input :age, label: false, placeholder: 'Age'
