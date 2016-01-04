@@ -18,7 +18,7 @@ When(/^I search a table with bad date$/) do
   step "I go to the user page"
   click_on "New reservation"
   select("lowcost", :from => "reservation_price")
-  fill_in "Date", with: Date.today
+  find(:xpath, "//input[@id='reservation_date']").set Date.today
   select "Madrid", :from => "reservation_city"
   click_on "Search tables"
 end
@@ -32,7 +32,7 @@ When(/^I search a table$/) do
   step "I go to the user page"
   click_on "New Reservation", match: :first
   select("Lowcost", :from => "reservation_price")
-  fill_in "Date", with: @table.date.to_date
+  find("#reservation_date", visible: false).set @table.date.to_date
   select "Madrid", :from => "reservation_city"
   click_on "Search tables"
 end

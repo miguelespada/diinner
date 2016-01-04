@@ -13,11 +13,12 @@
       = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
 
 .hidden-xs
-  .col-md-12
-    .big-label.yellow Notifications
-    .col-md-12.notification-list
-      = render_activities(@user.notifications.take(10))
-  .separator
+  -if @user.notifications.count > 0
+    .col-md-12
+      .big-label.yellow Notifications
+      .col-md-12.notification-list
+        = render_activities(@user.notifications.take(10))
+    .separator
   .col-md-12
     .big-label.yellow
       = t("my_reservations")
