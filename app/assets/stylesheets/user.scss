@@ -424,15 +424,15 @@ input.company {
   }
 }
 .choosing-box{
-  width: 96%;
-  margin: 2%;
+  margin-top: 15px;
+  width: 100%;
   border-radius: 2px;
 
   .text{
     width: 50%;
     margin-bottom: 15px;
     float: left;
-    font-size: 1.2em;
+    //font-size: 1.2em;
     padding: 10px;
     border: 1px solid $lightGray;
     &.selected{
