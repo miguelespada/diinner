@@ -1,6 +1,6 @@
-= link_to user_reservation_path(@user, activity.trackable)
-.notification
-  .message
-    | Puedes evaluar tu diinner en #{activity.trackable.restaurant.name}.
-  .time
-    == activity.created_at
+/= link_to user_reservation_path(@user, activity.trackable)
+  .notification
+    .message
+      | Puedes evaluar tu diinner en #{activity.trackable.restaurant.name}.
+    .time
+      == activity.created_at

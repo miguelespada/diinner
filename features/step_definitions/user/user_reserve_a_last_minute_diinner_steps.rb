@@ -31,11 +31,11 @@ Given(/^I have preferences$/) do
 
   @city = FactoryGirl.create(:city)
 
-  click_on "Preferences diinner"
+  click_on "Preferences"
 
-  fill_in "user_preference_attributes_max_age", with: "60"
-  fill_in "user_preference_attributes_min_age", with: "20"
-  select :lowcost, :from => "user_preference_attributes_menu_range"
+  find(:xpath, "//input[@id='user_preference_attributes_max_age']").set "60"
+  find(:xpath, "//input[@id='user_preference_attributes_min_age']").set "60"
+  select "Lowcost", :from => "user_preference_attributes_menu_range"
   select @city.name, :from =>  "user_preference_attributes_city_id"
   click_on "Update User"
 end

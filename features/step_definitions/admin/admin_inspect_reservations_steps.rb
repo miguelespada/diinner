@@ -4,7 +4,7 @@ Then(/^I can see the user reservation in the reservation section$/) do
   end
   expect(page).to have_content @user.name
   expect(page).to have_content @restaurant.name
-  expect(page).to have_content "Go for drinks"
+  expect(page).to have_content "Go to sleep"
   expect(page).to have_content "Pending"
 
   within('.restaurant-reservation') do
