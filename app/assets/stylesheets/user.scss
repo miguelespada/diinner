@@ -37,19 +37,20 @@ html, body{
 
 /* User view
 ========================================================================== */
-@media (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 1400px) {
   .user-container {
-    width: 55%;
+    width: 70%;
     margin: auto;
   }
 }
-@media (max-width: 768px){
+@media (min-width: 1400px){
   .user-container{
-    width: 90%;
+    width: 55%;
     margin: auto;
   }
 
 }
+
 .row{
   margin-top: 0;
   background-color: white;
@@ -411,29 +412,50 @@ input.company {
     color: $textDarkGray;
   }
   .search-result-item {
+    .affinity-tag {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+      top: -10px;
+      background-color: $themeBlue;
+      color: white;
+      display: table;
+      text-align: center;
+      .value{
+        font-weight: bold;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
     .data-search-wrapper{
-      padding: 2px;
+      padding: 10px;
     }
     border-radius: 2px;
     margin-bottom: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     img {
       width: 100% !important;
     }
     .title {
-      font-size: 1.5rem;
+      font-weight: bold;
       .bi_interface-circle {
         font-size: 1rem;
         color: $buttonYellow;
       }
     }
-    .menu {
-      font-size: 1.2rem;
-      .menu-price {
-        text-align: right;
+    .menu-title{
+      text-align: right;
+
+      .price{
+        color: $themeBlue;
       }
     }
+    .time {
+      color: $textGray;
+      text-align: right;
+    }
+
   }
 }
 .big-box {
@@ -467,7 +489,6 @@ input.company {
         color: white;
       }
     }
-
     &.long{
       width: 100%;
       margin-bottom: 0;

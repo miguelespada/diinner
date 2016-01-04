@@ -1,23 +1,16 @@
 = link_to reserve_link, method: :post
   .col-md-6.col-lg-4.search-result-item
-    div.search-result-head
+    .panel-white
       == restaurant.photo
       .data-search-wrapper
         .title
           span.bi_interface-circle
           == restaurant.name
-          div.search-result-details.search-result-section
-            .time == model.date_and_time
-            .row
-              .menu
-                .col-xs-9
-                  .menu-title
-                    == menu.model.name
-                .col-xs-3
-                  .menu-price
-                    ==< "#{menu.price}€"
-          div.search-result-affinity.search-result-section
-            .big-box.blue.affinity
-              .value
-                = affinity
-              .text COMPATIBLE
+        .time
+          == model.date_and_time.to_s.split(//).last(5).join
+        .menu
+          .menu-title
+            == menu.model.name
+            span.price ==< "#{menu.price}€"
+      .affinity-tag
+        .value = affinity

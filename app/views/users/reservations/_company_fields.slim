@@ -6,4 +6,12 @@
       .text.friend-toggle data-gender="female" Female
   .col-lg-6
     = f.input :gender, as: :hidden, :input_html => { class: 'gender', value: ''}
-    = f.input :age, label: false, placeholder: 'Age'
+    .bottom-margin-17
+      = f.input :age, label: false, placeholder: 'Age'
+javascript:
+  $(".friend-toggle").click(function (e) {
+    e.preventDefault();
+    $(this).siblings().removeClass("selected");
+    $(this).addClass("selected");
+    $($(this).parent().parent().parent().find(".gender")).val(($(this).data("gender")));
+  });
