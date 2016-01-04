@@ -1,4 +1,4 @@
-@user_evaluates_reservation
+@user_evaluates_reservation @wip
 Feature: User Reserves table
   As user
   I want to evaluate a reservation

@@ -1,4 +1,5 @@
-Feature: Admin inspect evaluations
+@wip
+Feature: Admin inspect evaluations #TODO FIX
   As admin
   I want to see the restaurant evaluations
 

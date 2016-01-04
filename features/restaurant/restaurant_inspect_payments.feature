@@ -1,3 +1,4 @@
+@wip
 Feature: Restaurant inspect payments
   As restaurant
   I want to see the payments

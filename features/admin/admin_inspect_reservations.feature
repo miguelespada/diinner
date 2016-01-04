@@ -1,3 +1,4 @@
+@wip
 Feature: Admin Inspect Reservations
   As admin
   I want to inspect user reservations
