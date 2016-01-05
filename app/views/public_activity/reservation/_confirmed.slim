@@ -1,6 +1,13 @@
-= link_to user_restaurant_path(@user, activity.owner)
-.notification
-  .message
-    | ¡Tu plan diinner en #{activity.owner.name} ha sido confirmado!
-  .time
-    == activity.created_at
+- if admin_signed_in? or restaurant_signed_in?
+  div.plan-confirmed-log
+    i.bi_doc-wboard-line
+    span Your plan diinner for tonight at
+    span.restaurant-id == cell(:restaurant, activity.owner).show_link if !activity.owner.nil?
+    span  is confirmed!!!
+- else
+  = link_to user_restaurant_path(@user, activity.owner)
+  .notification
+    .message
+      | ¡Tu plan diinner en #{activity.owner.name} ha sido confirmado!
+    .time
+      == activity.created_at

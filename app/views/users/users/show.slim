@@ -1,5 +1,4 @@
 - content_for(:head) do
-  = stylesheet_link_tag 'calendar', media: 'all'
   = javascript_include_tag 'utils'
 
 .user-image-wrapper.visible-xs
@@ -20,23 +19,10 @@
         .user-name
           = @user.name
     .col-md-8
-      .row
-        .big-label.yellow Notifications
-        .col-md-12.notification-list
-          = render_activities(@user.notifications.take(10))
+      - @notifications = @user.notifications.take(10)
+      = render file:"users/notifications/index"
   .row
     .new-reservation.text-center
       = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
   .separator
-  .row
-    .big-label.yellow
-      = t("my_reservations")
-
-    / TODO create a partial
-    .col-xs-12
-      .calendar
-        = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
-          = link_to date.day, "#"
-          - reservations.each do |reservation|
-            .status-table
-              = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+  = render file:"users/reservations/index"
