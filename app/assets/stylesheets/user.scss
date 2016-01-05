@@ -374,11 +374,8 @@ input.company {
     margin-bottom: 5%;
     .value{
       padding-top: 6px;
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: bold;
-    }
-    .text{
-      font-size: 1.2rem;
     }
   }
 
@@ -387,17 +384,18 @@ input.company {
     min-height: 100px;
     line-height: 40px;
     .restaurant-name {
-      font-size: 1.7rem;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
     .address{
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
 
   .menu{
     .menu-title, .menu-price {
-      font-size: 1.3rem;
+      //font-size: 1.3rem;
     }
     .menu-price {
       text-align: right;
