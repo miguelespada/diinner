@@ -23,7 +23,7 @@ class  Users::ReservationsController < BaseUsersController
     redirect_to :back, notice: 'You already have a reservation for this date' if @user.busy?(suggestionEngine.date)
     
     if suggestionEngine.date_in_range?
-      @suggestions = suggestionEngine.search.first(3)
+      @suggestions = suggestionEngine.search.first(10)
       render :no_dinners if @suggestions.empty?
     else
       redirect_to :back, notice: 'You can only reserve Diiners from tomorrow within two weeks.'
@@ -44,7 +44,7 @@ class  Users::ReservationsController < BaseUsersController
       if @user.busy?(suggestionEngine.date)
         redirect_to :back, notice: 'You already have a reservation for this date'
       else
-        @suggestions = suggestionEngine.last_minute.first(3)
+        @suggestions = suggestionEngine.last_minute.first(10)
         render :no_dinners if @suggestions.empty?
       end
     end
