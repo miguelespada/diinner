@@ -1,6 +1,14 @@
-= link_to user_reservation_path(@user, activity.trackable)
-.notification
-  .message
-    | Puedes evaluar tu diinner en #{activity.trackable.restaurant.name}.
-  .time
-    == activity.created_at
+- if admin_signed_in? or restaurant_signed_in?
+  div.plan-evaluate-log
+    i.bi_doc-wboard-line
+    span You can evaluate the diinner
+    span.reservation-id == cell(:reservation, activity.trackable).show_link
+    span at restaurant
+    span == cell(:restaurant, activity.trackable.restaurant).show_link
+- else
+  = link_to user_reservation_path(@user, activity.trackable)
+    .notification
+      .message
+        | Puedes evaluar tu plan diinner en #{activity.trackable.restaurant.name}.
+      .time
+        == activity.created_at

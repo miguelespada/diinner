@@ -1,3 +1,4 @@
+@wip
 Feature: Restaurant inspect users
   As restaurant
   I want to see my clients

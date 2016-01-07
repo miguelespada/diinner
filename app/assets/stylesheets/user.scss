@@ -13,6 +13,7 @@ html, body{
   height: 100%;
   font-family: "Proxima Nova";
   overflow-x: hidden;
+  background-color: $backGray;
 }
 
 .notice, .alert{
@@ -36,7 +37,27 @@ html, body{
 
 /* User view
 ========================================================================== */
+@media (min-width: 769px) and (max-width: 1400px) {
+  .user-container {
+    width: 70%;
+    margin: auto;
+  }
+}
+@media (min-width: 1400px){
+  .user-container{
+    width: 55%;
+    margin: auto;
+  }
 
+}
+
+.row{
+  margin-top: 0;
+  background-color: white;
+}
+.panel-white{
+  background: white;
+}
 .separator{
   min-height: 5vh;
   position: relative;
@@ -207,10 +228,10 @@ html, body{
     display: none;
   }
 
-  .row {
-    //@include flexbox;
-    margin-top: 10px;
-  }
+  //.row {
+  //  //@include flexbox;
+  //  margin-top: 10px;
+  //}
 
   .sm-separator {
     border-right: 2px solid $themeYellow;
@@ -255,13 +276,13 @@ html, body{
   }
 
   .notification-list{
-    max-height: 30vh;
+    max-height: 40vh;
     overflow: auto;
     &.full{
       max-height: 100vh;
     }
   }
-  
+
 }
 
 
@@ -353,11 +374,8 @@ input.company {
     margin-bottom: 5%;
     .value{
       padding-top: 6px;
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: bold;
-    }
-    .text{
-      font-size: 1.2rem;
     }
   }
 
@@ -366,17 +384,18 @@ input.company {
     min-height: 100px;
     line-height: 40px;
     .restaurant-name {
-      font-size: 1.7rem;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
     .address{
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
 
   .menu{
     .menu-title, .menu-price {
-      font-size: 1.3rem;
+      //font-size: 1.3rem;
     }
     .menu-price {
       text-align: right;
@@ -391,24 +410,50 @@ input.company {
     color: $textDarkGray;
   }
   .search-result-item {
-    border: 1px solid $textDarkGray;
+    .affinity-tag {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+      top: -10px;
+      background-color: $themeBlue;
+      color: white;
+      display: table;
+      text-align: center;
+      .value{
+        font-weight: bold;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    .data-search-wrapper{
+      padding: 10px;
+    }
     border-radius: 2px;
     margin-bottom: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     img {
       width: 100% !important;
     }
     .title {
-      font-size: 2rem;
+      font-weight: bold;
       .bi_interface-circle {
         font-size: 1rem;
         color: $buttonYellow;
       }
     }
-    .menu {
-      font-size: 1.3rem;
+    .menu-title{
+      text-align: right;
+
+      .price{
+        color: $themeBlue;
+      }
     }
+    .time {
+      color: $textGray;
+      text-align: right;
+    }
+
   }
 }
 .big-box {
@@ -424,16 +469,16 @@ input.company {
   }
 }
 .choosing-box{
-  width: 96%;
-  margin: 2%;
+  //margin-top: 15px;
+  width: 100%;
   border-radius: 2px;
 
   .text{
     width: 50%;
     margin-bottom: 15px;
     float: left;
-    font-size: 1.2em;
-    padding: 10px;
+    //font-size: 1.2em;
+    padding: 6px 12px;
     border: 1px solid $lightGray;
     &.selected{
      background-color: $themeYellow;
@@ -442,7 +487,6 @@ input.company {
         color: white;
       }
     }
-
     &.long{
       width: 100%;
       margin-bottom: 0;

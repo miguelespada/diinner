@@ -1,4 +1,4 @@
-@user_evaluates_reservation
+@user_evaluates_reservation @wip
 Feature: User Reserves table
   As user
   I want to evaluate a reservation
@@ -10,5 +10,5 @@ Feature: User Reserves table
 
   Scenario:
     When The diinner has passed
-    Then I am notified that I should evalute the plan
+#    Then I am notified that I should evalute the plan ##TODO NOTIFICATIONS
     Then I can evaluate the reservation

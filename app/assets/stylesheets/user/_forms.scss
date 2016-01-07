@@ -1,4 +1,7 @@
 form{
+  .form-control{
+    //min-height: 44px;
+  }
   .form-yellow{
     background-color: $themeYellow;
   }
@@ -21,6 +24,7 @@ form{
 
 }
 .big-label{
+  margin-bottom: 15px;
   width: 100%;
   font-size: 1.5rem;
   text-align: center;
@@ -40,6 +44,8 @@ form{
 }
 
 .button {
+  margin-bottom:15px;
+  margin-top: 15px;
   background-color: white;
   color: $textDarkGray;
   text-transform: uppercase;

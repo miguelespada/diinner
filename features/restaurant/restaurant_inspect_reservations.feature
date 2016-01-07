@@ -1,3 +1,4 @@
+@wip
 Feature: Restaurant manage reservations
   As restaurant
   I want to manage reservations

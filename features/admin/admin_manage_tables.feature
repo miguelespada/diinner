@@ -1,4 +1,4 @@
-@admin_manage_tables
+@admin_manage_tables @wip
 Feature: Admin Manage Tables
   As admin
   I want to delete old empty tables

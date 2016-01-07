@@ -1,3 +1,4 @@
+@wip
 Feature: Restaurant inspect cancellations
   As restaurant
   I want to see when a reservation is cancelled

@@ -1,3 +1,4 @@
+@wip
 Feature: Restaurant restrictions
   As restaurant
   I want to manage menus but there are restrictions

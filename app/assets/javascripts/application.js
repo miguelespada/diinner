@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require bootstrap-switch
 //= require j_growl_rails/jquery.jgrowl
 //= require jquery.ui.widget
 //= require jquery.iframe-transport

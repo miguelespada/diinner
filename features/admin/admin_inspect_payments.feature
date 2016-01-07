@@ -1,3 +1,4 @@
+@wip
 Feature: Adamin inspect payments
   As admin
   I want to see the payments

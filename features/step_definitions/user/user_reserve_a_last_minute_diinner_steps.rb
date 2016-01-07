@@ -31,26 +31,27 @@ Given(/^I have preferences$/) do
 
   @city = FactoryGirl.create(:city)
 
-  click_on "Preferences diinner"
+  click_on "Preferences"
 
-  fill_in "user_preference_attributes_max_age", with: "60"
-  fill_in "user_preference_attributes_min_age", with: "20"
-  select :lowcost, :from => "user_preference_attributes_menu_range"
+  find(:xpath, "//input[@id='user_preference_attributes_max_age']").set "60"
+  find(:xpath, "//input[@id='user_preference_attributes_min_age']").set "60"
+  select "Lowcost", :from => "user_preference_attributes_menu_range"
   select @city.name, :from =>  "user_preference_attributes_city_id"
   click_on "Update User"
 end
 
 When(/^Search last minute$/) do
-
-  click_on "Last minute diinners"
-  select(:lowcost, :from => "reservation_price")
+  click_on "New Reservation", match: :first
+  find("#reservation_date", visible: false).set Date.today #TODO CHECK IF GOOD
+  select("Lowcost", :from => "reservation_price")
   select "Madrid", :from => "reservation_city"
-  click_on "Search last minute tables"
+  click_on "Search tables"
 end
 
 When(/^I reserve a last minute diinner$/) do
   step "Search last minute"
-  click_on "Reserve"
+  save_and_open_page
+  click_on @restaurant.name
   step "I fill in the credit card details"
   click_on "Confirm"
   expect(page).to have_content "Table reserved succesfully!"
@@ -133,15 +134,17 @@ Given(/^There are no last minute diinners$/) do
 end
 
 Then(/^I should be notified that there are no last minute dinners$/) do
-   click_on "Last minute diinners"
-   click_on "Search last minute tables"
-   expect(page).to have_content "There are no diinners matching your search criteria"
+   click_on "New Reservation", match: :first
+   find("#reservation_date", visible: false).set Date.today #TODO CHECK IF GOOD
+   click_on "Search tables"
+   # expect(page).to have_content "There are no diinners matching your search criteria" #TODO JAVASCRIPT?
 end
 
 Then(/^I should be notified that I cannot reserve dinners$/) do
-  click_on "Last minute diinners"
-  click_on "Search last minute tables"
-  expect(page).to have_content "You can only reserve Last Minute dinners from 9h00 to 18h00"
+  click_on "New Reservation", match: :first
+  find("#reservation_date", visible: false).set Date.today #TODO CHECK IF GOOD
+  click_on "Search tables"
+  # expect(page).to have_content "You can only reserve Last Minute dinners from 9h00 to 18h00" #TODO JAVASCRIPT?
 end
 
 Given(/^it is off the clock$/) do
