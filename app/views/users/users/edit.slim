@@ -16,10 +16,10 @@
         .input-group.age-slider
           label.select.optional.control-label style="display: block;" for="age" Age
           .age-span
-            span 18
+            span#min-age-selected
           input id="age" data-slider-id="age-slider" class="age-selector" type="text" class="span2" value="" data-slider-min="18" data-slider-max="65" data-slider-step="1"
           .age-span
-            span 65
+            span#max-age-selected
         = c.input :max_age, label: false, as: :hidden
         = c.input :min_age, label: false, as: :hidden
         = render '/users/after_plan', f: f
@@ -32,6 +32,9 @@ javascript:
     // With JQuery
     //data-slider-value="[20,30]"
 
+    $('#min-age-selected').text($("#user_preference_attributes_min_age").val());
+    $('#max-age-selected').text($("#user_preference_attributes_max_age").val());
+
     var value = [parseInt($("#user_preference_attributes_min_age").val()), parseInt($("#user_preference_attributes_max_age").val())];
 
     var range = $("#age").slider({value: value}).data('slider');
@@ -39,5 +42,7 @@ javascript:
     range.on('slideStop', function (ev) {
       $('#user_preference_attributes_max_age').val(range.getValue()[0]);
       $('#user_preference_attributes_min_age').val(range.getValue()[1]);
+      $('#min-age-selected').text(range.getValue()[0]);
+      $('#max-age-selected').text(range.getValue()[1]);
     });
   });
