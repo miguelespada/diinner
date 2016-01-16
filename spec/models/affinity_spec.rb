@@ -112,7 +112,6 @@ describe User do
       answer_test(@other, test_0, :B)
      
       print "AFFINITY: ", @user.affinity(@other)
-
     end
   end
   

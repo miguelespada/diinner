@@ -1,4 +1,4 @@
-@user_manage_reservations @wip
+@user_manage_reservations
 Feature: User Reserves table
   As user
   I want to access to reserve a table
@@ -11,7 +11,7 @@ Feature: User Reserves table
   @user_reserves_table
   Scenario: User reserve a table
     Then I can see the reserved table in my calendar
-#    And I can see the reserved table in my reservations
+    And I can see the reserved table in my reservations
     And I can access restaurant data
     And I can access menu data
 #    And I shoud be notified that my plan is pending #TODO
