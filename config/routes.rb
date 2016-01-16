@@ -103,9 +103,10 @@ Rails.application.routes.draw do
       
       resources :reservations do
         resources :evaluations, only: [:new, :create]
-        patch "reuse_card" => "reservations#reuse_card"
         patch "cancel", as: "cancel"
       end
+      patch "new_card" => "reservations#new_card"
+      patch "reuse_card" => "reservations#reuse_card"
     end
   end
 

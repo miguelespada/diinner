@@ -17,7 +17,7 @@
 .row
   .separator
   - if @reservation.user.has_default_card?
-    = form_tag user_reservation_reuse_card_path(@user, @reservation), :method => :patch, :id => "reuse_card" do
+    = form_tag user_reuse_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "reuse_card" do
       .col-xs-12.col-md-8.col-md-offset-2
         #submit-default-card.big-box.blue
           .text-center.card
@@ -34,7 +34,7 @@
       = tag :div, :id => "stripe-key", :data => {:content => ENV['STRIPE_PUBLISHABLE_KEY']}
       = javascript_include_tag "stripe.js"
 
-      = form_tag user_reservation_path(@user, @reservation), :method => :patch, :id => "new_reservation" do
+      = form_tag user_new_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "new_reservation" do
         span.stripe-error
         = hidden_field_tag :stripe_card_token
         .form-group

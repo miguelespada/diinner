@@ -1,7 +1,7 @@
 class  Users::ReservationsController < BaseUsersController
   load_resource :id_param => :reservation_id, :through => :user,
-                :only => [:reuse_card, :cancel, :menu, :new_evaluation]
-  load_resource :only => [:update, :destroy, :show], :through => :user
+                :only => [:cancel, :menu, :new_evaluation]
+  load_resource :only => [:destroy, :show], :through => :user
 
   def index
     @reservations = @user.reservations.where(cancelled: false)
@@ -55,16 +55,19 @@ class  Users::ReservationsController < BaseUsersController
     if @user.busy?(Reservation.new(reservation_params).date)
       redirect_to :back, notice: 'You already have a reservation for this date' 
     else
-      @reservation = @user.reservations.create(reservation_params)
+      @reservation = @user.reservations.new(reservation_params)
       render :credit_card_form
     end
   end
 
   def reuse_card
+    @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
     handle_reservation(@reservation)
   end
 
-  def update
+
+  def new_card
+      @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
       if @user.update_customer_information!(params[:stripe_card_token])
         handle_reservation(@reservation)
       else
