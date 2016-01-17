@@ -34,6 +34,7 @@ html, body{
 
 
 .box{
+  position: relative;
   background-color: $boxBackground;
   @include box-shadow($boxShadow 2px 2px 6px 0);
 }
@@ -57,25 +58,40 @@ html, body{
           width: 100%;
         }
       }
-      .yellow-label{
-        background-color: $themeYellow;
-        width: 100%;
-        text-align: center;
-        padding: 30px 0;
-        font-family: "Montserrat";
-        .title{
-          font-size: calculateRem(28px);
-          font-weight: bold;
-          color: $textDarkGray;
-        }
-        .city{
-          font-weight: lighter;
-          color: $textBlue;
-        }
-      }
+
     }
   }
+
   .register-box{
+    float: left;
+    width: calculatePercent(395px, 1245px);
+    margin-right: calculatePercent(30px, 1245px);
     clear:both;
   }
+}
+
+.diinner-label{
+  &.yellow{
+    background-color: $themeYellow;
+  }
+  &.pink{
+    background-color: $buttonPink;
+  }
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  font-family: "Montserrat";
+  .title{
+    font-size: calculateRem(28px);
+    font-weight: bold;
+    color: $textDarkGray;
+  }
+  .city{
+    font-weight: lighter;
+    color: $textBlue;
+  }
+}
+
+.footer{
+  clear: both;
 }
