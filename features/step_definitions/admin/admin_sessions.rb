@@ -38,9 +38,9 @@ When(/^I change my admin password$/) do
 end
 
 Then(/^I should see that my admin password has changed$/) do
-  click_on "Admin"
+  visit admin_path
   step "I logout"
-  click_on "Admin"
+  visit admin_path
   fill_in "Email", with: "admin@diinner.com"
   fill_in "Password", with: "updated1111"
   click_button 'Log in'
