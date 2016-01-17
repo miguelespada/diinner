@@ -48,7 +48,6 @@ html, body{
 }
 .white-panel{
   width: 100%;
-  @include box-shadow(0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24));
   background-color: $panelWhite;
   .oval {
     position: relative;
@@ -93,3 +92,49 @@ html, body{
   }
 }
 
+.box{
+  background-color: $boxBackground;
+  @include box-shadow($boxShadow 2px 2px 6px 0);
+}
+
+.content{
+  margin-top: 40px;
+  padding: 0 calculatePercent(97px, $lg-width);
+  .restaurant-list{
+    min-width: calculatePercent(1245px, $lg-width);
+    .restaurant-box{
+      float: left;
+      width: calculatePercent(395px, 1245px);
+      &:not(:last-child){
+        margin-right: calculatePercent(30px, 1245px);
+      }
+      .image{
+        width: 100%;
+        $padding: calculatePercent(20px, 395px);
+        padding: $padding $padding 0 $padding;
+        img{
+          width: 100%;
+        }
+      }
+      .yellow-label{
+        background-color: $themeYellow;
+        width: 100%;
+        text-align: center;
+        padding: 30px 0;
+        font-family: "Montserrat";
+        .title{
+          font-size: calculateRem(28px);
+          font-weight: bold;
+          color: $textDarkGray;
+        }
+        .city{
+          font-weight: lighter;
+          color: $textBlue;
+        }
+      }
+    }
+  }
+  .register-box{
+    clear:both;
+  }
+}
