@@ -5,8 +5,29 @@
 @import "user/navigation";
 
 
+
+html, body{
+  height: 100%;
+  font-family: "Proxima Nova";
+  overflow-x: hidden;
+}
+
 .home-header{
+  position: relative;
+  font-weight: 700;
   img{
     width:100%;
+  }
+  .header-title{
+    position: absolute;
+    top: calculatePercent(190px, 750px);
+    left: calculatePercent(227px, $lg-width);
+    width: calculatePercent(986px, $lg-width);
+    font-size: calculateRem(90px);
+    color: white;
+    border: 15px solid white;
+    box-sizing: border-box;
+    $padding: calculatePercent(60px, $lg-width);
+    padding: $padding 0 $padding $padding;
   }
 }
