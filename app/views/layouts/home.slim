@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Diinner
+    meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"
+    = favicon_link_tag 'favicon.png'
+    = favicon_link_tag 'favicon.ico'
+    = stylesheet_link_tag 'home', media: 'all'
+    = javascript_include_tag 'application'
+    = cloudinary_js_config
+    = csrf_meta_tags
+  body
+    = render "/application/navbar"
+    == yield
+    = render "/application/footer"
+    = render "/layouts/alerts"
