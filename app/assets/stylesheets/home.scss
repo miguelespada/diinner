@@ -128,7 +128,72 @@ html, body{
       padding: 40px;
     }
   }
+
+  .test-box{
+    margin-top: 40px;
+    float: left;
+    width: calculatePercent(820px, 1245px);
+    .test-info{
+      text-align: center;
+      width: 100%;
+      padding: 0 calculatePercent(141px, 820px);
+      .title{
+        margin-top: 30px;
+        font-size: calculateRem(25px);
+        font-weight: bold;
+      }
+      .answer{
+        width: calculatePercent(268px, 538px);
+        $padding: calculatePercent(36px, 538px);
+        padding: $padding 0;
+        float: left;
+        .wrapper {
+          padding: 0 $padding;
+          border: 0px solid $buttonPink;
+          box-sizing: border-box;
+          &.left {
+            border-right-width: 2px;
+          }
+          &.right {
+            border-left-width: 2px;
+          }
+          .image {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+          }
+          .text {
+            margin-top: 60px;
+            font-size: calculateRem(25px);
+          }
+        }
+      }
+    }
+    .diinner-label{
+      clear: both;
+    }
+    .dot-list{
+      width: 100%;
+      text-align: center;
+      padding: 0 calculatePercent(315px, 820px);
+      .dot{
+        display: inline-block;
+        margin: 15px calculatePercent(15px, 820px) 10px calculatePercent(15px, 820px);
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: $dotGray;
+        &.yellow{
+          background-color: $themeYellow;
+        }
+      }
+      //clear:both;
+    }
+  }
+
   .info{
+    clear: both;
     font-size: calculateRem(45px);
     color: $textGray;
     .black{
