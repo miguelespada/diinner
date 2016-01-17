@@ -321,38 +321,6 @@ h1, h2, h3, h4{
   }
 }
 
-
-section{
-  position: relative;
-  .section-bg{
-    width:100%;
-    position: relative;
-  }
-  .footer{
-    position: absolute;
-    bottom: 0;
-    left: 30px;
-    right: 30px;
-    text-align: center;
-    .footer-up{
-      padding: 30px 0px;
-      .app-store-links{
-        @include links-container();
-      }
-    }
-    .footer-down{
-      border-top: 2px solid black;
-      padding: 30px 0px 15px 0px;
-      .social-links{
-        @include links-container();
-      }
-      .copyright{
-        font-size: 0.9em;
-      }
-    }
-  }
-}
-
 #jGrowl{
   top: 60px;
   .jGrowl-notification{
