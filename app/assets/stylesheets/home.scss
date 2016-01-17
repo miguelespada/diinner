@@ -4,12 +4,11 @@
 @import "user/general";
 @import "user/navigation";
 
-
-
 html, body{
   height: 100%;
   font-family: "Proxima Nova";
   overflow-x: hidden;
+  background-color: $backGray;
 }
 
 .home-header{
@@ -18,7 +17,7 @@ html, body{
   img{
     width:100%;
   }
-  .header-title{
+  .header-title {
     position: absolute;
     top: calculatePercent(190px, 750px);
     left: calculatePercent(227px, $lg-width);
@@ -32,6 +31,52 @@ html, body{
   }
 }
 
+.how-it-works{
+  color: $textBlack;
+  padding: 60px;
+  .item{
+    text-align: center;
+    img{
+      width: 100%;
+      position: relative;
+      z-index: 100;
+    }
+  }
+
+}
+.white-panel{
+  width: 100%;
+  background-color: $panelWhite;
+  .oval {
+    position: relative;
+    display: table;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+    @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+    margin: 30px auto 30px auto;
+
+    .text{
+      font-size: 30px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .info{
+    font-size: 25px;
+  }
+  .diinner-label {
+    font-size: calculateRem(30px);
+  }
+  &.negative-top{
+    margin-top: -85px;
+    .oval{
+      margin: 115px auto 30px auto;
+      font-size: 30px;
+    }
+  }
+}
 
 .box{
   position: relative;
@@ -58,7 +103,20 @@ html, body{
           width: 100%;
         }
       }
-
+      .diinner-label {
+        *{
+          font-family: "Montserrat";
+        }
+        .title{
+          font-size: calculateRem(28px);
+          font-weight: bold;
+          color: $textDarkGray;
+        }
+        .city{
+          font-weight: lighter;
+          color: $textBlue;
+        }
+      }
     }
   }
 
@@ -67,6 +125,10 @@ html, body{
     width: calculatePercent(395px, 1245px);
     margin-right: calculatePercent(30px, 1245px);
     clear:both;
+    .diinner-label {
+      font-weight: 500;
+      font-size: calculateRem(25px);
+    }
   }
 }
 
@@ -76,20 +138,11 @@ html, body{
   }
   &.pink{
     background-color: $buttonPink;
+    color: white;
   }
   width: 100%;
   text-align: center;
   padding: 30px 0;
-  font-family: "Montserrat";
-  .title{
-    font-size: calculateRem(28px);
-    font-weight: bold;
-    color: $textDarkGray;
-  }
-  .city{
-    font-weight: lighter;
-    color: $textBlue;
-  }
 }
 
 .footer{
