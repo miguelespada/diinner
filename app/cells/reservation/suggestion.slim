@@ -1,16 +1,47 @@
-= link_to reserve_link, method: :post
-  .col-sm-6.col-md-6.col-lg-4.search-result-item
-    .panel-white
+.col-sm-6.col-md-6.col-lg-4.search-result-item
+  .panel-white.box
+    .head.picture
       == restaurant.photo
-      .data-search-wrapper
-        .title
-          span.bi_interface-circle
-          == restaurant.name
-        .time
-          == model.date_and_time.to_s.split(//).last(5).join
-        .menu
-          .menu-title
-            == menu.model.name
-            span.price ==< "#{menu.price}€"
-      .affinity-tag
-        .value = affinity
+    .head.menu-data hidden=true
+      .col-xs-12.text-center
+        .menu-description
+          == menu.model.description
+        .col-xs-4
+          | APPETIZER
+        .col-xs-8.text-right
+          == menu.model.appetizer
+        .col-xs-4
+          | MAIN DISH
+        .col-xs-8.text-right
+          == menu.model.main_dish
+        .col-xs-4
+          | DESSERT
+        .col-xs-8.text-right
+          == menu.model.dessert
+        .col-xs-4
+          | DRINK
+        .col-xs-8.text-right
+          == menu.model.drink
+    .data-search-wrapper
+      .title
+        span.bi_interface-circle
+        == restaurant.name
+      .diinner-double-button
+        .item
+          |VER MENÚ
+        .item
+          = link_to "RESERVAR", reserve_link, method: :post
+      .address
+        == model.restaurant.address
+      .time
+        == model.date_and_time.to_s.split(//).last(5).join
+      .menu
+        .menu-title
+          == menu.model.name
+          span.price ==< "#{menu.model.price}€"
+    .affinity-tag
+      .value = affinity
+javascript:
+  $(".see-menu").click(function(){
+    
+  });

@@ -71,13 +71,6 @@ html, body{
 
 }
 
-
-.box{
-  position: relative;
-  background-color: $boxBackground;
-  @include box-shadow($boxShadow 2px 2px 6px 0);
-}
-
 .content{
   margin-top: 40px;
   padding: 0 calculatePercent(97px, $lg-width);
@@ -232,30 +225,7 @@ html, body{
   }
 }
 
-.diinner-label{
-  &.yellow{
-    background-color: $themeYellow;
-  }
-  &.pink{
-    background-color: $buttonPink;
-    color: white;
-  }
-  width: 100%;
-  text-align: center;
-  padding: 30px 0;
-}
 
-.diinner-button{
-  margin-top: 15px;
-  padding: 15px 0;
-  width: calculatePercent(250px, 395px);
-  font-size: calculateRem(21px);
-  text-align: center;
-  &.pink{
-    border: 2px solid $buttonPink;
-    box-sizing: border-box;
-  }
-}
 
 .footer{
   clear: both;

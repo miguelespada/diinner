@@ -11,6 +11,9 @@ class Users::UsersController < BaseUsersController
   def show
     redirect_to edit_user_path(@current_user) if @current_user.first_login?
     @reservations = @user.reservations.where(cancelled: false)
+    params = {price: @user.menu_range, city: @user.city, after_plan: @user.after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
+    suggestionEngine = SuggestionEngine.new @user, params
+    @suggestions = suggestionEngine.search.first(3)
   end
 
   def update

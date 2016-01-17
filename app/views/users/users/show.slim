@@ -11,18 +11,28 @@
     .new-reservation.text-center
       = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
 
-.hidden-xs
+.hidden-xs.desktop
   .row
-    .col-md-4
-      .wrapper-center.text-center
-        = image_tag @user.image_url, size: "200", class: 'user-image'
-        .user-name
-          = @user.name
-    .col-md-8
-      - @notifications = @user.notifications.take(10)
-      = render file:"users/notifications/index"
-  .row
-    .new-reservation.text-center
-      = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
+    .col-md-5
+      .box.col-md-12
+        .text-center.reservations
+          .diinner-button.pink
+            = link_to t("new_reservation"), new_user_reservation_path(@user)
+          .my-reservations
+            |MY RESERVATIONS
+    .col-md-7
+      .box.tests.text-center
+        .info Mejora tu compatibilidad
+        .icon.bi_interface-heart
+        .diinner-label.yellow
+          | Acceder a tests
   .separator
-  = render file:"users/reservations/index"
+  .col-md-12.box.suggest
+    | Te sugerimos algunos planes para
+    strong
+      =<
+      |mañana
+  -if @suggestions.length > 0
+    .row
+      .search-results
+        == cell(:reservation, collection: @suggestions, method: :suggestion)

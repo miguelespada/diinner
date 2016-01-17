@@ -8,6 +8,7 @@ html, body {
   font-size: $font-size-base;
 }
 
+
 .table {
   display: table;
 }
@@ -90,4 +91,58 @@ html, body {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+}
+.diinner-label{
+  &.yellow{
+    background-color: $themeYellow;
+  }
+  &.pink{
+    background-color: $buttonPink;
+    color: white;
+  }
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.diinner-button{
+  margin-top: 15px;
+  padding: 15px 0;
+  width: calculatePercent(250px, 395px);
+  font-size: calculateRem(21px);
+  text-align: center;
+  &.pink{
+    border: 2px solid $buttonPink;
+    box-sizing: border-box;
+  }
+}
+.diinner-double-button{
+  overflow: hidden;
+  margin: 15px 0;
+  width: 100%;
+  font-size: calculateRem(16px);
+  text-align: center;
+  .item{
+    padding: 10px calculatePercent(20px, $lg-width);
+    float: left;
+    width: 40%;
+  }
+  .item:first-child{
+    margin-right: 10%;
+    background-color: $themeYellow;
+    border: 1px solid $themeYellow;
+  }
+  .item:last-child{
+    a{
+      color: white;
+    }
+    margin-left: 10%;
+    background-color: $buttonPink;
+    border: 1px solid $buttonPink;
+  }
+}
+.box{
+  position: relative;
+  background-color: $boxBackground;
+  @include box-shadow($boxShadow 2px 2px 6px 0);
 }

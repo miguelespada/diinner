@@ -53,10 +53,10 @@ html, body{
 
 }
 
-.row{
-  margin-top: 0;
-  background-color: white;
-}
+//.row{
+//  margin-top: 0;
+//  background-color: white;
+//}
 .panel-white{
   background: white;
 }
@@ -240,24 +240,6 @@ html, body{
     box-sizing: border-box;
   }
 
-  .wrapper-center{
-    .user-image {
-      border: 3px solid $themeYellow;
-      border-radius: 50%;
-      box-sizing: border-box;
-      margin-top: 15px;
-      width: 80%;
-    }
-    .user-name{
-      font-size: 1.2rem;
-      color: $textDarkGray;
-      margin-top: 10px;
-    }
-    .new-reservation {
-      margin-top: 25px;
-    }
-  }
-
   .lg-separator {
     display: none;
   }
@@ -412,6 +394,9 @@ input.company {
     color: $textDarkGray;
   }
   .search-result-item {
+    .menu-data{
+      padding: 40px 20px;
+    }
     .affinity-tag {
       width: 50px;
       height: 50px;
@@ -419,7 +404,7 @@ input.company {
       right: 0;
       z-index: 2;
       top: -10px;
-      background-color: $themeBlue;
+      background-color: $buttonPink;
       color: white;
       display: table;
       text-align: center;
@@ -448,12 +433,16 @@ input.company {
       text-align: right;
 
       .price{
-        color: $themeBlue;
+        color: $buttonPink;
       }
     }
     .time {
       color: $textGray;
-      text-align: right;
+      //text-align: right;
+    }
+    .address{
+      clear: both;
+      margin-top: 15px;
     }
 
   }
@@ -588,5 +577,33 @@ input.company {
         }
       }
     }
+  }
+}
+
+.desktop{
+  color: $textDarkGray;
+  .reservations{
+    //padding: 20px 0;
+
+  }
+  .my-reservations{
+    //margin-top:
+  }
+  .tests{
+    .info{
+      font-size: calculateRem(25px);
+      color: $textGray;
+      padding: 20px calculatePercent(50px, $lg-width);
+
+    }
+    .icon{
+      padding: 20px calculatePercent(50px, $lg-width);
+      font-size: calculateRem(40px);
+      color: $buttonPink;
+    }
+  }
+  .suggest{
+    font-size: calculateRem(18px);
+    margin-bottom: 20px;
   }
 }
