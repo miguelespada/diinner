@@ -40,25 +40,25 @@ end
 When(/^I reserve a table$/) do
   step("I search a table")
 
-  ##TODO FRIEND && FIX JAVASCRIPT
-  # within ".search-results" do
-  #   step("I can see the table details")
-  # end
-  # click_on(@restaurant.name)
-  # step("I fill in the credit card details")
-  # click_on "Confirm"
-  # expect(page).to have_content("Table reserved succesfully!")
+  within ".search-results" do
+    step("I can see the table details")
+  end
+  click_on(@restaurant.name)
+  step("I fill in the credit card details")
+  click_on "Confirm"
+  expect(page).to have_content("Table reserved succesfully!")
 end
 
 Then(/^I can see the table details$/) do
 
   expect(page).to have_content(@restaurant.name)
+  
   # expect(page).to have_content(@table.date)
-  # expect(page).to have_content(@table.hour.strftime("%H:%M"))
+  expect(page).to have_content(@table.hour.strftime("%H:%M"))
   expect(page).to have_content(@menu.name)
   expect(page).to have_content(@menu.price)
 
-  # expect(page).to have_content("#{@table.affinity}%")
+  expect(page).to have_content("#{@table.affinity}%")
 end
 
 Then(/^I fill in the credit card details$/) do
@@ -85,8 +85,8 @@ Then(/^I can see the reserved table in my reservations$/) do
 end
 
 Then(/^I can see the reserved table in my calendar$/) do
+  click_on "My reservations"
   expect(page).to have_css ".calendar"
-  expect(page).to have_css ".has-events"
   within ".has-events" do
     expect(page).to have_content(@table.hour.strftime("%H:%M"))
   end
@@ -102,9 +102,9 @@ end
 
 Then(/^I see that my reservation is cancelled$/) do
   expect(page).to have_content("Reservation was successfully cancelled.")
-  # within ".reservation-status" do
-  #   expect(page).to have_content("Cancelled")
-  # end
+  within ".reservation-status" do
+    expect(page).to have_content("Cancelled")
+  end
 end
 
 Then(/^I should not see the reserved table in my calendar$/) do
@@ -114,10 +114,10 @@ Then(/^I should not see the reserved table in my calendar$/) do
 end
 
 Then(/^I can access restaurant data$/) do
+  click_on "My reservations"
   click_on @user.reservations.first.hour.strftime("%H:%M")
 
   expect(page).to have_content @restaurant.name
-  # expect(page).to have_content @restaurant.description
   expect(page).to have_content @restaurant.city.name
 end
 

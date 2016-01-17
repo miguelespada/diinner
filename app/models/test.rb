@@ -32,7 +32,6 @@ class Test
         caption_B: caption_B,
         photo_A: Cloudinary::Utils.cloudinary_url(option_A.path),
         photo_B: Cloudinary::Utils.cloudinary_url(option_B.path)
-
     }
   end
 end

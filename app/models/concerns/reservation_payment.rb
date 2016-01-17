@@ -16,7 +16,12 @@ module ReservationPayment
           :metadata => {
             'reservation_id' => self.id,
             'user' => user.email,
-            'restaurant' => self.restaurant.name}
+            'restaurant' => self.restaurant.name,
+            'table' => self.table.id,
+            'menu price' => self.price,
+            'hour' => self.table.hour,
+            'menu' => self.menu.name
+            }
         },
         {
           :idempotency_key => self.id

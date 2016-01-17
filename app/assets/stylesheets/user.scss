@@ -21,13 +21,13 @@ html, body{
 }
 
 #jGrowl{
+  top: 55px;
   .jGrowl-notification{
     color: white;
     background-color: $themeBlue;
     opacity: 1;
     font-family: 'Proxima Nova';
     font-size: 1.3em;
-    border: 1px solid white;
     .jGrowl-close{
       line-height: 1em;
       font-size: 1.5em;
@@ -587,5 +587,4 @@ input.company {
       }
     }
   }
-
 }
