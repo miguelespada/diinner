@@ -5,17 +5,31 @@
 @import "user/navigation";
 
 
+
 html, body{
-  font-size: 14px;
-  font-weight: 400;
-  font-family: 'Proxima Nova';
-  color: $textGray;
-  overflow-x: auto; 
+  height: 100%;
+  font-family: "Proxima Nova";
+  overflow-x: hidden;
+  background-color: $backGray;
 }
 
 .home-header{
+  position: relative;
+  font-weight: 700;
   img{
     width:100%;
+  }
+  .header-title {
+    position: absolute;
+    top: calculatePercent(190px, 750px);
+    left: calculatePercent(227px, $lg-width);
+    width: calculatePercent(986px, $lg-width);
+    font-size: calculateRem(90px);
+    color: white;
+    border: 15px solid white;
+    box-sizing: border-box;
+    $padding: calculatePercent(60px, $lg-width);
+    padding: $padding 0 $padding $padding;
   }
 }
 
@@ -26,24 +40,41 @@ html, body{
     text-align: center;
     img{
       width: 100%;
+      position: relative;
+      z-index: 100;
     }
   }
 
 }
 .white-panel{
-  background-color: white;
-  .oval{
-    margin: 30px 0;
-    font-size: 30px;
+  width: 100%;
+  @include box-shadow(0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24));
+  background-color: $panelWhite;
+  .oval {
+    position: relative;
+    display: table;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+    @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+    margin: 30px auto 30px auto;
+
+    .text{
+      font-size: 30px;
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
   .info{
     font-size: 25px;
   }
-  .button-pink{
+  .button-pink {
+    width: 100%;
     margin-top: 80px;
     display: table;
     overflow: hidden;
-    .text{
+    .text {
       display: table-cell;
       vertical-align: middle;
     }
@@ -53,4 +84,12 @@ html, body{
     font-size: 30px;
     text-align: center;
   }
+  &.negative-top{
+    margin-top: -85px;
+    .oval{
+      margin: 115px auto 30px auto;
+      font-size: 30px;
+    }
+  }
 }
+
