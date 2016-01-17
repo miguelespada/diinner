@@ -114,18 +114,33 @@ html, body{
     }
   }
 
-  .register-box{
-    margin-top: 40px;
+  .register-wrapper {
     float: left;
-    width: calculatePercent(395px, 1245px);
+    clear: both;
     margin-right: calculatePercent(30px, 1245px);
-    clear:both;
-    font-size: calculateRem(25px);
-    .diinner-label {
-      font-weight: 500;
+    width: calculatePercent(395px, 1245px);
+    .register-box {
+      margin-top: 40px;
+
+      width: 100%;
+      font-size: calculateRem(25px);
+      .diinner-label {
+        font-weight: 500;
+      }
+      .area {
+        padding: 40px;
+      }
     }
-    .area{
-      padding: 40px;
+
+    .info {
+      margin-top: 40px;
+      font-size: calculateRem(45px);
+      color: $textGray;
+      width: 100%;
+      .black {
+        display: inline;
+        color: $textDarkGray;
+      }
     }
   }
 
@@ -192,13 +207,27 @@ html, body{
     }
   }
 
-  .info{
-    clear: both;
-    font-size: calculateRem(45px);
-    color: $textGray;
-    .black{
-      display: inline;
-      color: $textDarkGray;
+
+  .share-box {
+    margin-top: 40px;
+    float: right;
+    width: calculatePercent(395px, $lg-width);
+    .box {
+      width: 100%;
+      text-align: center;
+      padding: calculatePercent(25px, 395px);
+      .diinner-label {
+        padding: auto calculatePercent(85px, 395px);
+        img {
+          height: 50px;
+          margin: 0 calculatePercent(15px, 395px);
+        }
+      }
+    }
+    .follow{
+      margin-top: 10px;
+      font-size: calculateRem(24px);
+      color: $textGray;
     }
   }
 }

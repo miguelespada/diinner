@@ -45,13 +45,17 @@ header.home-header
       .diinner-label.yellow
         .title Streetxo
         .city Barcelona
-  .register-box.box
-    .area
-      |¿Ya estás
-      br
-      |registrado?
-      .diinner-button.pink Inicia sesión
-    .diinner-label.pink Regístrate
+  .register-wrapper
+    .register-box.box
+      .area
+        |¿Ya estás
+        br
+        |registrado?
+        .diinner-button.pink Inicia sesión
+      .diinner-label.pink Regístrate
+    .info
+      | Más de 1900 personas se han conocido gracias a diinner
+      .black únete a nosotros.
   .test-box.box
     .test-info
       .title ¿Los Serrano o Los Soprano?
@@ -72,7 +76,14 @@ header.home-header
       .dot
       .dot
       .dot
-  .info
-    | Más de 1900 personas se han conocido gracias a diinner
-    .black únete a nosotros.
-  .share-box.box
+
+  .share-box
+    .box
+      .diinner-label.yellow
+        = image_tag "landing/facebook.png"
+        = image_tag "landing/twitter.png"
+        = image_tag "landing/instagram.png"
+    .follow
+      |Síguenos en
+      br
+      |redes sociales
