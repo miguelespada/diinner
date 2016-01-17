@@ -30,8 +30,14 @@
       .navbar-link:hover{
         font-weight: bold;
       }
-      .register a:hover{
-        background-color: $buttonPink;
+      .register {
+        a:hover{
+          background-color: $buttonPink;
+        }
+        a{
+          border-left: 1px solid $textDarkGray;
+        }
+
       }
     }
   }
