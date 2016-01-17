@@ -32,12 +32,13 @@
       }
       .register {
         a:hover{
-          background-color: $buttonPink;
+          color: $buttonPink !important;
         }
-        a{
-          border-left: 1px solid $textDarkGray;
-        }
-
+      }
+      .separator{
+        border-right: 1px solid $textDarkGray;
+        height: 30px;
+        margin-top: 10px;
       }
     }
   }
