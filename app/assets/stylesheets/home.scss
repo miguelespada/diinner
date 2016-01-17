@@ -18,3 +18,39 @@ html, body{
     width:100%;
   }
 }
+
+.how-it-works{
+  color: $textBlack;
+  padding: 60px;
+  .item{
+    text-align: center;
+    img{
+      width: 100%;
+    }
+  }
+
+}
+.white-panel{
+  background-color: white;
+  .oval{
+    margin: 30px 0;
+    font-size: 30px;
+  }
+  .info{
+    font-size: 25px;
+  }
+  .button-pink{
+    margin-top: 80px;
+    display: table;
+    overflow: hidden;
+    .text{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    background-color: $buttonPink;
+    height: 80px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+  }
+}
