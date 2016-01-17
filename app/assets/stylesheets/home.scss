@@ -121,6 +121,7 @@ html, body{
   }
 
   .register-box{
+    margin-top: 40px;
     float: left;
     width: calculatePercent(395px, 1245px);
     margin-right: calculatePercent(30px, 1245px);
@@ -128,6 +129,9 @@ html, body{
     .diinner-label {
       font-weight: 500;
       font-size: calculateRem(25px);
+    }
+    .area{
+      padding: 40px;
     }
   }
 }
