@@ -259,4 +259,25 @@ html, body{
 
 .footer{
   clear: both;
+  height: 250px;
+  width: calculatePercent(1340px, $lg-width);
+  margin-left: calculatePercent(50px, $lg-width);
+  display: table;
+  text-align: center;
+  padding-top: 200px;
+  ul{
+    display: table-cell;
+    vertical-align: middle;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid $textGray;
+    li{
+      font-size: calculateRem(14.6px);
+      display: inline-block;
+      color: $textGray;
+      padding-right:  calculatePercent(5px, 1340px);
+      box-sizing: border-box;
+    }
+  }
 }
