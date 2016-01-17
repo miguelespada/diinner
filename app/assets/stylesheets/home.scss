@@ -33,7 +33,7 @@ html, body{
 
 .how-it-works{
   color: $textBlack;
-  padding: 60px;
+  padding: 60px calculatePercent(40px, $lg-width) 0 calculatePercent(40px, $lg-width);
   .item{
     text-align: center;
     img{
@@ -68,6 +68,7 @@ html, body{
   }
   .diinner-label {
     font-size: calculateRem(30px);
+    margin-top: 30px;
   }
   &.negative-top{
     margin-top: -85px;
