@@ -26,6 +26,14 @@
     .navbar-brand img{
       height: 100%;
     }
+    .navbar-right{
+      .navbar-link:hover{
+        font-weight: bold;
+      }
+      .register a:hover{
+        background-color: $buttonPink;
+      }
+    }
   }
 
   .main-menu {
