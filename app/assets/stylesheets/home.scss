@@ -129,11 +129,34 @@ html, body{
     }
   }
   .info{
+    float: left;
     font-size: calculateRem(45px);
     color: $textGray;
     .black{
       display: inline;
       color: $textDarkGray;
+    }
+  }
+  .share-box {
+    .box {
+      text-align: center;
+      float: right;
+      width: calculatePercent(395px, $lg-width);
+      padding: calculatePercent(25px, $lg-width);
+      .diinner-label {
+        padding: auto calculatePercent(85px, 395px);
+        img {
+          height: 50px;
+          margin: 0 calculatePercent(15px, 395px);
+        }
+      }
+    }
+    .follow{
+      clear: both;
+      margin-right: calculatePercent(195px, $lg-width);
+      float: right;
+      font-size: calculateRem(24px);
+      color: $textGray;
     }
   }
 }
