@@ -1,13 +1,15 @@
 $translucentWhite : rgba(255, 255, 255, 0.95);
 $navbarText       : black;
-$themeYellow      : #fbcd31;
+$themeYellowOld      : #fbcd31;
+$themeYellow: #ffd537;
 $themeBlue        : #11c1f3;
 $balancedGreen    : #28a54c;
 $assertiveRed     : #e42112;
 $buttonYellow     : #f39c12;
 $lightGray        : #c9c9c9;
 $textGray         : #777777;
-$textDarkGray     : #333333;
+$textDarkGray     : #383838;
+$textBlue: #2881ff;
 $textMuted        : #dedede;
 $backGray         :rgb(237, 237, 237);
 $linkBlue         : #3498db; 
@@ -19,3 +21,9 @@ $tableEmpty       : #CCCCCC;
 $tableCancelled   : #c0392b;
 $todayHighlight   : #34495e;
 $alertWarning     : #c0392b;
+
+
+
+
+$boxBackground: #fafafa;
+$boxShadow: rgba(0, 0, 0, 0.5);
