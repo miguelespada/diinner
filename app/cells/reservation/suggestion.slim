@@ -2,7 +2,7 @@
   .panel-white.box
     .head.picture
       == restaurant.photo
-    .head.menu-data hidden=true
+    .head.menu-data.sr-only
       .col-xs-12.text-center
         .menu-description
           == menu.model.description
@@ -27,8 +27,9 @@
         span.bi_interface-circle
         == restaurant.name
       .diinner-double-button
-        .item
-          |VER MENÚ
+        .item.see-menu
+          .text VER MENÚ
+          .text.sr-only VER FOTO
         .item
           = link_to "RESERVAR", reserve_link, method: :post
       .address
@@ -42,6 +43,9 @@
     .affinity-tag
       .value = affinity
 javascript:
-  $(".see-menu").click(function(){
-    
+  $(".see-menu").click(function(e){
+    var parent = $(this).parent().parent().parent();
+    parent.find(".head").toggleClass("sr-only");
+    parent.find(".text").toggleClass("sr-only");
+
   });
