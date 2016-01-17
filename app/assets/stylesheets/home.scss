@@ -4,8 +4,6 @@
 @import "user/general";
 @import "user/navigation";
 
-
-
 html, body{
   height: 100%;
   font-family: "Proxima Nova";
@@ -68,20 +66,8 @@ html, body{
   .info{
     font-size: 25px;
   }
-  .button-pink {
-    width: 100%;
-    margin-top: 80px;
-    display: table;
-    overflow: hidden;
-    .text {
-      display: table-cell;
-      vertical-align: middle;
-    }
-    background-color: $buttonPink;
-    height: 80px;
-    color: white;
-    font-size: 30px;
-    text-align: center;
+  .diinner-label {
+    font-size: calculateRem(30px);
   }
   &.negative-top{
     margin-top: -85px;
@@ -93,6 +79,7 @@ html, body{
 }
 
 .box{
+  position: relative;
   background-color: $boxBackground;
   @include box-shadow($boxShadow 2px 2px 6px 0);
 }
@@ -116,12 +103,10 @@ html, body{
           width: 100%;
         }
       }
-      .yellow-label{
-        background-color: $themeYellow;
-        width: 100%;
-        text-align: center;
-        padding: 30px 0;
-        font-family: "Montserrat";
+      .diinner-label {
+        *{
+          font-family: "Montserrat";
+        }
         .title{
           font-size: calculateRem(28px);
           font-weight: bold;
@@ -134,7 +119,32 @@ html, body{
       }
     }
   }
+
   .register-box{
+    float: left;
+    width: calculatePercent(395px, 1245px);
+    margin-right: calculatePercent(30px, 1245px);
     clear:both;
+    .diinner-label {
+      font-weight: 500;
+      font-size: calculateRem(25px);
+    }
   }
+}
+
+.diinner-label{
+  &.yellow{
+    background-color: $themeYellow;
+  }
+  &.pink{
+    background-color: $buttonPink;
+    color: white;
+  }
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.footer{
+  clear: both;
 }
