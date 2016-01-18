@@ -30,8 +30,7 @@
         .item.see-menu
           .text VER MENÚ
           .text.sr-only VER FOTO
-        .item
-          = link_to "RESERVAR", reserve_link, method: :post
+        = link_to "RESERVAR", reserve_link, method: :post, class: "item"
       .address
         == model.restaurant.address
       .time
