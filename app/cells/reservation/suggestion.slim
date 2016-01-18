@@ -3,24 +3,24 @@
     .head.picture
       == restaurant.photo
     .head.menu-data.sr-only
-      .col-xs-12.text-center
+      .text-center
         .menu-description
           == menu.model.description
-        .col-xs-4
+        strong
           | APPETIZER
-        .col-xs-8.text-right
+        .item
           == menu.model.appetizer
-        .col-xs-4
+        strong
           | MAIN DISH
-        .col-xs-8.text-right
+        .item
           == menu.model.main_dish
-        .col-xs-4
+        strong
           | DESSERT
-        .col-xs-8.text-right
+        .item
           == menu.model.dessert
-        .col-xs-4
+        strong
           | DRINK
-        .col-xs-8.text-right
+        .item
           == menu.model.drink
     .data-search-wrapper
       .title

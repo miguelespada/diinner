@@ -57,7 +57,6 @@ javascript:
     $(".company-toggle").click(function () {
       $(this).siblings().removeClass("selected");
       $(this).addClass("selected");
-      console.log($(this).data("company"));
       $(this).data("company") == true ? $(".company-container").show() : $(".company-container").hide();
     });
 
@@ -109,5 +108,12 @@ javascript:
       $(".price-toggle").removeClass("selected");
       $(this).addClass("selected");
       $(".price select").val($(this).data("price"));
+    });
+
+    $(".friend-toggle").on("click", function (e) {
+      console.log("Toggling friend");
+      $(this).siblings().removeClass("selected");
+      $(this).addClass("selected");
+      $($(this).parent().parent().parent().find(".gender")).val(($(this).data("gender")));
     });
   });

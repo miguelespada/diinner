@@ -14,18 +14,36 @@
 .hidden-xs.desktop
   .row
     .col-md-5
-      .box.col-md-12
+      .col-md-12
         .text-center.reservations
           .diinner-button.pink
-            = link_to t("new_reservation"), new_user_reservation_path(@user)
-          .my-reservations
-            |MY RESERVATIONS
+            = link_to "Nueva reserva", new_user_reservation_path(@user)
+      .separator
+      .box.col-md-12
+        .row
+          .col-xs-12
+            .my-reservations
+              .list
+                - @reservations.each do |r|
+                  .item
+                    = link_to user_reservation_path(@user, r)
+                      .name
+                        span.bi_interface-circle
+                        = r.restaurant.name
+                    .date = r.date.strftime("%d/%m/%Y")
+                    .time = r.hour.strftime("%H:%M")
+        .row
+          .diinner-label.yellow
+            | Mis reservas
+
+
     .col-md-7
       .box.tests.text-center
         .info Mejora tu compatibilidad
         .icon.bi_interface-heart
-        .diinner-label.yellow
-          | Acceder a tests
+        = link_to user_test_path(@user)
+          .diinner-label.yellow
+            | Acceder a tests
   .separator
   .col-md-12.box.suggest
     | Te sugerimos algunos planes para
@@ -36,3 +54,4 @@
     .row
       .search-results
         == cell(:reservation, collection: @suggestions, method: :suggestion)
+
