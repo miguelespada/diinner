@@ -1,4 +1,4 @@
-= simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
+= simple_form_for [@user, @reservation], url: user_search_tables_path, html: {id: 'reservation-form'}  do |f|
   .row.box.bottom-box
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
@@ -12,13 +12,23 @@
         .col-lg-4.no-padding
           .text.long.last.day-toggle data-day="date" Otro día
       .date hidden=true
-        = f.input :date, :as => :date_picker, html5: true, label:false
-      = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
-      = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
+        = f.input :date, :as => :date_picker, html5: true, label: false
+      = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id)
+      label Price
+      .choosing-box
+        .col-lg-4.no-padding
+          .text.long.price-toggle class="#{@user.menu_range.nil? || @user.menu_range == Preference::MENU_RANGE[0] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[0]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[0]
+        .col-lg-4.no-padding
+          .text.long.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[1] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[1]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[1]
+        .col-lg-4.no-padding
+          .text.long.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[2]
+      .price hidden=true
+        = f.input :price, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range)
       .friends-question
         label.control-label Friends
-        h4
-          input.company type="checkbox" Are you going with friends?
+        .company.choosing-box
+          .text.company-toggle.selected data-company=0 Voy solo
+          .text.company-toggle data-company=1 Voy acompañado
         .company-container hidden=true
           h4 How many?
           .choosing-box
@@ -35,20 +45,19 @@
   .text-center
     = f.button :submit, 'Buscar mesas', class: 'diinner-button pink floater'
 javascript:
-  $(document).on('ready page:change', function() {
-     var tomorrow = moment({ hour:21, minute:00 }).add(1, 'days');
-     $('.datetimepicker').each(function(){
+  $(document).on('ready page:change', function () {
+    var tomorrow = moment({hour: 21, minute: 00}).add(1, 'days');
+    $('.datetimepicker').each(function () {
       $(this).data("DateTimePicker").date(tomorrow);
       $(this).data("DateTimePicker").minDate(tomorrow);
       $(this).data("DateTimePicker").maxDate(moment().add(30, 'days'));
-     });
+    });
 
-    $(".company").change(function(){
-      if($(this).is(":checked")){
-        $(".company-container").show();
-      }else{
-        $(".company-container").hide();
-      }
+    $(".company-toggle").click(function () {
+      $(this).siblings().removeClass("selected");
+      $(this).addClass("selected");
+      console.log($(this).data("company"));
+      $(this).data("company") == true ? $(".company-container").show() : $(".company-container").hide();
     });
 
     $(".day-toggle").click(function () {
@@ -58,8 +67,9 @@ javascript:
       $("#reservation-form").attr("action", "#{user_search_tables_path}");
       $(".date").hide();
 
-      switch($(this).data("day")){
-        case "date": $(".date").show();
+      switch ($(this).data("day")) {
+        case "date":
+          $(".date").show();
           $(".friends-question").show();
           break;
         case "today":
@@ -70,7 +80,7 @@ javascript:
           var month = currentDate.getMonth() + 1;
           var year = currentDate.getFullYear();
           $("#reservation_date").val(day + "/" + month + "/" + year);
-              break;
+          break;
         case "tomorrow":
           $(".friends-question").show();
           var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -78,7 +88,7 @@ javascript:
           var month = currentDate.getMonth() + 1;
           var year = currentDate.getFullYear();
           $("#reservation_date").val(day + "/" + month + "/" + year);
-              break;
+          break;
       }
     });
 
@@ -92,5 +102,11 @@ javascript:
       } else {
         $(".friend").show();
       }
-    })
+    });
+
+    $(".price-toggle").click(function () {
+      $(".price-toggle").removeClass("selected");
+      $(this).addClass("selected");
+      $(".price select").val($(this).data("price"));
+    });
   });

@@ -6,11 +6,20 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
         span.sr-only Toggle navigation
         span.menu-icon.bi_interface-hamburger
+      .featured
+        = link_to new_user_reservation_path(@user)
+          .navbar-toggle
+            .bi_food-onigiri
+              .menu-text Nueva reserva
       = link_to user_notifications_path(@user)
         .navbar-toggle
           span.menu-icon.bi_com-bell
     .collapse.navbar-collapse.main-menu
       ul.nav.navbar-nav.navbar-right
+        li.featured.hidden-xs
+          = link_to new_user_reservation_path(@user)
+            .bi_food-onigiri
+              .menu-text Nueva reserva
         li.hidden-xs
           = link_to user_notifications_path(@user)
             .menu-icon.bi_com-bell
@@ -31,6 +40,12 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
           = link_to edit_user_path(@user)
             .menu-icon.bi_setting-gear
               .menu-text Preferences
+              .pull-right.visible-xs
+                .bi_interface-right
+        li
+          = link_to edit_user_path(@user)
+            .menu-icon.bi_interface-help
+              .menu-text Ayuda
               .pull-right.visible-xs
                 .bi_interface-right
         li
