@@ -9,7 +9,7 @@
       .user-name
         = @user.name
     .new-reservation.text-center
-      = link_to t("new_reservation"), new_user_reservation_path(@user), class: 'button button-calm'
+      = link_to 'Nueva reserva', new_user_reservation_path(@user), class: 'button button-calm'
 
 .hidden-xs.desktop
   .row

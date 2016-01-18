@@ -20,6 +20,11 @@
       background-color: white;
       margin-right: 0;
     }
+    .featured{
+      a, a:hover, a:active {
+        color: $buttonPink !important;
+      }
+    }
     a, a:hover, a:active {
       color: $textDarkGray !important;
     }

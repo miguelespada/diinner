@@ -14,11 +14,21 @@
       .date hidden=true
         = f.input :date, :as => :date_picker, html5: true, label:false
       = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
-      = f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
+      label Price
+      .choosing-box
+        .col-lg-4.no-padding
+          .text.long.day-toggle data-price=0 = Preference::MENU_RANGE.map{|s| s.capitalize}[0]
+        .col-lg-4.no-padding
+          .text.long.day-toggle.selected data-day=1 = Preference::MENU_RANGE.map{|s| s.capitalize}[1]
+        .col-lg-4.no-padding
+          .text.long.last.day-toggle data-day=2 = Preference::MENU_RANGE.map{|s| s.capitalize}[2]
+      .price hidden=true
+      /= f.input :price, :collection => Preference::MENU_RANGE.map{|s| [s.capitalize, s]}, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range )
       .friends-question
         label.control-label Friends
-        h4
-          input.company type="checkbox" Are you going with friends?
+        .company.choosing-box
+          .text.company-toggle.selected data-company=0 Voy solo
+          .text.company-toggle data-company=1 Voy acompañado
         .company-container hidden=true
           h4 How many?
           .choosing-box
@@ -41,12 +51,11 @@ javascript:
       $(this).data("DateTimePicker").maxDate(moment().add(30, 'days'));
      });
 
-    $(".company").change(function(){
-      if($(this).is(":checked")){
-        $(".company-container").show();
-      }else{
-        $(".company-container").hide();
-      }
+    $(".company-toggle").click(function(){
+      $(this).siblings().removeClass("selected");
+      $(this).addClass("selected");
+      console.log($(this).data("company"));
+      $(this).data("company") == true ? $(".company-container").show() : $(".company-container").hide();
     });
 
     $(".day-toggle").click(function () {
