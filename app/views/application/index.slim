@@ -51,8 +51,8 @@ header.home-header
         |¿Ya estás
         br
         |registrado?
-        .diinner-button.pink Inicia sesión
-      .diinner-label.button.pink Regístrate
+        .diinner-button.pink.login-link Inicia sesión
+      .diinner-label.button.pink.login-link Regístrate
     .info
       | Más de 1900 personas se han conocido gracias a diinner,
       .black únete a nosotros.
@@ -87,3 +87,10 @@ header.home-header
       |Síguenos en
       br
       |redes sociales
+
+== render 'application/modal', name: 'login-modal', view: 'users/users/login'
+
+javascript:
+  $(".login-link").click(function(){
+    openModal('login-modal');
+  });

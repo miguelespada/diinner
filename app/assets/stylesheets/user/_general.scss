@@ -173,3 +173,46 @@ html, body {
   background-color: $boxBackground;
   @include box-shadow($boxShadow 2px 2px 6px 0);
 }
+
+.modal-box {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  height: 0;
+  width: 100vw;
+  opacity: 0;
+  visibility: hidden;
+
+  @include transition(visibility 0.5s, opacity 0.5s linear);
+  &.open{
+    height: 100vh;
+    opacity: 1;
+    visibility: visible;
+    @include transition(visibility 0.5s, opacity 0.5s linear);
+  }
+  .outer{
+    width: 100vw;
+    height: 100vh;
+    background-color: $boxShadow;
+    z-index: 1000;
+  }
+  .inner{
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    left: 25vw;
+    top: 25vh;
+    z-index: 1001;
+    background-color: $boxBackground;
+    @media (min-width: 769px) and (max-width: 830px) {
+      width: 70vw;
+      left: 15vw;
+    }
+
+    @media (max-width: 768px) {
+      width: 90vw;
+      left: 5vw;
+    }
+  }
+
+}
