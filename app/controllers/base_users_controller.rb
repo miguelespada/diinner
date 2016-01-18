@@ -15,7 +15,7 @@ class BaseUsersController < ApplicationController
     if @session.logged?
       @current_user = @session.user_from_session
     else
-      redirect_to users_login_path
+      redirect_to root_path
     end
   end
 
