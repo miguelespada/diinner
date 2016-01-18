@@ -5,7 +5,11 @@ form{
   .form-yellow{
     background-color: $themeYellow;
   }
-
+  .form-date{
+    input{
+      width: 100% !important;
+    }
+  }
   .form-control {
     display: block;
     width: 100%;

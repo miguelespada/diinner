@@ -11,7 +11,7 @@
           .text.long.day-toggle.selected data-day="tomorrow" Mañana
         .col-lg-4.no-padding
           .text.long.last.day-toggle data-day="date" Otro día
-      .date hidden=true
+      .date.form-date hidden=true
         = f.input :date, :as => :date, html5: true, input_html: { min: Date.tomorrow + 1.day, max: Date.tomorrow + 15.days}
 
       = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id)
