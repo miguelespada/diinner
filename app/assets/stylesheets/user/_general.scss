@@ -203,9 +203,11 @@ html, body {
   }
   .inner{
     position: absolute;
-    height: 50vh;
-    left: 50vw;
-    top: 25vh;
+    padding: 5vw;
+    background-color: $boxBackground;
+    left: 50%;
+    top: 50%;
+    @include translate(-50%, -50%);
     z-index: 1001;
   }
 
