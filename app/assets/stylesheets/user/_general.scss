@@ -203,16 +203,6 @@ html, body {
     left: 25vw;
     top: 25vh;
     z-index: 1001;
-    background-color: $boxBackground;
-    @media (min-width: 769px) and (max-width: 830px) {
-      width: 70vw;
-      left: 15vw;
-    }
-
-    @media (max-width: 768px) {
-      width: 90vw;
-      left: 5vw;
-    }
   }
 
 }
