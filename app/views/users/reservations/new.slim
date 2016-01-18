@@ -1,17 +1,16 @@
-.row
-  .big-label.yellow New reservation
-.row
+.row.box
+  .separator
   .col-xs-12.col-md-8.col-md-offset-2
     = simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
       = f.error_notification
       label Date
       .choosing-box
         .col-lg-4.no-padding
-          .text.long.day-toggle data-day="today" Today
+          .text.long.day-toggle data-day="today" Hoy
         .col-lg-4.no-padding
-          .text.long.day-toggle.selected data-day="tomorrow" Tomorrow
+          .text.long.day-toggle.selected data-day="tomorrow" Mañana
         .col-lg-4.no-padding
-          .text.long.last.day-toggle data-day="date" Other Day
+          .text.long.last.day-toggle data-day="date" Otro día
       .date hidden=true
         = f.input :date, :as => :date_picker, html5: true, label:false
       = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id )
@@ -30,7 +29,9 @@
       label Expectations
       = render '/users/after_plan', f: f
       .text-center
-        = f.button :submit, 'Search tables', class: 'button button-calm'
+        = f.button :submit, 'Buscar mesas', class: 'diinner-button pink'
+  .col-xs-12.diinner-label.yellow
+    | Nueva reserva
 javascript:
   $(document).on('ready page:change', function() {
      var tomorrow = moment({ hour:21, minute:00 }).add(1, 'days');

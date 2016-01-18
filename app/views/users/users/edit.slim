@@ -1,16 +1,15 @@
 = simple_form_for [@user] do |f|
-  .row
-    .big-label.yellow = t("your_data")
-  .row
+  .row.box
+    .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
       = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']]
       = f.input :birth, as: :date_picker, html5: true
-  .row
+    .col-xs-12.diinner-label.yellow
+      | Tus datos
+  .separator
+  .row.box
     .separator
-  .row
-    .big-label.yellow = t("your_preferences")
-  .row
     .col-xs-12.col-md-8.col-md-offset-2
       = f.simple_fields_for :preference do |c|
         .input-group.age-slider
@@ -26,7 +25,9 @@
         = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
         = c.association :city, :include_blank => false
         .text-center
-          = f.button :submit, class: "button button-calm"
+          = f.button :submit, "Actualizar", class: "diinner-button pink"
+    .col-xs-12.diinner-label.yellow
+      | Tus preferencias
 javascript:
   $(document).ready(function () {
     // With JQuery

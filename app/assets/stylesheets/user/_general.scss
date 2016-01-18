@@ -132,11 +132,16 @@ html, body {
 
   &.pink{
     border: 2px solid $buttonPink;
+    border-radius: 0;
     box-sizing: border-box;
     background-image: linear-gradient($buttonPink, $buttonPink);
   }
-
+  a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
   &:hover{
+
     background-size: 100% 100%;
     &.pink{
       color: white;
