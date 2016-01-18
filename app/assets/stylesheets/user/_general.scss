@@ -128,6 +128,8 @@ html, body {
   background-position: 50% 0%;
   background-repeat: no-repeat;
   background-size: 100% 0%;
+  color: $textDarkGray;
+  background-color: white;
   @include transition(background-size .5s, color .5s);
 
   &.floater{
