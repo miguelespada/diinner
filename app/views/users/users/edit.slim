@@ -8,7 +8,7 @@
     .col-xs-12.diinner-label.yellow
       | Tus datos
   .separator
-  .row.box
+  .row.box.bottom-box
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.simple_fields_for :preference do |c|
@@ -24,10 +24,11 @@
         = render '/users/after_plan', f: f
         = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
         = c.association :city, :include_blank => false
-        .text-center
-          = f.button :submit, "Actualizar", class: "diinner-button pink"
     .col-xs-12.diinner-label.yellow
       | Tus preferencias
+
+  .text-center
+    = f.button :submit, "Actualizar", class: "diinner-button pink floater"
 javascript:
   $(document).ready(function () {
     // With JQuery

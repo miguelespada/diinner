@@ -1,7 +1,7 @@
-.row.box
-  .separator
-  .col-xs-12.col-md-8.col-md-offset-2
-    = simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
+= simple_form_for [@user, @reservation], url: user_search_tables_path, html:{id:'reservation-form'}  do |f|
+  .row.box.bottom-box
+    .separator
+    .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
       label Date
       .choosing-box
@@ -38,10 +38,12 @@
             = render 'company_fields', :f => company
       label Expectations
       = render '/users/after_plan', f: f
-      .text-center
-        = f.button :submit, 'Buscar mesas', class: 'diinner-button pink'
-  .col-xs-12.diinner-label.yellow
-    | Nueva reserva
+    .col-xs-12.diinner-label.yellow
+      | Nueva reserva
+
+
+  .text-center
+    = f.button :submit, 'Buscar mesas', class: 'diinner-button pink floater'
 javascript:
   $(document).on('ready page:change', function() {
      var tomorrow = moment({ hour:21, minute:00 }).add(1, 'days');

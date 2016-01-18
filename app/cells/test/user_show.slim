@@ -1,25 +1,33 @@
-.row.box
+.row.box.bottom-box
   .test
     .question
       = model.question
     .responses
       .col-lg-6
-        = link_to user_test_response_path(current_user, model, option: model.caption_A), method: :post, class: 'wrapper'
-          .option.option_A
-            - if model.option_A.present?
-              = cl_image_tag(model.option_A.path, { crop: :fill, radius: 2, class: 'image' })
-              -if model.caption_A.present?
-                .caption = model.caption_A
-            - else
-              .text.pink = model.caption_A
+        .option.option_A
+          - if model.option_A.present?
+            = cl_image_tag(model.option_A.path, { crop: :fill, radius: 2, class: 'image' })
+            -if model.caption_A.present?
+              .caption = model.caption_A
+          - else
+            .text.pink = model.caption_A
+          = link_to user_test_response_path(current_user, model, option: model.caption_A), method: :post, class: 'wrapper'
+            .selector
+              .bi_interface-arrow-right
+
       .col-lg-6
-        = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, class: 'wrapper'
-          .option.option_B
-            - if model.option_B.present?
-              = cl_image_tag(model.option_B.path, {crop: :fill, radius: 2, class: 'image'})
-              - if model.caption_A.present?
-                .caption = model.caption_B
-            - else
-              .text.yellow = model.caption_B
+        /link_to
+        .option.option_B
+          - if model.option_B.present?
+            = cl_image_tag(model.option_B.path, {crop: :fill, radius: 2, class: 'image'})
+            - if model.caption_A.present?
+              .caption = model.caption_B
+          - else
+            .text.yellow = model.caption_B
+          = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, class: 'wrapper'
+            .selector
+              .bi_interface-arrow-right
   .col-xs-12.diinner-label.yellow
     | Test
+.text-center
+  = link_to 'Skip', user_path(current_user), class: 'diinner-button pink floater'
