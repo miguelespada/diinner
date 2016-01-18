@@ -450,6 +450,9 @@ input.company {
         display: table-cell;
         vertical-align: middle;
       }
+      &.rotated{
+        @include transform(rotate(45deg));
+      }
     }
     .data-search-wrapper{
       padding: 10px;
