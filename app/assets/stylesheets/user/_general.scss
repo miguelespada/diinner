@@ -120,7 +120,7 @@ html, body {
 
 .diinner-button{
   margin-top: 15px;
-  padding: 15px 0;
+  padding: 15px 15px;
   width: calculatePercent(250px, 395px);
   font-size: calculateRem(21px);
   text-align: center;
@@ -169,6 +169,7 @@ html, body {
     padding: 10px calculatePercent(20px, $lg-width);
     float: left;
     width: 40%;
+    cursor: pointer;
   }
   .item:first-child{
     margin-right: 10%;
