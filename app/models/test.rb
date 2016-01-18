@@ -14,7 +14,7 @@ class Test
   field :hipsterismo, type: Integer
   field :freakismo, type: Integer
 
-  validates_presence_of :question, :caption_A, :caption_B
+  validates_presence_of :question
 
   has_attachment :option_A, accept: [:jpg, :png, :gif]
   has_attachment :option_B, accept: [:jpg, :png, :gif]

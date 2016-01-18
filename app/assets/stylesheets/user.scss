@@ -113,7 +113,7 @@ html, body{
   text-align: center;
   .question{
     margin-top: 15px;
-    font-size: 1.3rem;
+    font-size: calculateRem(24px);
   }
   .responses{
     a, a:active, a:hover{
@@ -121,6 +121,7 @@ html, body{
       text-decoration: none !important;
     }
     .option {
+      margin-bottom: 15px;
       text-align: center;
       min-height: 30vh;
       width: 100%;
@@ -128,17 +129,23 @@ html, body{
       margin-top: 15px;
       .image{
         width: 100%;
-        border-radius: 2%;
+      }
+      .caption{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background-color: $buttonPink;
+        color: white;
+        font-size: calculateRem(20px);
+        padding: 10px;
       }
       .text{
         border: 1px solid $lightGray;
-        border-radius: 2px;
-
         font-size: 2rem;
         display: table-cell;
         vertical-align: middle;
-        &.blue{
-          background-color: $themeBlue;
+        &.pink{
+          background-color: $buttonPink;
         }
         &.yellow{
           background-color: $themeYellow;
