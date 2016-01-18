@@ -24,8 +24,9 @@
       .box.tests.text-center
         .info Mejora tu compatibilidad
         .icon.bi_interface-heart
-        .diinner-label.yellow
-          | Acceder a tests
+        = link_to user_test_path(@user)
+          .diinner-label.yellow
+            | Acceder a tests
   .separator
   .col-md-12.box.suggest
     | Te sugerimos algunos planes para

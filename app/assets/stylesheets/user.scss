@@ -627,6 +627,10 @@ input.company {
     //margin-top:
   }
   .tests{
+    a, a:hover, a:active{
+      text-decoration: none !important;
+      color: inherit !important;
+    }
     .info{
       font-size: calculateRem(25px);
       color: $textGray;
