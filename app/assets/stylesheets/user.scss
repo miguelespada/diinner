@@ -627,17 +627,36 @@ input.company {
 .desktop{
   color: $textDarkGray;
   .reservations{
-    //padding: 20px 0;
+    padding-bottom: 15px;
 
   }
   .my-reservations{
-    //margin-top:
+    text-align: left;
+
+    .list{
+      margin: 15px auto;
+      .item{
+        clear: both;
+        .name{
+          font-weight: bold;
+          span{
+            color: $themeYellow;
+          }
+        }
+        .date{
+          float: left;
+          margin-bottom: 10px;
+        }
+        .time{
+          float:right;
+          border: 1px solid $themeYellow;
+        }
+
+      }
+    }
   }
   .tests{
-    a, a:hover, a:active{
-      text-decoration: none !important;
-      color: inherit !important;
-    }
+
     .info{
       font-size: calculateRem(25px);
       color: $textGray;
@@ -653,5 +672,9 @@ input.company {
   .suggest{
     font-size: calculateRem(18px);
     margin-bottom: 20px;
+  }
+  a, a:hover, a:active{
+    text-decoration: none !important;
+    color: inherit !important;
   }
 }
