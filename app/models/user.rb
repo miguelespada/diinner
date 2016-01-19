@@ -131,13 +131,18 @@ class User
 
   def generate_profile
     # TODO maybe save in database and update on callbacks
-    @profile =  { :extraversion => 0, :educacion => 0, :freakismo => 0, :hipsterismo => 0}
+    @profile =  { :expectativas => 0, :cultura => 0, 
+                  :foodie => 0, :melomania => 0,
+                  :estudios => 0, :belleza => 0, :humor => 0}
     test_completed.each do |t|
       factor = t.response_is_a? ? 1 : -1
-      @profile[:extraversion] += ((t.extraversion || 0) * factor)
-      @profile[:educacion] += ((t.educacion || 0) * factor)
-      @profile[:freakismo] += ((t.freakismo || 0) * factor)
-      @profile[:hipsterismo] += ((t.hipsterismo || 0)* factor)
+      @profile[:expectativas] += ((t.expectativas || 0) * factor)
+      @profile[:cultura] += ((t.cultura || 0) * factor)
+      @profile[:foodie] += ((t.foodie || 0) * factor)
+      @profile[:melomania] += ((t.melomania || 0) * factor)
+      @profile[:estudios] += ((t.estudios || 0) * factor)
+      @profile[:belleza] += ((t.belleza || 0) * factor)
+      @profile[:humor] += ((t.humor || 0) * factor)
     end
     @profile
   end
@@ -151,11 +156,14 @@ class User
 
   def affinity other
     a = (
-      (profile(:extraversion) - other.profile(:extraversion)).abs +
-      (profile(:educacion) - other.profile(:educacion)).abs + 
-      (profile(:freakismo) - other.profile(:freakismo)).abs +
-      (profile(:hipsterismo) - other.profile(:hipsterismo)).abs
-    ) / 4.0
+      (profile(:expectativas) - other.profile(:expectativas)).abs +
+      (profile(:cultura) - other.profile(:cultura)).abs + 
+      (profile(:foodie) - other.profile(:foodie)).abs +
+      (profile(:melomania) - other.profile(:melomania)).abs +
+      (profile(:estudios) - other.profile(:melomania)).abs +
+      (profile(:belleza) - other.profile(:melomania)).abs +
+      (profile(:humor) - other.profile(:melomania)).abs
+    ) / 7.0
 
     # NOTE: we normalize the value 1 (highiest) - 0 (lowest)
     1.0 - (a / 4.0)

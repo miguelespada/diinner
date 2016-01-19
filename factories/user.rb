@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     sequence(:email)  { |n| "user_#{n}@gmail.com" }
-    sequence(:image_url) { |n| "user_#{n}.jpg" }
+    sequence(:image_url) { |n| "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150" }
     sequence(:name)  { |n| "user_#{n}" }
     gender :male
     birth { 20.years.ago }

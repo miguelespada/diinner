@@ -5,8 +5,8 @@ describe User do
     @user = FactoryGirl.create(:user)
     @other = FactoryGirl.create(:user)
 
-    @test_0 = FactoryGirl.create(:test, extraversion: 2, educacion: -2, freakismo: 1, hipsterismo: -1)
-    @test_1 = FactoryGirl.create(:test, extraversion: 1, educacion: -2, freakismo: 0, hipsterismo: -1)
+    @test_0 = FactoryGirl.create(:test, expectativas: 2, cultura: -2, foodie: 1, melomania: -1)
+    @test_1 = FactoryGirl.create(:test, expectativas: 1, cultura: -2, foodie: 0, melomania: -1)
   end
 
   describe "#user score" do
@@ -14,10 +14,10 @@ describe User do
       TestResponse.create(user: @user, test: @test_0, response: @test_0.caption_A)
       TestResponse.create(user: @user, test: @test_1, response: @test_1.caption_B)
       
-      expect(@user.profile :extraversion).to be 0.5
-      expect(@user.profile :educacion).to be 0.0
-      expect(@user.profile :freakismo).to be 0.5
-      expect(@user.profile :hipsterismo).to be 0.0
+      expect(@user.profile :expectativas).to be 0.5
+      expect(@user.profile :cultura).to be 0.0
+      expect(@user.profile :foodie).to be 0.5
+      expect(@user.profile :melomania).to be 0.0
     end
   end
 
@@ -47,7 +47,7 @@ describe User do
     end
 
     it "worst affinity" do
-      @test_0 = FactoryGirl.create(:test, extraversion: 2, educacion: 2, freakismo: 2, hipsterismo: 2)
+      @test_0 = FactoryGirl.create(:test, expectativas: 2, cultura: 2, foodie: 2, melomania: 2)
 
       TestResponse.create(user: @user, test: @test_0, response: @test_0.caption_A)
       TestResponse.create(user: @other, test: @test_0, response: @test_0.caption_B)
@@ -87,10 +87,15 @@ describe User do
   describe "example affinity?" do
     def create_test *values
       FactoryGirl.create(:test, 
-                extraversion: values[0],
-                educacion: values[1], 
-                freakismo: values[2],
-                hipsterismo: values[3])
+                expectativas: values[0],
+                cultura: values[1], 
+                foodie: values[2],
+                melomania: values[3],
+                estudios: values[3],
+                belleza: values[3],
+                humor: values[3]
+
+                )
     end
 
     def answer_test user, test, answer
@@ -106,8 +111,8 @@ describe User do
 
 
     it "works" do
-      test_0 = create_test(2, -2, 1, -1)
-      test_1 = create_test(1, -2, 0, -1)
+      test_0 = create_test(2, -2, 1, -1, 2, 1, -1)
+      test_1 = create_test(1, -2, 0, -1, 2, 1, -1)
       answer_test(@user, test_0, :A)
       answer_test(@other, test_0, :B)
      

@@ -1,4 +1,4 @@
-@last_minute @wip
+@last_minute @javascript
 Feature: User reserves last minute diinner #TODO JAVASCRIPT?
   As user
   I want to access to reserve a table for today

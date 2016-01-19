@@ -8,10 +8,14 @@ describe User do
 
   def create_test *values
     FactoryGirl.create(:test, 
-              extraversion: values[0],
-              educacion: values[1], 
-              freakismo: values[2],
-              hipsterismo: values[3])
+              expectativas: values[0],
+              cultura: values[1], 
+              foodie: values[2],
+              melomania: values[3],
+              estudios: values[3],
+              belleza: values[3],
+              humor: values[3]
+              )
   end
 
   def answer_test user, test, answer
@@ -25,8 +29,8 @@ describe User do
 
   describe "example affinity?" do
     it "works" do
-      test_0 = create_test(2, -2, 1, -1)
-      test_1 = create_test(1, -2, 0, -1)
+      test_0 = create_test(2, -2, 1, -1, 2, 1, 2)
+      test_1 = create_test(1, -2, 0, -1, 2, 1, 2)
 
       answer_test(@user, test_0, :A)
       answer_test(@other, test_0, :B)

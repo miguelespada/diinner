@@ -9,7 +9,14 @@ class TestResponse
 
   field :response, type: String
   
-  delegate :extraversion, :educacion, :freakismo, :hipsterismo, :to => :test
+  delegate :expectativas, 
+           :cultura, 
+           :foodie, 
+           :melomania, 
+           :estudios, 
+           :belleza, 
+           :humor, 
+           :to => :test
 
   def response_is_a?
     response == test.caption_A

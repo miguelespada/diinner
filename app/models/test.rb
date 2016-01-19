@@ -9,10 +9,13 @@ class Test
   field :caption_A, type: String
   field :caption_B, type: String
 
-  field :extraversion, type: Integer
-  field :educacion, type: Integer
-  field :hipsterismo, type: Integer
-  field :freakismo, type: Integer
+  field :expectativas, type: Integer
+  field :cultura, type: Integer
+  field :foodie, type: Integer
+  field :melomania, type: Integer
+  field :estudios, type: Integer
+  field :belleza, type: Integer
+  field :humor, type: Integer
 
   validates_presence_of :question, :caption_A, :caption_B
 

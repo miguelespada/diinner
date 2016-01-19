@@ -3,10 +3,13 @@ FactoryGirl.define do
     sequence(:question) { |n| "Test question #{n}?" }
     caption_A "Response A"
     caption_B "Response B"
-    extraversion 0
-    educacion 0
-    hipsterismo 0
-    freakismo 0
+    expectativas 0
+    cultura 0
+    melomania 0
+    foodie 0
+    estudios 0
+    belleza 0
+    humor 0
     gender { :undefined }
 
     # Note building images is very slow, by default we use no image to speed up rspecs

@@ -32,9 +32,9 @@ Given(/^I have preferences$/) do
   @city = FactoryGirl.create(:city)
 
   click_on "Preferences"
-
-  find(:xpath, "//input[@id='user_preference_attributes_max_age']").set "60"
-  find(:xpath, "//input[@id='user_preference_attributes_min_age']").set "60"
+  # TODO this does not work with JS
+  # find(:xpath, "//input[@id='user_preference_attributes_max_age']").set "60"
+  # find(:xpath, "//input[@id='user_preference_attributes_min_age']").set "20"
   select "Lowcost", :from => "user_preference_attributes_menu_range"
   select @city.name, :from =>  "user_preference_attributes_city_id"
   click_on "Update User"
@@ -42,7 +42,7 @@ end
 
 When(/^Search last minute$/) do
   click_on "New Reservation", match: :first
-  find("#reservation_date", visible: false).set Date.today #TODO CHECK IF GOOD
+  find("#today").click
   select("Lowcost", :from => "reservation_price")
   select "Madrid", :from => "reservation_city"
   click_on "Search tables"
@@ -50,7 +50,6 @@ end
 
 When(/^I reserve a last minute diinner$/) do
   step "Search last minute"
-  save_and_open_page
   click_on @restaurant.name
   step "I fill in the credit card details"
   click_on "Confirm"

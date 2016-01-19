@@ -39,10 +39,13 @@ class  Admin::TestsController < AdminController
                                   :caption_B,
                                   :option_A,
                                   :option_B,
-                                  :educacion,
-                                  :extraversion,
-                                  :hipsterismo,
-                                  :freakismo,
+                                  :expectativas,
+                                  :cultura,
+                                  :foodie,
+                                  :melomania,
+                                  :estudios,
+                                  :belleza,
+                                  :humor,
                                   :gender)
   end
 

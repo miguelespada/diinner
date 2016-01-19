@@ -6,10 +6,13 @@
   = f.input :option_B, as: :attachinary
   = f.input :caption_B
   = f.input :gender, collection: [['Undefined', 'undefined'], ['Female', 'female'], ['Male', 'male']], default: "undefined"
-  = f.input :extraversion, collection: -2..2, default: 0
-  = f.input :educacion, collection: -2..2, default: 0
-  = f.input :hipsterismo, collection: -2..2, default: 0
-  = f.input :freakismo, collection: -2..2, default: 0
+  = f.input :expectativas, collection: -2..2, default: 0
+  = f.input :cultura, collection: -2..2, default: 0
+  = f.input :melomania, collection: -2..2, default: 0
+  = f.input :foodie, collection: -2..2, default: 0
+  = f.input :estudios, collection: -2..2, default: 0
+  = f.input :belleza, collection: -2..2, default: 0
+  = f.input :humor, collection: -2..2, default: 0
   = f.button :submit
 
 javascript:

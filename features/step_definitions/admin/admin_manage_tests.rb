@@ -4,10 +4,13 @@ When(/^I create a new test$/) do
   fill_in "Question", with: "What do you prefer, A/B?"
   fill_in "Caption a", with: "Option A"
   fill_in "Caption b", with: "Option B"
-  select 2, :from => "test_extraversion"
-  select -2, :from => "test_educacion"
-  select 1, :from => "test_hipsterismo"
-  select 0, :from => "test_freakismo"
+  select 2, :from => "test_expectativas"
+  select -2, :from => "test_cultura"
+  select 1, :from => "test_melomania"
+  select 0, :from => "test_foodie"
+  select 2, :from => "test_estudios"
+  select 1, :from => "test_belleza"
+  select -2, :from => "test_humor"
   click_on "Create Test"
   expect(page).to have_content "Test was successfully created."
 end
@@ -17,17 +20,26 @@ Then(/^I should see the test in list of tests$/) do
   expect(page).to have_content "What do you prefer, A/B?"
   expect(page).to have_content "Option A"
   expect(page).to have_content "Option B"
-  within(".extraversion") do
+  within(".expectativas") do
     expect(page).to have_content "2"
   end
-  within(".educacion") do
+  within(".cultura") do
     expect(page).to have_content "-2"
   end
-  within(".hipsterismo") do
+  within(".melomania") do
     expect(page).to have_content "1"
   end
-  within(".freakismo") do
+  within(".foodie") do
     expect(page).to have_content "0"
+  end
+  within(".estudios") do
+    expect(page).to have_content "2"
+  end
+  within(".belleza") do
+    expect(page).to have_content "1"
+  end
+  within(".humor") do
+    expect(page).to have_content "-2"
   end
 end
 
