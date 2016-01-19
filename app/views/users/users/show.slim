@@ -8,8 +8,9 @@
       = image_tag @user.image_url, size: "200", class: 'user-image'
       .user-name
         = @user.name
-    .new-reservation.text-center
-      = link_to 'Nueva reserva', new_user_reservation_path(@user), class: 'button button-calm'
+    .text-center.new-reservation
+      .diinner-button.pink
+        = link_to "Nueva reserva", new_user_reservation_path(@user)
 
 .hidden-xs.desktop
   .row
