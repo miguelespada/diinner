@@ -26,3 +26,4 @@
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require bootstrap-slider
+//= require modal

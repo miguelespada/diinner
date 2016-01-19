@@ -32,57 +32,43 @@ html, body{
 }
 
 .how-it-works{
-  color: $textBlack;
   padding: 60px calculatePercent(40px, $lg-width) 0 calculatePercent(40px, $lg-width);
+  .white-panel{
+    margin-top: 290px;
+    width: 100%;
+    background-color: $panelWhite;
+    .oval {
+      position: relative;
+      display: table;
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      overflow: hidden;
+      @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+      margin: 30px auto 30px auto;
+
+      .text{
+        font-size: 30px;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    .info{
+      font-size: 25px;
+    }
+    .diinner-label {
+      font-size: calculateRem(30px);
+      margin-top: 30px;
+    }
+  }
   .item{
     text-align: center;
     img{
       width: 100%;
-      position: relative;
-      z-index: 100;
+      margin-top: -290px;
     }
   }
 
-}
-.white-panel{
-  width: 100%;
-  background-color: $panelWhite;
-  .oval {
-    position: relative;
-    display: table;
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    overflow: hidden;
-    @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
-    margin: 30px auto 30px auto;
-
-    .text{
-      font-size: 30px;
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
-  .info{
-    font-size: 25px;
-  }
-  .diinner-label {
-    font-size: calculateRem(30px);
-    margin-top: 30px;
-  }
-  &.negative-top{
-    margin-top: -85px;
-    .oval{
-      margin: 115px auto 30px auto;
-      font-size: 30px;
-    }
-  }
-}
-
-.box{
-  position: relative;
-  background-color: $boxBackground;
-  @include box-shadow($boxShadow 2px 2px 6px 0);
 }
 
 .content{
@@ -121,31 +107,176 @@ html, body{
     }
   }
 
-  .register-box{
+  .register-wrapper {
     float: left;
-    width: calculatePercent(395px, 1245px);
+    clear: both;
     margin-right: calculatePercent(30px, 1245px);
-    clear:both;
-    .diinner-label {
-      font-weight: 500;
+    width: calculatePercent(395px, 1245px);
+    .register-box {
+      margin-top: 40px;
+
+      width: 100%;
       font-size: calculateRem(25px);
+      .diinner-label {
+        font-weight: 500;
+      }
+      .area {
+        padding: 40px;
+      }
+    }
+
+    .info {
+      margin-top: 40px;
+      font-size: calculateRem(45px);
+      color: $textGray;
+      width: 100%;
+      .black {
+        display: inline;
+        color: $textDarkGray;
+      }
+    }
+  }
+
+  .test-box{
+    margin-top: 40px;
+    float: left;
+    width: calculatePercent(820px, 1245px);
+    .test-info{
+      text-align: center;
+      width: 100%;
+      padding: 0 calculatePercent(141px, 820px);
+      .title{
+        margin-top: 30px;
+        font-size: calculateRem(25px);
+        font-weight: bold;
+      }
+      .answer{
+        width: calculatePercent(268px, 538px);
+        $padding: calculatePercent(36px, 538px);
+        padding: $padding 0;
+        float: left;
+        .wrapper {
+          padding: 0 $padding;
+          border: 0px solid $buttonPink;
+          box-sizing: border-box;
+          &.left {
+            border-right-width: 2px;
+          }
+          &.right {
+            border-left-width: 2px;
+          }
+          .image {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+          }
+          .text {
+            margin-top: 60px;
+            font-size: calculateRem(25px);
+          }
+        }
+      }
+    }
+    .diinner-label{
+      clear: both;
+    }
+    .dot-list{
+      width: 100%;
+      text-align: center;
+      padding: 0 calculatePercent(315px, 820px);
+      .dot{
+        display: inline-block;
+        margin: 15px calculatePercent(15px, 820px) 10px calculatePercent(15px, 820px);
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: $dotGray;
+        &.yellow{
+          background-color: $themeYellow;
+        }
+      }
+      //clear:both;
+    }
+  }
+
+
+  .share-box {
+    margin-top: 40px;
+    float: right;
+    width: calculatePercent(395px, $lg-width);
+    .box {
+      width: 100%;
+      text-align: center;
+      padding: calculatePercent(25px, 395px);
+      .diinner-label {
+        padding: auto calculatePercent(85px, 395px);
+        img {
+          height: 50px;
+          margin: 0 calculatePercent(15px, 395px);
+        }
+      }
+    }
+    .follow{
+      margin-top: 10px;
+      font-size: calculateRem(24px);
+      color: $textGray;
     }
   }
 }
 
-.diinner-label{
-  &.yellow{
-    background-color: $themeYellow;
-  }
-  &.pink{
-    background-color: $buttonPink;
-    color: white;
-  }
-  width: 100%;
-  text-align: center;
-  padding: 30px 0;
-}
+
 
 .footer{
   clear: both;
+  height: 250px;
+  width: calculatePercent(1340px, $lg-width);
+  margin-left: calculatePercent(50px, $lg-width);
+  display: table;
+  text-align: center;
+  padding-top: 200px;
+  ul{
+    display: table-cell;
+    vertical-align: middle;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid $textGray;
+    li{
+      font-size: calculateRem(14.6px);
+      display: inline-block;
+      color: $textGray;
+      padding-right:  calculatePercent(5px, 1340px);
+      box-sizing: border-box;
+    }
+  }
+}
+
+
+.login-container {
+  width: 100%;
+  height: 100%;
+    .logo{
+      padding-bottom: 10%;
+      margin-bottom: 10%;
+      border: 0 solid $themeYellow;
+      border-bottom-width: 1px;
+    }
+
+    #login-panel {
+      #a0-lock * {
+        font-family: "Proxima Nova" !important;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+        text-align-last: auto;
+      }
+
+      .a0-header, .a0-footer {
+        display: none !important;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
 }

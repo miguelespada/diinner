@@ -1,16 +1,16 @@
 = simple_form_for [@user] do |f|
-  .row
-    .big-label.yellow = t("your_data")
-  .row
+  .row.box
+    .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
       = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']]
-      = f.input :birth, as: :date_picker, html5: true
-  .row
+      .form-date
+        = f.input :birth, as: :date, html5: true
+    .col-xs-12.diinner-label.yellow
+      | Tus datos
+  .separator
+  .row.box.bottom-box
     .separator
-  .row
-    .big-label.yellow = t("your_preferences")
-  .row
     .col-xs-12.col-md-8.col-md-offset-2
       = f.simple_fields_for :preference do |c|
         .input-group.age-slider
@@ -23,10 +23,22 @@
         = c.input :max_age, label: false, as: :hidden
         = c.input :min_age, label: false, as: :hidden
         = render '/users/after_plan', f: f
-        = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
+        label Price
+        .choosing-box
+          .col-lg-4.no-padding
+            .text.long.price-toggle class="#{@user.menu_range.nil? || @user.menu_range == Preference::MENU_RANGE[0] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[0]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[0]
+          .col-lg-4.no-padding
+            .text.long.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[1] ? 'selected': ''}"  data-price="#{Preference::MENU_RANGE[1]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[1]
+          .col-lg-4.no-padding
+            .text.long.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[2]
+        .price hidden=true
+          = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
         = c.association :city, :include_blank => false
-        .text-center
-          = f.button :submit, class: "button button-calm"
+    .col-xs-12.diinner-label.yellow
+      | Tus preferencias
+
+  .text-center
+    = f.button :submit, "Actualizar", class: "diinner-button pink floater"
 javascript:
   $(document).ready(function () {
     // With JQuery
@@ -44,5 +56,10 @@ javascript:
       $('#user_preference_attributes_min_age').val(range.getValue()[1]);
       $('#min-age-selected').text(range.getValue()[0]);
       $('#max-age-selected').text(range.getValue()[1]);
+    });
+    $(".price-toggle").click(function () {
+      $(".price-toggle").removeClass("selected");
+      $(this).addClass("selected");
+      $(".price select").val($(this).data("price"));
     });
   });

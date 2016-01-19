@@ -8,6 +8,7 @@ html, body {
   font-size: $font-size-base;
 }
 
+
 .table {
   display: table;
 }
@@ -90,4 +91,142 @@ html, body {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+}
+.diinner-label{
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+
+  &.yellow{
+    background-color: $themeYellow;
+  }
+  &.pink{
+    background-color: $buttonPink;
+    color: white;
+  }
+
+  &.button{
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-size: 100% 0%;
+    @include transition(background-size .5s, color .5s);
+    background-image: linear-gradient($textDarkGray, $textDarkGray);
+    cursor: pointer;
+    &:hover{
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.diinner-button{
+  margin-top: 15px;
+  padding: 15px 15px;
+  width: calculatePercent(250px, 395px);
+  font-size: calculateRem(21px);
+  text-align: center;
+  cursor: pointer;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+  color: $textDarkGray;
+  background-color: white;
+  @include transition(background-size .5s, color .5s);
+
+  &.floater{
+    @media (max-width: 768px){
+      position: fixed;
+      bottom: 0;
+      left: 50vw;
+      @include translate(-50%, 0);
+    }
+  }
+
+  &.pink{
+    border: 2px solid $buttonPink;
+    border-radius: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient($buttonPink, $buttonPink);
+  }
+  a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  &:hover{
+
+    background-size: 100% 100%;
+    &.pink{
+      color: white;
+    }
+  }
+}
+.diinner-double-button{
+  overflow: hidden;
+  margin: 15px 0;
+  width: 100%;
+  font-size: calculateRem(16px);
+  text-align: center;
+  .item{
+    padding: 10px calculatePercent(20px, $lg-width);
+    float: left;
+    width: 40%;
+    cursor: pointer;
+  }
+  .item:first-child{
+    margin-right: 10%;
+    background-color: $themeYellow;
+    border: 1px solid $themeYellow;
+  }
+  .item:last-child{
+    a{
+      color: white;
+    }
+    margin-left: 10%;
+    background-color: $buttonPink;
+    border: 1px solid $buttonPink;
+  }
+}
+.box{
+  position: relative;
+  background-color: $boxBackground;
+  @include box-shadow($boxShadow 2px 2px 6px 0);
+  &.bottom-box{
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+      margin-bottom: 100px;
+    }
+  }
+}
+
+.modal-box {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  height: 0;
+  width: 100vw;
+  opacity: 0;
+  visibility: hidden;
+
+  @include transition(visibility 0.5s, opacity 0.5s linear);
+  &.open{
+    height: 100vh;
+    opacity: 1;
+    visibility: visible;
+    @include transition(visibility 0.5s, opacity 0.5s linear);
+  }
+  .outer{
+    width: 100vw;
+    height: 100vh;
+    background-color: $boxShadow;
+    z-index: 1000;
+  }
+  .inner{
+    position: absolute;
+    padding: 5vw;
+    background-color: $boxBackground;
+    left: 50%;
+    top: 50%;
+    @include translate(-50%, -50%);
+    z-index: 1001;
+  }
+
 }

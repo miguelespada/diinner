@@ -53,10 +53,10 @@ html, body{
 
 }
 
-.row{
-  margin-top: 0;
-  background-color: white;
-}
+//.row{
+//  margin-top: 0;
+//  background-color: white;
+//}
 .panel-white{
   background: white;
 }
@@ -113,7 +113,7 @@ html, body{
   text-align: center;
   .question{
     margin-top: 15px;
-    font-size: 1.3rem;
+    font-size: calculateRem(24px);
   }
   .responses{
     a, a:active, a:hover{
@@ -121,6 +121,7 @@ html, body{
       text-decoration: none !important;
     }
     .option {
+      margin-bottom: 15px;
       text-align: center;
       min-height: 30vh;
       width: 100%;
@@ -128,17 +129,53 @@ html, body{
       margin-top: 15px;
       .image{
         width: 100%;
-        border-radius: 2%;
+      }
+      .caption{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background-color: $buttonPink;
+        color: white;
+        font-size: calculateRem(20px);
+        padding: 10px;
+      }
+      .selector{
+        position: absolute;
+        width: 60px;
+        height: 120px;
+        top: 50%;
+        @include translate(0, -50%);
+        text-align: center;
+
+        right: 10px;
+
+        color: $textDarkGray;
+        background-color: white;
+        font-size: calculateRem(30px);
+        //border: 2px solid $textDarkGray;
+        //box-sizing: border-box;
+        background-image: linear-gradient($textDarkGray, $textDarkGray);
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        @include transition(background-size .5s, color .5s);
+        *{
+          margin-top: 50%;
+          @include translate(0, 50%);
+        }
+        &:hover{
+          background-size: 100% 100%;
+          color: white;
+        }
+        padding: 10px;
       }
       .text{
         border: 1px solid $lightGray;
-        border-radius: 2px;
-
         font-size: 2rem;
         display: table-cell;
         vertical-align: middle;
-        &.blue{
-          background-color: $themeBlue;
+        &.pink{
+          background-color: $buttonPink;
         }
         &.yellow{
           background-color: $themeYellow;
@@ -238,24 +275,6 @@ html, body{
   .sm-separator {
     border-right: 2px solid $themeYellow;
     box-sizing: border-box;
-  }
-
-  .wrapper-center{
-    .user-image {
-      border: 3px solid $themeYellow;
-      border-radius: 50%;
-      box-sizing: border-box;
-      margin-top: 15px;
-      width: 80%;
-    }
-    .user-name{
-      font-size: 1.2rem;
-      color: $textDarkGray;
-      margin-top: 10px;
-    }
-    .new-reservation {
-      margin-top: 25px;
-    }
   }
 
   .lg-separator {
@@ -412,14 +431,18 @@ input.company {
     color: $textDarkGray;
   }
   .search-result-item {
+    .menu-data{
+      padding: 40px 10px;
+    }
     .affinity-tag {
+      border-radius: 20%;
       width: 50px;
       height: 50px;
       position: absolute;
       right: 0;
       z-index: 2;
       top: -10px;
-      background-color: $themeBlue;
+      background-color: $buttonPink;
       color: white;
       display: table;
       text-align: center;
@@ -427,6 +450,12 @@ input.company {
         font-weight: bold;
         display: table-cell;
         vertical-align: middle;
+      }
+      &.rotated{
+        @include transform(rotate(30deg));
+      }
+      &.rotated-2{
+        @include transform(rotate(-30deg));
       }
     }
     .data-search-wrapper{
@@ -448,12 +477,16 @@ input.company {
       text-align: right;
 
       .price{
-        color: $themeBlue;
+        color: $buttonPink;
       }
     }
     .time {
       color: $textGray;
-      text-align: right;
+      //text-align: right;
+    }
+    .address{
+      clear: both;
+      margin-top: 15px;
     }
 
   }
@@ -465,8 +498,8 @@ input.company {
   border: 2px solid $themeBlue;
   border-radius: 2px;
   color: $textDarkGray;
-  &.blue{
-    background-color: $themeBlue;
+  &.pink{
+    background-color: $buttonPink;
     color: white;
   }
 }
@@ -476,6 +509,7 @@ input.company {
   border-radius: 2px;
 
   .text{
+    cursor: pointer;
     width: 50%;
     margin-bottom: 15px;
     float: left;
@@ -588,5 +622,60 @@ input.company {
         }
       }
     }
+  }
+}
+
+.desktop{
+  color: $textDarkGray;
+  .reservations{
+    padding-bottom: 15px;
+
+  }
+  .my-reservations{
+    text-align: left;
+
+    .list{
+      margin: 15px auto;
+      .item{
+        clear: both;
+        .name{
+          font-weight: bold;
+          span{
+            color: $themeYellow;
+          }
+        }
+        .date{
+          float: left;
+          margin-bottom: 10px;
+        }
+        .time{
+          float:right;
+          border: 1px solid $themeYellow;
+        }
+
+      }
+    }
+  }
+  .tests{
+
+    .info{
+      font-size: calculateRem(25px);
+      color: $textGray;
+      padding: 20px calculatePercent(50px, $lg-width);
+
+    }
+    .icon{
+      padding: 20px calculatePercent(50px, $lg-width);
+      font-size: calculateRem(40px);
+      color: $buttonPink;
+    }
+  }
+  .suggest{
+    font-size: calculateRem(18px);
+    margin-bottom: 20px;
+  }
+  a, a:hover, a:active{
+    text-decoration: none !important;
+    color: inherit !important;
   }
 }

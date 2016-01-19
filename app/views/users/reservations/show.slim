@@ -1,6 +1,5 @@
-.row
-  .big-label.yellow Reservation
-.row
+.row.box
+  .separator
   .reservation
     /= model.restaurant.photo.path.to_json
     .col-xs-12
@@ -18,7 +17,7 @@
               .reservation-date
                 = @reservation.date_and_time
             .col-xs-6
-              .big-box.blue.affinity
+              .diinner-label.pink.affinity
                 .value
                   = "#{@reservation.table.affinity}%"
                 .text COMPATIBLE
@@ -70,8 +69,10 @@
                 == cell(:restaurant, @reservation.restaurant)._map
                 == cell(:restaurant, @reservation.restaurant).location
                 = render "/layouts/map"
-      .col-xs-12
-        .text-center style="margin-bottom: 20px;"
-          == cell(:reservation, @reservation).cancel_link
-        .text-center style="margin-bottom: 20px;"
-          == cell(:reservation, @reservation).evaluate_link
+    .col-xs-12
+      .text-center style="margin-bottom: 20px;"
+        == cell(:reservation, @reservation).cancel_link
+      .text-center style="margin-bottom: 20px;"
+        == cell(:reservation, @reservation).evaluate_link
+    .col-xs-12.diinner-label.yellow
+      | Reserva

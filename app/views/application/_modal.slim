@@ -1,0 +1,14 @@
+.modal-box id="#{name}"
+  .outer
+  .inner
+    - if content_for?(:modal)
+      == yield(:modal)
+    - else
+      = render view unless view.nil?
+
+
+javascript:
+  $("##{name} > .outer").click(function(){
+    console.log("hola");
+    closeModal("#{name}");
+  });

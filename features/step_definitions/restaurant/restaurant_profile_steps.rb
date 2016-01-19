@@ -54,9 +54,9 @@ end
 
 
 Then(/^I should check my password has changed$/) do
-  click_on "Restaurant"
+  click_on "¿Eres un restaurante?"
   step "I logout"
-  click_on "Restaurant"
+  click_on "¿Eres un restaurante?"
   fill_in "Email", with: @restaurant.email
   fill_in "Password", with: "updated1111"
   click_button 'Log in'

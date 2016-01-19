@@ -11,5 +11,6 @@ nav#navbar-home.navbar.navbar-default.navbar-fixed-top.navbar-main
     div#menu.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         li = link_to "¿Eres un restaurante?", new_restaurant_session_path, class: "navbar-link"
-        li = link_to "Inicia sesión", users_login_path, class: "navbar-link"
-        li = link_to "Regístrate", users_login_path, class: "navbar-link"
+        li = link_to "Inicia sesión", "#", class: "navbar-link login-link"
+        li.separator
+        li.register = link_to "Regístrate", "#", class: "navbar-link login-link"

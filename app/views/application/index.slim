@@ -2,26 +2,23 @@ header.home-header
   = image_tag "landing/header.png"
   .header-title
     |Cenar para
-    br<
+    br
     |quedar.
 .how-it-works.container-fluid.no-padding
-  .item.col-md-4
-    = image_tag "landing/how_it_works_1.png"
-  .item.col-md-4
-    = image_tag "landing/how_it_works_2.png"
-  .item.col-md-4
-    = image_tag "landing/how_it_works_3.png"
-  .col-md-12.no-padding.white-panel.negative-top.box
+  .col-md-12.no-padding.white-panel.box
     .row
       .item.col-md-4
+        = image_tag "landing/how_it_works_1.png"
         .oval
           .text 1
         .info ¿Te apetece conocer gente disfrutando de una buena cena?
       .item.col-md-4
+        = image_tag "landing/how_it_works_2.png"
         .oval
           .text 2
         .info Solo tienes que decirnos cuándo, dónde y tu presupuesto. Puedes venir solo o acompañado
       .item.col-md-4
+        = image_tag "landing/how_it_works_3.png"
         .oval
           .text 3
         .info Nosotros nos encargamos de encontrar los mejores compañeros de mesa y restaurantes. ¿Estás listo para empezar?
@@ -48,8 +45,52 @@ header.home-header
       .diinner-label.yellow
         .title Streetxo
         .city Barcelona
-  .register-box.box
-    .diinner-label.pink Regístrate
+  .register-wrapper
+    .register-box.box
+      .area
+        |¿Ya estás
+        br
+        |registrado?
+        .diinner-button.pink.login-link Inicia sesión
+      .diinner-label.button.pink.login-link Regístrate
+    .info
+      | Más de 1900 personas se han conocido gracias a diinner,
+      .black únete a nosotros.
   .test-box.box
-  .info
-  .share-box.box
+    .test-info
+      .title ¿Los Serrano o Los Soprano?
+      .answer
+        .wrapper.left
+          .image
+            = image_tag "landing/serrano@3x.png"
+          .text Los Serrano
+      .answer
+        .wrapper.right
+          .image
+            = image_tag "landing/soprano@3x.png"
+          .text Los Soprano
+    .diinner-label.yellow Cuéntanos tus gustos y te buscaremos los mejores comensales
+    .dot-list
+      .dot.yellow
+      .dot
+      .dot
+      .dot
+      .dot
+
+  .share-box
+    .box
+      .diinner-label.yellow
+        = image_tag "landing/facebook.png"
+        = image_tag "landing/twitter.png"
+        = image_tag "landing/instagram.png"
+    .follow
+      |Síguenos en
+      br
+      |redes sociales
+
+== render 'application/modal', name: 'login-modal', view: 'users/users/login'
+
+javascript:
+  $(".login-link").click(function(){
+    openModal('login-modal');
+  });
