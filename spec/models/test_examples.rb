@@ -11,10 +11,10 @@ describe User do
               expectativas: values[0],
               cultura: values[1], 
               foodie: values[2],
-              melomania: values[3],
-              estudios: values[3],
-              belleza: values[3],
-              humor: values[3]
+              frikismo: values[3],
+              estudios: values[4],
+              belleza: values[5],
+              humor: values[6]
               )
   end
 
@@ -29,14 +29,14 @@ describe User do
 
   describe "example affinity?" do
     it "works" do
-      test_0 = create_test(2, -2, 1, -1, 2, 1, 2)
-      test_1 = create_test(1, -2, 0, -1, 2, 1, 2)
+      # test = create_test(2, -2, 1, -1, 2, 1, -2)
+      # test = create_test(1, -2, 0, -1, 2, 1, -2)
+      test = create_test(0, 0, 0, 0, 0, 0, 1)
 
-      answer_test(@user, test_0, :A)
-      answer_test(@other, test_0, :B)
-      answer_test(@user, test_1, :A)
-      answer_test(@other, test_1, :A)
-
+      answer_test(@user, test, :A)
+      answer_test(@other, test, :B)
+      # answer_test(@user, test_1, :A)
+      # answer_test(@other, test_1, :A)
       print "AFFINITY: ", @user.affinity(@other)
     end
   end

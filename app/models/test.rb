@@ -12,7 +12,7 @@ class Test
   field :expectativas, type: Integer
   field :cultura, type: Integer
   field :foodie, type: Integer
-  field :melomania, type: Integer
+  field :frikismo, type: Integer
   field :estudios, type: Integer
   field :belleza, type: Integer
   field :humor, type: Integer

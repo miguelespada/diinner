@@ -12,7 +12,7 @@ class TestResponse
   delegate :expectativas, 
            :cultura, 
            :foodie, 
-           :melomania, 
+           :frikismo, 
            :estudios, 
            :belleza, 
            :humor, 

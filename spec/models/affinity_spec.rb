@@ -5,8 +5,8 @@ describe User do
     @user = FactoryGirl.create(:user)
     @other = FactoryGirl.create(:user)
 
-    @test_0 = FactoryGirl.create(:test, expectativas: 2, cultura: -2, foodie: 1, melomania: -1)
-    @test_1 = FactoryGirl.create(:test, expectativas: 1, cultura: -2, foodie: 0, melomania: -1)
+    @test_0 = FactoryGirl.create(:test, expectativas: 2, cultura: -2, foodie: 1, frikismo: -1)
+    @test_1 = FactoryGirl.create(:test, expectativas: 1, cultura: -2, foodie: 0, frikismo: -1)
   end
 
   describe "#user score" do
@@ -17,7 +17,7 @@ describe User do
       expect(@user.profile :expectativas).to be 0.5
       expect(@user.profile :cultura).to be 0.0
       expect(@user.profile :foodie).to be 0.5
-      expect(@user.profile :melomania).to be 0.0
+      expect(@user.profile :frikismo).to be 0.0
     end
   end
 
@@ -47,7 +47,7 @@ describe User do
     end
 
     it "worst affinity" do
-      @test_0 = FactoryGirl.create(:test, expectativas: 2, cultura: 2, foodie: 2, melomania: 2)
+      @test_0 = FactoryGirl.create(:test, expectativas: 2, cultura: 2, foodie: 2, frikismo: 2)
 
       TestResponse.create(user: @user, test: @test_0, response: @test_0.caption_A)
       TestResponse.create(user: @other, test: @test_0, response: @test_0.caption_B)
@@ -90,7 +90,7 @@ describe User do
                 expectativas: values[0],
                 cultura: values[1], 
                 foodie: values[2],
-                melomania: values[3],
+                frikismo: values[3],
                 estudios: values[3],
                 belleza: values[3],
                 humor: values[3]

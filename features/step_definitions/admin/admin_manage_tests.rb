@@ -6,7 +6,7 @@ When(/^I create a new test$/) do
   fill_in "Caption b", with: "Option B"
   select 2, :from => "test_expectativas"
   select -2, :from => "test_cultura"
-  select 1, :from => "test_melomania"
+  select 1, :from => "test_frikismo"
   select 0, :from => "test_foodie"
   select 2, :from => "test_estudios"
   select 1, :from => "test_belleza"
@@ -26,7 +26,7 @@ Then(/^I should see the test in list of tests$/) do
   within(".cultura") do
     expect(page).to have_content "-2"
   end
-  within(".melomania") do
+  within(".frikismo") do
     expect(page).to have_content "1"
   end
   within(".foodie") do

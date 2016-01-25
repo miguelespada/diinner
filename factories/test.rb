@@ -5,7 +5,7 @@ FactoryGirl.define do
     caption_B "Response B"
     expectativas 0
     cultura 0
-    melomania 0
+    frikismo 0
     foodie 0
     estudios 0
     belleza 0

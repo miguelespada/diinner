@@ -132,14 +132,14 @@ class User
   def generate_profile
     # TODO maybe save in database and update on callbacks
     @profile =  { :expectativas => 0, :cultura => 0, 
-                  :foodie => 0, :melomania => 0,
+                  :foodie => 0, :frikismo => 0,
                   :estudios => 0, :belleza => 0, :humor => 0}
     test_completed.each do |t|
       factor = t.response_is_a? ? 1 : -1
       @profile[:expectativas] += ((t.expectativas || 0) * factor)
       @profile[:cultura] += ((t.cultura || 0) * factor)
       @profile[:foodie] += ((t.foodie || 0) * factor)
-      @profile[:melomania] += ((t.melomania || 0) * factor)
+      @profile[:frikismo] += ((t.frikismo || 0) * factor)
       @profile[:estudios] += ((t.estudios || 0) * factor)
       @profile[:belleza] += ((t.belleza || 0) * factor)
       @profile[:humor] += ((t.humor || 0) * factor)
@@ -159,10 +159,10 @@ class User
       (profile(:expectativas) - other.profile(:expectativas)).abs +
       (profile(:cultura) - other.profile(:cultura)).abs + 
       (profile(:foodie) - other.profile(:foodie)).abs +
-      (profile(:melomania) - other.profile(:melomania)).abs +
-      (profile(:estudios) - other.profile(:melomania)).abs +
-      (profile(:belleza) - other.profile(:melomania)).abs +
-      (profile(:humor) - other.profile(:melomania)).abs
+      (profile(:frikismo) - other.profile(:frikismo)).abs +
+      (profile(:estudios) - other.profile(:estudios)).abs +
+      (profile(:belleza) - other.profile(:belleza)).abs +
+      (profile(:humor) - other.profile(:humor)).abs
     ) / 7.0
 
     # NOTE: we normalize the value 1 (highiest) - 0 (lowest)

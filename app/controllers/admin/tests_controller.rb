@@ -42,7 +42,7 @@ class  Admin::TestsController < AdminController
                                   :expectativas,
                                   :cultura,
                                   :foodie,
-                                  :melomania,
+                                  :frikismo,
                                   :estudios,
                                   :belleza,
                                   :humor,
