@@ -83,6 +83,10 @@ Rails.application.routes.draw do
     resources :reservations, only: [:show, :index]
     resources :payments, only: [:index, :show]
     resources :evaluations, only: [:index]
+
+    resources :home_items, only: [:update] do
+      get "edit",  on: :collection
+    end
   end
 
   get "/index" => "base_users#users", as: "users"

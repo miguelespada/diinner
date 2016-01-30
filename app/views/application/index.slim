@@ -1,5 +1,7 @@
+- home = HomeItem.get_first
+
 header.home-header
-  = image_tag "landing/header.png"
+  = cl_image_tag(home.header.path)
   .header-title
     |Cenar para
     br
