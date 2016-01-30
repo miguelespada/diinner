@@ -1,7 +1,7 @@
 - home = HomeItem.get_first
 
 header.home-header
-  = cl_image_tag home.header.path
+  = cl_image_tag(home.header.path, :quality => 75)
   .header-title
     |Cenar para
     br
