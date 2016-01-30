@@ -1,7 +1,7 @@
 - home = HomeItem.get_first
 
 header.home-header
-  = cl_image_tag(home.header.path)
+  = cl_image_tag home.header.path
   .header-title
     |Cenar para
     br
@@ -10,17 +10,17 @@ header.home-header
   .col-md-12.no-padding.white-panel.box
     .row
       .item.col-md-4
-        = image_tag "landing/how_it_works_1.png"
+        = cl_image_tag home.how_it_works_1.path
         .oval
           .text 1
         .info ¿Te apetece conocer gente disfrutando de una buena cena?
       .item.col-md-4
-        = image_tag "landing/how_it_works_2.png"
+        = cl_image_tag home.how_it_works_2.path
         .oval
           .text 2
         .info Solo tienes que decirnos cuándo, dónde y tu presupuesto. Puedes venir solo o acompañado
       .item.col-md-4
-        = image_tag "landing/how_it_works_3.png"
+        = cl_image_tag home.how_it_works_3.path
         .oval
           .text 3
         .info Nosotros nos encargamos de encontrar los mejores compañeros de mesa y restaurantes. ¿Estás listo para empezar?
@@ -28,25 +28,32 @@ header.home-header
       .diinner-label.pink Cómo funciona
 
 .content
+  / TODO Dry this
   .restaurant-list
+    - restaurant = home.restaurant_sample_1
     .restaurant-box.box
       .image
-        = image_tag "landing/restaurant_1.png"
+        = cl_image_tag restaurant.photo.path if !restaurant.photo.nil?
       .diinner-label.yellow
-        .title Luzi bombón
-        .city Madrid
+        .title = restaurant.name
+        .city  = restaurant.city.name
+
+    - restaurant = home.restaurant_sample_2
     .restaurant-box.box
       .image
-        = image_tag "landing/restaurant_2.png"
+        = cl_image_tag restaurant.photo.path if !restaurant.photo.nil?
       .diinner-label.yellow
-        .title Taberna los Gallos
-        .city Madrid
+        .title = restaurant.name
+        .city  = restaurant.city.name
+
+    - restaurant = home.restaurant_sample_3
     .restaurant-box.box
       .image
-        = image_tag "landing/restaurant_3.png"
+        = cl_image_tag restaurant.photo.path if !restaurant.photo.nil?
       .diinner-label.yellow
-        .title Streetxo
-        .city Barcelona
+        .title = restaurant.name
+        .city  = restaurant.city.name
+    
   .register-wrapper
     .register-box.box
       .area

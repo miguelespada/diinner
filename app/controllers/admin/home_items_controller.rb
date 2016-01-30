@@ -16,7 +16,10 @@ class  Admin::HomeItemsController < AdminController
     params.require(:home_item).permit(:header,
                                       :how_it_works_1,
                                       :how_it_works_2,
-                                      :how_it_works_3
+                                      :how_it_works_3,
+                                      :restaurant_sample_1_id,
+                                      :restaurant_sample_2_id,
+                                      :restaurant_sample_3_id
                                       )
   end
 
