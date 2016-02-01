@@ -1,19 +1,22 @@
 .row.box
   .col-xs-12.diinner-label.yellow
-    | Pago
+    =  t("payment_title")
   .separator
   .col-xs-12.col-md-8.col-md-offset-2
     .col-xs-12
-      b Payment details
+      = t("payment")
     .separator
     .col-xs-12
-      b Restaurant:
+      b = "#{t("restaurant")}:"
       =< @reservation.restaurant.name
     .col-xs-12
-      b Date:
+      b = "#{t("date_time")}:"
       =< @reservation.date_and_time
     .col-xs-12
-      b Price:
+      b = "#{t("menu")}:"
+      =< "#{@reservation.menu.name}"
+    .col-xs-12
+      b = "#{t("price")}:"
       =< "#{@reservation.price}€"
     .separator
   - if @reservation.user.has_default_card?
@@ -22,7 +25,7 @@
         #submit-default-card.diinner-label.pink
           .text-center.card
             .bi.bi_ecommerce-creditcard-c
-          .text Use saved card
+          .text = t("use_saved_card")
           .text == cell(:user, @reservation.user).default_card
         = submit_tag "Use saved card", class: "hidden"
       .separator
@@ -63,12 +66,12 @@
           .col-xs-10
             = label_tag "I accept the terms and conditions"
         #submit-other-card.col-xs-12.text-center
-          .diinner-button.pink Confirmar
+          .diinner-button.pink = t("continue_button")
         .separator
         = submit_tag "Confirm", class: "hidden"
 
   .col-xs-12.col-md-8.col-md-offset-2.text-center
-    #other-card.diinner-button.pink Use other card
+    #other-card.diinner-button.pink = t("use_new_card")
     .separator
 
 javascript:

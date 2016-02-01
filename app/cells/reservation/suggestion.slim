@@ -27,7 +27,7 @@
         span.bi_interface-circle
         == restaurant.name
         .time
-          == "Hora #{model.date_and_time.to_s.split(//).last(5).join}"
+          == "Hora#{model.date_and_time.to_s.split(//).last(5).join}"
       .diinner-double-button
         .item.see-menu
           .text VER MENÚ
