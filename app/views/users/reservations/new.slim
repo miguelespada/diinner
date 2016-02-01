@@ -1,5 +1,7 @@
 = simple_form_for [@user, @reservation], url: user_search_tables_path, html: {id: 'reservation-form'}  do |f|
   .row.box.bottom-box
+    .col-xs-12.diinner-label.yellow
+      | Nueva reserva
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
@@ -39,8 +41,8 @@
             = render 'company_fields', :f => company
       label Expectations
       = render '/users/after_plan', f: f
-    .col-xs-12.diinner-label.yellow
-      | Nueva reserva
+    .separator
+
 
 
   .text-center
