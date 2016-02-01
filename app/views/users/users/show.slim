@@ -22,6 +22,9 @@
       .separator
       .box.col-md-12
         .row
+          .diinner-label.yellow
+            | Mis reservas
+        .row
           .col-xs-12
             .my-reservations
               .list
@@ -36,9 +39,6 @@
                         = r.restaurant.name
                     .date = r.date.strftime("%d/%m/%Y")
                     .time = r.hour.strftime("%H:%M")
-        .row
-          .diinner-label.yellow
-            | Mis reservas
 
 
     .col-md-7
