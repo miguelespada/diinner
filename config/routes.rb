@@ -108,7 +108,7 @@ Rails.application.routes.draw do
       post "search" => "reservations#search", as: "search_tables"
       get "last_minute_diiners" => "reservations#new_last_minute", as: "last_minute_diinners"
       post "search_last_minute_diiners" => "reservations#search_last_minute", as: "search_last_minute_diinners"
-      
+
       resources :reservations do
         resources :evaluations, only: [:new, :create]
         patch "cancel", as: "cancel"
