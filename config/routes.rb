@@ -36,6 +36,10 @@ Rails.application.routes.draw do
     patch 'admins/password/:id' => 'devise/registrations#update', :as => 'admin_registration'
   end
 
+  scope :static do
+    get "help" => "static#help"
+  end
+
   namespace :restaurants, as: nil do
     resources :restaurants, only: [:index, :edit, :update, :show] do
       resources :payments, only: [:index]
@@ -114,7 +118,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'application#index'
+  root 'static#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
