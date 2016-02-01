@@ -1,4 +1,6 @@
 .row.box
+  .col-xs-12.diinner-label.yellow
+    | Pago
   .separator
   .col-xs-12.col-md-8.col-md-offset-2
     .col-xs-12
@@ -14,11 +16,6 @@
       b Price:
       =< "#{@reservation.price}€"
     .separator
-  .col-xs-12.diinner-label.yellow
-    | Pago
-.separator
-.row.box
-  .separator
   - if @reservation.user.has_default_card?
     = form_tag user_reuse_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "reuse_card" do
       .col-xs-12.col-md-8.col-md-offset-2
@@ -29,8 +26,6 @@
           .text == cell(:user, @reservation.user).default_card
         = submit_tag "Use saved card", class: "hidden"
       .separator
-      .col-xs-12.col-md-8.col-md-offset-2.text-center
-        #other-card.diinner-button.pink Use other card
   .col-xs-12.col-md-8.col-md-offset-2
     #other-card-form class=('hidden' if @reservation.user.has_default_card?)
       = javascript_include_tag "https://js.stripe.com/v2/"
@@ -72,6 +67,10 @@
         .separator
         = submit_tag "Confirm", class: "hidden"
 
+  .col-xs-12.col-md-8.col-md-offset-2.text-center
+    #other-card.diinner-button.pink Use other card
+    .separator
+
 javascript:
 
   $("#submit-default-card").click(function(){
@@ -79,7 +78,6 @@ javascript:
   });
 
   $("#submit-other-card").click(function () {
-    console.log("clicking");
     $("#new_reservation").submit();
   });
 

@@ -1,4 +1,4 @@
-.row.box
+.box
   .reservation
     /= model.restaurant.photo.path.to_json
     .col-xs-12.diinner-label.yellow
@@ -10,58 +10,67 @@
           - if @reservation.restaurant.photo
             = cl_image_tag(@reservation.restaurant.photo.path, { crop: :fill, radius: 2, class: "restaurant-image" })
       .col-xs-12.col-md-6
-        .row
-          .big-label Menú
-          .menu
-            .menu-title
-              .col-xs-12
-                .col-xs-9 == @reservation.menu.name
-                .col-xs-3 ==< "#{@reservation.menu.price} €"
-              .col-xs-12.text-center
-                .description = @reservation.menu.description
-                strong APPETIZER
-                .item = @reservation.menu.appetizer
-                strong  MAIN DISH
-                .item = @reservation.menu.main_dish
-                strong DESSERT
-                .item = @reservation.menu.dessert
-                strong DRINK
-                .item = @reservation.menu.drink
-      /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
+
+        .menu
+          .menu-title
+            .col-xs-12
+              .col-xs-9 == @reservation.menu.name
+              .col-xs-3 ==< "#{@reservation.menu.price} €"
+            .col-xs-12.text-center
+              .description = @reservation.menu.description
+              strong APPETIZER
+              .item = @reservation.menu.appetizer
+              strong  MAIN DISH
+              .item = @reservation.menu.main_dish
+              strong DESSERT
+              .item = @reservation.menu.dessert
+              strong DRINK
+              .item = @reservation.menu.drink
+    /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
+    .separator
+.separator
+
+.box
+  .col-xs-12
+    .col-xs-12.diinner-label.yellow
+      |Información
+    .col-xs-6
+      == "#{t("the_status_is")}"
+    .col-xs-6.text-right.reservation-status
+      = @reservation.status.capitalize
+    .col-xs-6
+      == "#{t("the_plan_is")}"
+    .col-xs-6.text-right
+      = @reservation.after_plan_to_s
+    .row
       .col-xs-12
-        .main-info
-          .row.separator
-            .col-xs-6
-              .reservation-date
-                .day = "Día #{@reservation.date_and_time.to_s.split(//).first(10).join}"
-                .time = "Hora #{@reservation.date_and_time.to_s.split(//).last(5).join}"
+        .diinner-label.pink.affinity
+          .value
+            = "#{@reservation.table.affinity}%"
+          .text COMPATIBLE
 
-              .big-label Address
-              .address
-                == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
-                == cell(:restaurant, @reservation.restaurant)._map
-                == cell(:restaurant, @reservation.restaurant).location
-                = render "/layouts/map"
-            .col-xs-6
-              .big-label Plan information
-              .col-xs-6
-                == "#{t("the_status_is")}"
-              .col-xs-6.text-right.reservation-status
-                = @reservation.status.capitalize
-              .col-xs-6
-                == "#{t("the_plan_is")}"
-              .col-xs-6.text-right
-                = @reservation.after_plan_to_s
-              .row
-                .col-xs-12
-                  .diinner-label.pink.affinity
-                    .value
-                      = "#{@reservation.table.affinity}%"
-                    .text COMPATIBLE
+.separator
+.box
+  .col-xs-12.diinner-label.yellow
+    | Hora y Lugar
+  .col-xs-12
+    .main-info
+      .row.separator
+        .col-xs-12
+          .reservation-date
+            .day = "Día #{@reservation.date.to_s}"
+            .time = "Hora #{@reservation.hour.to_s.last(5)}"
+
+          .big-label Address
+          .address
+            == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
+            == cell(:restaurant, @reservation.restaurant)._map
+            == cell(:restaurant, @reservation.restaurant).location
+            = render "/layouts/map"
 
 
-    .col-xs-12
-      .text-center style="margin-bottom: 20px;"
-        == cell(:reservation, @reservation).cancel_link
-      .text-center style="margin-bottom: 20px;"
-        == cell(:reservation, @reservation).evaluate_link
+.col-xs-12
+  .text-center style="margin-bottom: 20px;"
+    == cell(:reservation, @reservation).cancel_link
+  .text-center style="margin-bottom: 20px;"
+    == cell(:reservation, @reservation).evaluate_link
