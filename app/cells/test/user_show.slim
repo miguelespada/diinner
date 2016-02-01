@@ -1,7 +1,8 @@
 .row.box.bottom-box
   .test
-    .question
+    .col-xs-12.diinner-label.yellow
       = model.question
+
     .responses
       .col-lg-6
         .option.option_A
@@ -27,7 +28,5 @@
           = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, class: 'wrapper'
             .selector
               .bi_interface-arrow-right
-  .col-xs-12.diinner-label.yellow
-    | Test
 .text-center
   = link_to 'Skip', user_path(current_user), class: 'diinner-button pink floater'
