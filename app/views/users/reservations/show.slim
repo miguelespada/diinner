@@ -1,78 +1,67 @@
 .row.box
-  .separator
   .reservation
     /= model.restaurant.photo.path.to_json
+    .col-xs-12.diinner-label.yellow
+      == @reservation.restaurant.name
+    .separator
     .col-xs-12
-      .col-xs-12.col-md-6.col-md-offset-3
+      .col-xs-12.col-md-6
         .text-center
           - if @reservation.restaurant.photo
             = cl_image_tag(@reservation.restaurant.photo.path, { crop: :fill, radius: 2, class: "restaurant-image" })
+      .col-xs-12.col-md-6
+        .row
+          .big-label Menú
+          .menu
+            .menu-title
+              .col-xs-12
+                .col-xs-9 == @reservation.menu.name
+                .col-xs-3 ==< "#{@reservation.menu.price} €"
+              .col-xs-12.text-center
+                .description = @reservation.menu.description
+                strong APPETIZER
+                .item = @reservation.menu.appetizer
+                strong  MAIN DISH
+                .item = @reservation.menu.main_dish
+                strong DESSERT
+                .item = @reservation.menu.dessert
+                strong DRINK
+                .item = @reservation.menu.drink
       /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
       .col-xs-12
         .main-info
           .row.separator
             .col-xs-6
-              .restaurant-name
-                == @reservation.restaurant.name
               .reservation-date
-                = @reservation.date_and_time
-            .col-xs-6
-              .diinner-label.pink.affinity
-                .value
-                  = "#{@reservation.table.affinity}%"
-                .text COMPATIBLE
-          .row.separator
-            .col-xs-12
-              .big-label Plan information
-            .col-xs-6
-              == "#{t("the_status_is")}"
-            .col-xs-6.text-right.reservation-status
-              = @reservation.status.capitalize
-            .col-xs-6
-              == "#{t("the_plan_is")}"
-            .col-xs-6.text-right
-              = @reservation.after_plan_to_s
-          .col-xs-12.col-md-6
-            .row
-              .big-label Menú
-              .menu
-                .col-xs-9
-                  .menu-title
-                    == @reservation.menu.name
-                .col-xs-3
-                  .menu-price
-                    ==< "#{@reservation.menu.price} €"
-                .col-xs-12.text-center
-                  .menu-description
-                    = @reservation.menu.description
-                .col-xs-4
-                  | APPETIZER
-                .col-xs-8.text-right
-                  = @reservation.menu.appetizer
-                .col-xs-4
-                  | MAIN DISH
-                .col-xs-8.text-right
-                  = @reservation.menu.main_dish
-                .col-xs-4
-                  | DESSERT
-                .col-xs-8.text-right
-                  = @reservation.menu.dessert
-                .col-xs-4
-                  | DRINK
-                .col-xs-8.text-right
-                  = @reservation.menu.drink
-          .col-xs-12.col-md-6
-            .row
+                .day = "Día #{@reservation.date_and_time.to_s.split(//).first(10).join}"
+                .time = "Hora #{@reservation.date_and_time.to_s.split(//).last(5).join}"
+
               .big-label Address
               .address
                 == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
                 == cell(:restaurant, @reservation.restaurant)._map
                 == cell(:restaurant, @reservation.restaurant).location
                 = render "/layouts/map"
+            .col-xs-6
+              .big-label Plan information
+              .col-xs-6
+                == "#{t("the_status_is")}"
+              .col-xs-6.text-right.reservation-status
+                = @reservation.status.capitalize
+              .col-xs-6
+                == "#{t("the_plan_is")}"
+              .col-xs-6.text-right
+                = @reservation.after_plan_to_s
+              .row
+                .col-xs-12
+                  .diinner-label.pink.affinity
+                    .value
+                      = "#{@reservation.table.affinity}%"
+                    .text COMPATIBLE
+
+
     .col-xs-12
       .text-center style="margin-bottom: 20px;"
         == cell(:reservation, @reservation).cancel_link
       .text-center style="margin-bottom: 20px;"
         == cell(:reservation, @reservation).evaluate_link
-    .col-xs-12.diinner-label.yellow
-      | Reserva

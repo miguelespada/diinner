@@ -26,6 +26,8 @@
       .title
         span.bi_interface-circle
         == restaurant.name
+        .time
+          == "Hora #{model.date_and_time.to_s.split(//).last(5).join}"
       .diinner-double-button
         .item.see-menu
           .text VER MENÚ
@@ -33,8 +35,6 @@
         = link_to "RESERVAR", reserve_link, method: :post, class: "item"
       .address
         == model.restaurant.address
-      .time
-        == model.date_and_time.to_s.split(//).last(5).join
       .menu
         .menu-title
           == menu.model.name
