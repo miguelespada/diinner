@@ -25,6 +25,11 @@ es:
   #Tests
   skip: "Saltar pregunta"
 
+  #User menu
+  notifications: "Notificaciones"
+  tests: "Tests"
+  preferences: "Preferences"
+
   #User profile page
   new_reservation: "Reservar"
   my_reservations: "Mis reservas"

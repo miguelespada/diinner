@@ -13,33 +13,33 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
         = link_to new_user_reservation_path(@user)
           .navbar-toggle
             /.bi_food-onigiri
-            .menu-text Nueva reserva
+            .menu-text = t("new_reservation")
     .collapse.navbar-collapse.main-menu
       ul.nav.navbar-nav.navbar-right
         li.featured.hidden-xs.hidden-sm
           = link_to new_user_reservation_path(@user)
             /.bi_food-onigiri
-            .menu-text Nueva reserva
+            .menu-text = t("new_reservation")
         li.hidden-xs.hidden-sm
           = link_to user_notifications_path(@user)
             /.menu-icon.bi_com-bell
-            .menu-text Notifications
+            .menu-text = t("notifications")
         li
           = link_to user_reservations_path(@user)
             /.menu-icon.bi_time-calendar-a
-            .menu-text My reservations
+            .menu-text = t("my_reservations")
             .pull-right.visible-xs.visible-sm
               .bi_interface-right
         li
           = link_to user_test_path(@user)
             /.menu-icon.bi_doc-wboard-line
-            .menu-text Test
+            .menu-text = t("tests")
             .pull-right.visible-xs.visible-sm
               .bi_interface-right
         li
           = link_to edit_user_path(@user)
             /.menu-icon.bi_setting-gear
-            .menu-text Preferences
+            .menu-text = t("preferences")
             .pull-right.visible-xs.visible-sm
               .bi_interface-right
         li

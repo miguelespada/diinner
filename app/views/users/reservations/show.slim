@@ -1,39 +1,36 @@
-.box
+.row.box
+  .col-xs-12.diinner-label.yellow
+    == @reservation.restaurant.name
   .reservation
-    /= model.restaurant.photo.path.to_json
-    .col-xs-12.diinner-label.yellow
-      == @reservation.restaurant.name
-    .separator
     .col-xs-12
       .col-xs-12.col-md-6
         .text-center
           - if @reservation.restaurant.photo
             = cl_image_tag(@reservation.restaurant.photo.path, { crop: :fill, radius: 2, class: "restaurant-image" })
       .col-xs-12.col-md-6
-
-        .menu
-          .menu-title
-            .col-xs-12
-              .col-xs-9 == @reservation.menu.name
-              .col-xs-3 ==< "#{@reservation.menu.price} €"
-            .col-xs-12.text-center
-              .description = @reservation.menu.description
-              strong APPETIZER
-              .item = @reservation.menu.appetizer
-              strong  MAIN DISH
-              .item = @reservation.menu.main_dish
-              strong DESSERT
-              .item = @reservation.menu.dessert
-              strong DRINK
-              .item = @reservation.menu.drink
-    /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
-    .separator
+        .separator
+        .col-xs-12
+          .col-xs-9 == @reservation.menu.name
+          .col-xs-3 ==< "#{@reservation.menu.price} €"
+        .separator
+        .col-xs-12.text-center
+          .description = @reservation.menu.description
+          strong APPETIZER
+          .item = @reservation.menu.appetizer
+          strong  MAIN DISH
+          .item = @reservation.menu.main_dish
+          strong DESSERT
+          .item = @reservation.menu.dessert
+          strong DRINK
+          .item = @reservation.menu.drink
+  .separator
+      /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
 .separator
-
-.box
+.row.box
+  .col-xs-12.diinner-label.yellow
+    == "#{t("plan_info")}"
   .col-xs-12
-    .col-xs-12.diinner-label.yellow
-      |Información
+    .separator
     .col-xs-6
       == "#{t("the_status_is")}"
     .col-xs-6.text-right.reservation-status
@@ -42,35 +39,55 @@
       == "#{t("the_plan_is")}"
     .col-xs-6.text-right
       = @reservation.after_plan_to_s
-    .row
-      .col-xs-12
-        .diinner-label.pink.affinity
-          .value
-            = "#{@reservation.table.affinity}%"
-          .text COMPATIBLE
-
+    .col-xs-6
+      == "#{t("compatibility")}"
+    .col-xs-6.text-right
+      = "#{@reservation.table.affinity}%"
+    .separator
 .separator
-.box
+.row.box
   .col-xs-12.diinner-label.yellow
-    | Hora y Lugar
+    == "#{t("date_time")}"
   .col-xs-12
-    .main-info
-      .row.separator
-        .col-xs-12
-          .reservation-date
-            .day = "Día #{@reservation.date.to_s}"
-            .time = "Hora #{@reservation.hour.to_s.last(5)}"
-
-          .big-label Address
-          .address
-            == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
-            == cell(:restaurant, @reservation.restaurant)._map
-            == cell(:restaurant, @reservation.restaurant).location
-            = render "/layouts/map"
-
-
+    .separator
+    .col-xs-12.reservation-date
+      .day = "Día #{@reservation.date.to_s}"
+      .time = "Hora #{@reservation.hour.to_s.last(5)}"
+    .col-xs-12.address
+      == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
+      == cell(:restaurant, @reservation.restaurant)._map
+      == cell(:restaurant, @reservation.restaurant).location
+      = render "/layouts/map"
+.separator
 .col-xs-12
   .text-center style="margin-bottom: 20px;"
     == cell(:reservation, @reservation).cancel_link
   .text-center style="margin-bottom: 20px;"
     == cell(:reservation, @reservation).evaluate_link
+.separator
+
+
+/.box
+/  .col-xs-12.diinner-label.yellow
+/    | Hora y Lugar
+/  .col-xs-12
+/    .main-info
+/      .row.separator
+/        .col-xs-12
+/          .reservation-date
+/            .day = "Día #{@reservation.date.to_s}"
+/            .time = "Hora #{@reservation.hour.to_s.last(5)}"
+/
+/          .big-label Address
+/          .address
+/            == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
+/            == cell(:restaurant, @reservation.restaurant)._map
+/            == cell(:restaurant, @reservation.restaurant).location
+/            = render "/layouts/map"
+/
+/
+/.col-xs-12
+/  .text-center style="margin-bottom: 20px;"
+/    == cell(:reservation, @reservation).cancel_link
+/  .text-center style="margin-bottom: 20px;"
+/    == cell(:reservation, @reservation).evaluate_link

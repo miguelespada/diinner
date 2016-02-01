@@ -409,9 +409,7 @@ input.company {
       font-size: 1.2rem;
       font-weight: bold;
     }
-    .reservation-date{
-      font-size: calculateRem(25px);
-    }
+
 
     .address{
       font-size: 1.2rem;
@@ -426,6 +424,9 @@ input.company {
       text-align: right;
     }
   }
+}
+.reservation-date{
+  font-size: calculateRem(20px);
 }
 
 .search-results {
