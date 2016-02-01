@@ -1,0 +1,92 @@
+es:
+  #Login
+  choose_login_method: "Elige tu método favorito para acceder"
+  why_google_facebook: "¿Por qué Google o Facebook?"
+  login_info: "Al acceder con Google o Facebook nos permites conocer unos datos básicos muy importantes para reunirte con personas más afines en las mesas. Además es un método muy seguro y ¡tienes que recordar menos contraseñas! :)"
+
+  # Welcome after registration
+  welcome: "¡¡Bienvenid@ a Diinner!! Como ya sabrás, nuestro objetivo es que tengas las mejores experiencias en tus cenas y para eso creemos que lo más importante son las personas de las que te rodees. Por ello necesitamos que nos confirmes primero algunos de tus datos y de tus preferencias de compañer@s de mesa."
+  continue_button: "Continuar"
+
+  #Registration preferences
+  your_data: "Tus datos"
+  gender: "Tu sexo"
+  birth: "Tu fecha de nacimiento"
+  your_preferences: "Tus preferencias"
+  age: "Edad de los comensales"
+  expectations: "Expectativas habituales de los planes"
+  your_price: "Precio habitual"
+  your_city: "Ciudad habitual"
+
+  #Welcome to tests
+  welcome_tests: "Si te apetece, puedes responder ahora algunas de nuestras divertidas preguntas para mejorar tu compatibilidad con tus mesas. Si no te apetece, podrás hacerlo más tarde."
+  after_button: "Más adelante"
+
+  #Tests
+  skip: "Saltar pregunta"
+
+  #User profile page
+  new_reservation: "Reservar"
+  my_reservations: "Mis reservas"
+  improve_compatibility: "¿Quieres mejorar tu compatibilidad?"
+  go_to_tests: "Acceder a preguntas de compatibilidad"
+
+  #Preferences
+  update_button: "Actualizar"
+
+  #New reservation
+  preferred_date: "¿Qué día quieres tu plan?"
+  today: "Hoy (¡último minuto!)"
+  tomorrow: "Mañana"
+  other_date: "Otro día"
+  preferred_city: "¿Dónde?"
+  preferred_price: "¿Cuánto te quieres gastar?"
+  lowcost: "No mucho (15 - 20 € aprox)"
+  regular: "Una buena cena (30 - 40 €)"
+  premium: "Soy un gourmet (50 € aprox)"
+  friends: "¿Quieres venir con algún amig@?"
+  go_alone: "Voy solo"
+  go_with_friends: "Voy acompañado"
+  preferred_expectations: "¿Qué esperas del plan?"
+  go_for_drinks: "Cenar y copas!"
+  go_to_sleep: "Hoy prefiero plan tranquilo"
+  search_tables: "Buscar mesas"
+
+  #Search results
+  loading_results: "Estamos buscando las mejores mesas"
+  no_results: "Lo sentimos, no hay mesas para la búsqueda que has realizado. Puedes probar a cambiar algún criterio de búsqueda, como el día del plan o el precio del menú..."
+
+  #Payment
+  payment: "Estás a punto de reservar tu plan. Solo tienes que introducir tus datos de pago o hacer uso de la tarjeta guardada si la tienes. Recuerda que podrás cancelar el plan sin coste en cualquier momento excepto el mismo día del plan. Estos son los detalles de tu reserva:"
+  restaurant: "Restaurante"
+  date_time: "Fecha y hora"
+  menu: "Menú"
+  price: "Precio"
+  card_holder: "Titular de la tarjeta"
+  card_number: "Número de la tarjeta"
+  cvc: "CVC"
+  what_is_cvc: "¿Qué es el CVC?"
+  expiration_date: "Fecha de caducidad (mm/aaaa)"
+  accept_terms_checkbox: "Acepto los términos y condiciones"
+  save_card: "Deseo guardar esta tarjeta para futuros pagos"
+  use_new_card: "Usar otra tarjeta"
+
+  #Post payment
+  reservation_finished: "¡¡Enhorabuena, reserva realizada!!"
+
+  #Reservation view:
+  plan_info: "Información del plan"
+  plan_status: "El estado del plan es"
+  reserved: "Reservado"
+  confirmed: "Confirmado"
+  cancelled: "Cancelado"
+  address: "Dirección"
+  cancel_reservation: "Cancelar reserva"
+
+
+  #Notifications
+  reservation_successful: "Tu reserva se ha realizado correctamente."
+  cancelation_successful: "Tu reserva se ha cancelado correctamente."
+  plan_confirmed: "¡Enhorabuena, tu plan está confirmado!"
+  plan_not_confirmed: "Lo sentimos, tu plan no se ha confirmado. No se cobrará nada en tu tarjeta."
+
