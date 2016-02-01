@@ -1,12 +1,11 @@
-- content_for(:head) do
-  = stylesheet_link_tag 'calendar', media: 'all'
-.row
-  .big-label.yellow = t("my_reservations")
-.row
-  .col-xs-12
-    .calendar
-      = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
-        = link_to date.day, "#"
-        - reservations.each do |reservation|
-          .status-table
-            = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+.row.box
+  - content_for(:head) do
+    = stylesheet_link_tag 'calendar', media: 'all'
+  .diinner-label.yellow
+    = t("my_reservations")
+  .calendar
+    = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
+      = link_to date.day, "#"
+      - reservations.each do |reservation|
+        .status-table
+          = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)

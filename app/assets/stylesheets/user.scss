@@ -297,6 +297,7 @@ html, body{
   }
 
   .notification-list{
+    padding: 5px;
     max-height: 40vh;
     overflow: auto;
     &.full{
@@ -596,6 +597,7 @@ input.company {
 
 @media (min-width: 768px) {
   .calendar {
+    padding: 5px;
     .calendar-header {
       span {
         font-size: 2rem;

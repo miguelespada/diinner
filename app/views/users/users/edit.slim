@@ -1,15 +1,18 @@
 = simple_form_for [@user] do |f|
   .row.box
+    .col-xs-12.diinner-label.yellow
+      | Tus datos
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
       = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']]
       .form-date
         = f.input :birth, as: :date, html5: true
-    .col-xs-12.diinner-label.yellow
-      | Tus datos
+    .separator
   .separator
   .row.box.bottom-box
+    .col-xs-12.diinner-label.yellow
+      | Tus preferencias
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.simple_fields_for :preference do |c|
@@ -34,8 +37,7 @@
         .price hidden=true
           = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
         = c.association :city, :include_blank => false
-    .col-xs-12.diinner-label.yellow
-      | Tus preferencias
+    .separator
 
   .text-center
     = f.button :submit, "Actualizar", class: "diinner-button pink floater"
