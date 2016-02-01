@@ -17,8 +17,13 @@ class SuggestionEngine
   end
 
   def date
-    return Date.tomorrow if @params[:date].empty? 
-    Date.strptime(@params[:date], "%d/%m/%Y")
+    return Date.tomorrow if @params[:date].empty?
+    begin
+      Date.strptime(@params[:date], "%d/%m/%Y")
+    rescue
+      Date.strptime(@params[:date], "%Y-%m-%d")
+    end
+
   end
 
   def date_in_range?

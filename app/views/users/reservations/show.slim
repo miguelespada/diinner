@@ -32,13 +32,13 @@
   .col-xs-12
     .separator
     .col-xs-6
-      == "#{t("the_status_is")}"
+      == "#{t("plan_status")}"
     .col-xs-6.text-right.reservation-status
-      = @reservation.status.capitalize
-    .col-xs-6
-      == "#{t("the_plan_is")}"
-    .col-xs-6.text-right
-      = @reservation.after_plan_to_s
+      = t(@reservation.status)
+    /.col-xs-6
+    /  == "#{t("the_plan_is")}"
+    /.col-xs-6.text-right
+    /  = @reservation.after_plan_to_s
     .col-xs-6
       == "#{t("compatibility")}"
     .col-xs-6.text-right
@@ -51,8 +51,8 @@
   .col-xs-12
     .separator
     .col-xs-12.reservation-date
-      .day = "Día #{@reservation.date.to_s}"
-      .time = "Hora #{@reservation.hour.to_s.last(5)}"
+      .day = "#{t("day")} #{@reservation.date.to_s}"
+      .time = "#{t("time")} #{@reservation.hour.to_s.last(5)}"
     .col-xs-12.address
       == "#{@reservation.restaurant.address} #{@reservation.restaurant.city.name}"
       == cell(:restaurant, @reservation.restaurant)._map

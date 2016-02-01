@@ -28,10 +28,14 @@ es:
   #User menu
   notifications: "Notificaciones"
   tests: "Tests"
-  preferences: "Preferences"
+  preferences: "Preferencias"
+  help: "Ayuda"
+  logout: "Salir"
 
   #User profile page
   new_reservation: "Reservar"
+  no_reservations: "No tienes reservas"
+  we_suggest: "Te sugerimos algunas planes para"
   my_reservations: "Mis reservas"
   improve_compatibility: "¿Quieres mejorar tu compatibilidad?"
   go_to_tests: "Acceder a preguntas de compatibilidad"
@@ -52,6 +56,11 @@ es:
   friends: "¿Quieres venir con algún amig@?"
   go_alone: "Voy solo"
   go_with_friends: "Voy acompañado"
+  how_many: "¿Con cuántos?"
+  friend: "Amigo"
+  male: "Chico"
+  female: "Chica"
+  company_age: "Edad"
   preferred_expectations: "¿Qué esperas del plan?"
   go_for_drinks: "Cenar y copas!"
   go_to_sleep: "Hoy prefiero plan tranquilo"
@@ -60,8 +69,10 @@ es:
   #Search results
   loading_results: "Estamos buscando las mejores mesas"
   no_results: "Lo sentimos, no hay mesas para la búsqueda que has realizado. Puedes probar a cambiar algún criterio de búsqueda, como el día del plan o el precio del menú..."
-
+  see_menu: "Ver menú"
+  see_picture: "Ver foto"
   #Payment
+  payment_title: "Pago"
   payment: "Estás a punto de reservar tu plan. Solo tienes que introducir tus datos de pago o hacer uso de la tarjeta guardada si la tienes. Recuerda que podrás cancelar el plan sin coste en cualquier momento excepto el mismo día del plan. Estos son los detalles de tu reserva:"
   restaurant: "Restaurante"
   date_time: "Fecha y hora"
@@ -75,6 +86,7 @@ es:
   accept_terms_checkbox: "Acepto los términos y condiciones"
   save_card: "Deseo guardar esta tarjeta para futuros pagos"
   use_new_card: "Usar otra tarjeta"
+  use_saved_card: "Usar tarjeta guardada"
 
   #Post payment
   reservation_finished: "¡¡Enhorabuena, reserva realizada!!"
@@ -82,12 +94,14 @@ es:
   #Reservation view:
   plan_info: "Información del plan"
   plan_status: "El estado del plan es"
-  reserved: "Reservado"
+  pending: "Reservado"
   confirmed: "Confirmado"
   cancelled: "Cancelado"
   address: "Dirección"
   cancel_reservation: "Cancelar reserva"
-
+  day: "Día"
+  time: "Hora"
+  compatibility: "Compatibilidad"
 
   #Notifications
   reservation_successful: "Tu reserva se ha realizado correctamente."

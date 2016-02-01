@@ -10,7 +10,7 @@
         = @user.name
     .text-center.new-reservation
       .diinner-button.pink
-        = link_to "Nueva reserva", new_user_reservation_path(@user)
+        = link_to t("new_reservation"), new_user_reservation_path(@user)
 
 .hidden-xs.desktop
   .row
@@ -23,13 +23,13 @@
       .box.col-md-12
         .row
           .diinner-label.yellow
-            | Mis reservas
+            = t("my_reservations")
         .row
           .col-xs-12
             .my-reservations
               .list
                 - if @reservations.where(cancelled: false).empty?
-                  | No tienes reservas
+                  = t("no_reservations")
                 - else
                   - r = @reservations.where(cancelled: false).first
                   .item
@@ -43,19 +43,19 @@
 
     .col-md-7
       .box.tests.text-center
-        .info Mejora tu compatibilidad
+        .info = t("improve_compatibility")
         .icon.bi_interface-heart
         = link_to user_test_path(@user)
           .diinner-label.yellow
-            | Acceder a tests
+            = t("go_to_tests")
   .separator
 
   - if @suggestions.length > 0
     .col-md-12.box.suggest
-      | Te sugerimos algunos planes para
+      = t("we_suggest")
       strong
         =<
-        |mañana
+        = t("tomorrow")
     .row
       .search-results
         == cell(:reservation, collection: @suggestions, method: :suggestion)

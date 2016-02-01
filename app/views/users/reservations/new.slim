@@ -1,52 +1,52 @@
 = simple_form_for [@user, @reservation], url: user_search_tables_path, html: {id: 'reservation-form'}  do |f|
   .row.box.bottom-box
     .col-xs-12.diinner-label.yellow
-      | Nueva reserva
+      = t("new_reservation")
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
-      label Date
+      label = t("preferred_date")
       .choosing-box
         .col-lg-4.no-padding
-          .text.long.day-toggle data-day="today" Hoy
+          .text.long.day-toggle data-day="today" = t("today")
         .col-lg-4.no-padding
-          .text.long.day-toggle.selected data-day="tomorrow" Mañana
+          .text.long.day-toggle.selected data-day="tomorrow" = t("tomorrow")
         .col-lg-4.no-padding
-          .text.long.last.day-toggle data-day="date" Otro día
+          .text.long.last.day-toggle data-day="date" = t("other_date")
       .date.form-date hidden=true
         = f.input :date, :as => :date, html5: true, input_html: { min: Date.tomorrow + 1.day, max: Date.tomorrow + 15.days}
 
-      = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id)
-      label Price
+      = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id), label: t("preferred_city")
+      label = t("preferred_price")
       .choosing-box
         .col-lg-4.no-padding
-          .text.long.price-toggle class="#{@user.menu_range.nil? || @user.menu_range == Preference::MENU_RANGE[0] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[0]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[0]
+          .text.long.price-toggle class="#{@user.menu_range.nil? || @user.menu_range == Preference::MENU_RANGE[0] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[0]}" = t(Preference::MENU_RANGE[0])
         .col-lg-4.no-padding
-          .text.long.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[1] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[1]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[1]
+          .text.long.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[1] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[1]}" = t(Preference::MENU_RANGE[1])
         .col-lg-4.no-padding
-          .text.long.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}" = Preference::MENU_RANGE.map{ |s| s.capitalize }[2]
+          .text.long.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}" = t(Preference::MENU_RANGE[2])
       .price hidden=true
         = f.input :price, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range)
       .friends-question
-        label.control-label Friends
+        label.control-label = t("friends")
         .company.choosing-box
-          .text.company-toggle.selected data-company=0 Voy solo
-          .text.company-toggle data-company=1 Voy acompañado
+          .text.company-toggle.selected data-company=0 = t("go_alone")
+          .text.company-toggle data-company=1 = t("go_with_friends")
         .company-container hidden=true
-          h4 How many?
+          h4 = t("how_many")
           .choosing-box
             .text.toggle data-number=1 1
             .text.toggle data-number=2 2
           = f.simple_fields_for :companies do |company|
             = render 'company_fields', :f => company
-      label Expectations
+      label = t("preferred_expectations")
       = render '/users/after_plan', f: f
     .separator
 
 
 
   .text-center
-    = f.button :submit, 'Buscar mesas', class: 'diinner-button pink floater'
+    = f.button :submit,  t("search_tables"), class: 'diinner-button pink floater'
 javascript:
   $(document).on('ready page:change', function () {
     var tomorrow = moment({hour: 21, minute: 00}).add(1, 'days');
