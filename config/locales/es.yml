@@ -114,3 +114,6 @@ es:
        default: "%d/%m/%Y"
        short: "%b %d"
        long: "%B %d, %Y"
+  date:
+    formats:
+      default: "%d/%m/%Y %H:%M:%S %Z"
