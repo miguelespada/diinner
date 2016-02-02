@@ -296,59 +296,36 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/application/index.slim",
+			"contents": "Searching 475 files for \"I have preferences\"\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb:\n   28  \n   29  \n   30: Given(/^I have preferences$/) do\n   31  \n   32    @city = FactoryGirl.create(:city)\n\n/Users/miguel/Diinner/features/user/user_reserve_a_last_minute_diinner.feature:\n    6    Background:\n    7      And I am a logged user\n    8:     And I have preferences\n    9  \n   10    @user_reserves_a_last_minute_dinner_and_there_are_no_dinners\n\n2 matches across 2 files\n\n\nSearching 475 files for \"Search last minute\"\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb:\n   41  end\n   42  \n   43: When(/^Search last minute$/) do\n   44    click_on \"New Reservation\", match: :first\n   45    find(\"#today\").click\n   ..\n   51  When(/^I reserve a last minute diinner$/) do\n   52  \n   53:   step \"Search last minute\"\n   54    click_on @restaurant.name\n   55    step \"I fill in the credit card details\"\n   ..\n  162  \n  163  Then(/^I cannot reserve again for the same date$/) do\n  164:   step \"Search last minute\"\n  165    \n  166    expect(page).to have_content \"You already have a reservation for this date\"\n\n3 matches in 1 file\n\n\nSearching 475 files for \"Search last minute\"\n\n/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb:\n   41  end\n   42  \n   43: When(/^Search last minute$/) do\n   44    click_on \"New Reservation\", match: :first\n   45    find(\"#today\").click\n   ..\n   51  When(/^I reserve a last minute diinner$/) do\n   52  \n   53:   step \"Search last minute\"\n   54    click_on @restaurant.name\n   55    step \"I fill in the credit card details\"\n   ..\n  162  \n  163  Then(/^I cannot reserve again for the same date$/) do\n  164:   step \"Search last minute\"\n  165    \n  166    expect(page).to have_content \"You already have a reservation for this date\"\n\n3 matches in 1 file\n",
 			"settings":
 			{
-				"buffer_size": 2614,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/admin/home_items_controller.rb",
-			"settings":
-			{
-				"buffer_size": 583,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/routes.rb",
-			"settings":
-			{
-				"buffer_size": 5777,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/home_item.rb",
-			"settings":
-			{
-				"buffer_size": 349,
+				"buffer_size": 1919,
 				"line_ending": "Unix",
-				"name": "class HomeItem"
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
-			"file": "app/views/admin/_sidebar.slim",
+			"file": "features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 			"settings":
 			{
-				"buffer_size": 997,
+				"buffer_size": 5968,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "db/seeds.rb",
+			"file": "features/support/env.rb",
 			"settings":
 			{
-				"buffer_size": 5978,
+				"buffer_size": 3568,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/admin/home_items/edit.slim",
+			"file": "Gemfile",
 			"settings":
 			{
-				"buffer_size": 363,
+				"buffer_size": 2117,
 				"line_ending": "Unix"
 			}
 		}
@@ -413,13 +390,21 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/app/models/restaurant.rb",
+		"/Users/miguel/Diinner/app/views/admin/home_items/edit.slim",
+		"/Users/miguel/Diinner/db/seeds.rb",
+		"/Users/miguel/Diinner/app/views/admin/_sidebar.slim",
+		"/Users/miguel/Diinner/app/models/home_item.rb",
+		"/Users/miguel/Diinner/config/routes.rb",
+		"/Users/miguel/Diinner/app/controllers/admin/home_items_controller.rb",
+		"/Users/miguel/Diinner/app/views/application/index.slim",
+		"/Users/miguel/Diinner/config/environments/production.rb",
+		"/Users/miguel/Diinner/features/step_definitions/user/user_manage_preferences_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/restaurants_controller.rb",
 		"/Users/miguel/Diinner/app/models/test.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/home_controller.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/home_controller.rn",
 		"/Users/miguel/Diinner/app/controllers/application_controller.rb",
-		"/Users/miguel/Diinner/app/views/application/index.slim",
-		"/Users/miguel/Diinner/config/routes.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/tests_controller.rb",
 		"/Users/miguel/Diinner/app/cells/test/row.slim",
 		"/Users/miguel/Diinner/spec/models/affinity_spec.rb",
@@ -441,7 +426,6 @@
 		"/Users/miguel/Diinner/app/controllers/admin/reservations_controller.rb",
 		"/Users/miguel/Diinner/Gemfile",
 		"/Users/miguel/Diinner/app/cells/reservation_cell.rb",
-		"/Users/miguel/Diinner/db/seeds.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/credit_card_form.slim",
 		"/Users/miguel/Diinner/app/models/concerns/reservation_status.rb",
 		"/Users/miguel/Diinner/app/models/reservation.rb",
@@ -488,7 +472,6 @@
 		"/Users/miguel/Diinner/features/ionic/user_reserve_table_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/restaurants/tables_controller.rb",
 		"/Users/miguel/Diinner/features/user/user_manage_preferences.feature",
-		"/Users/miguel/Diinner/features/step_definitions/user/user_manage_preferences_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/tables_controller.rb",
 		"/Users/miguel/Diinner/features/admin/admin_manage_tables.feature",
 		"/Users/miguel/Diinner/app/cells/table/process_link.slim",
@@ -506,7 +489,6 @@
 		"/Users/miguel/Diinner/app/cells/admin/dropdown_menu.slim",
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_profile_steps.rb",
 		"/Users/miguel/Diinner/factories/admin.rb",
-		"/Users/miguel/Diinner/app/models/restaurant.rb",
 		"/Users/miguel/Diinner/features/step_definitions/admin/admin_sessions.rb",
 		"/Users/miguel/Diinner/features/restaurant/restaurant_inspect_users.feature",
 		"/Users/miguel/Diinner/features/admin/admin_session.feature",
@@ -535,12 +517,7 @@
 		"/Users/miguel/Diinner/app/controllers/ionic_controller.rb",
 		"/Users/miguel/Diinner/app/views/users/reservations/new_last_minute.slim",
 		"/Users/miguel/Diinner/features/admin/admin_inspect_tables.feature",
-		"/Users/miguel/Diinner/app/controllers/users/users_controller.rb",
-		"/Users/miguel/Diinner/app/views/users/users/_form_fields.slim",
-		"/Users/miguel/Diinner/features/ionic/user_profile_steps.rb",
-		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_menus_steps.rb",
-		"/Users/miguel/Diinner/features/admin/admin_inspect_logs.feature",
-		"/Users/miguel/Diinner/app/controllers/restaurants/menus_controller.rb"
+		"/Users/miguel/Diinner/app/controllers/users/users_controller.rb"
 	],
 	"find":
 	{
@@ -548,7 +525,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -570,6 +547,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Search last minute",
+			"I have preferences",
+			"user_preference_attributes_menu_range",
+			"caching",
 			"end",
 			"index",
 			"home-header",
@@ -693,14 +674,10 @@
 			"has_and_belongs_to_many",
 			"I create a new table",
 			"I create a table with this menu",
-			"I delete a menu",
-			"a restaurant has created a table",
-			" a restaurant has created a table ",
-			"admin_inspect_tables.feature",
-			"There are some available tables"
+			"I delete a menu"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -737,80 +714,123 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/application/index.slim",
 					"settings":
 					{
-						"buffer_size": 2614,
+						"buffer_size": 1919,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										175,
+										193
+									],
+									[
+										402,
+										420
+									],
+									[
+										704,
+										722
+									],
+									[
+										891,
+										909
+									],
+									[
+										1086,
+										1104
+									],
+									[
+										1401,
+										1419
+									],
+									[
+										1588,
+										1606
+									],
+									[
+										1783,
+										1801
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								81,
-								81
+								1411,
+								1411
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"detect_indentation": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 798.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/controllers/admin/home_items_controller.rb",
+					"file": "features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 					"settings":
 					{
-						"buffer_size": 583,
+						"buffer_size": 5968,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								532,
-								532
+								1910,
+								1910
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
 							"syntax": "Packages/RSpec/RSpec.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 611.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "config/routes.rb",
+					"file": "features/support/env.rb",
 					"settings":
 					{
-						"buffer_size": 5777,
+						"buffer_size": 3568,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3317,
-								3317
+								0,
+								0
 							]
 						],
 						"settings":
@@ -820,116 +840,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1338.0,
+						"translation.y": 1033.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "app/models/home_item.rb",
+					"file": "Gemfile",
 					"settings":
 					{
-						"buffer_size": 349,
+						"buffer_size": 2117,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								129
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "class HomeItem",
-							"syntax": "Packages/RSpec/RSpec.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/admin/_sidebar.slim",
-					"settings":
-					{
-						"buffer_size": 997,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								922,
-								948
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "db/seeds.rb",
-					"settings":
-					{
-						"buffer_size": 5978,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								184,
-								192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/views/admin/home_items/edit.slim",
-					"settings":
-					{
-						"buffer_size": 363,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								228,
-								228
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 691.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -983,6 +922,26 @@
 		"selected_items":
 		[
 			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"user_reserve_a_last_minute_diinner_steps.rb",
+				"features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb"
+			],
+			[
+				"step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
+				"features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb"
+			],
+			[
+				"rest",
+				"app/models/restaurant.rb"
+			],
+			[
+				"inde",
+				"app/views/application/index.slim"
+			],
+			[
 				"seed",
 				"db/seeds.rb"
 			],
@@ -993,10 +952,6 @@
 			[
 				"roue",
 				"config/routes.rb"
-			],
-			[
-				"inde",
-				"app/views/application/index.slim"
 			],
 			[
 				"applicon",
@@ -1019,20 +974,12 @@
 				"app/models/test.rb"
 			],
 			[
-				"user_reserve_a_last_minute_diinner_steps.rb",
-				"features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb"
-			],
-			[
 				"resercon",
 				"app/controllers/users/reservations_controller.rb"
 			],
 			[
 				"prefer",
 				"factories/preference.rb"
-			],
-			[
-				"gem",
-				"Gemfile"
 			],
 			[
 				"resercont",
@@ -1177,10 +1124,6 @@
 			[
 				"features/step_definitions/restaurant/restaurant_profile_steps.rb",
 				"features/step_definitions/restaurant/restaurant_profile_steps.rb"
-			],
-			[
-				"rest",
-				"app/models/restaurant.rb"
 			],
 			[
 				"baseres",
@@ -1353,10 +1296,6 @@
 			[
 				"usereval",
 				"features/step_definitions/user/user_evaluates_reservation_steps.rb"
-			],
-			[
-				"step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
-				"features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb"
 			],
 			[
 				"su",
