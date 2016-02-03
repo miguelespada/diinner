@@ -79,6 +79,7 @@ es:
   payment: "Estás a punto de reservar tu plan. Solo tienes que introducir tus datos de pago o hacer uso de la tarjeta guardada si la tienes. Recuerda que podrás cancelar el plan sin coste en cualquier momento excepto el mismo día del plan. Estos son los detalles de tu reserva:"
   restaurant: "Restaurante"
   date_time: "Fecha y hora"
+  date: "Fecha"
   menu: "Menú"
   price: "Precio"
   card_holder: "Titular de la tarjeta"
