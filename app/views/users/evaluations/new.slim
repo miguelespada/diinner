@@ -5,7 +5,7 @@ div.container-fluid
         h1
           | Evaluation for diinner plan at restaurant:
           == @reservation.restaurant.name
-        = simple_form_for [@user, @reservation, @evaluation], \
+        = simple_form_for [@user, @reservation, @evaluation],
             :url => user_reservation_evaluations_path, :method => :post do |f|
           = f.error_notification
           = f.input :quality_of_restaurant, collection: 1..5

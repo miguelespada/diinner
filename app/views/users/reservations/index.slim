@@ -4,7 +4,7 @@
   .diinner-label.yellow
     = t("my_reservations")
   .calendar
-    - if @reservations.length >  0
+    - if @reservations.length > 0
       = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
         = link_to t(date.day), "#"
         - reservations.each do |reservation|

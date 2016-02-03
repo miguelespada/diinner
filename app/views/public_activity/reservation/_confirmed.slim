@@ -5,7 +5,7 @@
     span.restaurant-id == cell(:restaurant, activity.owner).show_link if !activity.owner.nil?
     span  is confirmed!!!
 - else
-  = link_to user_restaurant_path(@user, activity.owner)
+  = link_to user_reservation_path(@user, activity.trackable)
   .notification
     .message
       | ¡Tu plan diinner en #{activity.owner.name} ha sido confirmado!
