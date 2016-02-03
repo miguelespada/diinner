@@ -108,12 +108,3 @@ es:
   cancelation_successful: "Tu reserva se ha cancelado correctamente."
   plan_confirmed: "¡Enhorabuena, tu plan está confirmado!"
   plan_not_confirmed: "Lo sentimos, tu plan no se ha confirmado. No se cobrará nada en tu tarjeta."
-
-  time:
-     formats:
-       default: "%d/%m/%Y"
-       short: "%b %d"
-       long: "%B %d, %Y"
-  date:
-    formats:
-      default: "%d/%m/%Y %H:%M:%S %Z"
