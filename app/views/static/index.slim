@@ -32,28 +32,31 @@ header.home-header
       |Algunos de nuestros restaurantes
   .restaurant-list
     - restaurant = home.restaurant_sample_1
-    .restaurant-box.box
-      .image
-        = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
-      .diinner-label.yellow
-        .title = restaurant.name
-        .city  = restaurant.city.name
+    - if !restaurant.nil?
+      .restaurant-box.box
+        .image
+          = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil? 
+        .diinner-label.yellow
+          .title = restaurant.name
+          .city  = restaurant.city.name
 
     - restaurant = home.restaurant_sample_2
-    .restaurant-box.box
-      .image
-        = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
-      .diinner-label.yellow
-        .title = restaurant.name
-        .city  = restaurant.city.name
+    - if !restaurant.nil?
+      .restaurant-box.box
+        .image
+          = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
+        .diinner-label.yellow
+          .title = restaurant.name
+          .city  = restaurant.city.name
 
     - restaurant = home.restaurant_sample_3
-    .restaurant-box.box
-      .image
-        = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
-      .diinner-label.yellow
-        .title = restaurant.name
-        .city  = restaurant.city.name
+    - if !restaurant.nil?
+      .restaurant-box.box
+        .image
+          = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil? 
+        .diinner-label.yellow
+          .title = restaurant.name
+          .city  = restaurant.city.name
     
   .register-wrapper
     .register-box.box
