@@ -28,7 +28,7 @@
             = t(Preference::MENU_RANGE[1])
             .explanation = t("#{Preference::MENU_RANGE[1]}_explanation")
         .col-lg-4.no-padding
-          .text.long.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}"
+          .text.long.last.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}"
             = t(Preference::MENU_RANGE[2])
             .explanation = t("#{Preference::MENU_RANGE[2]}_explanation")
       .price hidden=true
