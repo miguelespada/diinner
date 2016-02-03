@@ -5,7 +5,7 @@
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
-      = f.input :gender, collection: [['Female', 'female'], ['Male', 'male']], label:  t("gender")
+      = f.input :gender, collection: [[t('female'), 'female'], [t('male'), 'male']], include_blank: false, label:  t("gender")
       .form-date
         = f.input :birth, as: :date, html5: true, label: t("birth")
     .separator
@@ -33,7 +33,7 @@
           .col-lg-4.no-padding
             .text.long.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[1] ? 'selected': ''}"  data-price="#{Preference::MENU_RANGE[1]}"  = t(Preference::MENU_RANGE[1])
           .col-lg-4.no-padding
-            .text.long.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}"  = t(Preference::MENU_RANGE[2])
+            .text.long.last.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}"  = t(Preference::MENU_RANGE[2])
         .price hidden=true
           = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
         = c.association :city, :include_blank => false, label:  t("preferred_city")
