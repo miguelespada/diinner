@@ -489,6 +489,9 @@ input.company {
     }
     .time {
       color: $textGray;
+      .hour{
+        font-size: .9rem;
+      }
       //text-align: right;
     }
     .address{
@@ -663,6 +666,7 @@ input.company {
         .time{
           float:right;
           border: 1px solid $themeYellow;
+          padding: 2px 5px;
         }
 
       }
@@ -689,5 +693,27 @@ input.company {
   a, a:hover, a:active{
     text-decoration: none !important;
     color: inherit !important;
+  }
+}
+
+.menu-data{
+  .menu-description{
+    margin-bottom: 10px;
+  }
+  .menu-element{
+    margin-top: 5px;
+    color: $textGray;
+  }
+}
+
+.plan-info{
+  .plan-label {
+    font-weight: bold;
+  }
+  .plan-value{
+    color: $textGray;
+  }
+  .map{
+    margin-top: 10px;
   }
 }

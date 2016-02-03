@@ -1,0 +1,22 @@
+.head.menu-data
+  .text-center
+    b.menu-name
+      == @reservation.menu.name.upcase
+      .menu-description
+        == @reservation.menu.description
+      .menu-element
+        | Entrante
+      .item
+        == @reservation.menu.appetizer
+      .menu-element
+        | Principal
+      .item
+        == @reservation.menu.main_dish
+      .menu-element
+        | Postre
+      .item
+        == @reservation.menu.dessert
+      .menu-element
+        | Bebida
+      .item
+        == @reservation.menu.drink

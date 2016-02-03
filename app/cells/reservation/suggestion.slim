@@ -4,40 +4,45 @@
       == restaurant.photo
     .head.menu-data.sr-only
       .text-center
-        .menu-description
-          == menu.model.description
-        strong
-          | APPETIZER
-        .item
-          == menu.model.appetizer
-        strong
-          | MAIN DISH
-        .item
-          == menu.model.main_dish
-        strong
-          | DESSERT
-        .item
-          == menu.model.dessert
-        strong
-          | DRINK
-        .item
-          == menu.model.drink
+        b.menu-name
+          == menu.model.name.upcase
+          .menu-description
+            == menu.model.description
+          .menu-element
+            | Entrante
+          .item
+            == menu.model.appetizer
+          .menu-element
+            | Principal
+          .item
+            == menu.model.main_dish
+          .menu-element
+            | Postre
+          .item
+            == menu.model.dessert
+          .menu-element
+            | Bebida
+          .item
+            == menu.model.drink
     .data-search-wrapper
       .title
-        span.bi_interface-circle
         == restaurant.name
-        .time
-          == "Hora#{model.date_and_time.to_s.split(//).last(5).join}"
+      .time
+        == "Hora"
+        span.hour< = model.date_and_time.to_s.last(5)
+      .time
+        == "Fecha"
+        span.hour< = model.date.to_s.first(8)
       .diinner-double-button
         .item.see-menu
-          .text VER MENÚ
-          .text.sr-only VER FOTO
-        = link_to "RESERVAR", reserve_link, method: :post, class: "item"
+          .text Ver Menú
+          .text.sr-only Ver Foto
+        = link_to "Reservar", reserve_link, method: :post, class: "item"
       .address
         == model.restaurant.address
       .menu
         .menu-title
-          == menu.model.name
+          = "Precio"
           span.price ==< "#{menu.model.price}€"
     .affinity-tag.rotated
     .affinity-tag.rotated-2

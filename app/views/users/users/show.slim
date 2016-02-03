@@ -35,7 +35,6 @@
                   .item
                     = link_to user_reservation_path(@user, r)
                       .name
-                        span.bi_interface-circle
                         = r.restaurant.name
                     .date = r.date.strftime("%d/%m/%Y")
                     .time = r.hour.strftime("%H:%M")

@@ -98,14 +98,17 @@ es:
   #Reservation view:
   plan_info: "Información del plan"
   plan_status: "El estado del plan es"
-  pending: "Reservado"
+  pending: "Pendiente de confirmación"
   confirmed: "Confirmado"
   cancelled: "Cancelado"
   address: "Dirección"
   cancel_reservation: "Cancelar reserva"
   day: "Día"
   time: "Hora"
+  address: "Dirección"
+  city: "Ciudad"
   compatibility: "Compatibilidad"
+  practical_data: "Datos prácticos"
 
   #Notifications
   reservation_successful: "Tu reserva se ha realizado correctamente."
