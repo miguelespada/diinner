@@ -24,7 +24,7 @@
         .col-lg-4.no-padding
           .text.long.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[1] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[1]}" = t(Preference::MENU_RANGE[1])
         .col-lg-4.no-padding
-          .text.long.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}" = t(Preference::MENU_RANGE[2])
+          .text.long.last.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}" = t(Preference::MENU_RANGE[2])
       .price hidden=true
         = f.input :price, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range)
       .friends-question
