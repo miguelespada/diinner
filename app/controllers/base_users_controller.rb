@@ -6,6 +6,7 @@ class BaseUsersController < ApplicationController
   load_resource :user
   before_filter :sign_out_others
   before_action :authorize!
+  before_action :first_login, except: [:edit, :update]
 
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if @current_user != @user
@@ -21,6 +22,10 @@ class BaseUsersController < ApplicationController
 
   def create_session
     @session ||= UserSession.new(session)
+  end
+
+  def first_login
+    redirect_to edit_user_path(@current_user) if @current_user.first_login?
   end
 
   def redirect
