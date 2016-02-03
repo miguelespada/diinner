@@ -1,3 +1,12 @@
+- if @current_user.first_login?
+  .row.box.welcome
+    .col-xs-12.diinner-label.pink
+      .col-xs-1.col-xs-offset-1
+        =< image_tag 'dancer.png', height: 50
+      .col-xs-9.text-left
+        = t("welcome")
+
+.separator
 = simple_form_for [@user] do |f|
   .row.box
     .col-xs-12.diinner-label.yellow
