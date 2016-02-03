@@ -5,7 +5,9 @@
   .col-xs-12.col-md-8.col-md-offset-2
     .col-xs-12
       = t("payment")
-    .separator
+      .separator
+      .text-center
+        h4 = t("payment_details")
     .col-xs-12
       b = "#{t("restaurant")}:"
       =< @reservation.restaurant.name
@@ -39,32 +41,28 @@
         span.stripe-error
         = hidden_field_tag :stripe_card_token
         .form-group
-          .col-xs-5
-            label.control-label Card holder:
-          .col-xs-7
-            = text_field_tag :card_holder, nil, name: nil, class: "form-control"
+          label.control-label =t("card_holder")
+          = text_field_tag :card_holder, nil, name: nil, class: "form-control"
         .form-group
-          .col-xs-5
-            label.control-label Card number:
-          .col-xs-7
-            = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control"
+          label.control-label =t("card_number")
+          = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control"
         .form-group
-          .col-xs-5
-            label.control-label CVC:
-          .col-xs-7
+          .row.col-xs-12
+            label.control-label =t("cvc")
+          .row.col-xs-3
             = text_field_tag :card_cvc, nil, name: nil, size: 3, class: "form-control"
         .form-group
-          .col-xs-5
-            label.control-label Expiration (MM/YYYY):
-          .col-xs-3
-            = text_field_tag :exp_month, nil, name: nil, size: 2, class: "form-control"
-          .col-xs-4
-            = text_field_tag :exp_year, nil, name: nil, size: 4, class: "form-control"
+          .row.col-xs-12
+            label.control-label = t("expiration_date")
+
+          .row
+            .col-xs-3
+              = text_field_tag :exp_month, nil, name: nil, size: 2, class: "form-control"
+            .col-xs-4
+              = text_field_tag :exp_year, nil, name: nil, size: 4, class: "form-control"
         .form-group
-          .col-xs-2.text-right
-            = check_box_tag :terms_and_conditions, class: "form-control"
-          .col-xs-10
-            = label_tag "I accept the terms and conditions"
+          = check_box_tag :terms_and_conditions, class: "form-control"
+          =t("accept_terms_checkbox")
         #submit-other-card.col-xs-12.text-center
           .diinner-button.pink = t("continue_button")
         .separator

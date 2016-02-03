@@ -637,12 +637,16 @@ input.company {
   }
 }
 
+.today-date{
+  font-weight: bold;
+}
 .desktop{
   color: $textDarkGray;
   .reservations{
     padding-bottom: 15px;
 
   }
+
   .my-reservations{
     text-align: left;
 
