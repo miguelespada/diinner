@@ -76,7 +76,8 @@ es:
   see_picture: "Ver foto"
   #Payment
   payment_title: "Pago"
-  payment: "Estás a punto de reservar tu plan. Solo tienes que introducir tus datos de pago o hacer uso de la tarjeta guardada si la tienes. Recuerda que podrás cancelar el plan sin coste en cualquier momento excepto el mismo día del plan. Estos son los detalles de tu reserva:"
+  payment: "Estás a punto de reservar tu plan. Solo tienes que introducir tus datos de pago o hacer uso de la tarjeta guardada si la tienes. Recuerda que podrás cancelar el plan sin coste en cualquier momento excepto el mismo día del plan."
+  payment_details: "Estos son los detalles de tu reserva:"
   restaurant: "Restaurante"
   date_time: "Fecha y hora"
   date: "Fecha"

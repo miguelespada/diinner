@@ -4,8 +4,11 @@
   .diinner-label.yellow
     = t("my_reservations")
   .calendar
-    = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
-      = link_to t(date.day), "#"
-      - reservations.each do |reservation|
-        .status-table
-          = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+    - if @reservations.length >  0
+      = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
+        = link_to t(date.day), "#"
+        - reservations.each do |reservation|
+          .status-table
+            = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+    - else
+      h5 = t("no_reservations")
