@@ -33,7 +33,7 @@ header.home-header
   .restaurant-list
     - restaurant = home.restaurant_sample_1
     - if !restaurant.nil?
-      .restaurant-box.box
+      .restaurant-box.box.login-link
         .image
           = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil? 
         .diinner-label.yellow
@@ -42,7 +42,7 @@ header.home-header
 
     - restaurant = home.restaurant_sample_2
     - if !restaurant.nil?
-      .restaurant-box.box
+      .restaurant-box.box.login-link
         .image
           = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
         .diinner-label.yellow
@@ -51,7 +51,7 @@ header.home-header
 
     - restaurant = home.restaurant_sample_3
     - if !restaurant.nil?
-      .restaurant-box.box
+      .restaurant-box.box.login-link
         .image
           = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil? 
         .diinner-label.yellow
@@ -69,7 +69,7 @@ header.home-header
     .info
       | Más de 1900 personas se han conocido gracias a diinner,
       .black únete a nosotros.
-  .test-box.box
+  .test-box.box.login-link
     .test-info
       .title ¿Los Serrano o Los Soprano?
       .answer
