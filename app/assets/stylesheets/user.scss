@@ -175,6 +175,7 @@ html, body{
         font-size: 2rem;
         display: table-cell;
         vertical-align: middle;
+
         &.pink{
           background-color: $buttonPink;
         }
@@ -522,6 +523,10 @@ input.company {
     //font-size: 1.2em;
     padding: 6px 12px;
     border: 1px solid $lightGray;
+    .explanation{
+      font-size: .8rem;
+      color: $textGray;
+    }
     &.selected{
      background-color: $themeYellow;
       &.blue{
