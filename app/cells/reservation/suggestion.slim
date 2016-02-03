@@ -38,16 +38,16 @@
           .text Ver Menú
           .text.sr-only Ver Foto
         = link_to "Reservar", reserve_link, method: :post, class: "item"
-      .address
-        == model.restaurant.address
       .menu
         .menu-title
           = "Precio"
           span.price ==< "#{menu.model.price}€"
-    .affinity-tag.rotated
-    .affinity-tag.rotated-2
-    .affinity-tag
-      .value = affinity
+    .affinity
+      .affinity-info Compatibilidad del plan
+      .affinity-tag.rotated
+      .affinity-tag.rotated-2
+      .affinity-tag
+        .value = affinity
 javascript:
   $(".see-menu").click(function(e){
     var parent = $(this).parent().parent().parent();
