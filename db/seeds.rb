@@ -204,7 +204,7 @@ def full_table_for_today
   reservation.save!
 end
 
- there_is_one_table_for_tomorrow
+ # there_is_one_table_for_tomorrow
 # there_is_one_reservation
 #
 # create_last_minute_context_2_2
@@ -212,4 +212,4 @@ end
 #
 #  full_table_for_today
 
-#create_last_minute_context_2_3
+create_last_minute_context_2_2
