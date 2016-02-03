@@ -3,7 +3,7 @@ class Restaurants::TablesController <  BaseRestaurantsController
   before_filter :redirect_if_non_empty, :only => [:edit, :destroy, :update]
 
   def index
-    @tables = @restaurant.tables.desc(:id)
+    @tables = @restaurant.tables.desc(:id).page(params[:page])
   end
 
   def new
