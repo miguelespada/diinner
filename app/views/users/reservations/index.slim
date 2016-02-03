@@ -8,7 +8,7 @@
       = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
         = link_to t(date.day), "#"
         - reservations.each do |reservation|
-          .status-table
+          .status-table class="#{reservation.status}"
             = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
     - else
       h5 = t("no_reservations")
