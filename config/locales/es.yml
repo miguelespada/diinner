@@ -50,16 +50,19 @@ es:
   other_date: "Otro día"
   preferred_city: "¿Dónde?"
   preferred_price: "¿Cuánto te quieres gastar?"
-  lowcost: "No mucho (15 - 20 € aprox)"
-  regular: "Una buena cena (30 - 40 €)"
-  premium: "Soy un gourmet (50 € aprox)"
+  lowcost: "No mucho"
+  lowcost_explanation: "15 - 20 € aprox"
+  regular: "Una buena cena"
+  regular_explanation: "30 - 40 € aprox"
+  premium: "Soy un gourmet"
+  premium_explanation: "50 € aprox"
   friends: "¿Quieres venir con algún amig@?"
   go_alone: "Voy solo"
   go_with_friends: "Voy acompañado"
   how_many: "¿Con cuántos?"
   friend: "Amigo"
-  male: "Chico"
-  female: "Chica"
+  male: "Hombre"
+  female: "Mujer"
   company_age: "Edad"
   preferred_expectations: "¿Qué esperas del plan?"
   go_for_drinks: "Cenar y copas!"
@@ -108,12 +111,3 @@ es:
   cancelation_successful: "Tu reserva se ha cancelado correctamente."
   plan_confirmed: "¡Enhorabuena, tu plan está confirmado!"
   plan_not_confirmed: "Lo sentimos, tu plan no se ha confirmado. No se cobrará nada en tu tarjeta."
-
-  time:
-     formats:
-       default: "%d/%m/%Y"
-       short: "%b %d"
-       long: "%B %d, %Y"
-  date:
-    formats:
-      default: "%d/%m/%Y %H:%M:%S %Z"
