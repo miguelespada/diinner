@@ -1,7 +1,7 @@
 - home = HomeItem.get_first
 
 header.home-header
-  = cl_image_tag(home.header.path, :quality => 75)
+  = cl_image_tag(home.header.public_id, quality: 75, format: :jpg)
   .header-title
     |Cenar para
     br
@@ -10,17 +10,17 @@ header.home-header
   .col-md-12.no-padding.white-panel.box
     .row
       .item.col-md-4
-        = cl_image_tag home.how_it_works_1.path
+        = cl_image_tag home.how_it_works_1.public_id, radius: :max, format: :jpg, quality: 75
         .oval
           .text 1
         .info ¿Te apetece conocer gente disfrutando de una buena cena?
       .item.col-md-4
-        = cl_image_tag home.how_it_works_2.path
+        = cl_image_tag home.how_it_works_2.public_id, radius: :max, format: :jpg, quality: 75
         .oval
           .text 2
         .info Solo tienes que decirnos cuándo, dónde y tu presupuesto. Puedes venir solo o acompañado
       .item.col-md-4
-        = cl_image_tag home.how_it_works_3.path
+        = cl_image_tag home.how_it_works_3.public_id, radius: :max, format: :jpg, quality: 75
         .oval
           .text 3
         .info Nosotros nos encargamos de encontrar los mejores compañeros de mesa y restaurantes. ¿Estás listo para empezar?
@@ -34,7 +34,7 @@ header.home-header
     - restaurant = home.restaurant_sample_1
     .restaurant-box.box
       .image
-        = cl_image_tag restaurant.photo.path if !restaurant.photo.nil?
+        = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
       .diinner-label.yellow
         .title = restaurant.name
         .city  = restaurant.city.name
@@ -42,7 +42,7 @@ header.home-header
     - restaurant = home.restaurant_sample_2
     .restaurant-box.box
       .image
-        = cl_image_tag restaurant.photo.path if !restaurant.photo.nil?
+        = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
       .diinner-label.yellow
         .title = restaurant.name
         .city  = restaurant.city.name
@@ -50,7 +50,7 @@ header.home-header
     - restaurant = home.restaurant_sample_3
     .restaurant-box.box
       .image
-        = cl_image_tag restaurant.photo.path if !restaurant.photo.nil?
+        = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
       .diinner-label.yellow
         .title = restaurant.name
         .city  = restaurant.city.name
