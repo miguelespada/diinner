@@ -6,9 +6,10 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
         span.sr-only Toggle navigation
         span.menu-icon.bi_interface-hamburger
-      = link_to user_notifications_path(@user)
-        .navbar-toggle
-          span.menu-icon.bi_com-bell
+      - if @user.notifications.length > 0
+        = link_to user_notifications_path(@user)
+          .navbar-toggle
+            span.menu-icon.bi_com-bell
       .featured
         = link_to new_user_reservation_path(@user)
           .navbar-toggle
@@ -20,10 +21,11 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
           = link_to new_user_reservation_path(@user)
             /.bi_food-onigiri
             .menu-text = t("new_reservation")
-        li.hidden-xs.hidden-sm
-          = link_to user_notifications_path(@user)
-            /.menu-icon.bi_com-bell
-            .menu-text = t("notifications")
+        - if @user.notifications.length > 0
+          li.hidden-xs.hidden-sm
+            = link_to user_notifications_path(@user)
+              /.menu-icon.bi_com-bell
+              .menu-text = t("notifications")
         li
           = link_to user_reservations_path(@user)
             /.menu-icon.bi_time-calendar-a

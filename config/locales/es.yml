@@ -46,6 +46,7 @@ es:
   #New reservation
   preferred_date: "¿Qué día quieres tu plan?"
   today: "Hoy (¡último minuto!)"
+  last_minute: "¡Último minuto!"
   tomorrow: "Mañana"
   other_date: "Otro día"
   preferred_city: "¿Dónde?"
