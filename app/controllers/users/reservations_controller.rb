@@ -33,6 +33,7 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def new_last_minute
+    # TODO a esto no se llega nunca (creo)
     check_preferences
     @reservation = @user.reservations.new
     @reservation.date = Date.today
@@ -43,10 +44,11 @@ class  Users::ReservationsController < BaseUsersController
       render :off_the_clock 
     else
       suggestionEngine = SuggestionEngine.new @user, params[:reservation]
+      
       if @user.busy?(suggestionEngine.date)
         redirect_to :back, notice: 'You already have a reservation for this date'
       else
-        @suggestions = suggestionEngine.last_minute.first(10)
+        @suggestions = suggestionEngine.last_minute.first(3)
         render :no_dinners if @suggestions.empty?
       end
     end

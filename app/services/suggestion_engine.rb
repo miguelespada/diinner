@@ -17,7 +17,7 @@ class SuggestionEngine
   end
 
   def date
-    return Date.tomorrow if @params[:date].empty?
+    return Date.today if @params[:date].empty?
     begin
       Date.strptime(@params[:date], "%d/%m/%Y")
     rescue
@@ -64,11 +64,13 @@ class SuggestionEngine
 
   # TODO refactor and DRY
   def last_minute
+
     results = []
     Table.where(:date => Date.today).each do |table|
       if table.city == @user.city
         reservation = Reservation.new({user: @user,
-                                      menu_range: @user.menu_range,
+                                      menu_range: price,
+                                      after_plan: after_plan,
                                       date: Date.today})
 
         if table.matches?(reservation)
