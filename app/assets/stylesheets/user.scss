@@ -441,28 +441,44 @@ input.company {
     .menu-data{
       padding: 40px 10px;
     }
-    .affinity-tag {
-      border-radius: 20%;
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      right: 0;
-      z-index: 2;
-      top: -10px;
-      background-color: $buttonPink;
-      color: white;
-      display: table;
-      text-align: center;
-      .value{
-        font-weight: bold;
-        display: table-cell;
-        vertical-align: middle;
+    .affinity {
+      &:hover .affinity-info{
+        visibility: visible;
       }
-      &.rotated{
-        @include transform(rotate(30deg));
+      .affinity-tag {
+        border-radius: 20%;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        z-index: 2;
+        top: -10px;
+        background-color: $buttonPink;
+        color: white;
+        display: table;
+        text-align: center;
+        .value {
+          font-weight: bold;
+          display: table-cell;
+          vertical-align: middle;
+        }
+        &.rotated {
+          @include transform(rotate(30deg));
+        }
+        &.rotated-2 {
+          @include transform(rotate(-30deg));
+        }
       }
-      &.rotated-2{
-        @include transform(rotate(-30deg));
+      .affinity-info{
+        visibility: hidden;
+        position: absolute;
+        right: -60px;
+        z-index: 3;
+        top: 30px;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: white;
+        @include box-shadow($boxShadow 2px 2px 6px 0);
       }
     }
     .data-search-wrapper{
@@ -691,7 +707,8 @@ input.company {
     }
   }
   .suggest{
-    font-size: calculateRem(18px);
+    font-size: calculateRem(20px);
+    padding: 20px;
     margin-bottom: 20px;
   }
   a, a:hover, a:active{
