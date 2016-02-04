@@ -20,17 +20,20 @@ class  Users::ReservationsController < BaseUsersController
   def search
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
     # TODO DRY with last minute
-    redirect_to :back, notice: 'You already have a reservation for this date' if @user.busy?(suggestionEngine.date)
-    
-    if suggestionEngine.date_in_range?
-      @suggestions = suggestionEngine.search.first(3)
-      render :no_dinners if @suggestions.empty?
+    if @user.busy?(suggestionEngine.date)
+      redirect_to :back, notice: 'You already have a reservation for this date' 
     else
-      redirect_to :back, notice: 'You can only reserve Diiners from tomorrow within two weeks.'
+      if suggestionEngine.date_in_range?
+        @suggestions = suggestionEngine.search.first(3)
+        render :no_dinners if @suggestions.empty?
+      else
+        redirect_to :back, notice: 'You can only reserve Diiners from tomorrow within two weeks.'
+      end
     end
   end
 
   def new_last_minute
+    # TODO a esto no se llega nunca (creo)
     check_preferences
     @reservation = @user.reservations.new
     @reservation.date = Date.today
@@ -41,10 +44,11 @@ class  Users::ReservationsController < BaseUsersController
       render :off_the_clock 
     else
       suggestionEngine = SuggestionEngine.new @user, params[:reservation]
+      
       if @user.busy?(suggestionEngine.date)
         redirect_to :back, notice: 'You already have a reservation for this date'
       else
-        @suggestions = suggestionEngine.last_minute.first(10)
+        @suggestions = suggestionEngine.last_minute.first(3)
         render :no_dinners if @suggestions.empty?
       end
     end

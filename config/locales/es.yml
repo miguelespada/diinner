@@ -45,8 +45,8 @@ es:
 
   #New reservation
   preferred_date: "¿Qué día quieres tu plan?"
-  today: "Hoy (¡último minuto!)"
   last_minute: "¡Último minuto!"
+  today: "Hoy"
   tomorrow: "Mañana"
   other_date: "Otro día"
   preferred_city: "¿Dónde?"
@@ -66,7 +66,7 @@ es:
   female: "Mujer"
   company_age: "Edad"
   preferred_expectations: "¿Qué esperas del plan?"
-  go_for_drinks: "Cenar y copas!"
+  go_for_drinks: "¡Cenar y de copas!"
   go_to_sleep: "Hoy prefiero plan tranquilo"
   search_tables: "Buscar mesas"
 
