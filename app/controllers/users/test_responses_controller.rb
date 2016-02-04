@@ -6,7 +6,7 @@ class  Users::TestResponsesController < BaseUsersController
     if @test
       render
     else
-      redirect_to user_path(@user), :notice => 'You have completed all the tests.'
+      redirect_to user_path(@user), :notice => t("all_tests_completed")
     end
   end
 

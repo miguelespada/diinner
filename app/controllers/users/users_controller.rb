@@ -19,7 +19,7 @@ class Users::UsersController < BaseUsersController
 
   def update
     if @current_user.update(user_params)
-      redirect_to user_path(@current_user), notice: 'Your profile was successfully updated.'
+      redirect_to user_path(@current_user), notice: t("profile_updated")
     else
       render :edit
     end

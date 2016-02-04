@@ -2,6 +2,7 @@ doctype html
 html
   = render "/users/head"
   body
+    == render 'application/modal', name: 'payment-modal', view: 'users/reservations/payment_alert'
     .hidden-xs.separator
     .user-container
       = render "/users/navbar"
@@ -9,4 +10,3 @@ html
         .col-xs-12
           == yield
       = render "/layouts/alerts"
-

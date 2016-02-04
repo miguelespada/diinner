@@ -14,6 +14,7 @@ class  Admin::HomeItemsController < AdminController
 
   def home_item_params
     params.require(:home_item).permit(:header,
+                                      :mobile_background,
                                       :how_it_works_1,
                                       :how_it_works_2,
                                       :how_it_works_3,

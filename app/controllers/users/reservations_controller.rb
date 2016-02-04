@@ -21,13 +21,13 @@ class  Users::ReservationsController < BaseUsersController
     suggestionEngine = SuggestionEngine.new @user, params[:reservation]
     # TODO DRY with last minute
     if @user.busy?(suggestionEngine.date)
-      redirect_to :back, notice: 'You already have a reservation for this date' 
+      redirect_to :back, notice: t("already_have_reservation")
     else
       if suggestionEngine.date_in_range?
         @suggestions = suggestionEngine.search.first(3)
         render :no_dinners if @suggestions.empty?
       else
-        redirect_to :back, notice: 'You can only reserve Diiners from tomorrow within two weeks.'
+        redirect_to :back, notice: t("reservation_lapse")
       end
     end
   end
@@ -46,7 +46,7 @@ class  Users::ReservationsController < BaseUsersController
       suggestionEngine = SuggestionEngine.new @user, params[:reservation]
       
       if @user.busy?(suggestionEngine.date)
-        redirect_to :back, notice: 'You already have a reservation for this date'
+        redirect_to :back, notice: t("already_have_reservation")
       else
         @suggestions = suggestionEngine.last_minute.first(3)
         render :no_dinners if @suggestions.empty?
@@ -57,7 +57,7 @@ class  Users::ReservationsController < BaseUsersController
   def create
     # TODO check again if reservation match the table (in case concurrency problems)
     if @user.busy?(Reservation.new(reservation_params).date)
-      redirect_to :back, notice: 'You already have a reservation for this date' 
+      redirect_to :back, notice: t("already_have_reservation")
     else
       @reservation = @user.reservations.new(reservation_params)
       render :credit_card_form
@@ -83,7 +83,7 @@ class  Users::ReservationsController < BaseUsersController
   def cancel
     @reservation.cancel
     NotificationManager.notify_user_cancel_reservation(object: @reservation)
-    redirect_to user_reservation_path(@user, @reservation), notice: 'Reservation was successfully cancelled.'
+    redirect_to user_reservation_path(@user, @reservation), notice: t("cancelation_successful")
   end
 
   def menu
@@ -93,7 +93,7 @@ class  Users::ReservationsController < BaseUsersController
   private
   def check_preferences
     if @user.birth.nil? || @user.gender.nil?
-      redirect_to user_path(@user),  notice: 'You have to fill your profile information.'
+      redirect_to user_path(@user),  notice: t("fill_profile")
     end
   end
 
@@ -121,7 +121,7 @@ class  Users::ReservationsController < BaseUsersController
       NotificationManager.notify_user_create_reservation(object: reservation)
       NotificationManager.notify_reservation_pending(object: reservation)
 
-      redirect_to user_reservations_path(@user), notice: 'Table reserved succesfully!'
+      redirect_to user_reservation_path(@user, reservation), notice: t("reservation_successful")
     else
       handle_reservation_error reservation
     end
@@ -129,7 +129,7 @@ class  Users::ReservationsController < BaseUsersController
 
   def handle_reservation_error reservation
       reservation.destroy
-      redirect_to user_reservations_path(@user), notice: 'There was an error processing your reservation :('
+      redirect_to user_reservations_path(@user), notice: t("reservation_error")
   end
 
 end

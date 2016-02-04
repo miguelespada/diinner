@@ -71,14 +71,15 @@
   .col-xs-12.col-md-8.col-md-offset-2.text-center
     #other-card.diinner-button.pink = t("use_new_card")
     .separator
-
 javascript:
 
   $("#submit-default-card").click(function(){
+    openModal('payment-modal');
     $("#reuse_card").submit();
   });
 
   $("#submit-other-card").click(function () {
+    openModal('payment-modal');
     $("#new_reservation").submit();
   });
 

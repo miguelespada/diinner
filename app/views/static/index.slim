@@ -1,105 +1,113 @@
 - home = HomeItem.get_first
-
-header.home-header
-  = cl_image_tag(home.header.public_id, quality: 75, format: :jpg)
-  .header-title
-    |Cenar para
-    br
-    |quedar.
-.how-it-works.container-fluid.no-padding
-  .col-md-12.no-padding.white-panel.box
-    .row
-      .item.col-md-4
-        = cl_image_tag home.how_it_works_1.public_id, radius: :max, format: :jpg, quality: 75
-        .oval
-          .text 1
-        .info ¿Te apetece conocer gente disfrutando de una buena cena?
-      .item.col-md-4
-        = cl_image_tag home.how_it_works_2.public_id, radius: :max, format: :jpg, quality: 75
-        .oval
-          .text 2
-        .info Solo tienes que decirnos cuándo, dónde y tu presupuesto. Puedes venir solo o acompañado
-      .item.col-md-4
-        = cl_image_tag home.how_it_works_3.public_id, radius: :max, format: :jpg, quality: 75
-        .oval
-          .text 3
-        .info Nosotros nos encargamos de encontrar los mejores compañeros de mesa y restaurantes. ¿Estás listo para empezar?
-
-.content
-  / TODO Dry this
-  .row
-    .diinner-label
-      |Algunos de nuestros restaurantes
-  .restaurant-list
-    - restaurant = home.restaurant_sample_1
-    - if !restaurant.nil?
-      .restaurant-box.box.login-link
-        .image
-          = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil? 
-        .diinner-label.yellow
-          .title = restaurant.name
-          .city  = restaurant.city.name
-
-    - restaurant = home.restaurant_sample_2
-    - if !restaurant.nil?
-      .restaurant-box.box.login-link
-        .image
-          = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
-        .diinner-label.yellow
-          .title = restaurant.name
-          .city  = restaurant.city.name
-
-    - restaurant = home.restaurant_sample_3
-    - if !restaurant.nil?
-      .restaurant-box.box.login-link
-        .image
-          = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil? 
-        .diinner-label.yellow
-          .title = restaurant.name
-          .city  = restaurant.city.name
-    
-  .register-wrapper
-    .register-box.box
-      .area
-        |¿Ya estás
-        br
-        |registrado?
-        .diinner-button.pink.login-link Inicia sesión
-      .diinner-label.button.pink.login-link Regístrate
-    .info
-      | Más de 1900 personas se han conocido gracias a diinner,
-      .black únete a nosotros.
-  .test-box.box.login-link
-    .test-info
-      .title ¿Los Serrano o Los Soprano?
-      .answer
-        .wrapper.left
-          .image
-            = image_tag "landing/serrano@3x.png"
-          .text Los Serrano
-      .answer
-        .wrapper.right
-          .image
-            = image_tag "landing/soprano@3x.png"
-          .text Los Soprano
-    .diinner-label.yellow Cuéntanos tus gustos y te buscaremos los mejores comensales
-    .dot-list
-      .dot.yellow
-      .dot
-      .dot
-      .dot
-      .dot
-
-  .share-box
-    .box
-      .diinner-label.yellow
-        = image_tag "landing/facebook.png"
-        = image_tag "landing/twitter.png"
-        = image_tag "landing/instagram.png"
-    .follow
-      |Síguenos en
+.user-image-wrapper.visible-xs
+  .home-header
+    = cl_image_tag(home.mobile_background.public_id, quality: 75, format: :jpg, class: "small")
+    .header-title.small
+      |Cenar para
       br
-      |redes sociales
+      |quedar.
+
+.hidden-xs
+  header.home-header
+    = cl_image_tag(home.header.public_id, quality: 75, format: :jpg)
+    .header-title
+      |Cenar para
+      br
+      |quedar.
+  .how-it-works.container-fluid.no-padding
+    .col-md-12.no-padding.white-panel.box
+      .row
+        .item.col-md-4
+          = cl_image_tag home.how_it_works_1.public_id, radius: :max, format: :png, quality: 75
+          .oval
+            .text 1
+          .info ¿Te apetece conocer gente disfrutando de una buena cena?
+        .item.col-md-4
+          = cl_image_tag home.how_it_works_2.public_id, radius: :max, format: :png, quality: 75
+          .oval
+            .text 2
+          .info Solo tienes que decirnos cuándo, dónde y tu presupuesto. Puedes venir solo o acompañado
+        .item.col-md-4
+          = cl_image_tag home.how_it_works_3.public_id, radius: :max, format: :png, quality: 75
+          .oval
+            .text 3
+          .info Nosotros nos encargamos de encontrar los mejores compañeros de mesa y restaurantes. ¿Estás listo para empezar?
+
+  .content
+    / TODO Dry this
+    .row
+      .diinner-label
+        |Algunos de nuestros restaurantes
+    .restaurant-list
+      - restaurant = home.restaurant_sample_1
+      - if !restaurant.nil?
+        .restaurant-box.box.login-link
+          .image
+            = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
+          .diinner-label.yellow
+            .title = restaurant.name
+            .city  = restaurant.city.name
+
+      - restaurant = home.restaurant_sample_2
+      - if !restaurant.nil?
+        .restaurant-box.box.login-link
+          .image
+            = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
+          .diinner-label.yellow
+            .title = restaurant.name
+            .city  = restaurant.city.name
+
+      - restaurant = home.restaurant_sample_3
+      - if !restaurant.nil?
+        .restaurant-box.box.login-link
+          .image
+            = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 75 if !restaurant.photo.nil?
+          .diinner-label.yellow
+            .title = restaurant.name
+            .city  = restaurant.city.name
+
+    .register-wrapper
+      .register-box.box
+        .area
+          |¿Ya estás
+          br
+          |registrado?
+          .diinner-button.pink.login-link Inicia sesión
+        .diinner-label.button.pink.login-link Regístrate
+      .info
+        | Más de 1900 personas se han conocido gracias a diinner,
+        .black únete a nosotros.
+    .test-box.box.login-link
+      .test-info
+        .title ¿Los Serrano o Los Soprano?
+        .answer
+          .wrapper.left
+            .image
+              = image_tag "landing/serrano@3x.png"
+            .text Los Serrano
+        .answer
+          .wrapper.right
+            .image
+              = image_tag "landing/soprano@3x.png"
+            .text Los Soprano
+      .diinner-label.yellow Cuéntanos tus gustos y te buscaremos los mejores comensales
+      .dot-list
+        .dot.yellow
+        .dot
+        .dot
+        .dot
+        .dot
+
+    .share-box
+      .box
+        .diinner-label.yellow
+          = image_tag "landing/facebook.png"
+          = image_tag "landing/twitter.png"
+          = image_tag "landing/instagram.png"
+      .follow
+        |Síguenos en
+        br
+        |redes sociales
 
 == render 'application/modal', name: 'login-modal', view: 'users/users/login'
 

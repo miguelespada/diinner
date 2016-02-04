@@ -97,6 +97,7 @@ es:
 
   #Post payment
   reservation_finished: "¡¡Enhorabuena, reserva realizada!!"
+  payment_alert: "Por favor, no recargues la página mientras se realiza el pago."
 
   #Reservation view:
   plan_info: "Información del plan"
@@ -112,9 +113,17 @@ es:
   city: "Ciudad"
   compatibility: "Compatibilidad"
   practical_data: "Datos prácticos"
+  last_minute_info: "Te confirmaremos antes de las 18:00 si el plan sigue adelante. No se cobrará nada de tu tarjeta hasta que el plan no se haya confirmado."
+  cancelation_info: "Recuerda que si cancelas tu reserva después de las 18:00 del día de la reserva tendrás una penalización de XX."
 
   #Notifications
   reservation_successful: "Tu reserva se ha realizado correctamente."
   cancelation_successful: "Tu reserva se ha cancelado correctamente."
   plan_confirmed: "¡Enhorabuena, tu plan está confirmado!"
   plan_not_confirmed: "Lo sentimos, tu plan no se ha confirmado. No se cobrará nada en tu tarjeta."
+  already_have_reservation: "Ya tienes una reserva para esa fecha"
+  reservation_lapse: "Sólo puedes reservar mesas en los próximos 15 días"
+  reservation_error: "Lo sentimos, ha habido un error procesando tu reserva :("
+  all_tests_completed: "Has completado todos los tests disponibles"
+  profile_updated: "Tu perfil se ha actualizado correctamente"
+  fill_profile: "Por favor, rellena primero la información de tu perfil"
