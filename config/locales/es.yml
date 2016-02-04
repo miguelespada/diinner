@@ -50,6 +50,7 @@ es:
   tomorrow: "Mañana"
   other_date: "Otro día"
   preferred_city: "¿Dónde?"
+  city_info: "Por ahora sólo operamos en Madrid. ¡Estáte atento porque pronto estaremos en más ciudades!"
   preferred_price: "¿Cuánto te quieres gastar?"
   lowcost: "No mucho"
   lowcost_explanation: "15 - 20 € aprox"

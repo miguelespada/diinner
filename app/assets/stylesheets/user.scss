@@ -491,6 +491,9 @@ input.company {
     }
     .title {
       font-weight: bold;
+      .restaurant-description{
+        font-weight: normal;
+      }
       .bi_interface-circle {
         font-size: 1rem;
         color: $buttonYellow;
@@ -533,8 +536,11 @@ input.company {
   //margin-top: 15px;
   width: 100%;
   border-radius: 2px;
-
+  &.fixed-height{
+    height: 56px;
+  }
   .text{
+    height: 100%;
     cursor: pointer;
     width: 50%;
     margin-bottom: 15px;

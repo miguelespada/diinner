@@ -27,6 +27,8 @@
     .data-search-wrapper
       .title
         == restaurant.name
+        span.bi_doc-documents-plus.toggle-description
+        .restaurant-description.sr-only == restaurant.model.description
       .time
         == "Hora"
         span.hour< = model.date_and_time.to_s.last(5)
@@ -48,10 +50,3 @@
       .affinity-tag.rotated-2
       .affinity-tag
         .value = affinity
-javascript:
-  $(".see-menu").click(function(e){
-    var parent = $(this).parent().parent().parent();
-    parent.find(".head").toggleClass("sr-only");
-    parent.find(".text").toggleClass("sr-only");
-
-  });
