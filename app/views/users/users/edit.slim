@@ -46,7 +46,7 @@
         .price hidden=true
           = c.input :menu_range, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false
         = c.association :city, :include_blank => false, label:  t("preferred_city")
-        .last-minute-info.col-xs-12.diinner-label.pink
+        .last-minute-info.col-xs-12.diinner-info
           .col-xs-10.col-xs-offset-1.text-left
             = t("city_info")
     .separator
