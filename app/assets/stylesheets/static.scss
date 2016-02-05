@@ -6,8 +6,18 @@
 
 .static-content{
   margin-top: 80px;
-  width: 100vw;
-  text-align: center;
+  width: 100%;
+  padding: 5%;
+  .question{
+    font-weight: bold;
+    padding: 5px 0;
+    &:not(.big){
+      font-style: italic;
+    }
+  }
+  .user{
+    text-decoration: underline;
+  }
 }
 
 .red{
