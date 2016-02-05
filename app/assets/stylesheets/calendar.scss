@@ -34,6 +34,9 @@
     table-layout: fixed;
     width: 100%;
     padding: 12px;
+    a:link, a:hover, a:active, a:visited{
+      text-decoration: none !important;
+    }
     th{
       text-align: center;
       font-weight: 400;
@@ -45,51 +48,38 @@
       text-align: center;
       color: $textDarkGray;
       &.prev-month, &.next-month, &.past{
-        a:link, a:hover, a:active, a:visited{
           color: $lightGray;
-        }
         .status-table{
           opacity: 0.3;
-          a:link, a:hover, a:active, a:visited{
             color: $textDarkGray;
-
-          }
         }
       }
       &.today{
-        a{
           text-align: center;
           font-weight: 400;
-          text-decoration: underline !important;
-          padding: 5px;
+          padding: 10px;
           border-radius: 20px;
-        }
         .status-table{
-          a{
             background-color: transparent;
             padding: 0;
             border-radius: 0;
-          }
         }
       }
-      a:link, a:hover, a:active, a:visited{
-        text-decoration: none;
+
+        text-decoration: none ;
         color: $textGray;
-      }
     }
     .status-table{
       font-size: 0.75em;
       text-align: center;
       background-color: $textGray;
+      color: white;
+
       &.pending{
         background-color: $buttonYellow;
       }
       &.confirmed{
         background-color: $tableFull;
-      }
-      a:link, a:hover, a:active, a:visited{
-        text-decoration: none;
-        color: white;
       }
       &:not(:last-of-type){
         margin-bottom: 3px;
