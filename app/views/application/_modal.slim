@@ -6,8 +6,8 @@
     - else
       = render view unless view.nil?
 
-
-javascript:
-  $("##{name} > .outer").click(function(){
-    closeModal("#{name}");
-  });
+- if can_be_closed
+  javascript:
+    $("##{name} > .outer").click(function(){
+      closeModal("#{name}");
+    });

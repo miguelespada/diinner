@@ -106,14 +106,17 @@ html, body {
   }
 
   &.button{
-    background-position: 50% 0%;
+    background-position: 50% 0;
     background-repeat: no-repeat;
-    background-size: 100% 0%;
+    background-size: 100% 0;
     @include transition(background-size .5s, color .5s);
     background-image: linear-gradient($textDarkGray, $textDarkGray);
     cursor: pointer;
     &:hover{
       background-size: 100% 100%;
+    }
+    &.padding-30{
+      padding: 30px;
     }
   }
 }
@@ -200,6 +203,7 @@ html, body {
 .modal-box {
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
   height: 0;
   width: 100vw;

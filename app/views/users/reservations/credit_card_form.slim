@@ -1,3 +1,4 @@
+== render 'application/modal', name: 'payment-modal', view: 'users/reservations/payment_alert', can_be_closed: false
 .row.box
   .col-xs-12.diinner-label.yellow
     =  t("payment_title")
@@ -24,7 +25,7 @@
   - if @reservation.user.has_default_card?
     = form_tag user_reuse_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "reuse_card" do
       .col-xs-12.col-md-8.col-md-offset-2
-        #submit-default-card.diinner-label.pink
+        #submit-default-card.diinner-label.pink.button.padding-30
           .text-center.card
             .bi.bi_ecommerce-creditcard-c
           .text = t("use_saved_card")
@@ -76,12 +77,19 @@ javascript:
   $("#submit-default-card").click(function(){
     openModal('payment-modal');
     $("#reuse_card").submit();
+    disableButtons();
   });
 
   $("#submit-other-card").click(function () {
     openModal('payment-modal');
     $("#new_reservation").submit();
+    disableButtons();
   });
+
+  var disableButtons = function () {
+    $("#reuse_card").prop('disabled', true);
+    $("#new_reservation").prop('disabled', true);
+  };
 
   $("#other-card").click(function(){
     $("#other-card").hide();
