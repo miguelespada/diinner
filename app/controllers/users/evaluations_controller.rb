@@ -1,9 +1,10 @@
 class  Users::EvaluationsController < BaseUsersController
-  load_resource :reservation, :through => :user
+  # load_resource :reservation, :through => :user
 
   def new
     @evaluation = Evaluation.new
-    @reservation.evaluation = @evaluation
+    @reservation = @current_user.reservations.first
+    # @reservation.evaluation = @evaluation
   end
 
   def create
