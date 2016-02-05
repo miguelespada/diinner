@@ -1,4 +1,4 @@
-def create_admin
+  def create_admin
   if Admin.count == 0
     Admin.create(email: "admin@diinner.com", password: "12345678")
   end
