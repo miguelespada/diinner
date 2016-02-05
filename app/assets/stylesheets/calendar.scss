@@ -76,10 +76,10 @@
       color: white;
 
       &.pending{
-        background-color: $buttonYellow;
+        background-color: $buttonYellow !important;
       }
       &.confirmed{
-        background-color: $tableFull;
+        background-color: $tableFull !important;
       }
       &:not(:last-of-type){
         margin-bottom: 3px;

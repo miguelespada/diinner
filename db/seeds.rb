@@ -1,4 +1,4 @@
-def create_admin
+  def create_admin
   if Admin.count == 0
     Admin.create(email: "admin@diinner.com", password: "12345678")
   end
@@ -147,7 +147,24 @@ def create_last_minute_context_2_3
 
   TableManager.process_today_tables
 end
+def create_last_minute_context_3_2
+  delete_all
+  create_basic_context
 
+  @he.update_customer_information!(Stripe::Token.create(valid_card).id)
+  @she.update_customer_information!(Stripe::Token.create(valid_card).id)
+
+  reservation =  FactoryGirl.create(:reservation, user: @he, table: @table, date: 2.days.ago)
+  reservation.companies.create(age: 35, gender: :male)
+  reservation.companies.create(age: 30, gender: :male)
+  reservation.save!
+
+  reservation =  FactoryGirl.create(:reservation, user: @she, table: @table, date: 3.days.ago)
+  reservation.companies.create(age: 30, gender: :female)
+  reservation.save!
+
+  TableManager.process_today_tables
+end
 def last_minute_reservation card
   other_she = FactoryGirl.create(:user, gender: :female)
   other_she.update_customer_information!(Stripe::Token.create(card).id)
@@ -212,4 +229,4 @@ end
 #
 #  full_table_for_today
 
-create_last_minute_context_2_2
+create_last_minute_context_3_2

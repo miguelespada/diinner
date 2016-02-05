@@ -69,7 +69,7 @@
         .separator
         = submit_tag "Confirm", class: "hidden"
 
-  .col-xs-12.col-md-8.col-md-offset-2.text-center
+  .col-xs-12.col-md-8.col-md-offset-2.text-center class="#{!@reservation.user.has_default_card? ? "sr-only": ""}"
     #other-card.diinner-button.pink = t("use_new_card")
     .separator
 javascript:

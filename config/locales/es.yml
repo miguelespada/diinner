@@ -127,3 +127,23 @@ es:
   all_tests_completed: "Has completado todos los tests disponibles"
   profile_updated: "Tu perfil se ha actualizado correctamente"
   fill_profile: "Por favor, rellena primero la información de tu perfil"
+  evaluation_thanks: "¡Gracias por tu evaluación!"
+
+  #Evaluations
+  evaluate: "Evaluar"
+  restaurant_quality: "Calidad del restaurante"
+  menu_quality: "Calidad del menú"
+  has_fun: "Me he divertido"
+  would_recommend: "Lo recomendaría"
+  comments: "Comentarios"
+
+  date:
+    formats:
+      default: "%e/%m/%Y"
+
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]

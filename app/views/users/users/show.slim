@@ -41,12 +41,13 @@
 
 
     .col-md-7
-      .box.tests.text-center
-        .info = t("improve_compatibility")
-        .icon.bi_interface-heart
-        = link_to user_test_path(@user)
-          .diinner-label.yellow
-            = t("go_to_tests")
+      == cell(:test, @test).user_show
+      /.box.tests.text-center
+      /  .info = t("improve_compatibility")
+      /  .icon.bi_interface-heart
+      /  = link_to user_test_path(@user)
+      /    .diinner-label.yellow
+      /      = t("go_to_tests")
   .separator
 
   - if @suggestions.length > 0
