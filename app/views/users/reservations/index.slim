@@ -6,9 +6,11 @@
   .calendar
     - if @reservations.length > 0
       = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
-        = link_to t(date.day), "#"
+        = t(date.day)
         - reservations.each do |reservation|
-          .status-table class="#{reservation.status}"
-            = link_to reservation.hour.strftime("%H:%M"), user_reservation_path(@user, reservation)
+          = link_to user_reservation_path(@user, reservation)
+            .status-table class="#{reservation.status}"
+              = reservation.hour.strftime("%H:%M")
+
     - else
       h5 = t("no_reservations")

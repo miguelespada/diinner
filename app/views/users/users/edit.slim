@@ -34,7 +34,7 @@
             span#max-age-selected
         = c.input :max_age, label: false, as: :hidden
         = c.input :min_age, label: false, as: :hidden
-        = render '/users/after_plan', f: f
+        = render '/users/after_plan', f: c
         label = t("preferred_price")
         .choosing-box
           .col-lg-4.no-padding
