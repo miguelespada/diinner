@@ -56,6 +56,5 @@
         =<
         = t("tomorrow")
     .row
-      .search-results
-        == cell(:reservation, collection: @suggestions, method: :suggestion)
+      = render 'partials/suggestions'
 

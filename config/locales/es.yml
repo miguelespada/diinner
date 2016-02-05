@@ -111,7 +111,7 @@ es:
   time: "Hora"
   address: "Dirección"
   city: "Ciudad"
-  compatibility: "Compatibilidad"
+  compatibility: "Compatibilidad del plan"
   practical_data: "Datos prácticos"
   last_minute_info: "Te confirmaremos antes de las 18:00 si el plan sigue adelante. No se cobrará nada de tu tarjeta hasta que el plan no se haya confirmado."
   cancelation_info: "Recuerda que si cancelas tu reserva después de las 18:00 del día de la reserva tendrás una penalización de XX."

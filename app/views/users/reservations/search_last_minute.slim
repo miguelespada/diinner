@@ -1,12 +1,1 @@
-div.search-results.row
-  == cell(:reservation, collection: @suggestions, method: :suggestion)
-javascript:
-  $(".see-menu").click(function (e) {
-    var parent = $(this).parent().parent().parent();
-    parent.find(".head").toggleClass("sr-only");
-    parent.find(".text").toggleClass("sr-only");
-
-  });
-  $(".toggle-description").click(function (e) {
-    $(this).parent().find(".restaurant-description").toggleClass("sr-only");
-  });
+= render 'partials/suggestions'
