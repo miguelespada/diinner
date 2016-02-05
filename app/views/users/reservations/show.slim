@@ -24,6 +24,10 @@
       == "#{t("plan_info")}"
     .col-xs-12
       .separator
+      -if @reservation.status == :confirmed
+        .col-xs-12
+          span.plan-label == t("ticket_diinner")
+          span.plan-value =< "#{@reservation.locator}"
       .col-xs-12
         span.plan-label == t("price")
         span.plan-value =< "#{@reservation.menu.price} €"
@@ -60,7 +64,7 @@
       .separator
   .separator
   .col-xs-12
-    - if !@reservation.can_be_cancelled? && @reservation.status != "confirmed"
+    - if !@reservation.can_be_cancelled? && @reservation.status != :confirmed
       .col-xs-12.diinner-info
         .col-xs-10.col-xs-offset-1.text-left
           = t("last_minute_info")
