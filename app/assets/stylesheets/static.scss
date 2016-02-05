@@ -1,8 +1,21 @@
+@import "compass";
+@import 'application';
+@import "user/variables";
+@import "user/general";
+@import "user/navigation";
+
 .static-content{
   margin-top: 80px;
-  padding: 0 calculatePercent(97px, $lg-width);
+  width: 100vw;
+  text-align: center;
 }
 
 .red{
   color: red
+}
+
+.static-logo{
+  width: 33vw;
+  margin-left: 33vw;
+  margin-top: 100px;
 }

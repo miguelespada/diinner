@@ -6,6 +6,7 @@ class BaseUsersController < ApplicationController
   load_resource :user
   before_filter :sign_out_others
   before_action :authorize!
+  before_action :check_protected
   before_action :first_login, except: [:edit, :update]
 
   def authorize!
@@ -24,6 +25,10 @@ class BaseUsersController < ApplicationController
     @session ||= UserSession.new(session)
   end
 
+  def check_protected
+    redirect_to protected_path if AdminSettings.is_protected? and @current_user.first_login?
+  end
+
   def first_login
     redirect_to edit_user_path(@current_user) if @current_user.first_login?
   end
@@ -34,6 +39,8 @@ class BaseUsersController < ApplicationController
 
   def users
   end
+
+
 
   def sign_out_others
     sign_out(current_restaurant) if restaurant_signed_in?

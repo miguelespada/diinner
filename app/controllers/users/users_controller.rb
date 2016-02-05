@@ -30,6 +30,7 @@ class Users::UsersController < BaseUsersController
     redirect_to :back, notice: 'Activity were successfully destroyed.'
   end
 
+
   private
 
   def user_params

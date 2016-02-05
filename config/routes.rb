@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
   scope :static do
     get "help" => "static#help"
+    get "protected" => "static#protected"
   end
 
   namespace :restaurants, as: nil do
@@ -89,6 +90,9 @@ Rails.application.routes.draw do
     resources :evaluations, only: [:index]
 
     resources :home_items, only: [:update] do
+      get "edit",  on: :collection
+    end
+    resources :admin_settings, only: [:update] do
       get "edit",  on: :collection
     end
   end

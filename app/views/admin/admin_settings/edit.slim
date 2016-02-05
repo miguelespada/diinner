@@ -1,0 +1,4 @@
+= simple_form_for [:admin, @admin_settings] do |f|
+  = f.error_notification
+  = f.input :protected_mode, as: :boolean
+  = f.button :submit

@@ -1,9 +1,13 @@
 class StaticController < ApplicationController
-  layout "home"
+  layout "static"
   def index
+   render layout: "home"
   end
 
   def help
+  end
+
+  def protected
   end
 
 
