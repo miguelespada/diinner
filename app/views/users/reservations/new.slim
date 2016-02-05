@@ -25,18 +25,12 @@
       .separator
       label = t("preferred_price")
       .choosing-box
-        .col-lg-4.no-padding
-          .text.long.price-toggle class="#{@user.menu_range.nil? || @user.menu_range == Preference::MENU_RANGE[0] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[0]}"
-            = t(Preference::MENU_RANGE[0])
-            .explanation = t("#{Preference::MENU_RANGE[0]}_explanation")
-        .col-lg-4.no-padding
-          .text.long.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[1] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[1]}"
-            = t(Preference::MENU_RANGE[1])
-            .explanation = t("#{Preference::MENU_RANGE[1]}_explanation")
-        .col-lg-4.no-padding
-          .text.long.last.price.price-toggle class="#{@user.menu_range == Preference::MENU_RANGE[2] ? 'selected': ''}" data-price="#{Preference::MENU_RANGE[2]}"
-            = t(Preference::MENU_RANGE[2])
-            .explanation = t("#{Preference::MENU_RANGE[2]}_explanation")
+        - Preference::MENU_RANGE.each_with_index do |menu_range, i|
+          .col-lg-4.no-padding
+            .text.long.price-toggle class="#{(@user.menu_range.nil? && i == 0) || @user.menu_range == menu_range ? 'selected': ''}" data-price="#{menu_range}"
+              = t(menu_range)
+              .explanation = t("#{menu_range}_explanation")
+        .separator
       .price hidden=true
         = f.input :price, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range)
       .friends-question
