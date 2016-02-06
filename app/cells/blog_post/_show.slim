@@ -1,0 +1,14 @@
+div.col-xs-12.col-md-4
+  div.preview-phone
+    == phone_mockup
+    div.container
+      == phone_toolbar
+      div.question-count
+        span 7/10
+      div.question
+        span = model.title
+      div.option-A
+        = cl_image model.picture, 236, 127
+      div.url
+        span = model.url
+      == phone_like_button
