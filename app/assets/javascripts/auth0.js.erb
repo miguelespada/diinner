@@ -11,12 +11,7 @@ $(document).ready(function () {
 
   var domain = host + ':' + port;
 
-  var callback_url = 'http://'+ domain + '/auth/auth0/callback';
-
-  // TODO get as parameter unobstrussive JS and 
-  <% if Rails.env.production? %>
-      callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
-  <% end %>
+  var callback_url = "<%= Rails.env.production? ? ENV['AUTH0_CALLBACK_URL'] : 'http://' + domain + '/auth/auth0/callback' %>";
 
   lock.show({
     container: 'login-panel',
