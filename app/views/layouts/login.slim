@@ -1,16 +1,8 @@
 doctype html
 html
-  head
-    title Diinner
-    meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"
-    = favicon_link_tag 'favicon.png'
-    = favicon_link_tag 'favicon.ico'
+  - content_for(:head) do
     = stylesheet_link_tag 'login', media: 'all'
-    = javascript_include_tag 'application'
-    = cloudinary_js_config
-    = csrf_meta_tags
-    - if content_for?(:head)
-      == yield(:head)
+  = render "/layouts/head"
   body
     == yield
 
