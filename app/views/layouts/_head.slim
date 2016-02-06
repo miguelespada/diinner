@@ -7,5 +7,6 @@ head
   = javascript_include_tag 'application'
   = cloudinary_js_config
   = csrf_meta_tags
+  = analytics_init if GoogleAnalytics.valid_tracker?
   - if content_for?(:head)
     == yield(:head)
