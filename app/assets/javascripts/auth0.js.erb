@@ -8,19 +8,18 @@
 $(document).ready(function () {
 
   var host = $('#request').data("host") ;
-  var port = $('#request').data("port") ;
 
-  var domain = host + ':' + port;
+  var callback_url = 'http://'+ domain + '/auth/auth0/callback';
 
   // TODO get as parameter unobstrussive JS and 
   <% if Rails.env.production? %>
-      domain = 'diinner.herokuapp.com';
+      callback_url = <%= ENV['AUTH0_CALLBACK'] %>;
   <% end %>
 
   lock.show({
     container: 'login-panel',
     connections: ['facebook', 'google-oauth2'],
-    callbackURL:  'http://'+ domain + '/auth/auth0/callback',
+    callbackURL:  callback_url,
     responseType: 'code',
     authParams: {
       scope: 'openid profile'
