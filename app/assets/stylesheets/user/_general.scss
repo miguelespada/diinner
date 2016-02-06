@@ -213,7 +213,6 @@ html, body {
   width: 100vw;
   opacity: 0;
   visibility: hidden;
-
   @include transition(visibility 0.5s, opacity 0.5s linear);
   &.open{
     height: 100vh;

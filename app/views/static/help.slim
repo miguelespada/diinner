@@ -1,28 +1,29 @@
 .static-logo
   = image_tag "brand.svg", class: 'logo'
 .static-content
-  ul
+  ul.anchor
     li = link_to "¿QUE ES DIINNER?", "#question_1"
     li = link_to "¿EN QUE CREEMOS LOS DIINNERS?", "#question_2"
     li = link_to "¿COMO FUNCIONA DIINNER?", "#question_3"
     li = link_to "¿Cómo creo mi perfil en Diinner?", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
-    li = link_to "", "#question_1_1"
+    li = link_to "Me acabo de registrar… ¿y ahora?", "#question_1_2"
+    li = link_to "¿Qué datos de mi información de Facebook o Google+ utilizáis?", "#question_1_3"
+    li = link_to "¿Qué días pueden organizarse cenas Diinner?", "#question_1_4"
+    li = link_to "¿Cuánto cuesta Diinner?", "#question_1_5"
+    li = link_to "¿Cómo puedo pagar el plan Diinner?", "#question_1_6"
+    li = link_to "¿Qué se incluye dentro del precio del Diinner?", "#question_1_7"
+    li = link_to "¿Puedo ir acompañad@ a un plan Diinner?", "#question_1_8"
+    li = link_to "¿Puedo cancelar un plan?", "#question_1_9"
+    li = link_to "¿Cuál es el límite de tiempo para saber si tendré plan?/¿Cuándo se confirman los planes?", "#question_1_10"
+    li = link_to "¿Puedo cambiar la fecha de un plan?", "#question_1_11"
+    li = link_to "¿Con qué antelación tengo que reservar un Diinner?", "#question_1_12"
+    li = link_to "¿En qué consisten los planes de última hora?", "#question_1_13"
+    li = link_to "¿Qué formatos de cenas están disponibles? ¿Cuántas personas irán a la cena?", "#question_1_14"
+    li = link_to "¿Puedo ver los perfiles o hablar con las personas que acudirán a la cena antes de la misma?", "#question_1_15"
+    li = link_to "¿Qué tengo que hacer cuando llegue al restaurante?", "#question_1_16"
+    li = link_to "¿Tenéis alguna recomendación para disfrutar al máximo de la experiencia Diinner?", "#question_1_17"
+    li = link_to "Esto no es lo que buscaba, ¿cómo me puedo dar de baja?", "#question_1_18"
+
   .question.big#question_1 ¿QUÉ ES DIINNER?
   p Diinner es quedar para cenar o, lo que es lo mismo, es la nueva forma de conocer gente alrededor de una mesa.
   p Somos un club social que organiza cenas entre personas afines (basándonos en criterios de edad, personalidad e intereses) que todavía no se conocen entre sí,
@@ -49,7 +50,6 @@
     selecciones tu favorito.
   p Nosotros nos encargamos de encontrar a los acompañantes más afines a ti y cerrar
     el plan para que la noche sea perfecta.
-  .user USUARIO:
   .question#question_1_1 ¿Cómo creo mi perfil en Diinner?
 
   p El registro se realiza a través de Facebook o Google+. Tu perfil se compone de tu
@@ -153,79 +153,7 @@
       li Si eres tímid@ o tienes miedo de no saber de qué hablar durante la cena, ¡no te preocupes, nos hemos adelantado! Habrá unas tarjetas en la mesa del restaurante que podréis utilizar si se produce algún silencio incómodo durante la cena.
       li Y después de la cena ¿qué? Os animamos a que os vayáis a tomar algo todos juntos y así podréis seguir conociéndoos y disfrutar de la noche.
       li Ve a más de un plan Diinner. Repite cuando puedas. Así conocerás a más gente divertida e interesante y sino piensa que siempre disfrutarás de una gran cena.
-  .question#question_1_18  Esto no es lo que buscaba, ¿cómo me puedo dar de baja?
+  .question#question_1_18 Esto no es lo que buscaba, ¿cómo me puedo dar de baja?
   p
     | Aunque nos da mucha pena que nos dejes siempre podrás borrar tu perfil desde el mismo, desde la opción
     span.red<> “Dar de baja mi cuenta”.
-  .user RESTAURANTE:
-  .question#question_2_1 ¿Qué tipo de restaurantes forman parte de Diinner?
-  p El equipo de Diinner está compuesto por auténticos aficionados a la comida y a la
-    bebida. Nos encanta conocer nuevos lugares, probar nuevas cosas y sobre todo
-    disfrutar de la experiencia.
-  p Por eso sabemos mejor que nadie que el lugar es tan importante como la
-    compañía, así que somos muy estrictos con el proceso de selección de
-    restaurantes.
-  p Los criterios de calidad, precio, situación, tipo de comida, ambiente y atención al
-    público son analizados en detalle antes de incluir a un nuevo proveedor en Diinner.
-  p Todos nuestros locales son únicos a su manera.
-  p
-    | ¿Les gustaría formar parte de Diinner? Enviadnos un mail la siguiente
-    =<> link_to "diinnermail@gmail.com", "mailto:diinnermail@gmail.com"
-    | y nos pondremos en contacto lo antes posible.
-  .question#question_2_1 ¿Qué días pueden organizarse Diinners?
-  p
-    | Los usuarios pueden reservar sus planes Diinner
-    span.red<> cualquier día de la semana.
-    | El horario de la cena lo fija el restaurante aunque tendrán que estar comprendidas entre las 20:00 y las 23:00 horas.
-  .question#question_2_2 ¿Cuántas mesas tengo que dejar libres para Diinners?
-  p.red Como mínimo una mesa diaria para cenas todos los días de apertura del
-    restaurante, incluidos jueves, viernes y sábados, exceptuando aquellos en que el
-    restaurante cierre, tenga un evento privado o necesite dicha mesa por algún otro
-    motivo que comunicará a Diinner previamente.
-  p El restaurante gestiona sus mesas a través de la agenda online para que se pueda
-    adaptarla en función de la actividad del restaurante ese día.
-  .question#question_2_3 ¿Cómo gestiono las mesas de mi restaurante que quiero poner a disposición de Diinner?
-  p Cada restaurante dispondrá de un acceso web a tu agenda de reservas online.
-  p Podrá seleccionar una mesa e indicar que está disponible para Diinner indicando
-    los siguientes datos de la misma:
-  ul
-    li Día de la cena.
-    li Hora de la cena.
-    li Menú de la cena.
-    li Precio de la cena.
-    li El número de comensales siempre será igual a 6.
-  p
-    | Cuando una cena se reserve se notificará al restaurante a través de esta agenda online.
-    span.red<> En ese momento la mesa quedará asignada a un código de reserva que los comensales indicarán en el momento que lleguen al restaurante.
-  .question#question_2_4 ¿Cuándo me confirmaréis las reservas?
-  p Los planes se cierran a las 9.00 horas del día del plan. Por ejemplo, los planes del
-    sábado se cerrarán a las 9.00 del mismo. En ese momento actualizaremos las
-    reservas en la agenda online. También se enviará una notificación a través del
-    correo electrónico. De esta forma, en caso que alguna mesa haya quedado libre el
-    restaurante la podrá liberar para su público habitual.
-  .question#question_2_5 ¿Daréis a conocer mi restaurante entre vuestros usuarios?
-  p Por supuesto. Nuestros Diinners están deseando conocer locales únicos en su
-    ciudad y por ello escribiremos un artículo sobre vosotros en nuestro blog que
-    compartiremos con nuestros usuarios y seguidores en redes sociales.
-  .question#question_2_6 ¿Puedo darme de baja si no estoy contento?
-  p Aunque estamos seguros de que no pasará ya que trabajamos muy duro para
-    poder aportaros todo lo posible y haceros llegar el mayor número de personas a
-    vuestros locales, por supuesto que podréis daros de baja. Solo tendríais que
-    decírnoslo y os daremos de baja al instante y no os enviaríamos más grupos.
-  p Si hubiese alguna reserva pendiente tendríais que garantizar la realización de la
-    misma antes de hacer efectiva la baja como proveedor.
-  .question#question_2_7 Para cualquier duda o incidencia durante la quedada, ¿cómo me podré poner en contacto con vosotros?
-  p
-    | Podrás llamarnos directamente al siguiente teléfono
-    span.red<> 697176231
-    | dónde nuestro equipo estará disponible dando soporte a lo largo de la cena para solucionar cualquier incidencia o problema que pueda surgir antes o durante la misma.
-  .question#question_2_8 ¿Cuándo y quién paga la cena?
-  p
-    | Creemos que este tipo de cuestiones es mejor tratarlas directamente con nosotros. Ponte en contacto con nosotros a través de la siguiente dirección de
-    span.red<> email (diinnermail@gmail.com) o teléfono (697176231)
-    | y podremos tratar personalmente todas las dudas que surjan.
-  .question#question_2_9 ¿Hay cancelaciones? ¿Cómo se gestionan?
-  p
-    | Creemos que este tipo de cuestiones es mejor tratarlas directamente con nosotros. Ponte en contacto con nosotros a través de la siguiente dirección de
-    span.red<> email (diinnermail@gmail.com) o teléfono (697176231)
-    | y podremos tratar personalmente todas las dudas que surjan.

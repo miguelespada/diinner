@@ -7,7 +7,7 @@
         .col-xs-12.col-md-6
           .text-center
             - if @reservation.restaurant.photo
-              = cl_image_tag(@reservation.restaurant.photo.path, { crop: :fill, radius: 2, class: "restaurant-image" })
+              = cl_image_tag(@reservation.restaurant.photo.public_id, quality: 60, format: :jpg, crop: :fill, radius: 2, class: "restaurant-image" )
         .col-xs-12.col-md-6
           .separator
           .col-xs-12
@@ -49,7 +49,7 @@
           span.plan-label = t("day")
           span.plan-value =< @reservation.date.to_s
         .time
-          span.plan-label = t("time")
+          span.plan-label = t("time_name")
           span.plan-value =< @reservation.hour.to_s.last(5)
         .address
           span.plan-label = t("address")

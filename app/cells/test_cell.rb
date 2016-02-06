@@ -66,6 +66,6 @@ class TestCell < BaseCell
 
   # BAD SMELL duplicate condition
   def cl_image image, width, height
-    cl_image_tag(image.path, { size: "#{width}x#{height}", crop: :fill, radius: 2 }) if image.present?
+    cl_image_tag(image.public_id, quality: 60, format: :jpg, size: "#{width}x#{height}", crop: :fill, radius: 2 ) if image.present?
   end
 end

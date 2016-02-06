@@ -8,8 +8,12 @@
   margin-top: 80px;
   width: 100%;
   padding: 5%;
+  .anchor{
+    margin-bottom: 100px;
+  }
   .question{
     font-weight: bold;
+    margin-top: 20px;
     padding: 5px 0;
     &:not(.big){
       font-style: italic;

@@ -48,27 +48,29 @@
         .diinner-label.button.pink.login-link Regístrate
       .info
         | Más de 1900 personas se han conocido gracias a diinner,
-        .black únete a nosotros.
-    .test-box.box.login-link
-      .test-info
-        .title ¿Los Serrano o Los Soprano?
-        .answer
-          .wrapper.left
-            .image
-              = image_tag "landing/serrano@3x.png"
-            .text Los Serrano
-        .answer
-          .wrapper.right
-            .image
-              = image_tag "landing/soprano@3x.png"
-            .text Los Soprano
-      .diinner-label.yellow Cuéntanos tus gustos y te buscaremos los mejores comensales
-      .dot-list
-        .dot.yellow
-        .dot
-        .dot
-        .dot
-        .dot
+        .black< únete a nosotros.
+    .test-box.box data-pos=0
+      - 5.times do |i|
+        .test-info class="#{'active' if i == 0}"
+          .title = "¿Test question #{i}?"
+          .answer
+            .wrapper.left
+              .image.login-link
+                = image_tag "landing/serrano@3x.png"
+              .text = "Test response A #{i}"
+          .answer
+            .wrapper.right
+              .image.login-link
+                = image_tag "landing/soprano@3x.png"
+              .text = "Test response B #{i}"
+      .down-box
+        .diinner-label.yellow Cuéntanos tus gustos y te buscaremos los mejores comensales
+        .dot-list
+          .dot.yellow
+          .dot
+          .dot
+          .dot
+          .dot
 
     .share-box
       .box
@@ -95,3 +97,41 @@ javascript:
   $(".login-link").click(function(){
     openModal('login-modal');
   });
+
+
+  $(".dot").click(function(){
+    clickSlide($(this).index())
+  });
+
+  var clickSlide = function(index){
+    toggleSlide(sliderIndex.get());
+    sliderIndex.set(index);
+    toggleSlide(sliderIndex.get());
+  };
+
+  var toggleSlide = function(index){
+    $($(".dot")[index]).toggleClass("yellow");
+    $($(".test-info")[index]).toggleClass("active");
+  };
+
+  var sliderIndex = function(){
+
+    var get = function(){
+      return $(".test-box").data("pos")
+    };
+
+    var set = function(value){
+      $(".test-box").data("pos", value)
+    };
+
+    return{
+      get: get,
+      set: set
+    }
+  }();
+
+  var nextSlide = function(){
+    clickSlide((sliderIndex.get() + 1) % $(".dot").length);
+  };
+
+  setInterval(nextSlide, 10000);
