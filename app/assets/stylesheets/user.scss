@@ -1,12 +1,10 @@
-@import "compass";
-
+@import 'font';
+@import 'color';
+@import "compass/css3/transition";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transform";
+@import "compass/css3/filter";
 @import "user/variables";
-@import "user/general";
-@import "user/navigation";
-@import "user/forms";
-@import 'calendar';
-@import 'static';
-@import 'j_growl_rails/jquery.jgrowl';
 
 
 html, body{
