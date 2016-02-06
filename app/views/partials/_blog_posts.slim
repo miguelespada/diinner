@@ -1,31 +1,8 @@
-.search-results
-  - @blog_posts.each do |suggestion|
-    .col-sm-6.col-md-6.col-lg-4.search-result-item
-      .panel-white.box
-        .picture
-          = suggestion.picture
-        .data-search-wrapper
-          .title
-            == suggestion.restaurant.name
-            span.bi_doc-documents-plus.toggle-description
-            .restaurant-description.sr-only == suggestion.restaurant.description
-          .time
-            == t("time")
-            span.hour< = suggestion.date_and_time.to_s.last(5)
-          .time
-            == t("date_name")
-            span.hour< = suggestion.date.to_s.first(8)
-          .diinner-double-button
-            .item.see-menu
-              .text Ver Menú
-              .text.sr-only Ver Foto
-            = link_to t("new_reservation"), cell(:reservation, suggestion).reserve_link, method: :post, class: "item"
-          .price-title
-            = t("price")
-            span.price ==< "#{suggestion.menu.price}€"
-        .affinity
-          .affinity-info = t("compatibility")
-          .affinity-tag.rotated
-          .affinity-tag.rotated-2
-          .affinity-tag
-            .value = "#{suggestion.table.affinity}%"
+.search-results.col-xs-12
+  - @blog_posts.each do |blog_post, i|
+    .col-sm-6.col-md-6.col-lg-4.search-result-item.blog-box
+      .col-xs-12.box
+        .row = cl_image_tag blog_post.picture.public_id, format: :jpg, quality: 60 if !blog_post.picture.nil?
+        .row
+          = link_to blog_post.url, target: "_blank"
+            .diinner-label.button.pink = blog_post.title
