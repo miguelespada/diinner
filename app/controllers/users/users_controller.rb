@@ -15,6 +15,7 @@ class Users::UsersController < BaseUsersController
     params = {price: @user.menu_range, city: @user.city, after_plan: @user.after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
     suggestionEngine = SuggestionEngine.new @user, params
     @suggestions = suggestionEngine.search.first(3)
+    @blog_posts = BlogPost.get_three_random
   end
 
   def update

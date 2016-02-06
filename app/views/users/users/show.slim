@@ -58,4 +58,8 @@
         = t("tomorrow")
     .row
       = render 'partials/suggestions'
-
+  - if @blog_posts.length > 0
+    .col-md-12.box.suggest
+      = t("we_suggest_blogs")
+    .row
+      = render 'partials/blog_posts'
