@@ -155,9 +155,20 @@ html, body{
     float: left;
     width: calculatePercent(820px, 1245px);
     .test-info{
+      float: left;
       text-align: center;
       width: 100%;
       padding: 0 calculatePercent(141px, 820px);
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+      @include transition(visibility 0s, opacity 1s linear);
+      &.active{
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+        @include transition(visibility 0s, opacity 1s linear);
+      }
       .title{
         margin-top: 30px;
         font-size: calculateRem(25px);
@@ -205,6 +216,7 @@ html, body{
         height: 13px;
         border-radius: 50%;
         background-color: $dotGray;
+        cursor: pointer;
         &.yellow{
           background-color: $themeYellow;
         }
@@ -312,5 +324,8 @@ html, body{
         width: 100%;
       }
     }
+}
 
+.login-link{
+  cursor: pointer;
 }
