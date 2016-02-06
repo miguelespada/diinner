@@ -2,6 +2,7 @@ class AdminSettings
   include Mongoid::Document
 
   field :protected_mode,   type: Boolean
+  field :map_box, type: String
 
 
   def self.is_protected?
@@ -12,8 +13,7 @@ class AdminSettings
     AdminSettings.first || AdminSettings.create
   end
 
-
   def self.permitted_parameters
-    [:protected_mode]
+    [:protected_mode, :map_box]
   end
 end
