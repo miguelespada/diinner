@@ -11,7 +11,7 @@ $(document).ready(function () {
 
   var domain = host + ':' + port;
 
-  
+
   <% if Rails.env.production? %>
       var callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
   <% else %>
