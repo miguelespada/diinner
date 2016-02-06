@@ -137,6 +137,11 @@ es:
   would_recommend: "Lo recomendaría"
   comments: "Comentarios"
 
+  #Home
+  home_hiw_1: "¿Te apetece conocer gente disfrutando de una buena cena?"
+  home_hiw_2: "Solo tienes que decirnos cuándo, dónde y tu presupuesto. Puedes venir solo o acompañado"
+  home_hiw_3: "Nosotros nos encargamos de encontrar los mejores compañeros de mesa y restaurantes. ¿Estás listo para empezar?"
+
   time:
     formats:
       default: "%H:%M"

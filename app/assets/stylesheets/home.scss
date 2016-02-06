@@ -233,6 +233,22 @@ html, body{
       color: $textGray;
     }
   }
+
+  .blog-box{
+    margin-top: 40px;
+    float: right;
+    width: calculatePercent(313px, $lg-width);
+    margin-right: calculatePercent(30px, 1245px);
+    a, a:active, a:hover{
+      text-decoration: none;
+    }
+    .image {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 
 
