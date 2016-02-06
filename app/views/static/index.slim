@@ -51,18 +51,19 @@
         .black< únete a nosotros.
     .test-box.box data-pos=0
       - 5.times do |i|
+        - t = Test.all.sample
         .test-info class="#{'active' if i == 0}"
-          .title = "¿Test question #{i}?"
+          .title = "#{t.question}"
           .answer
             .wrapper.left
               .image.login-link
-                = image_tag "landing/serrano@3x.png"
-              .text = "Test response A #{i}"
+                = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 200, height: 200) if !t.option_A.nil?
+              .text = "#{t.caption_A}"
           .answer
             .wrapper.right
               .image.login-link
-                = image_tag "landing/soprano@3x.png"
-              .text = "Test response B #{i}"
+                = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 200, height: 200) if !t.option_B.nil?
+              .text = "#{t.caption_A}"
       .down-box
         .diinner-label.yellow Cuéntanos tus gustos y te buscaremos los mejores comensales
         .dot-list
