@@ -15,7 +15,7 @@ $(document).ready(function () {
 
   // TODO get as parameter unobstrussive JS and 
   <% if Rails.env.production? %>
-      callback_url = "<%= ENV['AUTH0_CALLBACK'] %>";
+      callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
   <% end %>
 
   lock.show({

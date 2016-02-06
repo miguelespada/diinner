@@ -70,7 +70,10 @@ MAP.setMapToPosition = function(latlng){
 MAP.addMarker = function(latlng){
   MAP.marker = L.marker(latlng,{
     icon: L.mapbox.marker.icon(
-      {'marker-color': MAP.markerColor,
+      {'marker-color': MAP.markerC
+<<<<<<< HEAD
+        .black únete a nosotros.
+    .test-box.box data-pos=0olor,
        'marker-symbol' : 'star',
        'marker-size' : 'medium',
      }),
