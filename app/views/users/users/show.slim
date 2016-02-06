@@ -14,11 +14,11 @@
 
 .hidden-xs.desktop
   .row
-    .col-md-5
-      .col-md-12
+    .col-lg-5
+      .col-lg-12
         .text-center.reservations
           .diinner-button.pink
-            = link_to "Nueva reserva", new_user_reservation_path(@user)
+            = link_to t("new_reservation"), new_user_reservation_path(@user)
       .separator
       .box.col-md-12
         .row
@@ -40,7 +40,7 @@
                     .time = r.hour.strftime("%H:%M")
 
 
-    .col-md-7
+    .col-lg-7.visible-lg
       == cell(:test, @test).user_show
       /.box.tests.text-center
       /  .info = t("improve_compatibility")
