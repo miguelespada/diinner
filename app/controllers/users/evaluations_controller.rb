@@ -9,7 +9,7 @@ class  Users::EvaluationsController < BaseUsersController
   def create
     @evaluation = @reservation.evaluation.update!(evaluation_params)
     NotificationManager.notify_user_create_evaluation object: @reservation, from: @user
-    redirect_to users_path(@user), notice: 'Thanks for your evaluation!'
+    redirect_to users_path(@user), notice: t("evaluation_thanks")
   rescue
     render :new
   end

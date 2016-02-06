@@ -15,11 +15,11 @@
           .text.long.last.day-toggle data-day="date" = t("other_date")
       .date.form-date hidden=true
         = f.input :date, :as => :date, label: t("date"), html5: true, input_html: { min: Date.tomorrow + 1.day, max: Date.tomorrow + 15.days}
-      .last-minute-info.col-xs-12.diinner-label.pink hidden=true
+      .last-minute-info.col-xs-12.diinner-info hidden=true
         .col-xs-10.col-xs-offset-1.text-left
           = t("last_minute")
       = f.input :city, collection: City.all, :include_blank => false, :selected => (@user.city.nil? ? "" : @user.city.id), label: t("preferred_city")
-      .last-minute-info.col-xs-12.diinner-label.pink
+      .last-minute-info.col-xs-12.diinner-info
         .col-xs-10.col-xs-offset-1.text-left
           = t("city_info")
       .separator
@@ -82,6 +82,8 @@ javascript:
           break;
         case "today":
           $("#reservation-form").attr("action", "#{user_search_last_minute_diinners_path}");
+          var currentDate = new Date();
+          $("#reservation_date").val(currentDate.toISOString().substring(0, 10));
           $(".last-minute-info").show();
           $(".friends-question").hide();
           break;

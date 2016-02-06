@@ -1,16 +1,16 @@
-div.container-fluid
-  div.row
-    div.col-md-12
-      div.col-md-8
-        h1
-          | Evaluation for diinner plan at restaurant:
-          == @reservation.restaurant.name
-        = simple_form_for [@user, @reservation, @evaluation],
-            :url => user_reservation_evaluations_path, :method => :post do |f|
-          = f.error_notification
-          = f.input :quality_of_restaurant, collection: 1..5
-          = f.input :quality_of_menu, collection: 1..5
-          = f.input :comments
-          = f.input :had_fun, as: :boolean
-          = f.input :would_recommend, as: :boolean
-          = f.button :submit
+= simple_form_for [@user, @reservation, @evaluation],
+                  :url => user_reservation_evaluations_path, :method => :post do |f|
+  .row.box
+    .col-xs-12.diinner-label.yellow
+      == @reservation.restaurant.name
+    .col-xs-12
+      .separator
+      = f.error_notification
+      = f.input :quality_of_restaurant, collection: 1..5, label: t("restaurant_quality")
+      = f.input :quality_of_menu, collection: 1..5, label: t("menu_quality")
+      = f.input :comments, label: t("comments")
+      = f.input :had_fun, as: :boolean, label: t("has_fun")
+      = f.input :would_recommend, as: :boolean, label: t("would_recommend")
+  .separator
+  .text-center
+    = f.button :submit, t("evaluate"), class: 'diinner-button pink floater'

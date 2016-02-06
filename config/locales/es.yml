@@ -127,3 +127,12 @@ es:
   all_tests_completed: "Has completado todos los tests disponibles"
   profile_updated: "Tu perfil se ha actualizado correctamente"
   fill_profile: "Por favor, rellena primero la información de tu perfil"
+  evaluation_thanks: "¡Gracias por tu evaluación!"
+
+  #Evaluations
+  evaluate: "Evaluar"
+  restaurant_quality: "Calidad del restaurante"
+  menu_quality: "Calidad del menú"
+  has_fun: "Me he divertido"
+  would_recommend: "Lo recomendaría"
+  comments: "Comentarios"
