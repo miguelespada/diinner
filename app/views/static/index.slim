@@ -20,7 +20,7 @@
         - 3.times do |i|
           - index = i + 1
           .item.col-md-4
-            = cl_image_tag home.send("how_it_works_#{index}").public_id, radius: :max, format: :jpg, quality: 60, width: 500, height: 500, crop: :fill
+            = cl_image_tag home.send("how_it_works_#{index}").public_id, radius: :max, format: :jpg, quality: 60, width: 500, height: 500, crop: :fill, class: "round-image"
             .oval
               .text = index
             .info = t("home_hiw_#{index}")
