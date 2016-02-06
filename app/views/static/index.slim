@@ -14,7 +14,7 @@
       |Cenar para
       br
       |quedar.
-  .how-it-works.container-fluid.no-padding
+  .how-it-works
     .white-panel.box
       - 3.times do |i|
         - index = i + 1
@@ -25,9 +25,8 @@
           .info = t("home_hiw_#{index}")
 
   .content
-    .row
-      .diinner-label
-        |Algunos de nuestros restaurantes
+    .diinner-label
+      |Algunos de nuestros restaurantes
     .restaurant-list
       - 3.times do |i|
         - restaurant = home.send("restaurant_sample_#{i + 1}")
