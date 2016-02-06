@@ -42,42 +42,45 @@ html, body{
 
 .how-it-works{
   padding: 60px calculatePercent(40px, $lg-width) 0 calculatePercent(40px, $lg-width);
+  width: 100%;
   .white-panel{
+    height: 450px;
     margin-top: 290px;
     width: 100%;
     background-color: $panelWhite;
-    .oval {
-      position: relative;
-      display: table;
-      width: 85px;
-      height: 85px;
-      border-radius: 50%;
-      overflow: hidden;
-      @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
-      margin: 30px auto 30px auto;
+    padding: 0 calculatePercent(40px, 1360px);
+    .item{
+      text-align: center;
+      width: calculatePercent(346px, 1280px);
+      margin: 0 calculatePercent(40px, 1280px);
+      float: left;
+      img{
+        width: 100%;
+        height: auto;
+        margin-top: -290px;
+      }
+      .oval {
+        position: relative;
+        display: table;
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        overflow: hidden;
+        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+        margin: 30px auto 30px auto;
 
-      .text{
-        font-size: 30px;
-        display: table-cell;
-        vertical-align: middle;
+        .text{
+          font-size: 30px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      .info{
+        font-size: 25px;
       }
     }
-    .info{
-      font-size: 25px;
-    }
-    .diinner-label {
-      font-size: calculateRem(30px);
-      margin-top: 30px;
-    }
   }
-  .item{
-    text-align: center;
-    img{
-      width: 100%;
-      height: auto;
-      margin-top: -290px;
-    }
-  }
+
 
 }
 
