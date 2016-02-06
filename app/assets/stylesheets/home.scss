@@ -289,6 +289,9 @@ html, body{
       color: $textGray;
       padding-right:  calculatePercent(5px, 1340px);
       box-sizing: border-box;
+      a {
+        color: $textGray;
+      }
     }
   }
 }
