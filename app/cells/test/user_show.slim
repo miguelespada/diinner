@@ -7,7 +7,7 @@
       .col-lg-6
         .option.option_A
           - if model.option_A.present?
-            = cl_image_tag(model.option_A.path, { crop: :fill, radius: 2, class: 'image' })
+            = cl_image_tag(model.option_A.public_id, quality: 60, format: :jpg, crop: :fill, radius: 2, class: 'image' )
             -if model.caption_A.present?
               .caption = model.caption_A
           - else
@@ -20,7 +20,7 @@
         /link_to
         .option.option_B
           - if model.option_B.present?
-            = cl_image_tag(model.option_B.path, {crop: :fill, radius: 2, class: 'image'})
+            = cl_image_tag(model.option_B.public_id, quality: 60, format: :jpg, crop: :fill, radius: 2, class: 'image')
             - if model.caption_A.present?
               .caption = model.caption_B
           - else
