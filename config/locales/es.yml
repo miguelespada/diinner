@@ -137,6 +137,9 @@ es:
   would_recommend: "Lo recomendaría"
   comments: "Comentarios"
 
+  time:
+    formats:
+      default: "%H:%M"
   date:
     formats:
       default: "%d/%m/%Y"
