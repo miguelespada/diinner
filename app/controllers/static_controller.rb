@@ -5,7 +5,10 @@ class StaticController < ApplicationController
    render layout: "home"
   end
 
-  def help
+  def help_user
+  end
+
+  def help_restaurant
   end
 
   def protected

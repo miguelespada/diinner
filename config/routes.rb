@@ -37,7 +37,8 @@ Rails.application.routes.draw do
   end
 
   scope :static do
-    get "help" => "static#help"
+    get "help/user" => "static#help_user", as: "help_user"
+    get "help/restaurant" => "static#help_restaurant", as: "help_restaurant"
     get "protected" => "static#protected"
   end
 
