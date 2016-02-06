@@ -10,8 +10,12 @@ $(document).ready(function () {
   var port = $('#request').data("port") ;
 
   var domain = host + ':' + port;
-
-  var callback_url = "<%= Rails.env.production? ? ENV['AUTH0_CALLBACK_URL'] : 'http://' + domain + '/auth/auth0/callback' %>";
+  
+  <% if Rails.env.production? %>
+      var callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
+  <% else %>
+      var callback_url = 'http://'+ domain + '/auth/auth0/callback';
+  <% end %>
 
   lock.show({
     container: 'login-panel',

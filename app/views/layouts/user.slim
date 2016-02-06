@@ -1,6 +1,8 @@
 doctype html
 html
-  = render "/users/head"
+  - content_for(:head) do
+    = stylesheet_link_tag 'user', media: 'all'
+  = render "/layouts/head"
   body
     .hidden-xs.separator
     .user-container
