@@ -1,7 +1,7 @@
 - home = HomeItem.get_first
 .user-image-wrapper.visible-xs
   .home-header
-    = cl_image_tag(home.mobile_background.public_id, quality: 60, format: :jpg, class: "small")
+    = cl_image_tag(home.mobile_background.public_id, quality: 60, format: :jpg, width: 720, crop: :fill, class: "small")
     .header-title.small
       |Cenar para
       br
@@ -9,7 +9,7 @@
 
 .hidden-xs
   header.home-header
-    = cl_image_tag(home.header.public_id, quality: 60, format: :jpg)
+    = cl_image_tag(home.header.public_id, quality: 60, width: 1440, crop: :fill,  format: :jpg)
     .header-title
       |Cenar para
       br
