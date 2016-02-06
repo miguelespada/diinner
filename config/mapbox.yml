@@ -1,12 +1,10 @@
 development:
   mapbox_access_token: 'pk.eyJ1IjoiZGlpbm5lciIsImEiOiJjaWtiNHhqZXAwbTYydmprcGV5eXNwNDl4In0.2TyHx7mN9i2iv_ABtEyiUQ'
-  map_style: 'jameshedaweng.hig7ak0h'
   google_geolocation_key: 'AIzaSyBXjeHMLegBic7mT-y-rXT8V1beC7uV3yw'
 test:
   mapbox_access_token: 'pk.eyJ1IjoiamFtZXNoZWRhd2VuZyIsImEiOiJxNGxvT1h3In0.q1gGwhVt7lQ7Tji5NV2jUQ'
-  map_style: 'jameshedaweng.hig7ak0h'
   google_geolocation_key: 'AIzaSyBXjeHMLegBic7mT-y-rXT8V1beC7uV3yw'
 production:
   mapbox_access_token: 'pk.eyJ1IjoiZGlpbm5lciIsImEiOiJjaWtiNHhqZXAwbTYydmprcGV5eXNwNDl4In0.2TyHx7mN9i2iv_ABtEyiUQ'
-  map_style: 'jameshedaweng.hig7ak0h'
+  # map_style: 'jameshedaweng.hig7ak0h'
   google_geolocation_key: 'AIzaSyAR2cUmSXX9qpC2_zeL_lpCI5nSHaUPQXc'
