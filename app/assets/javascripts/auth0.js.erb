@@ -8,6 +8,9 @@
 $(document).ready(function () {
 
   var host = $('#request').data("host") ;
+  var port = $('#request').data("port") ;
+
+  var domain = host + ':' + port;
 
   var callback_url = 'http://'+ domain + '/auth/auth0/callback';
 
