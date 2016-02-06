@@ -1,8 +1,8 @@
-@import "compass";
-@import 'application';
+@import "compass/css3/transition";
+@import "compass/css3/box-shadow";
+@import 'font';
+@import 'color';
 @import "user/variables";
-@import "user/general";
-@import "user/navigation";
 
 html, body{
   height: 100%;
