@@ -51,6 +51,8 @@ gem "factory_girl_rails"
 gem 'airbrake'
 
 gem 'bootstrap-slider-rails'
+gem 'google-analytics-rails', '1.0.0'
+
 
 group :test do
   gem "database_cleaner"
