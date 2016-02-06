@@ -114,7 +114,6 @@ javascript:
     });
 
     $(".friend-toggle").on("click", function (e) {
-      console.log("Toggling friend");
       $(this).siblings().removeClass("selected");
       $(this).addClass("selected");
       $($(this).parent().parent().parent().find(".gender")).val(($(this).data("gender")));

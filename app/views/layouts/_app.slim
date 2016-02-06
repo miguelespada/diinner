@@ -1,0 +1,11 @@
+doctype html
+html
+  - content_for(:head) do
+    = stylesheet_link_tag 'admin', media: 'all'
+  = render "/layouts/head"
+  body
+    = render "/layouts/navbar"
+    .main-container
+      = render "/layouts/sidebar"
+      = render "/layouts/container"
+      = render "/layouts/alerts"
