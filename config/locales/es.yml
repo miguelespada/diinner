@@ -46,7 +46,7 @@ es:
 
   #New reservation
   preferred_date: "¿Qué día quieres tu plan?"
-  last_minute: "¡Último minuto!"
+  last_minute: "Las reservas para hoy para completar planes que ya están confirmados. Por eso, son solo para una persona y no se pueden cancelar."
   today: "Hoy"
   tomorrow: "Mañana"
   other_date: "Otro día"
