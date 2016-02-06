@@ -6,9 +6,9 @@ development:
   enhance_image_tag: true
   static_image_support: false
 production:
-  cloud_name: hotvlwxi4
-  api_key: '513581727874222'
-  api_secret: clrQ59a93TQjjk61SWE8NKWXNQ0
+  cloud_name: diinner-com
+  api_key: '657711552894947'
+  api_secret: UxJ5moHqNGu7z0755vUTVUOkUl4
   enhance_image_tag: true
   static_image_support: true
 test:
