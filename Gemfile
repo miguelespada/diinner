@@ -52,7 +52,7 @@ gem 'airbrake'
 
 gem 'bootstrap-slider-rails'
 gem 'google-analytics-rails', '1.0.0'
-
+gem 'actionpack-action_caching'
 
 group :test do
   gem "database_cleaner"
