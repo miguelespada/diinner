@@ -39,15 +39,17 @@
                     .date = r.date.strftime("%d/%m/%Y")
                     .time = r.hour.strftime("%H:%M")
 
-
-    .col-lg-7.visible-lg
-      == cell(:test, @test).user_show
-      /.box.tests.text-center
-      /  .info = t("improve_compatibility")
-      /  .icon.bi_interface-heart
-      /  = link_to user_test_path(@user)
-      /    .diinner-label.yellow
-      /      = t("go_to_tests")
+    - if @test
+      .col-lg-7.visible-lg
+        == cell(:test, @test).user_show
+    - else
+      .col-lg-7.visible-lg
+        .box.tests.text-center
+          .info = t("improve_compatibility")
+          .icon.bi_interface-heart
+          = link_to user_test_path(@user)
+            .diinner-label.yellow
+              = t("go_to_tests")
   .separator
 
   - if @suggestions.length > 0
