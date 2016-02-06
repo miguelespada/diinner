@@ -304,18 +304,44 @@
 			}
 		},
 		{
-			"file": "config/initializers/auth0.rb",
+			"file": "app/views/static/index.slim",
 			"settings":
 			{
-				"buffer_size": 596,
+				"buffer_size": 3345,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/models/home_item.rb",
+			"file": "db/seeds.rb",
 			"settings":
 			{
-				"buffer_size": 530,
+				"buffer_size": 5979,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/users/reservations_controller.rb",
+			"settings":
+			{
+				"buffer_size": 4148,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 481 files for \"render :no_dinners\"\n\n/Users/miguel/Diinner/app/controllers/users/reservations_controller.rb:\n   25      if suggestionEngine.date_in_range?\n   26        @suggestions = suggestionEngine.search.first(3)\n   27:       render :no_dinners if @suggestions.empty?\n   28      else\n   29        redirect_to :back, notice: 'You can only reserve Diiners from tomorrow within two weeks.'\n   ..\n   46        else\n   47          @suggestions = suggestionEngine.last_minute.first(10)\n   48:         render :no_dinners if @suggestions.empty?\n   49        end\n   50      end\n\n2 matches in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 602,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/services/suggestion_engine.rb",
+			"settings":
+			{
+				"buffer_size": 1909,
 				"line_ending": "Unix"
 			}
 		}
@@ -380,14 +406,20 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/app/controllers/admin/tables_controller.rb",
+		"/Users/miguel/Diinner/app/controllers/restaurants/tables_controller.rb",
+		"/Users/miguel/Diinner/db/seeds.rb",
+		"/Users/miguel/Diinner/app/views/public_activity/reservation/_confirmed.slim",
+		"/Users/miguel/Diinner/app/views/users/notifications/index.slim",
+		"/Users/miguel/Diinner/config/initializers/auth0.rb",
+		"/Users/miguel/Diinner/app/views/restaurants/tables/index.slim",
+		"/Users/miguel/Diinner/app/models/home_item.rb",
 		"/Users/miguel/Diinner/features/support/env.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 		"/Users/miguel/Diinner/app/views/static/index.slim",
 		"/Users/miguel/Diinner/app/models/restaurant.rb",
 		"/Users/miguel/Diinner/app/views/admin/home_items/edit.slim",
-		"/Users/miguel/Diinner/db/seeds.rb",
 		"/Users/miguel/Diinner/app/views/admin/_sidebar.slim",
-		"/Users/miguel/Diinner/app/models/home_item.rb",
 		"/Users/miguel/Diinner/config/routes.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/home_items_controller.rb",
 		"/Users/miguel/Diinner/app/views/application/index.slim",
@@ -433,7 +465,6 @@
 		"/Users/miguel/Diinner/app/cells/restaurant/admin_show.slim",
 		"/Users/miguel/Diinner/app/models/table.rb",
 		"/Users/miguel/Diinner/.env",
-		"/Users/miguel/Diinner/app/views/restaurants/tables/index.slim",
 		"/Users/miguel/Diinner/app/views/admin/settings.slim",
 		"/Users/miguel/Diinner/circle.yml",
 		"/Users/miguel/Diinner/app/cells/restaurant/_show.slim",
@@ -461,9 +492,7 @@
 		"/Users/miguel/Diinner/features/step_definitions/restaurant/restaurant_manage_tables_steps.rb",
 		"/Users/miguel/Diinner/app/views/restaurants/tables/_form.slim",
 		"/Users/miguel/Diinner/features/ionic/user_reserve_table_steps.rb",
-		"/Users/miguel/Diinner/app/controllers/restaurants/tables_controller.rb",
 		"/Users/miguel/Diinner/features/user/user_manage_preferences.feature",
-		"/Users/miguel/Diinner/app/controllers/admin/tables_controller.rb",
 		"/Users/miguel/Diinner/features/admin/admin_manage_tables.feature",
 		"/Users/miguel/Diinner/app/cells/table/process_link.slim",
 		"/Users/miguel/Diinner/app/services/table_manager.rb",
@@ -504,10 +533,7 @@
 		"/Users/miguel/Diinner/app/cells/user/show.slim",
 		"/Users/miguel/Diinner/app/cells/user_cell.rb",
 		"/Users/miguel/Diinner/features/user/user_reserve_table_with_no_tables.feature",
-		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table_with_errors_steps.rb",
-		"/Users/miguel/Diinner/app/controllers/ionic_controller.rb",
-		"/Users/miguel/Diinner/app/views/users/reservations/new_last_minute.slim",
-		"/Users/miguel/Diinner/features/admin/admin_inspect_tables.feature"
+		"/Users/miguel/Diinner/features/step_definitions/user/user_reserve_table_with_errors_steps.rb"
 	],
 	"find":
 	{
@@ -515,7 +541,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			"",
@@ -537,6 +563,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"render :no_dinners",
+			"check_preferences",
 			"Search last minute",
 			"I have preferences",
 			"user_preference_attributes_menu_range",
@@ -662,12 +690,10 @@
 			":table_menu_id",
 			"accept",
 			"has_and_belongs_to_many",
-			"I create a new table",
-			"I create a table with this menu",
-			"I delete a menu"
+			"I create a new table"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -704,7 +730,6 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
 				{
@@ -737,44 +762,46 @@
 				},
 				{
 					"buffer": 1,
-					"file": "config/initializers/auth0.rb",
+					"file": "app/views/static/index.slim",
 					"settings":
 					{
-						"buffer_size": 596,
+						"buffer_size": 3345,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								303,
-								303
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage"
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 459.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/models/home_item.rb",
+					"file": "db/seeds.rb",
 					"settings":
 					{
-						"buffer_size": 530,
+						"buffer_size": 5979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								146,
-								156
+								5979,
+								5979
 							]
 						],
 						"settings":
@@ -785,6 +812,110 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/controllers/users/reservations_controller.rb",
+					"settings":
+					{
+						"buffer_size": 4148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1568,
+								1568
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 469.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"settings":
+					{
+						"buffer_size": 602,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										238,
+										256
+									],
+									[
+										507,
+										525
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								103,
+								103
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/services/suggestion_engine.rb",
+					"settings":
+					{
+						"buffer_size": 1909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1415,
+								1415
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 896.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -838,12 +969,32 @@
 		"selected_items":
 		[
 			[
-				"homei",
-				"app/models/home_item.rb"
+				"sugges",
+				"app/services/suggestion_engine.rb"
+			],
+			[
+				"rese",
+				"app/controllers/users/reservations_controller.rb"
+			],
+			[
+				"seed",
+				"db/seeds.rb"
 			],
 			[
 				"inde",
 				"app/views/static/index.slim"
+			],
+			[
+				"see",
+				"db/seeds.rb"
+			],
+			[
+				"tablescon",
+				"app/controllers/admin/tables_controller.rb"
+			],
+			[
+				"homei",
+				"app/models/home_item.rb"
 			],
 			[
 				"gem",
@@ -860,10 +1011,6 @@
 			[
 				"rest",
 				"app/models/restaurant.rb"
-			],
-			[
-				"seed",
-				"db/seeds.rb"
 			],
 			[
 				"test",
@@ -936,10 +1083,6 @@
 			[
 				"table",
 				"app/models/table.rb"
-			],
-			[
-				"see",
-				"db/seeds.rb"
 			],
 			[
 				".env",
@@ -1336,18 +1479,6 @@
 			[
 				"credi",
 				"app/views/users/reservations/credit_card_form.slim"
-			],
-			[
-				"gemlo",
-				"Gemfile.lock"
-			],
-			[
-				"tim",
-				"app/inputs/time_picker_input.rb"
-			],
-			[
-				"date_p",
-				"app/inputs/date_picker_input.rb"
 			]
 		],
 		"width": 0.0
