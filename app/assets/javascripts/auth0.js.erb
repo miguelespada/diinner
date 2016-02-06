@@ -1,6 +1,6 @@
 //= require jquery
 
-  var lock = new Auth0Lock("<%= Rails.env['AUTH0_CLIENT_ID'] %>", "<%= Rails.env['AUTH0_DOMAIN'] %>", {
+  var lock = new Auth0Lock("<%= ENV['AUTH0_CLIENT_ID'] %>", "<%= ENV['AUTH0_DOMAIN'] %>", {
     assetsUrl: 'https://cdn.eu.auth0.com/'
   });
 
@@ -12,7 +12,7 @@ $(document).ready(function () {
   var domain = host + ':' + port;
 
   <% if Rails.env.production? %>
-      var callback_url = "<%= Rails.env['AUTH0_CALLBACK_URL'] %>";
+      var callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
   <% else %>
       var callback_url = 'http://'+ domain + '/auth/auth0/callback';
   <% end %>
