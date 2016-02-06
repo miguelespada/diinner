@@ -78,6 +78,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :restaurants
     resources :tests
+    resources :blog_posts
     resources :cities
     resources :users, except: [:new, :create]
     resources :tables, only: [:show, :index] do

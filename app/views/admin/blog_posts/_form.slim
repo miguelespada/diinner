@@ -1,0 +1,11 @@
+= simple_form_for [:admin, @blog_post] do |f|
+  = f.error_notification
+  = f.input :picture, as: :attachinary
+  = f.input :title
+  = f.input :url
+  = f.button :submit
+
+javascript:
+  $(document).ready(function () {
+    $('.attachinary-input').attachinary();
+  });

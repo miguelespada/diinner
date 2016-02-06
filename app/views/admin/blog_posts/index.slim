@@ -1,0 +1,16 @@
+- content_for(:title) do
+  | Tests
+
+- content_for(:new) do
+  == cell(:blog_post, BlogPost).call(:new_link)
+
+- content_for(:thead) do
+  th Title
+  th Picture
+  th URL
+  th.text-right Actions
+
+- content_for(:tbody) do
+  == cell(:blog_post, collection: @blog_posts, method: :row)
+
+= render "admin/admin_table"
