@@ -2,12 +2,12 @@
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1400 650" enable-background="new 0 0 1400 650" xml:space="preserve">
+	 viewBox="0 0 1440 500" enable-background="new 0 0 1440 500" xml:space="preserve">
 <g>
 	<g>
-		<ellipse fill="#FFFFFF" cx="691.6" cy="166.3" rx="135" ry="140.1"/>
+		<ellipse fill="#FFFFFF" cx="713.5" cy="127.9" rx="103.8" ry="107.8"/>
 		
-			<image overflow="visible" width="700" height="700" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAK8CAYAAAANumxDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB
+			<image overflow="visible" enable-background="new    " width="700" height="700" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAK8CAYAAAANumxDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB
 NmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQt
 RRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvV
 bjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+
@@ -1258,21 +1258,25 @@ bpqT9BUArgBtCVur2VrQ4g4iosArIkIUaxSweYG/qwO2mG0z1oIZsW0j4Fb51sQc1pSDjoTtKtBu
 th6VSEQUeEVElqfHbO8u8HeVJvRuSNjqzFZrNt00d2cmsLoi9CbUvDth6wQGVSYRUeAVEVlbg2Y7
 ucjfFwHVZqsyWyVQYTa/2XxYN9IVZFl9ZrBuEBsGhsx2zWyD3Jhe0m+2KR1SIqLAKyKSWaa4Maf0
 dgpM6PUkbGVAqdlKgOKErdBsBWbLx5pe4caac+wymxNwAHaz2cz+okDEbGGsxT6CZgtgTSGYA2ZN
-cJ0Bps02mbBNANfNNg6MJWwj5t+JiOS0/z4AAN7Q1cnImzgAAAAASUVORK5CYII=" transform="matrix(0.3645 0 0 0.3714 564.0121 36.2754)">
+cJ0Bps02mbBNANfNNg6MJWwj5t+JiOS0/z4AAN7Q1cnImzgAAAAASUVORK5CYII=" transform="matrix(0.2804 0 0 0.2857 615.3939 27.9042)">
 		</image>
 		<g>
-			<ellipse fill="#FFFFFF" cx="780.7" cy="287.8" rx="45" ry="46.7"/>
-			<text transform="matrix(0.9639 0 0 1 768.8134 301.0868)" font-family="'ProximaNova-Light'" font-size="42.4923">2</text>
+			<ellipse fill="#FFFFFF" cx="782.1" cy="221.4" rx="34.6" ry="35.9"/>
+			<text transform="matrix(0.9639 0 0 1 772.9335 231.605)" font-family="'ProximaNova-Light'" font-size="32.6864">2</text>
 		</g>
 	</g>
-	<rect x="512.5" y="389.5" fill="none" width="374.9" height="220.8"/>
-	<text transform="matrix(0.9639 0 0 1 524.0009 412.2118)"><tspan x="0" y="0" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">Solo tienes que decirnos </tspan><tspan x="71.5" y="40.8" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">cuándo, dónde </tspan><tspan x="55.8" y="81.6" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">y tu presupuesto. </tspan><tspan x="37.2" y="122.4" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">Puedes venir solo o </tspan><tspan x="86.3" y="163.2" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">acompañado</tspan></text>
+	<rect x="575.8" y="299.6" fill="none" width="288.4" height="169.8"/>
+	<text transform="matrix(0.9639 0 0 1 584.6161 317.0858)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">Solo tienes que decirnos </text>
+	<text transform="matrix(0.9639 0 0 1 637.6303 348.4706)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">cuándo, dónde </text>
+	<text transform="matrix(0.9639 0 0 1 625.9893 379.8554)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">y tu presupuesto. </text>
+	<text transform="matrix(0.9639 0 0 1 612.1982 411.2402)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">Puedes venir solo o </text>
+	<text transform="matrix(0.9639 0 0 1 648.6039 442.6249)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">acompañado.</text>
 </g>
 <g>
 	<g>
-		<ellipse fill="#FFFFFF" cx="207.1" cy="166.3" rx="135" ry="140.1"/>
+		<ellipse fill="#FFFFFF" cx="340.8" cy="127.9" rx="103.8" ry="107.8"/>
 		
-			<image overflow="visible" width="800" height="800" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAYAAADbcAZoAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK
+			<image overflow="visible" enable-background="new    " width="800" height="800" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAYAAADbcAZoAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK
 TWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQ
 WaIQkgBhhBASQMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167+3t+9f7vOec
 5/zOec8PgBESJpHmomoAOVKFPDrYH49PSMTJvYACFUjgBCAQ5svCZwXFAADwA3l4fnSwP/wBr28A
@@ -2704,21 +2708,23 @@ HekdpkI4qGy2DcNbD2zwvq7b7tAeGyIiKkBERNJCC9uWUu3OcGDEdscw778NA4Zud8ieq97u2IK7
 zO0WYNN2x2aFSUREBYiIiB9s9o53d/E9Q7yjEndyfCVQ4X0t3+4owx3uVZDhMWvHHRbViLuqWddR
 B9R7X2u9rzXeISIiKkBERCRJvWlEh7wipAR3+FcxUOQdhd5R4B35QJ535HpHjndkA1neEfKOoHeY
 uBPyDe8AcLzDwh3SlPCOuHfEvCMKRLwj7B2d3tHhFRftQJt3tHpHi3c0e8VHXGkhIpLe/n8AJyz0
-fWWzTrIAAAAASUVORK5CYII=" transform="matrix(0.3189 0 0 0.325 80.0797 35.7015)">
+fWWzTrIAAAAASUVORK5CYII=" transform="matrix(0.2453 0 0 0.25 243.1382 27.4627)">
 		</image>
 		<g>
-			<ellipse fill="#FFFFFF" cx="295.2" cy="290.5" rx="45" ry="46.7"/>
-			<text transform="matrix(0.9639 0 0 1 288.8856 304.7782)" font-family="'ProximaNova-Light'" font-size="42.4923">1</text>
+			<ellipse fill="#FFFFFF" cx="408.6" cy="223.5" rx="34.6" ry="35.9"/>
+			<text transform="matrix(0.9639 0 0 1 403.7578 234.4447)" font-family="'ProximaNova-Light'" font-size="32.6864">1</text>
 		</g>
 	</g>
-	<rect x="20" y="386" fill="none" width="374.9" height="140.8"/>
-	<text transform="matrix(0.9639 0 0 1 57.5042 408.7235)"><tspan x="0" y="0" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">¿Te apetece conocer </tspan><tspan x="-29.3" y="40.8" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">gente disfrutando de una </tspan><tspan x="60.7" y="81.6" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">buena cena?</tspan></text>
+	<rect x="196.9" y="296.9" fill="none" width="288.4" height="108.3"/>
+	<text transform="matrix(0.9639 0 0 1 225.7724 314.4024)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">¿Te apetece conocer </text>
+	<text transform="matrix(0.9639 0 0 1 204.0474 345.7871)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">gente disfrutando de una </text>
+	<text transform="matrix(0.9639 0 0 1 270.7793 377.1719)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">buena cena?</text>
 </g>
 <g>
 	<g>
-		<ellipse fill="#FFFFFF" cx="1164.5" cy="166.3" rx="135" ry="140.1"/>
+		<ellipse fill="#FFFFFF" cx="1077.3" cy="127.9" rx="103.8" ry="107.8"/>
 		
-			<image overflow="visible" width="700" height="700" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAK8CAYAAAANumxDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB
+			<image overflow="visible" enable-background="new    " width="700" height="700" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAK8CAYAAAANumxDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB
 NmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQt
 RRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvV
 bjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+
@@ -4531,18 +4537,21 @@ EGj2bon8Uf2AY4J2NNkNM3a3/kBEytchMmRH6zfv0zYBG4O2XUokhJDAK4QQh2Z70N5t5e96BaH3
 yH1av6AdETS5aO7AtJBdFWHHPjXftk/bAuySMgkhJPAKIUTH2hW0hfv5+1KgT9B6B60X0DNoPYLW
 neyFdLECq0+K7AVidUBt0GqCtou900uqg5aQLiWEkMArhBCdS4K9c0o/TSwIvV33aRVAl6CVA2X7
 tJKgxYIWJTu9IkJ2znEoaBZgAkbQVHB/GvCD5pHd7MMJmk12CkEGSAfBNQUkgxbfp7UAzUFrAhr3
-afXBvxNCiKL2/wMAOC7sF/jju/oAAAAASUVORK5CYII=" transform="matrix(0.3645 0 0 0.3714 1036.965 36.2754)">
+afXBvxNCiKL2/wMAOC7sF/jju/oAAAAASUVORK5CYII=" transform="matrix(0.2804 0 0 0.2857 979.2038 27.9042)">
 		</image>
 		<g>
-			<ellipse fill="#FFFFFF" cx="1243.8" cy="295.8" rx="45" ry="46.7"/>
-			<text transform="matrix(0.9639 0 0 1 1232.6888 309.0331)" font-family="'ProximaNova-Light'" font-size="42.4923">3</text>
+			<ellipse fill="#FFFFFF" cx="1138.3" cy="227.5" rx="34.6" ry="35.9"/>
+			<text transform="matrix(0.9639 0 0 1 1129.7605 237.7178)" font-family="'ProximaNova-Light'" font-size="32.6864">3</text>
 		</g>
 	</g>
-	<rect x="995.1" y="391" fill="none" width="374.9" height="220.8"/>
-	<text transform="matrix(0.9639 0 0 1 996.4535 413.7011)"><tspan x="0" y="0" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">Nosotros nos encargamos </tspan><tspan x="9.8" y="40.8" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">de encontrar los mejores </tspan><tspan x="20.9" y="81.6" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">compañeros de mesa y </tspan><tspan x="98.3" y="122.4" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="33.9939">restaurantes.</tspan></text>
+	<rect x="947" y="300.8" fill="none" width="288.4" height="169.8"/>
+	<text transform="matrix(0.9639 0 0 1 948.041 318.2314)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">Nosotros nos encargamos </text>
+	<text transform="matrix(0.9639 0 0 1 955.3076 349.6161)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">de encontrar los mejores </text>
+	<text transform="matrix(0.9639 0 0 1 963.537 381.001)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">compañeros de mesa y </text>
+	<text transform="matrix(0.9639 0 0 1 1020.9267 412.3857)" fill="#F1F2F2" font-family="'ProximaNova-Light'" font-size="26.1492">restaurantes.</text>
 </g>
-<rect x="879.8" y="385.8" fill="#F1F2F2" width="29.4" height="0"/>
-<line fill="#F1F2F2" stroke="#F1F2F2" stroke-width="2" stroke-miterlimit="10" x1="939.7" y1="32.5" x2="939.7" y2="626.4"/>
-<line fill="#F1F2F2" stroke="#F1F2F2" stroke-width="2" stroke-miterlimit="10" x1="441.9" y1="28.1" x2="441.9" y2="622"/>
-<line fill="none" stroke="#FACC3B" stroke-width="3" stroke-miterlimit="10" x1="890.9" y1="-376.9" x2="888.9" y2="-376.9"/>
+<polygon fill="#F1F2F2" points="858.3,296.8 880.9,296.8 880.9,296.8 "/>
+<line fill="none" stroke="#F1F2F2" stroke-width="2" stroke-miterlimit="10" x1="904.4" y1="25" x2="904.4" y2="481.8"/>
+<line fill="none" stroke="#F1F2F2" stroke-width="2" stroke-miterlimit="10" x1="521.5" y1="21.6" x2="521.5" y2="478.5"/>
+<line fill="none" stroke="#FACC3B" stroke-width="3" stroke-miterlimit="10" x1="866.8" y1="-289.9" x2="865.3" y2="-289.9"/>
 </svg>
