@@ -4,8 +4,9 @@
   .diinner-label.yellow
     - if @reservations.length > 0
       = t("my_reservations")
-    else
-      = t("no_reservations")
+    - else
+      .diinner-info
+        = t("no_reservations")
   .calendar
     - if @reservations.length > 0
       = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|

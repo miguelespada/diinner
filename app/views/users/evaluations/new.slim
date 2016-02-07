@@ -1,5 +1,4 @@
-= simple_form_for [@user, @reservation, @evaluation],
-                  :url => user_reservation_evaluations_path, :method => :post do |f|
+= simple_form_for [@user, @reservation, @evaluation], :url => user_reservation_evaluations_path, :method => :post do |f|
   .row.box
     .col-xs-12.diinner-label.yellow
       == @reservation.restaurant.name

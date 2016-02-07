@@ -41,7 +41,7 @@ es:
   my_reservations: "Mis reservas"
   improve_compatibility: "¿Quieres mejorar tu compatibilidad?"
   go_to_tests: "Acceder a preguntas de compatibilidad"
-
+  evaluation_pending: "Pendiente de evaluar"
   #Preferences
   update_button: "Actualizar"
 
