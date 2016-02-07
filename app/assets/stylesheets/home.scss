@@ -77,7 +77,7 @@ html, body{
       }
       .diinner-label {
         *{
-          font-family: "Proxima Nova'";
+          font-family: "Proxima Nova";
         }
         .title{
           font-size: calculateRem(28px);
@@ -86,7 +86,8 @@ html, body{
         }
         .city{
           font-weight: lighter;
-          color: $textBlue;
+          font-size: calculateRem(22px);
+
         }
       }
     }
@@ -126,6 +127,9 @@ html, body{
     margin-top: 0px;
     float: left;
     width: calculatePercent(820px, 1245px);
+    .diinner-label{
+      font-weight: 200;
+    }
     .test-info{
       float: left;
       text-align: center;

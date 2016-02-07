@@ -19,8 +19,8 @@
       = image_tag "landing/back.svg"
 
   .content
-    .diinner-label
-      h1 Aquí tienes algunos de nuestros restaurantes
+    .diinner-label.info
+      h1 Aquí tienes algunos de nuestros <b>restaurantes</b>
     .restaurant-list
       - 3.times do |i|
         - restaurant = home.send("restaurant_sample_#{i + 1}")
@@ -41,7 +41,7 @@
           .diinner-button.pink.login-link Inicia sesión
         .diinner-label.button.pink.login-link Regístrate
       .info
-        | Más de 1900 personas se han conocido gracias a diinner,
+        | Diinner es la nueva de manera de conocer a gente disfrutando de la comida,
         .black< únete a nosotros.
     .test-box.box data-pos=0
       .tests-info
@@ -61,7 +61,10 @@
                 = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 200, height: 200) if !t.option_B.nil?
               .text = "#{t.caption_A}"
       .down-box
-        .diinner-label.yellow Cuéntanos tus gustos y te buscaremos los mejores comensales
+        .diinner-label.yellow 
+          | Cuéntanos tus gustos y encontraemos los <b>mejores comensales</b>. 
+          br  
+          | Nuestro sistema se asegura que el <b>número de chicos y chicas está equilibrado</b> en todas las cenas.
         .dot-list
           .dot.yellow
           .dot
