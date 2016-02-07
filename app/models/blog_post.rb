@@ -7,6 +7,7 @@ class BlogPost
   field :url, type: String
 
   def self.get_three_random
+    # TODO do it random
     BlogPost.all.desc('created_at').limit(3)
   end
 
