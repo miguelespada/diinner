@@ -9,24 +9,18 @@
 
 .hidden-xs
   header.home-header
-    = cl_image_tag(home.header.public_id, quality: 60, width: 1440, crop: :fill,  format: :jpg)
+    = cl_image_tag(home.header.public_id, quality: 60, width: 1440, height: 750, crop: :fill,  format: :jpg)
     .header-title
       |Cenar para
       br
       |quedar.
   .how-it-works
     .white-panel.box
-      - 3.times do |i|
-        - index = i + 1
-        .item
-          = cl_image_tag home.send("how_it_works_#{index}").public_id, radius: :max, format: :jpg, quality: 60, width: 500, height: 500, crop: :fill, class: "round-image"
-          .oval
-            .text = index
-          .info = t("home_hiw_#{index}")
+      = image_tag "landing/back.svg"
 
   .content
     .diinner-label
-      |Algunos de nuestros restaurantes
+      h1 Aquí tienes algunos de nuestros restaurantes
     .restaurant-list
       - 3.times do |i|
         - restaurant = home.send("restaurant_sample_#{i + 1}")
