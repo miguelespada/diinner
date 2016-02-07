@@ -228,5 +228,4 @@ end
 # last_minute_reservation valid_card
 #
 #  full_table_for_today
-
 create_last_minute_context_3_2

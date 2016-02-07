@@ -7,6 +7,7 @@ class Preference
 
   enum :menu_range, [:lowcost, :regular, :premium]
   field :after_plan, type: Boolean
+  field :use_photo_for_compatibility, type: Boolean
   belongs_to :city
   belongs_to :user
   before_save :set_defaults
