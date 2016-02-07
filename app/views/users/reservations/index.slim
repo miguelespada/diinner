@@ -2,7 +2,10 @@
   - content_for(:head) do
     = stylesheet_link_tag 'calendar', media: 'all'
   .diinner-label.yellow
-    = t("my_reservations")
+    - if @reservations.length > 0
+      = t("my_reservations")
+    else
+      = t("no_reservations")
   .calendar
     - if @reservations.length > 0
       = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
@@ -11,6 +14,3 @@
           = link_to user_reservation_path(@user, reservation)
             .status-table class="#{reservation.status}"
               = reservation.hour.strftime("%H:%M")
-
-    - else
-      h5 = t("no_reservations")
