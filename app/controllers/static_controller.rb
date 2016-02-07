@@ -7,6 +7,11 @@ class StaticController < ApplicationController
     render layout: "home"
   end
 
+  def expire
+    expire_action url_for(:controller => 'StaticController', :action => 'index'
+    render nothing: true
+  end
+
   def help_user
   end
 
