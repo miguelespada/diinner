@@ -1,7 +1,7 @@
 - home = HomeItem.get_first
 .user-image-wrapper.visible-xs
   .home-header
-    = cl_image_tag(home.mobile_background.public_id, quality: 60, format: :jpg, width: 720, crop: :fill, class: "small")
+    = cl_image_tag(home.mobile_background.public_id, quality: 60, format: :jpg, width: 720, crop: :limit, class: "small")
     .header-title.small
       |Cenar para
       br
@@ -9,7 +9,7 @@
 
 .hidden-xs
   header.home-header
-    = cl_image_tag(home.header.public_id, quality: 60, width: 1440, height: 750, crop: :fill,  format: :jpg)
+    = cl_image_tag(home.header.public_id, quality: 60, width: 1440, height: 900, crop: :limit, format: :jpg)
     .header-title
       |Cenar para
       br
@@ -44,6 +44,8 @@
         | Más de 1900 personas se han conocido gracias a diinner,
         .black< únete a nosotros.
     .test-box.box data-pos=0
+      .tests-info
+        | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.
       - 5.times do |i|
         - t = Test.all.sample
         .test-info class="#{'active' if i == 0}"

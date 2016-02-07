@@ -123,7 +123,7 @@ html, body{
   }
 
   .test-box{
-    margin-top: 40px;
+    margin-top: 0px;
     float: left;
     width: calculatePercent(820px, 1245px);
     .test-info{
@@ -142,7 +142,7 @@ html, body{
         @include transition(visibility 0s, opacity 1s linear);
       }
       .title{
-        margin-top: 30px;
+        margin-top: 0px;
         font-size: calculateRem(25px);
         font-weight: bold;
       }
@@ -299,6 +299,19 @@ html, body{
         width: 100%;
       }
     }
+}
+.tests-info{
+  padding: 20px;
+  text-align: center;
+  font-family: "Proxima Nova" !important;
+  font-weight: 200;
+  .icon{
+    margin-top: 10px;
+    font-size: 2.5rem;
+    color: #ff6f6f;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 .login-link{
