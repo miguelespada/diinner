@@ -6,6 +6,7 @@ class Menu
 
   field :name,  type: String
   field :price, type: Integer
+  field :vendor_price, type: Integer
   field :description, type: String
   field :appetizer, type: String, default: ""
   field :main_dish, type: String, default: ""
@@ -16,6 +17,12 @@ class Menu
   has_many :tables
 
   validates_presence_of :name
+
+  before_save :calculate_price
+
+  def calculate_price
+    self.price = (vendor_price * 1.3).ceil
+  end
 
   def user_count
     tables.map{|table| table.user_count}.inject(:+) || 0

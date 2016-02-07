@@ -10,6 +10,7 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
 ENV.update YAML.load_file('config/mapbox.yml')[Rails.env] rescue {}
+PRICES_RANGES = YAML.load_file('config/price_ranges.yml')
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

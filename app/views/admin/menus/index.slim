@@ -1,3 +1,4 @@
+
 - content_for(:title) do
   | Menus
 
@@ -5,9 +6,18 @@
   th Restaurant
   th Name
   th Price
+  th Vendor Price
 
 - content_for(:tbody) do
   == cell(:menu, collection: @menus, method: :admin_row)
+
+h3 PRICE RANGES
+div
+  = "Lowcost: de #{PRICES_RANGES["lowcost"]["min"]} a #{PRICES_RANGES["lowcost"]["max"]} €"
+  br
+  = "regular: de #{PRICES_RANGES["regular"]["min"]} a #{PRICES_RANGES["regular"]["max"]} €"
+  br
+  = "premium: de #{PRICES_RANGES["premium"]["min"]} a #{PRICES_RANGES["premium"]["max"]} €"
 
 = render "admin/admin_table"
 

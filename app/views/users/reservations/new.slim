@@ -29,7 +29,12 @@
           .col-lg-4.no-padding
             .text.long.price-toggle class="#{(@user.menu_range.nil? && i == 0) || @user.menu_range == menu_range ? 'selected': ''}" data-price="#{menu_range}"
               = t(menu_range)
-              .explanation = t("#{menu_range}_explanation")
+              - if menu_range == :lowcost
+                .explanation = "hasta #{PRICES_RANGES["lowcost"]["max"]}" + t("lowcost_explanation")
+              - elsif menu_range == :regular
+                .explanation = "de #{PRICES_RANGES["regular"]["min"]} a #{PRICES_RANGES["regular"]["max"]}" + t("regular_explanation")
+              - else
+                .explanation = "desde #{PRICES_RANGES["premium"]["min"]}" + t("premium_explanation")
         .separator
       .price hidden=true
         = f.input :price, :collection => Preference::MENU_RANGE.map{ |s| [s.capitalize, s] }, :include_blank => false, :selected => (@user.menu_range.nil? ? :lowcost : @user.menu_range)

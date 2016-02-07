@@ -88,9 +88,9 @@ class Table
   end
 
   def matches_menu_price? range
-    return menu.price.between?(10, 35) if range == :lowcost
-    return menu.price.between?(35, 50) if range == :regular
-    return menu.price.between?(50, 90) if range == :premium
+    return menu.price.between?(PRICES_RANGES["lowcost"]["min"],  PRICES_RANGES["lowcost"]["max"]) if range == :lowcost
+    return menu.price.between?(PRICES_RANGES["regular"]["min"],  PRICES_RANGES["regular"]["max"]) if range == :regular
+    return menu.price.between?(PRICES_RANGES["premium"]["min"],  PRICES_RANGES["premium"]["max"]) if range == :premium
   end
 
   def has_free_slots? genders
