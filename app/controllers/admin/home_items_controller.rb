@@ -7,7 +7,7 @@ class  Admin::HomeItemsController < AdminController
   def update
     @home_item = HomeItem.get_first
     @home_item.update(home_item_params)
-    expire_action(:controller => '/StaticController', :action => 'index')
+    expire_action(:controller => 'StaticController', :action => 'index')
     redirect_to edit_admin_home_items_path, notice: 'Home was successfully updated.'
   end
 
