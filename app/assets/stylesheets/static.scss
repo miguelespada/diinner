@@ -1,4 +1,5 @@
 @import "color";
+@import "font";
 
 .static-content{
   margin-top: 80px;
@@ -28,4 +29,20 @@
   width: 33vw;
   margin-left: 33vw;
   margin-top: 100px;
+}
+
+.protected-text{
+  width:50%;
+  padding:0px;
+  margin-left: 25%;
+  margin-right: auto;
+  margin-top: 30px;
+  text-align: center;
+  font-family: "Proxima Nova";
+  h1,h2{
+    font-weight: 400;
+  }
+  h4{
+    font-weight: 200;
+  }
 }
