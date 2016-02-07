@@ -8,7 +8,7 @@ class StaticController < ApplicationController
   end
 
   def expire
-    expire_action :controller => 'StaticController', :action => 'index'
+    expire_action :action => 'index'
     render nothing: true
   end
 
