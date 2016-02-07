@@ -189,9 +189,19 @@ html, body{
 
 }
 .blog-box{
+  a, a:active, a:hover{
+    text-decoration: none;
+  }
+  .image {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
   .diinner-label.pink.button{
     border: none;
     margin: 0;
+    padding: 30px 0;
   }
 }
 .notification-list{
