@@ -4,7 +4,7 @@ class  Users::EvaluationsController < BaseUsersController
   def new
     @evaluation = Evaluation.new
     @reservation = Reservation.find(params[:reservation_id])
-    # @reservation.evaluation = @evaluation
+    @reservation.evaluation = @evaluation
   end
 
   def create
