@@ -47,4 +47,19 @@
   h4{
     font-weight: 200;
   }
+  .home-wrapper {
+    margin-top: 50px;
+    .home-link {
+      font-size: 1.5rem;
+      background-color: white;
+      color: black;
+      border: 2px solid $themeYellow;
+      padding: 10px;
+      text-decoration: none;
+      &:hover{
+        background-color: $themeYellow;
+        color: white;
+      }
+    }
+  }
 }

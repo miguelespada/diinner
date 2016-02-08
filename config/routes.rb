@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     get "help/restaurant" => "static#help_restaurant", as: "help_restaurant"
     get "protected" => "static#protected"
     get "expire" => "static#expire"
+    get "drop_out" => "static#drop_out"
   end
 
   namespace :restaurants, as: nil do
@@ -109,6 +110,7 @@ Rails.application.routes.draw do
       resources :menus, only: [:show]
       resources :notifications, only: [:index]
 
+      get "drop_out" => "users#drop_out", as: "drop_out"
       delete "activity/delete/:activity_id" => "users#delete_activity", as: "delete_activity", on: :member
       post "test/:test_id" => "test_responses#create", as: "test_response"
       get "test" => "test_responses#new", as: "test"

@@ -3,7 +3,7 @@ class BaseUsersController < ApplicationController
   before_action :create_session
   before_action :authenticate, except: [:login]
   before_action :redirect, only: [:users]
-  load_resource :user
+  before_action :load_resource
   before_filter :sign_out_others
   before_action :authorize!
   before_action :check_protected
@@ -11,6 +11,10 @@ class BaseUsersController < ApplicationController
 
   def authorize!
     raise CanCan::AccessDenied.new("Not authorized!") if @current_user != @user
+  end
+
+  def load_resource
+    @user = User.find(params[:id] || params[:user_id])
   end
 
   def authenticate

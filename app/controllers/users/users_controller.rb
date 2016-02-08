@@ -4,6 +4,13 @@ class Users::UsersController < BaseUsersController
     render layout: 'login'
   end
 
+  def drop_out
+    @current_user.drop_out
+    @current_user.save
+    redirect_to drop_out_path
+  end
+
+
   def edit
     @current_user.preference ||= Preference.new
   end
@@ -19,6 +26,7 @@ class Users::UsersController < BaseUsersController
   end
 
   def update
+    @current_user.drop_in
     if @current_user.update(user_params)
       redirect_to user_path(@current_user), notice: t("profile_updated")
     else
