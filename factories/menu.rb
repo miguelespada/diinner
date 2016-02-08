@@ -3,6 +3,7 @@ FactoryGirl.define do
     name "Dummy menu"
     description "Dummy description"
     price 20
+    vendor_price 20
     appetizer "Dummy appetizer"
     main_dish "Dummy main dish"
     dessert "Dummy dessert"

@@ -3,15 +3,17 @@ class  Users::EvaluationsController < BaseUsersController
 
   def new
     @evaluation = Evaluation.new
-    @reservation = @current_user.reservations.first
-    # @reservation.evaluation = @evaluation
+    @reservation = Reservation.find(params[:reservation_id])
+    @reservation.evaluation = @evaluation
   end
 
   def create
+    @reservation = Reservation.find(params[:reservation_id])
     @evaluation = @reservation.evaluation.update!(evaluation_params)
     NotificationManager.notify_user_create_evaluation object: @reservation, from: @user
     redirect_to users_path(@user), notice: t("evaluation_thanks")
-  rescue
+  rescue => e
+    p e
     render :new
   end
 
