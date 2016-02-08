@@ -28,7 +28,7 @@ html, body{
     top: calculatePercent(190px, 750px);
     left: calculatePercent(227px, $lg-width);
     width: calculatePercent(986px, $lg-width);
-    font-size: calculateRem(90px);
+    font-size: 6vw;
     color: white;
     border: 15px solid white;
     box-sizing: border-box;
@@ -36,7 +36,7 @@ html, body{
     padding: $padding 0 $padding $padding;
 
     &.small{
-      font-size: calculateRem(40px);
+      font-size: 6vw;
     }
   }
 }
