@@ -18,6 +18,7 @@ es:
   expectations: "Expectativas habituales de los planes"
   your_price: "Precio habitual"
   your_city: "Ciudad habitual"
+  use_photo_for_compatibility: "¿Quieres que se use tu foto para calcular la compatibilidad?"
 
   #Welcome to tests
   welcome_tests: "Si te apetece, puedes responder ahora algunas de nuestras divertidas preguntas para mejorar tu compatibilidad con tus mesas. Si no te apetece, podrás hacerlo más tarde."
