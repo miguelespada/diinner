@@ -296,18 +296,20 @@
 	"buffers":
 	[
 		{
-			"file": "config/locales/es.yml",
+			"contents": "Searching 505 files for \"lock.min\"\n\n0 matches across 0 files\n\n\nSearching 505 files for \"origin\"\n\n/Users/miguel/Diinner/Gemfile.lock:\n  253        activemodel (~> 4.0)\n  254        mongo (~> 2.1)\n  255:       origin (~> 2.1)\n  256        tzinfo (>= 0.3.37)\n  257      mongoid-rspec (1.10.0)\n  ...\n  284        oauth2 (~> 1.0)\n  285        omniauth (~> 1.2)\n  286:     origin (2.1.1)\n  287      orm_adapter (0.5.0)\n  288      phantomjs (1.9.8.0)\n\n/Users/miguel/Diinner/config/application.rb:\n   40      config.middleware.insert_before 0, \"Rack::Cors\" do\n   41        allow do\n   42:         origins '*'\n   43          resource '*', :headers => :any, :methods => [:get, :post, :options]\n   44        end\n\n3 matches across 2 files\n",
 			"settings":
 			{
-				"buffer_size": 6758,
-				"line_ending": "Unix"
+				"buffer_size": 727,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
-			"file": "Gemfile",
+			"file": "config/application.rb",
 			"settings":
 			{
-				"buffer_size": 2202,
+				"buffer_size": 1849,
 				"line_ending": "Unix"
 			}
 		},
@@ -316,6 +318,30 @@
 			"settings":
 			{
 				"buffer_size": 112,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/map.js",
+			"settings":
+			{
+				"buffer_size": 2509,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/admin_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1866,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/admin/users_controller.rb",
+			"settings":
+			{
+				"buffer_size": 534,
 				"line_ending": "Unix"
 			}
 		}
@@ -380,6 +406,8 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/Gemfile",
+		"/Users/miguel/Diinner/config/locales/es.yml",
 		"/Users/miguel/Diinner/app/models/blog_post.rb",
 		"/Users/miguel/Diinner/app/views/users/users/edit.slim",
 		"/Users/miguel/Diinner/app/views/users/_after_plan.slim",
@@ -392,7 +420,6 @@
 		"/Users/miguel/Diinner/app/assets/stylesheets/admin.scss",
 		"/Users/miguel/Diinner/app/views/restaurants/menus/index.slim",
 		"/Users/miguel/Diinner/config/application.rb",
-		"/Users/miguel/Diinner/config/locales/es.yml",
 		"/Users/miguel/Diinner/config/price_ranges.yml",
 		"/Users/miguel/Diinner/factories/menu.rb",
 		"/Users/miguel/Diinner/app/cells/menu/row.slim",
@@ -426,7 +453,6 @@
 		"/Users/miguel/Diinner/config/initializers/stripe.rb",
 		"/Users/miguel/Diinner/app/models/admin_settings.rb",
 		"/Users/miguel/Diinner/.env",
-		"/Users/miguel/Diinner/Gemfile",
 		"/Users/miguel/Diinner/app/views/layouts/_map.slim",
 		"/Users/miguel/Diinner/app/assets/javascripts/application.js",
 		"/Users/miguel/Diinner/app/assets/stylesheets/application.scss",
@@ -537,6 +563,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"origin",
+			"lock.min",
+			"mon",
 			"after_",
 			"go_to_sleep",
 			"hoy prefiero",
@@ -661,10 +690,7 @@
 			"@user_reserves_a_last_minute_dinner_and_there_are_no_dinners",
 			".reservation-status",
 			"fill_in",
-			"generate_locator",
-			"yield",
-			"page",
-			"form_tag"
+			"generate_locator"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -704,60 +730,85 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/locales/es.yml",
 					"settings":
 					{
-						"buffer_size": 6758,
+						"buffer_size": 727,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										208,
+										214
+									],
+									[
+										367,
+										373
+									],
+									[
+										589,
+										595
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								733,
-								733
+								482,
+								482
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"detect_indentation": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1780.0,
+						"translation.y": 68.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Gemfile",
+					"file": "config/application.rb",
 					"settings":
 					{
-						"buffer_size": 2202,
+						"buffer_size": 1849,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1747,
-								1747
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 318.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -781,6 +832,90 @@
 						"settings":
 						{
 							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/assets/javascripts/map.js",
+					"settings":
+					{
+						"buffer_size": 2509,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1000,
+								1000
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/controllers/admin_controller.rb",
+					"settings":
+					{
+						"buffer_size": 1866,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								179,
+								179
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/controllers/admin/users_controller.rb",
+					"settings":
+					{
+						"buffer_size": 534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -836,6 +971,22 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"usercon",
+				"app/controllers/admin/users_controller.rb"
+			],
+			[
+				"admincon",
+				"app/controllers/admin_controller.rb"
+			],
+			[
+				"map",
+				"app/assets/javascripts/map.js"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
 			[
 				"s",
 				"config/skylight.yml"
@@ -933,16 +1084,8 @@
 				"config/initializers/stripe.rb"
 			],
 			[
-				"map",
-				"config/mapbox.yml"
-			],
-			[
 				"admin_s",
 				"app/models/admin_settings.rb"
-			],
-			[
-				"gem",
-				"Gemfile"
 			],
 			[
 				"map.",
@@ -1149,10 +1292,6 @@
 				"features/restaurant/restaurant_manage_tables.feature"
 			],
 			[
-				"admincon",
-				"app/controllers/admin_controller.rb"
-			],
-			[
 				"admi",
 				"factories/admin.rb"
 			],
@@ -1343,10 +1482,6 @@
 			[
 				"reservon",
 				"app/controllers/users/reservations_controller.rb"
-			],
-			[
-				"userrese",
-				"features/ionic/user_reserve_table_steps.rb"
 			]
 		],
 		"width": 0.0
