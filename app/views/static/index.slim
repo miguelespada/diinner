@@ -53,12 +53,12 @@
           .answer
             .wrapper.left
               .image.login-link
-                = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 200, height: 200) if !t.option_A.nil?
+                = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_A.nil?
               .text = "#{t.caption_A}"
           .answer
             .wrapper.right
               .image.login-link
-                = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 200, height: 200) if !t.option_B.nil?
+                = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_B.nil?
               .text = "#{t.caption_B}"
       .down-box
         .diinner-label.yellow 
