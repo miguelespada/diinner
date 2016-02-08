@@ -21,5 +21,8 @@ class StaticController < ApplicationController
   def protected
   end
 
+  def drop_out
+  end
+
 
 end

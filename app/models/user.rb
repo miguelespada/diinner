@@ -13,6 +13,7 @@ class User
   enum :gender, [:male, :female]
   field :customer, type: String
   field :stripe_default_card, type: String
+  field :dropped_out, type: Boolean, default: false
 
   field :notifications_read_at, type: Date
 
@@ -23,8 +24,21 @@ class User
   accepts_nested_attributes_for :preference
   delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
 
+
+  def drop_out
+    self.dropped_out = true
+    self.birth = nil
+    self.gender = :male
+    preference.destroy
+  end
+
+  def drop_in
+    self.dropped_out = false
+  end
+
   def first_login?
-    updated_at == created_at
+    p "AAAAA" * 10
+    (updated_at == created_at) or self.dropped_out
   end
 
   def opposite_sex

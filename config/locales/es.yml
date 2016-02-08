@@ -45,6 +45,7 @@ es:
   evaluation_pending: "Pendiente de evaluar"
   #Preferences
   update_button: "Actualizar"
+  drop_out: "Darse de baja"
 
   #New reservation
   preferred_date: "¿Qué día quieres tu plan?"
@@ -144,6 +145,8 @@ es:
   home_hiw_1: "¿Te apetece conocer gente disfrutando de una buena cena?"
   home_hiw_2: "Solo tienes que decirnos cuándo, dónde y tu presupuesto. Puedes venir solo o acompañado"
   home_hiw_3: "Nosotros nos encargamos de encontrar los mejores compañeros de mesa y restaurantes. ¿Estás listo para empezar?"
+
+  home: "Inicio"
 
   time:
     formats:

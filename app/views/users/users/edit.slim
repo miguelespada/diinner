@@ -59,12 +59,15 @@
         .col-xs-12.compatibility-info
           .col-xs-10.col-xs-offset-1.text-left
           = c.input :use_photo_for_compatibility, as: :boolean, label: t("use_photo_for_compatibility")
-    .separator
+  - unless @current_user.first_login?
+    .text-right
+      = link_to t("drop_out"), user_drop_out_path(@current_user), class: "drop-out"
+      .separator.visible-xs
   .text-center
-
     - if @current_user.first_login?
       p Al guardar los datos estás aceptando las condiciones de uso.
-    = f.button :submit, t("update_button"), class: "diinner-button pink floater" 
+    = f.button :submit, t("update_button"), class: "diinner-button pink floater"
+
 javascript:
   $(document).ready(function () {
     // With JQuery
