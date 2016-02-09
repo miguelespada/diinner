@@ -64,19 +64,18 @@
   .test-box.box data-pos=0
     .tests-info
       | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.
-    - 5.times do |i|
-      - t = Test.all.sample
+    - Test.all.sample(5).each_with_index do |t, i| 
       .test-info class="#{'active' if i == 0}"
         .title = "#{t.question}"
         .answer
           .wrapper.left
             .image.login-link
-              = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_A.nil?
+              = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 300, height: 300, crop: :fill) if !t.option_A.nil?
             .text = "#{t.caption_A}"
         .answer
           .wrapper.right
             .image.login-link
-              = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_B.nil?
+              = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 300, height: 300, crop: :fill) if !t.option_B.nil?
             .text = "#{t.caption_B}"
     .down-box
       .diinner-label.yellow 
