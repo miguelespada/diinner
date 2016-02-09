@@ -93,13 +93,13 @@ html, body{
           font-family: "Proxima Nova";
         }
         .title{
-          font-size: calculateRem(28px);
+          font-size: 2vw;
           font-weight: bold;
           color: $textDarkGray;
         }
         .city{
           font-weight: lighter;
-          font-size: calculateRem(22px);
+          font-size: 1.8vw;
 
         }
       }
