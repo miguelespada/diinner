@@ -72,7 +72,7 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.action_controller.asset_host = ENV['CLOUDFRONT_ENDPOINT']
+  # config.action_controller.asset_host = ENV['CLOUDFRONT_ENDPOINT']
 end  
 GA.tracker = "UA-73368281-1"
 
