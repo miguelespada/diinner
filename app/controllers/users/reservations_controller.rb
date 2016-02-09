@@ -25,7 +25,7 @@ class  Users::ReservationsController < BaseUsersController
     else
       if suggestionEngine.date_in_range?
         @suggestions = suggestionEngine.search.first(3)
-        render :no_dinners if @suggestions.empty?
+        redirect_to :back, alert: t("no_results") if @suggestions.empty?
       else
         redirect_to :back, notice: t("reservation_lapse")
       end
@@ -41,7 +41,7 @@ class  Users::ReservationsController < BaseUsersController
 
   def search_last_minute
     if Reservation.off_the_clock?
-      render :off_the_clock 
+      redirect_to :back, alert: t("off_the_clock")
     else
       suggestionEngine = SuggestionEngine.new @user, params[:reservation]
       
@@ -49,7 +49,7 @@ class  Users::ReservationsController < BaseUsersController
         redirect_to :back, notice: t("already_have_reservation")
       else
         @suggestions = suggestionEngine.last_minute.first(3)
-        render :no_dinners if @suggestions.empty?
+        redirect_to :back, alert: t("no_results") if @suggestions.empty?
       end
     end
   end

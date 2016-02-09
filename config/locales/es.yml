@@ -132,6 +132,7 @@ es:
   profile_updated: "Tu perfil se ha actualizado correctamente"
   fill_profile: "Por favor, rellena primero la información de tu perfil"
   evaluation_thanks: "¡Gracias por tu evaluación!"
+  off_the_clock: "Solo puedes reservar diinners de ultimo minuto entre las 9h00 y las 18h00"
 
   #Evaluations
   evaluate: "Evaluar"

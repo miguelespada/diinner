@@ -1,5 +1,8 @@
 = simple_form_for [@user, @reservation], url: user_search_tables_path, html: {id: 'reservation-form'}  do |f|
   .row.box.bottom-box
+    - if alert
+      .diinner-label.pink
+        = alert
     .col-xs-12.diinner-label.yellow
       = t("new_reservation")
     .separator
@@ -81,7 +84,8 @@ javascript:
 
       switch ($(this).data("day")) {
         case "date":
-          $("#reservation_date").val("");
+          var currentDate = new Date(new Date().getTime() + 2*24 * 60 * 60 * 1000);
+          $("#reservation_date").val(currentDate.toISOString().substring(0, 10));
           $(".date").show();
           $(".friends-question").show();
           break;
