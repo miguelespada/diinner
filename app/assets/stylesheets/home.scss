@@ -73,7 +73,7 @@ html, body{
     min-width: calculatePercent(1245px, $lg-width);
     .restaurant-box{
       margin-top: 20px;
-      min-width : 450px;
+      min-width : 250px;
       max-width : 600px;
       float: left;
       width: calculatePercent(395px, 1245px);
@@ -144,8 +144,8 @@ html, body{
     margin-top: 40px;
     float: left;
     width: calculatePercent(820px, 1245px);
-    max-width: 800px;
-    min-width: 550px;
+    max-width: 600px;
+    min-width: 400px;
     .diinner-label{
       font-weight: 200;
     }
@@ -252,7 +252,7 @@ html, body{
     margin-left: 40px;
     margin-right: px;
     float: right;
-    min-width : 300px;
+    min-width : 200px;
     max-width : 400px;
     width: calculatePercent(313px, $lg-width);
     margin-right: calculatePercent(30px, 1245px);
