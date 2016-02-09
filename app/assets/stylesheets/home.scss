@@ -34,6 +34,11 @@ html, body{
     box-sizing: border-box;
     $padding: calculatePercent(60px, $lg-width);
     padding: $padding 0 $padding $padding;
+
+  }
+  .small{
+     font-size: 7vw;
+    border: 2vw solid white;
   }
 }
 
@@ -61,6 +66,9 @@ html, body{
   .restaurant-list{
     min-width: calculatePercent(1245px, $lg-width);
     .restaurant-box{
+      margin-top: 20px;
+      min-width : 450px;
+      max-width : 600px;
       float: left;
       width: calculatePercent(395px, 1245px);
       &:not(:last-child){
@@ -97,9 +105,13 @@ html, body{
     clear: both;
     margin-right: calculatePercent(30px, 1245px);
     width: calculatePercent(395px, 1245px);
+
+    min-width : 450px;
+
     .register-box {
       margin-top: 40px;
 
+      max-width : 500px;
       width: 100%;
       font-size: calculateRem(25px);
       .diinner-label {
@@ -126,6 +138,8 @@ html, body{
     margin-top: 40px;
     float: left;
     width: calculatePercent(820px, 1245px);
+    max-width: 800px;
+    min-width: 550px;
     .diinner-label{
       font-weight: 200;
     }
@@ -205,6 +219,9 @@ html, body{
     margin-top: 40px;
     float: right;
     width: calculatePercent(395px, $lg-width);
+
+    min-width : 350px;
+    max-width : 400px;
     .box {
       width: 100%;
       text-align: center;
@@ -226,7 +243,11 @@ html, body{
 
   .blog-box{
     margin-top: 40px;
+    margin-left: 40px;
+    margin-right: px;
     float: right;
+    min-width : 300px;
+    max-width : 400px;
     width: calculatePercent(313px, $lg-width);
     margin-right: calculatePercent(30px, 1245px);
     a, a:active, a:hover{
