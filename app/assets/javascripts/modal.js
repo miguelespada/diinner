@@ -1,4 +1,5 @@
 function openModal(id) {
+    $('#' + id).removeClass('closed');
     $('#' + id).addClass('open');
 }
 
