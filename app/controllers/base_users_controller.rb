@@ -14,7 +14,7 @@ class BaseUsersController < ApplicationController
   end
 
   def load_resource
-    @user = User.find(params[:id] || params[:user_id])
+    @user = User.find(params[:user_id] || params[:id])
   end
 
   def authenticate

@@ -37,7 +37,6 @@ class User
   end
 
   def first_login?
-    p "AAAAA" * 10
     (updated_at == created_at) or self.dropped_out
   end
 
