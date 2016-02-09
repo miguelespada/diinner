@@ -304,24 +304,6 @@
 			}
 		},
 		{
-			"contents": "Searching 506 files for \".text-box\"\n\n0 matches across 0 files\n\n\nSearching 506 files for \".test-box\"\n\n/Users/miguel/Diinner/app/assets/stylesheets/home.scss:\n  123    }\n  124  \n  125:   .test-box{\n  126      margin-top: 40px;\n  127      float: left;\n\n/Users/miguel/Diinner/app/views/static/index.slim:\n   45          .diinner-label.button.pink.login-link Regístrate\n   46  \n   47:     .test-box.box data-pos=0\n   48        .tests-info\n   49          | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.\n   ..\n  119  \n  120      var get = function(){\n  121:       return $(\".test-box\").data(\"pos\")\n  122      };\n  123  \n  124      var set = function(value){\n  125:       $(\".test-box\").data(\"pos\", value)\n  126      };\n  127  \n\n4 matches across 2 files\n\n\nSearching 506 files for \"cl_photo\"\n\n/Users/miguel/Diinner/app/cells/restaurant_cell.rb:\n   88    end\n   89  \n   90:   def cl_photo size\n   91       cl_image_tag(model.photo.public_id, quality: 60, format: :jpg, size: \"#{size}x#{size}\", crop: :fill, radius: 2 ) if model.photo.present?\n   92    end\n\n/Users/miguel/Diinner/app/cells/restaurant/admin_show.slim:\n    2    div.col-sm-4\n    3      div.restaurant-photo.section-photo\n    4:       = cl_photo 200\n    5    div.col-sm-8\n    6      h1.restaurant-name\n\n/Users/miguel/Diinner/app/cells/restaurant/restaurant_show.slim:\n    2    div.col-sm-4\n    3      div.restaurant-photo.section-photo\n    4:       = cl_photo 200\n    5    div.col-sm-8\n    6      h1.restaurant-name\n\n/Users/miguel/Diinner/app/cells/restaurant/user_show.slim:\n    2    div.col-sm-4\n    3      div.restaurant-photo.section-photo\n    4:       = cl_photo 200\n    5    div.col-sm-8\n    6      h1.restaurant-name\n\n4 matches across 4 files\n\n\nSearching 506 files for \"restaurant-box\"\n\n/Users/miguel/Diinner/app/assets/stylesheets/home.scss:\n   61    .restaurant-list{\n   62      min-width: calculatePercent(1245px, $lg-width);\n   63:     .restaurant-box{\n   64        float: left;\n   65        width: calculatePercent(395px, 1245px);\n\n/Users/miguel/Diinner/app/views/static/index.slim:\n   26          - restaurant = home.send(\"restaurant_sample_#{i + 1}\")\n   27          - if !restaurant.nil?\n   28:           .restaurant-box.box.login-link\n   29              .image\n   30                = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 60,  width: 350, crop: :fill if !restaurant.photo.nil?\n\n2 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 2441,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/cells/restaurant/restaurant_show.slim",
-			"settings":
-			{
-				"buffer_size": 315,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/cells/restaurant/admin_show.slim",
 			"settings":
 			{
@@ -333,7 +315,7 @@
 			"file": "app/assets/stylesheets/home.scss",
 			"settings":
 			{
-				"buffer_size": 7010,
+				"buffer_size": 6982,
 				"line_ending": "Unix"
 			}
 		},
@@ -406,6 +388,7 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/app/cells/restaurant/restaurant_show.slim",
 		"/Users/miguel/Diinner/app/views/static/protected.slim",
 		"/Users/miguel/Diinner/app/views/static/index.slim",
 		"/Users/miguel/Diinner/app/assets/stylesheets/user.scss",
@@ -519,7 +502,6 @@
 		"/Users/miguel/Diinner/circle.yml",
 		"/Users/miguel/Diinner/app/cells/restaurant/_show.slim",
 		"/Users/miguel/Diinner/app/cells/restaurant/user_show.slim",
-		"/Users/miguel/Diinner/app/cells/restaurant/restaurant_show.slim",
 		"/Users/miguel/Diinner/app/cells/restaurant/_map.slim",
 		"/Users/miguel/Diinner/app/cells/restaurant/_contact.slim",
 		"/Users/miguel/Diinner/app/cells/restaurant/_address.slim",
@@ -730,7 +712,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -763,114 +745,6 @@
 				},
 				{
 					"buffer": 1,
-					"settings":
-					{
-						"buffer_size": 2441,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										185,
-										194
-									],
-									[
-										384,
-										393
-									],
-									[
-										611,
-										620
-									],
-									[
-										711,
-										720
-									],
-									[
-										914,
-										922
-									],
-									[
-										1234,
-										1242
-									],
-									[
-										1448,
-										1456
-									],
-									[
-										1656,
-										1664
-									],
-									[
-										1945,
-										1959
-									],
-									[
-										2217,
-										2231
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								1841,
-								1841
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 4,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1273.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/cells/restaurant/restaurant_show.slim",
-					"settings":
-					{
-						"buffer_size": 315,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								80,
-								80
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "app/cells/restaurant/admin_show.slim",
 					"settings":
 					{
@@ -898,19 +772,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "app/assets/stylesheets/home.scss",
 					"settings":
 					{
-						"buffer_size": 7010,
+						"buffer_size": 6982,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								743,
-								743
+								2038,
+								2038
 							]
 						],
 						"settings":
@@ -920,13 +794,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1499.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 3,
 					"file": "app/cells/restaurant_cell.rb",
 					"settings":
 					{

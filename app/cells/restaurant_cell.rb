@@ -94,7 +94,7 @@ class RestaurantCell < BaseCell
   end
 
   def photo
-    cl_image_tag(model.photo.public_id, width: 400, height: 300, crop: fill, quality: 75, format: :jpg) if model.photo.present?
+    cl_image_tag(model.photo.public_id, width: 400, height: 300, crop: :fill, quality: 75, format: :jpg) if model.photo.present?
   end
 
   private
