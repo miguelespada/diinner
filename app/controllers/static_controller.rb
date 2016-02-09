@@ -1,5 +1,7 @@
 class StaticController < ApplicationController
   layout "static"
+
+  before_action :redirect_if_authenticated, only: [:index]
   caches_action :index
   
   def index
@@ -22,6 +24,16 @@ class StaticController < ApplicationController
   end
 
   def drop_out
+  end
+
+  private
+
+  def redirect_if_authenticated
+    @session ||= UserSession.new(session)
+    if @session.logged?
+      @current_user = @session.user_from_session
+      redirect_to user_path(@current_user)
+    end
   end
 
 
