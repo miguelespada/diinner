@@ -68,7 +68,7 @@
 
   .separator
 
-  - if @suggestions.length > 0
+  - if @suggestions && @suggestions.length > 0
     .col-md-12.box.suggest
       = t("we_suggest")
       strong

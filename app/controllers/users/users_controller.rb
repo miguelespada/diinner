@@ -20,8 +20,9 @@ class Users::UsersController < BaseUsersController
     @test = @user.test_pending.sample
     @reservations = @user.reservations.where(cancelled: false).limit(3)
     params = {price: @user.menu_range, city: @user.city, after_plan: @user.after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
+
     suggestionEngine = SuggestionEngine.new @user, params
-    @suggestions = suggestionEngine.search.first(3)
+    @suggestions = suggestionEngine.search.first(3) unless @user.busy?(suggestionEngine.date)
     @blog_posts = BlogPost.get_three_random
   end
 
