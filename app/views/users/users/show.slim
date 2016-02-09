@@ -63,11 +63,9 @@
     - else
       .col-lg-7.visible-lg
         .box.tests.text-center
-          .info = t("improve_compatibility")
+          .info = t("all_tests_completed")
           .icon.bi_interface-heart
-          = link_to user_test_path(@user)
-            .diinner-label.yellow
-              = t("go_to_tests")
+
   .separator
 
   - if @suggestions.length > 0

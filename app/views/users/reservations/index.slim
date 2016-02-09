@@ -1,6 +1,4 @@
 .row.box
-  - content_for(:head) do
-    = stylesheet_link_tag 'calendar', media: 'all'
   .diinner-label.yellow
     - if @reservations.length > 0
       = t("my_reservations")

@@ -128,7 +128,7 @@ es:
   already_have_reservation: "Ya tienes una reserva para esa fecha"
   reservation_lapse: "Sólo puedes reservar mesas en los próximos 15 días"
   reservation_error: "Lo sentimos, ha habido un error procesando tu reserva :("
-  all_tests_completed: "Has completado todos los tests disponibles"
+  all_tests_completed: "Has completado todos los tests de compatibilidad"
   profile_updated: "Tu perfil se ha actualizado correctamente"
   fill_profile: "Por favor, rellena primero la información de tu perfil"
   evaluation_thanks: "¡Gracias por tu evaluación!"
