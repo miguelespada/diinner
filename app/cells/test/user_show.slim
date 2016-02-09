@@ -29,4 +29,4 @@
             .selector
               .bi_interface-arrow-right
 .text-center
-  = link_to "Saltar pregunta", user_path(current_user), class: 'diinner-button pink floater'
+  = link_to "Saltar pregunta", user_test_response_path(current_user, model, option: :skip), method: :post, class: 'diinner-button pink floater'

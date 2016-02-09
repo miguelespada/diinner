@@ -21,4 +21,8 @@ class TestResponse
   def response_is_a?
     response == test.caption_A
   end
+
+  def skipped?
+    response == :skip
+  end
 end

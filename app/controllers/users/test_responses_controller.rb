@@ -13,7 +13,7 @@ class  Users::TestResponsesController < BaseUsersController
   def create
     response = @user.test_completed.create!(test: @test, response: params[:option])
     NotificationManager.notify_user_create_test_response object: response, from: @user
-    redirect_to user_test_path(@user), :notice => 'Test was successfully sent.'
+    redirect_to :back, :notice => 'Test was successfully sent.'
   end
 
 end
