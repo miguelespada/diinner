@@ -14,6 +14,9 @@ class StaticController < ApplicationController
     render nothing: true
   end
 
+  def cocktail
+  end
+
   def help_user
   end
 
