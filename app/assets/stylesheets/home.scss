@@ -391,6 +391,9 @@ html, body{
       .restaurant-box {
         width: calculatePercent(592.5px, 1245px);
       }
+      .restaurant-box:last-child{
+        display: none;
+      }
     }
     .blog-list {
       width: 100%;
