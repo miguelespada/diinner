@@ -34,12 +34,8 @@ html, body{
     box-sizing: border-box;
     $padding: calculatePercent(60px, $lg-width);
     padding: $padding 0 $padding $padding;
+  }
 
-  }
-  .small{
-     font-size: 7vw;
-    border: 2vw solid white;
-  }
 }
 
 
@@ -69,16 +65,32 @@ html, body{
 .content{
   margin-top: 40px;
   padding: 0 calculatePercent(97px, $lg-width);
+  > .info{
+    margin-top: 40px;
+    clear: both;
+    text-align: center;
+    font-size: calculateRem(40px);
+
+    .black {
+      display: inline;
+      color: $textDarkGray;
+      font-weight: bold;
+      a, a:hover, a:active {
+        color: $textDarkGray;
+      }
+    }
+  }
   .restaurant-list{
-    min-width: calculatePercent(1245px, $lg-width);
+    overflow: auto;
     .restaurant-box{
-      margin-top: 20px;
-      min-width : 250px;
-      max-width : 600px;
       float: left;
       width: calculatePercent(395px, 1245px);
-      &:not(:last-child){
-        margin-right: calculatePercent(30px, 1245px);
+      margin: 10px calculatePercent(15px, 1245px);
+      &:last-child{
+        margin-right: 0;
+      }
+      &:first-child{
+        margin-left: 0;
       }
       .image{
         width: 100%;
@@ -89,6 +101,7 @@ html, body{
         }
       }
       .diinner-label {
+
         *{
           font-family: "Proxima Nova";
         }
@@ -106,19 +119,63 @@ html, body{
     }
   }
 
-  .register-wrapper {
-    float: left;
-    clear: both;
-    margin-right: calculatePercent(30px, 1245px);
-    width: calculatePercent(395px, 1245px);
+  .blog-list{
+    width: calculatePercent(1008px, 1245px);
+    margin-left: calculatePercent(108px, 1245px);
+    overflow: auto;
+    .blog-box{
+      float: left;
+      width: calculatePercent(309.3px, 1008px);
+      margin: 10px calculatePercent(20px, 1008px);
 
-    min-width : 450px;
+      .diinner-label{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 20px 10px;
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+      &:first-child{
+        margin-left: 0;
+      }
+      a, a:active, a:hover{
+        text-decoration: none;
+      }
+      .image {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .register-wrapper {
+    clear: both;
+    text-align: left;
+    margin-right: calculatePercent(30px, 1245px);
+    width: 100%;
+    margin-top: 40px;
+    overflow: auto;
+
+    > .info {
+      float: left;
+      margin-right: calculatePercent(30px, 1245px);
+      font-size: calculateRem(35px);
+      color: $textGray;
+      width: 395px;
+      .black {
+        display: inline;
+        color: $textDarkGray;
+      }
+    }
 
     .register-box {
-      margin-top: 40px;
+      float: right;
 
-      max-width : 500px;
-      width: 100%;
+      width: 450px;
       font-size: calculateRem(25px);
       .diinner-label {
         font-weight: 500;
@@ -128,16 +185,6 @@ html, body{
       }
     }
 
-    .info {
-      margin-top: 40px;
-      font-size: calculateRem(45px);
-      color: $textGray;
-      width: 100%;
-      .black {
-        display: inline;
-        color: $textDarkGray;
-      }
-    }
   }
 
   .test-box{
@@ -220,25 +267,22 @@ html, body{
     }
   }
 
-
-  .share-box {
+  .share-wrapper{
+    clear: both;
     margin-top: 40px;
-    float: right;
-    width: calculatePercent(395px, $lg-width);
+    margin-left: calculatePercent(108px, 1245px);
+    .share-box {
+      width: 350px;
+      padding: 15px;
 
-    min-width : 350px;
-    max-width : 400px;
-    .box {
-      width: 100%;
-      text-align: center;
-      padding: calculatePercent(25px, 395px);
       .diinner-label {
-        padding: auto calculatePercent(85px, 395px);
         img {
           height: 50px;
           margin: 0 calculatePercent(15px, 395px);
         }
       }
+
+
     }
     .follow{
       margin-top: 10px;
@@ -247,25 +291,7 @@ html, body{
     }
   }
 
-  .blog-box{
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: px;
-    float: right;
-    min-width : 200px;
-    max-width : 400px;
-    width: calculatePercent(313px, $lg-width);
-    margin-right: calculatePercent(30px, 1245px);
-    a, a:active, a:hover{
-      text-decoration: none;
-    }
-    .image {
-      width: 100%;
-      img {
-        width: 100%;
-      }
-    }
-  }
+
 }
 
 
@@ -298,12 +324,6 @@ html, body{
   }
 }
 
-@media screen and (max-width: 768px){
-  .footer{
-    padding-top: 0;
-    height: auto;
-  }
-}
 .login-container {
   width: 100%;
   height: 100%;
@@ -346,4 +366,111 @@ html, body{
 
 .login-link{
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .home-header{
+    .header-title{
+      font-size: 7vw;
+      border: 2vw solid white;
+    }
+  }
+  .content{
+    .info{
+      font-size: calculateRem(36px);
+    }
+    .restaurant-list {
+      width: 100%;
+      overflow: hidden;
+      .restaurant-box {
+        width: calculatePercent(592.5px, 1245px);
+      }
+    }
+    .blog-list {
+      width: 100%;
+      margin-left: 0;
+      .blog-box {
+        width: calculatePercent(388.3px, 1245px);
+        margin: 10px calculatePercent(20px, 1245px);
+      }
+    }
+
+
+    .share-wrapper {
+      margin-left: 0;
+    }
+
+    .register-wrapper {
+
+      > .info {
+        float: none;
+        clear: both;
+        text-align: center;
+        width: 60%;
+        margin: auto;
+      }
+
+      .register-box{
+        width: 100%;
+        float: none;
+        clear: both;
+        margin: auto;
+        margin-top: 40px;
+      }
+
+    }
+  }
+
+}
+
+@media screen and (max-width: 768px){
+
+  .footer{
+    padding-top: 0;
+    height: auto;
+  }
+
+ .home-header{
+   .header-title{
+     font-size: 7vw;
+     border: 2vw solid white;
+   }
+ }
+  .content{
+    .info{
+      font-size: calculateRem(36px);
+    }
+    .restaurant-list {
+      .restaurant-box {
+        width: 100%
+      }
+    }
+
+    .blog-list {
+      width: 100%;
+      margin-left: 0;
+      .blog-box, .blog-box:first-child, .blog-box:last-child {
+        float: none;
+        width: 250px;
+        margin: 20px auto;
+      }
+    }
+
+    .share-wrapper {
+      margin-left: 0;
+      text-align: center;
+      .share-box{
+        margin: auto;
+      }
+    }
+
+    .register-wrapper {
+
+      > .info {
+        width: 80%;
+      }
+
+    }
+  }
 }

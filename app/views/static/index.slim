@@ -1,47 +1,61 @@
 - home = HomeItem.get_first
-.user-image-wrapper.visible-xs
-  .home-header
-    = cl_image_tag(home.mobile_background.public_id, quality: 75, format: :jpg, width: 720, crop: :limit, class: "small")
-    .header-title.small
-      |Cenar para
-      br
-      |quedar.
-
-    / .how-it-works
-    /   .white-panel.box.small
-    /     = image_tag "landing/back_v.svg"
-
-.hidden-xs
-  header.home-header
+header.home-header
+  .hidden-xs
     = cl_image_tag(home.header.public_id, quality: 75, width: 1440, crop: :limit, format: :jpg)
-    .header-title
-      |Cenar para
-      br
-      |quedar.
-  .how-it-works
-    .white-panel.box
-      = image_tag "landing/back.svg"
+  .visible-xs
+    = cl_image_tag(home.mobile_background.public_id, quality: 75, format: :jpg, width: 720, crop: :limit, class: "small")
+  .header-title
+    |Cenar para
+    br
+    |quedar.
+.how-it-works
+  .white-panel.box
+    = image_tag "landing/back.svg"
 
-.content.hidden-xs
-  .diinner-label.info
-    h1 Aquí tienes algunos de nuestros <b>restaurantes</b>
+
+.content
+  .info
+    | Aquí tienes algunos de nuestros <b>restaurantes</b>
+
   .restaurant-list
     - 3.times do |i|
       - restaurant = home.send("restaurant_sample_#{i + 1}")
       - if !restaurant.nil?
         .restaurant-box.box.login-link
           .image
-            = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 60,  width: 350, crop: :fill if !restaurant.photo.nil?
+            = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 60,  width: 600, crop: :fill if !restaurant.photo.nil?
           .diinner-label.yellow
             .title = restaurant.name
             .city  = restaurant.city.name
 
-  .register-wrapper      
+  .register-wrapper
     .info
       | Diinner es la nueva de manera de conocer a gente disfrutando de la comida,
       .black< únete a nosotros.
-  .share-box
-    .box
+
+    .register-box.box
+      .area
+        |¿Ya estás
+        br
+        |registrado?
+        .diinner-button.pink.login-link Inicia sesión
+      .diinner-label.button.pink.login-link Regístrate
+
+  .info
+    | Disfruta del mejor contenido de nuestro blog
+    .black<
+      =link_to "Cenar para quedar.", "/blog"
+
+  .blog-list
+    - @blog_posts.each do |blog_post, i|
+      .blog-box.box
+        .image = cl_image_tag blog_post.picture.public_id, format: :jpg, quality: 60, width: 350, crop: :fill if !blog_post.picture.nil?
+        = link_to blog_post.url, target: "_blank"
+          .diinner-label.button.pink = blog_post.title
+
+
+  .share-wrapper
+    .share-box.box
       .diinner-label.yellow
         = image_tag "landing/facebook.png"
         = image_tag "landing/twitter.png"
@@ -51,55 +65,77 @@
       br
       |redes sociales
 
-  .register-wrapper  
-    .register-box.box
-      .area
-        |¿Ya estás
-        br
-        |registrado?
-        .diinner-button.pink.login-link Inicia sesión
-      .diinner-label.button.pink.login-link Regístrate
-
-   
-  .test-box.box data-pos=0
-    .tests-info
-      | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.
-    - Test.all.sample(5).each_with_index do |t, i| 
-      .test-info class="#{'active' if i == 0}"
-        .title = "#{t.question}"
-        .answer
-          .wrapper.left
-            .image.login-link
-              = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_A.nil?
-            .text = "#{t.caption_A}"
-        .answer
-          .wrapper.right
-            .image.login-link
-              = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_B.nil?
-            .text = "#{t.caption_B}"
-    .down-box
-      .diinner-label.yellow 
-        | Responde a unas divertidas preguntas y encontraemos los <b>mejores comensales</b>. 
-        br  
-        | Nuestro sistema se asegura que el <b>número de chicos y chicas está equilibrado</b> en todas las cenas.
-      .dot-list
-        .dot.yellow
-        .dot
-        .dot
-        .dot
-        .dot
-  .register-wrapper      
-    .info
-      | Disfruta del mejor contenido de nuestro blog
-      .black< Cenar para quedar.
-  - @blog_posts.each do |blog_post, i|
-    .blog-box.box
-      .image = cl_image_tag blog_post.picture.public_id, format: :jpg, quality: 60, width: 350, crop: :fill if !blog_post.picture.nil?
-      = link_to blog_post.url, target: "_blank"
-        .diinner-label.button.pink = blog_post.title
 
 
-== render 'application/modal', name: 'login-modal', view: 'users/users/login', can_be_closed: true
+/.content
+/  .diinner-label.info
+/    | Aquí tienes algunos de nuestros <b>restaurantes</b>
+/
+/
+/  .register-wrapper
+/    .info
+/      | Diinner es la nueva de manera de conocer a gente disfrutando de la comida,
+/      .black< únete a nosotros.
+/  .share-box
+/    .box
+/      .diinner-label.yellow
+/        = image_tag "landing/facebook.png"
+/        = image_tag "landing/twitter.png"
+/        = image_tag "landing/instagram.png"
+/    .follow
+/      |Síguenos en
+/      br
+/      |redes sociales
+/
+/  .register-wrapper
+/    .register-box.box
+/      .area
+/        |¿Ya estás
+/        br
+/        |registrado?
+/        .diinner-button.pink.login-link Inicia sesión
+/      .diinner-label.button.pink.login-link Regístrate
+/
+/
+/  .test-box.box data-pos=0
+/    .tests-info
+/      | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.
+/    - Test.all.sample(5).each_with_index do |t, i|
+/      .test-info class="#{'active' if i == 0}"
+/        .title = "#{t.question}"
+/        .answer
+/          .wrapper.left
+/            .image.login-link
+/              = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_A.nil?
+/            .text = "#{t.caption_A}"
+/        .answer
+/          .wrapper.right
+/            .image.login-link
+/              = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_B.nil?
+/            .text = "#{t.caption_B}"
+/    .down-box
+/      .diinner-label.yellow
+/        | Responde a unas divertidas preguntas y encontraemos los <b>mejores comensales</b>.
+/        br
+/        | Nuestro sistema se asegura que el <b>número de chicos y chicas está equilibrado</b> en todas las cenas.
+/      .dot-list
+/        .dot.yellow
+/        .dot
+/        .dot
+/        .dot
+/        .dot
+/  .register-wrapper
+/    .info
+/      | Disfruta del mejor contenido de nuestro blog
+/      .black< Cenar para quedar.
+/  - @blog_posts.each do |blog_post, i|
+/    .blog-box.box
+/      .image = cl_image_tag blog_post.picture.public_id, format: :jpg, quality: 60, width: 350, crop: :fill if !blog_post.picture.nil?
+/      = link_to blog_post.url, target: "_blank"
+/        .diinner-label.button.pink = blog_post.title
+/
+/
+/== render 'application/modal', name: 'login-modal', view: 'users/users/login', can_be_closed: true
 
 javascript:
   $(".login-link").click(function(){
