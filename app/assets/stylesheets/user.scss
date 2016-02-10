@@ -55,7 +55,11 @@ html, body{
   }
 
 }
-
+.back, .back:hover, .back:active{
+  text-decoration: none;
+  color: $textDarkGray;
+  padding-bottom: 5px;
+}
 //.row{
 //  margin-top: 0;
 //  background-color: white;
