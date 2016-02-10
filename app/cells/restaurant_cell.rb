@@ -90,11 +90,16 @@ class RestaurantCell < BaseCell
   def cl_photo size
      w = size
      h = w * 3 / 4
-     cl_image_tag(model.photo.public_id, quality: 75, format: :jpg, size: "#{w}x#{h}", crop: :fill ) if model.photo.present?
+    cl_image_tag(model.photo.public_id,
+    :transformation => [
+      {:width => w, :crop => :scale, quality: 75, format: :jpg }, 
+      {:width => w, :height => h, :crop => :crop}
+    ])
   end
 
+
   def photo
-    cl_image_tag(model.photo.public_id, width: 400, height: 300, crop: :fill, quality: 75, format: :jpg) if model.photo.present?
+    cl_photo 400
   end
 
   private

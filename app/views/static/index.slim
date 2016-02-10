@@ -23,7 +23,7 @@ header.home-header
       - if !restaurant.nil?
         .restaurant-box.box.login-link
           .image
-            = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 60,  width: 600, crop: :fill if !restaurant.photo.nil?
+            = cell(:restaurant, restaurant).cl_photo 300
           .diinner-label.yellow
             .title = restaurant.name
             .city  = restaurant.city.name
@@ -49,7 +49,7 @@ header.home-header
   .blog-list
     - @blog_posts.each do |blog_post, i|
       .blog-box.box
-        .image = cl_image_tag blog_post.picture.public_id, format: :jpg, quality: 60, width: 350, crop: :fill if !blog_post.picture.nil?
+        .image = cl_image_tag blog_post.picture.public_id, format: :jpg, quality: 60, width: 350, height: 350, crop: :pad if !blog_post.picture.nil?
         = link_to blog_post.url, target: "_blank"
           .diinner-label.button.pink = blog_post.title
 
