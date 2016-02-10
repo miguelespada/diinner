@@ -1,10 +1,15 @@
 .static-logo
   = image_tag "brand.svg", class: 'logo'
+
+
 .static-content
-  ul.anchor
-    li = link_to "¿QUE ES DIINNER?", "#question_1"
-    li = link_to "¿EN QUE CREEMOS LOS DIINNERS?", "#question_2"
-    li = link_to "¿COMO FUNCIONA DIINNER?", "#question_3"
+  
+  .back
+    = link_to 'Volver', :back
+  ul.anchor.question-links
+    li = link_to "¿Qué es Diinner?", "#question_1"
+    li = link_to "¿En que creemos los Diinners?", "#question_2"
+    li = link_to "¿Cómo funciona Diinner?", "#question_3"
     li = link_to "¿Cómo creo mi perfil en Diinner?", "#question_1_1"
     li = link_to "Me acabo de registrar… ¿y ahora?", "#question_1_2"
     li = link_to "¿Qué datos de mi información de Facebook o Google+ utilizáis?", "#question_1_3"
@@ -24,13 +29,13 @@
     li = link_to "¿Tenéis alguna recomendación para disfrutar al máximo de la experiencia Diinner?", "#question_1_17"
     li = link_to "Esto no es lo que buscaba, ¿cómo me puedo dar de baja?", "#question_1_18"
 
-  .question.big#question_1 ¿QUÉ ES DIINNER?
+  .question.big#question_1 ¿Qué es Diinner?
   p Diinner es quedar para cenar o, lo que es lo mismo, es la nueva forma de conocer gente alrededor de una mesa.
   p Somos un club social que organiza cenas entre personas afines (basándonos en criterios de edad, personalidad e intereses) que todavía no se conocen entre sí,
     ¡pero deberían! 3 chicas y 3 chicos, el restaurante perfecto y toda una noche por
     delante.
   p Conocer gente con Diinner es muy fácil.
-  .question.big#question_2 ¿EN QUÉ CREEMOS LOS DIINNERS?
+  .question.big#question_2 ¿En que creemos los Diinners?
   p La tecnología nos ayuda a acelerar muchas cosas, pero creemos que otras deber
     seguir llevando su ritmo. Una de las más importantes es conectar con otras
     personas.
@@ -40,7 +45,7 @@
   p Hay muchas personas en el mundo que merece la pena conocer.
   p Bienvenido a Diinner. Cenar para quedar.
   p
-  .question.big#question_3 ¿CÓMO FUNCIONA DIINNER?
+  .question.big#question_3 ¿Cómo funciona Diinner?
   p Lo primero que tienes que hacer es registrarte en Diinner (puedes hacerlo a través
     de tu cuenta de Facebook o Google+) y, tras cumplimentar unos datos básicos que
     nos permiten conocer tus intereses y preferencias, ya puedes buscar tu plan

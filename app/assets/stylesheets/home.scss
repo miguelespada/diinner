@@ -12,6 +12,10 @@ html, body{
   font-family: "Proxima Nova";
   overflow-x: hidden;
   background-color: $backGray;
+
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  
 }
 
 .home-header{
