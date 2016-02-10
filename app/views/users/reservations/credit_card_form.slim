@@ -19,8 +19,14 @@
       b = "#{t("menu")}:"
       =< "#{@reservation.menu.name}"
     .col-xs-12
-      b = "#{t("price")}:"
+      b Precio del menú:
       =< "#{@reservation.price}€"
+    .col-xs-12
+      b Número de menús:
+      =< "#{@reservation.male_count + @reservation.female_count}"
+    .col-xs-12
+      b Precio total:
+      =< "#{@reservation.charge_amount / 100}€ "
     .separator
   - if @reservation.user.has_default_card?
     = form_tag user_reuse_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "reuse_card" do
