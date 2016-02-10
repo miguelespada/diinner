@@ -39,3 +39,10 @@ function resizeElement(element)
     $(element).width(size.width);
     $(element).height(size.height);
 }
+function fixDigits(number){
+    if (number < 10){
+        return "0" + number;
+    }
+    return number;
+
+}

@@ -27,3 +27,4 @@
 //= require pickers
 //= require bootstrap-slider
 //= require modal
+//= require utils
