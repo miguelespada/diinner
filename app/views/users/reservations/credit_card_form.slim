@@ -19,8 +19,14 @@
       b = "#{t("menu")}:"
       =< "#{@reservation.menu.name}"
     .col-xs-12
-      b = "#{t("price")}:"
+      b Precio del menú:
       =< "#{@reservation.price}€"
+    .col-xs-12
+      b Número de menús:
+      =< "#{@reservation.male_count + @reservation.female_count}"
+    .col-xs-12
+      b Precio total:
+      =< "#{@reservation.charge_amount / 100}€ "
     .separator
   - if @reservation.user.has_default_card?
     = form_tag user_reuse_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "reuse_card" do
@@ -46,24 +52,21 @@
           = text_field_tag :card_holder, nil, name: nil, class: "form-control"
         .form-group
           label.control-label =t("card_number")
-          = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control"
+          = text_field_tag :card_number, nil, name: nil, size: 20, class: "form-control", pattern:".{0,20}", maxlength:20
         .form-group
           .row.col-xs-12
             label.control-label =t("cvc")
           .row.col-xs-3
-            = text_field_tag :card_cvc, nil, name: nil, size: 3, class: "form-control"
+            = text_field_tag :card_cvc, nil, name: nil, size: 3, pattern:".{3,4}", maxlength:4, class: "form-control"
         .form-group
           .row.col-xs-12
             label.control-label = t("expiration_date")
 
           .row
             .col-xs-3
-              = text_field_tag :exp_month, nil, name: nil, size: 2, class: "form-control"
+              = text_field_tag :exp_month, nil, name: nil, size: 2, pattern:".{0,2}", maxlength:2, class: "form-control"
             .col-xs-4
-              = text_field_tag :exp_year, nil, name: nil, size: 4, class: "form-control"
-        .form-group
-          = check_box_tag :terms_and_conditions, class: "form-control"
-          =< t("accept_terms_checkbox")
+              = text_field_tag :exp_year, nil, name: nil, size: 4, pattern:".{0,4}", maxlength:4, class: "form-control"
         #submit-other-card.col-xs-12.text-center
           .diinner-button.pink = t("continue_button")
         .separator
@@ -103,14 +106,4 @@ javascript:
     $("#other-card-form").removeClass("hidden");
   });
 
-
-  $( "#new_reservation" ).submit(function( event ) {
-     if(!$("#terms_and_conditions").is(":checked")){
-      alert('You must accept terms of service.');
-      return false;
-    }
-    else{
-      return true
-    }
-  });
 

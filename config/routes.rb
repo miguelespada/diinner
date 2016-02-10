@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     get "help/restaurant" => "static#help_restaurant", as: "help_restaurant"
     get "protected" => "static#protected"
     get "expire" => "static#expire"
+    get "cocktail" => "static#cocktail"
     get "drop_out" => "static#drop_out"
   end
 

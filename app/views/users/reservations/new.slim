@@ -63,9 +63,13 @@
 
 
   .text-center
-    = f.button :submit,  t("search_tables"), class: 'diinner-button pink floater'
+    = f.button :submit, t("search_tables"), class: 'diinner-button pink floater', id: 'search-button'
 javascript:
   $(document).ready(function () {
+
+    $("#search-button").click(function(){
+      openModal("loading-modal");
+    });
 
     var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
     $("#reservation_date").val(currentDate.toISOString().substring(0, 10));

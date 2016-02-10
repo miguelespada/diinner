@@ -180,6 +180,7 @@ html, body{
       float: right;
 
       width: 450px;
+      max-width: 450px;
       font-size: calculateRem(25px);
       .diinner-label {
         font-weight: 500;
