@@ -61,9 +61,6 @@
               = text_field_tag :exp_month, nil, name: nil, size: 2, class: "form-control"
             .col-xs-4
               = text_field_tag :exp_year, nil, name: nil, size: 4, class: "form-control"
-        .form-group
-          = check_box_tag :terms_and_conditions, class: "form-control"
-          =< t("accept_terms_checkbox")
         #submit-other-card.col-xs-12.text-center
           .diinner-button.pink = t("continue_button")
         .separator
@@ -96,14 +93,4 @@ javascript:
     $("#other-card-form").removeClass("hidden");
   });
 
-
-  $( "#new_reservation" ).submit(function( event ) {
-     if(!$("#terms_and_conditions").is(":checked")){
-      alert('You must accept terms of service.');
-      return false;
-    }
-    else{
-      return true
-    }
-  });
 

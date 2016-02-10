@@ -770,3 +770,110 @@ input.company {
   color: $textGray;
   font-size: 0.8rem;
 }
+
+.loading-spinner{
+  font-size: 2rem;
+  float: left;
+  &.a {
+    -webkit-animation: loadA 3s infinite linear;
+    animation: loadA 3s infinite linear;
+  }
+  &.b {
+    -webkit-animation: loadB 3s infinite linear;
+    animation: loadB 3s infinite linear;
+  }
+  &.c {
+    -webkit-animation: loadC 3s infinite linear;
+    animation: loadC 3s infinite linear;
+  }
+  &.d {
+    -webkit-animation: loadD 3s infinite linear;
+    animation: loadD 3s infinite linear;
+  }
+}
+
+@-webkit-keyframes loadA {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes loadA {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes loadB {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes loadB {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes loadC {
+  0% {
+    opacity: 0
+  }
+  50% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes loadC {
+  0% {
+    opacity: 0
+  }
+  50% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes loadD {
+  0% {
+    opacity: 0
+  }
+  75% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes loadD {
+  0% {
+    opacity: 0
+  }
+  75% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
