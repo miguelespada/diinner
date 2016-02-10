@@ -1,8 +1,8 @@
 .search-results
   - @suggestions.each do |suggestion|
     = render 'partials/suggestion', suggestion: suggestion
-  a.back.bi_interface-arrow-left href=""
-    | Volver
+a.back.bi_interface-arrow-left href=""
+  | Volver
 javascript:
   $(".see-menu").click(function (e) {
     var parent = $(this).parent().parent().parent();

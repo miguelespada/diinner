@@ -16,8 +16,12 @@
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
       = f.input :gender, collection: [[t('female'), 'female'], [t('male'), 'male']], include_blank: false, label:  t("gender")
+
+      .sr-only
+        = f.input :birth
       .form-date
-        = f.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 90,  end_year: Date.today.year - 18, order: [:day, :month, :year]
+        = simple_fields_for :fake do |o|
+          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 90, end_year: Date.today.year - 18, order: [:day, :month, :year]
     .separator
   .separator
   .row.box.bottom-box
@@ -68,6 +72,12 @@
       p Al guardar los datos estás aceptando las condiciones de uso.
     = f.button :submit, @current_user.first_login? ? t("continue_button") : t("update_button"), class: "diinner-button pink floater"
 
+- if !@current_user.first_login?
+    javascript:
+      $("#fake_birth_3i").val("#{@user.birth.day}");
+      $("#fake_birth_2i").val("#{@user.birth.month}");
+      $("#fake_birth_1i").val("#{@user.birth.year}");
+
 javascript:
   $(document).ready(function () {
     // With JQuery
@@ -90,5 +100,14 @@ javascript:
       $(".price-toggle").removeClass("selected");
       $(this).addClass("selected");
       $(".price select").val($(this).data("price"));
+    });
+
+    $(".form-date select").on("change", function () {
+      console.log("Date changed");
+      var day = $("#fake_birth_3i").val();
+      var month = $("#fake_birth_2i").val();
+      var year = $("#fake_birth_1i").val();
+      var date = year + "-" + fixDigits(month) + "-" + fixDigits(day);
+      $("#user_birth").val(date);
     });
   });
