@@ -52,7 +52,7 @@
           = text_field_tag :card_holder, nil, name: nil, class: "form-control"
         .form-group
           label.control-label =t("card_number")
-          = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control", pattern:".{0,16}", maxlength:16
+          = text_field_tag :card_number, nil, name: nil, size: 20, class: "form-control", pattern:".{0,20}", maxlength:20
         .form-group
           .row.col-xs-12
             label.control-label =t("cvc")
