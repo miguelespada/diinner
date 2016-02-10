@@ -54,8 +54,10 @@
           .choosing-box
             .text.toggle data-number=1 1
             .text.toggle data-number=2 2
+          - company_index = 0
           = f.simple_fields_for :companies do |company|
-            = render 'company_fields', :f => company
+            = render 'company_fields', :f => company, friend_index: company_index
+            - company_index = company_index + 1
       label = t("preferred_expectations")
       = render '/users/after_plan', f: f
     .separator
@@ -67,8 +69,12 @@
 javascript:
   $(document).ready(function () {
 
-    $("#search-button").click(function(){
-      openModal("loading-modal");
+    $("#search-button").click(function(e){
+      if(checkCompany()) {
+        openModal("loading-modal");
+      }else{
+        e.preventDefault();
+      }
     });
 
     var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -122,17 +128,26 @@ javascript:
       }
     });
 
-    $(".toggle").click(function () {
-      $(".friend").hide();
-
-      $(".toggle").removeClass("selected");
+    $(".company-container .toggle").click(function () {
+      hideFriends();
+      $(".company-container .toggle").removeClass("selected");
       $(this).addClass("selected");
       if ($(this).data("number") == 1) {
-        $($(".friend")[0]).show();
+        showFriend(0);
       } else {
-        $(".friend").show();
+        showFriend(0);
+        showFriend(1);
       }
     });
+
+
+    var hideFriends = function(){
+      $(".friend").hide();
+    };
+
+    var showFriend = function(index){
+      $($(".friend")[index]).show();
+    };
 
     $(".price-toggle").click(function () {
       $(".price-toggle").removeClass("selected");
@@ -145,4 +160,48 @@ javascript:
       $(this).addClass("selected");
       $($(this).parent().parent().parent().find(".gender")).val(($(this).data("gender")));
     });
+
+    var checkCompany = function(){
+      var error = false;
+      var chosenCompany = $(".company-container .choosing-box .toggle.selected");
+      if(chosenCompany.length > 0){
+        for(var index_chosen = 0; index_chosen < chosenCompany.data("number"); index_chosen++)
+        {
+          var gender = $("#reservation_companies_attributes_" + index_chosen + "_gender");
+          var age = $("#reservation_companies_attributes_" + index_chosen + "_age");
+          if (gender.val() == "" || age.val() == "") {
+            error = true;
+          }
+          var errorField = $("#friend_" + index_chosen + " .error");
+          error ? errorField.removeClass("hidden") : errorField.addClass("hidden");
+        }
+      }
+      return !error;
+    };
+
+    $(".company-toggle").click(function(){
+      if($(this).data("company") == 0){
+        clearCompany()
+      }
+    });
+
+    $(".company-container .choosing-box .toggle").click(function () {
+      if ($(this).data("number") == 1) {
+        clearFriend(1);
+      }
+    });
+
+    var clearCompany = function(){
+      $(".company-container .choosing-box .toggle").removeClass("selected");
+      for (var i = 0; i < 2; i++){
+       clearFriend(i);
+      }
+      hideFriends();
+    };
+    var clearFriend = function(index){
+      $("#friend_" + index + " .friend-toggle").removeClass("selected");
+      $("#reservation_companies_attributes_" + index + "_gender").val("");
+      $("#reservation_companies_attributes_" + index + "_age").val("");
+    }
+
   });
