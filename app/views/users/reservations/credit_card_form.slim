@@ -52,21 +52,21 @@
           = text_field_tag :card_holder, nil, name: nil, class: "form-control"
         .form-group
           label.control-label =t("card_number")
-          = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control"
+          = text_field_tag :card_number, nil, name: nil, size: 16, class: "form-control", pattern:".{0,16}", maxlength:16
         .form-group
           .row.col-xs-12
             label.control-label =t("cvc")
           .row.col-xs-3
-            = text_field_tag :card_cvc, nil, name: nil, size: 3, class: "form-control"
+            = text_field_tag :card_cvc, nil, name: nil, size: 3, pattern:".{3,4}", maxlength:4, class: "form-control"
         .form-group
           .row.col-xs-12
             label.control-label = t("expiration_date")
 
           .row
             .col-xs-3
-              = text_field_tag :exp_month, nil, name: nil, size: 2, class: "form-control"
+              = text_field_tag :exp_month, nil, name: nil, size: 2, pattern:".{0,2}", maxlength:2, class: "form-control"
             .col-xs-4
-              = text_field_tag :exp_year, nil, name: nil, size: 4, class: "form-control"
+              = text_field_tag :exp_year, nil, name: nil, size: 4, pattern:".{0,4}", maxlength:4, class: "form-control"
         #submit-other-card.col-xs-12.text-center
           .diinner-button.pink = t("continue_button")
         .separator
