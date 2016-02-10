@@ -92,7 +92,7 @@ class RestaurantCell < BaseCell
      h = w * 3 / 4
     cl_image_tag(model.photo.public_id,
     :transformation => [
-      {:width => w, :crop => :fit, quality: 75, format: :jpg},
+      {:width => w, :crop => :fill, quality: 75, format: :jpg},
       {:width => w, :height => h, :crop => :crop}
     ])
   end
