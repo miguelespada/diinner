@@ -23,5 +23,6 @@ reservation =
       $('#stripe_card_token').val(response.id)
       $('#new_reservation')[0].submit()
     else
+      closeModal('payment-modal');
       $('.stripe-error').text(response.error.message)
       $('#new_reservation').find("[name='commit']").prop('disabled', false)
