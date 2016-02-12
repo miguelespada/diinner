@@ -10,7 +10,7 @@ class StaticController < ApplicationController
   end
 
   def expire
-    expire_action :action => 'index'
+    expire_action :index
     render nothing: true
   end
 
