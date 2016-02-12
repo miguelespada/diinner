@@ -593,6 +593,9 @@ html, body{
         width: 250px;
         margin: 20px auto;
         img {
+          max-height: 170px;
+          max-width: 100%;
+          width: auto;
           margin-top: 20px;
         }
         .info {
