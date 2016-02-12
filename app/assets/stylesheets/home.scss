@@ -79,7 +79,6 @@ html, body{
         width: 100%;
         height: auto;
         margin-top: -290px;
-        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
       }
       .oval {
         position: relative;
