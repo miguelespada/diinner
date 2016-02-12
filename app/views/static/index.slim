@@ -1,4 +1,12 @@
 - home = HomeItem.get_first
+.cocktail-banner
+  = image_tag "cocktail.jpg"
+  .banner-info
+    | Diinner anuncia en exclusiva el cocktail de la
+    .orange<> naranja complete
+    | by Gegam Kazarian
+
+
 header.home-header
   .hidden-xs
     = cl_image_tag(home.header.public_id, quality: 75, width: 1440, crop: :limit, format: :jpg)
