@@ -130,13 +130,13 @@ html, body{
           font-family: "Proxima Nova";
         }
         .title{
-          font-size: 2vw;
+          font-size: calculateRem(25px);
           font-weight: bold;
           color: $textDarkGray;
         }
         .city{
           font-weight: lighter;
-          font-size: 1.8vw;
+          font-size: calculateRem(22px);
 
         }
       }
@@ -548,6 +548,28 @@ html, body{
         width: 80%;
       }
 
+    }
+  }
+
+  .footer{
+    clear: both;
+    height: auto;
+    width: 100%;
+    margin-top: 100px;
+    padding-top: 0;
+    ul{
+      padding-top: 10px;
+      display: auto;
+      li{
+        font-size: calculateRem(18.6px);
+        display: block;
+        a {
+          color: $textGray;
+        }
+        &.slash{
+          display: none;
+        }
+      }
     }
   }
 }
