@@ -1,6 +1,7 @@
 @import "compass/css3/transition";
 @import "compass/css3/box-shadow";
 @import "compass/css3/transform";
+@import "compass/css3/border-radius";
 @import 'font';
 @import 'color';
 @import "user/variables";
@@ -328,6 +329,7 @@ html, body{
       .down-box {
         padding-top: 40px;
         > .diinner-label {
+          padding: 0 10px;
           clear: both;
           font-size: 1.5rem;
         }

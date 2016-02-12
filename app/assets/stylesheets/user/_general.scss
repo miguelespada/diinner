@@ -242,5 +242,5 @@ html, body {
 }
 
 .round-image{
-  border-radius: 50%;
+  @include border-radius(50%);
 }
