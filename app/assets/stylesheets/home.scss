@@ -7,14 +7,15 @@
 @import "user/navigation";
 @import "user/general";
 
+html{
+  -webkit-overflow-scrolling: touch;
+}
+
 html, body{
   height: 100%;
   font-family: "Proxima Nova";
   overflow-x: hidden;
   background-color: $backGray;
-
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
   
 }
 
@@ -24,27 +25,14 @@ html, body{
   overflow: auto;
   position: relative;
   width: 100%;
-  //background: asset-url("cocktail.jpg");
-  background-size: cover;
-  img{
-    float: left;
-    width: 15%;
-    margin-left: 10%;
-  }
-  .banner-info{
-    padding-top: 10px;
-    width: 75%;
-    background-color: black;
-    float: left;
-    padding-left: 30px;
-    color: whitesmoke;
-    text-align: center;
-    font-size: calculateRem(35px);
-    .orange{
-      font-size: calculateRem(43px);
-      font-weight: bold;
-      color: $buttonYellow;
-    }
+  color: whitesmoke;
+  text-align: center;
+  padding: 20px;
+  font-size: calculateRem(30px);
+  .orange{
+    font-size: calculateRem(33px);
+    font-weight: bold;
+    color: $buttonYellow;
   }
 }
 .home-header{
@@ -121,7 +109,8 @@ html, body{
   padding: 0 calculatePercent(97px, $lg-width);
   > .info{
     margin-top: 40px;
-    clear: both;
+    width: 100%;
+    float: left;
     text-align: center;
     font-size: calculateRem(40px);
 
@@ -135,7 +124,8 @@ html, body{
     }
   }
   .restaurant-list{
-    overflow: auto;
+    float: left;
+    width: 100%;
     .restaurant-box{
       float: left;
       width: calculatePercent(395px, 1245px);
@@ -174,9 +164,9 @@ html, body{
   }
 
   .blog-list{
+    float: left;
     width: calculatePercent(1008px, 1245px);
     margin-left: calculatePercent(108px, 1245px);
-    overflow: auto;
     .blog-box{
       float: left;
       width: calculatePercent(309.3px, 1008px);
@@ -207,12 +197,11 @@ html, body{
   }
 
   .register-wrapper {
-    clear: both;
     text-align: left;
     margin-right: calculatePercent(30px, 1245px);
     width: 100%;
     margin-top: 40px;
-    overflow: auto;
+    float: left;
 
     > .info {
       float: left;
@@ -242,88 +231,130 @@ html, body{
 
   }
 
-  .test-box{
-    margin-top: 40px;
+  .test-wrapper {
     float: left;
-    width: calculatePercent(820px, 1245px);
-    max-width: 600px;
-    min-width: 400px;
-    .diinner-label{
-      font-weight: 200;
+    text-align: left;
+    margin-right: calculatePercent(30px, 1245px);
+    width: 100%;
+    margin-top: 40px;
+
+    > .info {
+      float: right;
+      margin-right: calculatePercent(30px, 1245px);
+      font-size: calculateRem(35px);
+      color: $textGray;
+      width: 395px;
+      @media screen and (max-width: 1200px){
+        width: 250px;
+      }
+
+      .black {
+        display: inline;
+        color: $textDarkGray;
+      }
     }
-    .test-info{
+
+    .test-box {
       float: left;
-      text-align: center;
-      width: 100%;
-      padding: 0 calculatePercent(141px, 820px);
-      height: 0;
-      visibility: hidden;
-      opacity: 0;
-      @include transition(visibility 0s, opacity 1s linear);
-      &.active{
-        height: auto;
-        visibility: visible;
-        opacity: 1;
-        @include transition(visibility 0s, opacity 1s linear);
+      width: calculatePercent(820px, 1245px);
+      max-width: 600px;
+      min-width: 500px;
+      .diinner-label {
+        font-weight: 200;
       }
-      .title{
-        margin-top: 0px;
-        font-size: calculateRem(25px);
-        font-weight: bold;
-      }
-      .answer{
-        width: calculatePercent(268px, 538px);
-        $padding: calculatePercent(36px, 538px);
-        padding: $padding 0;
+      .test-info {
         float: left;
-        .wrapper {
-          padding: 0 $padding;
-          border: 0px solid $buttonPink;
-          box-sizing: border-box;
-          &.left {
-            border-right-width: 2px;
-          }
-          &.right {
-            border-left-width: 2px;
-          }
-          .image {
+        text-align: center;
+        width: 100%;
+        padding: 0 calculatePercent(50px, 820px);
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        @include transition(visibility 0s, opacity 1s linear);
+        &.active {
+          height: auto;
+          visibility: visible;
+          opacity: 1;
+          @include transition(visibility 0s, opacity 1s linear);
+        }
+        .title {
+          margin-top: 20px;
+          font-size: calculateRem(25px);
+          font-weight: bold;
+        }
+        .answer {
+          width: calculatePercent(268px, 538px);
+          $padding: calculatePercent(36px, 538px);
+          padding: $padding 0;
+          float: left;
+          height: 250px;
+          .wrapper {
+            position: relative;
+            padding: 0 $padding;
+            border: 0 solid $buttonPink;
+            box-sizing: border-box;
             width: 100%;
-            img {
+            min-height: 100%;
+            &.left {
+              border-right-width: 2px;
+            }
+            &.right {
+              border-left-width: 2px;
+            }
+            .image {
+              float: left;
               width: 100%;
+              img {
+                width: 100%;
+              }
+            }
+            .text {
+              float: left;
+              text-align: center;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              width: 100%;
+              font-size: calculateRem(25px);
+              &.alone{
+                position: absolute;
+                top: 50%;
+                @include translate(0, -50%);
+              }
             }
           }
-          .text {
-            margin-top: 60px;
-            font-size: calculateRem(25px);
+        }
+      }
+      .down-box {
+        padding-top: 40px;
+        .diinner-label {
+          clear: both;
+        }
+        .dot-list {
+          width: 100%;
+          text-align: center;
+          padding: 0 calculatePercent(315px, 820px);
+          .dot {
+            display: inline-block;
+            margin: 15px calculatePercent(15px, 820px) 10px calculatePercent(15px, 820px);
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: $dotGray;
+            cursor: pointer;
+            &.yellow {
+              background-color: $themeYellow;
+            }
           }
+          //clear:both;
         }
       }
-    }
-    .diinner-label{
-      clear: both;
-    }
-    .dot-list{
-      width: 100%;
-      text-align: center;
-      padding: 0 calculatePercent(315px, 820px);
-      .dot{
-        display: inline-block;
-        margin: 15px calculatePercent(15px, 820px) 10px calculatePercent(15px, 820px);
-        width: 13px;
-        height: 13px;
-        border-radius: 50%;
-        background-color: $dotGray;
-        cursor: pointer;
-        &.yellow{
-          background-color: $themeYellow;
-        }
-      }
-      //clear:both;
     }
   }
 
   .share-wrapper{
-    clear: both;
+    float: left;
+    width: 100%;
     margin-top: 40px;
     margin-left: calculatePercent(108px, 1245px);
     .share-box {
@@ -414,8 +445,8 @@ html, body{
     margin-top: 10px;
     font-size: 2.5rem;
     color: #ff6f6f;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -426,16 +457,9 @@ html, body{
 
 @media screen and (max-width: 1024px) {
   .cocktail-banner{
-    img{
-      width: 20%;
-    }
-    .banner-info{
-      padding: 10px;
-      width: 70%;
-      font-size: calculateRem(25px);
-      .orange{
-        font-size: calculateRem(33px);
-      }
+    font-size: calculateRem(28px);
+    .orange{
+      font-size: calculateRem(30px);
     }
   }
   .home-header{
@@ -445,8 +469,9 @@ html, body{
     }
   }
   .how-it-works {
-    .white-panel {
 
+    .white-panel {
+      margin-top: 150px;
       .item {
         width: calculatePercent(388.3px, 1245px);
         margin: 10px calculatePercent(10px, 1245px);
@@ -475,7 +500,6 @@ html, body{
     }
     .restaurant-list {
       width: 100%;
-      overflow: hidden;
       .restaurant-box {
         width: calculatePercent(592.5px, 1245px);
       }
@@ -516,6 +540,28 @@ html, body{
       }
 
     }
+
+    .test-wrapper {
+
+      > .info {
+        float: none;
+        clear: both;
+        text-align: center;
+        width: 60%;
+        margin: auto;
+      }
+
+      .test-box{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        float: none;
+        clear: both;
+        margin: auto;
+        margin-top: 40px;
+      }
+
+    }
   }
 
 }
@@ -523,17 +569,9 @@ html, body{
 @media screen and (max-width: 768px){
 
   .cocktail-banner{
-    img{
-      margin: 0;
-      width: 100%;
-    }
-    .banner-info{
-      padding: 10px;
-      width: 100%;
-      font-size: calculateRem(25px);
-      .orange{
-        font-size: calculateRem(33px);
-      }
+    font-size: calculateRem(28px);
+    .orange{
+      font-size: calculateRem(30px);
     }
   }
  .home-header{
@@ -543,7 +581,9 @@ html, body{
    }
  }
   .how-it-works {
+    margin-top: auto;
     .white-panel {
+      margin-top: 0px;
       height: auto;
       width: 100%;
       margin-left: 0;
@@ -588,13 +628,23 @@ html, body{
 
     .share-wrapper {
       margin-left: 0;
+      max-width: 100%;
       text-align: center;
       .share-box{
+        max-width: 100%;
         margin: auto;
       }
     }
 
     .register-wrapper {
+
+      > .info {
+        width: 80%;
+      }
+
+    }
+
+    .test-wrapper {
 
       > .info {
         width: 80%;
@@ -607,8 +657,7 @@ html, body{
     clear: both;
     height: auto;
     width: 100%;
-    margin-top: 100px;
-    padding-top: 0;
+    padding-top: 100px;
     ul{
       padding-top: 10px;
       display: auto;
