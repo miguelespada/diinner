@@ -43,27 +43,47 @@ html, body{
 }
 
 
-.how-it-works{
-  .white-panel{
-    background-color: #333333;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: auto;
-    margin-top: 80px; 
-    padding: 0;
-
-  }
-  .small{
-      width: 100%;
-      margin-left: 0;
-      min-width: 500px;
-  }
-  img{
+.how-it-works {
+  padding: 60px calculatePercent(40px, $lg-width) 0 calculatePercent(40px, $lg-width);
+  width: 100%;
+  .white-panel {
+    height: 450px;
+    margin-top: 290px;
     width: 100%;
-    height: auto;
+    background-color: $panelWhite;
+    padding: 0 calculatePercent(40px, 1360px);
+    .item {
+      text-align: center;
+      width: calculatePercent(346px, 1280px);
+      margin: 0 calculatePercent(40px, 1280px);
+      float: left;
+      img {
+        width: 100%;
+        height: auto;
+        margin-top: -290px;
+        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+      }
+      .oval {
+        position: relative;
+        display: table;
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        overflow: hidden;
+        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+        margin: 30px auto 30px auto;
+
+        .text {
+          font-size: 30px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      .info {
+        font-size: 25px;
+      }
+    }
   }
-
-
 }
 
 .content{
@@ -381,6 +401,31 @@ html, body{
       border: 2vw solid white;
     }
   }
+  .how-it-works {
+    .white-panel {
+
+      .item {
+        width: calculatePercent(388.3px, 1245px);
+        margin: 10px calculatePercent(10px, 1245px);
+        img {
+          margin-top: -150px;
+        }
+        .info {
+          font-size: calculateRem(20px);
+        }
+        .oval {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+
+          .text {
+            font-size: calculateRem(25px);
+          }
+        }
+      }
+
+    }
+  }
   .content{
     .info{
       font-size: calculateRem(36px);
@@ -445,6 +490,30 @@ html, body{
      border: 2vw solid white;
    }
  }
+  .how-it-works {
+    .white-panel {
+      height: auto;
+      width: 100%;
+      margin-left: 0;
+      .item {
+        float: none;
+        width: 250px;
+        margin: 20px auto;
+        img {
+          margin-top: 20px;
+        }
+        .info {
+          font-size: calculateRem(25px);
+        }
+      }
+      .item:last-child{
+        .info{
+          padding-bottom: 20px;
+        }
+      }
+
+    }
+  }
   .content{
     .info{
       font-size: calculateRem(36px);

@@ -9,13 +9,23 @@ header.home-header
     br
     |quedar.
 
-.how-it-works.hidden-xs
+.how-it-works
   .white-panel.box
-    = image_tag "landing/back.svg"
+    - 3.times do |i|
+      - index = i + 1
+      .item
+        = cl_image_tag home.send("how_it_works_#{index}").public_id, radius: :max, format: :jpg, quality: 60, width: 500, height: 500, crop: :fill, class: "round-image"
+        .oval
+          .text = index
+        .info = t("home_hiw_#{index}")
 
-.how-it-works.visible-xs
-  .white-panel.box
-    = image_tag "landing/back_v.svg"
+/.how-it-works.hidden-xs
+/  .white-panel.box
+/    = image_tag "landing/back.svg"
+
+/.how-it-works.visible-xs
+/  .white-panel.box
+/    = image_tag "landing/back_v.svg"
 
 .content
   .info
