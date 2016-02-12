@@ -28,7 +28,8 @@ MAP.updateMap = function(){
   var googleAPIKey = $('#map-config').data('google-key');
   var address = $('#restaurant_address').val();
   var city = $('#restaurant_city_id option:selected').text();
-  var queryUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + city + '&key=' + googleAPIKey;
+  var queryUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + ", " + city + '&key=' + googleAPIKey;
+
   MAP.getGeolocation(queryUrl);
 };
 
@@ -46,7 +47,9 @@ MAP.getCurrentPosition = function(){
 };
 
 MAP.getGeolocation = function(queryUrl){
+    console.log(queryUrl);
   $.get(queryUrl, function(data){
+    console.log(data);
     $('#restaurant_latitude').val(data.results[0].geometry.location.lat);
     $('#restaurant_longitude').val(data.results[0].geometry.location.lng);
     if (MAP.marker){
