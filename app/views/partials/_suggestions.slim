@@ -1,8 +1,9 @@
 .search-results
   - @suggestions.each do |suggestion|
     = render 'partials/suggestion', suggestion: suggestion
-a.back.bi_interface-arrow-left href=""
-  | Volver
+.col-xs-12
+  =link_to :back, class: "back bi_interface-arrow-left"
+    | Volver
 javascript:
   $(".see-menu").click(function (e) {
     var parent = $(this).parent().parent().parent();
@@ -12,7 +13,4 @@ javascript:
   });
   $(".toggle-description").click(function (e) {
     $(this).parent().find(".restaurant-description").toggleClass("sr-only");
-  });
-  $(".back").click(function(){
-    window.history.back();
   });

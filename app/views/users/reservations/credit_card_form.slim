@@ -76,14 +76,11 @@
     #other-card.diinner-button.pink = t("use_new_card")
     .separator
 .col-xs-12
-  a.back.bi_interface-arrow-left href=""
+  = link_to :back, "back bi_interface-arrow-left"
     | Volver
 
 
 javascript:
-  $(".back").click(function () {
-    window.history.back();
-  });
   $("#submit-default-card").click(function(){
     openModal('payment-modal');
     $("#reuse_card").submit();

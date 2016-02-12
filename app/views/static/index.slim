@@ -111,6 +111,12 @@ header.home-header
 == render 'application/modal', name: 'login-modal', view: 'users/users/login', can_be_closed: true
 
 javascript:
+  $(window).bind("pageshow", function (event) {
+    if (event.originalEvent.persisted) {
+      window.location.reload()
+    }
+  });
+  
   $(".login-link").click(function(){
     openModal('login-modal');
   });
