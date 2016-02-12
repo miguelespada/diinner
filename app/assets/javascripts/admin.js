@@ -13,4 +13,3 @@
 //= require application
 //= require bootstrap-datetimepicker
 //= require pickers
-//= require bootstrap-slider

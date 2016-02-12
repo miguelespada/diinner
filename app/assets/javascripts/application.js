@@ -24,4 +24,5 @@
 //= require moment
 //= require moment/es.js
 //= require modal
+//= require bootstrap-slider
 //= require utils
