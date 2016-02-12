@@ -43,27 +43,47 @@ html, body{
 }
 
 
-.how-it-works{
-  .white-panel{
-    background-color: #333333;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: auto;
-    margin-top: 80px; 
-    padding: 0;
-
-  }
-  .small{
-      width: 100%;
-      margin-left: 0;
-      min-width: 500px;
-  }
-  img{
+.how-it-works {
+  padding: 60px calculatePercent(40px, $lg-width) 0 calculatePercent(40px, $lg-width);
+  width: 100%;
+  .white-panel {
+    height: 450px;
+    margin-top: 290px;
     width: 100%;
-    height: auto;
+    background-color: $panelWhite;
+    padding: 0 calculatePercent(40px, 1360px);
+    .item {
+      text-align: center;
+      width: calculatePercent(346px, 1280px);
+      margin: 0 calculatePercent(40px, 1280px);
+      float: left;
+      img {
+        width: 100%;
+        height: auto;
+        margin-top: -290px;
+        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+      }
+      .oval {
+        position: relative;
+        display: table;
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        overflow: hidden;
+        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+        margin: 30px auto 30px auto;
+
+        .text {
+          font-size: 30px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      .info {
+        font-size: 25px;
+      }
+    }
   }
-
-
 }
 
 .content{
@@ -112,13 +132,13 @@ html, body{
           font-family: "Proxima Nova";
         }
         .title{
-          font-size: 2vw;
+          font-size: calculateRem(25px);
           font-weight: bold;
           color: $textDarkGray;
         }
         .city{
           font-weight: lighter;
-          font-size: 1.8vw;
+          font-size: calculateRem(22px);
 
         }
       }
@@ -159,7 +179,6 @@ html, body{
   }
 
   .register-wrapper {
-    clear: both;
     text-align: left;
     margin-right: calculatePercent(30px, 1245px);
     width: 100%;
@@ -195,7 +214,7 @@ html, body{
   }
 
   .test-wrapper {
-    clear: both;
+    float: left;
     text-align: left;
     margin-right: calculatePercent(30px, 1245px);
     width: 100%;
@@ -250,7 +269,7 @@ html, body{
           $padding: calculatePercent(36px, 538px);
           padding: $padding 0;
           float: left;
-          height: 200px;
+          height: 250px;
           .wrapper {
             position: relative;
             padding: 0 $padding;
@@ -279,6 +298,11 @@ html, body{
               overflow: hidden;
               width: 100%;
               font-size: calculateRem(25px);
+              &.alone{
+                position: absolute;
+                top: 50%;
+                @include translate(0, -50%);
+              }
             }
           }
         }
@@ -311,7 +335,8 @@ html, body{
   }
 
   .share-wrapper{
-    clear: both;
+    float: left;
+    width: 100%;
     margin-top: 40px;
     margin-left: calculatePercent(108px, 1245px);
     .share-box {
@@ -419,13 +444,37 @@ html, body{
       border: 2vw solid white;
     }
   }
+  .how-it-works {
+    .white-panel {
+
+      .item {
+        width: calculatePercent(388.3px, 1245px);
+        margin: 10px calculatePercent(10px, 1245px);
+        img {
+          margin-top: -150px;
+        }
+        .info {
+          font-size: calculateRem(20px);
+        }
+        .oval {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+
+          .text {
+            font-size: calculateRem(25px);
+          }
+        }
+      }
+
+    }
+  }
   .content{
     .info{
       font-size: calculateRem(36px);
     }
     .restaurant-list {
       width: 100%;
-      overflow: hidden;
       .restaurant-box {
         width: calculatePercent(592.5px, 1245px);
       }
@@ -466,6 +515,26 @@ html, body{
       }
 
     }
+
+    .test-wrapper {
+
+      > .info {
+        float: none;
+        clear: both;
+        text-align: center;
+        width: 60%;
+        margin: auto;
+      }
+
+      .test-box{
+        width: 100%;
+        float: none;
+        clear: both;
+        margin: auto;
+        margin-top: 40px;
+      }
+
+    }
   }
 
 }
@@ -473,7 +542,7 @@ html, body{
 @media screen and (max-width: 768px){
 
   .footer{
-    padding-top: 0;
+    padding-top: 100px;
     height: auto;
   }
 
@@ -483,6 +552,30 @@ html, body{
      border: 2vw solid white;
    }
  }
+  .how-it-works {
+    .white-panel {
+      height: auto;
+      width: 100%;
+      margin-left: 0;
+      .item {
+        float: none;
+        width: 250px;
+        margin: 20px auto;
+        img {
+          margin-top: 20px;
+        }
+        .info {
+          font-size: calculateRem(25px);
+        }
+      }
+      .item:last-child{
+        .info{
+          padding-bottom: 20px;
+        }
+      }
+
+    }
+  }
   .content{
     .info{
       font-size: calculateRem(36px);
@@ -517,6 +610,35 @@ html, body{
         width: 80%;
       }
 
+    }
+
+    .test-wrapper {
+
+      > .info {
+        width: 80%;
+      }
+
+    }
+  }
+
+  .footer{
+    clear: both;
+    height: auto;
+    width: 100%;
+    padding-top: 100px;
+    ul{
+      padding-top: 10px;
+      display: auto;
+      li{
+        font-size: calculateRem(18.6px);
+        display: block;
+        a {
+          color: $textGray;
+        }
+        &.slash{
+          display: none;
+        }
+      }
     }
   }
 }
