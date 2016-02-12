@@ -304,7 +304,9 @@ html, body{
               float: left;
               width: 100%;
               img {
-                width: 100%;
+                max-height: 170px;
+                max-width: 100%;
+                width: auto;
               }
             }
             .text {
@@ -327,7 +329,7 @@ html, body{
       .down-box {
         padding-top: 40px;
         > .diinner-label {
-          padding: 10px;
+          padding: 0 10px;
           clear: both;
           font-size: 1.5rem;
         }
@@ -593,9 +595,6 @@ html, body{
         width: 250px;
         margin: 20px auto;
         img {
-          max-height: 170px;
-          max-width: 100%;
-          width: auto;
           margin-top: 20px;
         }
         .info {
