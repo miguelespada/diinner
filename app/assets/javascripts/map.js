@@ -48,9 +48,7 @@ MAP.getCurrentPosition = function(){
 };
 
 MAP.getGeolocation = function(queryUrl){
-    console.log(queryUrl);
   $.get(queryUrl, function(data){
-    console.log(data);
     $('#restaurant_latitude').val(data.results[0].geometry.location.lat);
     $('#restaurant_longitude').val(data.results[0].geometry.location.lng);
     if (MAP.marker){

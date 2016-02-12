@@ -101,7 +101,7 @@ es:
 
   #Post payment
   reservation_finished: "¡¡Enhorabuena, reserva realizada!!"
-  payment_alert: "Por favor, no recargues la página mientras se realiza el pago."
+  payment_alert: "Por favor, no recargues la página mientras se formaliza la reserva."
 
   #Reservation view:
   plan_info: "Información del plan"
@@ -118,7 +118,7 @@ es:
   compatibility: "Compatibilidad del plan"
   practical_data: "Datos prácticos"
   last_minute_info: "Te confirmaremos antes de las 18:00 si el plan sigue adelante. No se cobrará nada de tu tarjeta hasta que el plan no se haya confirmado."
-  cancelation_info: "Recuerda que si cancelas tu reserva después de las 18:00 del día de la reserva tendrás una penalización de XX."
+  cancelation_info: "Recuerda que puedes cancelar sin cargo alguno hasta 12:00 p.m. del día antes de la reserva."
 
   #Notifications
   reservation_successful: "Tu reserva se ha realizado correctamente."
