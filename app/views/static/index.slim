@@ -25,14 +25,6 @@ header.home-header
           .text = index
         .info = t("home_hiw_#{index}")
 
-/.how-it-works.hidden-xs
-/  .white-panel.box
-/    = image_tag "landing/back.svg"
-
-/.how-it-works.visible-xs
-/  .white-panel.box
-/    = image_tag "landing/back_v.svg"
-
 .content
   .info
     | Aquí tienes algunos de nuestros <b>restaurantes</b>
@@ -159,4 +151,4 @@ javascript:
     clickSlide((sliderIndex.get() + 1) % $(".dot").length);
   };
 
-  //setInterval(nextSlide, 10000);
+  setInterval(nextSlide, 10000);
