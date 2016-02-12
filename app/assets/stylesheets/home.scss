@@ -327,8 +327,9 @@ html, body{
       }
       .down-box {
         padding-top: 40px;
-        .diinner-label {
+        > .diinner-label {
           clear: both;
+          font-size: 1.5rem;
         }
         .dot-list {
           width: 100%;
@@ -649,7 +650,23 @@ html, body{
       > .info {
         width: 80%;
       }
-
+      .test-box{
+        .answer{
+          .wrapper{
+            .text{
+              &.alone{
+                left: 0;
+              }
+            }
+          }
+        }
+      .down-box{
+        .dot-list{
+          padding: 0;
+          margin: auto;
+        }
+      }
+      }
     }
   }
 
