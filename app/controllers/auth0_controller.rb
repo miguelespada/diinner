@@ -6,6 +6,7 @@ class Auth0Controller < ApplicationController
 
   def failure
     @error_msg = request.params['message']
+    redirect_to root_path, alert: @error_msg
   end
 
   def logout
