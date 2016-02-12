@@ -13,7 +13,7 @@ html, body{
   overflow-x: hidden;
   background-color: $backGray;
 
-  overflow-y: scroll;
+  //overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   
 }
@@ -71,7 +71,8 @@ html, body{
   padding: 0 calculatePercent(97px, $lg-width);
   > .info{
     margin-top: 40px;
-    clear: both;
+    width: 100%;
+    float: left;
     text-align: center;
     font-size: calculateRem(40px);
 
@@ -85,7 +86,8 @@ html, body{
     }
   }
   .restaurant-list{
-    overflow: auto;
+    float: left;
+    width: 100%;
     .restaurant-box{
       float: left;
       width: calculatePercent(395px, 1245px);
@@ -124,9 +126,9 @@ html, body{
   }
 
   .blog-list{
+    float: left;
     width: calculatePercent(1008px, 1245px);
     margin-left: calculatePercent(108px, 1245px);
-    overflow: auto;
     .blog-box{
       float: left;
       width: calculatePercent(309.3px, 1008px);
@@ -162,7 +164,7 @@ html, body{
     margin-right: calculatePercent(30px, 1245px);
     width: 100%;
     margin-top: 40px;
-    overflow: auto;
+    float: left;
 
     > .info {
       float: left;
@@ -192,83 +194,119 @@ html, body{
 
   }
 
-  .test-box{
+  .test-wrapper {
+    clear: both;
+    text-align: left;
+    margin-right: calculatePercent(30px, 1245px);
+    width: 100%;
     margin-top: 40px;
-    float: left;
-    width: calculatePercent(820px, 1245px);
-    max-width: 600px;
-    min-width: 400px;
-    .diinner-label{
-      font-weight: 200;
+
+    > .info {
+      float: right;
+      margin-right: calculatePercent(30px, 1245px);
+      font-size: calculateRem(35px);
+      color: $textGray;
+      width: 395px;
+      @media screen and (max-width: 1200px){
+        width: 250px;
+      }
+
+      .black {
+        display: inline;
+        color: $textDarkGray;
+      }
     }
-    .test-info{
+
+    .test-box {
       float: left;
-      text-align: center;
-      width: 100%;
-      padding: 0 calculatePercent(141px, 820px);
-      height: 0;
-      visibility: hidden;
-      opacity: 0;
-      @include transition(visibility 0s, opacity 1s linear);
-      &.active{
-        height: auto;
-        visibility: visible;
-        opacity: 1;
-        @include transition(visibility 0s, opacity 1s linear);
+      width: calculatePercent(820px, 1245px);
+      max-width: 600px;
+      min-width: 500px;
+      .diinner-label {
+        font-weight: 200;
       }
-      .title{
-        margin-top: 0px;
-        font-size: calculateRem(25px);
-        font-weight: bold;
-      }
-      .answer{
-        width: calculatePercent(268px, 538px);
-        $padding: calculatePercent(36px, 538px);
-        padding: $padding 0;
+      .test-info {
         float: left;
-        .wrapper {
-          padding: 0 $padding;
-          border: 0px solid $buttonPink;
-          box-sizing: border-box;
-          &.left {
-            border-right-width: 2px;
-          }
-          &.right {
-            border-left-width: 2px;
-          }
-          .image {
+        text-align: center;
+        width: 100%;
+        padding: 0 calculatePercent(50px, 820px);
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        @include transition(visibility 0s, opacity 1s linear);
+        &.active {
+          height: auto;
+          visibility: visible;
+          opacity: 1;
+          @include transition(visibility 0s, opacity 1s linear);
+        }
+        .title {
+          margin-top: 20px;
+          font-size: calculateRem(25px);
+          font-weight: bold;
+        }
+        .answer {
+          width: calculatePercent(268px, 538px);
+          $padding: calculatePercent(36px, 538px);
+          padding: $padding 0;
+          float: left;
+          height: 200px;
+          .wrapper {
+            position: relative;
+            padding: 0 $padding;
+            border: 0 solid $buttonPink;
+            box-sizing: border-box;
             width: 100%;
-            img {
+            min-height: 100%;
+            &.left {
+              border-right-width: 2px;
+            }
+            &.right {
+              border-left-width: 2px;
+            }
+            .image {
+              float: left;
               width: 100%;
+              img {
+                width: 100%;
+              }
+            }
+            .text {
+              float: left;
+              text-align: center;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              width: 100%;
+              font-size: calculateRem(25px);
             }
           }
-          .text {
-            margin-top: 60px;
-            font-size: calculateRem(25px);
+        }
+      }
+      .down-box {
+        padding-top: 40px;
+        .diinner-label {
+          clear: both;
+        }
+        .dot-list {
+          width: 100%;
+          text-align: center;
+          padding: 0 calculatePercent(315px, 820px);
+          .dot {
+            display: inline-block;
+            margin: 15px calculatePercent(15px, 820px) 10px calculatePercent(15px, 820px);
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: $dotGray;
+            cursor: pointer;
+            &.yellow {
+              background-color: $themeYellow;
+            }
           }
+          //clear:both;
         }
       }
-    }
-    .diinner-label{
-      clear: both;
-    }
-    .dot-list{
-      width: 100%;
-      text-align: center;
-      padding: 0 calculatePercent(315px, 820px);
-      .dot{
-        display: inline-block;
-        margin: 15px calculatePercent(15px, 820px) 10px calculatePercent(15px, 820px);
-        width: 13px;
-        height: 13px;
-        border-radius: 50%;
-        background-color: $dotGray;
-        cursor: pointer;
-        &.yellow{
-          background-color: $themeYellow;
-        }
-      }
-      //clear:both;
     }
   }
 

@@ -45,6 +45,35 @@ header.home-header
         .diinner-button.pink.login-link Inicia sesión
       .diinner-label.button.pink.login-link Regístrate
 
+  .test-wrapper
+    .info
+      | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.
+    .test-box.box data-pos=0
+      - Test.all.sample(5).each_with_index do |t, i|
+        .test-info class="#{'active' if i == 0}"
+          .title = "#{t.question}"
+          .answer
+            .wrapper.left
+              .image.login-link
+                = cl_image_tag(t.option_A.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_A.nil?
+              .text = "#{t.caption_A}"
+          .answer
+            .wrapper.right
+              .image.login-link
+                = cl_image_tag(t.option_B.public_id, format: :jpg, quality: 60,  width: 300, crop: :fill) if !t.option_B.nil?
+              .text = "#{t.caption_B}"
+      .down-box
+        .diinner-label.yellow
+          | Responde a unas divertidas preguntas y encontraemos los <b>mejores comensales</b>.
+          br
+          | Nuestro sistema se asegura que el <b>número de chicos y chicas está equilibrado</b> en todas las cenas.
+        .dot-list
+          .dot.yellow
+          .dot
+          .dot
+          .dot
+          .dot
+
   .info
     | Disfruta del mejor contenido de nuestro blog
     .black<
@@ -71,36 +100,7 @@ header.home-header
 
 
 
-/.content
-/  .diinner-label.info
-/    | Aquí tienes algunos de nuestros <b>restaurantes</b>
-/
-/
-/  .register-wrapper
-/    .info
-/      | Diinner es la nueva de manera de conocer a gente disfrutando de la comida,
-/      .black< únete a nosotros.
-/  .share-box
-/    .box
-/      .diinner-label.yellow
-/        = image_tag "landing/facebook.png"
-/        = image_tag "landing/twitter.png"
-/        = image_tag "landing/instagram.png"
-/    .follow
-/      |Síguenos en
-/      br
-/      |redes sociales
-/
-/  .register-wrapper
-/    .register-box.box
-/      .area
-/        |¿Ya estás
-/        br
-/        |registrado?
-/        .diinner-button.pink.login-link Inicia sesión
-/      .diinner-label.button.pink.login-link Regístrate
-/
-/
+
 /  .test-box.box data-pos=0
 /    .tests-info
 /      | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.
@@ -128,17 +128,7 @@ header.home-header
 /        .dot
 /        .dot
 /        .dot
-/  .register-wrapper
-/    .info
-/      | Disfruta del mejor contenido de nuestro blog
-/      .black< Cenar para quedar.
-/  - @blog_posts.each do |blog_post, i|
-/    .blog-box.box
-/      .image = cl_image_tag blog_post.picture.public_id, format: :jpg, quality: 60, width: 350, crop: :fill if !blog_post.picture.nil?
-/      = link_to blog_post.url, target: "_blank"
-/        .diinner-label.button.pink = blog_post.title
-/
-/
+
 == render 'application/modal', name: 'login-modal', view: 'users/users/login', can_be_closed: true
 
 javascript:
@@ -182,4 +172,4 @@ javascript:
     clickSlide((sliderIndex.get() + 1) % $(".dot").length);
   };
 
-  setInterval(nextSlide, 10000);
+  //setInterval(nextSlide, 10000);
