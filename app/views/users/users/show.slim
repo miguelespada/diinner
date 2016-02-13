@@ -23,15 +23,16 @@
       .box.col-md-12
         .row
           .diinner-label.yellow
-            = t("my_reservations")
+            = t("next_reservations")
         .row
           .col-xs-12
             .my-reservations
               .list
-                - if @reservations.where(cancelled: false).empty?
+                - future_reservations = @reservations.where(:date.gt => Date.today)
+                - if future_reservations.empty?
                   p = t("no_reservations")
                 - else
-                  - r = @reservations.where(cancelled: false).order_by(:created_at => 'asc').first
+                  - r = future_reservations.order_by(:date => 'asc').first
                   .item
                     = link_to user_reservation_path(@user, r)
                       .name
@@ -48,14 +49,14 @@
             .col-xs-12
               .my-reservations
                 .list
-                  - reservations = @reservations.select{|r| r.can_be_evaluated?}.take(3)
-                  - reservations.each do |r|
-                  .item
-                    = link_to new_user_reservation_evaluation_path(@user, r)
-                      .name
-                        = r.restaurant.name
-                      .date = r.date.strftime("%d/%m/%Y")
-                      .time Evaluar
+                  - reservations = @reservations.select{|e| e.can_be_evaluated?}.take(3)
+                  - reservations.each do |e|
+                    .item
+                      = link_to new_user_reservation_evaluation_path(@user, e)
+                        .name
+                          = e.restaurant.name
+                        .date = e.date.strftime("%d/%m/%Y")
+                        .time Evaluar
 
     - if @test
       .col-lg-7.visible-lg

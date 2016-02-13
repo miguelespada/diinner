@@ -21,7 +21,7 @@
         = f.input :birth
       .form-date
         = simple_fields_for :fake do |o|
-          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 90, end_year: Date.today.year - 18, order: [:day, :month, :year]
+          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 70, end_year: Date.today.year - 18, order: [:day, :month, :year]
     .separator
   .separator
   .row.box.bottom-box
