@@ -48,14 +48,14 @@
             .col-xs-12
               .my-reservations
                 .list
-                  - reservations = @reservations.select{|r| r.can_be_evaluated?}.take(3)
-                  - reservations.each do |r|
-                  .item
-                    = link_to new_user_reservation_evaluation_path(@user, r)
-                      .name
-                        = r.restaurant.name
-                      .date = r.date.strftime("%d/%m/%Y")
-                      .time Evaluar
+                  - reservations = @reservations.select{|e| e.can_be_evaluated?}.take(3)
+                  - reservations.each do |e|
+                    .item
+                      = link_to new_user_reservation_evaluation_path(@user, e)
+                        .name
+                          = e.restaurant.name
+                        .date = e.date.strftime("%d/%m/%Y")
+                        .time Evaluar
 
     - if @test
       .col-lg-7.visible-lg
