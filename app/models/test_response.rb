@@ -23,6 +23,6 @@ class TestResponse
   end
 
   def skipped?
-    response == :skip
+    response == "skip"
   end
 end
