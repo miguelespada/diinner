@@ -422,28 +422,48 @@ html, body{
 .login-container {
   width: 100%;
   height: 100%;
-    .logo{
-      padding-bottom: 10%;
-      margin-bottom: 10%;
-      border: 0 solid $themeYellow;
-      border-bottom-width: 1px;
+  .before-login{
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  .after-login{
+    width: 100%;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: underline;
+    .explanation{
+      width: 100%;
+      padding: 10px;
+      background-color: white;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .logo{
+    padding-bottom: 10%;
+    margin-bottom: 10%;
+    border: 0 solid $themeYellow;
+    border-bottom-width: 1px;
+  }
+
+  #login-panel {
+    #a0-lock * {
+      font-family: "Proxima Nova" !important;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+      text-align-last: auto;
     }
 
-    #login-panel {
-      #a0-lock * {
-        font-family: "Proxima Nova" !important;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
-        text-align-last: auto;
-      }
-
-      .a0-header, .a0-footer {
-        display: none !important;
-      }
-
-      img {
-        width: 100%;
-      }
+    .a0-last-time{
+      display: none !important;
     }
+    .a0-header, .a0-footer {
+      display: none !important;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
 }
 .tests-info{
   padding: 20px;
