@@ -19,6 +19,12 @@ html, body{
   
 }
 
+.banner {
+  &:hover, &:active{
+    text-decoration: none;
+  }
+}
+
 .cocktail-banner{
   margin-top: 50px;
   background-color: black;
