@@ -70,6 +70,12 @@
     .submit
       = f.button :submit, t("search_tables"), class: 'diinner-button pink floater', id: 'search-button'
 javascript:
+  $(window).bind("pageshow", function (event) {
+    if (event.originalEvent.persisted) {
+      window.location.reload()
+    }
+  });
+
   $(document).ready(function () {
 
     $("#search-button").click(function(e){

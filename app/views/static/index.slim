@@ -1,8 +1,9 @@
 - home = HomeItem.get_first
-.cocktail-banner
-  | Diinner anuncia en exclusiva el cocktail de la
-  span.orange<> naranja complete
-  | by Gegam Kazarian
+= link_to "http://www.diinner.com/blog/index.php/2016/02/12/cocktail-de-la-naranja-completa-by-gegam-kazarian", target: "_blank", class: 'banner'
+  .cocktail-banner
+    | Diinner anuncia en exclusiva el cocktail de la
+    span.orange<> naranja completa
+    | by Gegam Kazarian
 
 
 header.home-header
@@ -24,14 +25,6 @@ header.home-header
         .oval
           .text = index
         .info = t("home_hiw_#{index}")
-
-/.how-it-works.hidden-xs
-/  .white-panel.box
-/    = image_tag "landing/back.svg"
-
-/.how-it-works.visible-xs
-/  .white-panel.box
-/    = image_tag "landing/back_v.svg"
 
 .content
   .info
@@ -63,7 +56,7 @@ header.home-header
 
   .test-wrapper
     .info
-      | Diinner utiliza un algoritmo de matching para seleccionar los mejores compañeros de cena.
+      | Diinner utiliza un <b>algoritmo de matching</b> para seleccionar los mejores compañeros de cena.
     .test-box.box data-pos=0
       - Test.all.sample(5).each_with_index do |t, i|
         .test-info class="#{'active' if i == 0}"
@@ -108,9 +101,9 @@ header.home-header
   .share-wrapper
     .share-box.box
       .diinner-label.yellow
-        = image_tag "landing/facebook.png"
-        = image_tag "landing/twitter.png"
-        = image_tag "landing/instagram.png"
+        = link_to image_tag("landing/facebook.png"), "https://www.facebook.com/Diinner-1675102859444432", target: "_blank"
+        = link_to image_tag("landing/twitter.png"), "https://twitter.com/DiiNNERapp", target: "_blank"
+        = link_to image_tag("landing/instagram.png"), "https://www.instagram.com/diinner_app", target: "_blank"
     .follow
       |Síguenos en
       br
@@ -119,6 +112,12 @@ header.home-header
 == render 'application/modal', name: 'login-modal', view: 'users/users/login', can_be_closed: true
 
 javascript:
+  $(window).bind("pageshow", function (event) {
+    if (event.originalEvent.persisted) {
+      window.location.reload()
+    }
+  });
+
   $(".login-link").click(function(){
     openModal('login-modal');
   });
@@ -159,4 +158,4 @@ javascript:
     clickSlide((sliderIndex.get() + 1) % $(".dot").length);
   };
 
-  //setInterval(nextSlide, 10000);
+  setInterval(nextSlide, 10000);

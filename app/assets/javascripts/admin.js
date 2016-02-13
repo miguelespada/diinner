@@ -10,19 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap-sprockets
-//= require j_growl_rails/jquery.jgrowl
-//= require jquery.ui.widget
-//= require jquery.iframe-transport
-//= require jquery.fileupload
-//= require cloudinary/jquery.cloudinary
-//= require my_attachinary
-//= require rails-timeago
-//= require alerts
-//= require moment
-//= require moment/es.js
-//= require modal
-//= require bootstrap-slider
-//= require utils
+//= require application
+//= require bootstrap-datetimepicker
+//= require pickers

@@ -19,6 +19,12 @@ html, body{
   
 }
 
+.banner {
+  &:hover, &:active{
+    text-decoration: none;
+  }
+}
+
 .cocktail-banner{
   margin-top: 50px;
   background-color: black;
@@ -79,7 +85,6 @@ html, body{
         width: 100%;
         height: auto;
         margin-top: -290px;
-        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
       }
       .oval {
         position: relative;
@@ -305,7 +310,9 @@ html, body{
               float: left;
               width: 100%;
               img {
-                width: 100%;
+                max-height: 170px;
+                max-width: 100%;
+                width: auto;
               }
             }
             .text {
@@ -328,6 +335,7 @@ html, body{
       .down-box {
         padding-top: 40px;
         > .diinner-label {
+          padding: 25px;
           clear: both;
           font-size: 1.5rem;
         }
@@ -674,6 +682,7 @@ html, body{
     clear: both;
     height: auto;
     width: 100%;
+    margin: auto;
     padding-top: 100px;
     ul{
       padding-top: 10px;

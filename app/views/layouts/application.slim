@@ -2,7 +2,7 @@ doctype html
 html
   - content_for(:head) do
     = stylesheet_link_tag 'admin', media: 'all'
-  = render "/layouts/head"
+  = render "/layouts/head", javascript: 'application'
   body
     == yield
     = render "/layouts/alerts"
