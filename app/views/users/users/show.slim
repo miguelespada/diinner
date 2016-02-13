@@ -32,12 +32,12 @@
                   p = t("no_reservations")
                 - else
                   - r = @reservations.where(cancelled: false).order_by(:created_at => 'asc').first
-                  .item
-                    = link_to user_reservation_path(@user, r)
-                      .name
-                        = r.restaurant.name
-                    .date = r.date.strftime("%d/%m/%Y")
-                    .time = r.hour.strftime("%H:%M")
+                    .item
+                      = link_to user_reservation_path(@user, r)
+                        .name
+                          = r.restaurant.name
+                      .date = r.date.strftime("%d/%m/%Y")
+                      .time = r.hour.strftime("%H:%M")
       - if @reservations.select{|r| r.can_be_evaluated?}.length > 0
         .separator
         .box.col-md-12
