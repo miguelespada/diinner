@@ -8,6 +8,6 @@
   = link_to user_reservation_path(@user, activity.trackable)
     .notification
       .message
-        | Tu plan diinner en #{activity.owner.name} está pendiente de confirmación.
+        | Tu plan diinner en el restaurante #{activity.owner.name} el día #{activity.trackable.date} se ha reservado correctamente.
       .time
         == activity.created_at
