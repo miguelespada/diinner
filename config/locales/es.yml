@@ -118,7 +118,8 @@ es:
   compatibility: "Compatibilidad del plan"
   practical_data: "Datos prácticos"
   last_minute_info: "Te confirmaremos antes de las 18:00 si el plan sigue adelante. No se cobrará nada de tu tarjeta hasta que el plan no se haya confirmado."
-  cancelation_info: "Recuerda que puedes cancelar sin cargo alguno hasta 12:00 p.m. del día antes de la reserva."
+  cancelation_info: "Recuerda que puedes cancelar sin cargo alguno excepto el día de la reserva."
+  cant_cancel_info: "Lo sentimos, no es posible cancelar las reservas en el mismo día del plan."
 
   #Notifications
   reservation_successful: "Tu reserva se ha realizado correctamente."
