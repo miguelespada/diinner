@@ -1,11 +1,21 @@
 .login-container
   /.login-wrapper
   = image_tag "brand.svg", class: 'logo'
-  #login-panel
-
+  .text-center
+    .before-login Elige tu método favorito para acceder
+    #login-panel
+    .after-login
+      | ¿Por qué Google o Facebook?
+      .explanation.hidden
+        | Al acceder con Google o Facebook nos permites conocer unos datos básicos muy importantes para reunirte con personas más afines en las mesas. Además es un método muy seguro y ¡tienes que recordar menos contraseñas! :)
 
 div#request data-host="#{request.host}" data-port="#{request.port}"
 
 = javascript_include_tag "https://cdn.auth0.com/js/lock-7.1.min.js"
 
 = javascript_include_tag "auth0"
+
+javascript:
+  $(".after-login").click(function(){
+    $(this).find(".explanation").toggleClass("hidden");
+  });
