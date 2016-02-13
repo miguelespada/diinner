@@ -9,12 +9,12 @@
     - if @reservations.length > 0
       .my-reservations
         .list
-          - reservations.each do |e|
+          - @reservations.each do |r|
             .item
-            = link_to user_reservation_path(@user, e)
+            = link_to user_reservation_path(@user, r)
               .name
-                = e.restaurant.name
-                .date = e.date.strftime("%d/%m/%Y")
+                = r.restaurant.name
+                .date = r.date.strftime("%d/%m/%Y")
       /= month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
         = date.day
         - reservations.each do |reservation|
