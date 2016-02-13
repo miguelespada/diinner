@@ -28,10 +28,11 @@
           .col-xs-12
             .my-reservations
               .list
-                - if @reservations.empty?
+                - future_reservations = @reservations.where(:date.gt => Date.today)
+                - if future_reservations.empty?
                   p = t("no_reservations")
                 - else
-                  - r = @reservations.order_by(:date => 'asc').first
+                  - r = future_reservations.order_by(:date => 'asc').first
                   .item
                     = link_to user_reservation_path(@user, r)
                       .name
