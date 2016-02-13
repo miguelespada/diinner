@@ -16,7 +16,7 @@ class  Users::TestResponsesController < BaseUsersController
     if response.skipped?
       redirect_to :back
     else
-      redirect_to :back, notice: t("all_tests_completed")
+      redirect_to :back, notice: t("test_completed")
     end
   end
 
