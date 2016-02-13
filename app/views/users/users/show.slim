@@ -28,10 +28,10 @@
           .col-xs-12
             .my-reservations
               .list
-                - if @reservations.where(cancelled: false).empty?
+                - if @reservations.empty?
                   p = t("no_reservations")
                 - else
-                  - r = @reservations.where(cancelled: false).order_by(:created_at => 'asc').first
+                  - r = @reservations.order_by(:date => 'asc').first
                     .item
                       = link_to user_reservation_path(@user, r)
                         .name
