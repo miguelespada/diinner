@@ -37,9 +37,9 @@ es:
   #User profile page
   new_reservation: "Reservar"
   no_reservations: "No tienes reservas"
-  we_suggest: "Te sugerimos algunas planes para"
+  we_suggest: "Te sugerimos algunos planes para"
   we_suggest_blogs: "Te sugerimos algunos posts de nuestro blog que te pueden interesar"
-  my_reservations: "Mis reservas"
+  my_reservations: "Próximas reservas"
   improve_compatibility: "¿Quieres mejorar tu compatibilidad?"
   go_to_tests: "Acceder a preguntas de compatibilidad"
   evaluation_pending: "Pendiente de evaluar"

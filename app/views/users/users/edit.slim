@@ -72,7 +72,7 @@
       p Al guardar los datos estás aceptando las condiciones de uso.
     = f.button :submit, @current_user.first_login? ? t("continue_button") : t("update_button"), class: "diinner-button pink floater"
 
-/- if !@current_user.first_login?
+- if !@current_user.first_login?
     javascript:
       $("#fake_birth_3i").val("#{@user.birth.day}");
       $("#fake_birth_2i").val("#{@user.birth.month}");
