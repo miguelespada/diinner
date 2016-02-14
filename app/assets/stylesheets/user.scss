@@ -139,9 +139,6 @@ html, body{
         width: 100%;
       }
       .caption{
-        position: absolute;
-        bottom: 10px;
-        right: 20px;
         background-color: $buttonPink;
         color: white;
         font-size: calculateRem(14px);
