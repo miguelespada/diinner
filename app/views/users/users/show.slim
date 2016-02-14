@@ -9,8 +9,9 @@
       .user-name
         = @user.name
     .text-center.new-reservation
-      .diinner-button.pink
-        = link_to t("new_reservation"), new_user_reservation_path(@user)
+      = link_to new_user_reservation_path(@user)
+        .diinner-button.pink
+          =t("new_reservation")
 
 .hidden-xs.desktop
   .row
@@ -18,8 +19,9 @@
       .col-lg-12
         .text-center.reservations
           .diinner-info = t("press_reservation")
-          .diinner-button.pink
-            = link_to t("new_reservation"), new_user_reservation_path(@user)
+          = link_to new_user_reservation_path(@user)
+            .diinner-button.pink
+              =t("new_reservation")
       .separator
       .box.col-md-12
         .row

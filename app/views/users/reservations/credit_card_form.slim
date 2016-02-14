@@ -52,7 +52,6 @@
           span.credit-card = image_tag "cards/master_card.png", height: 25
           span.credit-card = image_tag "cards/american_express.png", height: 25
           span.credit-card = image_tag "cards/maestro.png", height: 25
-        span.stripe-error
         = hidden_field_tag :stripe_card_token
         .form-group
           .row.col-xs-12
@@ -82,6 +81,8 @@
               |/
             .col-xs-3
               = text_field_tag :exp_year, nil, name: nil, size: 4, pattern:".{0,4}", maxlength:4, class: "form-control"
+
+        .stripe-error.hidden
         #submit-other-card.col-xs-12.text-center
           .diinner-button.pink = t("continue_button")
         .separator
@@ -120,5 +121,4 @@ javascript:
     $("#other-card").hide();
     $("#other-card-form").removeClass("hidden");
   });
-
 
