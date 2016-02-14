@@ -5,8 +5,8 @@ es:
   login_info: "Al acceder con Google o Facebook nos permites conocer unos datos básicos muy importantes para reunirte con personas más afines en las mesas. Además es un método muy seguro y ¡tienes que recordar menos contraseñas! :)"
 
   # Welcome after registration
-  welcome: "¡¡Bienvenid@ a Diinner!!"
-  welcome_explanation: "Como ya sabrás, nuestro objetivo es que tengas las mejores experiencias en tus cenas y para eso creemos que lo más importante son las personas de las que te rodees. Por ello necesitamos que nos confirmes primero algunos de tus datos y de tus preferencias de compañer@s de mesa."
+  welcome: "¡¡Bienvenido a Diinner!!"
+  welcome_explanation: "Como ya sabrás, nuestro objetivo es que tengas las mejores experiencias en tus cenas y para eso creemos que lo más importante son las personas de las que te rodees. Por ello necesitamos que nos confirmes primero algunos de tus datos y de tus preferencias de compañeros de mesa."
   continue_button: "Continuar"
 
   #Registration preferences
@@ -49,7 +49,7 @@ es:
   update_button: "Guardar"
   drop_out: "Darse de baja"
   press_reservation: "Pulsa en reservar para buscar planes diinner"
-  answer_tests: "Responde a estas preguntas para que podamos mejorar la compatibilidad con tus compañer@s de mesa."
+  answer_tests: "Responde a estas preguntas para que podamos mejorar la compatibilidad con tus compañeros de mesa."
 
   #New reservation
   preferred_date: "¿Qué día quieres tu plan?"
