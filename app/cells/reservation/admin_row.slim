@@ -1,8 +1,8 @@
 tr
   td.restaurant-reservation == show_link
   td.restaurant-date == date
-  / td.restaurant-restaurant == restaurant.show_link
-  td.restaurant-user == user.show_link
-  td.restaurant-menu == menu.show_link
+  td.restaurant-restaurant == restaurant.show_link if !restaurant.nil?
+  td.restaurant-user == user.show_link if !user.nil?
+  td.restaurant-menu == menu.show_link if !menu.nil?
   td.restaurant-plan == after_plan
   td.restaurant-status = status
