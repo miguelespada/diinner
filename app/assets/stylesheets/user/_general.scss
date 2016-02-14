@@ -215,15 +215,18 @@ html, body {
   width: 100vw;
   opacity: 0;
   visibility: hidden;
-  &.closed{
-    display: none;
+  @include transition(top 3s, height 0.5s, visibility 0.5s, opacity 0.5s linear);
+  *{
+    pointer-events: none;
   }
-  @include transition(visibility 0.5s, opacity 0.5s linear);
   &.open{
+    *{
+      pointer-events: auto;
+    }
     height: 100vh;
     opacity: 1;
     visibility: visible;
-    @include transition(visibility 0.5s, opacity 0.5s linear);
+    @include transition(top 3s, height 0.5s, visibility 0.5s, opacity 0.5s linear);
   }
   .outer{
     width: 100vw;

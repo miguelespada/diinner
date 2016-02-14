@@ -5,7 +5,8 @@ html
     = stylesheet_link_tag 'user', media: 'all'
   = render "/layouts/head", javascript: 'application'
   body
-    == render 'application/modal', name: 'loading-modal', view: 'users/loading', can_be_closed: false
+    == render 'partials/modal', name: 'loading-modal', view: 'partials/modal/loading', can_be_closed: false
+    == render 'partials/modal', name: 'confirm-modal', view: 'partials/modal/confirm', can_be_closed: true
     .hidden-xs.separator
     .user-container
       = render "/users/navbar"

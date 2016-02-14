@@ -768,7 +768,7 @@ input.company {
 }
 
 .compatibility-info{
-  margin-top: 20px;  
+  margin-top: 20px;
 }
 
 .drop-out{
@@ -880,5 +880,13 @@ input.company {
   }
   100% {
     opacity: 1
+  }
+}
+
+
+@media (max-width: 768px) {
+  .drop-out-wrapper{
+    margin-top: -80px;
+    margin-bottom: 80px;
   }
 }
