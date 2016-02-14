@@ -61,10 +61,7 @@ html, body{
   color: $textDarkGray;
   padding-bottom: 5px;
 }
-//.row{
-//  margin-top: 0;
-//  background-color: white;
-//}
+
 .panel-white{
   background: white;
 }
@@ -886,6 +883,14 @@ input.company {
   }
 }
 
+
+.stripe-error{
+  width: 100%;
+  text-align: center;
+  background-color: $assertiveRed;
+  padding: 15px;
+  color: white;
+}
 
 @media (max-width: 768px) {
   .drop-out-wrapper{
