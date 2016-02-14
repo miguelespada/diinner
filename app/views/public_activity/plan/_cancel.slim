@@ -1,8 +1,14 @@
-= link_to user_reservation_path(@user, activity.trackable)
-  .notification
-    .message
-      i.bi_misc-mood-sad
-      = render "public_activity/plan/show", activity: activity
-      |  ha sido cancelado
-    .time
-      == activity.created_at
+- if admin_signed_in? or restaurant_signed_in?
+  div.plan-cancelled-log
+    i.bi_misc-mood-sad
+    = render "public_activity/plan/show", activity: activity
+    |  ha sido cancelado
+- else
+  = link_to user_reservation_path(@user, activity.trackable)
+    .notification
+      .message
+        i.bi_misc-mood-sad
+        = render "public_activity/plan/show", activity: activity
+        |  ha sido cancelado
+      .time
+        == activity.created_at
