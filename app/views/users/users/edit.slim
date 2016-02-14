@@ -68,8 +68,11 @@
       = link_to t("drop_out"), user_drop_out_path(@current_user), class: "drop-out"
       .separator.visible-xs
   .text-center
-    - if @current_user.first_login?
-      p Al guardar los datos estás aceptando las condiciones de uso.
+    - if !@current_user.first_login?
+      p
+        |Al guardar los datos estás aceptando las
+        =< link_to "condiciones de uso", terms_path, target: "_blank"
+        |.
     = f.button :submit, @current_user.first_login? ? t("continue_button") : t("update_button"), class: "diinner-button pink floater"
 
 - if !@current_user.first_login?
