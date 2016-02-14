@@ -24,8 +24,8 @@ class RestaurantCell < BaseCell
 
   def show_link
     if admin_signed_in?
-      # @path = admin_restaurant_path(model)
-      # render
+      @path = admin_restaurant_path(model)
+      render
     elsif model.is_owned_by?(current_restaurant)
       @path = restaurant_path(model)
       render
