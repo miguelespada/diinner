@@ -1,7 +1,5 @@
 .footer
   ul
-    li ¿Quiénes somos?
-    li.slash &frasl;
     li
       = link_to 'Preguntas frecuentes', help_user_path
     li.slash &frasl;
@@ -11,6 +9,4 @@
     li.slash &frasl;
     li Condiciones
     li.slash &frasl;
-    li Privacidad
-    li.slash &frasl;
-    li Contacta con nosotros
+    li = link_to 'Contacta con nosotros', 'mailto:info@diinner.com'
