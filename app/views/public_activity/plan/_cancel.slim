@@ -1,4 +1,8 @@
-div.cancel-plan-log
-  i.bi_misc-mood-sad
-  = render "public_activity/plan/show", activity: activity
-  |  ha sido cancelado
+= link_to user_reservation_path(@user, activity.trackable)
+  .notification
+    .message
+      i.bi_misc-mood-sad
+      = render "public_activity/plan/show", activity: activity
+      |  ha sido cancelado
+    .time
+      == activity.created_at
