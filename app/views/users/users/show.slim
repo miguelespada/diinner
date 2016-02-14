@@ -18,10 +18,10 @@
     .col-lg-5
       .col-lg-12
         .text-center.reservations
+          .diinner-info = t("press_reservation")
           = link_to new_user_reservation_path(@user)
             .diinner-button.pink
               =t("new_reservation")
-
       .separator
       .box.col-md-12
         .row
@@ -60,7 +60,8 @@
                           = e.restaurant.name
                         .date = e.date.strftime("%d/%m/%Y")
                         .time Evaluar
-
+    .text-center
+      .diinner-info = t("answer_tests")
     - if @test
       .col-lg-7.visible-lg
         == cell(:test, @test).user_show

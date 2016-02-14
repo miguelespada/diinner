@@ -34,6 +34,9 @@
       .col-xs-12
         span.plan-label == "#{t("compatibility")}"
         span.plan-value =< "#{@reservation.table.affinity}%"
+      .col-xs-12
+        span.plan-label == t("menus_number")
+        span.plan-value =< "#{@reservation.male_count + @reservation.female_count}"
       .separator
   .separator
   .row.box
