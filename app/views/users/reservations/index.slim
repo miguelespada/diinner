@@ -7,7 +7,7 @@
         = t("no_reservations")
   .calendar
     - if @reservations.length > 0
-      = month_calendar events: @reservations, table: {class: "table table-bordered"}, defaults: { placeholder: false, hint: false, label: false } do |date, reservations|
+      = month_calendar events: @reservations, table: {class: "table table-bordered"} do |date, reservations|
         = date.day
         - reservations.each do |reservation|
           = link_to user_reservation_path(@user, reservation)
