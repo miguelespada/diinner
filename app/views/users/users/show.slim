@@ -33,7 +33,7 @@
               .list
                 - future_reservations = @reservations.where(:date.gt => Date.today)
                 - if future_reservations.empty?
-                  p = t("no_reservations")
+                  p = t("no_reservation")
                 - else
                   - r = future_reservations.order_by(:date => 'asc').first
                   .item
