@@ -64,8 +64,10 @@
           .col-xs-10.col-xs-offset-1.text-left
           = c.input :use_photo_for_compatibility, as: :boolean, label: t("use_photo_for_compatibility")
   - unless @current_user.first_login?
-    .text-right
-      = link_to t("drop_out"), user_drop_out_path(@current_user), class: "drop-out"
+    .text-right.drop-out-wrapper
+      = link_to t("drop_out"), "#", class: "drop-out", id:"ask-cancel"
+      .hidden
+        = link_to t("drop_out"), user_drop_out_path(@current_user), class: "drop-out", id:"cancel_account"
       .separator.visible-xs
   .text-center
     - if !@current_user.first_login?
@@ -114,3 +116,15 @@ javascript:
       $("#user_birth").val(date);
     });
   });
+
+
+  $("#ask-cancel").click(function () {
+    openModal("confirm-modal");
+  });
+
+  $("#true").click(function () {
+    $("#cancel_account").click();
+  });
+  $("#false").click(function () {
+    closeModal("confirm-modal");
+  }).addClass("button-calm");
