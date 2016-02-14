@@ -29,6 +29,10 @@ class StaticController < ApplicationController
   def drop_out
   end
 
+  def terms
+
+  end
+
   private
 
   def redirect_if_authenticated

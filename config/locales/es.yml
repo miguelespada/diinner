@@ -47,6 +47,8 @@ es:
   #Preferences
   update_button: "Guardar"
   drop_out: "Darse de baja"
+  press_reservation: "Pulsa en reservar para buscar planes diinner"
+  answer_tests: "Responde a estas preguntas para que podamos mejorar la compatibilidad con tus compañer@s de mesa."
 
   #New reservation
   preferred_date: "¿Qué día quieres tu plan?"
@@ -121,6 +123,7 @@ es:
   last_minute_info: "Te confirmaremos antes de las 18:00 si el plan sigue adelante. No se cobrará nada de tu tarjeta hasta que el plan no se haya confirmado."
   cancelation_info: "Recuerda que puedes cancelar sin cargo alguno excepto el día de la reserva."
   cant_cancel_info: "Lo sentimos, no es posible cancelar las reservas en el mismo día del plan."
+  menus_number: "El número de menús comprados es"
 
   #Notifications
   reservation_successful: "Tu reserva se ha realizado correctamente."

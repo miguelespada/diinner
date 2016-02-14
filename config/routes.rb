@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     get "expire" => "static#expire"
     get "cocktail" => "static#cocktail"
     get "drop_out" => "static#drop_out"
+    get "terms" => "static#terms"
   end
 
   namespace :restaurants, as: nil do

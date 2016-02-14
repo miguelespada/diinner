@@ -1,4 +1,4 @@
-== render 'application/modal', name: 'payment-modal', view: 'users/reservations/payment_alert', can_be_closed: false
+== render 'partials/modal', name: 'payment-modal', view: 'partials/modal/payment_alert', can_be_closed: false
 .row.box
   .col-xs-12.diinner-label.yellow
     =  t("payment_title")
@@ -40,33 +40,49 @@
       .separator
   .col-xs-12.col-md-8.col-md-offset-2
     #other-card-form class=('hidden' if @reservation.user.has_default_card?)
+
       = javascript_include_tag "https://js.stripe.com/v2/"
       = tag :div, :id => "stripe-key", :data => {:content => ENV['STRIPE_PUBLISHABLE_KEY']}
       = javascript_include_tag "stripe.js"
 
       = form_tag user_new_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "new_reservation" do
-        span.stripe-error
+        .diinner-info
+          | Aceptamos las siguientes tarjetas:
+          span.credit-card = image_tag "cards/visa.png", height: 25
+          span.credit-card = image_tag "cards/master_card.png", height: 25
+          span.credit-card = image_tag "cards/american_express.png", height: 25
+          span.credit-card = image_tag "cards/maestro.png", height: 25
         = hidden_field_tag :stripe_card_token
         .form-group
-          label.control-label =t("card_holder")
-          = text_field_tag :card_holder, nil, name: nil, class: "form-control"
+          .row.col-xs-12
+            label.control-label = t("card_holder")
+          .row.col-xs-8
+            = text_field_tag :card_holder, nil, name: nil, class: "form-control"
         .form-group
-          label.control-label =t("card_number")
-          = text_field_tag :card_number, nil, name: nil, size: 20, class: "form-control", pattern:".{0,20}", maxlength:20
+          .row.col-xs-12
+            label.control-label = t("card_number")
+          .row.col-xs-5
+            = text_field_tag :card_number, nil, name: nil, size: 20, class: "form-control", pattern:".{0,20}", maxlength:20
         .form-group
           .row.col-xs-12
             label.control-label =t("cvc")
-          .row.col-xs-3
-            = text_field_tag :card_cvc, nil, name: nil, size: 3, pattern:".{3,4}", maxlength:4, class: "form-control"
+            span.diinner-info.bi_com-bubble data-toggle="popover"  ¿Qué es el CVC?
+          .row
+            .col-xs-2
+              = text_field_tag :card_cvc, nil, name: nil, size: 3, pattern:".{3,4}", maxlength:4, class: "form-control"
         .form-group
           .row.col-xs-12
             label.control-label = t("expiration_date")
 
           .row
-            .col-xs-3
+            .col-xs-2
               = text_field_tag :exp_month, nil, name: nil, size: 2, pattern:".{0,2}", maxlength:2, class: "form-control"
-            .col-xs-4
+            .col-xs-1.date-separator.no-padding
+              |/
+            .col-xs-3
               = text_field_tag :exp_year, nil, name: nil, size: 4, pattern:".{0,4}", maxlength:4, class: "form-control"
+
+        .stripe-error.hidden
         #submit-other-card.col-xs-12.text-center
           .diinner-button.pink = t("continue_button")
         .separator
@@ -81,6 +97,9 @@
 
 
 javascript:
+  $('[data-toggle="popover"]').popover({
+    content: "CVV2 es un código de 3 o 4 dígitos en el reverso de su tarjeta de crédito (ver imagen), excepto American Express, que lo sitúa en el frontal. Este código te protege contra el fraude, ya que permite verificar que tienes la tarjeta en tu poder, y no sólo el número de tarjeta"
+  });
   $("#submit-default-card").click(function(){
     openModal('payment-modal');
     $("#reuse_card").submit();
@@ -102,5 +121,4 @@ javascript:
     $("#other-card").hide();
     $("#other-card-form").removeClass("hidden");
   });
-
 

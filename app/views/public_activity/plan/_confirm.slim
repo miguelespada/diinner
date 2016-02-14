@@ -1,4 +1,9 @@
-div.plan-confirmed-log
+- if admin_signed_in? or restaurant_signed_in?
+  div.plan-confirmed-log
+    i.bi_misc-mood-happy
+    = render "public_activity/plan/show", activity: activity
+    |  is confirmed!!!
+- else
   = link_to user_reservation_path(@user, activity.trackable)
     .notification
       .message

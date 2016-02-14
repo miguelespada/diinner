@@ -15,8 +15,6 @@
         .col-xs-12
           = @reservation.restaurant.description
     .separator
-
-        /= image_tag restaurant.photo.path, size: "200", class: 'user-image'
   .separator
   .row.box
     .col-xs-12.diinner-label.yellow
@@ -36,6 +34,9 @@
       .col-xs-12
         span.plan-label == "#{t("compatibility")}"
         span.plan-value =< "#{@reservation.table.affinity}%"
+      .col-xs-12
+        span.plan-label == t("menus_number")
+        span.plan-value =< "#{@reservation.male_count + @reservation.female_count}"
       .separator
   .separator
   .row.box
@@ -71,8 +72,23 @@
       .col-xs-12.diinner-info
         .col-xs-10.col-xs-offset-1.text-center
           = t("cancelation_info")
-    .text-center style="margin-bottom: 20px;"
-      == cell(:reservation, @reservation).cancel_link
+      .text-center style="margin-bottom: 20px;"
+        = link_to "Cancelar Reserva", "#", class: "custom-button button-assertive", id: "ask-cancel"
+        .hidden
+          == cell(:reservation, @reservation).cancel_link
     .text-center style="margin-bottom: 20px;"
       == cell(:reservation, @reservation).evaluate_link
   .separator
+
+
+javascript:
+  $("#ask-cancel").click(function() {
+    openModal("confirm-modal");
+  });
+
+  $("#true").click(function(){
+    $("#cancel-reservation").click();
+  });
+  $("#false").click(function(){
+    closeModal("confirm-modal");
+  }).addClass("button-calm");
