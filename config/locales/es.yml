@@ -124,7 +124,7 @@ es:
   last_minute_info: "Te confirmaremos antes de las 18:00 si el plan sigue adelante. No se cobrará nada de tu tarjeta hasta que el plan no se haya confirmado."
   cancelation_info: "Recuerda que puedes cancelar sin cargo alguno excepto el día de la reserva."
   cant_cancel_info: "Lo sentimos, no es posible cancelar las reservas en el mismo día del plan."
-  menus_number: "El número de menús comprados es"
+  menus_number: "Número de menús comprados: "
 
   #Notifications
   reservation_successful: "Tu reserva se ha realizado correctamente."

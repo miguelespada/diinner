@@ -41,6 +41,7 @@ module ReservationStatus
       cancelled || payment_error
     end
 
+
     def status
       return :cancelled if cancelled?
       return :validated if ticket_valid?

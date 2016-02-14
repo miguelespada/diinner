@@ -26,17 +26,25 @@
           span.plan-label == t("ticket_diinner")
           span.plan-value =< "#{@reservation.locator}"
       .col-xs-12
-        span.plan-label == t("price")
-        span.plan-value =< "#{@reservation.menu.price} €"
-      .col-xs-12
-        span.plan-label == "#{t("plan_status")}"
-        span.plan-value =< t(@reservation.status)
-      .col-xs-12
         span.plan-label == "#{t("compatibility")}"
         span.plan-value =< "#{@reservation.table.affinity}%"
       .col-xs-12
+        span.plan-label == t("price")
+        span.plan-value =< "#{@reservation.menu.price} €"
+      .col-xs-12
         span.plan-label == t("menus_number")
         span.plan-value =< "#{@reservation.male_count + @reservation.female_count}"
+      .col-xs-12
+        span.plan-label == "#{t("plan_status")}"
+        span.plan-value =< t(@reservation.status).upcase
+      - if @reservation.pending?
+        - if @reservation.is_last_minute?
+          .col-xs-12
+            em Antes de las 18h00 te comunicaremos si tu plan se confirma.
+        - else
+          .col-xs-12
+            em El mismo día de la reserva te comunicaremos si tu plan se confirma.
+      
       .separator
   .separator
   .row.box
