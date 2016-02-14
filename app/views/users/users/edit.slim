@@ -70,7 +70,7 @@
         = link_to t("drop_out"), user_drop_out_path(@current_user), class: "drop-out", id:"cancel_account"
       .separator.visible-xs
   .text-center
-    - if !@current_user.first_login?
+    - if @current_user.first_login?
       p
         |Al guardar los datos estás aceptando las
         =< link_to "condiciones de uso", terms_path, target: "_blank"
