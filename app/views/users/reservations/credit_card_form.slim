@@ -66,7 +66,7 @@
         .form-group
           .row.col-xs-12
             label.control-label =t("cvc")
-            span.diinner-info.bi_com-bubble data-toggle="popover"  ¿Qué es el CVC?
+            span.diinner-info.bi_com-bubble data-html="true" data-toggle="popover"  ¿Qué es el CVC?
           .row
             .col-xs-2
               = text_field_tag :card_cvc, nil, name: nil, size: 3, pattern:".{3,4}", maxlength:4, class: "form-control"
@@ -100,7 +100,7 @@
 
 javascript:
   $('[data-toggle="popover"]').popover({
-    content: "CVV2 es un código de 3 o 4 dígitos en el reverso de su tarjeta de crédito (ver imagen), excepto American Express, que lo sitúa en el frontal. Este código te protege contra el fraude, ya que permite verificar que tienes la tarjeta en tu poder, y no sólo el número de tarjeta"
+    content: '<div>#{image_tag "cards/cvc.png"} CVV2 es un código de 3 o 4 dígitos en el reverso de su tarjeta de crédito (ver imagen), excepto American Express, que lo sitúa en el frontal. Este código te protege contra el fraude, ya que permite verificar que tienes la tarjeta en tu poder, y no sólo el número de tarjeta</div>'
   });
   $("#submit-default-card").click(function(){
     openModal('payment-modal');
