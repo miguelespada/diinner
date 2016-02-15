@@ -78,7 +78,7 @@ javascript:
   var setDefaultDate = function(){
     var dateTomorrow = getDate(1);
     $("#reservation_date").val(dateToString(dateTomorrow));
-    $("#fake_date_3i").val(dateTomorrow.getDate() + 1);
+    $("#fake_date_3i").val(dateTomorrow.getDate());
     $("#fake_date_2i").val(dateTomorrow.getMonth() + 1);
     $("#fake_date_1i").val(dateTomorrow.getFullYear());
   };
