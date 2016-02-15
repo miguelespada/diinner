@@ -26,7 +26,7 @@
       .box.col-md-12
         .row
           .diinner-label.yellow
-            = t("next_reservation")
+            = t("next_reservations")
         .row
           .col-xs-12
             .my-reservations
@@ -62,7 +62,7 @@
     .visible-lg
       .text-center
         .diinner-info = t("answer_tests")
-      - if @test
+      - if @test.count > 0
         - @test.each do |test|
           .col-lg-7
             == cell(:test, test).user_show
