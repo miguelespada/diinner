@@ -30,11 +30,14 @@ class Users::UsersController < BaseUsersController
 
   def update
     @current_user.drop_in
-    if @current_user.update(user_params)
+    if @current_user.update!(user_params)
       redirect_to user_path(@current_user), notice: t("profile_updated")
     else
       render :edit
     end
+  rescue => e
+    flash[:notice] = @current_user.errors.first[1]
+    render :edit
   end
 
   def delete_activity

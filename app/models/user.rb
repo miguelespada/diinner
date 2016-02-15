@@ -24,7 +24,7 @@ class User
   accepts_nested_attributes_for :preference
   delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
 
-
+  validates :birth, presence: {message: 'Por favor, introduce tu fecha de nacimiento'}
 
   def drop_out
     self.dropped_out = true
