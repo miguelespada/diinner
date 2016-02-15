@@ -2,7 +2,7 @@ StripeI18n =
   es:
     errors:
       incorrect_number: "El número de tarjeta es incorrecto."
-      invalid_number: "El número de tarjeta no es un número de tarjeta válido."
+      invalid_number: "Existe un error en los datos de la tarjeta de crédito. Por favor, revísalos antes de continuar."
       invalid_expiry_month: "El mes de caducidad de la tarjeta no es válido."
       invalid_expiry_year: "El año de caducidad de la tarjeta no es válido."
       invalid_cvc: "El código de seguridad de la tarjeta no es válido."
