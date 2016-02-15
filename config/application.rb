@@ -18,8 +18,11 @@ Bundler.require(*Rails.groups)
 
 module Dinner
   class Application < Rails::Application
-    Mongoid.logger.level = Logger::ERROR
-    Mongo::Logger.level = Logger::ERROR
+    # Mongoid.logger.level = Logger::ERROR
+    # Mongo::Logger.level = Logger::ERROR
+    Mongoid.logger.level = Logger::DEBUG
+    Mongo::Logger.level = Logger::DEBUG
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
