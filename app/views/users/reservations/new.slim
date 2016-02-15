@@ -62,19 +62,34 @@
       = render '/users/after_plan', f: f
     .separator
 
-
-
   .text-center
     .diinner-info.last-minute-notification hidden=true
       | Sólo puedes buscar mesas de último minuto entre las 9.00 y las 18.00.
     .submit
       = f.button :submit, t("search_tables"), class: 'diinner-button pink floater', id: 'search-button'
+
 javascript:
   $(window).bind("pageshow", function (event) {
     if (event.originalEvent.persisted) {
       window.location.reload()
     }
   });
+
+  var setDefaultDate = function(){
+    var dateTomorrow = getDate(1);
+    $("#reservation_date").val(dateToString(dateTomorrow));
+    $("#fake_date_3i").val(dateTomorrow.getDate() + 1);
+    $("#fake_date_2i").val(dateTomorrow.getMonth() + 1);
+    $("#fake_date_1i").val(dateTomorrow.getFullYear());
+  };
+
+  var getDate = function(daysOffset){
+    return new Date(new Date().getTime() + daysOffset * 24 * 60 * 60 * 1000);
+  };
+
+  var dateToString = function(date){
+    return date.toISOString().substring(0, 10);
+  };
 
   $(document).ready(function () {
 
@@ -86,11 +101,7 @@ javascript:
       }
     });
 
-    var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-    $("#reservation_date").val(currentDate.toISOString().substring(0, 10));
-    $("#fake_date_3i").val(currentDate.getDate());
-    $("#fake_date_2i").val(currentDate.getMonth() + 1);
-    $("#fake_date_1i").val(currentDate.getFullYear());
+    setDefaultDate();
 
     $(".company-toggle").click(function () {
       $(this).siblings().removeClass("selected");
@@ -116,27 +127,26 @@ javascript:
 
       switch ($(this).data("day")) {
         case "date":
-          var currentDate = new Date(new Date().getTime() + 2*24 * 60 * 60 * 1000);
-          $("#reservation_date").val(currentDate.toISOString().substring(0, 10));
+          var dateAfterTomorrow = getDate(2);
+          $("#reservation_date").val(dateToString(dateAfterTomorrow));
           $(".fake-date").show();
           $(".friends-question").show();
           break;
         case "today":
           $("#reservation-form").attr("action", "#{user_search_last_minute_diinners_path}");
-          var currentDate = new Date();
-          $("#reservation_date").val(currentDate.toISOString().substring(0, 10));
+          var dateToday = getDate(0);
+          $("#reservation_date").val(dateToString(dateToday));
           $(".last-minute-info").show();
           $(".friends-question").hide();
-          if(currentDate.getHours() > 18 || currentDate.getHours() < 9){
+          if(dateToday.getHours() > 18 || dateToday.getHours() < 9){
             $(".last-minute-notification").show();
             $(".submit").hide();
           }
-
           break;
         case "tomorrow":
           $(".friends-question").show();
-          var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-          $("#reservation_date").val(currentDate.toISOString().substring(0, 10));
+          var dateTomorrow = getDate(1);
+          $("#reservation_date").val(dateToString(dateTomorrow));
           break;
       }
     });
