@@ -44,7 +44,7 @@ class SuggestionEngine
 
   def search
     results = []
-    Table.where(:date => date).each do |table|
+    Table.where(:date => date).includes([:restaurant, :menu]).each do |table|
       if table.city == city
         # TODO check if the plan is for today should be plan_closed?
         reservation = Reservation.new({user: @user,
