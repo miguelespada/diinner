@@ -18,7 +18,7 @@ class Users::UsersController < BaseUsersController
   def show
     redirect_to edit_user_path(@current_user) if @current_user.first_login?
     
-    @test = @user.test_pending.sample
+    @test = @user.sample_test
 
     @future_reservations = @user.reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').limit(3).to_a
     @eval_reservations = @user.reservations.includes(:table).where(cancelled: false, paid: true, :date.lte => Date.today).asc('date').select{|r| r.can_be_evaluated?}.take(3)

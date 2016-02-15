@@ -56,8 +56,12 @@ class User
 
   def test_pending
     # TODO this very ineficient
+    Test.where(_gender: gender).map{|m| m.id}  - test_completed.includes(:test).map{|m| m.test.id} 
+    # Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
+  end
 
-    Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
+  def sample_test
+    Test.find(test_pending.sample) if !test_pending.empty?
   end
 
   def get_stripe_create_customer! token
