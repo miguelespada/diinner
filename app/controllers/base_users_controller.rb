@@ -14,7 +14,7 @@ class BaseUsersController < ApplicationController
   end
 
   def load_resource
-    @user = User.find(params[:user_id] || params[:id])
+    @user = User.all.includes(:reservations).includes(:preference).includes(:test_completed).find(params[:user_id] || params[:id])
   end
 
   def authenticate
