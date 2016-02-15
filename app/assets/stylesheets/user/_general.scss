@@ -152,6 +152,12 @@ html, body {
     box-sizing: border-box;
     background-image: linear-gradient($buttonPink, $buttonPink);
   }
+  &.yellow{
+    border: 2px solid $themeYellow;
+    border-radius: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient($themeYellow, $themeYellow);
+  }
   a{
     text-decoration: none !important;
     color: inherit !important;
@@ -159,9 +165,10 @@ html, body {
   &:hover{
 
     background-size: 100% 100%;
-    &.pink{
+    &.pink, &.yellow{
       color: white;
     }
+
   }
 }
 .diinner-info{
