@@ -20,8 +20,10 @@ class Users::UsersController < BaseUsersController
     
     @test = @user.sample_test
 
-    @future_reservations = @user.reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').limit(3).to_a
-    @eval_reservations = @user.reservations.includes(:table).where(cancelled: false, paid: true, :date.lte => Date.today).asc('date').select{|r| r.can_be_evaluated?}.take(3)
+    rvs = @user.reservations.includes(:table).where(cancelled: false).asc('date')
+
+    @future_reservations = rvs.where(:date.gte => Date.today).limit(3).to_a
+    @eval_reservations = rvs.where(paid: true, :date.lte => Date.today).select{|r| r.can_be_evaluated?}.take(3)
 
     params = {price: @user.menu_range, city: @user.city, after_plan: @user.after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
     suggestionEngine = SuggestionEngine.new @user, params
