@@ -188,3 +188,11 @@ body{
     }
   }
 }
+
+@media screen and (max-width: 768px){
+  .static-content{
+    width: 90%;
+    margin-right: auto;
+    margin-left: 5%;
+  }
+}
