@@ -1,8 +1,7 @@
 function openModal(id) {
-    $('#' + id).removeClass('closed');
-    $('#' + id).addClass('open');
+    $('#' + id).removeClass('closed').addClass('open');
 }
 
 function closeModal(id){
-    $('#' + id).removeClass('open');
+    $('#' + id).removeClass('open').addClass('closed');
 }
