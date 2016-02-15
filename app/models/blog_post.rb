@@ -7,8 +7,12 @@ class BlogPost
   field :url, type: String
 
   def self.get_three_random
-    # TODO do it random
-    BlogPost.all.desc('created_at').limit(3)
+    BlogPost.all.desc('created_at').sample(3)
   end
 
+  def self.cached_posts
+    Rails.cache.fetch("blog_posts_cache", expires_in: 24.hours) do
+      BlogPost.get_three_random.to_a
+    end
+  end
 end

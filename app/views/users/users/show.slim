@@ -62,10 +62,8 @@
       .text-center
         .diinner-info = t("answer_tests")
       .separator
-      - if @test.count > 0
-        - @test.each do |test|
-          .col-lg-12
-            == cell(:test, test).user_show
+      - if @test
+        == cell(:test, @test).user_show
       - else
         .col-lg-12
           .box.tests.text-center
@@ -87,3 +85,5 @@
       = t("we_suggest_blogs")
     .row
       = render 'partials/blog_posts'
+
+  .separator
