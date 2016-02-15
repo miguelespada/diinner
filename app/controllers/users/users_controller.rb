@@ -17,14 +17,14 @@ class Users::UsersController < BaseUsersController
 
   def show
     redirect_to edit_user_path(@current_user) if @current_user.first_login?
-    @test = @user.test_pending.sample
-    @future_reservations = @user.reservations.where(cancelled: false, :date.gte => Date.today).asc('date').limit(3)
-    @eval_reservations = @user.reservations.where(cancelled: false, paid: true, :date.lte => Date.today).asc('date').limit(3).select{|r| r.can_be_evaluated?}
+    @test = @user.test_pending.sample.to_a
+    @future_reservations = @user.reservations.where(cancelled: false, :date.gte => Date.today).asc('date').limit(3).to_a
+    @eval_reservations = @user.reservations.where(cancelled: false, paid: true, :date.lte => Date.today).asc('date').limit(3).to_a.select{|r| r.can_be_evaluated?}
     params = {price: @user.menu_range, city: @user.city, after_plan: @user.after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
 
     suggestionEngine = SuggestionEngine.new @user, params
     @suggestions = suggestionEngine.search.first(3) unless @user.busy?(suggestionEngine.date)
-    @blog_posts = BlogPost.get_three_random
+    @blog_posts = BlogPost.get_three_random.to_a
   end
 
   def update
