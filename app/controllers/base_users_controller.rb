@@ -14,7 +14,7 @@ class BaseUsersController < ApplicationController
   end
 
   def load_resource
-    @user = User.all.includes(:reservations).includes(:preference).includes(:test_completed).find(params[:user_id] || params[:id])
+    @user = User.includes(:reservations, :preference, :test_completed).find(params[:user_id] || params[:id])
   end
 
   def authenticate
@@ -43,8 +43,6 @@ class BaseUsersController < ApplicationController
 
   def users
   end
-
-
 
   def sign_out_others
     sign_out(current_restaurant) if restaurant_signed_in?
