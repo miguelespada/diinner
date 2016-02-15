@@ -58,15 +58,15 @@
                           = e.restaurant.name
                         .date = e.date.strftime("%d/%m/%Y")
                         .time Evaluar
-    .visible-lg
+    .visible-lg.col-lg-7
       .text-center
         .diinner-info = t("answer_tests")
       - if @test
         - @test.each do |test|
-          .col-lg-7
+          .col-lg-12
             == cell(:test, test).user_show
       - else
-        .col-lg-7
+        .col-lg-12
           .box.tests.text-center
             .info = t("all_tests_completed")
             .icon.bi_interface-heart
