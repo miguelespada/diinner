@@ -23,26 +23,28 @@ html, body{
   &:hover, &:active{
     text-decoration: none;
   }
-}
-
-.cocktail-banner{
-  margin-top: 50px;
-  background-color: black;
-  overflow: auto;
-  position: relative;
+  float: left;
   width: 100%;
-  color: whitesmoke;
-  text-align: center;
-  padding: 20px;
-  font-size: calculateRem(30px);
-  .orange{
-    font-size: calculateRem(33px);
-    font-weight: bold;
-    color: $buttonYellow;
+  .cocktail-banner{
+    margin-top: 50px;
+    background-color: black;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px;
+    font-size: calculateRem(30px);
+    .orange{
+      font-size: calculateRem(33px);
+      font-weight: bold;
+      color: $buttonYellow;
+    }
   }
 }
+
+
 .home-header{
-  clear: both;
   position: relative;
   font-weight: 700;
   img{
@@ -492,6 +494,7 @@ html, body{
     }
   }
   .home-header{
+    clear: both;
     .header-title{
       font-size: 7vw;
       border: 2vw solid white;
@@ -604,6 +607,7 @@ html, body{
     }
   }
  .home-header{
+   
    .header-title{
      font-size: 7vw;
      border: 2vw solid white;
