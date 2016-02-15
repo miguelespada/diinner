@@ -160,7 +160,7 @@ body{
 
 .protected-text{
   width:50%;
-  padding:0px;
+  padding:0;
   margin-left: 25%;
   margin-right: auto;
   margin-top: 30px;
@@ -187,4 +187,17 @@ body{
       }
     }
   }
+}
+
+ul.bulleted {
+  list-style-type: circle;
+  list-style-position: inside;
+}
+
+.section{
+  font-weight: bold;
+  margin-top: 0px;
+  padding: 5px 0;
+  font-size: 22px;
+  color: $textDarkGray;
 }

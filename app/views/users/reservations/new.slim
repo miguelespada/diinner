@@ -65,6 +65,7 @@
   .text-center
     .diinner-info.last-minute-notification hidden=true
       | Sólo puedes buscar mesas de último minuto entre las 9.00 y las 18.00.
+      .separator
     .submit
       = f.button :submit, t("search_tables"), class: 'diinner-button pink floater', id: 'search-button'
 
@@ -133,6 +134,9 @@ javascript:
           $("#reservation_date").val(dateToString(dateAfterTomorrow));
           $(".fake-date").show();
           $(".friends-question").show();
+
+          $(".last-minute-notification").hide();
+          $(".submit").show();
           break;
         case "today":
           $("#reservation-form").attr("action", "#{user_search_last_minute_diinners_path}");
@@ -149,6 +153,8 @@ javascript:
           $(".friends-question").show();
           var dateTomorrow = getDate(1);
           $("#reservation_date").val(dateToString(dateTomorrow));
+          $(".last-minute-notification").hide();
+          $(".submit").show();
           break;
       }
     });
