@@ -5,7 +5,6 @@ class Table
   extend SimpleCalendar
   after_destroy :remove_activities
 
-  has_calendar :attribute => :date
 
   field :date, type: Date
   field :hour, type: Time
@@ -20,6 +19,10 @@ class Table
   delegate :city, :to => :restaurant
 
   attr_accessor :number, :repeat_until
+
+  def start_time
+    date
+  end
 
   def uncancelled_reservations
     reservations.reject{|r| r.cancelled?}

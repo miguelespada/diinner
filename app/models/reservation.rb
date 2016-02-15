@@ -9,7 +9,6 @@ class Reservation
   after_destroy :remove_activities
   before_save :generate_locator
 
-  has_calendar :attribute => :date
 
   belongs_to :user
   belongs_to :table
@@ -36,6 +35,11 @@ class Reservation
 
   has_one :payment, :dependent => :destroy
   has_one :evaluation, :dependent => :destroy
+
+
+  def start_time
+    date
+  end
 
   def go_for_drinks?
     after_plan

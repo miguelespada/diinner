@@ -374,7 +374,7 @@ GEM
     sendgrid-rails (2.0.4)
       actionmailer (>= 3.0.0)
       activesupport (>= 2.1.0)
-    simple_calendar (1.1.10)
+    simple_calendar (2.0.6)
       rails (>= 3.0)
     skylight (0.10.3)
       activesupport (>= 3.0.0)
@@ -481,7 +481,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   sendgrid-rails (~> 2.0)
-  simple_calendar (~> 1.1.0)
+  simple_calendar (~> 2.0)
   simple_form!
   skylight
   slim-rails
@@ -489,3 +489,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   will_paginate_mongoid
+
+BUNDLED WITH
+   1.10.6

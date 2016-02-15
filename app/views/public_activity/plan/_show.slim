@@ -1,7 +1,7 @@
 - if activity.recipient.is_owned_by?(@current_user)
   | Tu plan en el restaurante #{activity.trackable.restaurant.name} el día #{activity.trackable.date}
 - else
-  | Tonight's plan dinner for 
+  | Tonight's plan dinner for  
   == cell(:user, activity.recipient).show_link
-  |  at restaurant
+  |  at restaurant  
   == cell(:restaurant, activity.trackable.restaurant).show_link
