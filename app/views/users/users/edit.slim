@@ -14,13 +14,12 @@
       = t("your_data")
     .separator
     .col-xs-12.col-md-8.col-md-offset-2
-      = f.error_notification
       = f.input :gender, collection: [[t('female'), 'female'], [t('male'), 'male']], include_blank: false, label:  t("gender")
       .sr-only
-        = f.input :birth
+        = f.input :birth, value: nil
       .form-date
         = simple_fields_for :fake do |o|
-          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 70, end_year: Date.today.year - 18, order: [:day, :month, :year], required: false
+          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 70, end_year: Date.today.year - 18, default: Date.today - 18.years, order: [:day, :month, :year], required: false
     .separator
   .separator
   .row.box.bottom-box

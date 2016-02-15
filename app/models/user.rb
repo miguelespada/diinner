@@ -24,7 +24,7 @@ class User
   accepts_nested_attributes_for :preference
   delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
 
-
+  validates :birth, presence: {message: 'Debes modificar tu fecha de nacimiento'}, on: :update
 
   def drop_out
     self.dropped_out = true
@@ -56,8 +56,12 @@ class User
   end
 
   def test_pending
-    # TODO this very ineficient
-    Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
+    Test.where(_gender: gender).map{|m| m.id}  - test_completed.includes(:test).map{|m| m.test.id} 
+    # Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
+  end
+
+  def sample_test
+    Test.find(test_pending.sample) if !test_pending.empty?
   end
 
   def get_stripe_create_customer! token
@@ -108,10 +112,7 @@ class User
   end
 
   def read_notifications
-    self.notifications_read_at = DateTime.now
-    self.save!
-  rescue
-    false
+    self.update_attribute(:notifications_read_at, DateTime.now)
   end
 
   def to_ionic_json
