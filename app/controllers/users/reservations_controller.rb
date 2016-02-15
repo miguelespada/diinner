@@ -4,7 +4,7 @@ class  Users::ReservationsController < BaseUsersController
   load_resource :only => [:destroy, :show], :through => :user
 
   def index
-    @reservations = @user.reservations.where(cancelled: false)
+    @reservations = @user.reservations.where(cancelled: false).to_a
   end
 
   def new
