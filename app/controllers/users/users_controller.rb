@@ -10,7 +10,6 @@ class Users::UsersController < BaseUsersController
     redirect_to drop_out_path
   end
 
-
   def edit
     @current_user.preference ||= Preference.new
   end
@@ -43,7 +42,6 @@ class Users::UsersController < BaseUsersController
     @user.notifications.find(params[:activity_id]).destroy!
     redirect_to :back, notice: 'Activity were successfully destroyed.'
   end
-
 
   private
 

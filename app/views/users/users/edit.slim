@@ -8,7 +8,7 @@
           = t("welcome_explanation")
 
 .separator
-= simple_form_for [@user] do |f|
+= simple_form_for @current_user do |f|
   .row.box
     .col-xs-12.diinner-label.yellow
       = t("your_data")
@@ -16,12 +16,11 @@
     .col-xs-12.col-md-8.col-md-offset-2
       = f.error_notification
       = f.input :gender, collection: [[t('female'), 'female'], [t('male'), 'male']], include_blank: false, label:  t("gender")
-
       .sr-only
         = f.input :birth
       .form-date
         = simple_fields_for :fake do |o|
-          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 70, end_year: Date.today.year - 18, order: [:day, :month, :year]
+          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 70, end_year: Date.today.year - 18, order: [:day, :month, :year], required: false
     .separator
   .separator
   .row.box.bottom-box
@@ -112,7 +111,6 @@ javascript:
     });
 
     $(".form-date select").on("change", function () {
-      console.log("Date changed");
       var day = $("#fake_birth_3i").val();
       var month = $("#fake_birth_2i").val();
       var year = $("#fake_birth_1i").val();
