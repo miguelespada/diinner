@@ -28,6 +28,9 @@
     .col-xs-12.diinner-label.yellow
       = t("your_preferences")
     .separator
+    .col-xs-12.diinner-info.text-center
+      = t("preferences_info")
+    .separator
     .col-xs-12.col-md-8.col-md-offset-2
       = f.simple_fields_for :preference do |c|
         .input-group.age-slider

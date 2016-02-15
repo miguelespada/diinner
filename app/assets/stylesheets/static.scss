@@ -188,16 +188,24 @@ body{
     }
   }
 }
-
 ul.bulleted {
   list-style-type: circle;
   list-style-position: inside;
 }
 
-.section{
+.section {
   font-weight: bold;
   margin-top: 0px;
   padding: 5px 0;
   font-size: 22px;
   color: $textDarkGray;
+}
+
+
+@media screen and (max-width: 768px){
+  .static-content{
+    width: 90%;
+    margin-right: auto;
+    margin-left: 5%;
+  }
 }
