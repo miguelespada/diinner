@@ -215,9 +215,11 @@ html, body {
   width: 100vw;
   opacity: 0;
   visibility: hidden;
-  @include transition(top 3s, height 0.5s, visibility 0.5s, opacity 0.5s linear);
   *{
     pointer-events: none;
+  }
+  &.closed{
+    @include transition(top 3s, height 0.5s, visibility 0.5s, opacity 0.5s linear);
   }
   &.open{
     *{
