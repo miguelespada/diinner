@@ -1,7 +1,9 @@
 .plan-info
   .row.box
     .col-xs-12.diinner-label.yellow
-      == @reservation.restaurant.name
+      strong == @reservation.restaurant.name
+      br
+      == @reservation.restaurant.description
     .reservation
       .col-xs-12
         .col-xs-12.col-md-6
@@ -12,8 +14,6 @@
           .col-xs-12
             = render 'partials/menu', reservation: @reservation
         .separator
-        .col-xs-12
-          = @reservation.restaurant.description
     .separator
   .separator
   .row.box

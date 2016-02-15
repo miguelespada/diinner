@@ -56,6 +56,7 @@ class User
   end
 
   def test_pending
+    # TODO this very ineficient
     Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
   end
 
