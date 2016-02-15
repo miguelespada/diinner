@@ -2,7 +2,7 @@ es:
   #Login
   choose_login_method: "Elige tu método favorito para acceder"
   why_google_facebook: "¿Por qué Google o Facebook?"
-  login_info: "Al acceder con Google o Facebook nos permites conocer unos datos básicos muy importantes para reunirte con personas más afines en las mesas. Además es un método muy seguro y ¡tienes que recordar menos contraseñas! :)"
+  login_info: "Al acceder con Google o Facebook, no se publicará nada en tu muro. Simplemente nos permites conocer unos datos básicos muy importantes para reunirte con personas más afines en las mesas. Además es un método muy seguro y ¡tienes que recordar menos contraseñas! :)"
 
   # Welcome after registration
   welcome: "¡¡Bienvenido a Diinner!!"
