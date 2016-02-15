@@ -60,16 +60,17 @@
                           = e.restaurant.name
                         .date = e.date.strftime("%d/%m/%Y")
                         .time Evaluar
-    .text-center
-      .diinner-info = t("answer_tests")
-    - if @test
-      .col-lg-7.visible-lg
-        == cell(:test, @test).user_show
-    - else
-      .col-lg-7.visible-lg
-        .box.tests.text-center
-          .info = t("all_tests_completed")
-          .icon.bi_interface-heart
+    .visible-lg
+      .text-center
+        .diinner-info = t("answer_tests")
+      - if @test
+        .col-lg-7
+          == cell(:test, @test).user_show
+      - else
+        .col-lg-7
+          .box.tests.text-center
+            .info = t("all_tests_completed")
+            .icon.bi_interface-heart
 
   .separator
 
