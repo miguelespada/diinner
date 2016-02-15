@@ -3,8 +3,8 @@
     = t("notifications")
   .notification-list.full
     - if @notifications.any?
-      = render_activities(@notifications)
-      /= will_paginate @notifications
+      = render_activities(@notifications.to_a)
+      = will_paginate @notifications
     - else
       .notification
         .message

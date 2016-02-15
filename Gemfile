@@ -57,6 +57,8 @@ gem "skylight"
 gem 'bootstrap-slider-rails'
 gem 'google-analytics-rails', '1.0.0'
 gem 'actionpack-action_caching'
+gem "bullet", :group => "development"
+
 
 group :test do
   gem "database_cleaner"

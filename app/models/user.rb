@@ -25,7 +25,6 @@ class User
   delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
 
 
-
   def drop_out
     self.dropped_out = true
     self.birth = nil
@@ -57,6 +56,7 @@ class User
 
   def test_pending
     # TODO this very ineficient
+
     Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
   end
 
@@ -108,10 +108,7 @@ class User
   end
 
   def read_notifications
-    self.notifications_read_at = DateTime.now
-    self.save!
-  rescue
-    false
+    self.update_attribute(:notifications_read_at, DateTime.now)
   end
 
   def to_ionic_json
