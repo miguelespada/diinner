@@ -2,16 +2,16 @@
 
 .calendar{
   padding-top: 20px;
-  .calendar-header{
+  .simple-calendar{
     font-size: 2em;
     text-align: center;
     margin-bottom: 15px;
-    span{
+    > span{
       font-weight: 200;
       color: $textDarkGray;
       padding: 0 30px;
     }
-    a{
+    > a{
       font-weight: 200;
       width:50px;
       padding: 3px 15px;
@@ -58,7 +58,7 @@
           text-align: center;
           font-weight: 400;
           padding: 10px;
-          border-radius: 20px;
+          border: 3px solid $themeYellow;
         .status-table{
             background-color: transparent;
             padding: 0;

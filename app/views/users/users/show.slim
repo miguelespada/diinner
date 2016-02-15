@@ -35,7 +35,7 @@
                 - if future_reservations.empty?
                   p = t("no_reservations")
                 - else
-                  - future_reservations.order_by(:date => 'asc').first(3).each do |r|
+                  - future_reservations.order_by(:date => 'asc').take(3).each do |r|
                     .item
                       = link_to user_reservation_path(@user, r)
                         .name
