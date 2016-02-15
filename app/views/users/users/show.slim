@@ -61,6 +61,7 @@
     .visible-lg.col-lg-7
       .text-center
         .diinner-info = t("answer_tests")
+      .separator
       - if @test.count > 0
         - @test.each do |test|
           .col-lg-12

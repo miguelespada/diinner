@@ -2,13 +2,13 @@
   .panel-white.box
     .head.picture
       == cell(:restaurant, suggestion.restaurant).photo
-    .head.sr-only
+    .head.menu.out
       = render 'partials/menu', reservation: suggestion
     .data-search-wrapper
       .title
         == suggestion.restaurant.name
         span.bi_doc-documents-plus.toggle-description
-        .restaurant-description.sr-only == suggestion.restaurant.description
+        .restaurant-description.out == suggestion.restaurant.description
       .time
         == t("time_name")
         span.hour< = suggestion.date_and_time.to_s.last(5)
