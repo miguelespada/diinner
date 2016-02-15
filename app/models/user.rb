@@ -25,6 +25,7 @@ class User
   delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
 
 
+
   def drop_out
     self.dropped_out = true
     self.birth = nil
