@@ -19,7 +19,7 @@ class Users::UsersController < BaseUsersController
     @future_reservations = @user.cached_future_reservations.take(3)
     @eval_reservations = @user.cached_to_evaluate_reservations.take(3)
     @blog_posts = BlogPost.cached_posts
-    @suggestions = @user.suggestions if !@user.busy?(Date.tomorrow)
+    @suggestions = [] # @user.suggestions if !@user.busy?(Date.tomorrow)
 
   end
 
