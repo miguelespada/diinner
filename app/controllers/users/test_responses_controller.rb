@@ -13,6 +13,8 @@ class  Users::TestResponsesController < BaseUsersController
   def create
     response = @user.test_completed.create!(test: @test, response: params[:option])
     NotificationManager.notify_user_create_test_response object: response, from: @user
+    Rails.cache.delete("test_completed_" + self.id.to_s)
+
     if response.skipped?
       redirect_to :back
     else

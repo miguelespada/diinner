@@ -39,10 +39,17 @@ class User
     end
   end
 
+  def has_reservations?
+    Rails.cache.fetch("has_reservations_" + self.id.to_s, expires_in: 1.day) do 
+      reservations.count > 0
+    end
+  end
 
   def flush_cache
     Rails.cache.delete("future_reservations_" + self.id.to_s)
     Rails.cache.delete("to_evaluate_reservations_" + self.id.to_s)
+    Rails.cache.delete("has_reservations_" + self.id.to_s)
+    Rails.cache.delete("notifications_" + self.id.to_s)
   end
   # END CACHE CONTROL
 
@@ -75,9 +82,14 @@ class User
     !preference.nil? and preference.respond_to? :to_ionic_json
   end
 
+  def cached_test_completed
+    Rails.cache.fetch("test_completed_" + self.id.to_s, expires_in: 1.day) do 
+      test_completed.to_a.map{|m| m.test_id} 
+    end
+  end
+
   def test_pending
-    Test.cached_tests(self.gender) - test_completed.to_a.map{|m| m.test_id} 
-    # Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
+    Test.cached_tests(self.gender) - cached_test_completed
   end
 
   def sample_test
@@ -128,7 +140,9 @@ class User
   end
 
   def notifications
-    PublicActivity::Activity.where(recipient: self).desc(:created_at)
+    Rails.cache.fetch("notifications_" + self.id.to_s, expires_in: 5.minutes) do 
+      PublicActivity::Activity.where(recipient: self).desc(:created_at).limit(10).to_a
+    end
   end
 
   def read_notifications
@@ -222,7 +236,4 @@ class User
     notifications and notifications.length > 0
   end
 
-  def has_reservations?
-    reservations != []
-  end
 end
