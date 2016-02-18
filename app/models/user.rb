@@ -144,7 +144,7 @@ class User
 
   def notifications
     Rails.cache.fetch("notifications_" + self.id.to_s, expires_in: 5.minutes) do 
-      PublicActivity::Activity.where(recipient: self).desc(:created_at).limit(10).to_a
+      PublicActivity::Activity.where(recipient: self).desc(:created_at).limit(10)
     end
   end
 
@@ -190,6 +190,7 @@ class User
                       :estudios => 0, :belleza => 0, :humor => 0}
 
         test_completed.includes(:test).to_a.each do |t|
+          # TODO if is not a skipped
           factor = t.response_is_a? ? 1 : -1
           profile[:expectativas] += ((t.expectativas || 0) * factor)
           profile[:cultura] += ((t.cultura || 0) * factor)

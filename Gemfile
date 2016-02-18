@@ -2,9 +2,10 @@ source 'https://rubygems.org'
 
 # ruby "2.2.1"
 
-gem 'unicorn'
+gem 'unicorn', group: :production 
 gem 'dotenv-rails', :groups => [:development, :test]
-# gem 'thin'
+gem 'thin', group: :development 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'rails', '4.1.9'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
