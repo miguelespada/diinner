@@ -76,6 +76,9 @@ html, body{
   margin: 0 !important;
 }
 
+.back-container{
+  clear: both;
+}
 /* mobile
 -------------------*/
 
@@ -252,6 +255,7 @@ html, body{
       position: absolute;
       top: 70%;
       width: 100%;
+      text-align: -moz-center;
     }
   }
 }
@@ -703,6 +707,7 @@ input.company {
   color: $textDarkGray;
   .reservations{
     padding-bottom: 15px;
+    text-align: -moz-center;
 
   }
 

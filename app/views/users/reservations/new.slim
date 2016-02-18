@@ -96,6 +96,16 @@ javascript:
 
   $(document).ready(function () {
 
+    var initialScreenSize = window.innerHeight;
+    window.addEventListener("resize", function () {
+        console.log("Resized window");
+        var focused_element =  $(':focus');
+        console.log(focused_element);
+
+      $("body").scrollTop(focused_element.offset().top - $("body").offset().top + $("body").scrollTop());
+    });
+
+
     $("#search-button").click(function(e){
       if(checkCompany()) {
         openModal("loading-modal");
