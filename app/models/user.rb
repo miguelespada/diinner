@@ -217,4 +217,12 @@ class User
     suggestionEngine = SuggestionEngine.new self, params
     suggestionEngine.search.first(3) 
   end
+
+  def has_notifications?
+    notifications and notifications.length > 0
+  end
+
+  def has_reservations?
+    reservations.count > 0
+  end
 end

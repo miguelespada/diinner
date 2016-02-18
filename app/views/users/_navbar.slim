@@ -1,3 +1,4 @@
+- has_notifications = @user.has_notifications?
 nav.navbar.navbar-default.navbar-fixed-top role="navigation"
   .navbar-brand
     = link_to image_tag("brand.svg"), user_path(@user)
@@ -6,8 +7,7 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
         span.sr-only Toggle navigation
         span.menu-icon.bi_interface-hamburger
-      - notifications = @user.notifications
-      - if notifications and @user.notifications.length > 0
+      - if has_notifications
         = link_to user_notifications_path(@user)
           .navbar-toggle
             span.menu-icon.bi_com-bell
@@ -22,12 +22,12 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
           = link_to new_user_reservation_path(@user)
             /.bi_food-onigiri
             .menu-text = t("new_reservation")
-        - if notifications and notifications.length > 0
+        - if has_notifications
           li.hidden-xs.hidden-sm
             = link_to user_notifications_path(@user)
               /.menu-icon.bi_com-bell
               .menu-text = t("notifications")
-        - unless @user.reservations.count == 0
+        - unless @user.has_reservations?
           li
             = link_to user_reservations_path(@user)
               /.menu-icon.bi_time-calendar-a
