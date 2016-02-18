@@ -17,6 +17,7 @@ PRICES_RANGES = YAML.load_file('config/price_ranges.yml')
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Dinner
   class Application < Rails::Application
     # Mongoid.logger.level = Logger::ERROR

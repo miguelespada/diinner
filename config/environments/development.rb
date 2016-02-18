@@ -1,3 +1,4 @@
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -35,7 +36,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 
-  config.cache_store = :redis_store
+  # config.cache_store = :redis_store
 
   config.after_initialize do
     Bullet.enable = true
