@@ -114,6 +114,7 @@ class  Users::ReservationsController < BaseUsersController
       TableManager.process_table reservation.table
       if reservation.table.full?
         NotificationManager.notify_full_table(object: reservation.table, to: reservation.restaurant)
+        EmailNotifications.notify_table_full reservation.table
       end
     end
 

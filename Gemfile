@@ -58,7 +58,8 @@ gem 'bootstrap-slider-rails'
 gem 'google-analytics-rails', '1.0.0'
 gem 'actionpack-action_caching'
 gem "bullet", :group => "development"
-
+gem "redis-rails"
+gem 'whenever', :require => false
 
 group :test do
   gem "database_cleaner"

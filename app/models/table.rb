@@ -167,6 +167,8 @@ class Table
 
   def notify_confirmation
     NotificationManager.notify_comfirm_table(object: self, to: restaurant)
+    EmailNotifications.notify_table_confirmation self
+
     # Note that the plan is confirmed but some of the reservation may not
     reservations.map{|r| r.paid? ? r.notify_confirmation : r.notify_cancellation }
   end
@@ -193,5 +195,7 @@ class Table
     false
   end
 
+
+  
 
 end

@@ -36,6 +36,12 @@ class Reservation
   has_one :payment, :dependent => :destroy
   has_one :evaluation, :dependent => :destroy
 
+  after_save :expire_cache
+
+
+  def expire_cache
+    user.flush_cache
+  end
 
   def start_time
     date
@@ -99,10 +105,12 @@ class Reservation
 
   def notify_cancellation
     NotificationManager.notify_cancel_plan(object: self, to: user)
+    EmailNotifications.notify_plan_cancellation self
   end
 
   def notify_confirmation
     NotificationManager.notify_confirm_plan(object: self, to: user)
+    EmailNotifications.notify_plan_confirmation self
   end
 
   def has_evaluation?
@@ -124,7 +132,7 @@ class Reservation
   def self.invite_to_evaluate
     n = 0
     Reservation.each do |r|
-      if r.can_be_evaluated?
+      if r.can_be_evaluated? && r.date == Date.yesterday
         r.invite_to_evaluate
         n += 1
       end
@@ -134,6 +142,7 @@ class Reservation
 
   def invite_to_evaluate
     NotificationManager.notify_invitation_to_evaluate(object: self, to: user)
+    EmailNotifications.invite_to_evaluate self
   end
 
   def has_menu?

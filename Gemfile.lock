@@ -148,6 +148,7 @@ GEM
     capybara-webkit (1.3.1)
       capybara (>= 2.0.2, < 2.5.0)
       json
+    chronic (0.10.2)
     chunky_png (1.3.4)
     cloudinary (1.0.82)
       aws_cf_signer
@@ -334,6 +335,23 @@ GEM
     rake (10.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
+    redis (3.2.2)
+    redis-actionpack (4.0.1)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.1.5)
+      activesupport (>= 3, < 5)
+      redis-store (~> 1.1.0)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.7)
+      redis (>= 2.2)
     representable (2.1.5)
       multi_json
       nokogiri
@@ -417,6 +435,8 @@ GEM
     uniform_notifier (1.9.0)
     warden (1.2.3)
       rack (>= 1.0)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
     will_paginate (3.0.7)
     will_paginate_mongoid (2.0.1)
       mongoid
@@ -481,6 +501,7 @@ DEPENDENCIES
   rails (= 4.1.9)
   rails-timeago (~> 2.0)
   rails_12factor
+  redis-rails
   rspec-rails
   ruby-prof
   sass-rails (~> 4.0.3)
@@ -493,4 +514,8 @@ DEPENDENCIES
   stripe!
   uglifier (>= 1.3.0)
   unicorn
+  whenever
   will_paginate_mongoid
+
+BUNDLED WITH
+   1.10.6

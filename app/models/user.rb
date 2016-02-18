@@ -26,6 +26,26 @@ class User
 
   validates :birth, presence: {message: 'Debes modificar tu fecha de nacimiento'}, on: :update
 
+  # CACHE CONTROL
+  def cached_future_reservations
+    Rails.cache.fetch("future_reservations_" + self.id.to_s, expires_in: 1.day) do 
+      reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').to_a
+    end
+  end
+
+  def cached_to_evaluate_reservations
+    Rails.cache.fetch("to_evaluate_reservations_" + self.id.to_s, expires_in: 1.day) do 
+      reservations.includes(:table).where(paid: true, :date.lte => Date.today).asc('date').select{|r| r.can_be_evaluated?}
+    end
+  end
+
+
+  def flush_cache
+    Rails.cache.delete("future_reservations_" + self.id.to_s)
+    Rails.cache.delete("to_evaluate_reservations_" + self.id.to_s)
+  end
+  # END CACHE CONTROL
+
   def drop_out
     self.dropped_out = true
     self.birth = nil
@@ -190,5 +210,11 @@ class User
       return true if !r.cancelled?
     end
     false
+  end
+
+  def suggestions
+    params = {price: menu_range, city: city, after_plan: after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
+    suggestionEngine = SuggestionEngine.new self, params
+    suggestionEngine.search.first(3) 
   end
 end

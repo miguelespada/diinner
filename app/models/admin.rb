@@ -42,4 +42,11 @@ class Admin
     PublicActivity::Activity.all.desc(:created_at)
   end
 
+  def self.remove_old_logs
+    criteria = PublicActivity::Activity.where(:created_at.lt => 7.days.ago)
+    n = criteria.count
+    criteria.delete_all
+    n
+  end
+
 end

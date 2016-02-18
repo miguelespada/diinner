@@ -19,6 +19,7 @@ class TableManager
 
   def self.process_today_tables
     self.process today_tables
+    
   end
 
   def self.process_last_minute_tables
