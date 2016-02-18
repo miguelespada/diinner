@@ -76,7 +76,7 @@ class User
   end
 
   def test_pending
-    Test.where(_gender: gender).map{|m| m.id}  - test_completed.includes(:test).map{|m| m.test.id} 
+    Test.cached_tests(self.gender)  - test_completed.map{|m| m.test_id} 
     # Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
   end
 

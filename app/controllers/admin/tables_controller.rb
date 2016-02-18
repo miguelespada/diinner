@@ -1,7 +1,7 @@
 class Admin::TablesController < AdminController
   load_resource :only => [:show, :process_payment]
 
-  def index
+  def index 
     @tables = Table.desc(:date).page(params[:page])
   end
 

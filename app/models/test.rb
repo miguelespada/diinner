@@ -26,6 +26,20 @@ class Test
 
   has_many :responses, class_name: "TestResponse", :dependent => :destroy
 
+  after_create :expire_cache
+
+  def self.expire_cache
+    Rails.cache.delete("tests_male")
+    Rails.cache.delete("tests_females")
+  end
+
+  def self.cached_tests gender
+    Rails.cache.fetch("tests_" + gender.to_s, expires_in: 1.week) do
+      Test.where(_gender: gender).map{|m| m.id}
+    end
+  end
+
+
   def to_ionic_json
     {
         id: id.to_s,

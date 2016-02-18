@@ -88,6 +88,7 @@ class RestaurantCell < BaseCell
   end
 
   def cl_photo size
+    return !model.has_photo?    
      w = size
      h = w * 3 / 4
     cl_image_tag(model.photo.public_id,
