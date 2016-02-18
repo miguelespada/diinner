@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'unicorn', group: :production 
 
-gem "remote_syslog_logger", group: :production 
+gem "remote_syslog_logger"
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'thin', group: :development 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]

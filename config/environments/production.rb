@@ -77,8 +77,10 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   # config.action_controller.asset_host = ENV['CLOUDFRONT_ENDPOINT']
 
-  config.logger = RemoteSyslogLogger.new('logs3.papertrailapp.com', 21872,
-                  :local_hostname => "diinner.com")
+  config.logger = RemoteSyslogLogger.new('logs3.papertrailapp.com', 
+    21872, 
+    :program => "rails-production",
+    :local_hostname => "diinner.com")
 end  
 GA.tracker = "UA-73368281-1"
 
