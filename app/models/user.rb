@@ -76,7 +76,7 @@ class User
   end
 
   def test_pending
-    Test.cached_tests(self.gender)  - test_completed.map{|m| m.test_id} 
+    Test.cached_tests(self.gender) - test_completed.to_a.map{|m| m.test_id} 
     # Test.not_in(id: test_completed.map{|m| m.test.id}, _gender: opposite_sex)
   end
 
