@@ -21,9 +21,6 @@ class Users::UsersController < BaseUsersController
     @blog_posts = BlogPost.cached_posts
     @suggestions = @user.suggestions if !@user.busy?(Date.tomorrow)
 
-    respond_to do |format|
-      format.json { render :json => @user }
-    end
   end
 
   def update
