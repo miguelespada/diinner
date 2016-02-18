@@ -354,6 +354,8 @@ GEM
       redis-store (~> 1.1.0)
     redis-store (1.1.7)
       redis (>= 2.2)
+    remote_syslog_logger (1.0.3)
+      syslog_protocol
     representable (2.1.5)
       multi_json
       nokogiri
@@ -420,6 +422,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    syslog_protocol (0.9.2)
     temple (0.7.5)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
@@ -508,6 +511,7 @@ DEPENDENCIES
   rails-timeago (~> 2.0)
   rails_12factor
   redis-rails
+  remote_syslog_logger
   rspec-rails
   ruby-prof
   sass-rails (~> 4.0.3)
