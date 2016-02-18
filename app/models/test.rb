@@ -30,7 +30,7 @@ class Test
 
   def self.expire_cache
     Rails.cache.delete("tests_male")
-    Rails.cache.delete("tests_females")
+    Rails.cache.delete("tests_female")
   end
 
   def self.cached_tests gender
