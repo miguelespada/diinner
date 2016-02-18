@@ -223,6 +223,6 @@ class User
   end
 
   def has_reservations?
-    reservations.count > 0
+    reservations != []
   end
 end

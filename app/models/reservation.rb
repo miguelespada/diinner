@@ -36,10 +36,9 @@ class Reservation
   has_one :payment, :dependent => :destroy
   has_one :evaluation, :dependent => :destroy
 
-  after_save :expire_cache
+  after_save :flush_cache
 
-
-  def expire_cache
+  def flush_cache
     user.flush_cache
   end
 

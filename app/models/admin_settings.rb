@@ -4,9 +4,16 @@ class AdminSettings
   field :protected_mode,   type: Boolean
   field :map_box, type: String
 
+  after_save :flush_cache
+
+  def flush_cache
+    Rails.cache.delete("admin_settings")
+  end
 
   def self.is_protected?
-    self.get_first.protected_mode
+    Rails.cache.fetch("admin_settings", expires_in: 1.day) do 
+      self.get_first.protected_mode
+    end
   end
 
   def self.get_first
