@@ -27,7 +27,7 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
             = link_to user_notifications_path(@user)
               /.menu-icon.bi_com-bell
               .menu-text = t("notifications")
-        - unless @user.has_reservations?
+        - if @user.has_reservations?
           li
             = link_to user_reservations_path(@user)
               /.menu-icon.bi_time-calendar-a
