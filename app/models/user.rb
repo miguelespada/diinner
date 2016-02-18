@@ -15,6 +15,8 @@ class User
   field :stripe_default_card, type: String
   field :dropped_out, type: Boolean, default: false
 
+  field :test_profile, :type => Hash 
+
   field :notifications_read_at, type: Date
 
   has_many :test_completed, class_name: "TestResponse"
@@ -25,6 +27,7 @@ class User
   delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
 
   validates :birth, presence: {message: 'Debes modificar tu fecha de nacimiento'}, on: :update
+  
 
   # CACHE CONTROL
   def cached_future_reservations
@@ -181,26 +184,31 @@ class User
 
   def generate_profile
     # TODO maybe save in database and update on callbacks
-    @profile =  { :expectativas => 0, :cultura => 0, 
-                  :foodie => 0, :frikismo => 0,
-                  :estudios => 0, :belleza => 0, :humor => 0}
-    test_completed.each do |t|
-      factor = t.response_is_a? ? 1 : -1
-      @profile[:expectativas] += ((t.expectativas || 0) * factor)
-      @profile[:cultura] += ((t.cultura || 0) * factor)
-      @profile[:foodie] += ((t.foodie || 0) * factor)
-      @profile[:frikismo] += ((t.frikismo || 0) * factor)
-      @profile[:estudios] += ((t.estudios || 0) * factor)
-      @profile[:belleza] += ((t.belleza || 0) * factor)
-      @profile[:humor] += ((t.humor || 0) * factor)
-    end
-    @profile
+     # Rails.cache.fetch("profile_" + self.id.to_s, expires_in: 1.year)
+        profile =  { :expectativas => 0, :cultura => 0, 
+                      :foodie => 0, :frikismo => 0,
+                      :estudios => 0, :belleza => 0, :humor => 0}
+
+        test_completed.includes(:test).to_a.each do |t|
+          factor = t.response_is_a? ? 1 : -1
+          profile[:expectativas] += ((t.expectativas || 0) * factor)
+          profile[:cultura] += ((t.cultura || 0) * factor)
+          profile[:foodie] += ((t.foodie || 0) * factor)
+          profile[:frikismo] += ((t.frikismo || 0) * factor)
+          profile[:estudios] += ((t.estudios || 0) * factor)
+          profile[:belleza] += ((t.belleza || 0) * factor)
+          profile[:humor] += ((t.humor || 0) * factor)
+        end
+        profile
   end
 
   def profile criteria
-    return 0.0 if test_completed.count == 0
-    @profile ||= generate_profile
-    @profile[criteria] / test_completed.count.to_f
+    if self.test_profile.nil?
+      self.test_profile = generate_profile
+      self.save!
+    end
+
+    self.test_profile[criteria] / test_completed.count.to_f
   end
 
 
