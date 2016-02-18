@@ -38,6 +38,10 @@ class Admin
     true
   end
 
+  def self.email
+    first.email
+  end
+
   def self.logs
     PublicActivity::Activity.all.desc(:created_at)
   end
