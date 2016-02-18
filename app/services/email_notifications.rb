@@ -45,7 +45,7 @@ module EmailNotifications
               :subject => "[Diinner] Cuéntanos qué tal te lo pasaste")
   end
 
-  def seld.notify_table_confirmation table
+  def self.notify_table_confirmation table
     return if Rails.env.test?
     restaurant = table.restaurant
 
@@ -55,7 +55,7 @@ module EmailNotifications
 
   end
 
-  def seld.notify_table_full table
+  def self.notify_table_full table
     return if Rails.env.test?
     restaurant = table.restaurant
 
