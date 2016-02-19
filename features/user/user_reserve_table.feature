@@ -12,7 +12,7 @@ Feature: User Reserves table
   Scenario: User cancel reservation
     When I cancel my reservation
     Then I can see the notification that the reservation is cancelled
-    # And I should not see the reserved table in my calendar
+    And I should not see the reserved table in my calendar
 
   @user_notification_after_table_cancellation
   Scenario: User notification when table cancellation

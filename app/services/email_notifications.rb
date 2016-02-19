@@ -18,9 +18,9 @@ module EmailNotifications
     restaurant = reservation.restaurant
     user = reservation.user
 
-  #   Pony.mail(:to => user.email,
-  #             :from => "noreply@diinner.com",
-  #             :subject => "[Diinner] la reserva para el #{restaurant.name} ha sido cancelada ") if Rails.env.test?
+    Pony.mail(:to => user.email,
+              :from => "noreply@diinner.com",
+              :subject => "[Diinner] la reserva para el #{restaurant.name} ha sido cancelada ") if Rails.env.test?
   end
 
   def self.notify_plan_confirmation reservation
