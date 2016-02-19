@@ -1,4 +1,5 @@
 Given(/^I do a test$/) do
+  expect(Rails.cache).to receive(:delete).at_least(3).times
   FactoryGirl.create(:test,  :with_images, humor: 1, gender: :undefined)
   FactoryGirl.create(:test, :with_images, humor: -2, gender: :male)
   FactoryGirl.create(:test, :with_images, humor: -2, gender: :female)
