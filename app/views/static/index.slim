@@ -8,9 +8,9 @@
 
 header.home-header
   .hidden-xs
-    = cl_image_tag(home.header.public_id, quality: 75, width: 1440, crop: :limit, format: :jpg)
+    = cl_image_tag(home.header.public_id, quality: 75, width: 1440, crop: :limit, format: :jpg) if !home.header.nil?
   .visible-xs
-    = cl_image_tag(home.mobile_background.public_id, quality: 75, format: :jpg, width: 720, crop: :limit, class: "small")
+    = cl_image_tag(home.mobile_background.public_id, quality: 75, format: :jpg, width: 720, crop: :limit, class: "small") if !home.mobile_background.nil?
   .header-title
     |Cenar para
     br
@@ -21,7 +21,7 @@ header.home-header
     - 3.times do |i|
       - index = i + 1
       .item
-        = cl_image_tag home.send("how_it_works_#{index}").public_id, radius: :max, format: :jpg, quality: 60, width: 500, height: 500, crop: :fill, class: "round-image"
+        = cl_image_tag home.send("how_it_works_#{index}").public_id, radius: :max, format: :jpg, quality: 60, width: 500, height: 500, crop: :fill, class: "round-image" if !home.send("how_it_works_#{index}").nil?
         .oval
           .text = index
         .info = t("home_hiw_#{index}")

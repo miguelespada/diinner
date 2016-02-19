@@ -1,3 +1,4 @@
+@user_session
 Feature: User Session
   As user
   I want to access to my personal space

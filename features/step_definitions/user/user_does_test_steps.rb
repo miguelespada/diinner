@@ -9,3 +9,5 @@ end
 Then(/^I cannot do anymore tests$/) do
   expect(page).to have_content("Has completado todos los tests de compatibilidad")
 end
+
+# TODO expect something about profile
