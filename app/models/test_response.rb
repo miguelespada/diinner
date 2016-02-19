@@ -22,6 +22,10 @@ class TestResponse
     response == test.caption_A
   end
 
+  def response_is_b?
+    response == test.caption_B
+  end
+
   def skipped?
     response == "skip"
   end
