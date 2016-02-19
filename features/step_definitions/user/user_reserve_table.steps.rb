@@ -14,10 +14,27 @@ Given(/^There are some available tables$/) do
   @table = @restaurant.tables.first
 end
 
-Then(/^I made a reservation$/) do
+Then(/^I had previous cancelled reservations$/) do
   @user.update_customer_information!(Stripe::Token.create(valid_card).id)
+  
   FactoryGirl.create(:reservation, user: @user, table: @table, date: Date.today)
   expect(@user.reservations.count).to eq 1
+  expect(@user.reservations.first.can_be_cancelled?).to eq true
+  visit user_path(@user)
+  find("#reservation-#{@restaurant.name}").click
+  click_on "Cancel"
+  expect(page).to have_content("No tienes reservas")
+end
+
+
+Then(/^I made a reservation$/) do
+  step("I had previous cancelled reservations")
+
+  FactoryGirl.create(:reservation, user: @user, table: @table, date: Date.today)
+  expect(@user.reservations.count).to eq 2
+  expect(@user.reservations.first.can_be_cancelled?).to eq false
+  expect(@user.reservations.last.can_be_cancelled?).to eq true
+
 end
 
 When(/^I search a table with bad date$/) do

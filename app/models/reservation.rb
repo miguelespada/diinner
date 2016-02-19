@@ -118,7 +118,7 @@ class Reservation
 
   def is_last_minute?
     today = Date.today
-    date.day == today.day && date.month == today.month && date.year == today.year
+    table.date.day == today.day && table.date.month == today.month && table.date.year == today.year
   end
 
   def self.off_the_clock?

@@ -29,6 +29,11 @@ class Table
     reservations.includes(:user).reject{|r| r.cancelled?}
   end
 
+  def purge_cancelled_reservations
+    self.reservations = uncancelled_reservations
+    self.save!
+  end
+
   def affinity
     Rails.cache.fetch([self.class.name, self.id, "affinity"], expires_in: 1.hour) do
       res = uncancelled_reservations.to_a

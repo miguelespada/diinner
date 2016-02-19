@@ -29,6 +29,7 @@ class TableManager
   end
 
   def self.process tables
+    self.purge_cancelled_reservations(tables)
     tables = self.cancel_partial(tables)
     return if tables.count == 0
     self.capture(tables)
@@ -95,5 +96,10 @@ class TableManager
 
   def self.mark_as_processed tables
     tables.map{|table| table.update_attribute(:processed, :true) }
+  end
+
+
+  def self.purge_cancelled_reservations tables
+    tables.map{|table| table.purge_cancelled_reservations}
   end
 end
