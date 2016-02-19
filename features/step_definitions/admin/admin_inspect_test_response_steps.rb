@@ -2,6 +2,7 @@ Given(/^A user has done a test$/) do
   step "I am a logged user"
   step "I do a test"
   step "I logout"
+
 end
 
 Then(/^I can see the test response$/) do
@@ -11,6 +12,7 @@ Then(/^I can see the test response$/) do
     expect(page).to have_content @user.name
     expect(page).to have_content @test.caption_A
   end
+
 end
 
 Then(/^I can see the user test responses$/) do

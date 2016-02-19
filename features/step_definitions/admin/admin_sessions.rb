@@ -22,7 +22,7 @@ When(/^I go to the admin page$/) do
 end
 
 Then(/^I should not see the admin page$/) do
-  expect(page).to have_content "You need to sign in or sign up before continuing."
+  expect(page).to have_content "Log in admin"
 end
 
 Given(/^I am logged as admin$/) do
@@ -45,6 +45,10 @@ Then(/^I should see that my admin password has changed$/) do
   fill_in "Password", with: "updated1111"
   click_button 'Log in'
   expect(page).to have_content "Signed in successfully."
+end
+
+When(/^I logout as admin$/) do
+  click_on "Logout"
 end
 
 

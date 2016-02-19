@@ -11,6 +11,7 @@ Feature: User test
  Scenario: User do a test
    Then I can see the test response
    And I can see the user test responses
+   And I can see the user the user profile
 
   @safe_delete_test
   Scenario: User do a test

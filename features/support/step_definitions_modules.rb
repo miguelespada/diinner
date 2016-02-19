@@ -6,7 +6,10 @@ module Login
   end
 
   def login_as_admin admin
+
     visit new_admin_session_path
+      allow_any_instance_of(AdminController).to receive(:authenticate_admin!).and_return(admin)
+
     login admin
   end
 

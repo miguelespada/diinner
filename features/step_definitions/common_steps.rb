@@ -14,6 +14,7 @@ When(/^I logout$/) do
   visit auth_logout_path
   allow_any_instance_of(UserSession).to receive(:logged?).and_return(false)
   allow_any_instance_of(UserSession).to receive(:user_from_session).and_return(nil)
+
   visit root_path
 end
 
