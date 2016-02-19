@@ -174,6 +174,7 @@ Then(/^I can reserve again with the same card$/) do
 end
 
 When(/^the table manager process runs$/) do
+  expect(EmailNotifications).to receive(:notify_plan_confirmation).once
   allow(Date).to receive(:today).and_return Date.tomorrow
   expect(TableManager.today_tables.count).to eq 1
 
@@ -188,6 +189,8 @@ Then(/^I can see the cancellation notification$/) do
   click_on "Notificaciones"
   expect(page).to have_content "Lo sentimos. Tu plan en el restaurante restaurant_1"
   expect(page).to have_content "ha sido cancelado"
+  expect(EmailNotifications).to receive(:notify_plan_confirmation).once
+
 
 end
 
