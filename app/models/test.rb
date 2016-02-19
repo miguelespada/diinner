@@ -26,9 +26,9 @@ class Test
 
   has_many :responses, class_name: "TestResponse", :dependent => :destroy
 
-  after_create :expire_cache
+  after_create :flush_cache
 
-  def self.expire_cache
+  def flush_cache
     Rails.cache.delete("tests_male")
     Rails.cache.delete("tests_female")
   end
