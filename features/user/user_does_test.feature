@@ -6,7 +6,5 @@ Feature: User can do test
   Scenario: User does a test
     Given I am a logged user
     When I do a test
-    And I cannot do anymore tests
-
-  @user_skips_test
-  Scenario: User skips a tests
+    And More tests are added
+    And I can skip some tests 

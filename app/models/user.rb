@@ -48,6 +48,12 @@ class User
     end
   end
 
+  def cached_test_completed
+    Rails.cache.fetch("test_completed_" + self.id.to_s, expires_in: 1.day) do 
+      test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact
+    end
+  end
+
   def flush_cache
     Rails.cache.delete("future_reservations_" + self.id.to_s)
     Rails.cache.delete("to_evaluate_reservations_" + self.id.to_s)
@@ -85,11 +91,7 @@ class User
     !preference.nil? and preference.respond_to? :to_ionic_json
   end
 
-  def cached_test_completed
-    Rails.cache.fetch("test_completed_" + self.id.to_s, expires_in: 1.day) do 
-      test_completed.to_a.map{|m| m.test_id} 
-    end
-  end
+
 
   def test_pending
     Test.cached_tests(self.gender) - cached_test_completed
@@ -185,7 +187,7 @@ class User
 
   def profile criteria
     generate_test_profile if test_profile.nil? 
-    test_profile[criteria] / test_completed.count.to_f
+    test_profile[criteria] / cached_test_completed.count.to_f
   end
 
   def generate_test_profile
@@ -204,16 +206,17 @@ class User
     self.test_profile = { :expectativas => 0, :cultura => 0, 
                     :foodie => 0, :frikismo => 0,
                     :estudios => 0, :belleza => 0, :humor => 0} if self.test_profile.nil?
-
-    factor = response.response_is_a? ? 1 : -1
-    factor = 0 if response.skipped?
-    self.test_profile[:expectativas] += ((response.expectativas || 0) * factor)
-    self.test_profile[:cultura] += ((response.cultura || 0) * factor)
-    self.test_profile[:foodie] += ((response.foodie || 0) * factor)
-    self.test_profile[:frikismo] += ((response.frikismo || 0) * factor)
-    self.test_profile[:estudios] += ((response.estudios || 0) * factor)
-    self.test_profile[:belleza] += ((response.belleza || 0) * factor)
-    self.test_profile[:humor] += ((response.humor || 0) * factor)
+    
+    if !response.skipped?
+      factor = response.response_is_a? ? 1 : -1
+      self.test_profile[:expectativas] += ((response.expectativas || 0) * factor)
+      self.test_profile[:cultura] += ((response.cultura || 0) * factor)
+      self.test_profile[:foodie] += ((response.foodie || 0) * factor)
+      self.test_profile[:frikismo] += ((response.frikismo || 0) * factor)
+      self.test_profile[:estudios] += ((response.estudios || 0) * factor)
+      self.test_profile[:belleza] += ((response.belleza || 0) * factor)
+      self.test_profile[:humor] += ((response.humor || 0) * factor)
+    end
 
     self.save!
   end
