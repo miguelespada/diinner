@@ -26,7 +26,7 @@ class Table
   end
 
   def uncancelled_reservations
-    reservations.reject{|r| r.cancelled?}
+    reservations.includes(:user).reject{|r| r.cancelled?}
   end
 
   def affinity
