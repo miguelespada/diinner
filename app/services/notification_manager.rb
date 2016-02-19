@@ -43,6 +43,7 @@ class NotificationManager
 
   def self.notify_cancel_plan(from: Admin.first, object: nil, to: Admin.first)
     key = "plan.cancel"
+    
     if to.notifications.where(trackable: object, key: key).count == 0 
       object.create_activity key: key, owner: from, recipient: to
     end

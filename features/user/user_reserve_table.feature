@@ -6,10 +6,10 @@ Feature: User Reserves table
   Background:
     Given There are some available tables
     And I am a logged user
-    When I reserve a table
 
   @user_reserves_table_simple @javascript
   Scenario:
+    When I reserve a table
     Then I see the confirmation
 
   @user_reserves_table
@@ -39,9 +39,10 @@ Feature: User Reserves table
 
   @user_notification_after_table_cancellation
   Scenario: User notification when table cancellation
+    And I made a reservation
     When the table manager process runs
-#    Then I can see the cancellation notification #TODO NOTIFICATIONS
-    And I should not see the reserved table in my calendar
+    Then I can see the cancellation notification
+    # And I should not see the reserved table in my calendar
 
   @user_notification_after_plan_confirmation
   Scenario: User notification when plan is confirmed

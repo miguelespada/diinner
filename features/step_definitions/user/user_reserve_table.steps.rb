@@ -14,6 +14,12 @@ Given(/^There are some available tables$/) do
   @table = @restaurant.tables.first
 end
 
+Then(/^I made a reservation$/) do
+  @user.update_customer_information!(Stripe::Token.create(valid_card).id)
+  FactoryGirl.create(:reservation, user: @user, table: @table, date: Date.today)
+  expect(@user.reservations.count).to eq 1
+end
+
 When(/^I search a table with bad date$/) do
   step "I go to the user page"
   click_on "New Reservation", match: :first
@@ -29,6 +35,7 @@ end
 
 
 When(/^I search a table$/) do
+  expect(@user.reservations.count).to eq 0
   step "I go to the user page"
   find("#new-reservation-link").trigger("click")
   # select("Lowcost", :from => "reservation_price")
@@ -44,17 +51,15 @@ When(/^I reserve a table$/) do
   #   step("I can see the table details")
   # end
 
-  # click_on(@restaurant.name)
-
   click_on "reserve-#{@restaurant.name}"
   step("I fill in the credit card details")
   find("#continuar").trigger("click")
-  
+
 end
 
 Then(/^I see the confirmation$/) do
-
   expect(page).to have_content("El estado del plan es RESERVADO")
+  expect(@user.reservations.count).to eq 1
 end
 
 
@@ -153,15 +158,20 @@ end
 
 When(/^the table manager process runs$/) do
   allow(Date).to receive(:today).and_return Date.tomorrow
+  expect(TableManager.today_tables.count).to eq 1
+
   TableManager.process_today_tables
 end
 
 Then(/^I can see the cancellation notification$/) do
-  click_on "Notifications"
-  within("#logs .cancel-plan-log") do
-    expect(page).to have_content "Your plan diinner for tonight at restaurant"
-    expect(page).to have_content "was cancelled"
-  end
+  expect(@user.notifications.count).to eq 1
+  expect(@user.has_notifications?).to eq true
+  visit user_path(@user)
+
+  click_on "Notificaciones"
+  expect(page).to have_content "Lo sentimos. Tu plan en el restaurante restaurant_1"
+  expect(page).to have_content "ha sido cancelado"
+
 end
 
 Given(/^There are enough reservations$/) do

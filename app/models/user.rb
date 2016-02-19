@@ -145,9 +145,7 @@ class User
   end
 
   def notifications
-    Rails.cache.fetch("notifications_" + self.id.to_s, expires_in: 5.minutes) do 
-      PublicActivity::Activity.where(recipient: self).desc(:created_at).limit(10)
-    end
+    PublicActivity::Activity.where(recipient: self).desc(:created_at).limit(10)
   end
 
   def read_notifications

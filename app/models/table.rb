@@ -156,11 +156,10 @@ class Table
   end
 
   def cancel
-    self.update(cancelled: true)
+    self.cancelled = true
     reservations.map{|r| r.cancel}
     self.save!
   end
-
 
   def notify_cancellation
     NotificationManager.notify_cancel_table(object: self, to: restaurant)

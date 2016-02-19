@@ -3,7 +3,7 @@ class  Users::ReservationsController < BaseUsersController
                 :only => [:cancel, :menu, :new_evaluation]
   load_resource :only => [:destroy], :through => :user
 
-  caches_action :show, expires_in: 2.minutes
+  caches_action :show, expires_in: 5.minutes
 
   def index
     @reservations = @user.reservations.where(cancelled: false).to_a

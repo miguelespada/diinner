@@ -45,5 +45,20 @@ module Ajax
   end
 end
 
+module Cards
+  def valid_card
+    {card: {
+    name: "Rodrigo Rato",
+    number: "4012888888881881",
+    exp_month: '09',
+    exp_year: '2020',
+    cvc: '123'
+    }}
+  end
+
+end
+
+
 World(Login)
 World(Ajax)
+World(Cards)

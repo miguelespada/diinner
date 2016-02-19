@@ -64,7 +64,7 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Capybara.javascript_driver = :poltergeist
 
-options = {js_errors: false}
+options = {js_errors: false, :default_wait_time => 30}
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
