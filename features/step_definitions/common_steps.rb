@@ -10,7 +10,8 @@ When(/^I visit the homepage$/) do
 end
 
 When(/^I logout$/) do
-  click_on "Logout"
+  click_on "Salir"
+  visit auth_logout_path
 end
 
 Then(/^I should see the homepage$/) do

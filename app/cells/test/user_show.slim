@@ -2,10 +2,10 @@
   .test
     .col-xs-12.diinner-label.yellow
       = model.question
-
+    / TODO Dry this
     .responses
       .col-lg-6
-        = link_to user_test_response_path(current_user, model, option: model.caption_A), method: :post
+        = link_to user_test_response_path(current_user, model, option: model.caption_A), method: :post, id: "test-A"
           .option.option_A
             - if model.option_A.present?
               = cl_image_tag(model.option_A.public_id, quality: 60, format: :jpg, crop: :fill, radius: 2, class: 'image' )
@@ -18,7 +18,7 @@
               .bi_interface-arrow-right
 
       .col-lg-6
-        = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post
+        = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, id: "test-B"
           .option.option_B
             - if model.option_B.present?
               = cl_image_tag(model.option_B.public_id, quality: 60, format: :jpg, crop: :fill, radius: 2, class: 'image')
