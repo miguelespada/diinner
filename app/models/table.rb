@@ -18,6 +18,7 @@ class Table
   delegate :price, :to => :menu
   delegate :city, :to => :restaurant
 
+
   attr_accessor :number, :repeat_until
 
   def start_time
@@ -30,14 +31,14 @@ class Table
 
   def affinity
     # TODO memoize
-    res = uncancelled_reservations
+    res = uncancelled_reservations.to_a
     return 100 if res.count <= 1
     aff = 0
     i = 0
     while i < res.count - 1 do
       j = i + 1
       while j <  res.count do
-        aff += res[i].affinity(reservations[j])
+        aff += res[i].affinity(res[j])
         j += 1
       end
       i += 1
