@@ -8,6 +8,10 @@ Feature: User Reserves table
     And I am a logged user
     When I reserve a table
 
+  @user_reserves_table_simple @javascript
+  Scenario:
+    Then I see the confirmation
+
   @user_reserves_table
   Scenario: User reserve a table
     Then I can see the reserved table in my calendar

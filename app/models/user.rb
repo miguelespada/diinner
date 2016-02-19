@@ -96,7 +96,7 @@ class User
   end
 
   def sample_test
-    Test.find(test_pending.sample) if !test_pending.empty?
+    Test.find(test_pending.sample.to_s) if !test_pending.empty?
   end
 
   def get_stripe_create_customer! token

@@ -19,7 +19,7 @@
       .col-lg-12
         .text-center.reservations
           .diinner-info = t("press_reservation")
-          = link_to new_user_reservation_path(@user)
+          = link_to new_user_reservation_path(@user), id: "new-reservation-link"
             .diinner-button.pink
               =t("new_reservation")
       .separator

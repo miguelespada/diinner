@@ -25,7 +25,7 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-    config.log_level = :debug
+  config.log_level = :debug
 
 
   # Adds additional error checking when serving assets at runtime.

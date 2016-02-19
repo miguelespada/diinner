@@ -56,7 +56,7 @@ gem 'hashids'
 gem "factory_girl_rails"
 gem 'airbrake'
 gem "skylight"
-
+gem 'poltergeist'
 gem 'bootstrap-slider-rails'
 gem 'google-analytics-rails', '1.0.0'
 gem 'actionpack-action_caching'

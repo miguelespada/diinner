@@ -30,28 +30,37 @@ end
 
 When(/^I search a table$/) do
   step "I go to the user page"
-  click_on "New Reservation", match: :first
-  select("Lowcost", :from => "reservation_price")
-  find("#reservation_date", visible: false).set @table.date.to_date
-  select "Madrid", :from => "reservation_city"
-  click_on "Search tables"
+  find("#new-reservation-link").trigger("click")
+  # select("Lowcost", :from => "reservation_price")
+  # find("#reservation_date", visible: false).set @table.date.to_date
+  # select "Madrid", :from => "reservation_city"
+  click_on "Buscar mesas"
 end
 
 When(/^I reserve a table$/) do
   step("I search a table")
 
-  within ".search-results" do
-    step("I can see the table details")
-  end
-  click_on(@restaurant.name)
+  # within ".search-results" do
+  #   step("I can see the table details")
+  # end
+
+  # click_on(@restaurant.name)
+
+  click_on "reserve-#{@restaurant.name}"
   step("I fill in the credit card details")
-  click_on "Confirm"
-  expect(page).to have_content("Table reserved succesfully!")
+  find("#continuar").trigger("click")
+  
 end
+
+Then(/^I see the confirmation$/) do
+
+  expect(page).to have_content("El estado del plan es RESERVADO")
+end
+
 
 Then(/^I can see the table details$/) do
 
-  expect(page).to have_content(@restaurant.name)
+  expect(page).to have_content(@restaurant.name.upcase)
   
   # expect(page).to have_content(@table.date)
   expect(page).to have_content(@table.hour.strftime("%H:%M"))
@@ -67,9 +76,7 @@ Then(/^I fill in the credit card details$/) do
   fill_in "exp_month", with: "12"
   fill_in "exp_year", with: "2020"
   fill_in "card_cvc", with: "123"
-  find(:xpath, "//input[@id='stripe_card_token']").set "Dummy_token"
-  check "terms_and_conditions"
-
+  # find(:xpath, "//input[@id='stripe_card_token']").set "Dummy_token"
   allow_any_instance_of(User).to receive(:get_stripe_create_customer!).and_return(Stripe::Customer.new(id: "123"))
   allow_any_instance_of(User).to receive(:get_stripe_default_card!).and_return("1881")
 
