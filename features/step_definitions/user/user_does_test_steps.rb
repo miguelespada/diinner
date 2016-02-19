@@ -8,6 +8,11 @@ Given(/^I do a test$/) do
   find("#test-A").click
   expect(@user.profile(:humor)).to eq -0.5
 
+  step("The profile is generated if not exists")
+end
+
+
+Then(/^The profile is generated if not exists$/) do
   @user.test_profile = nil
   @user.save!
   expect(@user.profile(:humor)).to eq -0.5
