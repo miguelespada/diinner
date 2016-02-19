@@ -1,7 +1,9 @@
 class  Users::ReservationsController < BaseUsersController
   load_resource :id_param => :reservation_id, :through => :user,
                 :only => [:cancel, :menu, :new_evaluation]
-  load_resource :only => [:destroy, :show], :through => :user
+  load_resource :only => [:destroy], :through => :user
+
+  caches_action :show, expires_in: 2.minutes
 
   def index
     @reservations = @user.reservations.where(cancelled: false).to_a
@@ -15,6 +17,7 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def show
+    @reservation = Reservation.includes(:table).find(params['id'])
   end
 
   def search
