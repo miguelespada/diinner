@@ -15,15 +15,15 @@ Given(/^There are some available tables$/) do
 end
 
 Then(/^I had previous cancelled reservations$/) do
+
+  expect(EmailNotifications).to receive(:notify_cancel_reservation).at_least(:once)
+
   @user.update_customer_information!(Stripe::Token.create(valid_card).id)
   
   FactoryGirl.create(:reservation, user: @user, table: @table, date: Date.today)
   expect(@user.reservations.count).to eq 1
   expect(@user.reservations.first.can_be_cancelled?).to eq true
-  visit user_path(@user)
-  find("#reservation-#{@restaurant.name}").click
-  click_on "Cancel"
-  expect(page).to have_content("No tienes reservas")
+  step("I cancel my reservation")
 end
 
 
@@ -75,6 +75,7 @@ When(/^I reserve a table$/) do
 end
 
 Then(/^I see the confirmation$/) do
+  expect(page).to have_content("Tu reserva se ha realizado correctamente")
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(@user.reservations.count).to eq 1
 end
@@ -123,17 +124,17 @@ end
 
 When(/^I cancel my reservation$/) do
   step "I go to the user page"
-  click_on "My reservations"
-  find(".status-table > a").click
-  first(".reservation").click
-  click_on "Cancel reservation"
+  find("#reservation-#{@restaurant.name}").click
+  click_on "Cancel"
+  expect(page).to have_content("No tienes reservas")
 end
 
-Then(/^I see that my reservation is cancelled$/) do
-  expect(page).to have_content("Reservation was successfully cancelled.")
-  within ".reservation-status" do
-    expect(page).to have_content("Cancelled")
-  end
+Then(/^I can see the notification that the reservation is cancelled$/) do
+  click_on "Notificaciones"
+  expect(@user.notifications.count).to be 2
+
+  expect(page).to have_content("La reserva para el restaurante restaurant_1")
+  expect(page).to have_content("se ha cancelado correcamente.")
 end
 
 Then(/^I should not see the reserved table in my calendar$/) do

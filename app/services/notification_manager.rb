@@ -63,6 +63,7 @@ class NotificationManager
 
   def self.notify_user_cancel_reservation(object: nil)
     object.create_activity key: "reservation.cancel", owner: object.user, recipient: object.restaurant
+    object.create_activity key: "reservation.cancel", owner: object.user, recipient: object.user
   end
 
   def self.notify_reservation_pending(object: nil)

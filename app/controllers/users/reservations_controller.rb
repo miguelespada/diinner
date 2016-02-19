@@ -85,7 +85,11 @@ class  Users::ReservationsController < BaseUsersController
 
   def cancel
     @reservation.cancel
+
     NotificationManager.notify_user_cancel_reservation(object: @reservation)
+    
+    EmailNotifications.notify_cancel_reservation @reservation
+
     redirect_to user_reservations_path(@user), notice: t("cancelation_successful")
   end
 

@@ -1,4 +1,16 @@
-div.cancel-reservation-log
-  i.bi_misc-mood-sad
-  | Reservation cancelled  
-  = render "public_activity/reservation/show", activity: activity
+- if activity.recipient.is_owned_by?(@current_user)
+  = link_to user_reservation_path(@user, activity.trackable)
+    .notification
+      .message
+        | La reserva para el restaurante  
+        = activity.trackable.restaurant.name
+        |> para el día  
+        = activity.trackable.date
+        |> se ha cancelado correcamente.
+      .time
+        == activity.created_at
+- else
+  div.cancel-reservation-log
+    i.bi_misc-mood-sad
+    | Reservation cancelled  
+    = render "public_activity/reservation/show", activity: activity
