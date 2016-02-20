@@ -5,6 +5,7 @@
   = f.input :after_plan, as: :boolean, label: false, :checked => (@user.after_plan.nil? || @user.after_plan == true ? 1 : 0 )
 javascript:
   $(".after-toggle").click(function () {
+    $(".diinner-label.pink").hide();
     $(this).siblings().removeClass("selected");
     $(this).addClass("selected");
       $('.after-plan input').val($(this).data('after'));

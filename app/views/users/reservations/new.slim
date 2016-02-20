@@ -89,7 +89,7 @@ javascript:
     return new Date(new Date().getTime() + daysOffset * 24 * 60 * 60 * 1000);
   };
 
-  var dateToString = function(date){  
+  var dateToString = function(date){
     var tzoffset = (new Date()).getTimezoneOffset() * 60000;
     var localISOTime = new Date(date - tzoffset);
     return localISOTime.toISOString().substring(0, 10);
@@ -118,12 +118,14 @@ javascript:
     setDefaultDate();
 
     $(".company-toggle").click(function () {
+      $(".diinner-label.pink").hide();
       $(this).siblings().removeClass("selected");
       $(this).addClass("selected");
       $(this).data("company") == true ? $(".company-container").show() : $(".company-container").hide();
     });
 
     $(".fake-date select").on("change", function(){
+      $(".diinner-label.pink").hide();
       var day = $("#fake_date_3i").val();
       var month = $("#fake_date_2i").val();
       var year = $("#fake_date_1i").val();
@@ -132,6 +134,7 @@ javascript:
     });
 
     $(".day-toggle").click(function () {
+      $(".diinner-label.pink").hide();
 
       $(".day-toggle").removeClass("selected");
       $(this).addClass("selected");
@@ -192,6 +195,7 @@ javascript:
     };
 
     $(".price-toggle").click(function () {
+      $(".diinner-label.pink").hide();
       $(".price-toggle").removeClass("selected");
       $(this).addClass("selected");
       $(".price select").val($(this).data("price"));
