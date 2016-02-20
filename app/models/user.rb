@@ -243,6 +243,7 @@ class User
   end
 
   def suggestions
+    return [] if !has_preferences?
     params = {price: menu_range, city: city, after_plan: after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
     suggestionEngine = SuggestionEngine.new self, params
     suggestionEngine.search.first(3) 
