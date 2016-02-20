@@ -57,7 +57,6 @@ header.home-header
   .test-wrapper
     .info
       | Diinner utiliza un <span class="black">algoritmo de matching</span> para seleccionar los mejores compañeros de cena.
-
     .test-box.box data-pos=0
       - Test.all.sample(5).each_with_index do |t, i|
         .test-info class="#{'active' if i == 0}"
@@ -77,8 +76,6 @@ header.home-header
       .down-box
         .diinner-label.yellow
           | Responde a unas divertidas preguntas y encontraremos los <b>mejores comensales</b>.
-          br
-          | Nuestro sistema se asegura que el <b>número de chicos y chicas está equilibrado</b> en todas las cenas.
         .dot-list
           .dot.yellow
           .dot
@@ -86,8 +83,11 @@ header.home-header
           .dot
           .dot
 
+  .matching.box
+    .diinner-label.yellow
+      | Nuestro sistema se asegura que el <b>número de chicos y chicas está equilibrado</b> en todas las cenas.
 
-  .info
+  .info.blog
     | Disfruta del mejor contenido de nuestro blog
     .black<
       =link_to "Cenar para quedar.", "/blog"
