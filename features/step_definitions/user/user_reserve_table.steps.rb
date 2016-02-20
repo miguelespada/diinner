@@ -35,11 +35,6 @@ Then(/^I made a reservation$/) do
   expect(@user.reservations.count).to eq 2
   expect(@user.reservations.first.can_be_cancelled?).to eq false
   expect(@user.reservations.last.can_be_cancelled?).to eq true
-
-
-  expect(EmailNotifications).to receive(:notify_plan_cancellation).at_least(:once)
-  allow(Date).to receive(:today).and_return Date.tomorrow
-  expect(TableManager.today_tables.count).to eq 1
 end
 
 When(/^I search a table with bad date$/) do
@@ -199,8 +194,8 @@ Then(/^I can see the cancellation notification$/) do
 end
 
 Given(/^There are enough reservations$/) do
-    @he = FactoryGirl.create(:user, gender: :male)
-    @she = FactoryGirl.create(:user, gender: :female)
+    @he = FactoryGirl.create(:user, :with_customer_id, gender: :male)
+    @she = FactoryGirl.create(:user, :with_customer_id, gender: :female)
 
     return_value = Hash.new
     return_value[:id] = "123"

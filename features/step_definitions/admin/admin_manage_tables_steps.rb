@@ -25,3 +25,26 @@ Then(/^I can process a table$/) do
   click_on "Payments"
   expect(page).to have_content "Confirmed"
 end
+
+Then(/^I can't process the same table twice$/) do
+  click_on "Tables"
+  click_on "Process"
+  expect(page).to have_content "Processed"
+end
+
+
+Given(/^There are not enough reservations$/) do
+  step "There are some available tables"
+  @he = FactoryGirl.create(:user, :with_customer_id, gender: :male)
+  @she = FactoryGirl.create(:user, :with_customer_id, gender: :female)
+
+  return_value = Hash.new
+  return_value[:id] = "123"
+  allow_any_instance_of(Reservation).to receive(:create_stripe_charge).and_return return_value
+  allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return return_value
+  allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value
+
+  FactoryGirl.create(:reservation, user: @he, table: @table)
+  FactoryGirl.create(:reservation, user: @he, table: @table)
+  FactoryGirl.create(:reservation, user: @she, table: @table)
+end

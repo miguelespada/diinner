@@ -16,7 +16,7 @@ end
 Given(/^A user has reserved a table$/) do
   step "I am a logged user"
   step "There are some available tables"
-  step "I reserve a table"
+  step "I made a reservation"
 end
 
 Then(/^I can see the user reservation in the table section$/) do
