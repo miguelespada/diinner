@@ -1,9 +1,10 @@
+- home = HomeItem.get_first
 - content_for(:head) do
   = javascript_include_tag 'utils'
 
 .user-image-wrapper.visible-xs
   .wrapper-background
-    = image_tag 'background.png', class: 'image-background'
+    = cl_image_tag(home.mobile_profile_background.public_id, quality: 75, format: :jpg, width: 720, crop: :limit, class: "image-background") if !home.mobile_profile_background.nil?
     .wrapper-center.text-center
       = image_tag @user.image_url, size: "200", class: 'user-image'
       .user-name
@@ -72,14 +73,12 @@
 
   .separator
 
-  - if @suggestions && @suggestions.length > 0
-    .col-md-12.box.suggest
-      = t("we_suggest")
-      strong
-        =<
-        = t("tomorrow")
-    .row
-      = render 'partials/suggestions'
+  .col-md-12.box.suggest hidden=true
+    = t("we_suggest")
+    strong
+      =<
+      = t("tomorrow")
+  .row.suggestions
   - if @blog_posts.length > 0
     .col-md-12.box.suggest
       = t("we_suggest_blogs")
@@ -87,3 +86,14 @@
       = render 'partials/blog_posts'
 
   .separator
+
+javascript:
+  $.ajax({
+    url: "#{user_suggestions_path(@user)}"
+  }).done(function (response) {
+    if($(response).find(".no-suggestions").length == 0){
+      $(".suggestions").append(response);
+      $(".suggest").show();
+    }
+
+  });

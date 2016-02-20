@@ -36,6 +36,10 @@ Then(/^I made a reservation$/) do
   expect(@user.reservations.first.can_be_cancelled?).to eq false
   expect(@user.reservations.last.can_be_cancelled?).to eq true
 
+
+  expect(EmailNotifications).to receive(:notify_plan_cancellation).at_least(:once)
+  allow(Date).to receive(:today).and_return Date.tomorrow
+  expect(TableManager.today_tables.count).to eq 1
 end
 
 When(/^I search a table with bad date$/) do
@@ -64,7 +68,6 @@ end
 
 When(/^I reserve a table$/) do
   step("I search a table")
-
   # within ".search-results" do
   #   step("I can see the table details")
   # end
@@ -76,9 +79,12 @@ When(/^I reserve a table$/) do
 end
 
 Then(/^I see the confirmation$/) do
-  expect(page).to have_content("Tu reserva se ha realizado correctamente")
+  # expect(page).to have_content("Tu reserva se ha realizado correctamente")
+  
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(@user.reservations.count).to eq 1
+  expect(@user.reservations.first.cancelled?).to eq false
+  expect(@user.reservations.first.is_last_minute?).to eq false
 end
 
 
@@ -176,9 +182,7 @@ Then(/^I can reserve again with the same card$/) do
 end
 
 When(/^the table manager process runs$/) do
-  expect(EmailNotifications).to receive(:notify_plan_cancellation).at_least(:once)
   allow(Date).to receive(:today).and_return Date.tomorrow
-  expect(TableManager.today_tables.count).to eq 1
 
   TableManager.process_today_tables
 end
@@ -191,7 +195,6 @@ Then(/^I can see the cancellation notification$/) do
   click_on "Notificaciones"
   expect(page).to have_content "Lo sentimos. Tu plan en el restaurante restaurant_1"
   expect(page).to have_content "ha sido cancelado"
-
 
 end
 
