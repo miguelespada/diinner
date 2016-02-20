@@ -196,8 +196,8 @@ Then(/^I can see the cancellation notification$/) do
 end
 
 Given(/^There are enough reservations$/) do
-    @he = FactoryGirl.create(:user, gender: :male)
-    @she = FactoryGirl.create(:user, gender: :female)
+    @he = FactoryGirl.create(:user, :with_customer_id, gender: :male)
+    @she = FactoryGirl.create(:user, :with_customer_id, gender: :female)
 
     return_value = Hash.new
     return_value[:id] = "123"

@@ -1,4 +1,4 @@
-@admin_manage_tables @wip
+@admin_manage_tables
 Feature: Admin Manage Tables
   As admin
   I want to delete old empty tables
@@ -16,3 +16,9 @@ Feature: Admin Manage Tables
     And There are enough reservations
     Then I am logged as admin
     Then I can process a table
+
+  @admin_process_cancelled
+  Scenario: I create a restaurant
+    Given There are not enough reservations
+    Then I am logged as admin
+    Then I can't process the same table twice

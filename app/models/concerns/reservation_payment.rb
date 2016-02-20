@@ -33,6 +33,7 @@ module ReservationPayment
 
     def capture
       return true if paid?
+      return false if cancelled?
       payment_id = create_stripe_charge
       if payment_id
         self.update(charge_id: payment_id)
