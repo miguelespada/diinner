@@ -3,6 +3,7 @@ class HomeItem
 
   has_attachment :header, accept: [:jpg, :png, :gif]
   has_attachment :mobile_background, accept: [:jpg, :png, :gif]
+  has_attachment :mobile_profile_background, accept: [:jpg, :png, :gif]
   has_attachment :how_it_works_1, accept: [:jpg, :png, :gif]
   has_attachment :how_it_works_2, accept: [:jpg, :png, :gif]
   has_attachment :how_it_works_3, accept: [:jpg, :png, :gif]

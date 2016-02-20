@@ -111,6 +111,7 @@ Rails.application.routes.draw do
   namespace :users, as: nil do
     get "/login" => "users#login", as: "users_login"
     resources :users, except: [:index] do
+      get "suggestions" => "users#user_suggestions", as: :suggestions
       resources :restaurants, only: [:show]
       resources :menus, only: [:show]
       resources :notifications, only: [:index]
