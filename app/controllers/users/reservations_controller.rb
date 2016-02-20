@@ -6,7 +6,7 @@ class  Users::ReservationsController < BaseUsersController
   caches_action :show, expires_in: 5.minutes
 
   def index
-    @reservations = @user.reservations.where(cancelled: false).to_a
+    @reservations = @user.reservations.where(cancelled: false).to_a.select{|r| r.table.processed or r.date > Date.today}
   end
 
   def new
@@ -18,6 +18,7 @@ class  Users::ReservationsController < BaseUsersController
 
   def show
     @reservation = Reservation.includes(:table).find(params['id'])
+    redirect_to user_path(@current_user), notice: 'Ha ocurrido un error con la reserva' if !@reservation.table.processed and @reservation.date <= Date.today
   end
 
   def search

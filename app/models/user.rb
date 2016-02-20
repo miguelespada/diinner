@@ -32,7 +32,7 @@ class User
   # CACHE CONTROL
   def cached_future_reservations
     Rails.cache.fetch("future_reservations_" + self.id.to_s, expires_in: 1.day) do 
-      reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').to_a
+      reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').to_a.select{|r| r.table.processed or r.date > Date.today}
     end
   end
 

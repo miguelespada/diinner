@@ -538,6 +538,3 @@ DEPENDENCIES
   unicorn
   whenever
   will_paginate_mongoid
-
-BUNDLED WITH
-   1.10.6
