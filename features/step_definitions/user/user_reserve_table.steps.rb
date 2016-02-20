@@ -36,10 +36,6 @@ Then(/^I made a reservation$/) do
   expect(@user.reservations.first.can_be_cancelled?).to eq false
   expect(@user.reservations.last.can_be_cancelled?).to eq true
 
-
-  expect(EmailNotifications).to receive(:notify_plan_cancellation).at_least(:once)
-  allow(Date).to receive(:today).and_return Date.tomorrow
-  expect(TableManager.today_tables.count).to eq 1
 end
 
 When(/^I search a table with bad date$/) do
@@ -131,6 +127,7 @@ end
 
 When(/^I cancel my reservation$/) do
   step "I go to the user page"
+  save_and_open_page
   find("#reservation-#{@restaurant.name}").click
   click_on "Cancel"
   expect(page).to have_content("No tienes reservas")
