@@ -24,6 +24,10 @@
       .price-title
         = t("price")
         span.price ==< "#{suggestion.menu.price}€"
+      - if suggestion.companies.length > 0
+        .price-title.total-price
+          = t("total_price")
+          span.price ==< "#{suggestion.menu.price * (suggestion.female_count + suggestion.male_count) }€"
     .affinity
       .affinity-info =t("compatibility")
       .affinity-tag.rotated
