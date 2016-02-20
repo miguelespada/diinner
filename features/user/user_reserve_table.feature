@@ -48,3 +48,9 @@ Feature: User Reserves table
 #     Given There are enough reservations
 #     When the table manager process runs
 # #    Then I can see the plan confirmation notification #TODO NOTIFICATIONS
+
+  @user_not_processed_reservation
+  Scenario: User can't access not processed reservation
+    When Is the reservation day
+    And The reservation has not been processed
+    Then I can't see the reservation

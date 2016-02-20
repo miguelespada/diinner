@@ -12,6 +12,7 @@ Given(/^There are some available tables$/) do
   @menu = @restaurant.menus.first
   @restaurant.tables.create(FactoryGirl.build(:table, menu: @menu).attributes)
   @table = @restaurant.tables.first
+  @table.date = Date.tomorrow
 end
 
 Then(/^I had previous cancelled reservations$/) do
@@ -20,7 +21,7 @@ Then(/^I had previous cancelled reservations$/) do
 
   @user.update_customer_information!(Stripe::Token.create(valid_card).id)
   
-  FactoryGirl.create(:reservation, user: @user, table: @table, date: Date.today)
+  FactoryGirl.create(:reservation, user: @user, table: @table, date: @table.date)
   expect(@user.reservations.count).to eq 1
   expect(@user.reservations.first.can_be_cancelled?).to eq true
   step("I cancel my reservation")
@@ -30,7 +31,7 @@ end
 Then(/^I made a reservation$/) do
   step("I had previous cancelled reservations")
 
-  FactoryGirl.create(:reservation, user: @user, table: @table, date: Date.today)
+  FactoryGirl.create(:reservation, user: @user, table: @table, date: @table.date)
   expect(@user.reservations.count).to eq 2
   expect(@user.reservations.first.can_be_cancelled?).to eq false
   expect(@user.reservations.last.can_be_cancelled?).to eq true
@@ -230,3 +231,19 @@ Then(/^I cannot reserve a table the same date$/) do
 end
 
 
+When(/^Is the reservation day$/) do
+  @reservation = @user.reservations.last
+  @reservation.update(date: Date.today)
+  @reservation.table.update(date: Date.today)
+end
+
+When(/^The reservation has not been processed$/) do
+  @reservation.table.processed = false
+end
+
+Then(/^I can't see the reservation$/) do
+  visit user_path(@user)
+  expect(page).not_to have_content @reservation.restaurant.name
+  visit user_reservation_path(@user, @reservation)
+  expect(page).to have_content "Pulsa en reservar para buscar planes diinner" #todo notification instead of user profile text
+end
