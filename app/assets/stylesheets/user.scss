@@ -10,6 +10,9 @@
 @import "user/forms";
 @import "calendar";
 
+html{
+  -webkit-overflow-scrolling: touch;
+}
 
 html, body{
   height: 100%;
