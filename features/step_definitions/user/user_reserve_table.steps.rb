@@ -63,7 +63,6 @@ end
 
 When(/^I reserve a table$/) do
   step("I search a table")
-
   # within ".search-results" do
   #   step("I can see the table details")
   # end
@@ -75,9 +74,12 @@ When(/^I reserve a table$/) do
 end
 
 Then(/^I see the confirmation$/) do
-  expect(page).to have_content("Tu reserva se ha realizado correctamente")
+  # expect(page).to have_content("Tu reserva se ha realizado correctamente")
+  
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(@user.reservations.count).to eq 1
+  expect(@user.reservations.first.cancelled?).to eq false
+  expect(@user.reservations.first.is_last_minute?).to eq false
 end
 
 

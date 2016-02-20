@@ -18,12 +18,6 @@ Rails.application.routes.draw do
     post "save_test" => "ionic#save_test"
   end
 
-  scope :auth, as: "auth" do
-    get "auth0/callback" => "auth0#callback"
-    get "failure" => "auth0#failure"
-    get "logout" => "auth0#logout"
-  end
-
   devise_for :restaurants, :skip => [:passwords]
   as :restaurant do
     get 'restaurants/password/edit' => 'devise/registrations#edit', :as => 'edit_restaurant_registration'
@@ -35,6 +29,15 @@ Rails.application.routes.draw do
     get 'admins/password/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'
     patch 'admins/password/:id' => 'devise/registrations#update', :as => 'admin_registration'
   end
+
+
+  scope :auth, as: "auth" do
+    get "auth0/callback" => "auth0#callback"
+    get "failure" => "auth0#failure"
+    get "logout" => "auth0#logout"
+  end
+
+
 
   scope :static do
     get "help/user" => "static#help_user", as: "help_user"

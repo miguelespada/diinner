@@ -69,7 +69,6 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
-Rails.cache.clear
 
 World(FactoryGirl::Syntax::Methods)
 
