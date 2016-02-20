@@ -362,6 +362,9 @@ h1, h2, h3, h4{
   }
   &.plan_closed{
     background-color: $tablePlanClosed;
+    .processed-false{
+      background-color: $tablePartial;
+    }
   }
   &.partial{
     background-color: $tablePartial;

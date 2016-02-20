@@ -30,12 +30,12 @@ class TableManager
 
   def self.process tables
     self.purge_cancelled_reservations(tables)
+    self.mark_as_processed(tables)
     tables = self.cancel_partial(tables)
     return if tables.count == 0
     self.capture(tables)
     self.refund_partial(tables)
     self.refund_last_minute(tables)
-    self.mark_as_processed(tables)
     tables = self.cancel_partial(tables)
     self.charge(tables)
     self.notify_confirmations(tables)
