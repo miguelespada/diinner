@@ -760,3 +760,80 @@ html, body{
     }
   }
 }
+//Restaurant view
+.user-container{
+  .restaurant-info{
+    margin-bottom: 20px;
+  }
+  .separator{
+    min-height: 5vh;
+    position: relative;
+    clear: both;
+  }
+  .plan-info{
+    .plan-label {
+      font-weight: bold;
+    }
+    .plan-value{
+      color: $textGray;
+    }
+    .map{
+      margin-top: 10px;
+    }
+  }
+  padding-top: 52px !important;
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .user-container {
+    width: 70%;
+    margin: auto;
+  }
+}
+@media (min-width: 1400px){
+  .user-container{
+    width: 55%;
+    margin: auto;
+  }
+
+}
+
+.custom-button {
+  margin-bottom:15px;
+  margin-top: 15px;
+  background-color: white;
+  color: $textDarkGray;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding: 0 12px;
+  min-width: 52px;
+  border: 1px solid $textDarkGray;
+  border-radius: 0;
+  vertical-align: center;
+  text-align: center;
+  text-overflow: ellipsis;
+  line-height: 42px;
+  cursor: pointer;
+  text-decoration: none;
+  &.button-calm{
+    //border-color: $themeBlue;
+    //background-color: $themeBlue;
+    //color: #fff;
+    margin-left: 10px;
+  }
+  &.button-danger{
+    color: $buttonPink;
+    border: 1px solid $buttonPink;
+
+  }
+  &.button-assertive{
+    border-color: $assertiveRed;
+    background-color: $assertiveRed;
+    color: #fff;
+  }
+  &.button-balanced{
+    border-color: $balancedGreen;
+    background-color: $balancedGreen;
+    color: #fff;
+  }
+}

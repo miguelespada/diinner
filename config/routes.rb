@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     get "cocktail" => "static#cocktail"
     get "drop_out" => "static#drop_out"
     get "terms" => "static#terms"
+    get "restaurant/:id" => "static#restaurant", as: :static_restaurant
   end
 
   namespace :restaurants, as: nil do

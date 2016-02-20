@@ -288,11 +288,27 @@ html, body{
 /* tablet
 -------------------*/
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .user-xs {
     display: none;
   }
-
+  .user-details{
+    text-align: center;
+    //overflow: auto;
+    //img{
+    //  width: 70%;
+    //  padding: 10px;
+    //}
+    //.user-data{
+    //  .name{
+    //    font-weight: bold;
+    //    font-size: calculateRem(20px);
+    //  }
+    //  .mail, .birth, .gender{
+    //    font-size: calculateRem(17px);
+    //  }
+    //}
+  }
   //.row {
   //  //@include flexbox;
   //  margin-top: 10px;
@@ -710,7 +726,22 @@ input.company {
     text-align: -moz-center;
 
   }
-
+  .user-details{
+    overflow: auto;
+    img{
+      width: 70%;
+      padding: 10px;
+    }
+    .user-data{
+      .name{
+        font-weight: bold;
+        font-size: calculateRem(20px);
+      }
+      .mail, .birth, .gender{
+        font-size: calculateRem(17px);
+      }
+    }
+  }
   .my-reservations{
     text-align: left;
 
@@ -910,6 +941,7 @@ input.company {
 }
 
 @media (max-width: 768px) {
+
   .drop-out-wrapper{
     margin-top: -80px;
     margin-bottom: 80px;

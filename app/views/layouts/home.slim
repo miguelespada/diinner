@@ -8,8 +8,13 @@ html
   body
     = render "/application/navbar"
     == yield
+    == render 'partials/modal', name: 'login-modal', view: 'partials/modal/user_login', can_be_closed: true
     = render "/application/footer"
+
 javascript:
+  $(".login-link").click(function () {
+    openModal('login-modal');
+  });
   if (Modernizr.mq('only all') === false) {
     // No Media Query Support Detected
     window.location.href = "http://browsehappy.com/";

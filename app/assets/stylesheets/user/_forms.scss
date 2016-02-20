@@ -1,4 +1,9 @@
 form{
+  .form-inline{
+    select{
+      margin-bottom: 10px;
+    }
+  }
   .form-control{
     //min-height: 44px;
   }
@@ -79,10 +84,15 @@ form{
   cursor: pointer;
   text-decoration: none;
   &.button-calm{
-    border-color: $themeBlue;
-    background-color: $themeBlue;
-    color: #fff;
+    //border-color: $themeBlue;
+    //background-color: $themeBlue;
+    //color: #fff;
     margin-left: 10px;
+  }
+  &.button-danger{
+    color: $buttonPink;
+    border: 1px solid $buttonPink;
+
   }
   &.button-assertive{
     border-color: $assertiveRed;
