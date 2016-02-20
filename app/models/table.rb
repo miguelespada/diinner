@@ -30,8 +30,7 @@ class Table
   end
 
   def purge_cancelled_reservations
-    self.reservations = uncancelled_reservations
-    self.save!
+    reservations.each{|r| r.destroy if r.cancelled?}
   end
 
   def affinity
