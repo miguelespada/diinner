@@ -63,7 +63,6 @@ gem 'actionpack-action_caching'
 gem "bullet", :group => "development"
 gem "redis-rails"
 gem 'whenever', :require => false
-gem "mongoid_includes"
 
 group :test do
   gem "database_cleaner"
