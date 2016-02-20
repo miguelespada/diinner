@@ -73,14 +73,12 @@
 
   .separator
 
-  - if @suggestions && @suggestions.length > 0
-    .col-md-12.box.suggest
-      = t("we_suggest")
-      strong
-        =<
-        = t("tomorrow")
-    .row
-      = render 'partials/suggestions'
+  .col-md-12.box.suggest hidden=true
+    = t("we_suggest")
+    strong
+      =<
+      = t("tomorrow")
+  .row.suggestions
   - if @blog_posts.length > 0
     .col-md-12.box.suggest
       = t("we_suggest_blogs")
@@ -88,3 +86,14 @@
       = render 'partials/blog_posts'
 
   .separator
+
+javascript:
+  $.ajax({
+    url: "#{user_suggestions_path(@user)}"
+  }).done(function (response) {
+    if($(response).find(".no-suggestions").length == 0){
+      $(".suggestions").append(response);
+      $(".suggest").show();
+    }
+
+  });

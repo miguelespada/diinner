@@ -1,6 +1,9 @@
 .search-results
-  - @suggestions.each do |suggestion|
-    = render 'partials/suggestion', suggestion: suggestion
+  - if @suggestions && @suggestions.length > 0
+    - @suggestions.each do |suggestion|
+      = render 'partials/suggestion', suggestion: suggestion
+  - else
+    .no-suggestions
 javascript:
   $(".see-menu").click(function (e) {
     var parent = $(this).parent().parent().parent();

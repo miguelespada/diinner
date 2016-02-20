@@ -42,8 +42,8 @@ Rails.application.configure do
   # config.cache_store = :redis_store
 
   config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = true
+    Bullet.enable = false
+    Bullet.alert = false
 
   end
 end
