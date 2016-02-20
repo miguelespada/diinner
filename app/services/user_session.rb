@@ -18,23 +18,13 @@ class UserSession
       user = User.new(hash_from_omniauth)
       user.save
       NotificationManager.notify_user_creation object: user, from: user
+      EmailNotifications.notify_new_user
     else
       user.update(hash_from_omniauth)
     end
     user
   end
 
-  def user_from_session_ionic #TODO Check if best way
-    user = find_user_ionic
-    if user.nil?
-      user = User.new(hash_from_omniauth_ionic)
-      user.save
-      NotificationManager.notify_user_creation object: user, from: user
-    else
-      user.update(hash_from_omniauth_ionic)
-    end
-    user
-  end
 
   private
 
