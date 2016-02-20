@@ -1,8 +1,11 @@
 <div class="simple-calendar">
-  <%= link_to "Previous", url_for(params.merge(start_date: date_range.first - 1.day)) %>
+  <div style="float:left">
+    <%= link_to "Previous", url_for(params.merge(start_date: date_range.first - 1.day)) %>
+  </div>
   <%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %>
-  <%= link_to "Next", url_for(params.merge(start_date: date_range.last + 1.day)) %>
-
+  <div style="float:right">
+    <%= link_to "Next", url_for(params.merge(start_date: date_range.last + 1.day)) %>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>

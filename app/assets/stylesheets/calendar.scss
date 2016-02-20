@@ -14,18 +14,13 @@
     > a{
       font-weight: 200;
       width:50px;
-      padding: 3px 15px;
-      border: 1px solid $lightGray;
-      border-radius: 3px;
-      &:link, &:visited{
+      float: right;
+      &:link, &:visited, &:hover, &:active{
         color: $textGray;
         text-decoration: none;
-        background-color: white;
       }
-      &:hover, &:active{
-        color: white;
-        text-decoration: none;
-        background-color: $lightGray;
+      &:first-child{
+        float: left;
       }
     }
   }

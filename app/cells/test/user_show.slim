@@ -13,21 +13,15 @@
                 .caption = model.caption_A
             - else
               .text.pink = model.caption_A
-          /= link_to user_test_response_path(current_user, model, option: model.caption_A), method: :post, class: 'wrapper'
-            .selector
-              .bi_interface-arrow-right
 
       .col-lg-6
         = link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, id: "test-B"
           .option.option_B
             - if model.option_B.present?
               = cl_image_tag(model.option_B.public_id, quality: 60, format: :jpg, crop: :fill, radius: 2, class: 'image')
-              - if model.caption_A.present?
+              - if model.caption_B.present?
                 .caption = model.caption_B
             - else
               .text.yellow = model.caption_B
-          /= link_to user_test_response_path(current_user, model, option: model.caption_B), method: :post, class: 'wrapper'
-            .selector
-              .bi_interface-arrow-right
-.text-center
-  = link_to "Saltar pregunta", user_test_response_path(current_user, model, option: :skip), method: :post, class: 'diinner-button pink floater'
+  .text-center
+    = link_to "Saltar pregunta", user_test_response_path(current_user, model, option: :skip), method: :post, class: 'custom-button'

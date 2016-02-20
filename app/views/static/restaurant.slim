@@ -1,0 +1,46 @@
+.user-container
+  .text-center
+    h2 = t("home_hiw_1")
+    h4.restaurant-info
+      |Aquí puedes ver el menú exclusivo que nos ofrece
+      =< @restaurant.name
+  .plan-info
+    .row.box
+      .col-xs-12.diinner-label.yellow
+        strong == @restaurant.name
+        br
+        == @restaurant.description
+      .reservation
+        .col-xs-12
+          .col-xs-12.col-md-6
+            .text-center.restaurant-image
+              == cell(:restaurant, @restaurant).cl_photo 300
+          .col-xs-12.col-md-6
+            .separator
+            .col-xs-12
+              = render 'partials/menu', restaurant: @restaurant
+          .separator
+      .separator
+    .separator
+    .row.box
+      .col-xs-12.diinner-label.yellow
+        == t("practical_data")
+      .col-xs-12
+        .separator
+        .col-xs-12
+          .address
+            span.plan-label = t("address")
+            span.plan-value =< @restaurant.address
+          .city
+            span.plan-label = t("city")
+            span.plan-value =< @restaurant.city.name
+        .col-xs-12.map
+          == cell(:restaurant, @restaurant)._map
+          == cell(:restaurant, @restaurant).location
+          = render "/layouts/map"
+        .separator
+    .text-center
+      = link_to :back, class: "back"
+        .custom-button Volver
+      .custom-button.button-danger.login-link
+        | Regístrate
