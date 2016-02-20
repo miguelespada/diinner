@@ -1,4 +1,9 @@
 form{
+  .form-inline{
+    select{
+      margin-bottom: 10px;
+    }
+  }
   .form-control{
     //min-height: 44px;
   }
