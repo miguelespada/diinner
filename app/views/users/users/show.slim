@@ -16,6 +16,18 @@
 
 .hidden-xs.desktop
   .row
+    .box.col-lg-12.user-details
+      .col-lg-5
+        .col-xs-12.text-center
+          = image_tag @user.image_url, size: "200", class: 'user-image'
+      .col-lg-7
+        .separator
+        .col-xs-12.user-data
+          .name = @user.name
+          .mail = @user.email
+          .birth = "#{t(@user.gender)} #{@user.birth}"
+        .separator
+    .separator
     .col-lg-5
       .col-lg-12
         .text-center.reservations

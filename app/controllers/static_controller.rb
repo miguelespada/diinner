@@ -33,6 +33,11 @@ class StaticController < ApplicationController
 
   end
 
+  def restaurant
+    @restaurant = Restaurant.find(params[:id])
+    render layout: "home"
+  end
+
   private
 
   def redirect_if_authenticated

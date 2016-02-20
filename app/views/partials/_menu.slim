@@ -1,27 +1,31 @@
+- if defined? reservation
+  - menu = reservation.menu
+- else
+  - menu = restaurant.menus.last
 .menu-data
   .text-center
     b.menu-name
-      == reservation.menu.name.mb_chars.upcase if reservation.menu.name
-      - if reservation.menu.description
+      == menu.name.mb_chars.upcase if menu.name
+      - if menu.description
         .menu-description
-          == reservation.menu.description
-      - if reservation.menu.appetizer
+          == menu.description
+      - if menu.appetizer
         .menu-element
           | Entrante
         .item
-          == reservation.menu.appetizer
-      - if reservation.menu.main_dish
+          == menu.appetizer
+      - if menu.main_dish
         .menu-element
           | Principal
         .item
-          == reservation.menu.main_dish
-      - if reservation.menu.dessert
+          == menu.main_dish
+      - if menu.dessert
         .menu-element
           | Postre
         .item
-          == reservation.menu.dessert
-      - if reservation.menu.drink
+          == menu.dessert
+      - if menu.drink
         .menu-element
           | Bebida
         .item
-          == reservation.menu.drink
+          == menu.drink

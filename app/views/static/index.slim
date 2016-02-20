@@ -34,9 +34,10 @@ header.home-header
     - 3.times do |i|
       - restaurant = home.send("restaurant_sample_#{i + 1}")
       - if !restaurant.nil?
-        .restaurant-box.box.login-link
-          .image
-            = cell(:restaurant, restaurant).cl_photo 300
+        .restaurant-box.box
+          = link_to static_restaurant_path(restaurant)
+            .image
+              = cell(:restaurant, restaurant).cl_photo 300
           .diinner-label.yellow
             .title = restaurant.name
             .city  = restaurant.city.name
@@ -111,7 +112,6 @@ header.home-header
       br
       |redes sociales
 
-== render 'partials/modal', name: 'login-modal', view: 'partials/modal/user_login', can_be_closed: true
 
 javascript:
   $(window).bind("pageshow", function (event) {
@@ -119,11 +119,6 @@ javascript:
       window.location.reload()
     }
   });
-
-  $(".login-link").click(function(){
-    openModal('login-modal');
-  });
-
 
   $(".dot").click(function(){
     clickSlide($(this).index())

@@ -91,9 +91,9 @@
   .col-xs-12.col-md-8.col-md-offset-2.text-center class="#{!@reservation.user.has_default_card? ? "sr-only": ""}"
     #other-card.diinner-button.pink = t("use_new_card")
     .separator
-  .col-xs-6
+  .text-center
     = link_to user_path(@user), class: "back"
-      .diinner-button.pink
+      .custom-button
         .bi_interface-arrow-left Volver
     .separator
 
