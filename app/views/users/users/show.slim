@@ -99,13 +99,3 @@
 
   .separator
 
-javascript:
-  $.ajax({
-    url: "#{user_suggestions_path(@user)}"
-  }).done(function (response) {
-    if($(response).find(".no-suggestions").length == 0){
-      $(".suggestions").append(response);
-      $(".suggest").show();
-    }
-
-  });
