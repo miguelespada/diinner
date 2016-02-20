@@ -127,7 +127,6 @@ end
 
 When(/^I cancel my reservation$/) do
   step "I go to the user page"
-  save_and_open_page
   find("#reservation-#{@restaurant.name}").click
   click_on "Cancel"
   expect(page).to have_content("No tienes reservas")
