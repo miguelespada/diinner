@@ -15,6 +15,7 @@ class  Admin::HomeItemsController < AdminController
   def home_item_params
     params.require(:home_item).permit(:header,
                                       :mobile_background,
+                                      :mobile_profile_background,
                                       :restaurant_sample_1_id,
                                       :restaurant_sample_2_id,
                                       :restaurant_sample_3_id,

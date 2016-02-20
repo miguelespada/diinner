@@ -89,7 +89,7 @@ javascript:
     return new Date(new Date().getTime() + daysOffset * 24 * 60 * 60 * 1000);
   };
 
-  var dateToString = function(date){
+  var dateToString = function(date){  
     var tzoffset = (new Date()).getTimezoneOffset() * 60000;
     var localISOTime = new Date(date - tzoffset);
     return localISOTime.toISOString().substring(0, 10);

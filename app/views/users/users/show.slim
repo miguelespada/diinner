@@ -1,9 +1,10 @@
+- home = HomeItem.get_first
 - content_for(:head) do
   = javascript_include_tag 'utils'
 
 .user-image-wrapper.visible-xs
   .wrapper-background
-    = image_tag 'background.png', class: 'image-background'
+    = cl_image_tag(home.mobile_profile_background.public_id, quality: 75, format: :jpg, width: 720, crop: :limit, class: "image-background") if !home.mobile_profile_background.nil?
     .wrapper-center.text-center
       = image_tag @user.image_url, size: "200", class: 'user-image'
       .user-name
