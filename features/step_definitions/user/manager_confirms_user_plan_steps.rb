@@ -34,4 +34,12 @@ Then(/^I can see the confirmation notification$/) do
   click_on "Mis reservas"
   find(".has-events a").click
   expect(page).to have_content("El estado del plan es CONFIRMADO")
+
+
+  visit @user_path
+  within(".my-reservations") do
+    expect(page).to have_content(@restaurant.name)
+    find("a").click
+  end
+  expect(page).to have_content("El estado del plan es CONFIRMADO")
 end
