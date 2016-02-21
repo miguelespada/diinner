@@ -1,10 +1,11 @@
 .row.box
   .diinner-label.yellow
     = t("notifications")
-  .notification-list.full
-    - if @notifications.any?
-      = render_activities(@notifications)
-    - else
-      .notification
-        .message
-          | No tienes notificaciones.
+  .col-xs-12
+    .notification-list.full
+      - if @notifications.any?
+        = render_activities(@notifications)
+      - else
+        .notification
+          .message
+            | No tienes notificaciones.

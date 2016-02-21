@@ -837,3 +837,18 @@ html, body{
     color: #fff;
   }
 }
+
+.menu-data{
+  font-weight: bold;
+  .menu-description{
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: $textGray;
+    font-weight: 300;
+
+  }
+  .menu-element{
+    margin-top: 5px;
+    color: $textGray;
+  }
+}

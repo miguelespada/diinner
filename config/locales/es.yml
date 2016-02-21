@@ -35,7 +35,8 @@ es:
   logout: "Salir"
 
   #User profile page
-  new_reservation: "Buscar cenas"
+  new_reservation: "Reservar"
+  search_diinners: "Buscar cenas"
   no_reservations: "No tienes reservas"
   we_suggest: "Te sugerimos algunos planes para"
   we_suggest_blogs: "Te sugerimos algunos posts de nuestro blog que te pueden interesar"
