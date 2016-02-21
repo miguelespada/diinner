@@ -57,7 +57,7 @@ class AdminController < ApplicationController
   end
 
   def test_email_notification
-    EmailNotifications.notify(params[:email], "This is a test message")
+    # EmailNotifications.notify(params[:email], "This is a test message")
     redirect_to :back, notice: "An email was sent to " + params[:email]
   end
 

@@ -57,7 +57,7 @@ class NotificationManager
   end
 
   def self.notify_user_create_reservation(object: nil)
-    EmailNotifications.notify_new_reservation(Admin.email, object.user, object.restaurant)
+    EmailNotifications.notify_new_reservation(Admin.email, object)
     object.create_activity key: "reservation.create", owner: object.user, recipient: object.restaurant
   end
 
