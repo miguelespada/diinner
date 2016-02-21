@@ -1,4 +1,4 @@
-Given(/^There is an available tables for tomorrow$/) do
+Given(/^There are some available tables for tomorrow$/) do
   city = FactoryGirl.create(:city)
   @restaurant = FactoryGirl.create(:restaurant, city: city)
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)

@@ -1,10 +1,5 @@
 Then(/^I make a reservation$/) do
-
   FactoryGirl.create(:reservation, user: @user, table: @table, date: @table.date)
-  expect(@user.reservations.count).to eq 2
-  expect(@user.reservations.first.can_be_cancelled?).to eq false
-  expect(@user.reservations.last.can_be_cancelled?).to eq true
-
 end
 
 When(/^I cancel my reservation$/) do
@@ -31,7 +26,7 @@ Then(/^I should not see the reserved table$/) do
 end
 
 Then(/^I have previous cancelled reservations$/) do
-  step("There is an available tables for tomorrow")
+  step("There are some available tables for tomorrow")
   expect(EmailNotifications).to receive(:notify_cancel_reservation).exactly(2).times
 
   @user.update_customer_information!(Stripe::Token.create(valid_card).id)  
