@@ -25,7 +25,6 @@ class Reservation
   delegate :customer, :to => :user
   delegate :city, :to => :restaurant, :allow_nil => true
 
-
   embeds_many :companies
 
   accepts_nested_attributes_for :companies,
@@ -117,8 +116,9 @@ class Reservation
   end
 
   def is_last_minute?
-    table.is_today? && is_today?
+    date.today? && is_today?
   end
+
 
   def is_today?
     created_at.today?
@@ -162,26 +162,6 @@ class Reservation
 
   def has_restaurant?
     !restaurant.nil? and restaurant.respond_to? :to_ionic_json
-  end
-
-  def to_ionic_json
-    {
-      id: id.to_s,
-      locator: locator,
-      cancelled: cancelled?,
-      date: date_and_time,
-      time: hour,
-      menu_range: menu_range,
-      price: price,
-      affinity: table.affinity,
-      restaurant: has_restaurant? ? restaurant.to_ionic_json : nil,
-      menu: has_menu? ? menu.to_ionic_json : nil,
-      table_id: has_table? ? table.id.to_s : nil,
-      companies: companies.map{ |company| {
-          reservation: company.to_ionic_json
-        }
-      }
-    }
   end
 
 end

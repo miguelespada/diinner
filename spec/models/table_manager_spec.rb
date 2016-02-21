@@ -94,11 +94,11 @@ describe TableManager do
 
 
       allow(Date).to receive(:today).and_return Date.yesterday
-      FactoryGirl.create(:reservation, user: @he, table: @table)
-      FactoryGirl.create(:reservation, user: @other_he, table: @table)
-      FactoryGirl.create(:reservation, user: @she, table: @table)
-      FactoryGirl.create(:reservation, user: @other_she, table: @table)
-      FactoryGirl.create(:reservation, user: @error_user, table: @table)
+      FactoryGirl.create(:reservation, user: @he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @she, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_she, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @error_user, table: @table, date: @table.date)
 
       allow(Date).to receive(:today).and_return Date.tomorrow
       expect(TableManager.today_tables.count).to eq 1
