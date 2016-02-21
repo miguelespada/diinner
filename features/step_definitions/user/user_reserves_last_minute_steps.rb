@@ -52,7 +52,12 @@ When(/^I search a plan for today$/) do
   step("I fill in the credit card with valid details")
 
   find("#continuar").trigger("click")
-  sleep(1)
+
+
+end
+
+Then(/^I can see the new reservation$/) do
+    sleep(1)
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(page).to have_content("Antes de las 18h00 te comunicaremos si tu plan se confirma.")
   expect(page).to have_content("Lo sentimos, no es posible cancelar las reservas en el mismo día del plan.")
@@ -60,9 +65,7 @@ When(/^I search a plan for today$/) do
   within(".my-reservations") do
     expect(page).to have_content(@restaurant.name)
   end
-end
 
-Then(/^I can see the new reservation notification$/) do
   click_on "Notificaciones"
   expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.") 
 end
