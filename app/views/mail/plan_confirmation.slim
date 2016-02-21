@@ -1,0 +1,28 @@
+p
+  |¡Hola
+  =<> user.name
+  |!
+p ¡Enhorabuena! ¡Tu plan diinner se ha confirmado!
+p
+  |Te recordamos los detalles del plan:
+  .date
+    => reservation.date.to_s.first(10)
+    | -
+    =< reservation.date_and_time.to_s.last(5)
+  .restaurant
+    = restaurant.name
+  .table
+    /|
+  .reservation
+    = reservation.locator
+
+p
+  |Esta es la dirección del restaurante:
+  = restaurant.address
+
+p Cuando llegues, solo tienes que preguntar a la persona del restaurante sobre la mesa diinner y ellos te conducirán hasta ella.
+
+p Esperemos que tengas una experiencia estupenda. ¡Ya nos contarás qué tal te ha ido!
+
+p ¡Gracias por confiar en nosotros!
+p Equipo diinner.

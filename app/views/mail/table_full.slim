@@ -1,0 +1,23 @@
+p Buenas tardes,
+p os comunicamos que una de vuestras mesas de hoy ha pasado de 4 a 6 comensales.
+p Estos son los detalles de la cena:
+p
+  .date
+    => reservation.date.to_s.first(10)
+    | -
+    =< reservation.date_and_time.to_s.last(5)
+  .name = reservation.menu.name
+  .appetizer = reservation.menu.appetizer
+  .main = reservation.menu.main_dish
+  .dessert = reservation.menu.dessert
+  .drink = reservation.menu.drink
+  .people
+    |Número de comensales:
+    =< reservation.male_count + reservation.female_count
+  .code
+    | Código de la cena
+
+p Las indicaciones dadas a los comensales son que pregunten a la llegada del restaurante por la mesa diinner.
+
+p Gracias y un saludo,
+p Equipo diinner.
