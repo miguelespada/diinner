@@ -178,13 +178,21 @@ class Table
   end
 
   def notify_confirmation
-
     NotificationManager.notify_comfirm_table(object: self, to: restaurant)
     EmailNotifications.notify_table_confirmation self
     # Note that the plan is confirmed but some of the reservation may not
     reservations.map{|r| r.paid? ? r.notify_confirmation : r.notify_cancellation }
   end
 
+  def cancel_one gender
+    reservations.desc(:created_at).each do |r|
+      if r.genders[gender] == 1
+        r.cancel
+        r.notify_cancellation
+        return
+      end
+    end
+  end
 
   def notify_cancel_last_minute
     reservations.map{|r| r.notify_cancellation if r.cancelled?}

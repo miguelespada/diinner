@@ -33,6 +33,7 @@ class TableManager
     self.purge_cancelled_reservations(tables)
     self.mark_as_processed(tables)
     tables = self.cancel_partial(tables)
+    # self.cancel_unbalanced(tables)
     return if tables.count == 0
     self.capture(tables)
     self.refund_partial(tables)
@@ -57,6 +58,14 @@ class TableManager
       end
     end
     valid_tables
+  end
+
+  def self.cancel_unbalanced tables
+    # TODO study what to do
+    tables.each do |table|
+      table.cancel_one (:male) if table.male_count == 3 && table.female_count == 2
+      table.cancel_one (:female) if table.male_count == 2 && table.female_count == 3
+    end
   end
 
   def self.process_last_minute tables
