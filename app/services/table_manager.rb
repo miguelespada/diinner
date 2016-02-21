@@ -24,7 +24,8 @@ class TableManager
 
   def self.process_last_minute_tables
     # Last minute tables can only be cancelled by the deamon
-     tables = self.process_last_minute(today_tables)
+     tables = today_tables.select{|t| t.has_last_minutes?}
+     tables = self.process_last_minute(tables)
      self.notify_cancel_last_minute(tables)
   end
 
@@ -32,6 +33,7 @@ class TableManager
     self.purge_cancelled_reservations(tables)
     self.mark_as_processed(tables)
     tables = self.cancel_partial(tables)
+    # self.cancel_unbalanced(tables)
     return if tables.count == 0
     self.capture(tables)
     self.refund_partial(tables)
@@ -56,6 +58,14 @@ class TableManager
       end
     end
     valid_tables
+  end
+
+  def self.cancel_unbalanced tables
+    # TODO study what to do
+    tables.each do |table|
+      table.cancel_one (:male) if table.male_count == 3 && table.female_count == 2
+      table.cancel_one (:female) if table.male_count == 2 && table.female_count == 3
+    end
   end
 
   def self.process_last_minute tables
@@ -102,4 +112,5 @@ class TableManager
   def self.purge_cancelled_reservations tables
     tables.map{|table| table.purge_cancelled_reservations}
   end
+
 end

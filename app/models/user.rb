@@ -49,7 +49,7 @@ class User
   end
 
   def cached_test_completed
-    Rails.cache.fetch("test_completed_" + self.id.to_s, expires_in: 1.day) do 
+    Rails.cache.fetch("test_completed_" + id.to_s, expires_in: 1.day) do 
       test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact
     end
   end
@@ -90,8 +90,6 @@ class User
   def has_preferences?
     !preference.nil? and preference.respond_to? :to_ionic_json
   end
-
-
 
   def test_pending
     Test.cached_tests(self.gender) - cached_test_completed
@@ -243,6 +241,7 @@ class User
   end
 
   def suggestions
+    return [] if !has_preferences?
     params = {price: menu_range, city: city, after_plan: after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
     suggestionEngine = SuggestionEngine.new self, params
     suggestionEngine.search.first(3) 

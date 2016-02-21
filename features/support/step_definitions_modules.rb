@@ -42,6 +42,22 @@ module Ajax
   end
 end
 
+module Cache
+
+  def disable_cache
+    Rails.application.configure do
+      config.cache_store = :null_store
+    end
+  end
+
+  def enable_cache
+    Rails.application.configure do
+      config.cache_store = :memory_store
+      Rails.cache.clear
+    end
+  end
+end
+
 module Cards
   def valid_card
     {card: {
@@ -59,3 +75,4 @@ end
 World(Login)
 World(Ajax)
 World(Cards)
+World(Cache)

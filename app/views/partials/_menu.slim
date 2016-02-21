@@ -5,8 +5,8 @@
 .menu-data
   .text-center
     b.menu-name
-      == menu.name.mb_chars.upcase if menu.name
-      - if menu.description
+      == reservation.menu.name.mb_chars if reservation.menu.name
+      - if reservation.menu.description
         .menu-description
           == menu.description
       - if menu.appetizer

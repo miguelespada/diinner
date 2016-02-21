@@ -25,6 +25,10 @@ class Table
     date
   end
 
+  def is_today?
+    date.today?
+  end
+
   def uncancelled_reservations
     reservations.includes(:user).reject{|r| r.cancelled?}
   end
@@ -52,6 +56,8 @@ class Table
       aff /= res.count.to_f
       (70 + aff * 30).to_i
     end
+  rescue
+    75
   end
 
   def can_be_deleted?
@@ -137,6 +143,7 @@ class Table
   end
 
 
+
   def must_cancel_last_minute? 
     must_cancel = false
     reservations.each do |r|
@@ -173,13 +180,21 @@ class Table
   end
 
   def notify_confirmation
-
     NotificationManager.notify_comfirm_table(object: self, to: restaurant)
     EmailNotifications.notify_table_confirmation self
     # Note that the plan is confirmed but some of the reservation may not
     reservations.map{|r| r.paid? ? r.notify_confirmation : r.notify_cancellation }
   end
 
+  def cancel_one gender
+    reservations.desc(:created_at).each do |r|
+      if r.genders[gender] == 1
+        r.cancel
+        r.notify_cancellation
+        return
+      end
+    end
+  end
 
   def notify_cancel_last_minute
     reservations.map{|r| r.notify_cancellation if r.cancelled?}
@@ -187,6 +202,13 @@ class Table
 
   def cancel_last_minute
     reservations.map{|r| r.cancel if r.pending? }
+  end
+  
+  def has_last_minutes?
+    reservations.each do |r|
+      return true if r.is_last_minute?
+    end
+    return false
   end
 
   def locator

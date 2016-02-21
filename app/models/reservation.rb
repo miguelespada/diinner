@@ -9,7 +9,6 @@ class Reservation
   after_destroy :remove_activities
   before_save :generate_locator
 
-
   belongs_to :user
   belongs_to :table
 
@@ -25,7 +24,6 @@ class Reservation
 
   delegate :customer, :to => :user
   delegate :city, :to => :restaurant, :allow_nil => true
-
 
   embeds_many :companies
 
@@ -118,9 +116,14 @@ class Reservation
   end
 
   def is_last_minute?
-    today = Date.today
-    table.date.day == today.day && table.date.month == today.month && table.date.year == today.year
+    date == Date.today && Reservation.created_today?(self.created_at)
   end
+
+
+  def self.created_today? d
+    d.today?
+  end
+
 
   def self.off_the_clock?
     nine = DateTime.now.change({ hour: 9, min: 00, sec: 00 })
@@ -159,26 +162,6 @@ class Reservation
 
   def has_restaurant?
     !restaurant.nil? and restaurant.respond_to? :to_ionic_json
-  end
-
-  def to_ionic_json
-    {
-      id: id.to_s,
-      locator: locator,
-      cancelled: cancelled?,
-      date: date_and_time,
-      time: hour,
-      menu_range: menu_range,
-      price: price,
-      affinity: table.affinity,
-      restaurant: has_restaurant? ? restaurant.to_ionic_json : nil,
-      menu: has_menu? ? menu.to_ionic_json : nil,
-      table_id: has_table? ? table.id.to_s : nil,
-      companies: companies.map{ |company| {
-          reservation: company.to_ionic_json
-        }
-      }
-    }
   end
 
 end

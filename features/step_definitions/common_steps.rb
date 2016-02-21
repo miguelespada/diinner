@@ -1,5 +1,7 @@
 def be_at_homepage
-  expect(page).to have_content "Cenar paraquedar."
+  within(".header-title") do
+    expect(page).to have_content "Cenar paraquedar."
+  end
 end
 
 Given(/^I am guest$/) do

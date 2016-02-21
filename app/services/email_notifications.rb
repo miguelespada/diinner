@@ -7,6 +7,13 @@ module EmailNotifications
     
   end
 
+  def self.notify_new_user
+    Pony.mail(:to => "jose@diinner.com",
+              :from => "noreply@diinner.com",
+              :subject => "[Diinner] Nuevo usuari@!!!") if Rails.env.test?
+    
+  end
+
   def self.notify_new_reservation to, user, restaurant
     Pony.mail(:to => to,
               :from => "noreply@diinner.com",

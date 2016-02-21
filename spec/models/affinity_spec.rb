@@ -1,5 +1,5 @@
 require "rails_helper" 
-describe User do
+xdescribe User do
   before(:each) do 
     @user = FactoryGirl.create(:user)
     @other = FactoryGirl.create(:user)

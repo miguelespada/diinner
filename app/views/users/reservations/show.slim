@@ -71,19 +71,21 @@
         = render "/layouts/map"
       .separator
   .separator
+  / TODO all this logic should be encapsulated
   .col-xs-12
-    - if !@reservation.can_be_cancelled?  && @reservation.date == Date.today
-      .col-xs-12.diinner-info
-        .col-xs-10.col-xs-offset-1.text-center
-          = t("cant_cancel_info")
-    - elsif @reservation.can_be_cancelled?
-      .col-xs-12.diinner-info
-        .col-xs-10.col-xs-offset-1.text-center
-          = t("cancelation_info")
-      .text-center style="margin-bottom: 20px;"
-        = link_to "Cancelar Reserva", "#", class: "custom-button button-assertive", id: "ask-cancel"
-        .hidden
-          == cell(:reservation, @reservation).cancel_link
+    - if !@reservation.cancelled?
+      - if !@reservation.can_be_cancelled?  && @reservation.date == Date.today
+        .col-xs-12.diinner-info
+          .col-xs-10.col-xs-offset-1.text-center
+            = t("cant_cancel_info")
+      - elsif @reservation.can_be_cancelled?
+        .col-xs-12.diinner-info
+          .col-xs-10.col-xs-offset-1.text-center
+            = t("cancelation_info")
+        .text-center style="margin-bottom: 20px;"
+          = link_to "Cancelar Reserva", "#", class: "custom-button button-assertive", id: "ask-cancel"
+          .hidden
+            == cell(:reservation, @reservation).cancel_link
     .text-center style="margin-bottom: 20px;"
       == cell(:reservation, @reservation).evaluate_link
   .separator

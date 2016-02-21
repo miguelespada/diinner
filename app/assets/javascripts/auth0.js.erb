@@ -6,18 +6,7 @@
 
 $(document).ready(function () {
 
-  var host = $('#request').data("host") ;
-  var port = $('#request').data("port") ;
-
-  var domain = host + ':' + port;
-
-
-  <% if Rails.env.production? %>
-      var callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
-  <% else %>
-      var callback_url = 'http://'+ domain + '/auth/auth0/callback';
-  <% end %>
-
+  var callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
   lock.show({
     container: 'login-panel',
     connections: ['facebook', 'google-oauth2'],

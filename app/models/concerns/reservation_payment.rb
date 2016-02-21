@@ -2,7 +2,7 @@ module ReservationPayment
   extend ActiveSupport::Concern
 
   included do
-
+    
     def charge_amount
       price * (male_count + female_count) * 100
     end
@@ -26,7 +26,7 @@ module ReservationPayment
         {
           :idempotency_key => self.id
         }
-      ).id
+      )
       rescue
         false
     end
@@ -34,9 +34,9 @@ module ReservationPayment
     def capture
       return true if paid?
       return false if cancelled?
-      payment_id = create_stripe_charge
-      if payment_id
-        self.update(charge_id: payment_id)
+      payment = create_stripe_charge
+      if payment
+        self.update(charge_id: payment[:id])
       else
         self.update(payment_error: true)
       end

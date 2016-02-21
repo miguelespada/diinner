@@ -9,6 +9,6 @@
   = link_to user_reservation_path(@user, activity.trackable)
     .notification
       .message
-        | Puedes evaluar tu plan diinner en #{activity.trackable.restaurant.name}.
+        | Puedes evaluar tu plan diinner en el restaurante #{activity.trackable.restaurant.name}.
       .time
         == activity.created_at

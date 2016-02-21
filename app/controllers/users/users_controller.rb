@@ -24,6 +24,7 @@ class Users::UsersController < BaseUsersController
   end
 
   def user_suggestions
+    # TODO make a feature
     @suggestions = @user.suggestions if !@user.busy?(Date.tomorrow)
     render partial: 'partials/suggestions', layout: false
   end

@@ -35,6 +35,7 @@ Then(/^I made a reservation$/) do
   expect(@user.reservations.count).to eq 2
   expect(@user.reservations.first.can_be_cancelled?).to eq false
   expect(@user.reservations.last.can_be_cancelled?).to eq true
+
 end
 
 When(/^I search a table with bad date$/) do

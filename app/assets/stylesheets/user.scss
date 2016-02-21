@@ -10,6 +10,9 @@
 @import "user/forms";
 @import "calendar";
 
+html{
+  -webkit-overflow-scrolling: touch;
+}
 
 html, body{
   height: 100%;
@@ -798,6 +801,9 @@ input.company {
   .menu-description{
     font-weight: normal;
     margin-bottom: 10px;
+    color: $textGray;
+    font-weight: 300;
+
   }
   .menu-element{
     margin-top: 5px;
