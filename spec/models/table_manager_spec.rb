@@ -126,6 +126,110 @@ describe TableManager do
       expect(@other_she.notifications.last.key).to eq "plan.confirm"
       expect(@error_user.notifications.last.key).to eq "plan.cancel"
     end
+
+    it "cancel last minute plan" do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      @other_she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+
+
+      allow(Date).to receive(:today).and_return Date.yesterday
+      FactoryGirl.create(:reservation, user: @he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @she, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_she, table: @table, date: @table.date)
+
+      allow(Date).to receive(:today).and_return Date.tomorrow
+      expect(TableManager.today_tables.count).to eq 1
+      TableManager.process_today_tables
+
+      @table.reload
+      @he.reload
+      @other_he.reload
+      @she.reload
+      @other_she.reload
+
+      expect(@table.status).to eq :plan_closed
+
+      @last_minute_user = FactoryGirl.create(:user, :with_customer_id)
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
+
+      expect(reservation.is_last_minute?).to eq true
+      expect(reservation.closes_last_minute_plan?).to eq false
+
+      TableManager.process_last_minute_tables
+
+      expect(@table.status).to eq :plan_closed
+
+      @table.reload
+      @last_minute_user.reload
+
+      expect( @last_minute_user.reservations.first.status).to eq :cancelled
+      expect(@he.reservations.first.status).to eq :confirmed
+      expect(@she.reservations.first.status).to eq :confirmed
+      expect(@other_he.reservations.first.status).to eq :confirmed
+      expect(@other_she.reservations.first.status).to eq :confirmed
+
+      expect(@last_minute_user.notifications.last.key).to eq "plan.cancel"
+
+    end
+
+    it "closes last minute plan" do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      @other_she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+
+
+      allow(Date).to receive(:today).and_return Date.yesterday
+      FactoryGirl.create(:reservation, user: @he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @she, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_she, table: @table, date: @table.date)
+
+      allow(Date).to receive(:today).and_return Date.tomorrow
+      expect(TableManager.today_tables.count).to eq 1
+      TableManager.process_today_tables
+
+      @table.reload
+      @he.reload
+      @other_he.reload
+      @she.reload
+      @other_she.reload
+
+      expect(@table.status).to eq :plan_closed
+
+      @last_minute_user = FactoryGirl.create(:user, :with_customer_id)
+      @last_minute_she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq false
+      expect(reservation.is_last_minute?).to eq true
+
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_she, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq true
+
+      TableManager.process_table reservation.table
+
+
+      # TableManager.process_last_minute_tables
+
+      expect(@table.status).to eq :full
+
+      @table.reload
+      @last_minute_user.reload
+      @last_minute_she.reload
+
+      expect( @last_minute_user.reservations.first.status).to eq :confirmed
+      expect( @last_minute_she.reservations.first.status).to eq :confirmed
+
+      expect(@last_minute_user.notifications.last.key).to eq "plan.confirm"
+      expect(@last_minute_she.notifications.last.key).to eq "plan.confirm"
+
+    end
   end
 
 end

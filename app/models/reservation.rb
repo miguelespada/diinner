@@ -116,7 +116,7 @@ class Reservation
   end
 
   def is_last_minute?
-    date.today? && is_today?
+    date == Date.today && is_today?
   end
 
 

@@ -6,7 +6,12 @@ class  Users::ReservationsController < BaseUsersController
   caches_action :show, expires_in: 5.minutes
 
   def index
+    # TODO move scope to a better place
     @reservations = @user.reservations.where(cancelled: false).to_a.select{|r| r.table.processed or r.date > Date.today}
+  end
+
+  def menu
+    @menu = @reservation.menu
   end
 
   def new
@@ -18,6 +23,7 @@ class  Users::ReservationsController < BaseUsersController
 
   def show
     @reservation = Reservation.includes(:table).find(params['id'])
+    # TODO move condition to a better place
     redirect_to user_path(@current_user), notice: 'Ha ocurrido un error con la reserva' if !@reservation.table.processed and @reservation.date <= Date.today
   end
 
@@ -34,13 +40,6 @@ class  Users::ReservationsController < BaseUsersController
         redirect_to :back, notice: t("reservation_lapse")
       end
     end
-  end
-
-  def new_last_minute
-    # TODO a esto no se llega nunca (creo)
-    check_preferences
-    @reservation = @user.reservations.new
-    @reservation.date = Date.today
   end
 
   def search_last_minute
@@ -69,33 +68,30 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def reuse_card
-    @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
+    @reservation = @user.reservations.new(JSON.parse(params[:reservation]))
+    # TODO check if conditions are ok
+    @reservation.save!
     handle_reservation(@reservation)
   end
 
 
   def new_card
-      @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
-      if @user.update_customer_information!(params[:stripe_card_token])
-        handle_reservation(@reservation)
-      else
-        # TODO handle card errors
-        handle_reservation_error @reservation
-      end
+    @reservation = @user.reservations.new(JSON.parse(params[:reservation]))
+    # TODO check if conditions are ok
+    @reservation.save!
+    if @user.update_customer_information!(params[:stripe_card_token])
+      handle_reservation(@reservation)
+    else
+      handle_reservation_error @reservation
+    end
   end
 
   def cancel
     @reservation.cancel
-
     NotificationManager.notify_user_cancel_reservation(object: @reservation)
-    
     EmailNotifications.notify_cancel_reservation @reservation
 
     redirect_to user_reservations_path(@user), notice: t("cancelation_successful")
-  end
-
-  def menu
-    @menu = @reservation.menu
   end
 
   private
@@ -126,13 +122,12 @@ class  Users::ReservationsController < BaseUsersController
       end
     end
 
-    if !reservation.cancelled?
+    if reservation.cancelled?
+      handle_reservation_error reservation
+    else
       NotificationManager.notify_user_create_reservation(object: reservation)
       NotificationManager.notify_reservation_pending(object: reservation)
-
       redirect_to user_reservation_path(@user, reservation), notice: t("reservation_successful")
-    else
-      handle_reservation_error reservation
     end
   end
 
