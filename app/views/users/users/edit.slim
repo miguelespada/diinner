@@ -19,7 +19,7 @@
         = f.input :birth, value: nil
       .form-date
         = simple_fields_for :fake do |o|
-          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 70, end_year: Date.today.year - 18, default: Date.today - 18.years, order: [:day, :month, :year], required: false
+          = o.input :birth, as: :date, label: t("birth"), start_year: Date.today.year - 70, end_year: Date.today.year - 18, order: [:day, :month, :year], required: false, include_blank: true
     .separator
   .separator
   .row.box.bottom-box
@@ -114,7 +114,9 @@ javascript:
       var month = $("#fake_birth_2i").val();
       var year = $("#fake_birth_1i").val();
       var date = year + "-" + fixDigits(month) + "-" + fixDigits(day);
-      $("#user_birth").val(date);
+      if (day != "" && month != "" && year != "") {
+        $("#user_birth").val(date);
+      }
     });
   });
 

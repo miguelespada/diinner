@@ -26,8 +26,16 @@ class User
   accepts_nested_attributes_for :preference
   delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
 
-  validates :birth, presence: {message: 'Debes modificar tu fecha de nacimiento'}, on: :update
-  
+  validates :birth, presence: {message: 'Debes modificar tu fecha de nacimiento'}, on: :update, date: {after: Proc.new { Time.now - 100.year}, before: Proc.new { Time.now - 18.year}}
+
+
+  def self.birth_date_first
+    118.years.ago
+  end
+
+  def self.birth_date_last
+    18.years.ago
+  end
 
   # CACHE CONTROL
   def cached_future_reservations
