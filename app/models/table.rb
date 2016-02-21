@@ -56,6 +56,8 @@ class Table
       aff /= res.count.to_f
       (70 + aff * 30).to_i
     end
+  rescue
+    75
   end
 
   def can_be_deleted?
