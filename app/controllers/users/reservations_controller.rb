@@ -3,7 +3,7 @@ class  Users::ReservationsController < BaseUsersController
                 :only => [:cancel, :menu, :new_evaluation]
   load_resource :only => [:destroy], :through => :user
 
-  caches_action :show, expires_in: 5.minutes
+  # caches_action :show, expires_in: 5.minutes
 
   def index
     # TODO move scope to a better place
@@ -23,7 +23,6 @@ class  Users::ReservationsController < BaseUsersController
 
   def show
     @reservation = Reservation.includes(:table).find(params['id'])
-    # TODO move condition to a better place
     redirect_to user_path(@current_user), notice: 'Ha ocurrido un error con la reserva' if !@reservation.table.processed and @reservation.date <= Date.today
   end
 
@@ -68,17 +67,13 @@ class  Users::ReservationsController < BaseUsersController
   end
 
   def reuse_card
-    @reservation = @user.reservations.new(JSON.parse(params[:reservation]))
-    # TODO check if conditions are ok
-    @reservation.save!
+    @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
     handle_reservation(@reservation)
   end
 
 
   def new_card
-    @reservation = @user.reservations.new(JSON.parse(params[:reservation]))
-    # TODO check if conditions are ok
-    @reservation.save!
+    @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
     if @user.update_customer_information!(params[:stripe_card_token])
       handle_reservation(@reservation)
     else

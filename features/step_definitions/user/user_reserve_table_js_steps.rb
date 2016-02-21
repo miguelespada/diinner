@@ -42,8 +42,9 @@ end
 Then(/^I see the table details$/) do
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(@user.reservations.count).to eq 1
+  expect(@user.notifications.count).to eq 1
   expect(@user.reservations.first.cancelled?).to eq false
   expect(@user.reservations.first.is_last_minute?).to eq false
   click_on "Notificaciones"
-  expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.")
+  expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.") 
 end
