@@ -89,6 +89,110 @@ describe TableManager do
       expect(@she.notifications.last.key).to eq "plan.confirm"
     end
 
+    it "confirm plans with companies 2 2 " do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 4
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+    end
+
+    it "confirm plans with companies 3 3 " do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+      reservation.companies.create(age: 35, gender: :female)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+      reservation.companies.create(age: 35, gender: :male)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :full
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 6
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+    end
+
+    it "confirm plans with companies 3 2 " do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+      reservation.companies.create(age: 35, gender: :male)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 5
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+    end
+
+    it "confirm plans with companies 2 + 1 3" do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+      reservation.companies.create(age: 35, gender: :female)
+
+      reservation =  FactoryGirl.create(:reservation, user: @other_he, table: @table)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :full
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 6
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+      expect(@other_he.notifications.last.key).to eq "plan.confirm"
+    end
+
     it "confirm plans with some errors" do
       @he = FactoryGirl.create(:user, :with_customer_id)
       @other_he = FactoryGirl.create(:user, :with_customer_id)
@@ -247,6 +351,104 @@ describe TableManager do
 
 
     end
+
+
+  it "closes last minute plans with companies 3 2 " do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+      reservation.companies.create(age: 35, gender: :male)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 5
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+
+
+      @last_minute_user = FactoryGirl.create(:user, :with_customer_id)
+
+      allow(Date).to receive(:today).and_return Date.tomorrow
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq true
+      expect(reservation.is_last_minute?).to eq true
+
+      TableManager.process_table reservation.table
+
+      expect(@table.status).to eq :full
+      expect(@last_minute_user.reservations.first.status).to eq :confirmed
+    end
+
+
+
+     it "closes last minute plan with payment errors" do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      @other_she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+
+
+      allow(Date).to receive(:today).and_return Date.yesterday
+      FactoryGirl.create(:reservation, user: @he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_he, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @she, table: @table, date: @table.date)
+      FactoryGirl.create(:reservation, user: @other_she, table: @table, date: @table.date)
+
+      allow(Date).to receive(:today).and_return Date.tomorrow
+      expect(TableManager.today_tables.count).to eq 1
+      TableManager.process_today_tables
+
+      @table.reload
+      @he.reload
+      @other_he.reload
+      @she.reload
+      @other_she.reload
+
+      expect(@table.status).to eq :plan_closed
+
+      @last_minute_user = FactoryGirl.create(:user, :with_customer_id)
+      @last_minute_she = FactoryGirl.create(:user, gender: :female )
+
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq false
+      expect(reservation.is_last_minute?).to eq true
+
+      expect(@last_minute_user.reservations.first.status).to eq :pending
+
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_she, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq true
+
+      TableManager.process_table reservation.table
+
+      TableManager.process_last_minute_tables
+
+      expect(@table.status).to eq :plan_closed
+
+      @table.reload
+      @last_minute_user.reload
+      @last_minute_she.reload
+
+      # last minute user should be pending
+      expect(@last_minute_user.reservations.first.status).to eq :cancelled
+      expect(@last_minute_she.reservations.first.status).to eq :cancelled
+    end
+
+
   end
 
 end
