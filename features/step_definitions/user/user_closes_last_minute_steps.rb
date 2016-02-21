@@ -7,6 +7,7 @@ end
 
 Then(/^I can see the plan confirmation$/) do
   sleep(1)
+  save_and_open_page
   expect(page).to have_content("El estado del plan es CONFIRMADO")
   expect(page).to have_content("Tu reserva se ha realizado correctamente")
 

@@ -1,6 +1,7 @@
 module EmailNotifications
 
   def self.notify(mail_params)
+    return if Rails.env.test?
     ac = ActionController::Base.new
     Pony.mail(:to => mail_params[:to],
               :from => mail_params[:from],
@@ -17,7 +18,8 @@ module EmailNotifications
                     from: "noreply@diinner.com",
                     subject: "[Diinner] Nuevo usuari@!!!",
                     view: "mail/new_user",
-                    params: {}
+                    params: {
+                    }
     })
   end
 
@@ -46,7 +48,11 @@ module EmailNotifications
                     from: "noreply@diinner.com",
                     subject: "[Diinner] la reserva para el #{restaurant.name} ha sido cancelada",
                     view: "mail/cancel_reservation",
-                    params: {}
+                    params: {
+                        user: user,
+                        restaurant: restaurant,
+                        reservation: reservation
+                    }
                 })
   end
 
@@ -58,7 +64,11 @@ module EmailNotifications
                     from: "noreply@diinner.com",
                     subject: "[Diinner] Tu reserva para hoy en el #{restaurant.name} está confirmada!",
                     view: "mail/plan_confirmation",
-                    params: {}
+                    params: {
+                        user: user,
+                        restaurant: restaurant,
+                        reservation: reservation
+                    }
                 })
   end
 
@@ -70,7 +80,11 @@ module EmailNotifications
                     from: "noreply@diinner.com",
                     subject: "[Diinner] Lo sentimos tu reserva hoy el #{restaurant.name} ha sido cancelada :(",
                     view: "mail/plan_cancellation",
-                    params: {}
+                    params: {
+                        user: user,
+                        restaurant: restaurant,
+                        reservation: reservation
+                    }
                 })
     #TODO 2-3 cancellation
   end
@@ -83,19 +97,25 @@ module EmailNotifications
                     from: "noreply@diinner.com",
                     subject: "[Diinner] Cuéntanos qué tal te lo pasaste",
                     view: "mail/evaluation",
-                    params: {}
+                    params: {
+                        user: user,
+                        restaurant: restaurant,
+                        reservation: reservation
+                    }
                 })
   end
 
   def self.notify_table_confirmation table
-    return if Rails.env.test?
     restaurant = table.restaurant
     self.notify({
                     to: restaurant.email,
                     from: "noreply@diinner.com",
                     subject: "[Diinner] Tienes una reserva para esta noche!",
                     view: "mail/table_confirmation",
-                    params: {}
+                    params: {
+                        table: table,
+                        restaurant: restaurant
+                    }
                 })
 
   end
@@ -107,7 +127,10 @@ module EmailNotifications
                     from: "noreply@diinner.com",
                     subject: "[Diinner] Tenemos nuevos comensales para la reserva de esta noche",
                     view: "mail/table_full",
-                    params: {}
+                    params: {
+                        table: table,
+                        restaurant: restaurant
+                    }
                 })
   end
 
