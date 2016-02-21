@@ -64,7 +64,7 @@ describe TableManager do
     end
   end
 
-   context "with reservations" do
+  context "with reservations" do
 
     it "confirm plans with no errors" do
       @he = FactoryGirl.create(:user, :with_customer_id)
@@ -89,7 +89,7 @@ describe TableManager do
       expect(@she.notifications.last.key).to eq "plan.confirm"
     end
 
-    it "confirm plans with companies 2 2 " do
+    it "confirm plans with companies 2 2" do
       @he = FactoryGirl.create(:user, :with_customer_id)
       @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
       reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
@@ -113,7 +113,7 @@ describe TableManager do
       expect(@she.notifications.last.key).to eq "plan.confirm"
     end
 
-    it "confirm plans with companies 3 3 " do
+    it "confirm plans with companies 3 3" do
       @he = FactoryGirl.create(:user, :with_customer_id)
       @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
       reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
@@ -139,7 +139,7 @@ describe TableManager do
       expect(@she.notifications.last.key).to eq "plan.confirm"
     end
 
-    it "confirm plans with companies 3 2 " do
+    it "confirm plans with companies 3 2" do
       @he = FactoryGirl.create(:user, :with_customer_id)
       @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
       reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
@@ -164,7 +164,36 @@ describe TableManager do
       expect(@she.notifications.last.key).to eq "plan.confirm"
     end
 
-    it "confirm plans with companies 2 + 1 3" do
+    it "confirm plans with companies 2 + 1, 2" do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+
+      reservation = FactoryGirl.create(:reservation, user: @other_he, table: @table)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 5
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@other_he.notifications.last.key).to eq "plan.confirm"
+    end
+
+
+    it "confirm plans with companies 2 + 1, 3" do
       @he = FactoryGirl.create(:user, :with_customer_id)
       @other_he = FactoryGirl.create(:user, :with_customer_id)
       @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
@@ -191,6 +220,34 @@ describe TableManager do
       expect(@he.notifications.last.key).to eq "plan.confirm"
       expect(@she.notifications.last.key).to eq "plan.confirm"
       expect(@other_he.notifications.last.key).to eq "plan.confirm"
+    end
+
+    it "confirm plans with companies 1 + 1 + 1, 2" do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he_2 = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+
+      reservation =  FactoryGirl.create(:reservation, user: @other_he, table: @table)
+      reservation =  FactoryGirl.create(:reservation, user: @other_he_2, table: @table)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+
+      expect(@table.user_count).to eq 5
+
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+      expect(@other_he.notifications.last.key).to eq "plan.confirm"
+      expect(@other_he_2.notifications.last.key).to eq "plan.confirm"
     end
 
     it "confirm plans with some errors" do
@@ -289,7 +346,6 @@ describe TableManager do
       expect(@other_she.reservations.first.status).to eq :confirmed
 
       expect(@last_minute_user.notifications.last.key).to eq "plan.cancel"
-
     end
 
     it "closes last minute plan" do
@@ -348,53 +404,9 @@ describe TableManager do
 
       expect(@last_minute_user.notifications.last.key).to eq "plan.confirm"
       expect(@last_minute_she.notifications.last.key).to eq "plan.confirm"
-
-
     end
-
-
-  it "closes last minute plans with companies 3 2 " do
-      @he = FactoryGirl.create(:user, :with_customer_id)
-      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
-      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
-      reservation.companies.create(age: 35, gender: :male)
-
-      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
-      reservation.companies.create(age: 35, gender: :female)
-      reservation.companies.create(age: 35, gender: :male)
-
-      TableManager.process_today_tables
-
-      @table.reload
-      expect(@table.status).to eq :plan_closed
-
-      Reservation.each do |r|
-        expect(r.status).to eq :confirmed
-      end
-
-      expect(@table.user_count).to eq 5
-      expect(@restaurant.notifications.last.key).to eq "table.confirm"
-      expect(@he.notifications.last.key).to eq "plan.confirm"
-      expect(@she.notifications.last.key).to eq "plan.confirm"
-
-
-      @last_minute_user = FactoryGirl.create(:user, :with_customer_id)
-
-      allow(Date).to receive(:today).and_return Date.tomorrow
-      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
-
-      expect(reservation.closes_last_minute_plan?).to eq true
-      expect(reservation.is_last_minute?).to eq true
-
-      TableManager.process_table reservation.table
-
-      expect(@table.status).to eq :full
-      expect(@last_minute_user.reservations.first.status).to eq :confirmed
-    end
-
-
-
-     it "closes last minute plan with payment errors" do
+    
+    it "closes last minute plan with payment errors" do
       @he = FactoryGirl.create(:user, :with_customer_id)
       @other_he = FactoryGirl.create(:user, :with_customer_id)
       @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
@@ -447,6 +459,100 @@ describe TableManager do
       expect(@last_minute_user.reservations.first.status).to eq :cancelled
       expect(@last_minute_she.reservations.first.status).to eq :cancelled
     end
+
+    it "closes last minute plans with companies 3 2 " do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+      reservation.companies.create(age: 35, gender: :male)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 5
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+
+
+      @last_minute_user = FactoryGirl.create(:user, :with_customer_id)
+
+      allow(Date).to receive(:today).and_return Date.tomorrow
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq true
+      expect(reservation.is_last_minute?).to eq true
+
+      TableManager.process_table reservation.table
+
+      expect(@table.status).to eq :full
+      expect(@table.user_count).to eq 6
+      expect(@last_minute_user.reservations.first.status).to eq :confirmed
+    end
+
+    it "closes last minute plans with companies 3 2 with erros" do
+      @he = FactoryGirl.create(:user, :with_customer_id)
+      @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
+      reservation.companies.create(age: 35, gender: :male)
+
+      reservation =  FactoryGirl.create(:reservation, user: @she, table: @table)
+      reservation.companies.create(age: 35, gender: :female)
+      reservation.companies.create(age: 35, gender: :male)
+
+      TableManager.process_today_tables
+
+      @table.reload
+      expect(@table.status).to eq :plan_closed
+
+      Reservation.each do |r|
+        expect(r.status).to eq :confirmed
+      end
+
+      expect(@table.user_count).to eq 5
+      expect(@restaurant.notifications.last.key).to eq "table.confirm"
+      expect(@he.notifications.last.key).to eq "plan.confirm"
+      expect(@she.notifications.last.key).to eq "plan.confirm"
+
+
+      @last_minute_user = FactoryGirl.create(:user)
+
+      allow(Date).to receive(:today).and_return Date.tomorrow
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq true
+      expect(reservation.is_last_minute?).to eq true
+
+      TableManager.process_table reservation.table
+
+      expect(@table.status).to eq :plan_closed
+      expect(@table.user_count).to eq 5
+      expect(@last_minute_user.reservations.first.status).to eq :cancelled
+
+      @last_minute_user = FactoryGirl.create(:user, :with_customer_id)
+      reservation = FactoryGirl.create(:reservation, user: @last_minute_user, table: @table, date: @table.date)
+
+      expect(reservation.closes_last_minute_plan?).to eq true
+      expect(reservation.is_last_minute?).to eq true
+
+      TableManager.process_table reservation.table
+
+      expect(@table.status).to eq :full
+      expect(@table.user_count).to eq 6
+      expect(@last_minute_user.reservations.first.status).to eq :confirmed
+    end
+
+
 
 
   end
