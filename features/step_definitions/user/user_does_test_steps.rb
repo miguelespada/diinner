@@ -1,5 +1,5 @@
 Given(/^I do a test$/) do
-  
+
   disable_cache
 
   FactoryGirl.create(:test,  :with_images, humor: 1, gender: :undefined)
@@ -40,4 +40,6 @@ When(/^I can skip some tests$/) do
   click_on "Saltar pregunta"
   expect(@user.cached_test_completed.count).to eq 2
   expect(@user.profile(:humor)).to eq -0.5
+
+  enable_cache
 end
