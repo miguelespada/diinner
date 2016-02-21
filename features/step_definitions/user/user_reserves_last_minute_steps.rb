@@ -42,9 +42,12 @@ When(/^I search a plan for today$/) do
   find(".today").trigger("click")
 
   page.execute_script("onTime()")
-  click_on "Buscar mesas"
 
-  click_on "Reservar"
+    click_on "Buscar mesas"
+
+  within(".search-results") do 
+    click_on "Reservar"
+  end
 
   step("I fill in the credit card with valid details")
 
