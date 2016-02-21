@@ -37,11 +37,13 @@ end
 
 
 When(/^I search a plan for today$/) do
-
   step "I go to the user page"
   find("#new-reservation-link").trigger("click")
   find(".today").trigger("click")
+
+  page.execute_script("onTime()")
   click_on "Buscar mesas"
+
   click_on "Reservar"
 
   step("I fill in the credit card with valid details")
