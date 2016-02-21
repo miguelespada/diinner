@@ -20,7 +20,7 @@
         .item.see-menu
           .text Ver Menú
           .text.sr-only Ver Foto
-        = link_to t("new_reservation"), cell(:reservation, suggestion).reserve_link, method: :post, class: "item", id: "reserve-#{suggestion.restaurant.name}"
+        = link_to "Reservar", cell(:reservation, suggestion).reserve_link, method: :post, class: "item", id: "reserve-#{suggestion.restaurant.name}"
       .price-title
         = t("price")
         span.price ==< "#{suggestion.menu.price}€"

@@ -11,14 +11,15 @@
       label = t("preferred_date")
       .choosing-box
         .col-lg-4.no-padding
-          .text.long.day-toggle data-day="today" = t("today")
+          .text.long.day-toggle.today data-day="today" = t("today")
         .col-lg-4.no-padding
           .text.long.day-toggle.selected data-day="tomorrow" = t("tomorrow")
         .col-lg-4.no-padding
           .text.long.last.day-toggle data-day="date" = t("other_date")
       .fake-date hidden=true
+        - next_days = (2.days.from_now.to_date..16.days.from_now.to_date).map{ |date| [l(date, format: "%a, %d %b"), date.strftime("%Y-%m-%d")] }
         = simple_fields_for :fake do |o|
-          = o.input :date, :as => :date, label: t("date_name"), start_year: Date.tomorrow.year, end_year: (Date.today + 15.days).year, order: [:day, :month, :year]
+          = o.input :date, label: t("date_name"), collection: next_days, selected: 2.days.from_now.to_date.strftime("%Y-%m-%d")
       .date.form-date hidden=true
         = f.input :date, :as => :date, label: t("date_name"), html5: true, input_html: { min: Date.tomorrow + 1.day, max: Date.tomorrow + 15.days}
       .last-minute-info.col-xs-12.diinner-info hidden=true
@@ -71,6 +72,16 @@
 
 / TODO move it to assets class
 javascript:
+  var onTime = function(){
+    $(".last-minute-notification").hide();
+    $(".submit").show();
+  }
+
+  var offTime = function(){
+    $(".last-minute-notification").show();
+    $(".submit").hide();
+  }
+
   $(window).bind("pageshow", function (event) {
     if (event.originalEvent.persisted) {
       window.location.reload()
@@ -126,11 +137,7 @@ javascript:
 
     $(".fake-date select").on("change", function(){
       $(".diinner-label.pink").hide();
-      var day = $("#fake_date_3i").val();
-      var month = $("#fake_date_2i").val();
-      var year = $("#fake_date_1i").val();
-      var date = year + "-" + fixDigits(month) + "-" + fixDigits(day);
-      $("#reservation_date").val(date);
+      $("#reservation_date").val($(this).val());
     });
 
     $(".day-toggle").click(function () {
@@ -159,8 +166,7 @@ javascript:
           $(".last-minute-info").show();
           $(".friends-question").hide();
           if(dateToday.getHours() > 18 || dateToday.getHours() < 9){
-            $(".last-minute-notification").show();
-            $(".submit").hide();
+            offTime();
           }
           break;
         case "tomorrow":

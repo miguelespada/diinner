@@ -17,28 +17,6 @@ Feature: User reserves last minute diinner #TODO JAVASCRIPT?
     Given There are some last minute diinners
     And it is off the clock
     Then I should be notified that I cannot reserve dinners
-
-  @user_reserves_a_last_minute_diinner_pending
-  Scenario:
-    Given There are some last minute diinners
-    When I reserve a last minute diinner
-    Then I shoud be notified that my plan is pending
-    And I can access to the pending reservation through my reservations
-    And I cannot cancel the reservation
-    And I cannot reserve again for the same date
-
-  @user_closes_a_last_minute_diinner
-  Scenario:
-    Given There are some last minute diinners
-    Given They have been a reservation
-   When I reserve a last minute diinner
-   Then I should be notified that my last minute plan is confirmed
-   And I can access to the confirmed reservation through my reservations
-   And I cannot cancel the reservation
-   And The other user can see the confirmed last minute reservation
-   And The restaurant should be see the confirmed last minute reservation
-   And The restaurant should be notified of last minute reservation
-   And The admin should see the confirmed last minute reservation
   
   @user_closes_a_last_minute_diinner_with_error_in_the_other_reservation
   Scenario:

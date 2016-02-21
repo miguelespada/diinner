@@ -45,12 +45,13 @@ class  Users::ReservationsController < BaseUsersController
     if Reservation.off_the_clock?
       redirect_to :back, alert: t("off_the_clock")
     else
+
       suggestionEngine = SuggestionEngine.new @user, params[:reservation]
-      
       if @user.busy?(suggestionEngine.date)
         redirect_to :back, notice: t("already_have_reservation")
       else
         @suggestions = suggestionEngine.last_minute.first(3)
+
         redirect_to :back, alert: t("no_results") if @suggestions.empty?
       end
     end
