@@ -2,7 +2,7 @@ module ReservationPayment
   extend ActiveSupport::Concern
 
   included do
-
+    
     def charge_amount
       price * (male_count + female_count) * 100
     end

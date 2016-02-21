@@ -193,6 +193,13 @@ class Table
   def cancel_last_minute
     reservations.map{|r| r.cancel if r.pending? }
   end
+  
+  def has_last_minutes?
+    reservations.each do |r|
+      return true if r.is_last_minute?
+    end
+    return false
+  end
 
   def locator
     # TODO DRY this

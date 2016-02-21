@@ -19,6 +19,7 @@ describe TableManager do
     allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return return_value
     allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value
     allow(Date).to receive(:today).and_return Date.tomorrow
+
   end
 
   it "returns today tables" do
@@ -31,6 +32,8 @@ describe TableManager do
   it "cancels partial tables" do
     @reservation = FactoryGirl.create(:reservation, user: @he, table: @table)
     TableManager.process_today_tables
+    TableManager.process_last_minute_tables
+
     @table.reload
     expect(@table.status).to eq :cancelled
     @reservation.reload
@@ -72,6 +75,8 @@ describe TableManager do
       FactoryGirl.create(:reservation, user: @she, table: @table)
 
       TableManager.process_today_tables
+      TableManager.process_last_minute_tables
+
       @table.reload
       expect(@table.status).to eq :plan_closed
 
@@ -94,13 +99,21 @@ describe TableManager do
 
 
       allow(Date).to receive(:today).and_return Date.yesterday
+
       FactoryGirl.create(:reservation, user: @he, table: @table, date: @table.date)
       FactoryGirl.create(:reservation, user: @other_he, table: @table, date: @table.date)
       FactoryGirl.create(:reservation, user: @she, table: @table, date: @table.date)
       FactoryGirl.create(:reservation, user: @other_she, table: @table, date: @table.date)
-      FactoryGirl.create(:reservation, user: @error_user, table: @table, date: @table.date)
+      reservation = FactoryGirl.create(:reservation, user: @error_user, table: @table, date: @table.date)
+
+      allow(Reservation).to receive(:created_today?).and_return false
+
+      expect(reservation.is_last_minute?).to eq false
 
       allow(Date).to receive(:today).and_return Date.tomorrow
+
+      expect(reservation.is_last_minute?).to eq false
+
       expect(TableManager.today_tables.count).to eq 1
       TableManager.process_today_tables
 
@@ -214,8 +227,7 @@ describe TableManager do
 
       TableManager.process_table reservation.table
 
-
-      # TableManager.process_last_minute_tables
+      TableManager.process_last_minute_tables
 
       expect(@table.status).to eq :full
 
@@ -223,11 +235,16 @@ describe TableManager do
       @last_minute_user.reload
       @last_minute_she.reload
 
+      expect(@he.reservations.first.status).to eq :confirmed
+      expect(@she.reservations.first.status).to eq :confirmed
+      expect(@other_he.reservations.first.status).to eq :confirmed
+      expect(@other_she.reservations.first.status).to eq :confirmed
       expect( @last_minute_user.reservations.first.status).to eq :confirmed
       expect( @last_minute_she.reservations.first.status).to eq :confirmed
 
       expect(@last_minute_user.notifications.last.key).to eq "plan.confirm"
       expect(@last_minute_she.notifications.last.key).to eq "plan.confirm"
+
 
     end
   end

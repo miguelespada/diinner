@@ -24,7 +24,8 @@ class TableManager
 
   def self.process_last_minute_tables
     # Last minute tables can only be cancelled by the deamon
-     tables = self.process_last_minute(today_tables)
+     tables = today_tables.select{|t| t.has_last_minutes?}
+     tables = self.process_last_minute(tables)
      self.notify_cancel_last_minute(tables)
   end
 
@@ -102,4 +103,5 @@ class TableManager
   def self.purge_cancelled_reservations tables
     tables.map{|table| table.purge_cancelled_reservations}
   end
+
 end

@@ -116,12 +116,12 @@ class Reservation
   end
 
   def is_last_minute?
-    date == Date.today && is_today?
+    date == Date.today && Reservation.created_today?(self.created_at)
   end
 
 
-  def is_today?
-    created_at.today?
+  def self.created_today? d
+    d.today?
   end
 
 
