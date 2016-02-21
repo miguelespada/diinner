@@ -33,7 +33,7 @@ class Test
     Rails.cache.delete("tests_female")
   end
 
-  def self.cached_tests gender
+  def self.cached_tests gender  
     Rails.cache.fetch("tests_" + gender.to_s, expires_in: 1.week) do
       Test.where(_gender: gender).map{|m| m.id} + Test.where(_gender: :undefined).map{|m| m.id}
     end
