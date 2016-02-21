@@ -40,6 +40,7 @@ Then(/^I fill in the credit card with valid details$/) do
 end
 
 Then(/^I see the table details$/) do
+  sleep(1)
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(@user.reservations.count).to eq 1
   expect(@user.notifications.count).to eq 1

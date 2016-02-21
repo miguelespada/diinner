@@ -1,12 +1,3 @@
-@user_manage_reservations
-Feature: User Reserves table
-  As user
-  I want to access to reserve a table
-
-  Background:
-    Given There are some available tables
-    And I am a logged user
-    And I made a reservation
 
 
 #    Scenario:

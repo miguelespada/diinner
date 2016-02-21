@@ -57,7 +57,7 @@ When(/^I search a plan for today$/) do
 end
 
 Then(/^I can see the new reservation$/) do
-    sleep(1)
+  sleep(1)
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(page).to have_content("Antes de las 18h00 te comunicaremos si tu plan se confirma.")
   expect(page).to have_content("Lo sentimos, no es posible cancelar las reservas en el mismo día del plan.")
@@ -70,3 +70,15 @@ Then(/^I can see the new reservation$/) do
   expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.") 
 end
 
+
+When(/^The last minute process runs$/) do
+  TableManager.process_last_minute_tables
+end
+
+Then(/^I can see my plan cancellation$/) do
+   visit @user_path
+  click_on "Notificaciones"
+
+  expect(page).to have_content("Lo sentimos. Tu plan en el restaurante #{@restaurant.name}")
+  expect(page).to have_content("ha sido cancelado") 
+end
