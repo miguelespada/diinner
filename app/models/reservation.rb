@@ -9,7 +9,6 @@ class Reservation
   after_destroy :remove_activities
   before_save :generate_locator
 
-
   belongs_to :user
   belongs_to :table
 
@@ -118,9 +117,13 @@ class Reservation
   end
 
   def is_last_minute?
-    today = Date.today
-    table.date.day == today.day && table.date.month == today.month && table.date.year == today.year
+    table.is_today? && is_today?
   end
+
+  def is_today?
+    created_at.today?
+  end
+
 
   def self.off_the_clock?
     nine = DateTime.now.change({ hour: 9, min: 00, sec: 00 })

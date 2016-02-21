@@ -34,7 +34,7 @@ module ReservationStatus
     end
 
     def payment_reserved?
-      charge_id != nil && pending?
+      charge_id.present? && pending?
     end
 
     def cancelled?

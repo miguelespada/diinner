@@ -25,6 +25,10 @@ class Table
     date
   end
 
+  def is_today?
+    date.today?
+  end
+
   def uncancelled_reservations
     reservations.includes(:user).reject{|r| r.cancelled?}
   end
@@ -135,6 +139,7 @@ class Table
   def refund
     reservations.map{|r| r.refund}
   end
+
 
 
   def must_cancel_last_minute? 

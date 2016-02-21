@@ -1,22 +1,24 @@
 require "rails_helper"
 
 describe TableManager do
-  before(:each) do
+  before(:each) do    
+    Admin.create(email: "need_one_admin@gmail.com", password: "12345678")
+
     @restaurant = FactoryGirl.create(:restaurant, :with_tables)
     @table = @restaurant.tables.first
-    @he = FactoryGirl.create(:user, gender: :male)
+    
+    @he = FactoryGirl.create(:user)
     @she = FactoryGirl.create(:user, gender: :female)
-
 
     return_value = Hash.new
     return_value[:id] = "123"
     allow_any_instance_of(Reservation).to receive(:create_stripe_charge) do |entity|
       entity.user.customer ? return_value : nil
     end
+
     allow_any_instance_of(Reservation).to receive(:stripe_capture).and_return return_value
     allow_any_instance_of(Reservation).to receive(:stripe_refund).and_return return_value
     allow(Date).to receive(:today).and_return Date.tomorrow
-    Admin.create(email: "need_one_admin@gmail.com", password: "12345678")
   end
 
   it "returns today tables" do
@@ -84,37 +86,44 @@ describe TableManager do
 
     it "confirm plans with some errors" do
       @he = FactoryGirl.create(:user, :with_customer_id)
+      @other_he = FactoryGirl.create(:user, :with_customer_id)
       @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+      @other_she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
+
       @error_user = FactoryGirl.create(:user, gender: :female )
 
+
+      allow(Date).to receive(:today).and_return Date.yesterday
       FactoryGirl.create(:reservation, user: @he, table: @table)
-      FactoryGirl.create(:reservation, user: @he, table: @table)
+      FactoryGirl.create(:reservation, user: @other_he, table: @table)
       FactoryGirl.create(:reservation, user: @she, table: @table)
-      FactoryGirl.create(:reservation, user: @she, table: @table)
+      FactoryGirl.create(:reservation, user: @other_she, table: @table)
       FactoryGirl.create(:reservation, user: @error_user, table: @table)
 
+      allow(Date).to receive(:today).and_return Date.tomorrow
+      expect(TableManager.today_tables.count).to eq 1
       TableManager.process_today_tables
-
 
       @table.reload
       @he.reload
+      @other_he.reload
       @she.reload
+      @other_she.reload
       @error_user.reload
 
       expect(@table.status).to eq :plan_closed
+
       expect(@error_user.reservations.first.status).to eq :cancelled
-
-      @he.reservations.each do |r|
-        expect(r.status).to eq :confirmed
-      end
-
-      @she.reservations.each do |r|
-        expect(r.status).to eq :confirmed
-      end
-
+      expect(@he.reservations.first.status).to eq :confirmed
+      expect(@she.reservations.first.status).to eq :confirmed
+      expect(@other_he.reservations.first.status).to eq :confirmed
+      expect(@other_she.reservations.first.status).to eq :confirmed
+ 
       expect(@restaurant.notifications.last.key).to eq "table.confirm"
       expect(@he.notifications.last.key).to eq "plan.confirm"
       expect(@she.notifications.last.key).to eq "plan.confirm"
+      expect(@other_he.notifications.last.key).to eq "plan.confirm"
+      expect(@other_she.notifications.last.key).to eq "plan.confirm"
       expect(@error_user.notifications.last.key).to eq "plan.cancel"
     end
   end
