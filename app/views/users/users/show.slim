@@ -26,6 +26,10 @@
           .name = @user.name
           .mail = @user.email
           .birth = "#{t(@user.gender)} #{@user.birth}"
+        .col-xs-12
+          = link_to edit_user_path(@user)
+            .custom-button Editar
+
         .separator
     .separator
     .col-lg-5
@@ -34,7 +38,7 @@
           .diinner-info = t("press_reservation")
           = link_to new_user_reservation_path(@user), id: "new-reservation-link"
             .diinner-button.pink
-              =t("new_reservation")
+              =t("search_diinners")
       .separator
       .box.col-md-12
         .row
