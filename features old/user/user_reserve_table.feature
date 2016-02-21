@@ -9,7 +9,8 @@ Feature: User Reserves table
     And I made a reservation
 
 
-#     And I cannot reserve a table the same date
+#    Scenario:
+#   And I cannot reserve a table the same date
 
 #   @user_reserves_table_bad_date
 #   Scenario: 
