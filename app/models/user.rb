@@ -17,7 +17,7 @@ class User
 
   field :test_profile, :type => Hash 
 
-  field :notifications_read_at, type: Date
+  field :notifications_read_at, type: DateTime
 
   has_many :test_completed, class_name: "TestResponse"
   has_many :reservations
@@ -155,7 +155,12 @@ class User
   end
 
   def read_notifications
-    self.update_attribute(:notifications_read_at, DateTime.now)
+    p "AAA" * 10
+    p notifications_read_at
+    p "AAA" * 10
+    self.update(notifications_read_at: DateTime.now)
+    p notifications_read_at
+    p "AAA" * 10
   end
 
   def to_ionic_json
@@ -259,4 +264,7 @@ class User
     notifications and notifications.length > 0
   end
 
+  def has_unread_notifications?
+    PublicActivity::Activity.where(recipient: self, :created_at.gte => notifications_read_at).count > 0
+  end
 end
