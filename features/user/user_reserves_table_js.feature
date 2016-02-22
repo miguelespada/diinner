@@ -35,3 +35,9 @@ Feature: User Reserves table
     Given There are some available tables for tomorrow
     When I reserve a table for tomorrow with payment errors
     Then I see there is an error with the payment
+
+  @user_reserves_table_when_busy
+  Scenario:
+    Given There are some available tables for tomorrow
+    And I have reserved a table
+    Then I should see I can't reserve any more tables

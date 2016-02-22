@@ -32,6 +32,18 @@ When(/^I reserve a table for tomorrow$/) do
   find("#continuar").trigger("click")
 end
 
+When(/^I should see I can't reserve any more tables$/) do
+
+  expect(EmailNotifications).to receive(:notify_new_reservation).exactly(0).times
+  step("I search a table with default values")
+  expect(page).to have_content("Ya tienes una reserva para esa fecha")
+end
+
+And(/^I have reserved a table$/) do
+  step("I reserve a table for tomorrow")
+  step("I see the table details")
+end
+
 When(/^I reserve a table for tomorrow with payment errors$/) do
 
   expect(EmailNotifications).to receive(:notify_new_reservation).exactly(0).times
