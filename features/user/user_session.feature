@@ -22,3 +22,9 @@ Feature: User Session
     When I go to the user page  
     When I logout
     Then I should see the homepage
+
+  @first_login_user
+  Scenario: I am logged as user and have user data
+    Given I am a first login user
+    When I go to the user page
+    Then I should see the edit preferences page
