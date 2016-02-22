@@ -7,6 +7,15 @@ Given(/^There are some available tables for tomorrow$/) do
   @table = @restaurant.tables.first
 end
 
+Given(/^There are some available tables for any day$/) do
+  city = FactoryGirl.create(:city)
+  @restaurant = FactoryGirl.create(:restaurant, city: city)
+  @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
+  @menu = @restaurant.menus.first
+  @restaurant.tables.create(FactoryGirl.build(:table, menu: @menu, date: Date.tomorrow + 1.day).attributes)
+  @table = @restaurant.tables.first
+end
+
 When(/^I reserve a table for tomorrow$/) do
 
   expect(EmailNotifications).to receive(:notify_new_reservation).exactly(1).times
@@ -21,6 +30,29 @@ When(/^I reserve a table for tomorrow$/) do
   click_on "reserve-#{@restaurant.name}"
   step("I fill in the credit card with valid details")
   find("#continuar").trigger("click")
+end
+
+When(/^I reserve a table for any day$/) do
+
+  expect(EmailNotifications).to receive(:notify_new_reservation).exactly(1).times
+  step("I search a table for any day")
+
+  within ".search-results" do
+    expect(page).to have_content(@restaurant.name)
+    expect(page).to have_content(@menu.name)
+    expect(page).to have_content(@menu.price)
+  end
+
+  click_on "reserve-#{@restaurant.name}"
+  step("I fill in the credit card with valid details")
+  find("#continuar").trigger("click")
+end
+
+When(/^I search a table for any day$/) do
+  step "I go to the user page"
+  find("#new-reservation-link").trigger("click")
+  find(".last.day-toggle").trigger("click")
+  click_on "Buscar mesas"
 end
 
 When(/^I search a table with default values$/) do
