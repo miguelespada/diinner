@@ -10,10 +10,10 @@ Given(/^There is a last minute plan for today$/) do
   he = FactoryGirl.create(:user, :with_customer_id,  gender: :male)
   she = FactoryGirl.create(:user, :with_customer_id,  gender: :female)
 
-  FactoryGirl.create(:reservation, user: he, table: @table, date: @table.date)
-  FactoryGirl.create(:reservation, user: he, table: @table, date: @table.date)
-  FactoryGirl.create(:reservation, user: she, table: @table, date: @table.date)
-  FactoryGirl.create(:reservation, user: she, table: @table, date:@table.date)
+  FactoryGirl.create(:reservation, user: he, table: @table, date: @table.date, customer: "123")
+  FactoryGirl.create(:reservation, user: he, table: @table, date: @table.date, customer: "456")
+  FactoryGirl.create(:reservation, user: she, table: @table, date: @table.date, customer: "243")
+  FactoryGirl.create(:reservation, user: she, table: @table, date:@table.date, customer: "987")
   
   return_value = Hash.new
   return_value[:id] = "123"
@@ -44,7 +44,6 @@ When(/^I search a plan for today$/) do
   page.execute_script("onTime()")
 
     click_on "Buscar mesas"
-
   within(".search-results") do 
     click_on "Reservar"
   end

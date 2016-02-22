@@ -45,7 +45,6 @@ class  Users::ReservationsController < BaseUsersController
     if Reservation.off_the_clock?
       redirect_to :back, alert: t("off_the_clock")
     else
-
       suggestionEngine = SuggestionEngine.new @user, params[:reservation]
       if @user.busy?(suggestionEngine.date)
         redirect_to :back, notice: t("already_have_reservation")
@@ -69,13 +68,20 @@ class  Users::ReservationsController < BaseUsersController
 
   def reuse_card
     @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
-    handle_reservation(@reservation)
+    if @reservation.use_default_card
+      handle_reservation(@reservation)
+    else
+      handle_reservation_error @reservation
+    end
   end
 
 
   def new_card
     @reservation = @user.reservations.create(JSON.parse(params[:reservation]))
-    if @user.update_customer_information!(params[:stripe_card_token])
+    if @reservation.update_customer_information!(params[:stripe_card_token])
+      if params[:save_card]
+        @user.update_customer_information!(@reservation)
+      end
       handle_reservation(@reservation)
     else
       handle_reservation_error @reservation
