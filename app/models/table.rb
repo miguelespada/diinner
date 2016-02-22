@@ -4,12 +4,14 @@ class Table
   include PublicActivity::Common
   extend SimpleCalendar
   after_destroy :remove_activities
+  before_save :generate_locator
 
 
   field :date, type: Date
   field :hour, type: Time
   field :cancelled, type: Boolean, default: false
   field :processed, type: Boolean, default: false
+  field :locator, type: String
   
   belongs_to :restaurant
   has_many :reservations
@@ -211,11 +213,9 @@ class Table
     return false
   end
 
-  def locator
-    # TODO DRY this
-    # TODO store key in env
+  def generate_locator
     i = (id.to_s[5..7] + id.to_s[18..20]).to_i(30)
-    "T_" + Hashids.new("The salt of every").encode(i)
+    self.locator = "T_" + Hashids.new("The salt of every").encode(i)
   end
 
   def is_owned_by? user
