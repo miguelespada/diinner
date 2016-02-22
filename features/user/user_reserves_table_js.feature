@@ -29,3 +29,9 @@ Feature: User Reserves table
     Given There are some available tables for tomorrow
     When I reserve a table for tomorrow with company 2
     Then I see the table details with company 2
+
+  @user_reserves_table_with_payment_errors
+  Scenario:
+    Given There are some available tables for tomorrow
+    When I reserve a table for tomorrow with payment errors
+    Then I see there is an error with the payment

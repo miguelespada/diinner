@@ -32,6 +32,22 @@ When(/^I reserve a table for tomorrow$/) do
   find("#continuar").trigger("click")
 end
 
+When(/^I reserve a table for tomorrow with payment errors$/) do
+
+  expect(EmailNotifications).to receive(:notify_new_reservation).exactly(0).times
+  step("I search a table with default values")
+
+  within ".search-results" do
+    expect(page).to have_content(@restaurant.name)
+    expect(page).to have_content(@menu.name)
+    expect(page).to have_content(@menu.price)
+  end
+
+  click_on "reserve-#{@restaurant.name}"
+  step("I fill in the credit card with invalid details")
+  find("#continuar").trigger("click")
+end
+
 When(/^I reserve a table for tomorrow with company 1$/) do
 
   expect(EmailNotifications).to receive(:notify_new_reservation).exactly(1).times
@@ -133,6 +149,16 @@ Then(/^I fill in the credit card with valid details$/) do
   allow_any_instance_of(User).to receive(:get_stripe_default_card!).and_return("1881")
 end
 
+Then(/^I fill in the credit card with invalid details$/) do
+  fill_in "card_holder", with: "Rodrigo Rato"
+  fill_in "card_number", with: "4012888888881881"
+  fill_in "exp_month", with: "12"
+  fill_in "exp_year", with: "2001"
+  fill_in "card_cvc", with: "123"
+  allow_any_instance_of(User).to receive(:get_stripe_create_customer!).and_return(Stripe::Customer.new(id: "123"))
+  allow_any_instance_of(User).to receive(:get_stripe_default_card!).and_return("1881")
+end
+
 Then(/^I see the table details$/) do
   sleep(1)
   expect(page).to have_content("El estado del plan es RESERVADO")
@@ -166,4 +192,10 @@ Then(/^I see the table details with company 2$/) do
   expect(@user.reservations.first.is_last_minute?).to eq false
   click_on "Notificaciones"
   expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.")
+end
+
+Then(/^I see there is an error with the payment$/) do
+  sleep(1)
+  expect(page).to have_content("El año de caducidad de la tarjeta no es válido.")
+
 end
