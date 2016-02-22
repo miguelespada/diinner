@@ -15,3 +15,13 @@ end
 When(/^I go to the user page$/) do
   visit users_path
 end
+
+Given(/^I am a first login user$/) do
+  @user = FactoryGirl.create(:user, :first_login)
+  login_as_user @user
+  visit users_path
+end
+
+Then(/^I should see the edit preferences page$/) do
+  expect(page).to have_content "¡¡Bienvenido a Diinner!!"
+end

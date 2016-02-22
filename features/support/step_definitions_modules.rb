@@ -25,6 +25,10 @@ module Login
     allow_any_instance_of(UserSession).to receive(:user_from_session).and_return(user)
   end
 
+  def site_protected
+    allow(AdminSettings).to receive(:is_protected?).and_return(true)
+  end
+
   def first_time_user_login
     @first_time_user = FactoryGirl.create(:user, :first_login)
     login_as_user @first_time_user
