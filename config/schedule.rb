@@ -18,3 +18,6 @@ every 1.day, :at => '5:00 am' do
   runner "Reservation.invite_to_evaluate"
 end
 
+every 5.minutes do
+  runner "NotificationManager.notify_test_cron"
+end
