@@ -29,7 +29,7 @@ module EmailNotifications
     self.notify({
                     to: user.email,
                     from: "noreply@diinner.com",
-                    subject: "[Diinner] New reservation for restaurant #{restaurant.name} by #{user.name}",
+                    subject: "Diinner: nueva reserva en #{restaurant.name} para el #{reservation.date.to_s.first(10)}",
                     view: "mail/new_reservation",
                     params: {
                         user: user,
@@ -46,7 +46,7 @@ module EmailNotifications
     self.notify({
                     to: user.email,
                     from: "noreply@diinner.com",
-                    subject: "[Diinner] la reserva para el #{restaurant.name} ha sido cancelada",
+                    subject: "Diinner: confirmación de cancelación de reserva en #{restaurant.name} para el #{reservation.date.to_s.first(10)}",
                     view: "mail/cancel_reservation",
                     params: {
                         user: user,
@@ -62,7 +62,7 @@ module EmailNotifications
     self.notify({
                     to: user.email,
                     from: "noreply@diinner.com",
-                    subject: "[Diinner] Tu reserva para hoy en el #{restaurant.name} está confirmada!",
+                    subject: "Diinner: ¡plan para hoy en el #{restaurant.name} confirmado!",
                     view: "mail/plan_confirmation",
                     params: {
                         user: user,
@@ -78,7 +78,7 @@ module EmailNotifications
     self.notify({
                     to: user.email,
                     from: "noreply@diinner.com",
-                    subject: "[Diinner] Lo sentimos tu reserva hoy el #{restaurant.name} ha sido cancelada :(",
+                    subject: "Diinner: se ha cancelado el plan de hoy el #{restaurant.name} :(",
                     view: "mail/plan_cancellation",
                     params: {
                         user: user,
@@ -95,7 +95,7 @@ module EmailNotifications
     self.notify({
                     to: user.email,
                     from: "noreply@diinner.com",
-                    subject: "[Diinner] Cuéntanos qué tal te lo pasaste",
+                    subject: "Diinner: cuéntanos qué tal te lo pasaste",
                     view: "mail/evaluation",
                     params: {
                         user: user,
@@ -110,7 +110,7 @@ module EmailNotifications
     self.notify({
                     to: restaurant.email,
                     from: "noreply@diinner.com",
-                    subject: "[Diinner] Tienes una reserva para esta noche!",
+                    subject: "[Diinner] Reserva confirmada para esta noche",
                     view: "mail/table_confirmation",
                     params: {
                         table: table,
@@ -125,7 +125,7 @@ module EmailNotifications
     self.notify({
                     to: restaurant.email,
                     from: "noreply@diinner.com",
-                    subject: "[Diinner] Tenemos nuevos comensales para la reserva de esta noche",
+                    subject: "[Diinner] Nuevos comensales para una mesa de esta noche",
                     view: "mail/table_full",
                     params: {
                         table: table,
