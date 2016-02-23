@@ -13,14 +13,17 @@ p
     b = restaurant.name
   .table
     | Código de la cena:
-    b = reservation.table.locator
+    b =< reservation.table.locator
   .reservation
     | Ticket diinner:
-    b = reservation.locator
+    b =< reservation.locator
 
 p
   |Esta es la dirección del restaurante:
-  = restaurant.address
+  .address
+    = restaurant.address
+    =< restaurant.city.name
+
 
 p Cuando llegues, solo tienes que preguntar a la persona del restaurante sobre la mesa diinner y ellos te conducirán hasta ella.
 

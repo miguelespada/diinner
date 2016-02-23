@@ -21,7 +21,9 @@ p
 
 p
   |Esta es la dirección del restaurante:
-  = restaurant.address
+  .address
+    = restaurant.address
+    =< restaurant.city.name
 
 p
   | Recuerda que no se ha cargado nada en tu tarjeta todavía. Puedes cancelar en cualquier momento sin coste, excepto el día del plan, momento en el que se te cobrarán los
