@@ -18,7 +18,6 @@ Then(/^I can see the cancellation notification$/) do
 
   find(".notification-list a").click
 
-  save_and_open_page
   expect(page).to have_content("El estado del plan es CANCELADO")
 
 end
