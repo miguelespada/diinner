@@ -35,12 +35,7 @@ class Reservation
   has_one :payment, :dependent => :destroy
   has_one :evaluation, :dependent => :destroy
 
-  after_save :flush_cache
   after_destroy :remove_activities
-
-  def flush_cache
-    user.flush_cache
-  end
 
   def start_time
     date

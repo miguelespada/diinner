@@ -17,7 +17,6 @@ class  Users::TestResponsesController < BaseUsersController
 
     @user.process_new_test_response(response)
     
-    Rails.cache.delete("test_completed_" + @user.id.to_s)
 
     if response.skipped?
       redirect_to :back
