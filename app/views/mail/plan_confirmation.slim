@@ -6,15 +6,17 @@ p ¡Enhorabuena! ¡Tu plan diinner se ha confirmado!
 p
   |Te recordamos los detalles del plan:
   .date
-    => reservation.date.to_s.first(10)
+    b => reservation.date.to_s.first(10)
     | -
-    =< reservation.date_and_time.to_s.last(5)
+    b =< reservation.date_and_time.to_s.last(5)
   .restaurant
-    = restaurant.name
+    b = restaurant.name
   .table
-    = reservation.table.locator
+    | Código de la cena:
+    b = reservation.table.locator
   .reservation
-    = reservation.locator
+    | Ticket diinner:
+    b = reservation.locator
 
 p
   |Esta es la dirección del restaurante:

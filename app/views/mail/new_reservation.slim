@@ -4,16 +4,16 @@ p
   |!
 p
   |¡Enhorabuena! Tienes reservada una silla en un plan diinner el día
-  =<> reservation.date.to_s.first(10)
+  b =<> reservation.date.to_s.first(10)
   |a las
-  =<> reservation.date_and_time.to_s.last(5)
+  b =<> reservation.date_and_time.to_s.last(5)
   |en el restaurante
-  =<> restaurant.name
+  b =<> restaurant.name
   |.
 
 p
   |El menú reservado es el siguiente:
-  .name = reservation.menu.name
+  b.name = reservation.menu.name
   .appetizer = reservation.menu.appetizer
   .main = reservation.menu.main_dish
   .dessert = reservation.menu.dessert
