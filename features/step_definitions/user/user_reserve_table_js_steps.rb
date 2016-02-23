@@ -162,52 +162,49 @@ Then(/^I fill in the credit card with valid details$/) do
 end
 
 Then(/^I fill in the credit card with invalid details$/) do
-  fill_in "card_holder", with: "Rodrigo Rato"
-  fill_in "card_number", with: "4012888888881881"
-  fill_in "exp_month", with: "12"
+  step "I fill in the credit card with valid details"
   fill_in "exp_year", with: "2001"
-  fill_in "card_cvc", with: "123"
-  allow_any_instance_of(User).to receive(:get_stripe_create_customer!).and_return(Stripe::Customer.new(id: "123"))
-  allow_any_instance_of(User).to receive(:get_stripe_default_card!).and_return("1881")
 end
 
-Then(/^I see the table details$/) do
-  sleep(1)
+Then(/^I can see the table has been reserved/) do
   expect(page).to have_content("El estado del plan es RESERVADO")
   expect(@user.reservations.count).to eq 1
   expect(@user.notifications.count).to eq 1
   expect(@user.reservations.first.cancelled?).to eq false
   expect(@user.reservations.first.is_last_minute?).to eq false
+end
+
+Then(/^I can see reservation notification/) do
   click_on "Notificaciones"
-  expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.") 
+  expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.")
+end
+
+Then(/^I sleep JS$/) do
+  sleep(1)
+end
+
+
+Then(/^I see the table details$/) do
+  step "I sleep JS"
+  step "I can see the table has been reserved"
+  step "I can see reservation notification"
 end
 
 Then(/^I see the table details with company 1$/) do
-  sleep(1)
-  expect(page).to have_content("El estado del plan es RESERVADO")
+  step "I sleep JS"
   expect(page).to have_content("Número de menús comprados: 2")
-  expect(@user.reservations.count).to eq 1
-  expect(@user.notifications.count).to eq 1
-  expect(@user.reservations.first.cancelled?).to eq false
-  expect(@user.reservations.first.is_last_minute?).to eq false
-  click_on "Notificaciones"
-  expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.")
+  step "I can see the table has been reserved"
+  step "I can see reservation notification"
 end
 
 Then(/^I see the table details with company 2$/) do
-  sleep(1)
-  expect(page).to have_content("El estado del plan es RESERVADO")
+  step "I sleep JS"
   expect(page).to have_content("Número de menús comprados: 3")
-  expect(@user.reservations.count).to eq 1
-  expect(@user.notifications.count).to eq 1
-  expect(@user.reservations.first.cancelled?).to eq false
-  expect(@user.reservations.first.is_last_minute?).to eq false
-  click_on "Notificaciones"
-  expect(page).to have_content("Tu plan diinner en el restaurante #{@restaurant.name} el día #{@table.date} se ha reservado correctamente.")
+  step "I can see the table has been reserved"
+  step "I can see reservation notification"
 end
 
 Then(/^I see there is an error with the payment$/) do
-  sleep(1)
+  step "I sleep JS"
   expect(page).to have_content("El año de caducidad de la tarjeta no es válido.")
-
 end
