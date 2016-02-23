@@ -8,10 +8,11 @@ module ReservationPayment
     end
 
     def create_stripe_charge
+
       Stripe::Charge.create({
           :amount   => charge_amount,
           :currency => "eur",
-          :customer => customer,
+          :customer => self.customer,
           :capture => false,
           :metadata => {
             'reservation_id' => self.id,
@@ -35,6 +36,7 @@ module ReservationPayment
       return true if paid?
       return false if cancelled?
       payment = create_stripe_charge
+
       if payment
         self.update(charge_id: payment[:id])
       else
@@ -52,6 +54,7 @@ module ReservationPayment
       return true if paid?
       return false if !payment_reserved?
       data = stripe_capture
+
       if data
         self.update(paid: true)
         restaurant.payments.create(reservation: self, stripe_data: data.to_hash)

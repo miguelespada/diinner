@@ -5,9 +5,9 @@ end
 Given(/^There is a plan closed for tomorrow$/) do
   @he = FactoryGirl.create(:user, :with_customer_id)
   @she = FactoryGirl.create(:user, :with_customer_id, gender: :female )
-  reservation = FactoryGirl.create(:reservation, user: @he, table: @table, date: @table.date)
+  reservation = FactoryGirl.create(:reservation, user: @he, table: @table, date: @table.date, customer: "123")
 
-  reservation =  FactoryGirl.create(:reservation, user: @she, table: @table, date: @table.date)
+  reservation =  FactoryGirl.create(:reservation, user: @she, table: @table, date: @table.date, customer: "456")
   reservation.companies.create(age: 35, gender: :female)
 
   @user.customer = "123"

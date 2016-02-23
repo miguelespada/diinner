@@ -34,9 +34,10 @@
       .col-xs-12
         span.plan-label == t("menus_number")
         span.plan-value =< "#{@reservation.male_count + @reservation.female_count}"
-      .col-xs-12
-        span.plan-label == "#{t("plan_status")}"
-        span.plan-value =< t(@reservation.status).upcase
+      - if @reservation.date >= Date.today
+        .col-xs-12
+          span.plan-label == "#{t("plan_status")}"
+          span.plan-value =< t(@reservation.status).upcase
       - if @reservation.pending?
         - if @reservation.is_last_minute?
           .col-xs-12

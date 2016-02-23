@@ -1,7 +1,7 @@
 Given(/^There is a new reservation$/) do
 
   she = FactoryGirl.create(:user, :with_customer_id,  gender: :female)
-  FactoryGirl.create(:reservation, user: she, table: @table, date:@table.date)
+  FactoryGirl.create(:reservation, user: she, table: @table, date:@table.date, customer: "989")
 end
 
 

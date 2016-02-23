@@ -9,6 +9,13 @@
   .menu-icon{
     font-size: 1.2rem;
   }
+  .unread-notifications{
+    color: $buttonPink;
+    font-weight: bold;
+    &.small{
+      font-size: 0.6rem;
+    }
+  }
   .menu-text{
     font-size: 1rem;
     display: inline;

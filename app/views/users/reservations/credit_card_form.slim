@@ -82,6 +82,11 @@
             .col-xs-3
               = text_field_tag :exp_year, nil, name: nil, size: 4, pattern:".{0,4}", maxlength:4, class: "form-control", placeholder: "aaaa"
 
+        .form-group
+          .span.col-xs-12
+            => check_box_tag :save_card, nil, checked: true
+            | Guardar mi tarjeta para próximas reservas
+
         .stripe-error.hidden
         #submit-other-card.col-xs-12.text-center
           .diinner-button.pink#continuar = t("continue_button")

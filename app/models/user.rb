@@ -17,7 +17,7 @@ class User
 
   field :test_profile, :type => Hash 
 
-  field :notifications_read_at, type: Date
+  field :notifications_read_at, type: DateTime
 
   has_many :test_completed, class_name: "TestResponse"
   has_many :reservations
@@ -107,18 +107,9 @@ class User
     Test.find(test_pending.sample.to_s) if !test_pending.empty?
   end
 
-  def get_stripe_create_customer! token
-    Stripe::Customer.create(
-      :source => token,
-      :description => name
-    )
-    # TODO test sth is wrong
-  end
-
-  def update_customer_information! token
-    stripe_customer = get_stripe_create_customer!(token)
-    self.customer = stripe_customer.id
-    self.stripe_default_card = get_stripe_default_card!(stripe_customer)
+  def update_customer_information! reservation
+    self.customer = reservation.customer
+    self.stripe_default_card = reservation.stripe_default_card
     self.save!
   rescue
     false
@@ -155,7 +146,7 @@ class User
   end
 
   def read_notifications
-    self.update_attribute(:notifications_read_at, DateTime.now)
+    self.update(notifications_read_at: DateTime.now)
   end
 
   def to_ionic_json
@@ -259,4 +250,7 @@ class User
     notifications and notifications.length > 0
   end
 
+  def has_unread_notifications?
+    PublicActivity::Activity.where(recipient: self, :created_at.gte => notifications_read_at).count > 0
+  end
 end

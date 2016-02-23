@@ -22,7 +22,8 @@ class Reservation
             :hour,
             :menu, :to => :table, :allow_nil => true
 
-  delegate :customer, :to => :user
+  field :customer, type: String
+  field :stripe_default_card, type: String
   delegate :city, :to => :restaurant, :allow_nil => true
 
   embeds_many :companies
@@ -162,6 +163,36 @@ class Reservation
 
   def has_restaurant?
     !restaurant.nil? and restaurant.respond_to? :to_ionic_json
+  end
+
+  def get_stripe_create_customer! token
+    Stripe::Customer.create(
+        :source => token,
+        :description => user.name
+    )
+    # TODO test sth is wrong
+  end
+
+  def update_customer_information! token
+    stripe_customer = get_stripe_create_customer!(token)
+    self.customer = stripe_customer.id
+    self.stripe_default_card = get_stripe_default_card!(stripe_customer)
+    self.save!
+  rescue
+    false
+  end
+
+  def get_stripe_default_card! stripe_customer
+    stripe_customer.sources.retrieve(stripe_customer.default_source).last4
+  end
+
+  def use_default_card
+    return false if self.user.customer.nil?
+    self.customer = self.user.customer
+    self.stripe_default_card = self.user.stripe_default_card
+    self.save!
+  rescue
+    false
   end
 
 end

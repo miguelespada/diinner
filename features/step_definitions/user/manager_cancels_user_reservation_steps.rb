@@ -10,12 +10,15 @@ end
 Then(/^I can see the cancellation notification$/) do
 
   visit @user_path
+
   click_on "Notificaciones"
 
   expect(page).to have_content("Lo sentimos. Tu plan en el restaurante #{@restaurant.name}")
   expect(page).to have_content("ha sido cancelado") 
 
   find(".notification-list a").click
+
+  save_and_open_page
   expect(page).to have_content("El estado del plan es CANCELADO")
 
 end

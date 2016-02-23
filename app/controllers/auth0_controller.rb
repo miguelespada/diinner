@@ -1,5 +1,6 @@
 class Auth0Controller < ApplicationController
   def callback
+    p request.env['omniauth.auth']
     session[:userinfo] = request.env['omniauth.auth']
     redirect_to users_path
   end

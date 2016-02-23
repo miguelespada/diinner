@@ -19,7 +19,6 @@ class TableManager
 
   def self.process_today_tables
     self.process today_tables
-    
   end
 
   def self.process_last_minute_tables
@@ -39,6 +38,7 @@ class TableManager
     self.refund_partial(tables)
     self.refund_last_minute(tables)
     tables = self.cancel_partial(tables)
+
     self.charge(tables)
     self.notify_confirmations(tables)
   end
@@ -80,6 +80,7 @@ class TableManager
   end
 
   def self.refund_partial tables
+
     tables.map{|table| table.refund if !table.plan_closed?}
   end
 
