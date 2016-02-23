@@ -75,12 +75,12 @@ javascript:
   var onTime = function(){
     $(".last-minute-notification").hide();
     $(".submit").show();
-  }
+  };
 
   var offTime = function(){
     $(".last-minute-notification").show();
     $(".submit").hide();
-  }
+  };
 
   $(window).bind("pageshow", function (event) {
     if (event.originalEvent.persisted) {
@@ -110,9 +110,7 @@ javascript:
 
     var initialScreenSize = window.innerHeight;
     window.addEventListener("resize", function () {
-        console.log("Resized window");
         var focused_element =  $(':focus');
-        console.log(focused_element);
 
       $("body").scrollTop(focused_element.offset().top - $("body").offset().top + $("body").scrollTop());
     });

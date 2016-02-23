@@ -8,4 +8,4 @@
   .col-lg-6.col-xs-12
     = f.input :gender, as: :hidden, :input_html => { class: 'gender', value: ''}
     .bottom-margin-17
-      = f.input :age, label: false, placeholder:  t("company_age")
+      = f.input :age, as: :integer, label: false, placeholder:  t("company_age"), input_html: { step: 'any', min: '18', max: '118'}
