@@ -1,3 +1,5 @@
+= render 'mail/logo'
+
 p
   |¡Hola
   =<> user.name
@@ -6,7 +8,8 @@ p Esperamos que pasases un rato divertido en tu cena.
 
 p Te agradeceríamos que respondieras a esta encuesta sobre tu experiencia. Esto nos ayudará a mejorar nuestros servicios para futuras cenas.
 
-p = link_to "Evaluar", new_user_reservation_evaluation_path(user, reservation)
+p
+  b = link_to "Evaluar", new_user_reservation_evaluation_path(user, reservation)
 
 p ¡Gracias!
 p Equipo diinner.

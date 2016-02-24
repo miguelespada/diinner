@@ -1,19 +1,22 @@
+= render 'mail/logo'
+
 p
   |¡Hola
   =<> user.name
   |!
 p
   |¡Enhorabuena! Tienes reservada una silla en un plan diinner el día
-  =<> reservation.date.to_s.first(10)
+  b =<> reservation.date.to_s.first(10)
   |a las
-  =<> reservation.date_and_time.to_s.last(5)
+  b =<> reservation.date_and_time.to_s.last(5)
   |en el restaurante
-  =<> restaurant.name
+  b =<> restaurant.name
   |.
 
 p
   |El menú reservado es el siguiente:
-  .name = reservation.menu.name
+  .name
+    b = reservation.menu.name
   .appetizer = reservation.menu.appetizer
   .main = reservation.menu.main_dish
   .dessert = reservation.menu.dessert
@@ -21,7 +24,9 @@ p
 
 p
   |Esta es la dirección del restaurante:
-  = restaurant.address
+  .address
+    = restaurant.address
+    =< restaurant.city.name
 
 p
   | Recuerda que no se ha cargado nada en tu tarjeta todavía. Puedes cancelar en cualquier momento sin coste, excepto el día del plan, momento en el que se te cobrarán los
