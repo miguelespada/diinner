@@ -29,3 +29,9 @@ Feature: User Session
     When I go to the user page
     Then I should see the edit preferences page
 
+  @user_drop_out
+  Scenario: I am logged as user and have user data
+    Given I am a logged user
+    When I drop out
+    Then I should see my preferences have been reset
+
