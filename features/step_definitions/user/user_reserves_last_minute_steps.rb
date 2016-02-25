@@ -51,9 +51,22 @@ When(/^I search a plan for today$/) do
   step("I fill in the credit card with valid details")
 
   find("#continuar").trigger("click")
-
-
 end
+
+When(/^I search a plan for today late$/) do
+  step "I go to the user page"
+  find("#new-reservation-link").trigger("click")
+  find(".today").trigger("click")
+
+  page.execute_script("offTime()")
+
+  expect(page).not_to have_content("Buscar mesas")
+end
+
+Then(/^I can see I can't search last minute diinners$/) do
+  expect(page).to have_content("Sólo puedes buscar mesas de último minuto entre las 9.00 y las 18.00.")
+end
+
 
 Then(/^I can see the new reservation$/) do
   sleep(1)
