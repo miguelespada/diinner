@@ -46,3 +46,9 @@ Feature: User Reserves table
   Scenario:
     Given There is a full table for tomorrow
     Then I should see I can't reserve the full table
+
+  @user_reserves_reusing_card
+  Scenario:
+    Given There are some available tables for tomorrow
+    When I reserve a table for tomorrow with saved card
+    Then I see the table details

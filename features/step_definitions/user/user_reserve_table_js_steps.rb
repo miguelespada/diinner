@@ -32,6 +32,23 @@ When(/^I reserve a table for tomorrow$/) do
   find("#continuar").trigger("click")
 end
 
+When(/^I reserve a table for tomorrow with saved card$/) do
+
+  expect(EmailNotifications).to receive(:notify_new_reservation).exactly(1).times
+  step("I search a table with default values")
+
+  within ".search-results" do
+    expect(page).to have_content(@restaurant.name)
+    expect(page).to have_content(@menu.name)
+    expect(page).to have_content(@menu.price)
+  end
+
+  @user.customer = Stripe::Customer.new(id: "123")
+  @user.stripe_default_card = "1881"
+  click_on "reserve-#{@restaurant.name}"
+  find("#submit-default-card").trigger("click")
+end
+
 Given(/^There is a full table for tomorrow$/) do
   city = FactoryGirl.create(:city)
   @restaurant = FactoryGirl.create(:restaurant, city: city)
