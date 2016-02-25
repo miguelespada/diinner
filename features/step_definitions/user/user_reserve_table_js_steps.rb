@@ -32,6 +32,35 @@ When(/^I reserve a table for tomorrow$/) do
   find("#continuar").trigger("click")
 end
 
+Given(/^There is a full table for tomorrow$/) do
+  city = FactoryGirl.create(:city)
+  @restaurant = FactoryGirl.create(:restaurant, city: city)
+  @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
+  @menu = @restaurant.menus.first
+  @restaurant.tables.create(FactoryGirl.build(:table, menu: @menu, date: Date.tomorrow).attributes)
+  @table = @restaurant.tables.first
+  he = FactoryGirl.create(:user, :with_customer_id,  gender: :male)
+  she = FactoryGirl.create(:user, :with_customer_id,  gender: :female)
+  FactoryGirl.create(:reservation, user: he, table: @table, date: @table.date, customer: "123")
+  FactoryGirl.create(:reservation, user: he, table: @table, date: @table.date, customer: "456")
+  FactoryGirl.create(:reservation, user: she, table: @table, date: @table.date, customer: "243")
+  FactoryGirl.create(:reservation, user: she, table: @table, date:@table.date, customer: "987")
+  FactoryGirl.create(:reservation, user: he, table: @table, date: @table.date, customer: "111")
+  FactoryGirl.create(:reservation, user: she, table: @table, date: @table.date, customer: "222")
+end
+
+Then(/^I should see I can't reserve the full table$/) do
+
+  expect(EmailNotifications).to receive(:notify_new_reservation).exactly(0).times
+  step("I search a table with default values")
+
+  expect(page).not_to have_content(@restaurant.name)
+  expect(page).not_to have_content(@menu.name)
+  expect(page).not_to have_content(@menu.price)
+
+  expect(page).to have_content("Lo sentimos, no hay mesas para la búsqueda que has realizado")
+end
+
 When(/^I should see I can't reserve any more tables$/) do
 
   expect(EmailNotifications).to receive(:notify_new_reservation).exactly(0).times

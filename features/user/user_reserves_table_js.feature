@@ -41,3 +41,8 @@ Feature: User Reserves table
     Given There are some available tables for tomorrow
     And I have reserved a table
     Then I should see I can't reserve any more tables
+
+  @user_reserves_full_table
+  Scenario:
+    Given There is a full table for tomorrow
+    Then I should see I can't reserve the full table
