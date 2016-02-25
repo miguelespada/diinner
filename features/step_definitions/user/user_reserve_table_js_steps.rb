@@ -159,6 +159,8 @@ Then(/^I fill in the credit card with valid details$/) do
   fill_in "card_cvc", with: "123"
   allow_any_instance_of(User).to receive(:get_stripe_create_customer!).and_return(Stripe::Customer.new(id: "123"))
   allow_any_instance_of(User).to receive(:get_stripe_default_card!).and_return("1881")
+  allow_any_instance_of(Reservation).to receive(:get_stripe_create_customer!).and_return(Stripe::Customer.new(id: "123"))
+  allow_any_instance_of(Reservation).to receive(:get_stripe_default_card!).and_return("1881")
 end
 
 Then(/^I fill in the credit card with invalid details$/) do
