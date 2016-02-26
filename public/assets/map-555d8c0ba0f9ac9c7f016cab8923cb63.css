@@ -1,0 +1,16 @@
+/* line 3, /home/dorgroi/Projects/crowtec/others/diinner/app/assets/stylesheets/map.scss */
+#map {
+  width: 100%;
+  height: 300px;
+  background-color: #c9c9c9;
+  margin-bottom: 15px;
+}
+/* line 8, /home/dorgroi/Projects/crowtec/others/diinner/app/assets/stylesheets/map.scss */
+#map.admin-map {
+  height: 500px;
+}
+
+/* line 13, /home/dorgroi/Projects/crowtec/others/diinner/app/assets/stylesheets/map.scss */
+#city_city {
+  margin-top: 20px;
+}

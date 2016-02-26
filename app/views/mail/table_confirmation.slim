@@ -7,17 +7,30 @@ p
     => table.date.to_s.first(10)
     | -
     =< table.hour.to_s.last(5)
-  .name = table.menu.name
-  .appetizer = table.menu.appetizer
-  .main = table.menu.main_dish
-  .dessert = table.menu.dessert
-  .drink = table.menu.drink
   .people
     |Número de comensales:
     =< table.user_count
   .code
     | Código de la cena:
     = table.locator
+p
+  |El menú reservado es el siguiente:
+  .name
+    i Nombre:
+    b =< reservation.menu.name
+  .appetizer
+    i Entrante:
+    =< reservation.menu.appetizer
+  .main
+    i Principal:
+    =< reservation.menu.main_dish
+  .dessert
+    i Postre:
+    =< reservation.menu.dessert
+  .drink
+    i Bebida:
+    =< reservation.menu.drink
+
 
 p Las indicaciones dadas a los comensales son que pregunten a la llegada del restaurante por la mesa diinner.
 
