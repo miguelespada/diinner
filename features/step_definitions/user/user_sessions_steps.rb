@@ -25,3 +25,24 @@ end
 Then(/^I should see the edit preferences page$/) do
   expect(page).to have_content "¡¡Bienvenido a Diinner!!"
 end
+
+
+When(/^I go to the preferences page$/) do
+  visit users_path
+  click_on "Preferencias"
+end
+
+When(/^I drop out$/) do
+  step "I go to the preferences page"
+  click_on "Darse de baja"
+  sleep(1)
+  click_on "Hidden Drop Out"
+  save_and_open_page
+end
+
+When(/^I should see my preferences have been reset$/) do
+  expect(page).to have_content "Muchas gracias por haber usado nuestra plataforma, esperamos volver verte pronto."
+  login_as_user @user
+  visit users_path
+  expect(page).to have_content "¡¡Bienvenido a Diinner!!"
+end

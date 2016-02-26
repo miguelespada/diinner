@@ -63,7 +63,7 @@ class Table
   end
 
   def can_be_deleted?
-    self.empty?
+    self.empty? && self.reservations.empty?
   end
   
   def passed?
