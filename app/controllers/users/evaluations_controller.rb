@@ -11,7 +11,6 @@ class  Users::EvaluationsController < BaseUsersController
     @reservation = Reservation.find(params[:reservation_id])
     @evaluation = @reservation.evaluation.update!(evaluation_params)
     NotificationManager.notify_user_create_evaluation object: @reservation, from: @user
-    EmailNotifications.invite_to_evaluate(@reservation)
 
     Rails.cache.delete("to_evaluate_reservations_" + @user.id.to_s)
 
