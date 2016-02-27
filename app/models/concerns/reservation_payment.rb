@@ -4,7 +4,7 @@ module ReservationPayment
   included do
     
     def charge_amount
-      price * (male_count + female_count) * 100
+      price * user_count * 100
     end
 
     def create_stripe_charge

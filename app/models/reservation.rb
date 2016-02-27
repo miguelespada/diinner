@@ -74,6 +74,10 @@ class Reservation
     cancelled? ? 0 : genders[:female]
   end
 
+  def user_count
+    male_count + female_count
+  end
+
   def genders
     results = {:male => 0, :female => 0}
     results[user.gender] += 1

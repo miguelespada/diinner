@@ -23,6 +23,18 @@ module EmailNotifications
     })
   end
 
+  def self.notify_process_tables table_count, type
+    self.notify({
+                    to: "jose@diinner.com",
+                    from: "noreply@diinner.com",
+                    subject: "[Diinner] Procesando mesas (#{type})",
+                    view: "mail/process",
+                    params: {
+                        table_count: table_count
+                    }
+                })
+  end
+
   def self.notify_new_reservation reservation
     restaurant = reservation.restaurant
     user = reservation.user
