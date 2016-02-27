@@ -38,7 +38,7 @@ p
     =< restaurant.city.name
 
 p
-  = user_count > 1 ? "Tienes reservadas #{user_count} sillas" : "Tienes reservada una silla"
+  = reservation.user_count > 1 ? "Tienes reservadas #{reservation.user_count} sillas" : "Tienes reservada una silla"
 
 p
   | Recuerda que no se ha cargado nada en tu tarjeta todavía. Puedes cancelar en cualquier momento sin coste, excepto el día del plan, momento en el que se te cobrarán los
