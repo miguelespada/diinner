@@ -4,7 +4,7 @@ class Table
   include PublicActivity::Common
   extend SimpleCalendar
   after_destroy :remove_activities
-  before_save :generate_locator
+  before_create :generate_locator
 
 
   field :date, type: Date
@@ -212,7 +212,7 @@ class Table
   end
 
   def generate_locator
-    i = (id.to_s[5..7] + id.to_s[18..20]).to_i(30)
+    i = (id.to_s[5..7] + (Time.now.to_f*1000000).to_s  + id.to_s[18..23]).to_i(30)
     self.locator = "T_" + Hashids.new("The salt of every").encode(i)
   end
 
