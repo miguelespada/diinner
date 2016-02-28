@@ -53,6 +53,10 @@ class User
     test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact
   end
 
+  def test_skipped
+    test_completed.to_a.map{|m| m.test_id if m.skipped?}.compact
+  end
+
   def drop_out
     self.dropped_out = true
     self.birth = nil
@@ -83,11 +87,11 @@ class User
   end
 
   def test_pending
-    Test.gender_tests(self.gender) - test_completed_unskipped
+    Test.gender_tests(self.gender) - test_completed.to_a.map{|m| m.test_id }.compact
   end
 
   def sample_test
-    Test.find(test_pending.sample.to_s) if !test_pending.empty?
+    Test.find(test_pending.sample.to_s) unless test_pending.empty?
   end
 
   def update_customer_information! reservation
