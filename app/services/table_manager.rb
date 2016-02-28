@@ -19,7 +19,7 @@ class TableManager
 
   def self.process_today_tables
     self.process today_tables
-    EmailNotifications.notify_process_tables(today_tables.count, "Today Tables")
+    EmailNotifications.notify_process_tables(today_tables.count, "Today Tables #{Time.zone.today.to_time}")
   end
 
   def self.process_last_minute_tables
@@ -27,7 +27,7 @@ class TableManager
      tables = today_tables.select{|t| t.has_last_minutes?}
      tables = self.process_last_minute(tables)
      self.notify_cancel_last_minute(tables)
-     EmailNotifications.notify_process_tables(tables.count, "Last Minute")
+     EmailNotifications.notify_process_tables(tables.count, "Last Minute #{Time.zone.today.to_time}")
   end
 
   def self.process tables
@@ -46,7 +46,7 @@ class TableManager
   end
 
   def self.today_tables
-    Table.where(date: Date.today)
+    Table.where(date: Time.zone.today)
   end
 
   def self.cancel_partial tables
