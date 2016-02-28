@@ -18,16 +18,16 @@ class TableManager
   end
 
   def self.process_today_tables
-    EmailNotifications.notify_process_tables(today_tables.count, "Today Tables")
     self.process today_tables
+    EmailNotifications.notify_process_tables(today_tables.count, "Today Tables")
   end
 
   def self.process_last_minute_tables
     # Last minute tables can only be cancelled by the daemon
      tables = today_tables.select{|t| t.has_last_minutes?}
-     EmailNotifications.notify_process_tables(tables.count, "Last Minute")
      tables = self.process_last_minute(tables)
      self.notify_cancel_last_minute(tables)
+     EmailNotifications.notify_process_tables(tables.count, "Last Minute")
   end
 
   def self.process tables

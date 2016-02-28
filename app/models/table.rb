@@ -42,22 +42,20 @@ class Table
   end
 
   def affinity
-    Rails.cache.fetch([self.class.name, self.id, "affinity"], expires_in: 1.hour) do
-      res = uncancelled_reservations.to_a
-      return 100 if res.count <= 1
-      aff = 0
-      i = 0
-      while i < res.count - 1 do
-        j = i + 1
-        while j <  res.count do
-          aff += res[i].affinity(res[j])
-          j += 1
-        end
-        i += 1
+    res = uncancelled_reservations.to_a
+    return 100 if res.count <= 1
+    aff = 0
+    i = 0
+    while i < res.count - 1 do
+      j = i + 1
+      while j <  res.count do
+        aff += res[i].affinity(res[j])
+        j += 1
       end
-      aff /= res.count.to_f
-      (70 + aff * 30).to_i
+      i += 1
     end
+    aff /= res.count.to_f
+    (70 + aff * 30).to_i
   rescue
     75
   end

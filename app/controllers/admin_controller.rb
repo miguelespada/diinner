@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   before_filter :sign_out_others
   before_filter :authenticate
   
-  caches_action :logs, expires_in: 5.minutes
+  # caches_action :logs, expires_in: 5.minutes
 
   def authenticate
     authenticate_admin!

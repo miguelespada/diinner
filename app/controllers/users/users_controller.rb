@@ -16,11 +16,9 @@ class Users::UsersController < BaseUsersController
 
   def show
     @test = @user.sample_test
-    @future_reservations = @user.cached_future_reservations.take(3)
-    @eval_reservations = @user.cached_to_evaluate_reservations.take(3)
-    @blog_posts = BlogPost.cached_posts
-
-
+    @future_reservations = @user.future_reservations.take(3)
+    @eval_reservations = @user.to_evaluate_reservations.take(3)
+    @blog_posts = BlogPost.posts
   end
 
   def user_suggestions

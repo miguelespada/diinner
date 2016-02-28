@@ -38,7 +38,7 @@ end
 When(/^I can skip some tests$/) do
   visit users_path
   click_on "Saltar pregunta"
-  expect(@user.cached_test_completed.count).to eq 2
+  expect(@user.test_completed_unskipped.count).to eq 2
   expect(@user.profile(:humor)).to eq -0.5
 
   enable_cache
