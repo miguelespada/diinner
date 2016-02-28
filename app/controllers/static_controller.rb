@@ -2,7 +2,7 @@ class StaticController < ApplicationController
   layout "static"
 
   before_action :redirect_if_authenticated, only: [:index]
-  caches_action :index
+  # caches_action :index
   
   def index
     @blog_posts = BlogPost.get_three_random
@@ -10,7 +10,7 @@ class StaticController < ApplicationController
   end
 
   def expire
-    expire_action controller: 'static', action: 'index'
+    # expire_action controller: 'static', action: 'index'
     render nothing: true
   end
 

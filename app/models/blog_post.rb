@@ -10,9 +10,7 @@ class BlogPost
     BlogPost.all.desc('created_at').sample(3)
   end
 
-  def self.cached_posts
-    Rails.cache.fetch("blog_posts_cache", expires_in: 24.hours) do
-      BlogPost.get_three_random.to_a
-    end
+  def self.posts
+    BlogPost.get_three_random.to_a
   end
 end

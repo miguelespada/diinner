@@ -68,7 +68,22 @@ class User
     # Rails.cache.delete("has_reservations_" + self.id.to_s)
     # Rails.cache.delete("notifications_" + self.id.to_s)
   end
-  # END CACHE CONTROL
+
+  def future_reservations
+    reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').to_a.select{|r| r.table.processed or r.date > Date.today}
+  end
+
+  def to_evaluate_reservations
+    reservations.includes(:table).where(paid: true, :date.lte => Date.today).asc('date').select{|r| r.can_be_evaluated?}
+  end
+
+  def has_reservations?
+    reservations.count > 0
+  end
+
+  def test_completed_unskipped
+    test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact
+  end
 
   def drop_out
     self.dropped_out = true
@@ -100,7 +115,7 @@ class User
   end
 
   def test_pending
-    Test.cached_tests(self.gender) - cached_test_completed
+    Test.gender_tests(self.gender) - test_completed_unskipped
   end
 
   def sample_test
@@ -182,7 +197,8 @@ class User
 
   def profile criteria
     generate_test_profile if test_profile.nil? 
-    test_profile[criteria] / cached_test_completed.count.to_f
+    return 1 if test_completed_unskipped.count == 0
+    test_profile[criteria] / test_completed_unskipped.count.to_f
   end
 
   def generate_test_profile
@@ -229,7 +245,7 @@ class User
     ) / 7.0
 
     # NOTE: we normalize the value 1 (highiest) - 0 (lowest)
-    1.0 - (a / 4.0)
+    1.0 - a
   end
 
   def busy? date

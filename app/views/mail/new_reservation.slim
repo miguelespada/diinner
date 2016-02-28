@@ -16,11 +16,20 @@ p
 p
   |El menú reservado es el siguiente:
   .name
-    b = reservation.menu.name
-  .appetizer = reservation.menu.appetizer
-  .main = reservation.menu.main_dish
-  .dessert = reservation.menu.dessert
-  .drink = reservation.menu.drink
+    i Nombre:
+    b =< reservation.menu.name
+  .appetizer
+    i Entrante:
+    =< reservation.menu.appetizer
+  .main
+    i Principal:
+    =< reservation.menu.main_dish
+  .dessert
+    i Postre:
+    =< reservation.menu.dessert
+  .drink
+    i Bebida:
+    =< reservation.menu.drink
 
 p
   |Esta es la dirección del restaurante:
@@ -29,8 +38,11 @@ p
     =< restaurant.city.name
 
 p
+  = reservation.user_count > 1 ? "Tienes reservadas #{reservation.user_count} sillas" : "Tienes reservada una silla"
+
+p
   | Recuerda que no se ha cargado nada en tu tarjeta todavía. Puedes cancelar en cualquier momento sin coste, excepto el día del plan, momento en el que se te cobrarán los
-  =< reservation.menu.price
+  =< reservation.charge_amount / 100
   |€ del menú en tu tarjeta.
 
 p Esperemos que disfrutes de tu plan diinner.

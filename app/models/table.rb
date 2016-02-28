@@ -4,7 +4,7 @@ class Table
   include PublicActivity::Common
   extend SimpleCalendar
   after_destroy :remove_activities
-  before_save :generate_locator
+  before_create :generate_locator
 
 
   field :date, type: Date
@@ -42,24 +42,22 @@ class Table
   end
 
   def affinity
-    Rails.cache.fetch([self.class.name, self.id, "affinity"], expires_in: 1.hour) do
-      res = uncancelled_reservations.to_a
-      return 100 if res.count <= 1
-      aff = 0
-      i = 0
-      while i < res.count - 1 do
-        j = i + 1
-        while j <  res.count do
-          aff += res[i].affinity(res[j])
-          j += 1
-        end
-        i += 1
+    res = uncancelled_reservations.to_a
+    return 100 if res.count <= 1
+    aff = 0
+    i = 0
+    while i < res.count - 1 do
+      j = i + 1
+      while j <  res.count do
+        aff += res[i].affinity(res[j])
+        j += 1
       end
-      aff /= res.count.to_f
-      (70 + aff * 30).to_i
+      i += 1
     end
+    aff /= res.count.to_f
+    (70 + aff * 30).to_i
   rescue
-    75
+    90
   end
 
   def can_be_deleted?
@@ -214,7 +212,7 @@ class Table
   end
 
   def generate_locator
-    i = (id.to_s[5..7] + id.to_s[18..20]).to_i(30)
+    i = (id.to_s[5..7] + (Time.now.to_f*1000000).to_s  + id.to_s[18..23]).to_i(30)
     self.locator = "T_" + Hashids.new("The salt of every").encode(i)
   end
 

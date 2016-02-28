@@ -37,7 +37,6 @@ When(/^I drop out$/) do
   click_on "Darse de baja"
   sleep(1)
   click_on "Hidden Drop Out"
-  save_and_open_page
 end
 
 When(/^I should see my preferences have been reset$/) do
