@@ -77,7 +77,7 @@
                         .time Evaluar
     .visible-lg.col-lg-7
       .text-center
-        .diinner-info = t("answer_tests")
+        .diinner-info = raw t("answer_tests")
       .separator
       - if @test
         == cell(:test, @test).user_show
