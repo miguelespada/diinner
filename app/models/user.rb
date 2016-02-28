@@ -50,7 +50,7 @@ class User
   end
 
   def test_completed_unskipped
-    test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact
+    test_completed.to_a.map{|m| m.test_id unless m.skipped?}.compact
   end
 
   def test_skipped
