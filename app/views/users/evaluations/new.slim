@@ -5,11 +5,45 @@
     .col-xs-12
       .separator
       = f.error_notification
-      = f.input :quality_of_restaurant, collection: 1..5, label: t("restaurant_quality")
-      = f.input :quality_of_menu, collection: 1..5, label: t("menu_quality")
-      = f.input :comments, label: t("comments")
-      = f.input :had_fun, as: :boolean, label: t("has_fun")
-      = f.input :would_recommend, as: :boolean, label: t("would_recommend")
+      label = t("restaurant_quality")
+      .rating-widget
+        .item.rating-1 data-rating=1 Muy insatisfecho
+        .item.rating-2 data-rating=2 Insatisfecho
+        .item.rating-3 data-rating=3 Indiferente
+        .item.rating-4 data-rating=4 Satisfecho
+        .item.rating-5 data-rating=5 Muy satisfecho
+      label = t("menu_quality")
+      .rating-widget
+        .item.rating-1 data-rating=1 Muy malo
+        .item.rating-2 data-rating=2 Malo
+        .item.rating-3 data-rating=3 Sin más
+        .item.rating-4 data-rating=4 Bueno
+        .item.rating-5 data-rating=5 Muy bueno
+
+      /= f.input :quality_of_restaurant, collection: 1..5, label: t("restaurant_quality")
+      /= f.input :quality_of_menu, collection: 1..5, label: t("menu_quality")
+      = f.input :comments, as: :text, :input_html => {rows: 3, style: "height: auto" }, label: t("comments")
+      .choosing-box
+        .text.toggle.selected data-fun=1 = t("has_fun")
+        .text.toggle.last data-fun=0 = t("no_fun")
+      .choosing-box
+        .text.toggle.selected data-recommend=1 = t("would_recommend")
+        .text.toggle data-recommend=0 = t("not recommend")
+      .sr-only
+        = f.input :had_fun, as: :boolean, label: t("has_fun")
+        = f.input :would_recommend, as: :boolean, label: t("would_recommend")
   .separator
   .text-center
     = f.button :submit, t("evaluate"), class: 'diinner-button pink floater'
+
+javascript:
+  $(".toggle").click(function () {
+    $(this).siblings().removeClass("selected");
+    $(this).addClass("selected");
+    if($(this).data("fun") != null){
+      $('#evaluation_had_fun').val($(this).data('fun'));
+    }else{
+      $('#evaluation_would_recommend').val($(this).data('recommend'));
+    }
+
+  });
