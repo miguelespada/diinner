@@ -3,7 +3,6 @@ class  Users::ReservationsController < BaseUsersController
                 :only => [:cancel, :menu, :new_evaluation]
   load_resource :only => [:destroy], :through => :user
 
-  # caches_action :show, expires_in: 5.minutes
 
   def index
     # TODO move scope to a better place

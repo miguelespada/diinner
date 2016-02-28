@@ -1,7 +1,4 @@
 Given(/^I do a test$/) do
-
-  disable_cache
-
   FactoryGirl.create(:test,  :with_images, humor: 1, gender: :undefined)
   FactoryGirl.create(:test, :with_images, humor: -2, gender: :male)
   FactoryGirl.create(:test, :with_images, humor: -2, gender: :female)
@@ -41,5 +38,4 @@ When(/^I can skip some tests$/) do
   expect(@user.test_completed_unskipped.count).to eq 2
   expect(@user.profile(:humor)).to eq -0.5
 
-  enable_cache
 end

@@ -26,6 +26,7 @@ class Test
 
   has_many :responses, class_name: "TestResponse", :dependent => :destroy
 
+
   def self.gender_tests gender
     Test.where(_gender: gender).map{|m| m.id} + Test.where(_gender: :undefined).map{|m| m.id}
   end

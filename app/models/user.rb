@@ -37,6 +37,38 @@ class User
     18.years.ago
   end
 
+  # CACHE CONTROL
+  def cached_future_reservations
+    # Rails.cache.fetch("future_reservations_" + self.id.to_s, expires_in: 1.day) do 
+      reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').to_a.select{|r| r.table.processed or r.date > Date.today}
+    # end
+  end
+
+  def cached_to_evaluate_reservations
+    # Rails.cache.fetch("to_evaluate_reservations_" + self.id.to_s, expires_in: 1.day) do 
+      reservations.includes(:table).where(paid: true, :date.lte => Date.today).asc('date').select{|r| r.can_be_evaluated?}
+    # end
+  end
+
+  def has_reservations?
+    # Rails.cache.fetch("has_reservations_" + self.id.to_s, expires_in: 1.day) do 
+      reservations.count > 0
+    # end
+  end
+
+  def cached_test_completed
+    # Rails.cache.fetch("test_completed_" + id.to_s, expires_in: 1.day) do 
+      test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact
+    # end
+  end
+
+  def flush_cache
+    # Rails.cache.delete("future_reservations_" + self.id.to_s)
+    # Rails.cache.delete("to_evaluate_reservations_" + self.id.to_s)
+    # Rails.cache.delete("has_reservations_" + self.id.to_s)
+    # Rails.cache.delete("notifications_" + self.id.to_s)
+  end
+
   def future_reservations
     reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').to_a.select{|r| r.table.processed or r.date > Date.today}
   end
@@ -169,6 +201,7 @@ class User
 
   def profile criteria
     generate_test_profile if test_profile.nil? 
+    return 1 if test_completed_unskipped.count == 0
     test_profile[criteria] / test_completed_unskipped.count.to_f
   end
 
@@ -216,7 +249,7 @@ class User
     ) / 7.0
 
     # NOTE: we normalize the value 1 (highiest) - 0 (lowest)
-    1.0 - (a / 4.0)
+    1.0 - a
   end
 
   def busy? date

@@ -1,15 +1,61 @@
 = simple_form_for [@user, @reservation, @evaluation], :url => user_reservation_evaluations_path, :method => :post do |f|
-  .row.box
+  .row.box.bottom-box
     .col-xs-12.diinner-label.yellow
       == @reservation.restaurant.name
     .col-xs-12
       .separator
-      = f.error_notification
-      = f.input :quality_of_restaurant, collection: 1..5, label: t("restaurant_quality")
-      = f.input :quality_of_menu, collection: 1..5, label: t("menu_quality")
-      = f.input :comments, label: t("comments")
-      = f.input :had_fun, as: :boolean, label: t("has_fun")
-      = f.input :would_recommend, as: :boolean, label: t("would_recommend")
+      label = t("restaurant_quality")
+      .rating-widget
+        .item.rating-1 data-restaurant-rating=1
+          .bi_misc-mood-sad
+        .item.rating-2 data-restaurant-rating=2
+        .item.rating-3 data-restaurant-rating=3
+        .item.rating-4 data-restaurant-rating=4
+        .item.rating-5 data-restaurant-rating=5
+          .bi_misc-mood-happy
+      label = t("menu_quality")
+      .rating-widget
+        .item.rating-1 data-menu-rating=1
+          .bi_misc-mood-sad
+        .item.rating-2 data-menu-rating=2
+        .item.rating-3 data-menu-rating=3
+        .item.rating-4 data-menu-rating=4
+        .item.rating-5 data-menu-rating=5
+          .bi_misc-mood-happy
+      .sr-only
+        = f.input :quality_of_restaurant, collection: 1..5
+        = f.input :quality_of_menu, collection: 1..5
+      = f.input :comments, as: :text, :input_html => {rows: 3, style: "height: auto" }, label: t("comments")
+      .choosing-box
+        .text.toggle.selected data-fun=1 = t("has_fun")
+        .text.toggle.last data-fun=0 = t("no_fun")
+      .choosing-box
+        .text.toggle.selected data-recommend=1 = t("would_recommend")
+        .text.toggle data-recommend=0 = t("not_recommend")
+      .sr-only
+        = f.input :had_fun, label: t("has_fun"), input_html: {value: 1}
+        = f.input :would_recommend, label: t("would_recommend"), input_html: {value: 1}
   .separator
   .text-center
     = f.button :submit, t("evaluate"), class: 'diinner-button pink floater'
+
+javascript:
+  $(".toggle").click(function () {
+    $(this).siblings().removeClass("selected");
+    $(this).addClass("selected");
+    if($(this).data("fun") != null){
+      $('#evaluation_had_fun').val($(this).data('fun'));
+    }else{
+      $('#evaluation_would_recommend').val($(this).data('recommend'));
+    }
+
+  });
+  $(".rating-widget .item").click(function(){
+    $(this).siblings().removeClass("selected");
+    $(this).addClass("selected");
+    if($(this).data("restaurant-rating")){
+      $("#evaluation_quality_of_restaurant").val($(this).data("restaurant-rating"));
+    }else if($(this).data("menu-rating")){
+      $("#evaluation_quality_of_menu").val($(this).data("menu-rating"));
+    }
+  });

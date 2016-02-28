@@ -628,7 +628,42 @@ input.company {
 }
 
 
+.rating-widget{
+  overflow: auto;
+  margin-bottom: 15px;
+  width: 100%;
+  .item{
+    font-size: calculateRem(24px);
+    text-align: center;
+    min-height:56px;
+    padding: 5px;
+    cursor: pointer;
+    float: left;
+    width: 20%;
+    border: solid 1px $backGray;
+    color: $textGray;
+    &.selected{
+      border: 2px solid $buttonPink;
 
+    }
+    &.rating-1{
+      background-color: white;
+    }
+    &.rating-2{
+      background-color: #E9FBA6;
+    }
+    &.rating-3{
+      background-color: #D1FF36;
+    }
+    &.rating-4{
+      background-color: #ADFF2F;
+    }
+    &.rating-5{
+      background-color: #78CA20;
+    }
+  }
+
+}
 /* Payment
 ========================================================================== */
 .card{

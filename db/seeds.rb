@@ -102,7 +102,7 @@ def create_basic_context
 
   @restaurant.menus.create(FactoryGirl.build(:menu).attributes)
   @menu = @restaurant.menus.first
-  @restaurant.tables.create(FactoryGirl.build(:table, :for_today, menu: @menu).attributes)
+  @restaurant.tables.create(FactoryGirl.build(:table, :for_tomorrow, menu: @menu).attributes)
   
   @table = @restaurant.tables.first
 
@@ -221,11 +221,34 @@ def full_table_for_today
   reservation.save!
 end
 
- there_is_one_table_for_tomorrow
+<<<<<<< HEAD
+ # there_is_one_table_for_tomorrow
+=======
+
+def table_with_1_1_for_tomorrow
+  delete_all
+  create_basic_context
+
+  @he.update_customer_information!(Stripe::Token.create(valid_card).id)
+  @she.update_customer_information!(Stripe::Token.create(valid_card).id)
+
+  reservation = FactoryGirl.create(:reservation, user: @he, table: @restaurant.tables.first, date: 2.days.ago)
+  reservation.companies.create(age: 30, gender: :female)
+  reservation.save!
+
+  # reservation = FactoryGirl.create(:reservation, user: @she, table: @restaurant.tables.first, date: 1.days.ago)
+  # reservation.companies.create(age: 30, gender: :female)
+  # reservation.companies.create(age: 30, gender: :female)
+  # reservation.save!
+end
+
+
+ table_with_1_1_for_tomorrow
+>>>>>>> 55754b5449c3b612979a088d0ae881c88be36169
 # there_is_one_reservation
 #
 # create_last_minute_context_2_2
 # last_minute_reservation valid_card
 #
 #  full_table_for_today
-# create_last_minute_context_3_2
+create_last_minute_context_3_2
