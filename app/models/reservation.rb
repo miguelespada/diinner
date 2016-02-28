@@ -93,7 +93,7 @@ class Reservation
   end
 
   def generate_locator
-    i = (id.to_s[18..23] + (Time.now.to_f*1000000).to_s + id.to_s[5..7] + rand(1..99999)).to_i(30)
+    i = (id.to_s[18..23] + (Time.now.to_f*1000000).to_s + id.to_s[5..7] + rand(1..99999).to_s).to_i(30)
     self.locator = "R_" + Hashids.new("The salt of every", 6).encode(i)[0..5]
   end
 
