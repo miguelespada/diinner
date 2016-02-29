@@ -13,9 +13,10 @@
       = link_to new_user_reservation_path(@user)
         .diinner-button.pink
           =t("new_reservation")
-      = link_to user_test_path(@user)
-        .diinner-button.pink
-          = t("improve_compatibility_btn")
+      - if @test
+        = link_to user_test_path(@user)
+          .diinner-button.pink
+            = t("improve_compatibility_btn")
 
 .hidden-xs.desktop
   .row

@@ -258,3 +258,9 @@ html, body {
 .round-image{
   @include border-radius(50%);
 }
+
+@media (max-width: 768px) {
+  .diinner-button{
+    font-size: calculateRem(18px);
+  }
+}
