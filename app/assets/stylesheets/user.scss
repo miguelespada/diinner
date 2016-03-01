@@ -633,6 +633,7 @@ input.company {
   margin-bottom: 15px;
   width: 100%;
   .item{
+    font-size: calculateRem(24px);
     text-align: center;
     min-height:56px;
     padding: 5px;
@@ -983,14 +984,6 @@ input.company {
 }
 
 @media (max-width: 768px) {
-
-  .rating-widget{
-    .item{
-      font-size: calculateRem(14px);
-
-    }
-
-  }
 
   .drop-out-wrapper{
     margin-top: -80px;

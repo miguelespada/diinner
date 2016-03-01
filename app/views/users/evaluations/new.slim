@@ -1,23 +1,27 @@
 = simple_form_for [@user, @reservation, @evaluation], :url => user_reservation_evaluations_path, :method => :post do |f|
-  .row.box
+  .row.box.bottom-box
     .col-xs-12.diinner-label.yellow
       == @reservation.restaurant.name
     .col-xs-12
       .separator
       label = t("restaurant_quality")
       .rating-widget
-        .item.rating-1 data-restaurant-rating=1 Muy insatisfecho
-        .item.rating-2 data-restaurant-rating=2 Insatisfecho
-        .item.rating-3 data-restaurant-rating=3 Indiferente
-        .item.rating-4 data-restaurant-rating=4 Satisfecho
-        .item.rating-5 data-restaurant-rating=5 Muy satisfecho
+        .item.rating-1 data-restaurant-rating=1
+          .bi_misc-mood-sad
+        .item.rating-2 data-restaurant-rating=2
+        .item.rating-3 data-restaurant-rating=3
+        .item.rating-4 data-restaurant-rating=4
+        .item.rating-5 data-restaurant-rating=5
+          .bi_misc-mood-happy
       label = t("menu_quality")
       .rating-widget
-        .item.rating-1 data-menu-rating=1 Muy malo
-        .item.rating-2 data-menu-rating=2 Malo
-        .item.rating-3 data-menu-rating=3 Sin más
-        .item.rating-4 data-menu-rating=4 Bueno
-        .item.rating-5 data-menu-rating=5 Muy bueno
+        .item.rating-1 data-menu-rating=1
+          .bi_misc-mood-sad
+        .item.rating-2 data-menu-rating=2
+        .item.rating-3 data-menu-rating=3
+        .item.rating-4 data-menu-rating=4
+        .item.rating-5 data-menu-rating=5
+          .bi_misc-mood-happy
       .sr-only
         = f.input :quality_of_restaurant, collection: 1..5
         = f.input :quality_of_menu, collection: 1..5
