@@ -150,7 +150,9 @@ es:
   restaurant_quality: "Calidad del restaurante"
   menu_quality: "Calidad del menú"
   has_fun: "Me he divertido"
+  no_fun: "No me he divertido"
   would_recommend: "Lo recomendaría"
+  not_recommend: "No lo recomendaría"
   comments: "Comentarios"
 
   #Home

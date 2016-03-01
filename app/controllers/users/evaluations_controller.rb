@@ -9,14 +9,11 @@ class  Users::EvaluationsController < BaseUsersController
 
   def create
     @reservation = Reservation.find(params[:reservation_id])
-    @evaluation = @reservation.evaluation.update!(evaluation_params)
+    @reservation.evaluation = Evaluation.create!(evaluation_params)
+    @evaluation = @reservation.evaluation
     NotificationManager.notify_user_create_evaluation object: @reservation, from: @user
-
-    # Rails.cache.delete("to_evaluate_reservations_" + @user.id.to_s)
-
     redirect_to users_path(@user), notice: t("evaluation_thanks")
-  rescue => e
-    p e
+  rescue
     render :new
   end
 

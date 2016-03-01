@@ -641,6 +641,10 @@ input.company {
     width: 20%;
     border: solid 1px $backGray;
     color: $textGray;
+    &.selected{
+      border: 2px solid $buttonPink;
+
+    }
     &.rating-1{
       background-color: white;
     }

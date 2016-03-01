@@ -11,4 +11,7 @@ class Evaluation
   field :quality_of_restaurant, type: Integer
   field :had_fun, type: Boolean
   field :would_recommend, type: Boolean
+
+  validates :quality_of_menu, :quality_of_restaurant, presence: true
+
 end
