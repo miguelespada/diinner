@@ -50,8 +50,8 @@ es:
   #Preferences
   update_button: "Guardar"
   drop_out: "Darse de baja"
-  press_reservation: "Pulsa en buscar cenas para buscar planes diinner"
-  answer_tests: "Responde a estas preguntas para que podamos mejorar la compatibilidad con tus compañeros de mesa."
+  press_reservation: "Pulsa para buscar planes diinner"
+  answer_tests: "Responde a estas preguntas para que podamos <b>mejorar la compatibilidad</b> con tus compañeros de mesa."
 
   #New reservation
   preferred_date: "¿Qué día quieres tu plan?"
