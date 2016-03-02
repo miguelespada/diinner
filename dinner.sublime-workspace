@@ -415,72 +415,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "Searching 580 files for \">>>>\"\n\n/Users/miguel/Diinner/app/controllers/users/evaluations_controller.rb:\n   17      # Rails.cache.delete(\"to_evaluate_reservations_\" + @user.id.to_s)\n   18  \n   19: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   20      redirect_to users_path(@user), notice: t(\"evaluation_thanks\")\n   21    rescue => e\n\n/Users/miguel/Diinner/app/controllers/users/test_responses_controller.rb:\n   16      \n   17  =======\n   18: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   19  \n   20      if response.skipped?\n\n/Users/miguel/Diinner/app/models/test.rb:\n   40    def self.gender_tests gender\n   41      Test.where(_gender: gender).map{|m| m.id} + Test.where(_gender: :undefined).map{|m| m.id}\n   42: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   43    end\n   44  \n\n/Users/miguel/Diinner/app/models/user.rb:\n   84    def test_completed_unskipped\n   85      test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact\n   86: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   87    end\n   88  \n\n4 matches across 4 files\n\n\nSearching 580 files for \">>>>\"\n\n/Users/miguel/Diinner/app/controllers/users/test_responses_controller.rb:\n   16      \n   17  =======\n   18: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   19  \n   20      if response.skipped?\n\n/Users/miguel/Diinner/app/models/test.rb:\n   40    def self.gender_tests gender\n   41      Test.where(_gender: gender).map{|m| m.id} + Test.where(_gender: :undefined).map{|m| m.id}\n   42: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   43    end\n   44  \n\n/Users/miguel/Diinner/app/models/user.rb:\n   84    def test_completed_unskipped\n   85      test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact\n   86: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   87    end\n   88  \n\n3 matches across 3 files\n\n\nSearching 580 files for \">>>>\"\n\n/Users/miguel/Diinner/app/models/test.rb:\n   40    def self.gender_tests gender\n   41      Test.where(_gender: gender).map{|m| m.id} + Test.where(_gender: :undefined).map{|m| m.id}\n   42: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   43    end\n   44  \n\n/Users/miguel/Diinner/app/models/user.rb:\n   84    def test_completed_unskipped\n   85      test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact\n   86: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   87    end\n   88  \n\n2 matches across 2 files\n\n\nSearching 580 files for \"cached_test\"\n\n/Users/miguel/Diinner/app/models/user.rb:\n   58    end\n   59  \n   60:   def cached_test_completed\n   61      # Rails.cache.fetch(\"test_completed_\" + id.to_s, expires_in: 1.day) do \n   62        test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact\n\n1 match in 1 file\n\n\nSearching 580 files for \">>>>\"\n\n/Users/miguel/Diinner/app/models/user.rb:\n   84    def test_completed_unskipped\n   85      test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact\n   86: >>>>>>> 293b1479aa370b3f10aea45d04351d8014c23459\n   87    end\n   88  \n\n1 match in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 2947,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/models/user.rb",
-			"settings":
-			{
-				"buffer_size": 7690,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/test.rb",
-			"settings":
-			{
-				"buffer_size": 1162,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/users/test_responses_controller.rb",
-			"settings":
-			{
-				"buffer_size": 599,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/users/evaluations_controller.rb",
-			"settings":
-			{
-				"buffer_size": 1019,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/table.rb",
-			"settings":
-			{
-				"buffer_size": 4791,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "db/seeds.rb",
-			"settings":
-			{
-				"buffer_size": 7299,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/reservation.rb",
-			"settings":
-			{
-				"buffer_size": 4295,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -546,11 +480,17 @@
 	},
 	"file_history":
 	[
+		"/Users/miguel/Diinner/db/seeds.rb",
+		"/Users/miguel/Diinner/app/models/table.rb",
+		"/Users/miguel/Diinner/app/controllers/users/evaluations_controller.rb",
+		"/Users/miguel/Diinner/app/controllers/users/test_responses_controller.rb",
+		"/Users/miguel/Diinner/app/models/test.rb",
+		"/Users/miguel/Diinner/app/models/user.rb",
+		"/Users/miguel/Diinner/app/models/reservation.rb",
+		"/Users/miguel/Diinner/spec/models/table_manager_spec.rb",
 		"/Users/miguel/Desktop/plot_digits_classification.py",
 		"/Users/miguel/Diinner/app/views/users/reservations/credit_card_form.slim",
 		"/Users/miguel/Diinner/features/support/env.rb",
-		"/Users/miguel/Diinner/app/models/test.rb",
-		"/Users/miguel/Diinner/app/models/reservation.rb",
 		"/Users/miguel/Diinner/app/controllers/users/reservations_controller.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/manager_confirms_user_plan_steps.rb",
 		"/Users/miguel/Diinner/features/user/user_reserves_table_js.feature",
@@ -560,15 +500,11 @@
 		"/Users/miguel/Diinner/dinner.sublime-workspace",
 		"/Users/miguel/Diinner/app/models/concerns/reservation_status.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/manager_cancels_user_reservation_steps.rb",
-		"/Users/miguel/Diinner/app/models/table.rb",
-		"/Users/miguel/Diinner/app/models/user.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_does_test_steps.rb",
 		"/Users/miguel/Diinner/app/services/user_session.rb",
 		"/Users/miguel/Diinner/app/services/email_notifications.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_closes_last_minute_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/static_controller.rb",
-		"/Users/miguel/Diinner/app/controllers/users/evaluations_controller.rb",
-		"/Users/miguel/Diinner/app/controllers/users/test_responses_controller.rb",
 		"/Users/miguel/Diinner/app/controllers/users/users_controller.rb",
 		"/Users/miguel/Diinner/features/user/user_closes_last_minute_js.feature",
 		"/Users/miguel/Diinner/features/user/user_reserves_last_minute_js.feature",
@@ -587,7 +523,6 @@
 		"/Users/miguel/Diinner/features old/step_definitions/user/user_reserve_a_last_minute_diinner_steps.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_evaluates_plan_steps.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/evaluations_controller.rb",
-		"/Users/miguel/Diinner/spec/models/table_manager_spec.rb",
 		"/Users/miguel/Diinner/features/step_definitions/user/user_cancels_reservations_steps.rb",
 		"/Users/miguel/Diinner/app/views/public_activity/reservation/_evaluate.slim",
 		"/Users/miguel/Diinner/app/cells/reservation/user_show.slim",
@@ -611,7 +546,6 @@
 		"/Users/miguel/Diinner/spec/models/affinity_spec.rb",
 		"/Users/miguel/Diinner/features/step_definitions/common_steps.rb",
 		"/Users/miguel/Diinner/app/services/table_manager.rb",
-		"/Users/miguel/Diinner/db/seeds.rb",
 		"/Users/miguel/Diinner/app/models/concerns/reservation_payment.rb",
 		"/Users/miguel/Diinner/app/controllers/admin/reservations_controller.rb",
 		"/Users/miguel/Diinner/app/views/partials/_menu.slim",
@@ -681,7 +615,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 108.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -872,289 +806,8 @@
 	"groups":
 	[
 		{
-			"selected": 7,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"settings":
-					{
-						"buffer_size": 2947,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										195,
-										199
-									],
-									[
-										447,
-										451
-									],
-									[
-										725,
-										729
-									],
-									[
-										956,
-										960
-									],
-									[
-										1194,
-										1198
-									],
-									[
-										1472,
-										1476
-									],
-									[
-										1703,
-										1707
-									],
-									[
-										2021,
-										2025
-									],
-									[
-										2252,
-										2256
-									],
-									[
-										2465,
-										2476
-									],
-									[
-										2858,
-										2862
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								2733,
-								2733
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 5,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2280.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/models/user.rb",
-					"settings":
-					{
-						"buffer_size": 7690,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6968,
-								6968
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5411.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/models/test.rb",
-					"settings":
-					{
-						"buffer_size": 1162,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								849,
-								849
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 404.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/controllers/users/test_responses_controller.rb",
-					"settings":
-					{
-						"buffer_size": 599,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								469,
-								469
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/controllers/users/evaluations_controller.rb",
-					"settings":
-					{
-						"buffer_size": 1019,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								492,
-								492
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/models/table.rb",
-					"settings":
-					{
-						"buffer_size": 4791,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1235,
-								1235
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 836.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "db/seeds.rb",
-					"settings":
-					{
-						"buffer_size": 7299,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2351,
-								2351
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1997.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/models/reservation.rb",
-					"settings":
-					{
-						"buffer_size": 4295,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1282,
-								1282
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 982.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1730,6 +1383,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 80.0,
+	"side_bar_width": 193.0,
 	"status_bar_visible": true
 }
