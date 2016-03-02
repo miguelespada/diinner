@@ -7,6 +7,7 @@ class Users::UsersController < BaseUsersController
   def drop_out
     @current_user.drop_out
     @current_user.save
+    UserSession.new(session).sign_out
     redirect_to drop_out_path
   end
 

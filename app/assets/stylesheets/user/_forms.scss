@@ -84,9 +84,9 @@ form{
   cursor: pointer;
   text-decoration: none;
   &.button-calm{
-    //border-color: $themeBlue;
-    //background-color: $themeBlue;
-    //color: #fff;
+    border-color: $themeBlue;
+    background-color: $themeBlue;
+    color: #fff;
     margin-left: 10px;
   }
   &.button-danger{
