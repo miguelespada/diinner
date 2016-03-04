@@ -71,7 +71,7 @@
       .hidden
         = link_to "Hidden Drop Out", user_drop_out_path(@current_user), class: "drop-out", id:"cancel_account"
       .separator.visible-xs
-  .text-center
+  .text-center.drop-out-wrapper
     - if @current_user.first_login?
       p
         |Al guardar los datos estás aceptando las
