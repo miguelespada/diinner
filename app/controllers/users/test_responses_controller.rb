@@ -13,11 +13,7 @@ class  Users::TestResponsesController < BaseUsersController
 
     @user.process_new_test_response(response)
 
-    if response.skipped?
-      redirect_to :back
-    else
-      redirect_to :back, notice: t("test_completed")
-    end
+    redirect_to :back
   end
 
 end
