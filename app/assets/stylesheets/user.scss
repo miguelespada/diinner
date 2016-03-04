@@ -720,6 +720,16 @@ input.company {
 }
 
 @media (min-width: 768px) {
+  .diinner-info{
+    .card-info{
+      float: left;
+      margin: 5px 0 10px 0;
+    }
+    .card-images{
+      float: left;
+      margin: 5px 0 20px 0;
+    }
+  }
   .calendar {
     padding: 5px;
     .calendar-header {
@@ -984,6 +994,15 @@ input.company {
 }
 
 @media (max-width: 768px) {
+
+  .diinner-info{
+    .card-info{
+      margin: 5px 0 10px 0;
+    }
+    .card-images{
+      margin: 5px 0 20px 0;
+    }
+  }
 
   .drop-out-wrapper{
     margin-top: -80px;

@@ -47,45 +47,52 @@
 
       = form_tag user_new_card_path(@user, :reservation => @reservation.to_json), :method => :patch, :id => "new_reservation" do
         .diinner-info
-          | Aceptamos las siguientes tarjetas:
-          span.credit-card = image_tag "cards/visa.png", height: 25
-          span.credit-card = image_tag "cards/master_card.png", height: 25
-          span.credit-card = image_tag "cards/american_express.png", height: 25
-          span.credit-card = image_tag "cards/maestro.png", height: 25
+          .card-info
+            | Aceptamos las siguientes tarjetas:
+          .card-images
+            span.credit-card = image_tag "cards/visa.png", height: 25
+            span.credit-card = image_tag "cards/master_card.png", height: 25
+            span.credit-card = image_tag "cards/american_express.png", height: 25
+            span.credit-card = image_tag "cards/maestro.png", height: 25
         = hidden_field_tag :stripe_card_token
         .form-group
-          .row.col-xs-12
-            label.control-label = t("card_holder")
-          .row.col-xs-8
-            = text_field_tag :card_holder, nil, name: nil, class: "form-control", placeholder: t("card_holder")
-        .form-group
-          .row.col-xs-12
-            label.control-label = t("card_number")
-          .row.col-xs-5
-            = text_field_tag :card_number, nil, name: nil, size: 20, class: "form-control", pattern:".{0,16}", maxlength:16, placeholder: t("card_number")
-        .form-group
-          .row.col-xs-12
-            label.control-label =t("cvc")
-            span.diinner-info.bi_com-bubble data-html="true" data-toggle="popover"  ¿Qué es el CVC?
           .row
-            .col-xs-2
+            .col-xs-12
+              label.control-label = t("card_holder")
+          .row
+            .col-md-8.col-xs-12
+              = text_field_tag :card_holder, nil, name: nil, class: "form-control", placeholder: t("card_holder")
+        .form-group
+          .row
+            .col-xs-12
+              label.control-label = t("card_number")
+          .row
+            .col-md-5.col-xs-12
+              = text_field_tag :card_number, nil, name: nil, size: 20, class: "form-control", pattern:".{0,16}", maxlength:16, placeholder: t("card_number")
+        .form-group
+          .row
+            .col-xs-12
+              label.control-label =t("cvc")
+              span.diinner-info.bi_com-bubble data-html="true" data-toggle="popover"  ¿Qué es el CVC?
+          .row
+            .col-md-2.col-xs-4
               = text_field_tag :card_cvc, nil, name: nil, size: 3, pattern:".{3,4}", maxlength:4, class: "form-control", placeholder: t("cvc")
         .form-group
-          .row.col-xs-12
-            label.control-label = t("expiration_date")
-
           .row
-            .col-xs-2
+            .col-xs-12
+              label.control-label = t("expiration_date")
+          .row
+            .col-md-2.col-xs-4
               = text_field_tag :exp_month, nil, name: nil, size: 2, pattern:".{0,2}", maxlength:2, class: "form-control", placeholder: "mm"
             .col-xs-1.date-separator.no-padding
               |/
-            .col-xs-3
+            .col-md-3.col-xs-4
               = text_field_tag :exp_year, nil, name: nil, size: 4, pattern:".{0,4}", maxlength:4, class: "form-control", placeholder: "aaaa"
-
         .form-group
-          .span.col-xs-12
-            => check_box_tag :save_card, nil, checked: true
-            | Guardar mi tarjeta para próximas reservas
+          .span
+            .col-xs-12
+              => check_box_tag :save_card, nil, checked: true
+              | Guardar mi tarjeta para próximas reservas
 
         .stripe-error.hidden
         #submit-other-card.col-xs-12.text-center
