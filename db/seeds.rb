@@ -221,9 +221,6 @@ def full_table_for_today
   reservation.save!
 end
 
-<<<<<<< HEAD
- # there_is_one_table_for_tomorrow
-=======
 
 def table_with_1_1_for_tomorrow
   delete_all
@@ -244,7 +241,6 @@ end
 
 
  table_with_1_1_for_tomorrow
->>>>>>> 55754b5449c3b612979a088d0ae881c88be36169
 # there_is_one_reservation
 #
 # create_last_minute_context_2_2

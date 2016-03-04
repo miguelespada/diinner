@@ -1,6 +1,6 @@
 - if @current_user.first_login?
   .row.box.welcome
-    .col-xs-12.diinner-label.pink
+    .col-xs-12.diinner-label.pink.welcome
       .col-xs-8.col-xs-offset-2
         h2
           = t("welcome")
@@ -107,6 +107,7 @@ javascript:
       $(".price-toggle").removeClass("selected");
       $(this).addClass("selected");
       $(".price select").val($(this).data("price"));
+
     });
 
     $(".form-date select").on("change", function () {
