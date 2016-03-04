@@ -91,9 +91,7 @@ class User
 
   def drop_out
     self.dropped_out = true
-    self.birth = nil
-    self.gender = :male
-    preference.destroy
+    self.email = "#{self.email}_out_#{Time.now.to_f}"
   end
 
   def drop_in
