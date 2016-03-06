@@ -415,6 +415,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "spec/models/table_manager_spec.rb",
+			"settings":
+			{
+				"buffer_size": 21766,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/services/table_manager.rb",
+			"settings":
+			{
+				"buffer_size": 3008,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -639,6 +655,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"today_ta",
 			">>>>",
 			"cached_test",
 			">>>>",
@@ -765,8 +782,7 @@
 			"I cancel",
 			"at_least",
 			"at_most",
-			"al_most",
-			"al_least"
+			"al_most"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -806,8 +822,65 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "spec/models/table_manager_spec.rb",
+					"settings":
+					{
+						"buffer_size": 21766,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								786,
+								786
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 196.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/services/table_manager.rb",
+					"settings":
+					{
+						"buffer_size": 3008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1322,
+								1330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 790.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -856,6 +929,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"tableman",
+				"app/services/table_manager.rb"
+			],
 			[
 				"user",
 				"app/models/user.rb"
@@ -939,10 +1016,6 @@
 			[
 				"ema",
 				"app/services/email_notifications.rb"
-			],
-			[
-				"tableman",
-				"spec/models/table_manager_spec.rb"
 			],
 			[
 				"testcon",
