@@ -16,3 +16,6 @@
 platforms
 
 diinner.sublime-workspace
+backup/.tmp
+backup/data
+backup/log
