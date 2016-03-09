@@ -65,11 +65,6 @@ gem "redis-rails"
 gem 'whenever', :require => false
 gem 'date_validator'
 
-group :production do
-  gem 'backup'
-  gem 'net-ssh'
-end
-
 group :test do
   gem "database_cleaner"
   gem 'mongoid-rspec'
