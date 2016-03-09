@@ -1,0 +1,13 @@
+---
+- !ruby/object:Backup::Package
+  trigger: my_backup
+  extension: tar
+  chunk_suffixes: []
+  version: 3.4.0
+  time: 2016.03.09.13.18.54
+- !ruby/object:Backup::Package
+  trigger: my_backup
+  extension: tar
+  chunk_suffixes: []
+  version: 3.4.0
+  time: 2016.03.09.13.14.18
