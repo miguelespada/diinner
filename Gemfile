@@ -65,6 +65,7 @@ gem "redis-rails"
 gem 'whenever', :require => false
 gem 'date_validator'
 
+gem 'backup'
 
 group :test do
   gem "database_cleaner"
