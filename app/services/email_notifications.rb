@@ -74,7 +74,7 @@ module EmailNotifications
     self.notify({
                     to: user.email,
                     from: "noreply@diinner.com",
-                    subject: "Diinner: ¡plan para hoy en el #{restaurant.name} confirmado!",
+                    subject: "Diinner: ¡plan para hoy en #{restaurant.name} confirmado!",
                     view: "mail/plan_confirmation",
                     params: {
                         user: user,
@@ -90,7 +90,7 @@ module EmailNotifications
     self.notify({
                     to: user.email,
                     from: "noreply@diinner.com",
-                    subject: "Diinner: se ha cancelado el plan de hoy el #{restaurant.name} :(",
+                    subject: "Diinner: se ha cancelado el plan de hoy en #{restaurant.name} :(",
                     view: "mail/plan_cancellation",
                     params: {
                         user: user,
