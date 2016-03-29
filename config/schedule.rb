@@ -17,3 +17,7 @@ end
 every 1.day, :at => '5:00 am' do
   runner "Reservation.invite_to_evaluate"
 end
+
+every [:thursday, :friday, :saturday, :sunday], :at => '6:00 am' do
+  runner "Reservation.invite_to_evaluate"
+end

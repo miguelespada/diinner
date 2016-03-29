@@ -6,9 +6,6 @@ class Reservation
   include ReservationPayment
   include ReservationStatus
   extend SimpleCalendar
-  after_destroy :remove_activities
-  before_create :generate_locator
-
   belongs_to :user
   belongs_to :table
 
@@ -36,6 +33,7 @@ class Reservation
   has_one :evaluation, :dependent => :destroy
 
   after_destroy :remove_activities
+  before_create :generate_locator
 
   def start_time
     date

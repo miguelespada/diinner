@@ -17,10 +17,11 @@ class Users::UsersController < BaseUsersController
   end
 
   def show
-    @test = @user.sample_test
-    @future_reservations = @user.future_reservations.take(3)
-    @eval_reservations = @user.to_evaluate_reservations.take(3)
-    @blog_posts = BlogPost.posts
+    @tables = Table.all.take(3)
+    # @test = @user.sample_test
+    # @future_reservations = @user.future_reservations.take(3)
+    # @eval_reservations = @user.to_evaluate_reservations.take(3)
+    # @blog_posts = BlogPost.posts
   end
 
   def user_suggestions

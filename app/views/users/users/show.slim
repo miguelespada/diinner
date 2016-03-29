@@ -36,84 +36,12 @@
 
         .separator
     .separator
-    .col-lg-5
-      .col-lg-12
-        .text-center.reservations
-          .diinner-info = t("press_reservation")
-          = link_to new_user_reservation_path(@user), id: "new-reservation-link"
-            .diinner-button.pink
-              =t("search_diinners")
-      .separator
-      .box.col-md-12
-        .row
-          .diinner-label.yellow
-            = t("next_reservations")
-        .row
-          .col-xs-12
-            .my-reservations
-              .list
-                - if @future_reservations.empty?
-                  p = t("no_reservations")
-                - else
-                  - @future_reservations.each do |r|
-                    .item
-                      = link_to user_reservation_path(@user, r), id: "reservation-#{r.restaurant.name}"
-                        .name
-                          = r.restaurant.name
-                      .date = r.date.strftime("%d/%m/%Y")
-                      .time = r.hour.strftime("%H:%M")
-      - if @eval_reservations.length > 0
-        .separator
-        .box.col-md-12
-          .row
-            .diinner-label.yellow
-              = t("evaluation_pending")
-          .row
-            .col-xs-12
-              .my-reservations
-                .list
-                  - @eval_reservations.each do |e|
-                    .item
-                      = link_to new_user_reservation_evaluation_path(@user, e)
-                        .name
-                          = e.restaurant.name
-                        .date = e.date.strftime("%d/%m/%Y")
-                        .time Evaluar
-    .visible-lg.col-lg-7
-      .text-center
-        .diinner-info = raw t("answer_tests")
-      .separator
-      - if @test
-        == cell(:test, @test).user_show
-      - else
-        .col-lg-12
-          .box.tests.text-center
-            .info = t("all_tests_completed")
-            .icon.bi_interface-heart
+  .row
+    .col-lg-12.table-grid
+      - @tables.each do |table|
+        - restaurant = table.restaurant
+        .col-md-4
+          .box.table-box.col-md-12.no-padding
+            .image = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 60 if !restaurant.photo.nil?
 
   .separator
-
-  .col-md-12.box.suggest hidden=true
-    = t("we_suggest")
-    strong
-      =<
-      = t("tomorrow")
-  .row.suggestions
-  - if @blog_posts.length > 0
-    .col-md-12.box.suggest
-      = t("we_suggest_blogs")
-    .row
-      = render 'partials/blog_posts'
-
-  .separator
-
-javascript:
-  $.ajax({
-    url: "#{user_suggestions_path(@user)}"
-  }).done(function (response) {
-    if($(response).find(".no-suggestions").length == 0){
-      $(".suggestions").append(response);
-      $(".suggest").show();
-    }
-
-  });
