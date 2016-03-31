@@ -109,7 +109,7 @@ Rails.application.routes.draw do
 
   get "/index" => "base_users#users", as: "users"
 
-  namespace :users, as: nil do
+  scope as: nil, module: "users" do
     get "/login" => "users#login", as: "users_login"
     resources :users, except: [:index] do
       get "suggestions" => "users#user_suggestions", as: :suggestions

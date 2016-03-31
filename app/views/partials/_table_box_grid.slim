@@ -1,0 +1,15 @@
+.col-xs-12.table-grid.no-padding
+  - @tables.each do |table|
+    = render 'partials/table_box', table: table
+
+javascript:
+  var grid = $('.table-grid');
+  grid.masonry({
+    // options
+    itemSelector: '.table-block',
+    columnWidth: '.table-block'
+  });
+
+  grid.imagesLoaded().progress(function () {
+    grid.masonry('layout');
+  });
