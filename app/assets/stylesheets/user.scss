@@ -979,6 +979,16 @@ input.company {
 
 .table-box{
   position: relative;
+  margin-bottom: 30px !important;
+  cursor: pointer;
+  @include transition(all .15s ease-in-out);
+
+  &:hover{
+    background-color: $boxBackground;
+    @include box-shadow($boxShadow 6px 10px 12px 0);
+    @include translate(0, -10px);
+    @include transition(all .15s ease-in-out);
+  }
   .date-wrapper{
     text-align: center;
     position: absolute;
@@ -1030,7 +1040,7 @@ input.company {
         min-width: 20%;
         max-width: 33%;
 
-        .table-wrapper{
+        .table-icon-wrapper{
           text-align: center;
           width: 100%;
           .chairs-wrapper{
@@ -1068,7 +1078,7 @@ input.company {
 
 
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
 
 }
 

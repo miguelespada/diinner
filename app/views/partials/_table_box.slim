@@ -1,0 +1,33 @@
+- restaurant = table.restaurant
+.col-lg-4.col-md-6.col-xs-12.table-block
+  .box.table-box.col-xs-12.no-padding
+    .date-wrapper
+      .date
+        = raw(table.date.strftime("%A <div class='big-day'>%e</div> %B"))
+      .hour
+        = table.hour.strftime("%H:%M")
+    .bottom-wrapper
+      .price
+        = "#{table.price}€"
+      .table-info
+        .title
+          | FANS DE BATMAN
+        .left
+          .restaurant
+            = restaurant.name
+          .city
+            = restaurant.city.name
+          .type
+            | Mixto: 30 - 40 años
+        .right
+          .table-icon-wrapper
+            .chairs-wrapper
+              .chair-icon
+              .chair-icon
+              .chair-icon
+            .table-icon = "#{table.user_count} de 6"
+            .chairs-wrapper
+              .chair-icon
+              .chair-icon
+              .chair-icon
+    .image = cl_image_tag restaurant.photo.public_id, format: :jpg, quality: 60 if !restaurant.photo.nil?
