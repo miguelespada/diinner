@@ -6,6 +6,8 @@ class StaticController < ApplicationController
   
   def index
     @blog_posts = BlogPost.get_three_random
+    @tables = Table.all.take(6)
+
     render layout: "home"
   end
 

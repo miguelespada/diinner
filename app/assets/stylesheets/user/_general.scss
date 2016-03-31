@@ -201,6 +201,14 @@ html, body {
     border: 1px solid $buttonPink;
   }
 }
+
+
+.no-padding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
 .box{
   position: relative;
   background-color: $boxBackground;
