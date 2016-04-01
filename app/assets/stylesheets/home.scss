@@ -6,7 +6,7 @@
 @import "user/variables";
 @import "user/navigation";
 @import "user/general";
-@import "gallery";
+@import "user/gallery";
 
 html{
   -webkit-overflow-scrolling: touch;
@@ -764,11 +764,6 @@ html, body{
 .user-container{
   .restaurant-info{
     margin-bottom: 20px;
-  }
-  .separator{
-    min-height: 5vh;
-    position: relative;
-    clear: both;
   }
   .plan-info{
     .plan-label {

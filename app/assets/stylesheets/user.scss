@@ -9,7 +9,7 @@
 @import "user/general";
 @import "user/forms";
 @import "calendar";
-@import "gallery";
+@import "user/gallery";
 
 html{
   -webkit-overflow-scrolling: touch;
@@ -68,11 +68,6 @@ html, body{
 
 .panel-white{
   background: white;
-}
-.separator{
-  min-height: 5vh;
-  position: relative;
-  clear: both;
 }
 
 .back-container{

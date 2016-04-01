@@ -50,6 +50,11 @@ html, body {
   width: 100%;
 }
 
+.no-padding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /*
  * Pixels to rem font-size
  */
@@ -94,6 +99,13 @@ html, body {
   display: -webkit-flex;
   display: flex;
 }
+
+.v-separator, .separator{
+  min-height: 5vh;
+  position: relative;
+  clear: both;
+}
+
 .diinner-label{
   width: 100%;
   text-align: center;
@@ -203,10 +215,6 @@ html, body {
 }
 
 
-.no-padding {
-  padding: 0 !important;
-  margin: 0 !important;
-}
 
 
 .box{

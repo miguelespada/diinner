@@ -30,10 +30,13 @@ class UserSession
 
   def hash_from_omniauth
     logged_user_info = @session[:userinfo][:info]
-    extra_info = @session[:userinfo][:extra][:raw_info][:identities][0]
+    extra_info = @session[:userinfo][:extra][:raw_info]
+    identities = extra_info[:identities][0]
     {
       email: logged_user_info[:email],
-      image_url: extra_info.provider == "facebook" ? "https://graph.facebook.com/#{extra_info.user_id}/picture?type=large": logged_user_info[:image] ,
+      image_url: identities.provider == "facebook" ? "https://graph.facebook.com/#{identities.user_id}/picture?type=large": logged_user_info[:image] ,
+      gender: extra_info[:gender],
+      birth: Date.strptime(extra_info[:birthday] ? extra_info[:birthday] : "01/01/1970", "%m/%d/%Y"),
       name: logged_user_info[:name]
     }
   end
