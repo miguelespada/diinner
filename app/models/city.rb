@@ -5,9 +5,9 @@ class City
   field :latitude, type: String
   field :longitude, type: String
   has_many :restaurants
-  has_many :preferences
+  has_many :users
 
   def can_be_deleted?
-    restaurants.count == 0 && preferences.count == 0
+    restaurants.count == 0 && users.count == 0
   end
 end

@@ -1,0 +1,23 @@
+.row.box
+  .col-xs-12.diinner-label.yellow
+    == t("practical_data")
+  .col-xs-12
+    .separator
+    .col-xs-12
+      .day
+        span.plan-label = t("day")
+        span.plan-value =< table.date.to_s
+      .time
+        span.plan-label = t("time_name")
+        span.plan-value =< table.hour.to_s.last(5)
+      .address
+        span.plan-label = t("address")
+        span.plan-value =< restaurant.address
+      .city
+        span.plan-label = t("city")
+        span.plan-value =< restaurant.city.name
+    .col-xs-12.map
+      == cell(:restaurant, restaurant)._map
+      == cell(:restaurant, restaurant).location
+      = render "/layouts/map"
+    .separator

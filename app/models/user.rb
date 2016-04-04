@@ -22,9 +22,7 @@ class User
   has_many :test_completed, class_name: "TestResponse"
   has_many :reservations
 
-  has_one :preference
-  accepts_nested_attributes_for :preference
-  delegate :max_age, :min_age, :city, :menu_range, :after_plan, :to => :preference, :allow_nil => true
+  belongs_to :city
 
   validates :birth, presence: {message: 'Debes modificar tu fecha de nacimiento'}, on: :update, date: {after: Proc.new { Time.now - 100.year}, before: Proc.new { Time.now - 18.year}}
 
@@ -37,36 +35,19 @@ class User
     18.years.ago
   end
 
-  # CACHE CONTROL
   def cached_future_reservations
-    # Rails.cache.fetch("future_reservations_" + self.id.to_s, expires_in: 1.day) do 
       reservations.includes(:table).where(cancelled: false, :date.gte => Date.today).asc('date').to_a.select{|r| r.table.processed or r.date > Date.today}
-    # end
   end
 
   def cached_to_evaluate_reservations
-    # Rails.cache.fetch("to_evaluate_reservations_" + self.id.to_s, expires_in: 1.day) do 
       reservations.includes(:table).where(paid: true, :date.lte => Date.today).asc('date').select{|r| r.can_be_evaluated?}
-    # end
-  end
-
-  def has_reservations?
-    # Rails.cache.fetch("has_reservations_" + self.id.to_s, expires_in: 1.day) do 
-      reservations.count > 0
-    # end
   end
 
   def cached_test_completed
-    # Rails.cache.fetch("test_completed_" + id.to_s, expires_in: 1.day) do 
       test_completed.to_a.map{|m| m.test_id if !m.skipped?}.compact
-    # end
   end
 
   def flush_cache
-    # Rails.cache.delete("future_reservations_" + self.id.to_s)
-    # Rails.cache.delete("to_evaluate_reservations_" + self.id.to_s)
-    # Rails.cache.delete("has_reservations_" + self.id.to_s)
-    # Rails.cache.delete("notifications_" + self.id.to_s)
   end
 
   def future_reservations
@@ -79,6 +60,10 @@ class User
 
   def has_reservations?
     reservations.count > 0
+  end
+
+  def has_city?
+    !city.nil?
   end
 
   def test_completed_unskipped
@@ -110,10 +95,6 @@ class User
     user == self
   rescue
     false
-  end
-
-  def has_preferences?
-    !preference.nil? and preference.respond_to? :to_ionic_json
   end
 
   def test_pending
@@ -178,7 +159,6 @@ class User
           has_default_card: has_default_card?,
           default_card: default_card
       },
-      preference: has_preferences? ? preference.to_ionic_json : nil,
       first_login: first_login?
     }
   end
@@ -190,7 +170,7 @@ class User
       30
   end
 
-  def matches_age_preference? other
+  def matches_age_preference? other #TODO REFACTOR
     other.age <= max_age && other.age >= min_age
   rescue
     true
@@ -257,8 +237,8 @@ class User
     false
   end
 
-  def suggestions
-    return [] if !has_preferences?
+  def suggestions #TODO refactor or delete
+    return [] if !has_city
     params = {price: menu_range, city: city, after_plan: after_plan, date: Date.tomorrow.strftime("%d/%m/%Y"), companies_attributes: []}
     suggestionEngine = SuggestionEngine.new self, params
     suggestionEngine.search.first(3) 

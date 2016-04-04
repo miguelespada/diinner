@@ -10,6 +10,7 @@
 @import "user/forms";
 @import "calendar";
 @import "user/gallery";
+@import "home";
 
 html{
   -webkit-overflow-scrolling: touch;
@@ -984,8 +985,8 @@ input.company {
   }
 
   .drop-out-wrapper{
-    margin-top: -80px;
-    margin-bottom: 80px;
+    //margin-top: -80px;
+    //margin-bottom: 80px;
   }
 
   .loading-spinner{

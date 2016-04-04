@@ -25,36 +25,6 @@ class  Users::ReservationsController < BaseUsersController
     redirect_to user_path(@current_user), notice: 'Ha ocurrido un error con la reserva' if !@reservation.table.processed and @reservation.date <= Date.today
   end
 
-  def search
-    suggestionEngine = SuggestionEngine.new @user, params[:reservation]
-    # TODO DRY with last minute
-    if @user.busy?(suggestionEngine.date)
-      redirect_to :back, notice: t("already_have_reservation")
-    else
-      if suggestionEngine.date_in_range?
-        @suggestions = suggestionEngine.search.first(3)
-        redirect_to :back, alert: t("no_results") if @suggestions.empty?
-      else
-        redirect_to :back, notice: t("reservation_lapse")
-      end
-    end
-  end
-
-  def search_last_minute
-    if Reservation.off_the_clock?
-      redirect_to :back, alert: t("off_the_clock")
-    else
-      suggestionEngine = SuggestionEngine.new @user, params[:reservation]
-      if @user.busy?(suggestionEngine.date)
-        redirect_to :back, notice: t("already_have_reservation")
-      else
-        @suggestions = suggestionEngine.last_minute.first(3)
-
-        redirect_to :back, alert: t("no_results") if @suggestions.empty?
-      end
-    end
-  end
-
   def create
     # TODO check again if reservation match the table (in case concurrency problems)
     if @user.busy?(Reservation.new(reservation_params).date)

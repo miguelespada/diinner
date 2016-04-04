@@ -12,52 +12,43 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
         = link_to user_notifications_path(@user)
           .navbar-toggle
             span.menu-icon.bi_com-bell class="#{'unread-notifications' if unread_notifications}"
-      .featured
-        = link_to new_user_reservation_path(@user)
-          .navbar-toggle
-            /.bi_food-onigiri
-            .menu-text = t("new_reservation")
+      = link_to user_path(@user)
+        .navbar-toggle
+          .menu-text = t("home")
     .collapse.navbar-collapse.main-menu
       ul.nav.navbar-nav.navbar-right
-        li.featured.hidden-xs.hidden-sm
-          = link_to new_user_reservation_path(@user)
-            /.bi_food-onigiri
-            .menu-text = t("new_reservation")
+        li.hidden-xs.hidden-sm
+          = link_to user_path(@user)
+            .menu-text = t("home")
         - if has_notifications
           li.hidden-xs.hidden-sm
             = link_to user_notifications_path(@user)
-              /.menu-icon.bi_com-bell
               - if unread_notifications
                 span.bi_interface-circle.unread-notifications.small
               .menu-text = t("notifications")
         - if @user.has_reservations?
           li
             = link_to user_reservations_path(@user)
-              /.menu-icon.bi_time-calendar-a
               .menu-text = t("my_reservations")
               .pull-right.visible-xs.visible-sm
                 .bi_interface-right
         li.hidden-lg
           = link_to user_test_path(@user)
-            /.menu-icon.bi_doc-wboard-line
             .menu-text = t("tests")
             .pull-right.visible-xs.visible-sm
               .bi_interface-right
         li
           = link_to edit_user_path(@user)
-            /.menu-icon.bi_setting-gear
             .menu-text = t("preferences")
             .pull-right.visible-xs.visible-sm
               .bi_interface-right
         li
           = link_to help_user_path
-            /.menu-icon.bi_interface-help
             .menu-text = t("help")
             .pull-right.visible-xs.visible-sm
               .bi_interface-right
         li
           = link_to auth_logout_path
-            /.menu-icon.bi_web-logout
             .menu-text = t("logout")
             .pull-right.visible-xs.visible-sm
               .bi_interface-right

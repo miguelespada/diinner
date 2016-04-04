@@ -1,0 +1,16 @@
+.row.box
+  .col-xs-12.diinner-label.yellow
+    strong == restaurant.name
+    br
+    == restaurant.description
+  .reservation
+    .col-xs-12
+      .col-xs-12.col-md-6
+        .text-center.restaurant-image
+          == cell(:restaurant, restaurant).cl_photo 300
+      .col-xs-12.col-md-6
+        .separator
+        .col-xs-12
+          = render 'partials/menu', menu: menu
+      .separator
+  .separator

@@ -1,20 +1,8 @@
+- restaurant = @reservation.restaurant
+- table = @reservation.table
+- menu = @reservation.menu
 .plan-info
-  .row.box
-    .col-xs-12.diinner-label.yellow
-      strong == @reservation.restaurant.name
-      br
-      == @reservation.restaurant.description
-    .reservation
-      .col-xs-12
-        .col-xs-12.col-md-6
-          .text-center.restaurant-image
-            == cell(:restaurant, @reservation.restaurant).cl_photo 300
-        .col-xs-12.col-md-6
-          .separator
-          .col-xs-12
-            = render 'partials/menu', reservation: @reservation
-        .separator
-    .separator
+  = render 'users/restaurants/restaurant_info', restaurant: restaurant, menu: menu
   .separator
   .row.box
     .col-xs-12.diinner-label.yellow
@@ -48,29 +36,7 @@
       
       .separator
   .separator
-  .row.box
-    .col-xs-12.diinner-label.yellow
-      == t("practical_data")
-    .col-xs-12
-      .separator
-      .col-xs-12
-        .day
-          span.plan-label = t("day")
-          span.plan-value =< @reservation.date.to_s
-        .time
-          span.plan-label = t("time_name")
-          span.plan-value =< @reservation.hour.to_s.last(5)
-        .address
-          span.plan-label = t("address")
-          span.plan-value =< @reservation.restaurant.address
-        .city
-          span.plan-label = t("city")
-          span.plan-value =< @reservation.restaurant.city.name
-      .col-xs-12.map
-        == cell(:restaurant, @reservation.restaurant)._map
-        == cell(:restaurant, @reservation.restaurant).location
-        = render "/layouts/map"
-      .separator
+    = render "users/restaurants/time_and_location", restaurant: restaurant, table: table
   .separator
   / TODO all this logic should be encapsulated
   .col-xs-12

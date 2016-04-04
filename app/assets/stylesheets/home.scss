@@ -1,25 +1,3 @@
-@import "compass/css3/transition";
-@import "compass/css3/box-shadow";
-@import "compass/css3/transform";
-@import 'font';
-@import 'color';
-@import "user/variables";
-@import "user/navigation";
-@import "user/general";
-@import "user/gallery";
-
-html{
-  -webkit-overflow-scrolling: touch;
-}
-
-html, body{
-  height: 100%;
-  font-family: "Proxima Nova";
-  overflow-x: hidden;
-  background-color: $backGray;
-  
-}
-
 .banner {
   &:hover, &:active{
     text-decoration: none;
@@ -111,7 +89,7 @@ html, body{
   }
 }
 
-.content{
+.home-content{
   margin-top: 40px;
   padding: 0 calculatePercent(97px, $lg-width);
   > .info{
@@ -544,7 +522,7 @@ html, body{
 
     }
   }
-  .content{
+  .home-content{
     .info{
       font-size: calculateRem(36px);
     }
@@ -665,7 +643,7 @@ html, body{
 
     }
   }
-  .content{
+  .home-content{
     margin-top: 0;
     .info{
       margin-top: 0;
@@ -760,40 +738,9 @@ html, body{
     }
   }
 }
-//Restaurant view
-.user-container{
-  .restaurant-info{
-    margin-bottom: 20px;
-  }
-  .plan-info{
-    .plan-label {
-      font-weight: bold;
-    }
-    .plan-value{
-      color: $textGray;
-    }
-    .map{
-      margin-top: 10px;
-    }
-  }
-  padding-top: 52px !important;
-}
-@media (min-width: 769px) and (max-width: 1400px) {
-  .user-container {
-    width: 70%;
-    margin: auto;
-  }
-}
-@media (min-width: 1400px){
-  .user-container{
-    width: 55%;
-    margin: auto;
-  }
-
-}
 
 .custom-button {
-  margin-bottom:15px;
+  margin-bottom: 15px;
   margin-top: 15px;
   background-color: white;
   color: $textDarkGray;
@@ -811,9 +758,6 @@ html, body{
   cursor: pointer;
   text-decoration: none;
   &.button-calm{
-    //border-color: $themeBlue;
-    //background-color: $themeBlue;
-    //color: #fff;
     margin-left: 10px;
   }
   &.button-danger{
@@ -830,20 +774,5 @@ html, body{
     border-color: $balancedGreen;
     background-color: $balancedGreen;
     color: #fff;
-  }
-}
-
-.menu-data{
-  font-weight: bold;
-  .menu-description{
-    font-weight: normal;
-    margin-bottom: 10px;
-    color: $textGray;
-    font-weight: 300;
-
-  }
-  .menu-element{
-    margin-top: 5px;
-    color: $textGray;
   }
 }

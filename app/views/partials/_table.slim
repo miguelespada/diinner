@@ -1,0 +1,20 @@
+- restaurant = table.restaurant
+- menu = table.menu
+.plan-info
+  = render 'users/restaurants/restaurant_info', restaurant: restaurant, menu: menu
+  .separator
+  .row.box
+    .col-xs-12.diinner-label.yellow
+      == "#{t("plan_info")}"
+    .col-xs-12
+      .separator
+      .col-xs-12
+        span.plan-label == "#{t("compatibility")}"
+      /span.plan-value =< "#{@reservation.table.affinity}%" /TODO AFFINITY
+      .col-xs-12
+        span.plan-label == t("price")
+        span.plan-value =< "#{menu.price} €"
+      .separator
+  .separator
+  = render "users/restaurants/time_and_location", restaurant: restaurant, table: table
+  .separator

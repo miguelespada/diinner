@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get "drop_out" => "static#drop_out"
     get "terms" => "static#terms"
     get "restaurant/:id" => "static#restaurant", as: :static_restaurant
+    get "table/:id" => "static#table", as: :static_table
   end
 
   namespace :restaurants, as: nil do
@@ -112,8 +113,8 @@ Rails.application.routes.draw do
   scope as: nil, module: "users" do
     get "/login" => "users#login", as: "users_login"
     resources :users, except: [:index] do
-      get "suggestions" => "users#user_suggestions", as: :suggestions
       resources :restaurants, only: [:show]
+      resources :tables, only: [:show]
       resources :menus, only: [:show]
       resources :notifications, only: [:index]
 
@@ -121,9 +122,6 @@ Rails.application.routes.draw do
       delete "activity/delete/:activity_id" => "users#delete_activity", as: "delete_activity", on: :member
       post "test/:test_id" => "test_responses#create", as: "test_response"
       get "test" => "test_responses#new", as: "test"
-      post "search" => "reservations#search", as: "search_tables"
-      get "last_minute_diiners" => "reservations#new_last_minute", as: "last_minute_diinners"
-      post "search_last_minute_diiners" => "reservations#search_last_minute", as: "search_last_minute_diinners"
 
       resources :reservations do
         resources :evaluations, only: [:new, :create]

@@ -13,7 +13,6 @@ class Users::UsersController < BaseUsersController
   end
 
   def edit
-    @current_user.preference ||= Preference.new
   end
 
   def show
@@ -22,12 +21,6 @@ class Users::UsersController < BaseUsersController
     # @future_reservations = @user.future_reservations.take(3)
     # @eval_reservations = @user.to_evaluate_reservations.take(3)
     # @blog_posts = BlogPost.posts
-  end
-
-  def user_suggestions
-    # TODO make a feature
-    @suggestions = @user.suggestions if !@user.busy?(Date.tomorrow)
-    render partial: 'partials/suggestions', layout: false
   end
 
   def update

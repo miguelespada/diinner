@@ -2,7 +2,7 @@ doctype html
 html
   - content_for(:head) do
     = stylesheet_link_tag 'application', media: 'all'
-    = stylesheet_link_tag 'home', media: 'all'
+    = stylesheet_link_tag 'user', media: 'all'
     = javascript_include_tag 'https://cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js'
   = render "/layouts/head", javascript: 'application'
   body

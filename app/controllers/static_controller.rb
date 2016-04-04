@@ -2,17 +2,15 @@ class StaticController < ApplicationController
   layout "static"
 
   before_action :redirect_if_authenticated, only: [:index]
-  # caches_action :index
   
   def index
-    @blog_posts = BlogPost.get_three_random
+    # @blog_posts = BlogPost.get_three_random
     @tables = Table.all.take(6)
 
     render layout: "home"
   end
 
   def expire
-    # expire_action controller: 'static', action: 'index'
     render nothing: true
   end
 
@@ -37,6 +35,11 @@ class StaticController < ApplicationController
 
   def restaurant
     @restaurant = Restaurant.find(params[:id])
+    render layout: "home"
+  end
+
+  def table
+    @table = Table.find(params[:id])
     render layout: "home"
   end
 

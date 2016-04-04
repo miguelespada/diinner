@@ -10,7 +10,6 @@ class Reservation
   belongs_to :table
 
   field :date, type: Date
-  field :after_plan, type: Boolean
   field :locator, type: String
 
   enum :menu_range, [:lowcost, :regular, :premium]
@@ -39,24 +38,8 @@ class Reservation
     date
   end
 
-  def go_for_drinks?
-    after_plan
-  end
-
-  def after_plan_to_s
-    go_for_drinks? ? "Go for drinks" : "Go to sleep"
-  end
-
-  def go_to_sleep?
-    !go_for_drinks
-  end
-  
-  def plan_affinity other
-    self.after_plan == other.after_plan ? 1.0 : 0.0 
-  end 
-
   def affinity other
-    (self.user.affinity(other.user) + plan_affinity(other) ) / 2.0
+    self.user.affinity(other.user)
   end
 
   def male_count
