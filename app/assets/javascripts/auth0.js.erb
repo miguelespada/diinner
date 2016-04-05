@@ -1,10 +1,12 @@
 //= require jquery
 
+
   var lock = new Auth0Lock("<%= ENV['AUTH0_CLIENT_ID'] %>", "<%= ENV['AUTH0_DOMAIN'] %>", {
     assetsUrl: 'https://cdn.eu.auth0.com/'
   });
 
 $(document).ready(function () {
+
 
   var callback_url = "<%= ENV['AUTH0_CALLBACK_URL'] %>";
   lock.show({
