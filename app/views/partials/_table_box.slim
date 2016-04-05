@@ -12,14 +12,14 @@
           = "#{table.price}€"
         .table-info
           .title
-            = table.title
+            = table.title.upcase || table.menu.name.upcase
           .left
             .restaurant
               = restaurant.name
             .city
               = restaurant.city.name
             .type
-              = table.table_type
+              = "#{t(table.table_type)}: #{table.min_age} - #{table.max_age} años"
           .right
             .table-icon-wrapper
               .chairs-wrapper

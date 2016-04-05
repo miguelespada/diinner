@@ -9,6 +9,8 @@ h4.title-button
   /TODO menu selector
   /= f.input :menu, collection:
   = f.input :table_type, collection: Table::TABLE_TYPES
+  = f.input :min_age, as: :integer
+  = f.input :max_age, as: :integer
   = f.input :date, as: :date_picker, html5: true
   = f.input :hour, as: :time_picker, html5: true
   /= f.input :menu,:collection => @restaurant.menus, :include_blank => false

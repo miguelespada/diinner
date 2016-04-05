@@ -12,7 +12,8 @@ class Table
   field :description
   has_attachment :image, accept: [:jpg, :png, :gif]
   field :table_type, default: Table::MIXED
-
+  field :min_age, default: 18
+  field :max_age, default: 50
   field :date, type: Date
   field :hour, type: Time
   field :cancelled, type: Boolean, default: false
