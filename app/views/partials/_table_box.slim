@@ -12,7 +12,7 @@
           = "#{table.price}€"
         .table-info
           .title
-            = table.title.upcase || table.menu.name.upcase
+            = (table.title || table.menu.name).upcase
           .left
             .restaurant
               = restaurant.name
