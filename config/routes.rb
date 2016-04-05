@@ -91,7 +91,7 @@ Rails.application.routes.draw do
     resources :blog_posts
     resources :cities
     resources :users, except: [:new, :create]
-    resources :tables, only: [:show, :index] do
+    resources :tables do
       get "process_payment",  on: :member
     end
 

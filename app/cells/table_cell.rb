@@ -18,7 +18,10 @@ class TableCell < BaseCell
   end
 
   def new_link
-    if restaurant_signed_in?
+    if admin_signed_in?
+      @path = new_admin_table_path
+      render
+    else restaurant_signed_in?
       @path = new_restaurant_table_path(current_restaurant)
       render
     end
@@ -35,7 +38,11 @@ class TableCell < BaseCell
   end
 
   def edit_link
-    if model.is_owned_by?(current_restaurant)
+    if admin_signed_in?
+      @path = edit_admin_table_path(model)
+      render
+    else
+     model.is_owned_by?(current_restaurant)
       @path = edit_restaurant_table_path(model.restaurant, model)
       render
     end

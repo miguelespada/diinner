@@ -6,6 +6,12 @@ class Table
   after_destroy :remove_activities
   before_create :generate_locator
 
+  TABLE_TYPES = [WOMEN_ONLY = 'WOMEN_ONLY', MEN_ONLY = 'MEN_ONLY', MIXED = 'MIXED', PAIRED_UP = 'PAIRED_UP']
+
+  field :title
+  field :description
+  has_attachment :image, accept: [:jpg, :png, :gif]
+  field :table_type, default: Table::MIXED
 
   field :date, type: Date
   field :hour, type: Time
@@ -23,6 +29,9 @@ class Table
 
   attr_accessor :number, :repeat_until
 
+  def self.permitted_params
+    [:title, :description, :image, :table_type, :date, :hour, :menu]
+  end
   def start_time
     date
   end

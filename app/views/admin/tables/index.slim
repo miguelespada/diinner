@@ -1,6 +1,9 @@
 - content_for(:title) do
   | Tables
 
+- content_for(:new) do
+  == cell(:table, Table).call(:new_link)
+
 - content_for(:thead) do
   th Restaurant
   th ID
