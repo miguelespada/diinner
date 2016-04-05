@@ -16,7 +16,7 @@ class Users::UsersController < BaseUsersController
   end
 
   def show
-    @tables = Table.all.take(6)
+    @tables = Table.all.asc(:date, :hour).take(12)
     # @test = @user.sample_test
     # @future_reservations = @user.future_reservations.take(3)
     # @eval_reservations = @user.to_evaluate_reservations.take(3)
