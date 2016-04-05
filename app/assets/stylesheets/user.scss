@@ -77,36 +77,21 @@ html, body{
 /* mobile
 -------------------*/
 
-.user-image-wrapper{
-  overflow: hidden;
+.user-mobile{
   width: 100%;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
+  margin: 150px 0;
 
-  .wrapper-background{
-    width: 100%;
-    overflow: hidden;
-
-    .image-background{
-      @include filter(blur(2px));
-      height:100vh;
+  .wrapper-center{
+    .user-image {
+      border-radius: 50%;
+      width: 30vw;
+      border: 3px solid $themeYellow;
     }
-    .wrapper-center{
-      .user-image {
-        border-radius: 50%;
-        width: 30vw;
-        border: 3px solid $themeYellow;
-      }
-      .user-name{
-        font-size: 1.5rem;
-        color: white;
-        font-weight: bold;
-        margin-top: 10px;
-      }
+    .user-name{
+      font-size: 1.5rem;
+      color: $textDarkGray;
+      font-weight: bold;
+      margin-top: 10px;
     }
   }
 }
@@ -232,51 +217,53 @@ html, body{
 }
 
 @media (orientation: portrait) {
-  .wrapper-background {
-    .image-background {
-      width: auto;
-    }
+  // .wrapper-background {
+  //   .image-background {
+  //     width: auto;
+  //   }
+  //
+  //
+  // }
+  .wrapper-center {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 100%;
+    @include translate(-50%, -50%);
+  }
 
-    .wrapper-center {
-      position: absolute;
-      left: 50%;
-      top: 40%;
-      width: 100%;
-      @include translate(-50%, -50%);
-    }
-
-    .new-reservation {
-      @include translate(0%, -50%);
-      position: absolute;
-      top: 70%;
-      width: 100%;
-      text-align: -moz-center;
-    }
+  .new-reservation {
+    @include translate(0%, -50%);
+    position: absolute;
+    top: 70%;
+    width: 100%;
+    text-align: -moz-center;
   }
 }
 
 @media (orientation: landscape) {
-  .wrapper-background {
-    .image-background {
-      width: 100%;
-      height: auto;
-    }
+  // .wrapper-background {
+  //   .image-background {
+  //     width: 100%;
+  //     height: auto;
+  //   }
+  //
+  //
+  // }
+  .wrapper-center {
+    @include translate(-50%, -50%);
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    width: 50%
+  }
 
-    .wrapper-center {
-      @include translate(-50%, -50%);
-      position: absolute;
-      left: 30%;
-      top: 50%;
-      width: 50%
-    }
-
-    .new-reservation {
-      @include translate(-50%, -50%);
-      position: absolute;
-      top: 50%;
-      left: 75%;
-      width: 50%;
-    }
+  .new-reservation {
+    @include translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    width: 50%;
   }
 }
 
@@ -741,7 +728,7 @@ input.company {
 .today-date{
   font-weight: bold;
 }
-.desktop{
+.user-desktop{
   color: $textDarkGray;
   .reservations{
     padding-bottom: 15px;
